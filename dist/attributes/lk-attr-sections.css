@@ -1,5 +1,10 @@
 /* Component selector: [lk-component="section"] */
 
+[lk-component="section"] {
+  display: block;
+  position: relative;
+}
+
 [lk-section-padding="none"] {
   padding: 0px;
 }
