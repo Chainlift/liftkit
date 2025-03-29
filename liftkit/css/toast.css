@@ -1,0 +1,31 @@
+.toast-wrap {
+  position: fixed;
+  top: calc(-1 * var(--2xl));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  transition: top 0.3s ease;
+}
+
+.toast-wrap.active {
+  position: fixed;
+  top: var(--2xl);
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 99;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+

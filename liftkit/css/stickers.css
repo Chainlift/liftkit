@@ -1,0 +1,50 @@
+.sticker {
+    display: inline-flex;
+
+    /* Borrowed font props and vars from .label */
+    --lineHeightInEms: calc(1em * var(--halfstep));
+    --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+    --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+    letter-spacing: -0.004em;
+    font-size: calc((1em / var(--quarterstep)) / var(--eighthstep));
+    font-weight: 600;
+    line-height: 1em;
+
+    text-transform: capitalize;
+    /* unique to sticker */
+
+    padding: var(--2xs) var(--xs);
+    border-radius: var(--xs);
+
+    align-items:center;
+    gap: var(--xs);
+  }
+
+
+  .sticker.start-icon {
+    padding: var(--2xs) var(--xs) var(--2xs) var(--2xs);
+  }
+
+  .sticker.end-icon {
+    padding: var(--2xs) var(--2xs) var(--2xs) var(--xs);
+  }
+
+  .sticker.outlined {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sticker.outlined .state-layer {
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .sticker.outlined *:not(.state-layer) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sticker .material-symbols-outlined {
+  font-size: 1em;
+  }
+

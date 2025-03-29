@@ -1,0 +1,26 @@
+.dropdown-menu {
+  transform: scale(0);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  padding: var(--xs);
+}
+
+.dropdown-menu.active {
+  transform: scale(1);
+}
+
+.dropdown-menu-item {
+display: flex;
+align-items: center;
+gap: var(--sm);
+overflow: hidden;
+position: relative;
+border-radius: var(--xs);
+padding: var(--sm);
+width: 100%;
+cursor: 'pointer';
+}
+
+.dropdown-menu-item * {
+pointer-events: none;
+}

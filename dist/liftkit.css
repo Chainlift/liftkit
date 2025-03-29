@@ -1,0 +1,1646 @@
+@import "../liftkit/index.css";
+
+:root {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+
+  --scaleFactor: 1.618;
+  --wholestep: 1.618;
+  --halfstep: 1.272;
+  --quarterstep: 1.128;
+  --eighthstep: 1.062;
+
+  --wholestep-dec: 0.618;
+  --halfstep-dec: 0.272;
+  --quarterstep-dec: 0.128;
+  --eighthstep-dec: 0.062;
+
+  --md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+
+  --sm: calc(1em / var(--scaleFactor));
+  --xs: calc(var(--sm) / var(--scaleFactor));
+  --2xs: calc(var(--xs) / var(--scaleFactor));
+  --3xs: calc(var(--2xs) / var(--scaleFactor));
+  --lg: calc(1em * var(--scaleFactor));
+  --xl: calc(var(--lg) * var(--scaleFactor));
+  --2xl: calc(var(--xl) * var(--scaleFactor));
+  --3xl: calc(var(--2xl) * var(--scaleFactor));
+  --4xl: calc(var(--3xl) * var(--scaleFactor));
+
+  /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
+  /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
+
+  --sm-unitless: calc(1 / var(--scaleFactor));
+  --xs-unitless: calc(var(--sm-unitless) / var(--scaleFactor));
+  --2xs-unitless: calc(var(--xs-unitless) / var(--scaleFactor));
+  --lg-unitless: calc(1 * var(--scaleFactor));
+  --xl-unitless: calc(var(--lg-unitless) * var(--scaleFactor));
+  --2xl-unitless: calc(var(--xl-unitless) * var(--scaleFactor));
+
+  /*Increments*/
+
+  /* Colors */
+
+  --light__primary_lkv: #0051e0;
+  --light__onprimary_lkv: #faf8ff;
+  --light__primarycontainer_lkv: #dbe1ff;
+  --light__onprimarycontainer_lkv: #00174d;
+  --light__secondary_lkv: #40617f;
+  --light__onsecondary_lkv: #f7f9ff;
+  --light__secondarycontainer_lkv: #cde5ff;
+  --light__onsecondarycontainer_lkv: #001d32;
+  --light__tertiary_lkv: #006878;
+  --light__ontertiary_lkv: #f0fbff;
+  --light__tertiarycontainer_lkv: #a8edff;
+  --light__ontertiarycontainer_lkv: #001f25;
+  --light__error_lkv: #bb0e45;
+  --light__onerror_lkv: #fff8f7;
+  --light__errorcontainer_lkv: #ffd9dc;
+  --light__onerrorcontainer_lkv: #400012;
+  --light__background_lkv: #fefbff;
+  --light__onbackground_lkv: #171b27;
+  --light__surface_lkv: #faf8ff;
+  --light__onsurface_lkv: #171b27;
+  --light__surfacevariant_lkv: #c8c6c6;
+  --light__onsurfacevariant_lkv: #464747;
+  --light__outline_lkv: #777777;
+  --light__outlinevariant_lkv: #c8c6c6;
+  --light__shadow_lkv: #000000;
+  --light__scrim_lkv: #000000;
+  --light__inversesurface_lkv: #2c303c;
+  --light__inverseonsurface_lkv: #eef0ff;
+  --light__inverseprimary_lkv: #b5c4ff;
+  --light__surfacedim_lkv: #d7d9ea;
+  --light__surfacebright_lkv: #faf8ff;
+  --light__surfacecontainerlowest_lkv: white;
+  --light__surfacecontainerlow_lkv: #f2f3ff;
+  --light__surfacecontainer_lkv: #ebedfe;
+  --light__surfacecontainerhigh_lkv: #e5e7f8;
+  --light__surfacecontainerhighest_lkv: #dfe2f2;
+  --light__warning_lkv: #7d5800;
+  --light__onwarning_lkv: #fff8f3;
+  --light__warningcontainer_lkv: #ffdea9;
+  --light__onwarningcontainer_lkv: #271900;
+  --light__success_lkv: #006b55;
+  --light__onsuccess_lkv: #e6fff4;
+  --light__successcontainer_lkv: #20ffce;
+  --light__onsuccesscontainer_lkv: #002118;
+  --light__info_lkv: #004ee7;
+  --light__oninfo_lkv: #faf8ff;
+  --light__infocontainer_lkv: #dce1ff;
+  --light__oninfocontainer_lkv: #001550;
+  --dark__primary_lkv: #b5c4ff;
+  --dark__onprimary_lkv: #00297a;
+  --dark__primarycontainer_lkv: #003cac;
+  --dark__onprimarycontainer_lkv: #dbe1ff;
+  --dark__secondary_lkv: #a8caec;
+  --dark__onsecondary_lkv: #0b334f;
+  --dark__secondarycontainer_lkv: #274a66;
+  --dark__onsecondarycontainer_lkv: #cde5ff;
+  --dark__tertiary_lkv: #00d9fa;
+  --dark__ontertiary_lkv: #00363f;
+  --dark__tertiarycontainer_lkv: #004e5b;
+  --dark__ontertiarycontainer_lkv: #a8edff;
+  --dark__error_lkv: #ffb2bb;
+  --dark__onerror_lkv: #670021;
+  --dark__errorcontainer_lkv: #910032;
+  --dark__onerrorcontainer_lkv: #ffd9dc;
+  --dark__background_lkv: #171b27;
+  --dark__onbackground_lkv: #d1d4e4;
+  --dark__surface_lkv: #222531;
+  --dark__onsurface_lkv: #c3c6d6;
+  --dark__surfacevariant_lkv: #303030;
+  --dark__onsurfacevariant_lkv: #acabab;
+  --dark__outline_lkv: #464747;
+  --dark__outlinevariant_lkv: #303030;
+  --dark__shadow_lkv: #000000;
+  --dark__scrim_lkv: #000000;
+  --dark__inversesurface_lkv: #faf8ff;
+  --dark__inverseonsurface_lkv: #171b27;
+  --dark__inverseprimary_lkv: #b5c4ff;
+  --dark__surfacedim_lkv: #20232f;
+  --dark__surfacebright_lkv: #434653;
+  --dark__surfacecontainerlowest_lkv: #1b1f2b;
+  --dark__surfacecontainerlow_lkv: #262a36;
+  --dark__surfacecontainer_lkv: #2c303c;
+  --dark__surfacecontainerhigh_lkv: #353945;
+  --dark__surfacecontainerhighest_lkv: #3e424f;
+  --dark__warning_lkv: #ffba28;
+  --dark__onwarning_lkv: #422c00;
+  --dark__warningcontainer_lkv: #5e4100;
+  --dark__onwarningcontainer_lkv: #ffdea9;
+  --dark__success_lkv: #00e0b4;
+  --dark__onsuccess_lkv: #00382b;
+  --dark__successcontainer_lkv: #00513f;
+  --dark__onsuccesscontainer_lkv: #20ffce;
+  --dark__info_lkv: #b6c4ff;
+  --dark__oninfo_lkv: #00277f;
+  --dark__infocontainer_lkv: #003ab1;
+  --dark__oninfocontainer_lkv: #dce1ff;
+  --light__primaryfixed_lkv: #dbe1ff;
+  --light__primaryfixeddim_lkv: #b5c4ff;
+  --light__onprimaryfixed_lkv: #00174d;
+  --light__onprimaryfixedvariant_lkv: #003cac;
+  --light__secondaryfixed_lkv: #cde5ff;
+  --light__secondaryfixeddim_lkv: #a8caec;
+  --light__onsecondaryfixed_lkv: #001d32;
+  --light__onsecondaryfixedvariant_lkv: #274a66;
+  --light__tertiaryfixed_lkv: #a8edff;
+  --light__tertiaryfixeddim_lkv: #00d9fa;
+  --light__ontertiaryfixed_lkv: #001f25;
+  --light__ontertiaryfixedvariant_lkv: #004e5b;
+  --dark__primaryfixed_lkv: #dbe1ff;
+  --dark__primaryfixeddim_lkv: #b5c4ff;
+  --dark__onprimaryfixed_lkv: #00174d;
+  --dark__onprimaryfixedvariant_lkv: #003cac;
+  --dark__secondaryfixed_lkv: #cde5ff;
+  --dark__secondaryfixeddim_lkv: #a8caec;
+  --dark__onsecondaryfixed_lkv: #001d32;
+  --dark__onsecondaryfixedvariant_lkv: #274a66;
+  --dark__tertiaryfixed_lkv: #a8edff;
+  --dark__tertiaryfixeddim_lkv: #00d9fa;
+  --dark__ontertiaryfixed_lkv: #001f25;
+  --dark__ontertiaryfixedvariant_lkv: #004e5b;
+
+  --lk-onprimary: var(--dark__onprimary_lkv);
+  --lk-primarycontainer: var(--dark__primarycontainer_lkv);
+  --lk-onprimarycontainer: var(--dark__onprimarycontainer_lkv);
+  --lk-secondary: var(--dark__secondary_lkv);
+  --lk-onsecondary: var(--dark__onsecondary_lkv);
+  --lk-secondarycontainer: var(--dark__secondarycontainer_lkv);
+  --lk-onsecondarycontainer: var(--dark__onsecondarycontainer_lkv);
+  --lk-tertiary: var(--dark__tertiary_lkv);
+  --lk-ontertiary: var(--dark__ontertiary_lkv);
+  --lk-tertiarycontainer: var(--dark__tertiarycontainer_lkv);
+  --lk-ontertiarycontainer: var(--dark__ontertiarycontainer_lkv);
+  --lk-onerror: var(--dark__onerror_lkv);
+  --lk-errorcontainer: var(--dark__errorcontainer_lkv);
+  --lk-onerrorcontainer: var(--dark__onerrorcontainer_lkv);
+  --lk-background: var(--dark__background_lkv);
+  --lk-onbackground: var(--dark__onbackground_lkv);
+  --lk-surface: var(--dark__surface_lkv);
+  --lk-onsurface: var(--dark__onsurface_lkv);
+  --lk-onsurfacevariant: var(--dark__onsurfacevariant_lkv);
+  --lk-surfacevariant: var(--dark__surfacevariant_lkv);
+  --lk-shadow: var(--dark__shadow_lkv);
+  --lk-inversesurface: var(--dark__inversesurface_lkv);
+  --lk-scrim: var(--dark__scrim_lkv);
+  --lk-inverseonsurface: var(--dark__inverseonsurface_lkv);
+  --lk-inverseprimary: var(--dark__inverseprimary_lkv);
+  --lk-success: var(--dark__success_lkv);
+  --lk-onsuccess: var(--dark__onsuccess_lkv);
+  --lk-successcontainer: var(--dark__successcontainer_lkv);
+  --lk-onsuccesscontainer: var(--dark__onsuccesscontainer_lkv);
+  --lk-warning: var(--dark__warning_lkv);
+  --lk-onwarning: var(--dark__onwarning_lkv);
+  --lk-warningcontainer: var(--dark__warningcontainer_lkv);
+  --lk-onwarningcontainer: var(--dark__onwarningcontainer_lkv);
+  --lk-info: var(--dark__info_lkv);
+  --lk-oninfo: var(--dark__oninfo_lkv);
+  --lk-infocontainer: var(--dark__infocontainer_lkv);
+  --lk-oninfocontainer: var(--dark__oninfocontainer_lkv);
+  --lk-primaryfixed: var(--dark__primaryfixed_lkv);
+  --lk-onprimaryfixed: var(--dark__onprimaryfixed_lkv);
+  --lk-primaryfixeddim: var(--dark__primaryfixeddim_lkv);
+  --lk-onprimaryfixedvariant: var(--dark__onprimaryfixedvariant_lkv);
+  --lk-secondaryfixed: var(--dark__secondaryfixed_lkv);
+  --lk-secondaryfixeddim: var(--dark__secondaryfixeddim_lkv);
+  --lk-onsecondaryfixed: var(--dark__onsecondaryfixed_lkv);
+  --lk-onsecondaryfixedvariant: var(--dark__onsecondaryfixedvariant_lkv);
+  --lk-tertiaryfixed: var(--dark__tertiaryfixed_lkv);
+  --lk-ontertiaryfixed: var(--dark__ontertiaryfixed_lkv);
+  --lk-tertiaryfixeddim: var(--dark__tertiaryfixeddim_lkv);
+  --lk-ontertiaryfixedvariant: var(--dark__ontertiaryfixedvariant_lkv);
+  --lk-surfacedim: var(--dark__surfacedim_lkv);
+  --lk-surfacebright: var(--dark__surfacebright_lkv);
+  --lk-surfacecontainerlowest: var(--dark__surfacecontainerlowest_lkv);
+  --lk-surfacecontainer: var(--dark__surfacecontainer_lkv);
+  --lk-surfacecontainerhigh: var(--dark__surfacecontainerhigh_lkv);
+  --lk-surfacecontainerhighest: var(--dark__surfacecontainerhighest_lkv);
+  --lk-surfacecontainerlow: var(--dark__surfacecontainerlow_lkv);
+  --lk-outlinevariant: var(--dark__outlinevariant_lkv);
+  --lk-outline: var(--dark__outline_lkv);
+  --lk-error: var(--dark__error_lkv);
+  --lk-primary: var(--dark__primary_lkv);
+
+  /* Make text look sharper */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+
+  /* Button Variables */
+  --button-label-line-height: calc(1em * var(--halfstep));
+  --button-pad-sideWithIcon: var(--wholestep-dec);
+  --button-no-icon-pad: 1em;
+  --button-y-pad: calc(var--button) 0.485em;
+  --button-gap: 0.485em;
+  --button-small-y-pad: 0.408em;
+  --button-small-line-height: 1.069em;
+  --button-small-icon-side: 0.518em;
+  --button-large-line-height: 1.619em;
+  --button-large-y-pad: 0.618em;
+  --button-large-icon-side: 0.788em;
+  --button-large-font-size: 1.275em;
+  --button-small-font-size: 0.838em;
+
+  /************ Font Size Vars ************/
+
+  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracating, multiplying, and dividing. 
+   * In addition and subtraction, both sides must have the same unit. 
+   * In multiplication, one side must be unitless.
+   * In division, the right side must be unitless.
+  */
+
+  --display1-font-size: calc(1em * var(--wholestep) * var(--wholestep) * var(--wholestep));
+  --display2-font-size: calc(1em * var(--wholestep) * var(--wholestep));
+  --title1-font-size: calc(1em * var(--wholestep) * var(--halfstep));
+  --title2-font-size: calc(1em * var(--wholestep));
+  --title3-font-size: calc(1em * var(--halfstep));
+  --heading-font-size: calc(1em * var(--quarterstep));
+  --subheading-font-size: calc(1em / var(--quarterstep));
+  --body-font-size: 1em;
+  --callout-font-size: calc(1em / var(--eighthstep));
+  --label-font-size: calc((1em / var(--quarterstep)) / var(--eighthstep));
+  --caption-font-size: calc(1em / var(--halfstep));
+  --capline-font-size: calc(1em / var(--halfstep));
+
+  /* Font Line Height Vars (UNITLESS!) */
+
+  --display1-line-height: var(--quarterstep);
+  --display2-line-height: var(--halfstep);
+  --title1-line-height: var(--halfstep);
+  --title2-line-height: var(--halfstep);
+  --title3-line-height: var(--halfstep);
+  --heading-line-height: var(--halfstep);
+  --subheading-line-height: var(--halfstep);
+  --body-line-height: var(--wholestep);
+  --callout-line-height: var(--halfstep);
+  --label-line-height: var(--halfstep);
+  --caption-line-height: var(--halfstep);
+  --capline-line-height: var(--halfstep);
+
+  /* Optical Top Padding Offsets and Border Radii for Cards */
+  --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--wholestep)));
+  --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--wholestep)));
+  --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--wholestep)));
+  --title2-offset: calc(var(--title2-font-size) * calc(var(--title2-line-height) / var(--wholestep)));
+  --title3-offset: calc(var(--title3-font-size) * calc(var(--title3-line-height) / var(--wholestep)));
+  --heading-offset: calc(var(--heading-font-size) * calc(var(--heading-line-height) / var(--wholestep)));
+  --subheading-offset: calc(var(--subheading-font-size) * calc(var(--subheading-line-height) / var(--wholestep)));
+  --body-offset: calc(var(--body-font-size) / var(--wholestep));
+  --callout-offset: calc(var(--callout-font-size) * calc(var(--callout-line-height) / var(--wholestep)));
+  --label-offset: calc(var(--label-font-size) * calc(var(--label-line-height) / var(--wholestep)));
+  --caption-offset: calc(var(--caption-font-size) * calc(var(--caption-line-height) / var(--wholestep)));
+  --capline-offset: calc(var(--capline-font-size) * calc(var(--capline-line-height) / var(--wholestep)));
+
+  /* shadows */
+  --shadow-sm: 0 0 1px 0 var(--lk-shadow);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+
+  /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
+
+  --display1BoxHeight: calc(var(--display1-font-size) * var(--display1-line-height));
+  --display2BoxHeight: calc(var(--display2-font-size) * var(--display2-line-height));
+  --title1BoxHeight: calc(var(--title1-font-size) * var(--title1-line-height));
+  --title2BoxHeight: calc(var(--title2-font-size) * var(--title2-line-height));
+  --title3BoxHeight: calc(var(--title3-font-size) * var(--title3-line-height));
+  --headingBoxHeight: calc(var(--heading-font-size) * var(--heading-line-height));
+  --subheadingBoxHeight: calc(var(--subheading-font-size) * var(--subheading-line-height));
+  --bodyBoxHeight: calc(var(--body-font-size) * var(--body-line-height));
+  --calloutBoxHeight: calc(var(--callout-font-size) * var(--callout-line-height));
+  --labelBoxHeight: calc(var(--label-font-size) * var(--label-line-height));
+  --captionBoxHeight: calc(var(--caption-font-size) * var(--caption-line-height));
+  --caplineBoxHeight: calc(var(--capline-font-size) * var(--capline-line-height));
+
+  text-wrap: balanced;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+  color-scheme: dark;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+body {
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --lk-onprimary: var(--dark__onprimary_lkv);
+    --lk-primarycontainer: var(--dark__primarycontainer_lkv);
+    --lk-onprimarycontainer: var(--dark__onprimarycontainer_lkv);
+    --lk-secondary: var(--dark__secondary_lkv);
+    --lk-onsecondary: var(--dark__onsecondary_lkv);
+    --lk-secondarycontainer: var(--dark__secondarycontainer_lkv);
+    --lk-onsecondarycontainer: var(--dark__onsecondarycontainer_lkv);
+    --lk-tertiary: var(--dark__tertiary_lkv);
+    --lk-ontertiary: var(--dark__ontertiary_lkv);
+    --lk-tertiarycontainer: var(--dark__tertiarycontainer_lkv);
+    --lk-ontertiarycontainer: var(--dark__ontertiarycontainer_lkv);
+    --lk-onerror: var(--dark__onerror_lkv);
+    --lk-errorcontainer: var(--dark__errorcontainer_lkv);
+    --lk-onerrorcontainer: var(--dark__onerrorcontainer_lkv);
+    --lk-background: var(--dark__background_lkv);
+    --lk-onbackground: var(--dark__onbackground_lkv);
+    --lk-surface: var(--dark__surface_lkv);
+    --lk-onsurface: var(--dark__onsurface_lkv);
+    --lk-onsurfacevariant: var(--dark__onsurfacevariant_lkv);
+    --lk-surfacevariant: var(--dark__surfacevariant_lkv);
+    --lk-shadow: var(--dark__shadow_lkv);
+    --lk-inversesurface: var(--dark__inversesurface_lkv);
+    --lk-scrim: var(--dark__scrim_lkv);
+    --lk-inverseonsurface: var(--dark__inverseonsurface_lkv);
+    --lk-inverseprimary: var(--dark__inverseprimary_lkv);
+    --lk-success: var(--dark__success_lkv);
+    --lk-onsuccess: var(--dark__onsuccess_lkv);
+    --lk-successcontainer: var(--dark__successcontainer_lkv);
+    --lk-onsuccesscontainer: var(--dark__onsuccesscontainer_lkv);
+    --lk-warning: var(--dark__warning_lkv);
+    --lk-onwarning: var(--dark__onwarning_lkv);
+    --lk-warningcontainer: var(--dark__warningcontainer_lkv);
+    --lk-onwarningcontainer: var(--dark__onwarningcontainer_lkv);
+    --lk-info: var(--dark__info_lkv);
+    --lk-oninfo: var(--dark__oninfo_lkv);
+    --lk-infocontainer: var(--dark__infocontainer_lkv);
+    --lk-oninfocontainer: var(--dark__oninfocontainer_lkv);
+    --lk-primaryfixed: var(--dark__primaryfixed_lkv);
+    --lk-onprimaryfixed: var(--dark__onprimaryfixed_lkv);
+    --lk-primaryfixeddim: var(--dark__primaryfixeddim_lkv);
+    --lk-onprimaryfixedvariant: var(--dark__onprimaryfixedvariant_lkv);
+    --lk-secondaryfixed: var(--dark__secondaryfixed_lkv);
+    --lk-secondaryfixeddim: var(--dark__secondaryfixeddim_lkv);
+    --lk-onsecondaryfixed: var(--dark__onsecondaryfixed_lkv);
+    --lk-onsecondaryfixedvariant: var(--dark__onsecondaryfixedvariant_lkv);
+    --lk-tertiaryfixed: var(--dark__tertiaryfixed_lkv);
+    --lk-ontertiaryfixed: var(--dark__ontertiaryfixed_lkv);
+    --lk-tertiaryfixeddim: var(--dark__tertiaryfixeddim_lkv);
+    --lk-ontertiaryfixedvariant: var(--dark__ontertiaryfixedvariant_lkv);
+    --lk-surfacedim: var(--dark__surfacedim_lkv);
+    --lk-surfacebright: var(--dark__surfacebright_lkv);
+    --lk-surfacecontainerlowest: var(--dark__surfacecontainerlowest_lkv);
+    --lk-surfacecontainer: var(--dark__surfacecontainer_lkv);
+    --lk-surfacecontainerhigh: var(--dark__surfacecontainerhigh_lkv);
+    --lk-surfacecontainerhighest: var(--dark__surfacecontainerhighest_lkv);
+    --lk-surfacecontainerlow: var(--dark__surfacecontainerlow_lkv);
+    --lk-outlinevariant: var(--dark__outlinevariant_lkv);
+    --lk-outline: var(--dark__outline_lkv);
+    --lk-error: var(--dark__error_lkv);
+    --lk-primary: var(--dark__primary_lkv);
+  }
+}
+
+.color-picker-popup .react-colorful {
+  position: absolute;
+  z-index: 2;
+  border-radius: 32px;
+}
+
+.swatch {
+  padding: calc(1.272em / var(--xl-unitless)) var(--sm);
+  border-radius: var(--xs);
+  margin: var(--sm) 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--lk-onbackground);
+  background-color: var(--lk-background);
+}
+
+/* Make Buttons into Inline Elements */
+
+button {
+  --button-font-size: var(--md);
+  --button-line-height: var(--halfstep);
+  --button-padX-default: var(--md);
+  --button-padX-sideWithIcon: calc(1em * calc(var(--wholestep) / var(--xl-unitless)));
+  --button-padY: calc(var(--button-font-size) * calc(var(--halfstep) / var(--xl-unitless)));
+
+  --button-gap: var(--button-padX-sideWithIcon);
+  /* In division, the second value MUST be unitless */
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 100em;
+  position: relative;
+  text-decoration: none;
+  white-space: normal;
+  word-break: keep-all;
+  overflow: hidden;
+  padding: var(--button-padY) 1em;
+  font-weight: 500;
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
+}
+
+button span {
+  text-transform: capitalize;
+}
+
+/* TEMP USE ONLY */
+
+@media screen and (max-width: 992px) {
+  .grid.col-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid.col-10 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--lg);
+  }
+}
+
+.bg-primary {
+  background-color: var(--lk-primary);
+  color: var(--lk-onprimary);
+}
+
+.bg-onprimary {
+  background-color: var(--lk-onprimary);
+  color: var(--lk-primary);
+}
+
+.bg-primarycontainer {
+  background-color: var(--lk-primarycontainer);
+  color: var(--lk-onprimarycontainer);
+}
+
+.bg-onprimarycontainer {
+  background-color: var(--lk-onprimarycontainer);
+  color: var(--lk-primarycontainer);
+}
+
+.bg-secondary {
+  background-color: var(--lk-secondary);
+  color: var(--lk-onsecondary);
+}
+
+.bg-onsecondary {
+  background-color: var(--lk-onsecondary);
+  color: var(--lk-secondary);
+}
+
+.bg-secondarycontainer {
+  background-color: var(--lk-secondarycontainer);
+  color: var(--lk-onsecondarycontainer);
+}
+
+.bg-onsecondarycontainer {
+  background-color: var(--lk-onsecondarycontainer);
+  color: var(--lk-secondarycontainer);
+}
+
+.bg-tertiary {
+  background-color: var(--lk-tertiary);
+  color: var(--lk-ontertiary);
+}
+
+.bg-ontertiary {
+  background-color: var(--lk-ontertiary);
+  color: var(--lk-tertiary);
+}
+
+.bg-tertiarycontainer {
+  background-color: var(--lk-tertiarycontainer);
+  color: var(--lk-ontertiarycontainer);
+}
+
+.bg-ontertiarycontainer {
+  background-color: var(--lk-ontertiarycontainer);
+  color: var(--lk-tertiarycontainer);
+}
+
+.bg-error {
+  background-color: var(--lk-error);
+  color: var(--lk-onerror);
+}
+
+.bg-onerror {
+  background-color: var(--lk-onerror);
+  color: var(--lk-error);
+}
+
+.bg-errorcontainer {
+  background-color: var(--lk-errorcontainer);
+  color: var(--lk-onerrorcontainer);
+}
+
+.bg-onerrorcontainer {
+  background-color: var(--lk-onerrorcontainer);
+  color: var(--lk-errorcontainer);
+}
+
+.bg-background {
+  background-color: var(--lk-background);
+  color: var(--lk-onbackground);
+}
+
+.bg-onbackground {
+  background-color: var(--lk-onbackground);
+  color: var(--lk-background);
+}
+
+.bg-surface {
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+}
+
+.bg-onsurface {
+  background-color: var(--lk-onsurface);
+  color: var(--lk-surface);
+}
+
+.bg-surfacevariant {
+  background-color: var(--lk-surfacevariant);
+  color: var(--lk-onsurfacevariant);
+}
+
+.bg-onsurfacevariant {
+  background-color: var(--lk-onsurfacevariant);
+  color: var(--lk-surface);
+}
+
+.bg-outline {
+  background-color: var(--lk-outline);
+  color: var(--lk-onsurface);
+}
+
+.bg-outlinevariant {
+  background-color: var(--lk-outlinevariant);
+  color: var(--lk-onsurface);
+}
+
+.bg-shadow {
+  background-color: var(--lk-shadow);
+  color: var(--lk-inversesurface);
+}
+
+.bg-scrim {
+  background-color: var(--lk-scrim);
+  color: var(--lk-inversesurface);
+}
+
+.bg-inversesurface {
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
+}
+
+.bg-inverseonsurface {
+  background-color: var(--lk-inverseonsurface);
+  color: var(--lk-inversesurface);
+}
+
+.bg-inverseprimary {
+  background-color: var(--lk-inverseprimary);
+  color: var(--lk-onprimarycontainer);
+}
+
+.bg-success {
+  background-color: var(--lk-success);
+  color: var(--lk-onsuccess);
+}
+
+.bg-successcontainer {
+  background-color: var(--lk-successcontainer);
+  color: var(--lk-onsuccesscontainer);
+}
+
+.bg-onsuccess {
+  background-color: var(--lk-onsuccess);
+  color: var(--lk-success);
+}
+
+.bg-onsuccesscontainer {
+  background-color: var(--lk-onsuccesscontainer);
+  color: var(--lk-successcontainer);
+}
+
+.bg-warning {
+  background-color: var(--lk-warning);
+  color: var(--lk-onwarning);
+}
+
+.bg-warningcontainer {
+  background-color: var(--lk-warningcontainer);
+  color: var(--lk-onwarningcontainer);
+}
+
+.bg-onwarning {
+  background-color: var(--lk-onwarning);
+  color: var(--lk-warning);
+}
+
+.bg-onwarningcontainer {
+  background-color: var(--lk-onwarningcontainer);
+  color: var(--lk-warningcontainer);
+}
+
+.bg-info {
+  background-color: var(--lk-info);
+  color: var(--lk-oninfo);
+}
+
+.bg-infocontainer {
+  background-color: var(--lk-infocontainer);
+  color: var(--lk-oninfocontainer);
+}
+
+.bg-oninfo {
+  background-color: var(--lk-oninfo);
+  color: var(--lk-info);
+}
+
+.bg-oninfocontainer {
+  background-color: var(--lk-oninfocontainer);
+  color: var(--lk-infocontainer);
+}
+
+.util-grid-filler.for-display {
+  flex: 1;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.bg-primaryfixed {
+  background-color: var(--lk-primaryfixed);
+  color: var(--lk-onprimaryfixed);
+}
+
+.bg-primaryfixeddim {
+  background-color: var(--lk-primaryfixeddim);
+  color: var(--lk-onprimaryfixedvariant);
+}
+
+.bg-onprimaryfixed {
+  background-color: var(--lk-onprimaryfixed);
+  color: var(--lk-primaryfixed);
+}
+
+.bg-onprimaryfixedvariant {
+  background-color: var(--lk-onprimaryfixedvariant);
+  color: var(--lk-primaryfixed);
+}
+
+.bg-secondaryfixed {
+  background-color: var(--lk-secondaryfixed);
+  color: var(--lk-onsecondary);
+}
+
+.bg-secondaryfixeddim {
+  background-color: var(--lk-secondaryfixeddim);
+  color: var(--lk-onsecondaryfixed);
+}
+
+.bg-onsecondaryfixed {
+  background-color: var(--lk-onsecondaryfixed);
+  color: var(--lk-secondaryfixed);
+}
+
+.bg-onsecondaryfixedvariant {
+  background-color: var(--lk-onsecondaryfixedvariant);
+  color: var(--lk-secondaryfixed);
+}
+
+.bg-tertiaryfixed {
+  background-color: var(--lk-tertiaryfixed);
+  color: var(--lk-ontertiaryfixed);
+}
+
+.bg-tertiaryfixeddim {
+  background-color: var(--lk-tertiaryfixeddim);
+  color: var(--lk-ontertiaryfixedvariant);
+}
+
+.bg-ontertiaryfixed {
+  background-color: var(--lk-ontertiaryfixed);
+  color: var(--lk-tertiaryfixed);
+}
+
+.bg-ontertiaryfixedvariant {
+  background-color: var(--lk-ontertiaryfixedvariant);
+  color: var(--lk-tertiaryfixed);
+}
+
+.bg-surfacedim {
+  background-color: var(--lk-surfacedim);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacebright {
+  background-color: var(--lk-surfacebright);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacecontainerlowest {
+  background-color: var(--lk-surfacecontainerlowest);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacecontainerlow {
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacecontainer {
+  background-color: var(--lk-surfacecontainer);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacecontainerhigh {
+  background-color: var(--lk-surfacecontainerhigh);
+  color: var(--lk-onsurface);
+}
+
+.bg-surfacecontainerhighest {
+  background-color: var(--lk-surfacecontainerhighest);
+  color: var(--lk-onsurface);
+}
+
+.tiptap-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  gap: var(--md);
+  flex-direction: column;
+}
+
+.tiptap-container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm);
+}
+
+.tiptap-container div:has(.tiptap) {
+  flex: 1 0 auto;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tiptap-container .button-group {
+width: 100%;
+}
+
+.tiptap {
+  height: 100%;
+  background: var(--lk-background);
+  padding: var(--sm) var(--md);
+  border-radius: var(--sm);
+  flex: 1 0 0;
+  flex-basis: 0;
+  overflow: auto;
+}
+
+.filePanel {
+  overflow: hidden;
+  min-height: 27.2%;
+  max-height: 50%;
+  transition: height 0.3s ease;
+}
+
+.rootLayout {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Regular families */
+.display1 {
+  --lineHeightInEms: calc(1em * var(--quarterstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --sm: calc(var(--lineHeightInEms) * calc(1 / var(--halfstep)))
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display1-font-size);
+  font-weight: 400;
+  line-height: var(--quarterstep);
+}
+
+.display2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display2-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title1 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--title1-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.02em;
+  font-size: var(--title2-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title3 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.017em;
+  font-size: var(--title3-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.heading, .tiptap h3 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.014em;
+  font-size: var(--heading-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.subheading {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--subheading-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.body {
+  --lineHeightInEms: var(--title2-font-size);
+  --md: 1em;
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.011em;
+  cursor: default;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: var(--wholestep);
+}
+
+.callout {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.009em;
+  font-size: var(--callout-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.label {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.004em;
+  font-size: var(--label-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+  position: static;
+
+}
+
+.caption {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--caption-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.capline {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: 0.0618em;
+  text-transform: uppercase;
+  font-size: var(--capline-font-size); 
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+/* Bold Families */
+
+.display1-bold {
+  --lineHeightInEms: calc(1em * var(--quarterstep));
+  --md: calc(1em / var(--wholestep));
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display1-font-size);
+  font-weight: 700;
+  line-height: var(--quarterstep);
+}
+
+.display2-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display2-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.title1-bold, .tiptap h1 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--title1-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.title2-bold, .tiptap h2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.02em;
+  font-size: var(--title2-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.title3-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.017em;
+  font-size: var(--title3-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.heading-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.014em;
+  font-size: var(--heading-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.subheading-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--subheading-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.body-bold {
+  --lineHeightInEms: var(--title2-font-size);
+  --md: calc(1em / var(--wholestep));
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.011em;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: var(--wholestep);
+  position: relative;
+}
+
+.callout-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.009em;
+  font-size: var(--callout-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+  text-decoration: none;
+}
+
+.label-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.004em;
+  font-size: var(--label-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.caption-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--caption-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.capline-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: 0.0618em;
+  text-transform: uppercase;
+  font-size: var(--capline-font-size); 
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .display1-bold,
+  .display1 {
+    font-size: 3.3301em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .display1 {
+    font-size: 2.61743em;
+  }
+
+  .display1-bold {
+    font-size: 2.61743em;
+  }
+
+  .display2 {
+    font-size: 2.05818em;
+  }
+
+  .display2-bold {
+    font-size: 2.05818em;
+  }
+
+  .title1-bold,
+  .title1 {
+    font-size: 1.82285em;
+  }
+}
+
+.rich-text {
+  color: var(--light__onsurface_lkv);
+}
+
+.tiptap h1 {
+  color: var(--lk-onsurface);
+  letter-spacing: -0.035em;
+  margin-top: 0;
+  margin-bottom: 1.129em;
+  font-size: var(--title1-font-size);
+  font-weight: 600;
+  line-height: 1.129;
+}
+
+.tiptap h2 {
+  letter-spacing: -0.022em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: var(--title2-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h3 {
+  letter-spacing: -0.022em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.618em;
+  font-weight: 500;
+  line-height: var(--halfstep);
+}
+
+.tiptap h4 {
+  letter-spacing: -0.02em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.618em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h5 {
+  letter-spacing: -0.017em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.272em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h6 {
+  letter-spacing: -0.014em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.129em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--xl);
+}
+
+.tiptap ul {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--xl);
+  line-height: var(--wholestep);
+}
+
+.tiptap blockquote {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--md);
+  margin-left: 2.618em;
+  font-size: 1em;
+  line-height: var(--wholestep);
+  border-left: 3px solid var(--lk-outline);
+}
+
+.tiptap p {
+  color: var(--lk-onsurfacevariant);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.tiptap a {
+  color: var(--light__primary_lkv);
+  font-weight: 700;
+}
+
+.tiptap figcaption {
+  color: var(--light__onsurfacevariant_lkv);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: var(--caption-font-size);
+  line-height: var(--wholestep);
+}
+
+.tiptap img {
+  margin-top: 1em;
+  margin-bottom: 11em;
+}
+
+.tiptap hr {
+border: none;
+border-top: 1px solid var(--lk-outline);
+margin: var(--lg) 0px;
+
+}
+
+.weight-400 {
+  font-weight: 400;
+}
+
+.italic {
+font-style: italic;
+}
+
+.is-link {
+transition: opacity 0.2s ease;
+cursor: pointer;
+}
+
+.is-link:hover {
+  opacity: 0.6;
+}
+
+.mono {
+  font-family: "Roboto Mono", monospace;
+}
+
+.colspan-1 {
+  grid-column: span 1;
+}
+
+.colspan-2 {
+  grid-column: span 2;
+}
+
+.colspan-3 {
+  grid-column: span 3;
+}
+
+.colspan-4 {
+  grid-column: span 4;
+}
+
+.colspan-5 {
+  grid-column: span 5;
+}
+
+.colspan-6 {
+  grid-column: span 6;
+}
+
+.colspan-7 {
+  grid-column: span 7;
+}
+
+.colspan-8 {
+  grid-column: span 8;
+}
+
+.colspan-9 {
+  grid-column: span 9;
+}
+
+.colspan-10 {
+  grid-column: span 10;
+}
+
+.colspan-11 {
+  grid-column: span 11;
+}
+
+.colspan-12 {
+  grid-column: span 12;
+}
+
+
+
+}
+
+#navbar {
+height: 100%;
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+.rootLayout {
+  display: block;
+
+}
+
+#navbar{
+  position: fixed;
+  z-index: 99;
+  height: 100svh;
+  backdrop-filter: blur(40px) brightness(60%);
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-out;
+}
+
+#navbar.open {
+  transform: translateX(0%);
+  width: calc(100vw - 6.852em);
+  box-shadow: 20px 0px 50px rgba(0,0,0, 0.5);
+}
+
+#sidebar{
+  position: fixed;
+  right: 0;
+  z-index: 99;
+  height: 100svh;
+  backdrop-filter: blur(40px) brightness(60%);
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.2s ease-out;
+}
+
+#sidebar.open {
+  transform: translateX(0%);
+  width: calc(100vw - 6.852em);
+  box-shadow: 20px 0px 50px rgba(0,0,0, 0.5);
+}
+
+}
+
+
+.fab {
+  position: fixed;
+  bottom: 1.618em;
+  right: 1.618em;
+  z-index: 99;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+
+}

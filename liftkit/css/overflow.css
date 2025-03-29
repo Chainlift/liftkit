@@ -1,0 +1,27 @@
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-auto {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lk-outline) transparent;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

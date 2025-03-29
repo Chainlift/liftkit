@@ -1,0 +1,41 @@
+.border {
+  border: 1px solid var(--lk-outline);
+}
+
+.border-dashed {
+  border: 2px solid var(--lk-outline);
+  border-style: dashed;
+}
+
+.border-top {
+  border-top: 1px solid var(--lk-outline);
+}
+
+.border-right {
+  border-right: 1px solid var(--lk-outline);
+}
+
+.border-left {
+  border-left: 1px solid var(--lk-outline);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--lk-outline);
+}
+
+.border-color-error {
+  border-color: var(--lk-error);
+} 
+
+
+.border-color-onerrorcontainer {
+  border-color: var(--lk-onerrorcontainer);
+} 
+
+.border-color-outlinevariant {
+  border-color: var(--lk-outlinevariant);
+}
+
+.border-none {
+  border: 0px;
+}

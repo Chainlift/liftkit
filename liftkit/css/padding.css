@@ -1,0 +1,933 @@
+@import "globals.css";
+
+.p-0 {
+  padding: 0px !important;
+}
+
+.p-2xs {
+  padding: var(--2xs);
+}
+.p-xs {
+  padding: var(--xs);
+}
+.p-sm {
+  padding: var(--sm);
+}
+.p-md {
+  padding: var(--md);
+}
+.p-lg {
+  padding: var(--lg);
+}
+.p-xl {
+  padding: var(--xl);
+}
+.p-2xl {
+  padding: var(--2xl);
+}
+
+.p-top-2xs {
+  padding-top: var(--2xs);
+}
+.p-top-xs {
+  padding-top: var(--xs);
+}
+.p-top-sm {
+  padding-top: var(--sm);
+}
+.p-top-md {
+  padding-top: var(--md);
+}
+.p-top-lg {
+  padding-top: var(--lg);
+}
+.p-top-xl {
+  padding-top: var(--xl);
+}
+.p-top-2xl {
+  padding-top: var(--2xl);
+}
+
+.p-right-2xs {
+  padding-right: var(--2xs);
+}
+.p-right-xs {
+  padding-right: var(--xs);
+}
+.p-right-sm {
+  padding-right: var(--sm);
+}
+.p-right-md {
+  padding-right: var(--md);
+}
+.p-right-lg {
+  padding-right: var(--lg);
+}
+.p-right-xl {
+  padding-right: var(--xl);
+}
+.p-right-2xl {
+  padding-right: var(--2xl);
+}
+
+.p-bottom-2xs {
+  padding-bottom: var(--2xs);
+}
+.p-bottom-xs {
+  padding-bottom: var(--xs);
+}
+.p-bottom-sm {
+  padding-bottom: var(--sm);
+}
+.p-bottom-md {
+  padding-bottom: var(--md);
+}
+.p-bottom-lg {
+  padding-bottom: var(--lg);
+}
+.p-bottom-xl {
+  padding-bottom: var(--xl);
+}
+.p-bottom-2xl {
+  padding-bottom: var(--2xl);
+}
+
+.p-left-2xs {
+  padding-left: var(--2xs);
+}
+.p-left-xs {
+  padding-left: var(--xs);
+}
+.p-left-sm {
+  padding-left: var(--sm);
+}
+.p-left-md {
+  padding-left: var(--md);
+}
+.p-left-lg {
+  padding-left: var(--lg);
+}
+.p-left-xl {
+  padding-left: var(--xl);
+}
+.p-left-2xl {
+  padding-left: var(--2xl);
+}
+
+.p-y-2xs {
+  padding-top: var(--2xs);
+  padding-bottom: var(--2xs);
+}
+.p-y-xs {
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
+}
+.p-y-sm {
+  padding-top: var(--sm);
+  padding-bottom: var(--sm);
+}
+.p-y-md {
+  padding-top: var(--md);
+  padding-bottom: var(--md);
+}
+.p-y-lg {
+  padding-top: var(--lg);
+  padding-bottom: var(--lg);
+}
+.p-y-xl {
+  padding-top: var(--xl);
+  padding-bottom: var(--xl);
+}
+.p-y-2xl {
+  padding-top: var(--2xl);
+  padding-bottom: var(--2xl);
+}
+
+.p-x-2xs {
+  padding-right: var(--2xs);
+  padding-left: var(--2xs);
+}
+.p-x-xs {
+  padding-right: var(--xs);
+  padding-left: var(--xs);
+}
+.p-x-sm {
+  padding-right: var(--sm);
+  padding-left: var(--sm);
+}
+.p-x-md {
+  padding-right: var(--md);
+  padding-left: var(--md);
+}
+.p-x-lg {
+  padding-right: var(--lg);
+  padding-left: var(--lg);
+}
+.p-x-xl {
+  padding-right: var(--xl);
+  padding-left: var(--xl);
+}
+.p-x-2xl {
+  padding-right: var(--2xl);
+  padding-left: var(--2xl);
+}
+
+.display1.p-top-2xs,
+.display2.p-top-2xs,
+.title1.p-top-2xs,
+.title2.p-top-2xs,
+.title3.p-top-2xs,
+.heading.p-top-2xs,
+.subheading.p-top-2xs,
+.body.p-top-2xs,
+.callout.p-top-2xs,
+.label.p-top-2xs,
+.caption.p-top-2xs,
+.capline.p-top-2xs,
+.display1-bold.p-top-2xs,
+.display2-bold.p-top-2xs,
+.title1-bold.p-top-2xs,
+.title2-bold.p-top-2xs,
+.title3-bold.p-top-2xs,
+.heading-bold.p-top-2xs,
+.subheading-bold.p-top-2xs,
+.body-bold.p-top-2xs,
+.callout-bold.p-top-2xs,
+.label-bold.p-top-2xs,
+.caption-bold.p-top-2xs,
+.capline-bold.p-top-2xs {
+  padding-top: var(--2xs);
+}
+
+.display1.p-top-xs,
+.display2.p-top-xs,
+.title1.p-top-xs,
+.title2.p-top-xs,
+.title3.p-top-xs,
+.heading.p-top-xs,
+.subheading.p-top-xs,
+.body.p-top-xs,
+.callout.p-top-xs,
+.label.p-top-xs,
+.caption.p-top-xs,
+.capline.p-top-xs,
+.display1-bold.p-top-xs,
+.display2-bold.p-top-xs,
+.title1-bold.p-top-xs,
+.title2-bold.p-top-xs,
+.title3-bold.p-top-xs,
+.heading-bold.p-top-xs,
+.subheading-bold.p-top-xs,
+.body-bold.p-top-xs,
+.callout-bold.p-top-xs,
+.label-bold.p-top-xs,
+.caption-bold.p-top-xs,
+.capline-bold.p-top-xs {
+  padding-top: var(--xs);
+}
+
+.display1.p-top-sm,
+.display2.p-top-sm,
+.title1.p-top-sm,
+.title2.p-top-sm,
+.title3.p-top-sm,
+.heading.p-top-sm,
+.subheading.p-top-sm,
+.body.p-top-sm,
+.callout.p-top-sm,
+.label.p-top-sm,
+.caption.p-top-sm,
+.capline.p-top-sm,
+.display1-bold.p-top-sm,
+.display2-bold.p-top-sm,
+.title1-bold.p-top-sm,
+.title2-bold.p-top-sm,
+.title3-bold.p-top-sm,
+.heading-bold.p-top-sm,
+.subheading-bold.p-top-sm,
+.body-bold.p-top-sm,
+.callout-bold.p-top-sm,
+.label-bold.p-top-sm,
+.caption-bold.p-top-sm,
+.capline-bold.p-top-sm {
+  padding-top: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.p-top-md,
+.display2.p-top-md,
+.title1.p-top-md,
+.title2.p-top-md,
+.title3.p-top-md,
+.heading.p-top-md,
+.subheading.p-top-md,
+.body.p-top-md,
+.callout.p-top-md,
+.label.p-top-md,
+.caption.p-top-md,
+.capline.p-top-md,
+.display1-bold.p-top-md,
+.display2-bold.p-top-md,
+.title1-bold.p-top-md,
+.title2-bold.p-top-md,
+.title3-bold.p-top-md,
+.heading-bold.p-top-md,
+.subheading-bold.p-top-md,
+.body-bold.p-top-md,
+.callout-bold.p-top-md,
+.label-bold.p-top-md,
+.caption-bold.p-top-md,
+.capline-bold.p-top-md {
+  padding-top: var(--md);
+}
+
+.display1.p-top-lg,
+.display2.p-top-lg,
+.title1.p-top-lg,
+.title2.p-top-lg,
+.title3.p-top-lg,
+.heading.p-top-lg,
+.subheading.p-top-lg,
+.body.p-top-lg,
+.callout.p-top-lg,
+.label.p-top-lg,
+.caption.p-top-lg,
+.capline.p-top-lg,
+.display1-bold.p-top-lg,
+.display2-bold.p-top-lg,
+.title1-bold.p-top-lg,
+.title2-bold.p-top-lg,
+.title3-bold.p-top-lg,
+.heading-bold.p-top-lg,
+.subheading-bold.p-top-lg,
+.body-bold.p-top-lg,
+.callout-bold.p-top-lg,
+.label-bold.p-top-lg,
+.caption-bold.p-top-lg,
+.capline-bold.p-top-lg {
+  padding-top: var(--lg);
+}
+
+.display1.p-top-xl,
+.display2.p-top-xl,
+.title1.p-top-xl,
+.title2.p-top-xl,
+.title3.p-top-xl,
+.heading.p-top-xl,
+.subheading.p-top-xl,
+.body.p-top-xl,
+.callout.p-top-xl,
+.label.p-top-xl,
+.caption.p-top-xl,
+.capline.p-top-xl,
+.display1-bold.p-top-xl,
+.display2-bold.p-top-xl,
+.title1-bold.p-top-xl,
+.title2-bold.p-top-xl,
+.title3-bold.p-top-xl,
+.heading-bold.p-top-xl,
+.subheading-bold.p-top-xl,
+.body-bold.p-top-xl,
+.callout-bold.p-top-xl,
+.label-bold.p-top-xl,
+.caption-bold.p-top-xl,
+.capline-bold.p-top-xl {
+  padding-top: var(--xl);
+}
+
+.display1.p-top-2xl,
+.display2.p-top-2xl,
+.title1.p-top-2xl,
+.title2.p-top-2xl,
+.title3.p-top-2xl,
+.heading.p-top-2xl,
+.subheading.p-top-2xl,
+.body.p-top-2xl,
+.callout.p-top-2xl,
+.label.p-top-2xl,
+.caption.p-top-2xl,
+.capline.p-top-2xl,
+.display1-bold.p-top-2xl,
+.display2-bold.p-top-2xl,
+.title1-bold.p-top-2xl,
+.title2-bold.p-top-2xl,
+.title3-bold.p-top-2xl,
+.heading-bold.p-top-2xl,
+.subheading-bold.p-top-2xl,
+.body-bold.p-top-2xl,
+.callout-bold.p-top-2xl,
+.label-bold.p-top-2xl,
+.caption-bold.p-top-2xl,
+.capline-bold.p-top-2xl {
+  padding-top: var(--2xl);
+}
+
+.display1.p-right-2xs,
+.display2.p-right-2xs,
+.title1.p-right-2xs,
+.title2.p-right-2xs,
+.title3.p-right-2xs,
+.heading.p-right-2xs,
+.subheading.p-right-2xs,
+.body.p-right-2xs,
+.callout.p-right-2xs,
+.label.p-right-2xs,
+.caption.p-right-2xs,
+.capline.p-right-2xs,
+.display1-bold.p-right-2xs,
+.display2-bold.p-right-2xs,
+.title1-bold.p-right-2xs,
+.title2-bold.p-right-2xs,
+.title3-bold.p-right-2xs,
+.heading-bold.p-right-2xs,
+.subheading-bold.p-right-2xs,
+.body-bold.p-right-2xs,
+.callout-bold.p-right-2xs,
+.label-bold.p-right-2xs,
+.caption-bold.p-right-2xs,
+.capline-bold.p-right-2xs {
+  padding-right: var(--2xs);
+}
+
+.display1.p-right-xs,
+.display2.p-right-xs,
+.title1.p-right-xs,
+.title2.p-right-xs,
+.title3.p-right-xs,
+.heading.p-right-xs,
+.subheading.p-right-xs,
+.body.p-right-xs,
+.callout.p-right-xs,
+.label.p-right-xs,
+.caption.p-right-xs,
+.capline.p-right-xs,
+.display1-bold.p-right-xs,
+.display2-bold.p-right-xs,
+.title1-bold.p-right-xs,
+.title2-bold.p-right-xs,
+.title3-bold.p-right-xs,
+.heading-bold.p-right-xs,
+.subheading-bold.p-right-xs,
+.body-bold.p-right-xs,
+.callout-bold.p-right-xs,
+.label-bold.p-right-xs,
+.caption-bold.p-right-xs,
+.capline-bold.p-right-xs {
+  padding-right: var(--xs);
+}
+
+.display1.p-right-sm,
+.display2.p-right-sm,
+.title1.p-right-sm,
+.title2.p-right-sm,
+.title3.p-right-sm,
+.heading.p-right-sm,
+.subheading.p-right-sm,
+.body.p-right-sm,
+.callout.p-right-sm,
+.label.p-right-sm,
+.caption.p-right-sm,
+.capline.p-right-sm,
+.display1-bold.p-right-sm,
+.display2-bold.p-right-sm,
+.title1-bold.p-right-sm,
+.title2-bold.p-right-sm,
+.title3-bold.p-right-sm,
+.heading-bold.p-right-sm,
+.subheading-bold.p-right-sm,
+.body-bold.p-right-sm,
+.callout-bold.p-right-sm,
+.label-bold.p-right-sm,
+.caption-bold.p-right-sm,
+.capline-bold.p-right-sm {
+  padding-right: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.p-right-md,
+.display2.p-right-md,
+.title1.p-right-md,
+.title2.p-right-md,
+.title3.p-right-md,
+.heading.p-right-md,
+.subheading.p-right-md,
+.body.p-right-md,
+.callout.p-right-md,
+.label.p-right-md,
+.caption.p-right-md,
+.capline.p-right-md,
+.display1-bold.p-right-md,
+.display2-bold.p-right-md,
+.title1-bold.p-right-md,
+.title2-bold.p-right-md,
+.title3-bold.p-right-md,
+.heading-bold.p-right-md,
+.subheading-bold.p-right-md,
+.body-bold.p-right-md,
+.callout-bold.p-right-md,
+.label-bold.p-right-md,
+.caption-bold.p-right-md,
+.capline-bold.p-right-md {
+  padding-right: var(--md);
+}
+
+.display1.p-right-lg,
+.display2.p-right-lg,
+.title1.p-right-lg,
+.title2.p-right-lg,
+.title3.p-right-lg,
+.heading.p-right-lg,
+.subheading.p-right-lg,
+.body.p-right-lg,
+.callout.p-right-lg,
+.label.p-right-lg,
+.caption.p-right-lg,
+.capline.p-right-lg,
+.display1-bold.p-right-lg,
+.display2-bold.p-right-lg,
+.title1-bold.p-right-lg,
+.title2-bold.p-right-lg,
+.title3-bold.p-right-lg,
+.heading-bold.p-right-lg,
+.subheading-bold.p-right-lg,
+.body-bold.p-right-lg,
+.callout-bold.p-right-lg,
+.label-bold.p-right-lg,
+.caption-bold.p-right-lg,
+.capline-bold.p-right-lg {
+  padding-right: var(--lg);
+}
+
+.display1.p-right-xl,
+.display2.p-right-xl,
+.title1.p-right-xl,
+.title2.p-right-xl,
+.title3.p-right-xl,
+.heading.p-right-xl,
+.subheading.p-right-xl,
+.body.p-right-xl,
+.callout.p-right-xl,
+.label.p-right-xl,
+.caption.p-right-xl,
+.capline.p-right-xl,
+.display1-bold.p-right-xl,
+.display2-bold.p-right-xl,
+.title1-bold.p-right-xl,
+.title2-bold.p-right-xl,
+.title3-bold.p-right-xl,
+.heading-bold.p-right-xl,
+.subheading-bold.p-right-xl,
+.body-bold.p-right-xl,
+.callout-bold.p-right-xl,
+.label-bold.p-right-xl,
+.caption-bold.p-right-xl,
+.capline-bold.p-right-xl {
+  padding-right: var(--xl);
+}
+
+.display1.p-right-2xl,
+.display2.p-right-2xl,
+.title1.p-right-2xl,
+.title2.p-right-2xl,
+.title3.p-right-2xl,
+.heading.p-right-2xl,
+.subheading.p-right-2xl,
+.body.p-right-2xl,
+.callout.p-right-2xl,
+.label.p-right-2xl,
+.caption.p-right-2xl,
+.capline.p-right-2xl,
+.display1-bold.p-right-2xl,
+.display2-bold.p-right-2xl,
+.title1-bold.p-right-2xl,
+.title2-bold.p-right-2xl,
+.title3-bold.p-right-2xl,
+.heading-bold.p-right-2xl,
+.subheading-bold.p-right-2xl,
+.body-bold.p-right-2xl,
+.callout-bold.p-right-2xl,
+.label-bold.p-right-2xl,
+.caption-bold.p-right-2xl,
+.capline-bold.p-right-2xl {
+  padding-right: var(--2xl);
+}
+
+.display1.p-bottom-2xs,
+.display2.p-bottom-2xs,
+.title1.p-bottom-2xs,
+.title2.p-bottom-2xs,
+.title3.p-bottom-2xs,
+.heading.p-bottom-2xs,
+.subheading.p-bottom-2xs,
+.body.p-bottom-2xs,
+.callout.p-bottom-2xs,
+.label.p-bottom-2xs,
+.caption.p-bottom-2xs,
+.capline.p-bottom-2xs,
+.display1-bold.p-bottom-2xs,
+.display2-bold.p-bottom-2xs,
+.title1-bold.p-bottom-2xs,
+.title2-bold.p-bottom-2xs,
+.title3-bold.p-bottom-2xs,
+.heading-bold.p-bottom-2xs,
+.subheading-bold.p-bottom-2xs,
+.body-bold.p-bottom-2xs,
+.callout-bold.p-bottom-2xs,
+.label-bold.p-bottom-2xs,
+.caption-bold.p-bottom-2xs,
+.capline-bold.p-bottom-2xs {
+  padding-bottom: var(--2xs);
+}
+
+.display1.p-bottom-xs,
+.display2.p-bottom-xs,
+.title1.p-bottom-xs,
+.title2.p-bottom-xs,
+.title3.p-bottom-xs,
+.heading.p-bottom-xs,
+.subheading.p-bottom-xs,
+.body.p-bottom-xs,
+.callout.p-bottom-xs,
+.label.p-bottom-xs,
+.caption.p-bottom-xs,
+.capline.p-bottom-xs,
+.display1-bold.p-bottom-xs,
+.display2-bold.p-bottom-xs,
+.title1-bold.p-bottom-xs,
+.title2-bold.p-bottom-xs,
+.title3-bold.p-bottom-xs,
+.heading-bold.p-bottom-xs,
+.subheading-bold.p-bottom-xs,
+.body-bold.p-bottom-xs,
+.callout-bold.p-bottom-xs,
+.label-bold.p-bottom-xs,
+.caption-bold.p-bottom-xs,
+.capline-bold.p-bottom-xs {
+  padding-bottom: var(--xs);
+}
+
+.display1.p-bottom-sm,
+.display2.p-bottom-sm,
+.title1.p-bottom-sm,
+.title2.p-bottom-sm,
+.title3.p-bottom-sm,
+.heading.p-bottom-sm,
+.subheading.p-bottom-sm,
+.body.p-bottom-sm,
+.callout.p-bottom-sm,
+.label.p-bottom-sm,
+.caption.p-bottom-sm,
+.capline.p-bottom-sm,
+.display1-bold.p-bottom-sm,
+.display2-bold.p-bottom-sm,
+.title1-bold.p-bottom-sm,
+.title2-bold.p-bottom-sm,
+.title3-bold.p-bottom-sm,
+.heading-bold.p-bottom-sm,
+.subheading-bold.p-bottom-sm,
+.body-bold.p-bottom-sm,
+.callout-bold.p-bottom-sm,
+.label-bold.p-bottom-sm,
+.caption-bold.p-bottom-sm,
+.capline-bold.p-bottom-sm {
+  padding-bottom: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.p-bottom-md,
+.display2.p-bottom-md,
+.title1.p-bottom-md,
+.title2.p-bottom-md,
+.title3.p-bottom-md,
+.heading.p-bottom-md,
+.subheading.p-bottom-md,
+.body.p-bottom-md,
+.callout.p-bottom-md,
+.label.p-bottom-md,
+.caption.p-bottom-md,
+.capline.p-bottom-md,
+.display1-bold.p-bottom-md,
+.display2-bold.p-bottom-md,
+.title1-bold.p-bottom-md,
+.title2-bold.p-bottom-md,
+.title3-bold.p-bottom-md,
+.heading-bold.p-bottom-md,
+.subheading-bold.p-bottom-md,
+.body-bold.p-bottom-md,
+.callout-bold.p-bottom-md,
+.label-bold.p-bottom-md,
+.caption-bold.p-bottom-md,
+.capline-bold.p-bottom-md {
+  padding-bottom: var(--md);
+}
+
+.display1.p-bottom-lg,
+.display2.p-bottom-lg,
+.title1.p-bottom-lg,
+.title2.p-bottom-lg,
+.title3.p-bottom-lg,
+.heading.p-bottom-lg,
+.subheading.p-bottom-lg,
+.body.p-bottom-lg,
+.callout.p-bottom-lg,
+.label.p-bottom-lg,
+.caption.p-bottom-lg,
+.capline.p-bottom-lg,
+.display1-bold.p-bottom-lg,
+.display2-bold.p-bottom-lg,
+.title1-bold.p-bottom-lg,
+.title2-bold.p-bottom-lg,
+.title3-bold.p-bottom-lg,
+.heading-bold.p-bottom-lg,
+.subheading-bold.p-bottom-lg,
+.body-bold.p-bottom-lg,
+.callout-bold.p-bottom-lg,
+.label-bold.p-bottom-lg,
+.caption-bold.p-bottom-lg,
+.capline-bold.p-bottom-lg {
+  padding-bottom: var(--lg);
+}
+
+.display1.p-bottom-xl,
+.display2.p-bottom-xl,
+.title1.p-bottom-xl,
+.title2.p-bottom-xl,
+.title3.p-bottom-xl,
+.heading.p-bottom-xl,
+.subheading.p-bottom-xl,
+.body.p-bottom-xl,
+.callout.p-bottom-xl,
+.label.p-bottom-xl,
+.caption.p-bottom-xl,
+.capline.p-bottom-xl,
+.display1-bold.p-bottom-xl,
+.display2-bold.p-bottom-xl,
+.title1-bold.p-bottom-xl,
+.title2-bold.p-bottom-xl,
+.title3-bold.p-bottom-xl,
+.heading-bold.p-bottom-xl,
+.subheading-bold.p-bottom-xl,
+.body-bold.p-bottom-xl,
+.callout-bold.p-bottom-xl,
+.label-bold.p-bottom-xl,
+.caption-bold.p-bottom-xl,
+.capline-bold.p-bottom-xl {
+  padding-bottom: var(--xl);
+}
+
+.display1.p-bottom-2xl,
+.display2.p-bottom-2xl,
+.title1.p-bottom-2xl,
+.title2.p-bottom-2xl,
+.title3.p-bottom-2xl,
+.heading.p-bottom-2xl,
+.subheading.p-bottom-2xl,
+.body.p-bottom-2xl,
+.callout.p-bottom-2xl,
+.label.p-bottom-2xl,
+.caption.p-bottom-2xl,
+.capline.p-bottom-2xl,
+.display1-bold.p-bottom-2xl,
+.display2-bold.p-bottom-2xl,
+.title1-bold.p-bottom-2xl,
+.title2-bold.p-bottom-2xl,
+.title3-bold.p-bottom-2xl,
+.heading-bold.p-bottom-2xl,
+.subheading-bold.p-bottom-2xl,
+.body-bold.p-bottom-2xl,
+.callout-bold.p-bottom-2xl,
+.label-bold.p-bottom-2xl,
+.caption-bold.p-bottom-2xl,
+.capline-bold.p-bottom-2xl {
+  padding-bottom: var(--2xl);
+}
+
+.display1.p-left-2xs,
+.display2.p-left-2xs,
+.title1.p-left-2xs,
+.title2.p-left-2xs,
+.title3.p-left-2xs,
+.heading.p-left-2xs,
+.subheading.p-left-2xs,
+.body.p-left-2xs,
+.callout.p-left-2xs,
+.label.p-left-2xs,
+.caption.p-left-2xs,
+.capline.p-left-2xs,
+.display1-bold.p-left-2xs,
+.display2-bold.p-left-2xs,
+.title1-bold.p-left-2xs,
+.title2-bold.p-left-2xs,
+.title3-bold.p-left-2xs,
+.heading-bold.p-left-2xs,
+.subheading-bold.p-left-2xs,
+.body-bold.p-left-2xs,
+.callout-bold.p-left-2xs,
+.label-bold.p-left-2xs,
+.caption-bold.p-left-2xs,
+.capline-bold.p-left-2xs {
+  padding-left: var(--2xs);
+}
+
+.display1.p-left-xs,
+.display2.p-left-xs,
+.title1.p-left-xs,
+.title2.p-left-xs,
+.title3.p-left-xs,
+.heading.p-left-xs,
+.subheading.p-left-xs,
+.body.p-left-xs,
+.callout.p-left-xs,
+.label.p-left-xs,
+.caption.p-left-xs,
+.capline.p-left-xs,
+.display1-bold.p-left-xs,
+.display2-bold.p-left-xs,
+.title1-bold.p-left-xs,
+.title2-bold.p-left-xs,
+.title3-bold.p-left-xs,
+.heading-bold.p-left-xs,
+.subheading-bold.p-left-xs,
+.body-bold.p-left-xs,
+.callout-bold.p-left-xs,
+.label-bold.p-left-xs,
+.caption-bold.p-left-xs,
+.capline-bold.p-left-xs {
+  padding-left: var(--xs);
+}
+
+.display1.p-left-sm,
+.display2.p-left-sm,
+.title1.p-left-sm,
+.title2.p-left-sm,
+.title3.p-left-sm,
+.heading.p-left-sm,
+.subheading.p-left-sm,
+.body.p-left-sm,
+.callout.p-left-sm,
+.label.p-left-sm,
+.caption.p-left-sm,
+.capline.p-left-sm,
+.display1-bold.p-left-sm,
+.display2-bold.p-left-sm,
+.title1-bold.p-left-sm,
+.title2-bold.p-left-sm,
+.title3-bold.p-left-sm,
+.heading-bold.p-left-sm,
+.subheading-bold.p-left-sm,
+.body-bold.p-left-sm,
+.callout-bold.p-left-sm,
+.label-bold.p-left-sm,
+.caption-bold.p-left-sm,
+.capline-bold.p-left-sm {
+  padding-left: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.p-left-md,
+.display2.p-left-md,
+.title1.p-left-md,
+.title2.p-left-md,
+.title3.p-left-md,
+.heading.p-left-md,
+.subheading.p-left-md,
+.body.p-left-md,
+.callout.p-left-md,
+.label.p-left-md,
+.caption.p-left-md,
+.capline.p-left-md,
+.display1-bold.p-left-md,
+.display2-bold.p-left-md,
+.title1-bold.p-left-md,
+.title2-bold.p-left-md,
+.title3-bold.p-left-md,
+.heading-bold.p-left-md,
+.subheading-bold.p-left-md,
+.body-bold.p-left-md,
+.callout-bold.p-left-md,
+.label-bold.p-left-md,
+.caption-bold.p-left-md,
+.capline-bold.p-left-md {
+  padding-left: var(--md);
+}
+
+.display1.p-left-lg,
+.display2.p-left-lg,
+.title1.p-left-lg,
+.title2.p-left-lg,
+.title3.p-left-lg,
+.heading.p-left-lg,
+.subheading.p-left-lg,
+.body.p-left-lg,
+.callout.p-left-lg,
+.label.p-left-lg,
+.caption.p-left-lg,
+.capline.p-left-lg,
+.display1-bold.p-left-lg,
+.display2-bold.p-left-lg,
+.title1-bold.p-left-lg,
+.title2-bold.p-left-lg,
+.title3-bold.p-left-lg,
+.heading-bold.p-left-lg,
+.subheading-bold.p-left-lg,
+.body-bold.p-left-lg,
+.callout-bold.p-left-lg,
+.label-bold.p-left-lg,
+.caption-bold.p-left-lg,
+.capline-bold.p-left-lg {
+  padding-left: var(--lg);
+}
+
+.display1.p-left-xl,
+.display2.p-left-xl,
+.title1.p-left-xl,
+.title2.p-left-xl,
+.title3.p-left-xl,
+.heading.p-left-xl,
+.subheading.p-left-xl,
+.body.p-left-xl,
+.callout.p-left-xl,
+.label.p-left-xl,
+.caption.p-left-xl,
+.capline.p-left-xl,
+.display1-bold.p-left-xl,
+.display2-bold.p-left-xl,
+.title1-bold.p-left-xl,
+.title2-bold.p-left-xl,
+.title3-bold.p-left-xl,
+.heading-bold.p-left-xl,
+.subheading-bold.p-left-xl,
+.body-bold.p-left-xl,
+.callout-bold.p-left-xl,
+.label-bold.p-left-xl,
+.caption-bold.p-left-xl,
+.capline-bold.p-left-xl {
+  padding-left: var(--xl);
+}
+
+.display1.p-left-2xl,
+.display2.p-left-2xl,
+.title1.p-left-2xl,
+.title2.p-left-2xl,
+.title3.p-left-2xl,
+.heading.p-left-2xl,
+.subheading.p-left-2xl,
+.body.p-left-2xl,
+.callout.p-left-2xl,
+.label.p-left-2xl,
+.caption.p-left-2xl,
+.capline.p-left-2xl,
+.display1-bold.p-left-2xl,
+.display2-bold.p-left-2xl,
+.title1-bold.p-left-2xl,
+.title2-bold.p-left-2xl,
+.title3-bold.p-left-2xl,
+.heading-bold.p-left-2xl,
+.subheading-bold.p-left-2xl,
+.body-bold.p-left-2xl,
+.callout-bold.p-left-2xl,
+.label-bold.p-left-2xl,
+.caption-bold.p-left-2xl,
+.capline-bold.p-left-2xl {
+  padding-left: var(--2xl);
+}

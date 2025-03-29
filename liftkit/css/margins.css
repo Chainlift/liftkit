@@ -1,0 +1,907 @@
+@import "globals.css";
+
+.m-top-2xs {
+  margin-top: var(--2xs);
+}
+.m-top-xs {
+  margin-top: var(--xs);
+}
+.m-top-sm {
+  margin-top: var(--sm);
+}
+.m-top-md {
+  margin-top: var(--md);
+}
+.m-top-lg {
+  margin-top: var(--lg);
+}
+.m-top-xl {
+  margin-top: var(--xl);
+}
+.m-top-2xl {
+  margin-top: var(--2xl);
+}
+
+.m-right-2xs {
+  margin-right: var(--2xs);
+}
+.m-right-xs {
+  margin-right: var(--xs);
+}
+.m-right-sm {
+  margin-right: var(--sm);
+}
+.m-right-md {
+  margin-right: var(--md);
+}
+.m-right-lg {
+  margin-right: var(--lg);
+}
+.m-right-xl {
+  margin-right: var(--xl);
+}
+.m-right-2xl {
+  margin-right: var(--2xl);
+}
+
+.m-bottom-2xs {
+  margin-bottom: var(--2xs);
+}
+.m-bottom-xs {
+  margin-bottom: var(--xs);
+}
+.m-bottom-sm {
+  margin-bottom: var(--sm);
+}
+.m-bottom-md {
+  margin-bottom: var(--md);
+}
+.m-bottom-lg {
+  margin-bottom: var(--lg);
+}
+.m-bottom-xl {
+  margin-bottom: var(--xl);
+}
+.m-bottom-2xl {
+  margin-bottom: var(--2xl);
+}
+
+.m-left-2xs {
+  margin-left: var(--2xs);
+}
+.m-left-xs {
+  margin-left: var(--xs);
+}
+.m-left-sm {
+  margin-left: var(--sm);
+}
+.m-left-md {
+  margin-left: var(--md);
+}
+.m-left-lg {
+  margin-left: var(--lg);
+}
+.m-left-xl {
+  margin-left: var(--xl);
+}
+.m-left-2xl {
+  margin-left: var(--2xl);
+}
+
+.m-y-2xs {
+  margin-top: var(--2xs);
+  margin-bottom: var(--2xs);
+}
+.m-y-xs {
+  margin-top: var(--xs);
+  margin-bottom: var(--xs);
+}
+.m-y-sm {
+  margin-top: var(--sm);
+  margin-bottom: var(--sm);
+}
+.m-y-md {
+  margin-top: var(--md);
+  margin-bottom: var(--md);
+}
+.m-y-lg {
+  margin-top: var(--lg);
+  margin-bottom: var(--lg);
+}
+.m-y-xl {
+  margin-top: var(--xl);
+  margin-bottom: var(--xl);
+}
+.m-y-2xl {
+  margin-top: var(--2xl);
+  margin-bottom: var(--2xl);
+}
+
+.m-x-2xs {
+  margin-right: var(--2xs);
+  margin-left: var(--2xs);
+}
+.m-x-xs {
+  margin-right: var(--xs);
+  margin-left: var(--xs);
+}
+.m-x-sm {
+  margin-right: var(--sm);
+  margin-left: var(--sm);
+}
+.m-x-md {
+  margin-right: var(--md);
+  margin-left: var(--md);
+}
+.m-x-lg {
+  margin-right: var(--lg);
+  margin-left: var(--lg);
+}
+.m-x-xl {
+  margin-right: var(--xl);
+  margin-left: var(--xl);
+}
+.m-x-2xl {
+  margin-right: var(--2xl);
+  margin-left: var(--2xl);
+}
+
+.display1.m-top-2xs,
+.display2.m-top-2xs,
+.title1.m-top-2xs,
+.title2.m-top-2xs,
+.title3.m-top-2xs,
+.heading.m-top-2xs,
+.subheading.m-top-2xs,
+.body.m-top-2xs,
+.callout.m-top-2xs,
+.label.m-top-2xs,
+.caption.m-top-2xs,
+.capline.m-top-2xs,
+.display1-bold.m-top-2xs,
+.display2-bold.m-top-2xs,
+.title1-bold.m-top-2xs,
+.title2-bold.m-top-2xs,
+.title3-bold.m-top-2xs,
+.heading-bold.m-top-2xs,
+.subheading-bold.m-top-2xs,
+.body-bold.m-top-2xs,
+.callout-bold.m-top-2xs,
+.label-bold.m-top-2xs,
+.caption-bold.m-top-2xs,
+.capline-bold.m-top-2xs {
+  margin-top: var(--2xs);
+}
+
+.display1.m-top-xs,
+.display2.m-top-xs,
+.title1.m-top-xs,
+.title2.m-top-xs,
+.title3.m-top-xs,
+.heading.m-top-xs,
+.subheading.m-top-xs,
+.body.m-top-xs,
+.callout.m-top-xs,
+.label.m-top-xs,
+.caption.m-top-xs,
+.capline.m-top-xs,
+.display1-bold.m-top-xs,
+.display2-bold.m-top-xs,
+.title1-bold.m-top-xs,
+.title2-bold.m-top-xs,
+.title3-bold.m-top-xs,
+.heading-bold.m-top-xs,
+.subheading-bold.m-top-xs,
+.body-bold.m-top-xs,
+.callout-bold.m-top-xs,
+.label-bold.m-top-xs,
+.caption-bold.m-top-xs,
+.capline-bold.m-top-xs {
+  margin-top: var(--xs);
+}
+
+.display1.m-top-sm,
+.display2.m-top-sm,
+.title1.m-top-sm,
+.title2.m-top-sm,
+.title3.m-top-sm,
+.heading.m-top-sm,
+.subheading.m-top-sm,
+.body.m-top-sm,
+.callout.m-top-sm,
+.label.m-top-sm,
+.caption.m-top-sm,
+.capline.m-top-sm,
+.display1-bold.m-top-sm,
+.display2-bold.m-top-sm,
+.title1-bold.m-top-sm,
+.title2-bold.m-top-sm,
+.title3-bold.m-top-sm,
+.heading-bold.m-top-sm,
+.subheading-bold.m-top-sm,
+.body-bold.m-top-sm,
+.callout-bold.m-top-sm,
+.label-bold.m-top-sm,
+.caption-bold.m-top-sm,
+.capline-bold.m-top-sm {
+  margin-top: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.m-top-md,
+.display2.m-top-md,
+.title1.m-top-md,
+.title2.m-top-md,
+.title3.m-top-md,
+.heading.m-top-md,
+.subheading.m-top-md,
+.body.m-top-md,
+.callout.m-top-md,
+.label.m-top-md,
+.caption.m-top-md,
+.capline.m-top-md,
+.display1-bold.m-top-md,
+.display2-bold.m-top-md,
+.title1-bold.m-top-md,
+.title2-bold.m-top-md,
+.title3-bold.m-top-md,
+.heading-bold.m-top-md,
+.subheading-bold.m-top-md,
+.body-bold.m-top-md,
+.callout-bold.m-top-md,
+.label-bold.m-top-md,
+.caption-bold.m-top-md,
+.capline-bold.m-top-md {
+  margin-top: var(--md);
+}
+
+.display1.m-top-lg,
+.display2.m-top-lg,
+.title1.m-top-lg,
+.title2.m-top-lg,
+.title3.m-top-lg,
+.heading.m-top-lg,
+.subheading.m-top-lg,
+.body.m-top-lg,
+.callout.m-top-lg,
+.label.m-top-lg,
+.caption.m-top-lg,
+.capline.m-top-lg,
+.display1-bold.m-top-lg,
+.display2-bold.m-top-lg,
+.title1-bold.m-top-lg,
+.title2-bold.m-top-lg,
+.title3-bold.m-top-lg,
+.heading-bold.m-top-lg,
+.subheading-bold.m-top-lg,
+.body-bold.m-top-lg,
+.callout-bold.m-top-lg,
+.label-bold.m-top-lg,
+.caption-bold.m-top-lg,
+.capline-bold.m-top-lg {
+  margin-top: var(--lg);
+}
+
+.display1.m-top-xl,
+.display2.m-top-xl,
+.title1.m-top-xl,
+.title2.m-top-xl,
+.title3.m-top-xl,
+.heading.m-top-xl,
+.subheading.m-top-xl,
+.body.m-top-xl,
+.callout.m-top-xl,
+.label.m-top-xl,
+.caption.m-top-xl,
+.capline.m-top-xl,
+.display1-bold.m-top-xl,
+.display2-bold.m-top-xl,
+.title1-bold.m-top-xl,
+.title2-bold.m-top-xl,
+.title3-bold.m-top-xl,
+.heading-bold.m-top-xl,
+.subheading-bold.m-top-xl,
+.body-bold.m-top-xl,
+.callout-bold.m-top-xl,
+.label-bold.m-top-xl,
+.caption-bold.m-top-xl,
+.capline-bold.m-top-xl {
+  margin-top: var(--xl);
+}
+
+.display1.m-top-2xl,
+.display2.m-top-2xl,
+.title1.m-top-2xl,
+.title2.m-top-2xl,
+.title3.m-top-2xl,
+.heading.m-top-2xl,
+.subheading.m-top-2xl,
+.body.m-top-2xl,
+.callout.m-top-2xl,
+.label.m-top-2xl,
+.caption.m-top-2xl,
+.capline.m-top-2xl,
+.display1-bold.m-top-2xl,
+.display2-bold.m-top-2xl,
+.title1-bold.m-top-2xl,
+.title2-bold.m-top-2xl,
+.title3-bold.m-top-2xl,
+.heading-bold.m-top-2xl,
+.subheading-bold.m-top-2xl,
+.body-bold.m-top-2xl,
+.callout-bold.m-top-2xl,
+.label-bold.m-top-2xl,
+.caption-bold.m-top-2xl,
+.capline-bold.m-top-2xl {
+  margin-top: var(--2xl);
+}
+
+.display1.m-right-2xs,
+.display2.m-right-2xs,
+.title1.m-right-2xs,
+.title2.m-right-2xs,
+.title3.m-right-2xs,
+.heading.m-right-2xs,
+.subheading.m-right-2xs,
+.body.m-right-2xs,
+.callout.m-right-2xs,
+.label.m-right-2xs,
+.caption.m-right-2xs,
+.capline.m-right-2xs,
+.display1-bold.m-right-2xs,
+.display2-bold.m-right-2xs,
+.title1-bold.m-right-2xs,
+.title2-bold.m-right-2xs,
+.title3-bold.m-right-2xs,
+.heading-bold.m-right-2xs,
+.subheading-bold.m-right-2xs,
+.body-bold.m-right-2xs,
+.callout-bold.m-right-2xs,
+.label-bold.m-right-2xs,
+.caption-bold.m-right-2xs,
+.capline-bold.m-right-2xs {
+  margin-right: var(--2xs);
+}
+
+.display1.m-right-xs,
+.display2.m-right-xs,
+.title1.m-right-xs,
+.title2.m-right-xs,
+.title3.m-right-xs,
+.heading.m-right-xs,
+.subheading.m-right-xs,
+.body.m-right-xs,
+.callout.m-right-xs,
+.label.m-right-xs,
+.caption.m-right-xs,
+.capline.m-right-xs,
+.display1-bold.m-right-xs,
+.display2-bold.m-right-xs,
+.title1-bold.m-right-xs,
+.title2-bold.m-right-xs,
+.title3-bold.m-right-xs,
+.heading-bold.m-right-xs,
+.subheading-bold.m-right-xs,
+.body-bold.m-right-xs,
+.callout-bold.m-right-xs,
+.label-bold.m-right-xs,
+.caption-bold.m-right-xs,
+.capline-bold.m-right-xs {
+  margin-right: var(--xs);
+}
+
+.display1.m-right-sm,
+.display2.m-right-sm,
+.title1.m-right-sm,
+.title2.m-right-sm,
+.title3.m-right-sm,
+.heading.m-right-sm,
+.subheading.m-right-sm,
+.body.m-right-sm,
+.callout.m-right-sm,
+.label.m-right-sm,
+.caption.m-right-sm,
+.capline.m-right-sm,
+.display1-bold.m-right-sm,
+.display2-bold.m-right-sm,
+.title1-bold.m-right-sm,
+.title2-bold.m-right-sm,
+.title3-bold.m-right-sm,
+.heading-bold.m-right-sm,
+.subheading-bold.m-right-sm,
+.body-bold.m-right-sm,
+.callout-bold.m-right-sm,
+.label-bold.m-right-sm,
+.caption-bold.m-right-sm,
+.capline-bold.m-right-sm {
+  margin-right: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.m-right-md,
+.display2.m-right-md,
+.title1.m-right-md,
+.title2.m-right-md,
+.title3.m-right-md,
+.heading.m-right-md,
+.subheading.m-right-md,
+.body.m-right-md,
+.callout.m-right-md,
+.label.m-right-md,
+.caption.m-right-md,
+.capline.m-right-md,
+.display1-bold.m-right-md,
+.display2-bold.m-right-md,
+.title1-bold.m-right-md,
+.title2-bold.m-right-md,
+.title3-bold.m-right-md,
+.heading-bold.m-right-md,
+.subheading-bold.m-right-md,
+.body-bold.m-right-md,
+.callout-bold.m-right-md,
+.label-bold.m-right-md,
+.caption-bold.m-right-md,
+.capline-bold.m-right-md {
+  margin-right: var(--md);
+}
+
+.display1.m-right-lg,
+.display2.m-right-lg,
+.title1.m-right-lg,
+.title2.m-right-lg,
+.title3.m-right-lg,
+.heading.m-right-lg,
+.subheading.m-right-lg,
+.body.m-right-lg,
+.callout.m-right-lg,
+.label.m-right-lg,
+.caption.m-right-lg,
+.capline.m-right-lg,
+.display1-bold.m-right-lg,
+.display2-bold.m-right-lg,
+.title1-bold.m-right-lg,
+.title2-bold.m-right-lg,
+.title3-bold.m-right-lg,
+.heading-bold.m-right-lg,
+.subheading-bold.m-right-lg,
+.body-bold.m-right-lg,
+.callout-bold.m-right-lg,
+.label-bold.m-right-lg,
+.caption-bold.m-right-lg,
+.capline-bold.m-right-lg {
+  margin-right: var(--lg);
+}
+
+.display1.m-right-xl,
+.display2.m-right-xl,
+.title1.m-right-xl,
+.title2.m-right-xl,
+.title3.m-right-xl,
+.heading.m-right-xl,
+.subheading.m-right-xl,
+.body.m-right-xl,
+.callout.m-right-xl,
+.label.m-right-xl,
+.caption.m-right-xl,
+.capline.m-right-xl,
+.display1-bold.m-right-xl,
+.display2-bold.m-right-xl,
+.title1-bold.m-right-xl,
+.title2-bold.m-right-xl,
+.title3-bold.m-right-xl,
+.heading-bold.m-right-xl,
+.subheading-bold.m-right-xl,
+.body-bold.m-right-xl,
+.callout-bold.m-right-xl,
+.label-bold.m-right-xl,
+.caption-bold.m-right-xl,
+.capline-bold.m-right-xl {
+  margin-right: var(--xl);
+}
+
+.display1.m-right-2xl,
+.display2.m-right-2xl,
+.title1.m-right-2xl,
+.title2.m-right-2xl,
+.title3.m-right-2xl,
+.heading.m-right-2xl,
+.subheading.m-right-2xl,
+.body.m-right-2xl,
+.callout.m-right-2xl,
+.label.m-right-2xl,
+.caption.m-right-2xl,
+.capline.m-right-2xl,
+.display1-bold.m-right-2xl,
+.display2-bold.m-right-2xl,
+.title1-bold.m-right-2xl,
+.title2-bold.m-right-2xl,
+.title3-bold.m-right-2xl,
+.heading-bold.m-right-2xl,
+.subheading-bold.m-right-2xl,
+.body-bold.m-right-2xl,
+.callout-bold.m-right-2xl,
+.label-bold.m-right-2xl,
+.caption-bold.m-right-2xl,
+.capline-bold.m-right-2xl {
+  margin-right: var(--2xl);
+}
+
+.display1.m-bottom-2xs,
+.display2.m-bottom-2xs,
+.title1.m-bottom-2xs,
+.title2.m-bottom-2xs,
+.title3.m-bottom-2xs,
+.heading.m-bottom-2xs,
+.subheading.m-bottom-2xs,
+.body.m-bottom-2xs,
+.callout.m-bottom-2xs,
+.label.m-bottom-2xs,
+.caption.m-bottom-2xs,
+.capline.m-bottom-2xs,
+.display1-bold.m-bottom-2xs,
+.display2-bold.m-bottom-2xs,
+.title1-bold.m-bottom-2xs,
+.title2-bold.m-bottom-2xs,
+.title3-bold.m-bottom-2xs,
+.heading-bold.m-bottom-2xs,
+.subheading-bold.m-bottom-2xs,
+.body-bold.m-bottom-2xs,
+.callout-bold.m-bottom-2xs,
+.label-bold.m-bottom-2xs,
+.caption-bold.m-bottom-2xs,
+.capline-bold.m-bottom-2xs {
+  margin-bottom: var(--2xs);
+}
+
+.display1.m-bottom-xs,
+.display2.m-bottom-xs,
+.title1.m-bottom-xs,
+.title2.m-bottom-xs,
+.title3.m-bottom-xs,
+.heading.m-bottom-xs,
+.subheading.m-bottom-xs,
+.body.m-bottom-xs,
+.callout.m-bottom-xs,
+.label.m-bottom-xs,
+.caption.m-bottom-xs,
+.capline.m-bottom-xs,
+.display1-bold.m-bottom-xs,
+.display2-bold.m-bottom-xs,
+.title1-bold.m-bottom-xs,
+.title2-bold.m-bottom-xs,
+.title3-bold.m-bottom-xs,
+.heading-bold.m-bottom-xs,
+.subheading-bold.m-bottom-xs,
+.body-bold.m-bottom-xs,
+.callout-bold.m-bottom-xs,
+.label-bold.m-bottom-xs,
+.caption-bold.m-bottom-xs,
+.capline-bold.m-bottom-xs {
+  margin-bottom: var(--xs);
+}
+
+.display1.m-bottom-sm,
+.display2.m-bottom-sm,
+.title1.m-bottom-sm,
+.title2.m-bottom-sm,
+.title3.m-bottom-sm,
+.heading.m-bottom-sm,
+.subheading.m-bottom-sm,
+.body.m-bottom-sm,
+.callout.m-bottom-sm,
+.label.m-bottom-sm,
+.caption.m-bottom-sm,
+.capline.m-bottom-sm,
+.display1-bold.m-bottom-sm,
+.display2-bold.m-bottom-sm,
+.title1-bold.m-bottom-sm,
+.title2-bold.m-bottom-sm,
+.title3-bold.m-bottom-sm,
+.heading-bold.m-bottom-sm,
+.subheading-bold.m-bottom-sm,
+.body-bold.m-bottom-sm,
+.callout-bold.m-bottom-sm,
+.label-bold.m-bottom-sm,
+.caption-bold.m-bottom-sm,
+.capline-bold.m-bottom-sm {
+  margin-bottom: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.m-bottom-md,
+.display2.m-bottom-md,
+.title1.m-bottom-md,
+.title2.m-bottom-md,
+.title3.m-bottom-md,
+.heading.m-bottom-md,
+.subheading.m-bottom-md,
+.body.m-bottom-md,
+.callout.m-bottom-md,
+.label.m-bottom-md,
+.caption.m-bottom-md,
+.capline.m-bottom-md,
+.display1-bold.m-bottom-md,
+.display2-bold.m-bottom-md,
+.title1-bold.m-bottom-md,
+.title2-bold.m-bottom-md,
+.title3-bold.m-bottom-md,
+.heading-bold.m-bottom-md,
+.subheading-bold.m-bottom-md,
+.body-bold.m-bottom-md,
+.callout-bold.m-bottom-md,
+.label-bold.m-bottom-md,
+.caption-bold.m-bottom-md,
+.capline-bold.m-bottom-md {
+  margin-bottom: var(--md);
+}
+
+.display1.m-bottom-lg,
+.display2.m-bottom-lg,
+.title1.m-bottom-lg,
+.title2.m-bottom-lg,
+.title3.m-bottom-lg,
+.heading.m-bottom-lg,
+.subheading.m-bottom-lg,
+.body.m-bottom-lg,
+.callout.m-bottom-lg,
+.label.m-bottom-lg,
+.caption.m-bottom-lg,
+.capline.m-bottom-lg,
+.display1-bold.m-bottom-lg,
+.display2-bold.m-bottom-lg,
+.title1-bold.m-bottom-lg,
+.title2-bold.m-bottom-lg,
+.title3-bold.m-bottom-lg,
+.heading-bold.m-bottom-lg,
+.subheading-bold.m-bottom-lg,
+.body-bold.m-bottom-lg,
+.callout-bold.m-bottom-lg,
+.label-bold.m-bottom-lg,
+.caption-bold.m-bottom-lg,
+.capline-bold.m-bottom-lg {
+  margin-bottom: var(--lg);
+}
+
+.display1.m-bottom-xl,
+.display2.m-bottom-xl,
+.title1.m-bottom-xl,
+.title2.m-bottom-xl,
+.title3.m-bottom-xl,
+.heading.m-bottom-xl,
+.subheading.m-bottom-xl,
+.body.m-bottom-xl,
+.callout.m-bottom-xl,
+.label.m-bottom-xl,
+.caption.m-bottom-xl,
+.capline.m-bottom-xl,
+.display1-bold.m-bottom-xl,
+.display2-bold.m-bottom-xl,
+.title1-bold.m-bottom-xl,
+.title2-bold.m-bottom-xl,
+.title3-bold.m-bottom-xl,
+.heading-bold.m-bottom-xl,
+.subheading-bold.m-bottom-xl,
+.body-bold.m-bottom-xl,
+.callout-bold.m-bottom-xl,
+.label-bold.m-bottom-xl,
+.caption-bold.m-bottom-xl,
+.capline-bold.m-bottom-xl {
+  margin-bottom: var(--xl);
+}
+
+.display1.m-bottom-2xl,
+.display2.m-bottom-2xl,
+.title1.m-bottom-2xl,
+.title2.m-bottom-2xl,
+.title3.m-bottom-2xl,
+.heading.m-bottom-2xl,
+.subheading.m-bottom-2xl,
+.body.m-bottom-2xl,
+.callout.m-bottom-2xl,
+.label.m-bottom-2xl,
+.caption.m-bottom-2xl,
+.capline.m-bottom-2xl,
+.display1-bold.m-bottom-2xl,
+.display2-bold.m-bottom-2xl,
+.title1-bold.m-bottom-2xl,
+.title2-bold.m-bottom-2xl,
+.title3-bold.m-bottom-2xl,
+.heading-bold.m-bottom-2xl,
+.subheading-bold.m-bottom-2xl,
+.body-bold.m-bottom-2xl,
+.callout-bold.m-bottom-2xl,
+.label-bold.m-bottom-2xl,
+.caption-bold.m-bottom-2xl,
+.capline-bold.m-bottom-2xl {
+  margin-bottom: var(--2xl);
+}
+
+.display1.m-left-2xs,
+.display2.m-left-2xs,
+.title1.m-left-2xs,
+.title2.m-left-2xs,
+.title3.m-left-2xs,
+.heading.m-left-2xs,
+.subheading.m-left-2xs,
+.body.m-left-2xs,
+.callout.m-left-2xs,
+.label.m-left-2xs,
+.caption.m-left-2xs,
+.capline.m-left-2xs,
+.display1-bold.m-left-2xs,
+.display2-bold.m-left-2xs,
+.title1-bold.m-left-2xs,
+.title2-bold.m-left-2xs,
+.title3-bold.m-left-2xs,
+.heading-bold.m-left-2xs,
+.subheading-bold.m-left-2xs,
+.body-bold.m-left-2xs,
+.callout-bold.m-left-2xs,
+.label-bold.m-left-2xs,
+.caption-bold.m-left-2xs,
+.capline-bold.m-left-2xs {
+  margin-left: var(--2xs);
+}
+
+.display1.m-left-xs,
+.display2.m-left-xs,
+.title1.m-left-xs,
+.title2.m-left-xs,
+.title3.m-left-xs,
+.heading.m-left-xs,
+.subheading.m-left-xs,
+.body.m-left-xs,
+.callout.m-left-xs,
+.label.m-left-xs,
+.caption.m-left-xs,
+.capline.m-left-xs,
+.display1-bold.m-left-xs,
+.display2-bold.m-left-xs,
+.title1-bold.m-left-xs,
+.title2-bold.m-left-xs,
+.title3-bold.m-left-xs,
+.heading-bold.m-left-xs,
+.subheading-bold.m-left-xs,
+.body-bold.m-left-xs,
+.callout-bold.m-left-xs,
+.label-bold.m-left-xs,
+.caption-bold.m-left-xs,
+.capline-bold.m-left-xs {
+  margin-left: var(--xs);
+}
+
+.display1.m-left-sm,
+.display2.m-left-sm,
+.title1.m-left-sm,
+.title2.m-left-sm,
+.title3.m-left-sm,
+.heading.m-left-sm,
+.subheading.m-left-sm,
+.body.m-left-sm,
+.callout.m-left-sm,
+.label.m-left-sm,
+.caption.m-left-sm,
+.capline.m-left-sm,
+.display1-bold.m-left-sm,
+.display2-bold.m-left-sm,
+.title1-bold.m-left-sm,
+.title2-bold.m-left-sm,
+.title3-bold.m-left-sm,
+.heading-bold.m-left-sm,
+.subheading-bold.m-left-sm,
+.body-bold.m-left-sm,
+.callout-bold.m-left-sm,
+.label-bold.m-left-sm,
+.caption-bold.m-left-sm,
+.capline-bold.m-left-sm {
+  margin-left: var(--sm);
+}
+/* Repeat for other margin directions and sizes */
+
+.display1.m-left-md,
+.display2.m-left-md,
+.title1.m-left-md,
+.title2.m-left-md,
+.title3.m-left-md,
+.heading.m-left-md,
+.subheading.m-left-md,
+.body.m-left-md,
+.callout.m-left-md,
+.label.m-left-md,
+.caption.m-left-md,
+.capline.m-left-md,
+.display1-bold.m-left-md,
+.display2-bold.m-left-md,
+.title1-bold.m-left-md,
+.title2-bold.m-left-md,
+.title3-bold.m-left-md,
+.heading-bold.m-left-md,
+.subheading-bold.m-left-md,
+.body-bold.m-left-md,
+.callout-bold.m-left-md,
+.label-bold.m-left-md,
+.caption-bold.m-left-md,
+.capline-bold.m-left-md {
+  margin-left: var(--md);
+}
+
+.display1.m-left-lg,
+.display2.m-left-lg,
+.title1.m-left-lg,
+.title2.m-left-lg,
+.title3.m-left-lg,
+.heading.m-left-lg,
+.subheading.m-left-lg,
+.body.m-left-lg,
+.callout.m-left-lg,
+.label.m-left-lg,
+.caption.m-left-lg,
+.capline.m-left-lg,
+.display1-bold.m-left-lg,
+.display2-bold.m-left-lg,
+.title1-bold.m-left-lg,
+.title2-bold.m-left-lg,
+.title3-bold.m-left-lg,
+.heading-bold.m-left-lg,
+.subheading-bold.m-left-lg,
+.body-bold.m-left-lg,
+.callout-bold.m-left-lg,
+.label-bold.m-left-lg,
+.caption-bold.m-left-lg,
+.capline-bold.m-left-lg {
+  margin-left: var(--lg);
+}
+
+.display1.m-left-xl,
+.display2.m-left-xl,
+.title1.m-left-xl,
+.title2.m-left-xl,
+.title3.m-left-xl,
+.heading.m-left-xl,
+.subheading.m-left-xl,
+.body.m-left-xl,
+.callout.m-left-xl,
+.label.m-left-xl,
+.caption.m-left-xl,
+.capline.m-left-xl,
+.display1-bold.m-left-xl,
+.display2-bold.m-left-xl,
+.title1-bold.m-left-xl,
+.title2-bold.m-left-xl,
+.title3-bold.m-left-xl,
+.heading-bold.m-left-xl,
+.subheading-bold.m-left-xl,
+.body-bold.m-left-xl,
+.callout-bold.m-left-xl,
+.label-bold.m-left-xl,
+.caption-bold.m-left-xl,
+.capline-bold.m-left-xl {
+  margin-left: var(--xl);
+}
+
+.display1.m-left-2xl,
+.display2.m-left-2xl,
+.title1.m-left-2xl,
+.title2.m-left-2xl,
+.title3.m-left-2xl,
+.heading.m-left-2xl,
+.subheading.m-left-2xl,
+.body.m-left-2xl,
+.callout.m-left-2xl,
+.label.m-left-2xl,
+.caption.m-left-2xl,
+.capline.m-left-2xl,
+.display1-bold.m-left-2xl,
+.display2-bold.m-left-2xl,
+.title1-bold.m-left-2xl,
+.title2-bold.m-left-2xl,
+.title3-bold.m-left-2xl,
+.heading-bold.m-left-2xl,
+.subheading-bold.m-left-2xl,
+.body-bold.m-left-2xl,
+.callout-bold.m-left-2xl,
+.label-bold.m-left-2xl,
+.caption-bold.m-left-2xl,
+.capline-bold.m-left-2xl {
+  margin-left: var(--2xl);
+}

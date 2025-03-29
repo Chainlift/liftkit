@@ -1,0 +1,632 @@
+@import "globals.css";
+
+/* Regular families */
+.display1 {
+  --lineHeightInEms: calc(1em * var(--quarterstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --sm: calc(var(--lineHeightInEms) * calc(1 / var(--halfstep)))
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display1-font-size);
+  font-weight: 400;
+  line-height: var(--quarterstep);
+}
+
+.display2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display2-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title1 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--title1-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.02em;
+  font-size: var(--title2-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.title3 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.017em;
+  font-size: var(--title3-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.heading, .tiptap h3 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.014em;
+  font-size: var(--heading-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.subheading {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--subheading-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.body {
+  --lineHeightInEms: var(--title2-font-size);
+  --md: 1em;
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.011em;
+  cursor: default;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: var(--wholestep);
+}
+
+.callout {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.009em;
+  font-size: var(--callout-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.label {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.004em;
+  font-size: var(--label-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+  position: static;
+
+}
+
+.caption {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--caption-font-size);
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+.capline {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: 0.0618em;
+  text-transform: uppercase;
+  font-size: var(--capline-font-size); 
+  font-weight: 400;
+  line-height: var(--halfstep);
+}
+
+/* Bold Families */
+
+.display1-bold {
+  --lineHeightInEms: calc(1em * var(--quarterstep));
+  --md: calc(1em / var(--wholestep));
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display1-font-size);
+  font-weight: 700;
+  line-height: var(--quarterstep);
+}
+
+.display2-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--display2-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.title1-bold, .tiptap h1 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.022em;
+  font-size: var(--title1-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.title2-bold, .tiptap h2 {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.02em;
+  font-size: var(--title2-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.title3-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.017em;
+  font-size: var(--title3-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.heading-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.014em;
+  font-size: var(--heading-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.subheading-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--subheading-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.body-bold {
+  --lineHeightInEms: var(--title2-font-size);
+  --md: calc(1em / var(--wholestep));
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(1em * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.011em;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: var(--wholestep);
+  position: relative;
+}
+
+.callout-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.009em;
+  font-size: var(--callout-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+  text-decoration: none;
+}
+
+.label-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.004em;
+  font-size: var(--label-font-size);
+  font-weight: 700;
+  line-height: var(--halfstep);
+}
+
+.caption-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: -0.007em;
+  font-size: var(--caption-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.capline-bold {
+  --lineHeightInEms: calc(1em * var(--halfstep));
+  --md: var(--lineHeightInEms);
+
+  --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
+  --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
+  --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
+
+
+  --lg: calc(var(--lineHeightInEms) * var(--wholestep));
+  --xl: calc(var(--lg) * var(--wholestep));
+  --2xl: calc(var(--xl) * var(--wholestep));
+
+  letter-spacing: 0.0618em;
+  text-transform: uppercase;
+  font-size: var(--capline-font-size); 
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .display1-bold,
+  .display1 {
+    font-size: 3.3301em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .display1 {
+    font-size: 2.61743em;
+  }
+
+  .display1-bold {
+    font-size: 2.61743em;
+  }
+
+  .display2 {
+    font-size: 2.05818em;
+  }
+
+  .display2-bold {
+    font-size: 2.05818em;
+  }
+
+  .title1-bold,
+  .title1 {
+    font-size: 1.82285em;
+  }
+}
+
+.rich-text {
+  color: var(--light__onsurface_lkv);
+}
+
+.tiptap h1 {
+  color: var(--lk-onsurface);
+  letter-spacing: -0.035em;
+  margin-top: 0;
+  margin-bottom: 1.129em;
+  font-size: var(--title1-font-size);
+  font-weight: 600;
+  line-height: 1.129;
+}
+
+.tiptap h2 {
+  letter-spacing: -0.022em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: var(--title2-font-size);
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h3 {
+  letter-spacing: -0.022em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.618em;
+  font-weight: 500;
+  line-height: var(--halfstep);
+}
+
+.tiptap h4 {
+  letter-spacing: -0.02em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.618em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h5 {
+  letter-spacing: -0.017em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.272em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap h6 {
+  letter-spacing: -0.014em;
+  margin-top: 0.786096em;
+  margin-bottom: 0.345984em;
+  font-size: 1.129em;
+  font-weight: 600;
+  line-height: var(--halfstep);
+}
+
+.tiptap ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--xl);
+}
+
+.tiptap ul {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--xl);
+  line-height: var(--wholestep);
+}
+
+.tiptap blockquote {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: var(--md);
+  margin-left: 2.618em;
+  font-size: 1em;
+  line-height: var(--wholestep);
+  border-left: 3px solid var(--lk-outline);
+}
+
+.tiptap p {
+  color: var(--lk-onsurfacevariant);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.tiptap a {
+  color: var(--light__primary_lkv);
+  font-weight: 700;
+}
+
+.tiptap figcaption {
+  color: var(--light__onsurfacevariant_lkv);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: var(--caption-font-size);
+  line-height: var(--wholestep);
+}
+
+.tiptap img {
+  margin-top: 1em;
+  margin-bottom: 11em;
+}
+
+.tiptap hr {
+border: none;
+border-top: 1px solid var(--lk-outline);
+margin: var(--lg) 0px;
+
+}
+
+.weight-400 {
+  font-weight: 400;
+}
+
+.italic {
+font-style: italic;
+}
+
+.is-link {
+transition: opacity 0.2s ease;
+cursor: pointer;
+}
+
+.is-link:hover {
+  opacity: 0.6;
+}
+
+.mono {
+  font-family: "Roboto Mono", monospace;
+
+}

@@ -1,0 +1,8 @@
+/* 'Material' refers to the general sense of the word. Styles that mimic different physical properties like glass, paper, or rubber.*/
+
+.glass {
+  background-color: transparent;
+  backdrop-filter: blur(10px) saturate(200%) brightness(40%);
+  box-shadow: 0 0.128em 0.485em 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--lk-outline);
+}
