@@ -1,0 +1,14 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache for LiftKit CSS
+        run: |
+          curl -X GET "https://purge.jsdelivr.net/gh/Chainlift/liftkit@dev/dist/liftkit.css"
