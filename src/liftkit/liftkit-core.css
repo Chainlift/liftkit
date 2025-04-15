@@ -3,18 +3,19 @@
 /* Random comment */
 
 :root {
-  font-size: 16px;
+  font-size: 1rem;
+  --lk-scalefactor: 1.618; /* these are the only two you set manually */
 
-  --lk-scalefactor: 1.618;
-  --lk-wholestep: 1.618;
-  --lk-halfstep: 1.272;
-  --lk-quarterstep: 1.128;
-  --lk-eighthstep: 1.062;
 
-  --lk-wholestep-dec: 0.618;
-  --lk-halfstep-dec: 0.272;
-  --lk-quarterstep-dec: 0.128;
-  --lk-eighthstep-dec: 0.062;
+  --lk-wholestep: 1.618; /* equals scalefactor */
+  --lk-halfstep: 1.272; /* sqrt wholestep */
+  --lk-quarterstep: 1.128; /* sqrt halfstep */
+  --lk-eighthstep: 1.062; /* sqrt quarterstep */
+
+  --lk-wholestep-dec: 0.618; /* wholestep -1 */ 
+  --lk-halfstep-dec: 0.272; /* halfstep -1 */ 
+  --lk-quarterstep-dec: 0.128; /* quarterstep -1 */ 
+  --lk-eighthstep-dec: 0.062; /* eighthstep -1 */ 
 
   --lk-size-md: 1em;
   /* It's okay to use em here because the root font size
@@ -233,6 +234,8 @@
   font-smooth: never;
 
   /* Button Variables */
+
+  /* TODO: Remove? Might no longer be necessary as we're working on the new code. */
   --button-label-line-height: calc(1em * var(--lk-halfstep));
   --button-pad-sideWithIcon: var(--lk-wholestep-dec);
   --button-no-icon-pad: 1em;
@@ -284,6 +287,9 @@
   --capline-line-height: var(--lk-halfstep);
 
   /* Optical Top Padding Offsets and Border Radii for Cards */
+  /* Produce padding values for the insides of cards or other containers on sides that 
+     optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
+
   --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--lk-wholestep)));
   --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--lk-wholestep)));
   --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--lk-wholestep)));
@@ -389,6 +395,12 @@
   }
 }
 
+/* Everything from here is done to disable native display behavior of HTML elements 
+
+/* TODO: Consider a more robust noramlizing solution. there's gotta be open source solutions to this. 
+
+*/
+
 html,
 body {
   max-width: 100vw;
@@ -420,6 +432,7 @@ a {
   text-decoration: none;
 }
 
+/* Depcretated, totally unnecessary */
 .color-picker-popup .react-colorful {
   position: absolute;
   z-index: 2;
@@ -432,6 +445,7 @@ a {
   margin: var(--lk-size-sm) 0;
 }
 
+/* not sure why I redefined this here, could be redundant */
 body {
   font-size: 16px;
   line-height: 1.5;
@@ -468,7 +482,9 @@ button span {
   text-transform: capitalize;
 }
 
-/* TEMP USE ONLY */
+/* TODO:
+/* Literally everything after this might be an artifact from previous dev cycles. Feel free to experiment with removal. 
+*/
 
 @media screen and (max-width: 992px) {
   .grid.col-3 {
@@ -480,6 +496,9 @@ button span {
     gap: var(--lk-size-lg);
   }
 }
+
+/* for context, these BG classes are already defined in /liftkit/css/background-colors.css */
+
 
 .bg-primary {
   background-color: var(--lk-primary);

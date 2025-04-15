@@ -1,9 +1,5 @@
-import styles from "./badge.module.css";
-import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
 import Icon from "@/liftkit/components/icon";
 import { getOnToken } from "@/lib/colorUtils";
-import { HTMLAttributes } from "react";
 import { IconName } from "lucide-react/dynamic";
 
 interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -25,7 +21,10 @@ export default function Badge({
   console.log(iconColor);
 
   return (
-    <div lk-component="badge" lk-badge-color={`lk-${color}`} lk-badge-scale={scale} {...restProps}>
+    <div lk-component="badge" 
+      lk-badge-scale={scale} 
+      lk-badge-color={`lk-${color}`} 
+      {...restProps}>
       <div lk-component="slot" lk-slot="icon">
         <Icon name={icon} color={iconColor} strokeWidth={1}></Icon>
       </div>

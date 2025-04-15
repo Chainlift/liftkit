@@ -6,7 +6,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => <h1 className="display2-bold m-bottom-sm">{children}</h1>,
     h2: ({ children }) => <h2 className="title1-bold m-bottom-sm">{children}</h2>,
-    h3: ({ children }) => <h3 className="title2-bold m-bottom-sm">{children}</h3>,
+    h3: ({ children }) => <h3 className="title2-bold m-bottom-xs">{children}</h3>,
     h4: ({ children }) => <h4 className="title4-bold">{children}</h4>,
     h5: ({ children }) => <h5 className="title5-bold">{children}</h5>,
     h6: ({ children }) => <h6 className="title6-bold">{children}</h6>,
