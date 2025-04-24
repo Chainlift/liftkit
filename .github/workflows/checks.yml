@@ -1,0 +1,33 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+  packages: read
+  pull-requests: read
+  checks: write
+
+jobs:
+  eslint:
+    name: Eslint check
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+    # Version Spec of the version to use in SemVer notation.
+    # It also admits such aliases as lts/*, latest, nightly and canary builds
+    # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+          node-version: '22'
+      - run: npm install
+      - run: npx next lint --output-file eslint_report.json --format json src
+        continue-on-error: true
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@v3
+        with:
+          only-pr-files: false
+          markdown-report-on-step-summary: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          report-json: "eslint_report.json"
