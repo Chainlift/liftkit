@@ -10,6 +10,23 @@ permissions:
   checks: write
 
 jobs:
+  commit:
+    name: commit
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: commit-check/commit-check-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: true
+          branch: true
+          author-name: true
+          author-email: true
+          commit-signoff: false
+          merge-base: false
+          job-summary: true
+          pr-comments: false
   eslint:
     name: Eslint check
     runs-on: ubuntu-22.04
@@ -17,9 +34,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-    # Version Spec of the version to use in SemVer notation.
-    # It also admits such aliases as lts/*, latest, nightly and canary builds
-    # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
           node-version: '22'
       - run: npm install
       - run: npx next lint --output-file eslint_report.json --format json src
