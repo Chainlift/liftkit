@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm install
-      - run: npx next lint --output-file eslint_report.json --format json src
+      - run: npx next lint --output-file eslint_report.json --format json
         continue-on-error: true
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@v3
