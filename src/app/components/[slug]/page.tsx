@@ -27,8 +27,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           ))}
         </Column>
         <div className="colspan-3">
-        <Badge color="errorcontainer" scale="lg" className="test"></Badge>
-        <Sticker></Sticker>
+          <Badge color="errorcontainer" scale="lg" className="test"></Badge>
+          <Sticker></Sticker>
           <Post />
         </div>
       </Grid>
@@ -39,7 +39,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 export function generateStaticParams() {
   return [
     { slug: "section" },
-    { slug: "container" },
+    // TODO: fix dynamic components section.
+    // { slug: "container" },
     { slug: "grid" },
     { slug: "badge" },
     { slug: "button" },
@@ -61,10 +62,10 @@ export function generateStaticParams() {
     { slug: "select" },
     { slug: "snackbar" },
     { slug: "sticker" },
-    { slug: "tab-content" },
+    //  { slug: "tab-content" },
     { slug: "tab-link" },
-    { slug: "tab-menu" },
-    { slug: "tabs" },
+    // { slug: "tab-menu" },
+    // { slug: "tabs" },
     { slug: "text-input" },
     { slug: "text" },
   ];

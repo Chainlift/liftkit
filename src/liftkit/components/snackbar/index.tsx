@@ -1,6 +1,6 @@
 import styles from "./snackbar.module.css";
 import { useMemo } from "react";
-import { propsToDataAttrs } from "./utilities";
+import { propsToDataAttrs } from "../utilities";
 import Badge from "@/liftkit/components/badge";
 import Button from "@/liftkit/components/button";
 import Text from "@/liftkit/components/text";
@@ -16,8 +16,8 @@ interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Snackbar({
   badgeColor,
-  primaryButtonColor = "lk-primary",
-  secondaryButtonColor = "lk-secondary",
+  primaryButtonColor = "primary",
+  secondaryButtonColor = "secondary",
   backgroundColor,
   globalColor,
   message = "Notification text goes here.",

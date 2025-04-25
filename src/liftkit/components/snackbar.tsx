@@ -15,8 +15,9 @@ interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Snackbar({
   badgeColor,
-  primaryButtonColor = "lk-primary",
-  secondaryButtonColor = "lk-secondary",
+  // TODO: connfirm what types primary and secondary color should be are supposed to be
+  primaryButtonColor = "primary",
+  secondaryButtonColor = "secondary",
   backgroundColor,
   globalColor,
   message = "Notification text goes here.",
