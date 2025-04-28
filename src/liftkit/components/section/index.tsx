@@ -11,7 +11,7 @@ export default function Section(props: LkSectionProps) {
 
   const lkSectionAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-section"),
-    [restProps.padding]
+    [restProps]
   );
 
   return (

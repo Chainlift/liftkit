@@ -14,12 +14,7 @@ export default function DropdownChip(props: LkDropdownChipProps) {
 
   const dropdownChipAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-dropdown-chip"),
-    [
-      restProps.labelPosition,
-      restProps.helpText,
-      restProps.placeholderText,
-      restProps.isActive,
-    ]
+    [restProps]
   );
 
   return <div {...dropdownChipAttrs}>{children}</div>;

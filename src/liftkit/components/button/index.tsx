@@ -17,12 +17,13 @@ export default function Button(props: LkButtonProps) {
   const lkButtonAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-button"),
     [
-      restProps.variant,
-      restProps.color,
-      restProps.size,
-      restProps.material,
-      startIcon,
-      endIcon,
+      // restProps.variant,
+      // restProps.color,
+      // restProps.size,
+      // restProps.material,
+      // startIcon,
+      // endIcon,
+      restProps,
     ]
   );
 

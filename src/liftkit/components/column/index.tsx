@@ -17,7 +17,7 @@ export default function Column(props: LkColumnProps) {
 
   const lkColumnAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-column"),
-    [restProps.alignItems, restProps.justifyContent]
+    [restProps]
   );
 
   return (

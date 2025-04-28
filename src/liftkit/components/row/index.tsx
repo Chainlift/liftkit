@@ -35,13 +35,7 @@ export default function Row(props: LkRowProps) {
 
   const lkRowAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-row"),
-    [
-      restProps.alignItems,
-      restProps.justifyContent,
-      restProps.gap,
-      restProps.wrapChildren,
-      restProps.defaultChildBehavior,
-    ]
+    [restProps]
   );
 
   return <div {...lkRowAttrs}>{children}</div>;
