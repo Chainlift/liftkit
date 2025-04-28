@@ -1,4 +1,3 @@
-import styles from "./dropdown.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -9,7 +8,10 @@ interface LkDropdownProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Dropdown(props: LkDropdownProps) {
   const { children, ...restProps } = props;
 
-  const dropdownAttrs = useMemo(() => propsToDataAttrs(restProps, "lk-dropdown"), []);
+  const dropdownAttrs = useMemo(
+    () => propsToDataAttrs(restProps, "lk-dropdown"),
+    [restProps]
+  );
 
   return <div {...dropdownAttrs}>{children}</div>;
 }

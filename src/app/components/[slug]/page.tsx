@@ -7,12 +7,23 @@ import LkLink from "@/localComponents/LkLink";
 import Badge from "@/liftkit/components/badge";
 import Sticker from "@/liftkit/components/sticker";
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+interface Component {
+  title: string;
+  slug: string;
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const { default: Post } = await import(`@/content/components/${slug}.mdx`);
 
   console.log(getDirectoryContents("src/content/components"));
-  const components = getDirectoryContents("src/content/components");
+  const components: Component[] = getDirectoryContents(
+    "src/content/components"
+  );
 
   return (
     <div>
@@ -20,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
       <Grid columns={5} gap={"xl"}>
         <Column>
-          {components.map((component: any, index: number) => (
+          {components.map((component, index: number) => (
             <LkLink key={index} href={`/components/${component.slug}`}>
               <MenuItem>{component.slug}</MenuItem>
             </LkLink>

@@ -1,4 +1,3 @@
-import styles from "./menu-item.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -8,8 +7,16 @@ interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-export default function MenuItem({ startIcon, endIcon, children, ...rest }: LkMenuItemProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs(rest, "lk-menu-item"), [rest]);
+export default function MenuItem({
+  startIcon,
+  endIcon,
+  children,
+  ...rest
+}: LkMenuItemProps) {
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs(rest, "lk-menu-item"),
+    [rest]
+  );
 
   return (
     <div lk-component="menu-item" {...dataAttrs}>

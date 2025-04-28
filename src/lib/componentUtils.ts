@@ -1,26 +1,32 @@
-export function filterCustomProps(props: any) {
+import { LkCardProps } from "@/liftkit/components/card";
 
-    const nativeDivProps: (keyof React.HTMLAttributes<HTMLDivElement>)[] = [
-      "children",
-      "className",
-      "id",
-      "style",
-      "onClick",
-      "onMouseEnter",
-      "onMouseLeave",
-      "onFocus",
-      "onBlur",
-      "tabIndex",
-      "role",
-      "title",
-    ];
+export function filterCustomProps(props: LkCardProps) {
+  const nativeDivProps: (keyof React.HTMLAttributes<HTMLDivElement>)[] = [
+    "children",
+    "className",
+    "id",
+    "style",
+    "onClick",
+    "onMouseEnter",
+    "onMouseLeave",
+    "onFocus",
+    "onBlur",
+    "tabIndex",
+    "role",
+    "title",
+  ];
 
-    return Object.keys(props).reduce((customProps, key) => {
-      if (!nativeDivProps.includes(key as keyof React.HTMLAttributes<HTMLDivElement>)) {
-        const kebabKey = `lk-${key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()}`;
-        customProps[kebabKey] = props[key as keyof typeof props];
-      }
-      return customProps;
-    }, {} as Record<string, any>);
-  }
-
+  return Object.keys(props).reduce((customProps, key) => {
+    if (
+      !nativeDivProps.includes(
+        key as keyof React.HTMLAttributes<HTMLDivElement>
+      )
+    ) {
+      const kebabKey = `lk-${key
+        .replace(/([a-z])([A-Z])/g, "$1-$2")
+        .toLowerCase()}`;
+      customProps[kebabKey] = props[key as keyof typeof props];
+    }
+    return customProps;
+  }, {} as Record<string, string | undefined>);
+}

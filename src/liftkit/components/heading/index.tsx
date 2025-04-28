@@ -1,4 +1,3 @@
-import styles from "./heading.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -16,7 +15,10 @@ export default function Heading({
   content = "Heading",
   ...rest
 }: LkHeadingProps) {
-  const headingAttrs = useMemo(() => propsToDataAttrs(rest, "lk-heading"), [rest]);
+  const headingAttrs = useMemo(
+    () => propsToDataAttrs(rest, "lk-heading"),
+    [rest]
+  );
   const Tag = tag;
 
   return (
