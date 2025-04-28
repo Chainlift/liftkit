@@ -1,4 +1,3 @@
-import styles from "./tab-link.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 import Text from "@/liftkit/components/text";
@@ -17,7 +16,10 @@ export default function TabLink({
   children,
   ...rest
 }: LkTabLinkProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({ selected }, "lk-tab-link"), [selected]);
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs({ selected }, "lk-tab-link"),
+    [selected]
+  );
 
   return (
     <div {...dataAttrs} {...rest}>

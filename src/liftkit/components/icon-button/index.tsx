@@ -1,10 +1,10 @@
-import styles from "./icon-button.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
 type LkSizeUnit = "xs" | "sm" | "md" | "lg" | "xl";
 
-interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LkIconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: string;
   variant?: "fill" | "outline" | "text";
   color?: string; // LkColor
@@ -18,11 +18,14 @@ export default function IconButton({
   size = "md",
   ...rest
 }: LkIconButtonProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({ variant, color, size }, "lk-icon-button"), [variant, color, size]);
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs({ variant, color, size }, "lk-icon-button"),
+    [variant, color, size]
+  );
 
   return (
     <button type="button" {...dataAttrs} {...rest}>
-      <div >
+      <div>
         <i lk-component="icon">{icon}</i>
       </div>
       <div lk-component="state-layer"></div>

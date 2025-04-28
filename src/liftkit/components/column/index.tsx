@@ -1,10 +1,14 @@
-import styles from "./column.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
 interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";
-  justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
+  justifyContent?:
+    | "start"
+    | "center"
+    | "end"
+    | "space-between"
+    | "space-around";
   children?: React.ReactNode;
 }
 
@@ -16,5 +20,9 @@ export default function Column(props: LkColumnProps) {
     [restProps.alignItems, restProps.justifyContent]
   );
 
-  return <div lk-component="column" {...lkColumnAttrs}>{children}</div>;
+  return (
+    <div lk-component="column" {...lkColumnAttrs}>
+      {children}
+    </div>
+  );
 }

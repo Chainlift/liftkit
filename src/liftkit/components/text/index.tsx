@@ -1,4 +1,3 @@
-import styles from "./text.module.css";
 import { useMemo, ElementType, JSX } from "react";
 import { propsToDataAttrs } from "../utilities";
 

@@ -1,4 +1,3 @@
-import styles from "./navbar.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 import Image from "@/liftkit/components/image";
@@ -22,7 +21,10 @@ export default function NavBar({
   ctaButtons,
   ...rest
 }: LkNavBarProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({ material }, "lk-navbar"), [material]);
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs({ material }, "lk-navbar"),
+    [material]
+  );
 
   return (
     <div {...dataAttrs} {...rest}>
@@ -30,12 +32,12 @@ export default function NavBar({
         <Row>
           <IconButton icon="menu" />
           <Link href="/">
-            <Image />
+            <Image alt="" />
           </Link>
         </Row>
 
         <Row lk-navbar-el="nav-menu">
-          <Image />
+          <Image alt="" />
           <Row>
             <Row lk-slot="nav-buttons">{navButtons}</Row>
             <Row lk-slot="nav-dropdowns">{navDropdowns}</Row>

@@ -6,14 +6,14 @@ interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconName;
   color?: LkColorWithOnToken;
   scale?: "md" | "lg";
-  iconStrokeWidth?: number;
+  // iconStrokeWidth?: number;
 }
 
 export default function Badge({
   icon = "roller-coaster",
   color = "surface",
   scale = "md",
-  iconStrokeWidth = 1,
+  // iconStrokeWidth = 1,
   ...restProps
 }: LkBadgeProps) {
   const iconColor = getOnToken(color) as LkColor;
@@ -21,10 +21,12 @@ export default function Badge({
   console.log(iconColor);
 
   return (
-    <div lk-component="badge" 
-      lk-badge-scale={scale} 
-      lk-badge-color={`lk-${color}`} 
-      {...restProps}>
+    <div
+      lk-component="badge"
+      lk-badge-scale={scale}
+      lk-badge-color={`lk-${color}`}
+      {...restProps}
+    >
       <div lk-component="slot" lk-slot="icon">
         <Icon name={icon} color={iconColor} strokeWidth={1}></Icon>
       </div>

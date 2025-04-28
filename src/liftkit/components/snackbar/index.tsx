@@ -1,24 +1,23 @@
-import styles from "./snackbar.module.css";
 import { useMemo } from "react";
-import { propsToDataAttrs } from "./utilities";
 import Badge from "@/liftkit/components/badge";
 import Button from "@/liftkit/components/button";
 import Text from "@/liftkit/components/text";
+import { propsToDataAttrs } from "../utilities";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   badgeColor?: LkColorWithOnToken;
   primaryButtonColor?: LkColorWithOnToken;
   secondaryButtonColor?: LkColorWithOnToken;
-  backgroundColor?: LkColorWithOnToken;
+  // backgroundColor?: LkColorWithOnToken;
   globalColor?: LkColorWithOnToken;
   message?: string;
 }
 
 export default function Snackbar({
   badgeColor,
-  primaryButtonColor = "lk-primary",
-  secondaryButtonColor = "lk-secondary",
-  backgroundColor,
+  primaryButtonColor = "primary",
+  secondaryButtonColor = "secondary",
+  // backgroundColor,
   globalColor,
   message = "Notification text goes here.",
   ...rest
@@ -29,10 +28,18 @@ export default function Snackbar({
     <div {...dataAttrs} {...rest}>
       <Badge color={globalColor ?? badgeColor} />
       <Text content={message} />
-      <Button size="sm" variant="outline" color={globalColor ?? secondaryButtonColor}>
+      <Button
+        size="sm"
+        variant="outline"
+        color={globalColor ?? secondaryButtonColor}
+      >
         Dismiss
       </Button>
-      <Button size="sm" variant="fill" color={globalColor ?? primaryButtonColor}>
+      <Button
+        size="sm"
+        variant="fill"
+        color={globalColor ?? primaryButtonColor}
+      >
         Undo
       </Button>
     </div>

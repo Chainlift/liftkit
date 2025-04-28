@@ -1,4 +1,3 @@
-import styles from "./tab-content.module.css";
 import type { ReactNode } from "react";
 
 interface TabContentProps {

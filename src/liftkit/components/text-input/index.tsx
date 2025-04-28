@@ -1,4 +1,3 @@
-import styles from "./text-input.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -9,12 +8,14 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function TextInput(props: LkTextInputProps) {
-  const { children, ...restProps } = props;
+  const { ...restProps } = props;
 
   const lkTextInputAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-text-input"),
     [restProps.labelPosition, restProps.helpText, restProps.placeholderText]
   );
 
-  return <div {...lkTextInputAttrs}>{/* implementation omitted for brevity */}</div>;
+  return (
+    <div {...lkTextInputAttrs}>{/* implementation omitted for brevity */}</div>
+  );
 }

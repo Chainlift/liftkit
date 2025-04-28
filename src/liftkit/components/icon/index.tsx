@@ -1,8 +1,5 @@
 "use client";
 
-import styles from "./icon.module.css";
-import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
 import { DynamicIcon } from "lucide-react/dynamic";
 import type { IconName } from "lucide-react/dynamic";
 
@@ -14,12 +11,20 @@ interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
   strokeWidth?: number;
 }
 
-export default function Icon({ name="roller-coaster", fontClass, color, strokeWidth=2 }: LkIconProps) {
-
-
+export default function Icon({
+  name = "roller-coaster",
+  fontClass,
+  color,
+  strokeWidth = 2,
+}: LkIconProps) {
   return (
     <div lk-component="icon">
-      <DynamicIcon name={name} className={fontClass} color={`var(--lk-${color})`} strokeWidth={strokeWidth}/>
+      <DynamicIcon
+        name={name}
+        className={fontClass}
+        color={`var(--lk-${color})`}
+        strokeWidth={strokeWidth}
+      />
     </div>
   );
 }

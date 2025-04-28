@@ -1,4 +1,3 @@
-import styles from "./menu-chip.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -7,8 +6,15 @@ interface LkMenuChipProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
 }
 
-export default function MenuChip({ isActive = false, label = "Menu Label", ...rest }: LkMenuChipProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({ open: isActive }, "lk-menu-chip"), [isActive]);
+export default function MenuChip({
+  isActive = false,
+  label = "Menu Label",
+  ...rest
+}: LkMenuChipProps) {
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs({ open: isActive }, "lk-menu-chip"),
+    [isActive]
+  );
 
   return (
     <div {...dataAttrs} {...rest}>

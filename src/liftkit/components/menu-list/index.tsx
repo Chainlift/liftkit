@@ -1,4 +1,3 @@
-import styles from "./menu-list.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -14,7 +13,10 @@ export default function MenuList({
   children,
   ...rest
 }: LkMenuListProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({ open: isOpen }, "lk-menu-list"), [isOpen]);
+  const dataAttrs = useMemo(
+    () => propsToDataAttrs({ open: isOpen }, "lk-menu-list"),
+    [isOpen]
+  );
 
   return (
     <div

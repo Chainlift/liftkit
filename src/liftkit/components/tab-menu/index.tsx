@@ -1,4 +1,3 @@
-import styles from "./tab-menu.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 import Row from "@/liftkit/components/row";
@@ -7,7 +6,12 @@ import TabLink from "@/liftkit/components/tab-link";
 interface LkTabMenuProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks?: string[];
   alignItems?: "start" | "center" | "end" | "stretch";
-  justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
+  justifyContent?:
+    | "start"
+    | "center"
+    | "end"
+    | "space-between"
+    | "space-around";
 }
 
 export default function TabMenu({

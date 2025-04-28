@@ -1,4 +1,3 @@
-import styles from "./paragraph.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -12,7 +11,10 @@ export default function Paragraph({
   content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   ...rest
 }: LkParagraphProps) {
-  const paragraphAttrs = useMemo(() => propsToDataAttrs(rest, "lk-paragraph"), [rest]);
+  const paragraphAttrs = useMemo(
+    () => propsToDataAttrs(rest, "lk-paragraph"),
+    [rest]
+  );
 
   return (
     <p className={`lk-font-${fontClass}`} {...paragraphAttrs}>

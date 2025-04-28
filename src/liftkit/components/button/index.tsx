@@ -1,4 +1,3 @@
-import styles from "./button.module.css";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
@@ -13,11 +12,18 @@ interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function Button(props: LkButtonProps) {
-  const { label, startIcon, endIcon, children, ...restProps } = props;
+  const { label, startIcon, endIcon, ...restProps } = props;
 
   const lkButtonAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-button"),
-    [restProps.variant, restProps.color, restProps.size, restProps.material, startIcon, endIcon]
+    [
+      restProps.variant,
+      restProps.color,
+      restProps.size,
+      restProps.material,
+      startIcon,
+      endIcon,
+    ]
   );
 
   return (
@@ -35,7 +41,10 @@ export default function Button(props: LkButtonProps) {
           </i>
         )}
       </div>
-      <div lk-component="state-layer" lk-state-layer-color="var(--lk-primary)" />
+      <div
+        lk-component="state-layer"
+        lk-state-layer-color="var(--lk-primary)"
+      />
     </button>
   );
 }
