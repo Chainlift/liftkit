@@ -1,12 +1,17 @@
 import type { MDXComponents } from "mdx/types";
-import { CodeBlock } from "react-code-blocks";
 import Card from "@/liftkit/components/card";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    h1: ({ children }) => <h1 className="display2-bold m-bottom-sm">{children}</h1>,
-    h2: ({ children }) => <h2 className="title1-bold m-bottom-sm">{children}</h2>,
-    h3: ({ children }) => <h3 className="title2-bold m-bottom-xs">{children}</h3>,
+    h1: ({ children }) => (
+      <h1 className="display2-bold m-bottom-sm">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="title1-bold m-bottom-sm">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="title2-bold m-bottom-xs">{children}</h3>
+    ),
     h4: ({ children }) => <h4 className="title4-bold">{children}</h4>,
     h5: ({ children }) => <h5 className="title5-bold">{children}</h5>,
     h6: ({ children }) => <h6 className="title6-bold">{children}</h6>,
@@ -26,10 +31,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </div>
       </Card>
     ),
-    thead: ({ children }) => <thead className="border-bottom bg-surfacecontainerlow">{children}</thead>,
+    thead: ({ children }) => (
+      <thead className="border-bottom bg-surfacecontainerlow">{children}</thead>
+    ),
     tbody: ({ children }) => <tbody>{children}</tbody>,
     tr: ({ children }) => <tr>{children}</tr>,
-    th: ({ children }) => <th className="p-sm"><div className="subheading-bold">{children}</div></th>,
+    th: ({ children }) => (
+      <th className="p-sm">
+        <div className="subheading-bold">{children}</div>
+      </th>
+    ),
     td: ({ children }) => <td className="p-sm">{children}</td>,
     ...components,
   };
