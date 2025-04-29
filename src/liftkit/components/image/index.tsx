@@ -51,5 +51,5 @@ export default function Image({
     [aspect, borderRadius, objectFit, width, height]
   );
 
-  return <Image {...attrs} {...rest} alt="" />;
+  return <img {...attrs} {...rest} alt="" />;
 }
