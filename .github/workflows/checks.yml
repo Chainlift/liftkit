@@ -1,3 +1,4 @@
+name: Checks
 on:
   workflow_dispatch:
   pull_request:
@@ -27,8 +28,18 @@ jobs:
           merge-base: false
           job-summary: true
           pr-comments: false
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4 # Check out the repository first.
+      - uses: EPMatt/reviewdog-action-prettier@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: warning
   eslint:
-    name: Eslint check
+    name: Eslint
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4

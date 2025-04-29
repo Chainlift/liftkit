@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "pretty": "prettier --check .",
     "lint": "next lint"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.0.0",
+    "prettier": "3.5.3",
     "typescript": "^5",
     "typescript-eslint": "^8.31.0"
   }
