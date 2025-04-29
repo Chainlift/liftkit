@@ -12,7 +12,7 @@ export default function TextInput(props: LkTextInputProps) {
 
   const lkTextInputAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-text-input"),
-    [restProps]
+    [restProps],
   );
 
   return (

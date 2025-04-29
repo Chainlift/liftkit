@@ -20,7 +20,7 @@ export default function IconButton({
 }: LkIconButtonProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ variant, color, size }, "lk-icon-button"),
-    [variant, color, size]
+    [variant, color, size],
   );
 
   return (

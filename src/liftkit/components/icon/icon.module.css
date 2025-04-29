@@ -1,6 +1,6 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 [lk-component="icon"] {
-  font-family: 'Material Symbols Outlined';
+  font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
   font-size: var(--lk-size-md);
@@ -10,6 +10,6 @@
   display: block;
   white-space: nowrap;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }

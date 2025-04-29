@@ -15,7 +15,7 @@ export default function MenuItem({
 }: LkMenuItemProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs(rest, "lk-menu-item"),
-    [rest]
+    [rest],
   );
 
   return (

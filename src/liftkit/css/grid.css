@@ -80,4 +80,3 @@
 .grid.col-3.max-content-cols {
   grid-template-columns: repeat(3, max-content);
 }
-

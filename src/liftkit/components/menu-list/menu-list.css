@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="menu-list"] {
   position: absolute;
@@ -7,7 +7,9 @@
   border-radius: var(--lk-size-md);
   box-shadow: var(--shadow-xl);
   transform-origin: top right;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 [lk-component="menu-list"] > [lk-component="column"] {

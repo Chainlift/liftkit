@@ -9,9 +9,7 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
-  --sm: calc(var(--lineHeightInEms) * calc(1 / var(--halfstep)))
-
+  --sm: calc(var(--lineHeightInEms) * calc(1 / var(--halfstep)));
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -30,7 +28,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -48,7 +45,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -86,7 +82,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -97,14 +92,14 @@
   line-height: var(--halfstep);
 }
 
-.heading, .tiptap h3 {
+.heading,
+.tiptap h3 {
   --lineHeightInEms: calc(1em * var(--halfstep));
   --md: var(--lineHeightInEms);
 
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -124,7 +119,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -141,7 +135,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(1em * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -162,7 +155,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -181,7 +173,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -191,7 +182,6 @@
   font-weight: 600;
   line-height: var(--halfstep);
   position: static;
-
 }
 
 .caption {
@@ -201,7 +191,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -221,14 +210,13 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
 
   letter-spacing: 0.0618em;
   text-transform: uppercase;
-  font-size: var(--capline-font-size); 
+  font-size: var(--capline-font-size);
   font-weight: 400;
   line-height: var(--halfstep);
 }
@@ -241,7 +229,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(1em * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -261,7 +248,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -272,14 +258,14 @@
   line-height: var(--halfstep);
 }
 
-.title1-bold, .tiptap h1 {
+.title1-bold,
+.tiptap h1 {
   --lineHeightInEms: calc(1em * var(--halfstep));
   --md: var(--lineHeightInEms);
 
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -291,7 +277,8 @@
   line-height: var(--halfstep);
 }
 
-.title2-bold, .tiptap h2 {
+.title2-bold,
+.tiptap h2 {
   --lineHeightInEms: calc(1em * var(--halfstep));
   --md: var(--lineHeightInEms);
 
@@ -317,7 +304,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -335,7 +321,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -355,7 +340,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -372,7 +356,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(1em * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -394,7 +377,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -414,7 +396,6 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
@@ -432,7 +413,6 @@
   --sm: calc(var(--lineHeightInEms) * var(--wholestep-dec));
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
-
 
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
@@ -452,19 +432,16 @@
   --xs: calc(var(--lineHeightInEms) * var(--halfstep-dec));
   --2xs: calc(var(--lineHeightInEms) * var(--quarterstep-dec));
 
-
   --lg: calc(var(--lineHeightInEms) * var(--wholestep));
   --xl: calc(var(--lk-size-lg) * var(--wholestep));
   --2xl: calc(var(--lk-size-xl) * var(--wholestep));
 
   letter-spacing: 0.0618em;
   text-transform: uppercase;
-  font-size: var(--capline-font-size); 
+  font-size: var(--capline-font-size);
   font-weight: 600;
   line-height: var(--halfstep);
 }
-
-
 
 @media screen and (max-width: 767px) {
   .display1-bold,
@@ -603,10 +580,9 @@
 }
 
 .tiptap hr {
-border: none;
-border-top: 1px solid var(--lk-outline);
-margin: var(--lk-size-lg) 0px;
-
+  border: none;
+  border-top: 1px solid var(--lk-outline);
+  margin: var(--lk-size-lg) 0px;
 }
 
 .weight-400 {
@@ -614,12 +590,12 @@ margin: var(--lk-size-lg) 0px;
 }
 
 .italic {
-font-style: italic;
+  font-style: italic;
 }
 
 .is-link {
-transition: opacity 0.2s ease;
-cursor: pointer;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
 }
 
 .is-link:hover {
@@ -628,5 +604,4 @@ cursor: pointer;
 
 .mono {
   font-family: "Roboto Mono", monospace;
-
 }

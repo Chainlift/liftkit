@@ -15,11 +15,11 @@ export default function Grid({
 }: LkGridProps) {
   const lkGridAttrs = useMemo(
     () => propsToDataAttrs({ ...restProps, autoResponsive }, "grid"),
-    [restProps, autoResponsive]
+    [restProps, autoResponsive],
   );
 
   return (
-    <div lk-component="grid" {...lkGridAttrs} >
+    <div lk-component="grid" {...lkGridAttrs}>
       {children}
     </div>
   );

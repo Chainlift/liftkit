@@ -23,7 +23,7 @@ export default function NavBar({
 }: LkNavBarProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ material }, "lk-navbar"),
-    [material]
+    [material],
   );
 
   return (

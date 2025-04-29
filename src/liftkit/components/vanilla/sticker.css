@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="sticker"] {
   display: inline-block;
@@ -10,7 +10,6 @@
   line-height: var(--label-line-height);
   font-size: var(--label-font-size);
 }
-
 
 /* Color modifiers */
 [lk-sticker-color="lk-primary"] {

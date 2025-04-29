@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="sticker"] {
   display: inline-block;

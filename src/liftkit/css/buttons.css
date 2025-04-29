@@ -4,8 +4,12 @@
   --button-font-size: var(--lk-size-md);
   --button-line-height: var(--halfstep);
   --button-padX-default: var(--lk-size-md);
-  --button-padX-sideWithIcon: calc(1em * calc(var(--wholestep) / var(--xl-unitless)));
-  --button-padY: calc(var(--button-font-size) * calc(var(--halfstep) / var(--xl-unitless)));
+  --button-padX-sideWithIcon: calc(
+    1em * calc(var(--wholestep) / var(--xl-unitless))
+  );
+  --button-padY: calc(
+    var(--button-font-size) * calc(var(--halfstep) / var(--xl-unitless))
+  );
 
   --button-gap: var(--button-padX-sideWithIcon);
   --test: calc(1em * calc(1.272 / 2.618));

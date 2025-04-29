@@ -1,6 +1,5 @@
 @import "../globals.css";
 
-
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;
@@ -21,7 +20,11 @@
   word-wrap: normal;
   direction: ltr;
   text-decoration: none;
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 24;
   position: relative;
 }
 

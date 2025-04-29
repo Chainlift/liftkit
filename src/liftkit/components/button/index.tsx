@@ -24,7 +24,7 @@ export default function Button(props: LkButtonProps) {
       // startIcon,
       // endIcon,
       restProps,
-    ]
+    ],
   );
 
   return (

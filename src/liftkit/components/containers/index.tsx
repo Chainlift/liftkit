@@ -12,7 +12,7 @@ export default function Container({
 }: LkContainerProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ maxWidth }, "lk-container"),
-    [maxWidth]
+    [maxWidth],
   );
 
   return (

@@ -13,7 +13,7 @@ export default function MenuChip({
 }: LkMenuChipProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ open: isActive }, "lk-menu-chip"),
-    [isActive]
+    [isActive],
   );
 
   return (

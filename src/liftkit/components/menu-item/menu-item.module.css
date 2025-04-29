@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="menu-item"] {
   display: inline-flex;

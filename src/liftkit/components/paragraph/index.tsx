@@ -13,7 +13,7 @@ export default function Paragraph({
 }: LkParagraphProps) {
   const paragraphAttrs = useMemo(
     () => propsToDataAttrs(rest, "lk-paragraph"),
-    [rest]
+    [rest],
   );
 
   return (

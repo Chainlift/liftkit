@@ -31,7 +31,7 @@ export function getOnToken(colorToken: LkColor) {
   //check if the token has an on-token in the first place
   if (!colorsWithOnTokens.includes(colorToken as LkColorWithOnToken)) {
     throw new Error(
-      `The color token "${colorToken}" does not have a corresponding "on-" token.`
+      `The color token "${colorToken}" does not have a corresponding "on-" token.`,
     );
   }
 

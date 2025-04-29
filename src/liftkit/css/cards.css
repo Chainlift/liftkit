@@ -8,7 +8,8 @@
   --largest-child-font-size: var(--body-font-size);
   --largest-child-line-height: var(--body-line-height);
 
-  padding: var(--local-offset-factor) var(--largest-child-font-size) var(--largest-child-font-size);
+  padding: var(--local-offset-factor) var(--largest-child-font-size)
+    var(--largest-child-font-size);
 
   border-radius: var(--local-offset-factor);
 }
@@ -38,7 +39,8 @@
   --largest-child-font-size: var(--display1-font-size);
   --largest-child-line-height: var(--display1-line-height);
 
-  padding: var(--local-offset-factor) var(--largest-child-font-size) var(--largest-child-font-size);
+  padding: var(--local-offset-factor) var(--largest-child-font-size)
+    var(--largest-child-font-size);
 
   border-radius: var(--local-offset-factor);
 }

@@ -1,7 +1,7 @@
 .lk-link {
-    color: inherit;
+  color: inherit;
 }
 
 .lk-link.active {
-    color: var(--lk-primary);
+  color: var(--lk-primary);
 }

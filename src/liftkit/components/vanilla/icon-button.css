@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 [lk-component="icon-button"] {
   display: inline-block;
   position: relative;
@@ -22,7 +22,9 @@
   pointer-events: none;
   background-color: var(--lk-primary);
   opacity: 0;
-  transition: background-color 0.2s ease-out, opacity 0.2s ease-out;
+  transition:
+    background-color 0.2s ease-out,
+    opacity 0.2s ease-out;
 }
 
 [lk-component="icon-button"]:hover > [lk-component="state-layer"],

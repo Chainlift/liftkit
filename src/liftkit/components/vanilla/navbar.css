@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="navbar"] {
   position: sticky;
@@ -7,7 +7,9 @@
 }
 
 [lk-navbar-el="nav-menu"] {
-  transition: transform 0.3s ease, opacity 0.2s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
 }
 
 @media (max-width: 768px) {

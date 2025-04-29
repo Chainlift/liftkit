@@ -18,7 +18,7 @@ export default function TabLink({
 }: LkTabLinkProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ selected }, "lk-tab-link"),
-    [selected]
+    [selected],
   );
 
   return (

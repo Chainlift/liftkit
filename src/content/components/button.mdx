@@ -52,7 +52,14 @@ export default function Button(props: LkButtonProps) {
 
   const lkButtonAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-button"),
-    [restProps.variant, restProps.color, restProps.size, restProps.material, startIcon, endIcon]
+    [
+      restProps.variant,
+      restProps.color,
+      restProps.size,
+      restProps.material,
+      startIcon,
+      endIcon,
+    ],
   );
 
   return (
@@ -70,7 +77,10 @@ export default function Button(props: LkButtonProps) {
           </i>
         )}
       </div>
-      <div lk-component="state-layer" lk-state-layer-color="var(--lk-primary)" />
+      <div
+        lk-component="state-layer"
+        lk-state-layer-color="var(--lk-primary)"
+      />
     </button>
   );
 }
@@ -83,8 +93,12 @@ export default function Button(props: LkButtonProps) {
   --button-font-size: var(--lk-size-md);
   --button-line-height: var(--lk-halfstep);
   --button-padX-default: var(--lk-size-md);
-  --button-padX-sideWithIcon: calc(1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless)));
-  --button-padY: calc(var(--button-font-size) * calc(var(--halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(
+    1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless))
+  );
+  --button-padY: calc(
+    var(--button-font-size) * calc(var(--halfstep) / var(--lk-size-xl-unitless))
+  );
 
   --button-gap: var(--button-padX-sideWithIcon);
 
@@ -102,7 +116,9 @@ export default function Button(props: LkButtonProps) {
   line-height: var(--button-line-height);
 }
 
-[lk-component="button"] > [lk-button-content-wrap] > [lk-icon-position="start"] {
+[lk-component="button"]
+  > [lk-button-content-wrap]
+  > [lk-icon-position="start"] {
   padding-left: var(--button-padX-sideWithIcon);
 }
 

@@ -1,7 +1,6 @@
-export { };
+export {};
 
 declare global {
-
   /**
    * Represents all valid LiftKit color tokens.
    */
@@ -98,7 +97,7 @@ declare global {
     | "surfacecontainer"
     | "surfacecontainerhigh"
     | "surfacecontainerhighest"
-    | "inversesurface"
+    | "inversesurface";
 
   type LkOnColor =
     | "onprimary"
@@ -118,7 +117,5 @@ declare global {
     | "onbackground"
     | "onsurface"
     | "onsurfacevariant"
-    | "inverseonsurface"
+    | "inverseonsurface";
 }
-
-

@@ -17,7 +17,7 @@ export default function Heading({
 }: LkHeadingProps) {
   const headingAttrs = useMemo(
     () => propsToDataAttrs(rest, "lk-heading"),
-    [rest]
+    [rest],
   );
   const Tag = tag;
 

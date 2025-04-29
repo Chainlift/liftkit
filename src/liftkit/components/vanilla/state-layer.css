@@ -1,24 +1,23 @@
 [lk-component="state-layer"] {
-position: absolute;
-background-color: currentColor;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-pointer-events: none;
-z-index: 99;
-opacity: 0;
-transition: opacity 0.2s ease-out;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 }
 
 * > [lk-component="state-layer"] {
-
 }
 
 *:hover > [lk-component="state-layer"] {
- opacity: 0.08;
+  opacity: 0.08;
 }
 
 *:active > [lk-component="state-layer"] {
- opacity: 0.16;
+  opacity: 0.16;
 }

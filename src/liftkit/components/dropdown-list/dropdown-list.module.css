@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 [lk-component="dropdown-list"] {
   padding: var(--lk-size-md);
   box-sizing: content-box;

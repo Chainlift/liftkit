@@ -1,6 +1,6 @@
 export function propsToDataAttrs(
   props: Record<string, unknown>,
-  baseAttr: string
+  baseAttr: string,
 ): Record<string, string> {
   const dataAttrs: Record<string, string> = {};
 

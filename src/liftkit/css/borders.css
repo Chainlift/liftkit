@@ -25,12 +25,11 @@
 
 .border-color-error {
   border-color: var(--lk-error);
-} 
-
+}
 
 .border-color-onerrorcontainer {
   border-color: var(--lk-onerrorcontainer);
-} 
+}
 
 .border-color-outlinevariant {
   border-color: var(--lk-outlinevariant);

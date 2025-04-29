@@ -46,9 +46,9 @@ export default function Image({
     () =>
       propsToDataAttrs(
         { aspect, borderRadius, objectFit, width, height },
-        "lk-image"
+        "lk-image",
       ),
-    [aspect, borderRadius, objectFit, width, height]
+    [aspect, borderRadius, objectFit, width, height],
   );
 
   return <img {...attrs} {...rest} alt="" />;

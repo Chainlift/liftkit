@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 /* ============================================= */
 /* Component: Grid                               */
@@ -8,11 +8,9 @@
 [lk-component="grid"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* default: 2 columns */
-  grid-template-rows: auto;             /* default: 1 row, auto height */
-  gap: var(--lk-size-md);               /* default spacing */
+  grid-template-rows: auto; /* default: 1 row, auto height */
+  gap: var(--lk-size-md); /* default spacing */
 }
-
-
 
 /* Sets the number of columns in the grid */
 [lk-component="grid"][lk-grid-columns="1"] {
@@ -134,63 +132,93 @@
 }
 
 /* Sets gap using LiftKit spacing scale */
-[lk-component="grid"][lk-grid-gap="3xs"] { gap: var(--lk-size-3xs); }
-[lk-component="grid"][lk-grid-gap="2xs"] { gap: var(--lk-size-2xs); }
-[lk-component="grid"][lk-grid-gap="xs"]  { gap: var(--lk-size-xs); }
-[lk-component="grid"][lk-grid-gap="sm"]  { gap: var(--lk-size-sm); }
-[lk-component="grid"][lk-grid-gap="md"]  { gap: var(--lk-size-md); }
-[lk-component="grid"][lk-grid-gap="lg"]  { gap: var(--lk-size-lg); }
-[lk-component="grid"][lk-grid-gap="xl"]  { gap: var(--lk-size-xl); }
-[lk-component="grid"][lk-grid-gap="2xl"] { gap: var(--lk-size-2xl); }
-[lk-component="grid"][lk-grid-gap="3xl"] { gap: var(--lk-size-3xl); }
-[lk-component="grid"][lk-grid-gap="4xl"] { gap: var(--lk-size-4xl); }
-
+[lk-component="grid"][lk-grid-gap="3xs"] {
+  gap: var(--lk-size-3xs);
+}
+[lk-component="grid"][lk-grid-gap="2xs"] {
+  gap: var(--lk-size-2xs);
+}
+[lk-component="grid"][lk-grid-gap="xs"] {
+  gap: var(--lk-size-xs);
+}
+[lk-component="grid"][lk-grid-gap="sm"] {
+  gap: var(--lk-size-sm);
+}
+[lk-component="grid"][lk-grid-gap="md"] {
+  gap: var(--lk-size-md);
+}
+[lk-component="grid"][lk-grid-gap="lg"] {
+  gap: var(--lk-size-lg);
+}
+[lk-component="grid"][lk-grid-gap="xl"] {
+  gap: var(--lk-size-xl);
+}
+[lk-component="grid"][lk-grid-gap="2xl"] {
+  gap: var(--lk-size-2xl);
+}
+[lk-component="grid"][lk-grid-gap="3xl"] {
+  gap: var(--lk-size-3xl);
+}
+[lk-component="grid"][lk-grid-gap="4xl"] {
+  gap: var(--lk-size-4xl);
+}
 
 /* THESE ARE FOR WEBFLOW ONLY */
 
 /* Show only the first 1 slot */
-[lk-component="grid"][lk-grid-slots-to-show="1"] > [lk-element="slot"]:nth-of-type(n + 2) {
+[lk-component="grid"][lk-grid-slots-to-show="1"]
+  > [lk-element="slot"]:nth-of-type(n + 2) {
   display: none;
 }
 
 /* Show only the first 2 slots */
-[lk-component="grid"][lk-grid-slots-to-show="2"] > [lk-element="slot"]:nth-of-type(n + 3) {
+[lk-component="grid"][lk-grid-slots-to-show="2"]
+  > [lk-element="slot"]:nth-of-type(n + 3) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="3"] > [lk-element="slot"]:nth-of-type(n + 4) {
+[lk-component="grid"][lk-grid-slots-to-show="3"]
+  > [lk-element="slot"]:nth-of-type(n + 4) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="4"] > [lk-element="slot"]:nth-of-type(n + 5) {
+[lk-component="grid"][lk-grid-slots-to-show="4"]
+  > [lk-element="slot"]:nth-of-type(n + 5) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="5"] > [lk-element="slot"]:nth-of-type(n + 6) {
+[lk-component="grid"][lk-grid-slots-to-show="5"]
+  > [lk-element="slot"]:nth-of-type(n + 6) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="6"] > [lk-element="slot"]:nth-of-type(n + 7) {
+[lk-component="grid"][lk-grid-slots-to-show="6"]
+  > [lk-element="slot"]:nth-of-type(n + 7) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="7"] > [lk-element="slot"]:nth-of-type(n + 8) {
+[lk-component="grid"][lk-grid-slots-to-show="7"]
+  > [lk-element="slot"]:nth-of-type(n + 8) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="8"] > [lk-element="slot"]:nth-of-type(n + 9) {
+[lk-component="grid"][lk-grid-slots-to-show="8"]
+  > [lk-element="slot"]:nth-of-type(n + 9) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="9"] > [lk-element="slot"]:nth-of-type(n + 10) {
+[lk-component="grid"][lk-grid-slots-to-show="9"]
+  > [lk-element="slot"]:nth-of-type(n + 10) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="10"] > [lk-element="slot"]:nth-of-type(n + 11) {
+[lk-component="grid"][lk-grid-slots-to-show="10"]
+  > [lk-element="slot"]:nth-of-type(n + 11) {
   display: none;
 }
 
-[lk-component="grid"][lk-grid-slots-to-show="11"] > [lk-element="slot"]:nth-of-type(n + 12) {
+[lk-component="grid"][lk-grid-slots-to-show="11"]
+  > [lk-element="slot"]:nth-of-type(n + 12) {
   display: none;
 }
 

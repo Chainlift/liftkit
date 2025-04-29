@@ -10,16 +10,16 @@
 */
 
 .lk-code-block {
-    background: var(--dark__surfacecontainerhighest_lkv);
-    padding: var(--lk-size-lg);
-    border-radius: var(--lk-size-lg);
-    font-family: monospace;
-    font-size: var(--caption-font-size);
-    line-height: var(--body-line-height);
-    white-space: pre;
-    overflow: auto;
-    scrollbar-color: var(--dark__outline_lkv) transparent;
-    color: var(--dark__onsurfacevariant_lkv);
+  background: var(--dark__surfacecontainerhighest_lkv);
+  padding: var(--lk-size-lg);
+  border-radius: var(--lk-size-lg);
+  font-family: monospace;
+  font-size: var(--caption-font-size);
+  line-height: var(--body-line-height);
+  white-space: pre;
+  overflow: auto;
+  scrollbar-color: var(--dark__outline_lkv) transparent;
+  color: var(--dark__onsurfacevariant_lkv);
 }
 
 .hljs {
@@ -38,18 +38,16 @@
 }
 
 .hljs-attribute {
- color:#00ddfa
+  color: #00ddfa;
 }
 
 .hljs-title,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
-
 .hljs-title.function_ {
   /* prettylights-syntax-entity */
   color: #ffa034;
 }
-
 
 .hljs-literal,
 .hljs-meta,
@@ -65,15 +63,13 @@
 
 .hljs-attr,
 .hljs-selector-attr {
- color: var(--dark__onsurface_lkv);
+  color: var(--dark__onsurface_lkv);
 }
 
-
 .hljs-regexp,
-
 .hljs-meta .hljs-string {
   /* prettylights-syntax-string */
-  color:#00ddfa;
+  color: #00ddfa;
 }
 
 .hljs-built_in,

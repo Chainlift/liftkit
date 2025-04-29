@@ -11,7 +11,7 @@ export default function DropdownList(props: LkDropdownListProps) {
 
   const listAttrs = useMemo(
     () => propsToDataAttrs(restProps, "lk-dropdown-list"),
-    [restProps]
+    [restProps],
   );
 
   return (

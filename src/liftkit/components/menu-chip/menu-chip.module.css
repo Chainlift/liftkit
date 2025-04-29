@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="menu-chip"] {
   display: flex;
@@ -7,9 +7,11 @@
   padding: var(--lk-size-xs) var(--lk-size-md);
   border: 1px solid var(--lk-outline-variant);
   border-radius: var(--subheading-line-height);
-  background-color: #FFF;
+  background-color: #fff;
   position: relative;
-  transition: border 0.2s ease-out, outline 0.2s ease-out;
+  transition:
+    border 0.2s ease-out,
+    outline 0.2s ease-out;
 }
 
 [lk-component="menu-chip"]:focus-visible {

@@ -3,7 +3,10 @@
   border-radius: var(--lk-size-sm);
   border: 1px solid var(--lk-outlinevariant);
   outline: 3px solid transparent;
-  transition: outline 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition:
+    outline 0.2s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
   align-self: stretch;
 }
 
@@ -12,7 +15,11 @@
   border: 1px solid transparent;
   border-bottom-color: var(--lk-outlinevariant);
   outline: none;
-  transition: outline 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out, border-radius 0.2s ease-out;
+  transition:
+    outline 0.2s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    border-radius 0.2s ease-out;
 }
 
 .text-input-wrap.underline:hover {
@@ -26,7 +33,10 @@
   border-radius: var(--lk-size-sm);
   border: 1px solid var(--lk-outlinevariant);
   outline: 3px solid transparent;
-  transition: outline 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition:
+    outline 0.2s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
   align-self: stretch;
   width: 100%;
   transition: border-width 0.2s ease;
@@ -217,7 +227,10 @@
   border-radius: var(--lk-size-sm);
   border: 1px solid var(--lk-outlinevariant);
   outline: 1px solid transparent;
-  transition: outline 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition:
+    outline 0.2s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
   align-self: stretch;
   font-size: 1em;
   background-color: var(--lk-surface);
@@ -288,7 +301,9 @@
   transform: scale(0);
   opacity: 0;
   transform-origin: top right;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    opacity 0.2s ease-out;
   opacity: 0; /* Set initial opacity to 0 */
   pointer-events: none;
   row-gap: var(--lk-size-xs);

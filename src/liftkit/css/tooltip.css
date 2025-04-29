@@ -3,7 +3,8 @@
   transform: scale(0);
   transition: transform 0.2s ease;
   overflow: hidden;
-  padding: calc(1em * calc(var(--label-line-height) / var(--calculation-key))) var(--label-font-size);
+  padding: calc(1em * calc(var(--label-line-height) / var(--calculation-key)))
+    var(--label-font-size);
   max-width: 320px;
 }
 

@@ -1,4 +1,4 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 
 [lk-component="badge"] {
   display: inline-flex;
@@ -7,7 +7,7 @@
   align-items: center;
   gap: 10px;
   border-radius: var(--lk-size-sm);
-  background: var(--LiftKit-Default-sys-light-surface-container, #EEEDF8);
+  background: var(--LiftKit-Default-sys-light-surface-container, #eeedf8);
   font-size: var(--lk-size-md);
 }
 

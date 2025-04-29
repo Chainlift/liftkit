@@ -1,10 +1,14 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 [lk-component="button"] {
   --button-font-size: var(--lk-size-md);
   --button-line-height: var(--lk-halfstep);
   --button-padX-default: var(--lk-size-md);
-  --button-padX-sideWithIcon: calc(1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless)));
-  --button-padY: calc(var(--button-font-size) * calc(var(--halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(
+    1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless))
+  );
+  --button-padY: calc(
+    var(--button-font-size) * calc(var(--halfstep) / var(--lk-size-xl-unitless))
+  );
 
   --button-gap: var(--button-padX-sideWithIcon);
 
@@ -22,7 +26,9 @@
   line-height: var(--button-line-height);
 }
 
-[lk-component="button"] > [lk-button-content-wrap] > [lk-icon-position="start"] {
+[lk-component="button"]
+  > [lk-button-content-wrap]
+  > [lk-icon-position="start"] {
   padding-left: var(--button-padX-sideWithIcon);
 }
 

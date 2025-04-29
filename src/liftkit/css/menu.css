@@ -39,7 +39,9 @@
   transform: scale(0);
   opacity: 0;
   overflow: hidden;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
   box-shadow: var(--shadow-xl);
 
   position: absolute;
@@ -58,7 +60,9 @@
 }
 
 .menu-list.showBelow {
-  transition: max-height 0.2s ease, border-width 0.2s ease,
+  transition:
+    max-height 0.2s ease,
+    border-width 0.2s ease,
     border-radius 0.2s ease;
   transform: scale(1);
   left: 0;

@@ -15,7 +15,7 @@ export default function MenuList({
 }: LkMenuListProps) {
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ open: isOpen }, "lk-menu-list"),
-    [isOpen]
+    [isOpen],
   );
 
   return (

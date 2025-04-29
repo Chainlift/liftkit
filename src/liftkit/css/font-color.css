@@ -12,7 +12,7 @@
   color: var(--light__primarycontainer_lkv) !important;
 }
 
-.color-light__onprimarycontainer{
+.color-light__onprimarycontainer {
   color: var(--light__onprimarycontainer_lkv) !important;
 }
 
@@ -479,10 +479,6 @@
 .color-dark__surfacecontainerhighest {
   color: var(--dark__surfacecontainerhighest_lkv) !important;
 }
-
-
-
-
 
 .color-primary {
   color: var(--lk-primary) !important;

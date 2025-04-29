@@ -22,6 +22,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/liftkit/index.d.ts", "src/localComponents/CodeEditor.jsx", "src/app/localComponents/CodeBlock.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/liftkit/index.d.ts",
+    "src/localComponents/CodeEditor.jsx",
+    "src/app/localComponents/CodeBlock.jsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,154 +1,157 @@
-'use client';
+"use client";
 
-import { createContext, useState, useCallback, useEffect } from 'react';
-import materialDynamicColors from 'material-dynamic-colors';
-import { hexFromArgb, argbFromHex, TonalPalette, Hct, customColor, } from '@material/material-color-utilities';
+import { createContext, useState, useCallback, useEffect } from "react";
+import materialDynamicColors from "material-dynamic-colors";
+import {
+  hexFromArgb,
+  argbFromHex,
+  TonalPalette,
+  Hct,
+  customColor,
+} from "@material/material-color-utilities";
 
 export const ThemeContext = createContext({});
 
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState({
     light: {
-      "primary": "#004ee7",
-      "onPrimary": "#ffffff",
-      "primaryContainer": "#dce1ff",
-      "onPrimaryContainer": "#001550",
-      "secondary": "#595d72",
-      "onSecondary": "#ffffff",
-      "secondaryContainer": "#dee1f9",
-      "onSecondaryContainer": "#161b2c",
-      "tertiary": "#75546f",
-      "onTertiary": "#ffffff",
-      "tertiaryContainer": "#ffd7f5",
-      "onTertiaryContainer": "#2c122a",
-      "error": "#ba1a1a",
-      "onError": "#ffffff",
-      "errorContainer": "#ffdad6",
-      "onErrorContainer": "#410002",
-      "background": "#fefbff",
-      "onBackground": "#1b1b1f",
-      "surface": "#fbf8fd",
-      "onSurface": "#1b1b1f",
-      "surfaceVariant": "#e2e1ec",
-      "onSurfaceVariant": "#45464f",
-      "outline": "#767680",
-      "outlineVariant": "#c6c5d0",
-      "shadow": "#000000",
-      "scrim": "#000000",
-      "inverseSurface": "#303034",
-      "inverseOnSurface": "#f2f0f4",
-      "inversePrimary": "#b6c4ff",
-      "surfaceDim": "#dbd9de",
-      "surfaceBright": "#fbf8fd",
-      "surfaceContainerLowest": "#ffffff",
-      "surfaceContainerLow": "#f5f3f7",
-      "surfaceContainer": "#efedf1",
-      "surfaceContainerHigh": "#eae7ec",
-      "surfaceContainerHighest": "#e4e1e6",
-      "warning": "#e3aa00",
-      "onWarning": "#281b00",
-      "warningContainer": "#ffdfa0",
-      "onWarningContainer": "#261a00",
-      "success": "#41ca82",
-      "onSuccess": "#002311",
-      "successContainer": "#77fbae",
-      "onSuccessContainer": "#002110",
-      "info": "#9bb0ff",
-      "onInfo": "#001754",
-      "infoContainer": "#dce1ff",
-      "onInfoContainer": "#001550"
+      primary: "#004ee7",
+      onPrimary: "#ffffff",
+      primaryContainer: "#dce1ff",
+      onPrimaryContainer: "#001550",
+      secondary: "#595d72",
+      onSecondary: "#ffffff",
+      secondaryContainer: "#dee1f9",
+      onSecondaryContainer: "#161b2c",
+      tertiary: "#75546f",
+      onTertiary: "#ffffff",
+      tertiaryContainer: "#ffd7f5",
+      onTertiaryContainer: "#2c122a",
+      error: "#ba1a1a",
+      onError: "#ffffff",
+      errorContainer: "#ffdad6",
+      onErrorContainer: "#410002",
+      background: "#fefbff",
+      onBackground: "#1b1b1f",
+      surface: "#fbf8fd",
+      onSurface: "#1b1b1f",
+      surfaceVariant: "#e2e1ec",
+      onSurfaceVariant: "#45464f",
+      outline: "#767680",
+      outlineVariant: "#c6c5d0",
+      shadow: "#000000",
+      scrim: "#000000",
+      inverseSurface: "#303034",
+      inverseOnSurface: "#f2f0f4",
+      inversePrimary: "#b6c4ff",
+      surfaceDim: "#dbd9de",
+      surfaceBright: "#fbf8fd",
+      surfaceContainerLowest: "#ffffff",
+      surfaceContainerLow: "#f5f3f7",
+      surfaceContainer: "#efedf1",
+      surfaceContainerHigh: "#eae7ec",
+      surfaceContainerHighest: "#e4e1e6",
+      warning: "#e3aa00",
+      onWarning: "#281b00",
+      warningContainer: "#ffdfa0",
+      onWarningContainer: "#261a00",
+      success: "#41ca82",
+      onSuccess: "#002311",
+      successContainer: "#77fbae",
+      onSuccessContainer: "#002110",
+      info: "#9bb0ff",
+      onInfo: "#001754",
+      infoContainer: "#dce1ff",
+      onInfoContainer: "#001550",
     },
     dark: {
-      "primary": "#004ee7",
-      "onPrimary": "#ffffff",
-      "primaryContainer": "#dce1ff",
-      "onPrimaryContainer": "#001550",
-      "secondary": "#595d72",
-      "onSecondary": "#ffffff",
-      "secondaryContainer": "#dee1f9",
-      "onSecondaryContainer": "#161b2c",
-      "tertiary": "#75546f",
-      "onTertiary": "#ffffff",
-      "tertiaryContainer": "#ffd7f5",
-      "onTertiaryContainer": "#2c122a",
-      "error": "#ba1a1a",
-      "onError": "#ffffff",
-      "errorContainer": "#ffdad6",
-      "onErrorContainer": "#410002",
-      "background": "#fefbff",
-      "onBackground": "#1b1b1f",
-      "surface": "#fbf8fd",
-      "onSurface": "#1b1b1f",
-      "surfaceVariant": "#e2e1ec",
-      "onSurfaceVariant": "#45464f",
-      "outline": "#767680",
-      "outlineVariant": "#c6c5d0",
-      "shadow": "#000000",
-      "scrim": "#000000",
-      "inverseSurface": "#303034",
-      "inverseOnSurface": "#f2f0f4",
-      "inversePrimary": "#b6c4ff",
-      "surfaceDim": "#dbd9de",
-      "surfaceBright": "#fbf8fd",
-      "surfaceContainerLowest": "#ffffff",
-      "surfaceContainerLow": "#f5f3f7",
-      "surfaceContainer": "#efedf1",
-      "surfaceContainerHigh": "#eae7ec",
-      "surfaceContainerHighest": "#e4e1e6",
-      "warning": "#e3aa00",
-      "onWarning": "#281b00",
-      "warningContainer": "#ffdfa0",
-      "onWarningContainer": "#261a00",
-      "success": "#41ca82",
-      "onSuccess": "#002311",
-      "successContainer": "#77fbae",
-      "onSuccessContainer": "#002110",
-      "info": "#9bb0ff",
-      "onInfo": "#001754",
-      "infoContainer": "#dce1ff",
-      "onInfoContainer": "#001550"
-    }
+      primary: "#004ee7",
+      onPrimary: "#ffffff",
+      primaryContainer: "#dce1ff",
+      onPrimaryContainer: "#001550",
+      secondary: "#595d72",
+      onSecondary: "#ffffff",
+      secondaryContainer: "#dee1f9",
+      onSecondaryContainer: "#161b2c",
+      tertiary: "#75546f",
+      onTertiary: "#ffffff",
+      tertiaryContainer: "#ffd7f5",
+      onTertiaryContainer: "#2c122a",
+      error: "#ba1a1a",
+      onError: "#ffffff",
+      errorContainer: "#ffdad6",
+      onErrorContainer: "#410002",
+      background: "#fefbff",
+      onBackground: "#1b1b1f",
+      surface: "#fbf8fd",
+      onSurface: "#1b1b1f",
+      surfaceVariant: "#e2e1ec",
+      onSurfaceVariant: "#45464f",
+      outline: "#767680",
+      outlineVariant: "#c6c5d0",
+      shadow: "#000000",
+      scrim: "#000000",
+      inverseSurface: "#303034",
+      inverseOnSurface: "#f2f0f4",
+      inversePrimary: "#b6c4ff",
+      surfaceDim: "#dbd9de",
+      surfaceBright: "#fbf8fd",
+      surfaceContainerLowest: "#ffffff",
+      surfaceContainerLow: "#f5f3f7",
+      surfaceContainer: "#efedf1",
+      surfaceContainerHigh: "#eae7ec",
+      surfaceContainerHighest: "#e4e1e6",
+      warning: "#e3aa00",
+      onWarning: "#281b00",
+      warningContainer: "#ffdfa0",
+      onWarningContainer: "#261a00",
+      success: "#41ca82",
+      onSuccess: "#002311",
+      successContainer: "#77fbae",
+      onSuccessContainer: "#002110",
+      info: "#9bb0ff",
+      onInfo: "#001754",
+      infoContainer: "#dce1ff",
+      onInfoContainer: "#001550",
+    },
   });
 
   const [palette, setPalette] = useState({
-    primary: '#035eff',
-    secondary: '#badcff',
-    tertiary: '#00ddfe',
-    neutral: '#000000',
-    neutralvariant: '#3f4f5b',
-    error: '#dd305c',
-    warning: '#feb600',
-    success: '#0cfecd',
-    info: '#175bfc',
+    primary: "#035eff",
+    secondary: "#badcff",
+    tertiary: "#00ddfe",
+    neutral: "#000000",
+    neutralvariant: "#3f4f5b",
+    error: "#dd305c",
+    warning: "#feb600",
+    success: "#0cfecd",
+    info: "#175bfc",
   });
 
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   // update the root css variables with the theme values
   useEffect(() => {
-
     const root = document.documentElement;
     // console.log(root);
     Object.keys(theme.light).forEach((key) => {
-      root.style.setProperty(`--light__${key.toLowerCase()}_lkv`, theme.light[key]);
+      root.style.setProperty(
+        `--light__${key.toLowerCase()}_lkv`,
+        theme.light[key],
+      );
     });
 
     Object.keys(theme.dark).forEach((key) => {
-      root.style.setProperty(`--dark__${key.toLowerCase()}_lkv`, theme.dark[key]);
+      root.style.setProperty(
+        `--dark__${key.toLowerCase()}_lkv`,
+        theme.dark[key],
+      );
     });
-
-
   }, [theme]);
-
-
 
   //run the initial theme generation on first load
   useEffect(() => {
     updateTheme(palette);
-
-
-
-
 
     const disableScrollOnNumberInputs = (event) => {
       if (document.activeElement?.type === "number") {
@@ -156,9 +159,14 @@ export default function ThemeProvider({ children }) {
       }
     };
 
-    document.addEventListener("wheel", disableScrollOnNumberInputs, { passive: false });
+    document.addEventListener("wheel", disableScrollOnNumberInputs, {
+      passive: false,
+    });
     document.addEventListener("keydown", (event) => {
-      if (["ArrowUp", "ArrowDown"].includes(event.key) && document.activeElement?.type === "number") {
+      if (
+        ["ArrowUp", "ArrowDown"].includes(event.key) &&
+        document.activeElement?.type === "number"
+      ) {
         event.preventDefault();
       }
     });
@@ -167,13 +175,10 @@ export default function ThemeProvider({ children }) {
       document.removeEventListener("wheel", disableScrollOnNumberInputs);
       document.removeEventListener("keydown", disableScrollOnNumberInputs);
     };
-
-
   }, []);
 
-
   function toSentenceCase(str) {
-    if (!str) return ''; // handle empty or undefined input
+    if (!str) return ""; // handle empty or undefined input
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   }
 
@@ -183,24 +188,19 @@ export default function ThemeProvider({ children }) {
         super(hue, chroma);
         var swatch = TonalPalette.fromHueAndChroma(hue, chroma);
 
-
         for (let i = 1; i <= 99; i++) {
           this[`_${i}`] = hexFromArgb(swatch.tone(i));
         }
       }
     }
-  }
-
-
+  };
 
   // Define the updateTheme function
   const updateTheme = useCallback(async (palette) => {
-
     class TonalSwatches extends TonalPalette {
       constructor(hue, chroma) {
         super(hue, chroma);
         var swatch = TonalPalette.fromHueAndChroma(hue, chroma);
-
 
         for (let i = 1; i <= 99; i++) {
           this[`_${i}`] = hexFromArgb(swatch.tone(i));
@@ -209,7 +209,6 @@ export default function ThemeProvider({ children }) {
     }
 
     Object.keys(palette).forEach((key) => {
-
       var argb = argbFromHex(palette[key]);
       var hct = Hct.fromInt(argb);
 
@@ -218,8 +217,8 @@ export default function ThemeProvider({ children }) {
       // map the tones from each color group to a swatch name
 
       switch (key) {
-        case 'neutral':
-          setTheme(prevTheme => ({
+        case "neutral":
+          setTheme((prevTheme) => ({
             ...prevTheme,
 
             light: {
@@ -229,19 +228,20 @@ export default function ThemeProvider({ children }) {
               surfaceDim: tones._87,
               surface: tones._98,
               surfaceBright: tones._98,
-              surfaceContainerLowest: 'white',
+              surfaceContainerLowest: "white",
               surfaceContainerLow: tones._96,
               surfaceContainer: tones._94,
               surfaceContainerHigh: tones._92,
               surfaceContainerHighest: tones._90,
               onSurface: tones._10,
               inverseSurface: tones._20,
-              inverseOnSurface: tones._95
+              inverseOnSurface: tones._95,
             },
             dark: {
               ...prevTheme.dark,
-              background: '#081021',
-              onBackground: tones._85, /** Let's just deal with background and onbackground for now. */
+              background: "#081021",
+              onBackground:
+                tones._85 /** Let's just deal with background and onbackground for now. */,
               /**
               NOTE: In m3, surface containers from lowest to highest in dark mode go from darkest to brightest. In our system, LiftKit, they go from brightest to darkest.
               This is because the default dark backgrounds and surfaces are a little too black and cause halation effects
@@ -258,12 +258,11 @@ export default function ThemeProvider({ children }) {
               onSurface: tones._90,
               inverseSurface: tones._98,
               inverseOnSurface: tones._10,
-
-            }
+            },
           }));
           break;
-        case 'neutralvariant':
-          setTheme(prevTheme => ({
+        case "neutralvariant":
+          setTheme((prevTheme) => ({
             ...prevTheme,
 
             light: {
@@ -280,46 +279,42 @@ export default function ThemeProvider({ children }) {
               onSurfaceVariant: tones._70,
               outline: tones._50,
               outlineVariant: tones._30,
-            }
-
-          }
-          ));
-          break;
-        case 'primary':
-          setTheme(prevTheme => ({
-            ...prevTheme,
-
-            light: {
-              ...prevTheme.light,
-              [key]: tones._40,
-              [`on${toSentenceCase(key)}`]: tones._98,
-              [`${key}Container`]: tones._90,
-              [`on${toSentenceCase(key)}Container`]: tones._10,
-              [`${(key)}Fixed`]: tones._90,
-              [`${(key)}FixedDim`]: tones._80,
-              [`on${toSentenceCase(key)}Fixed`]: tones._10,
-              [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
-              ['inversePrimary']: tones._80
             },
-            dark: {
-              ...prevTheme.dark,
-              [key]: tones._80,
-              [`on${toSentenceCase(key)}`]: tones._20,
-              [`${key}Container`]: tones._30,
-              [`on${toSentenceCase(key)}Container`]: tones._90,
-              [`${(key)}Fixed`]: tones._90,
-              [`${(key)}FixedDim`]: tones._80,
-              [`on${toSentenceCase(key)}Fixed`]: tones._10,
-              [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
-              ['inversePrimary']: tones._80
-            },
-
-
           }));
           break;
-        case 'secondary':
-        case 'tertiary':
-          setTheme(prevTheme => ({
+        case "primary":
+          setTheme((prevTheme) => ({
+            ...prevTheme,
+
+            light: {
+              ...prevTheme.light,
+              [key]: tones._40,
+              [`on${toSentenceCase(key)}`]: tones._98,
+              [`${key}Container`]: tones._90,
+              [`on${toSentenceCase(key)}Container`]: tones._10,
+              [`${key}Fixed`]: tones._90,
+              [`${key}FixedDim`]: tones._80,
+              [`on${toSentenceCase(key)}Fixed`]: tones._10,
+              [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
+              ["inversePrimary"]: tones._80,
+            },
+            dark: {
+              ...prevTheme.dark,
+              [key]: tones._80,
+              [`on${toSentenceCase(key)}`]: tones._20,
+              [`${key}Container`]: tones._30,
+              [`on${toSentenceCase(key)}Container`]: tones._90,
+              [`${key}Fixed`]: tones._90,
+              [`${key}FixedDim`]: tones._80,
+              [`on${toSentenceCase(key)}Fixed`]: tones._10,
+              [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
+              ["inversePrimary"]: tones._80,
+            },
+          }));
+          break;
+        case "secondary":
+        case "tertiary":
+          setTheme((prevTheme) => ({
             ...prevTheme,
             light: {
               ...prevTheme.light,
@@ -327,8 +322,8 @@ export default function ThemeProvider({ children }) {
               [`on${toSentenceCase(key)}`]: tones._98,
               [`${key}Container`]: tones._90,
               [`on${toSentenceCase(key)}Container`]: tones._10,
-              [`${(key)}Fixed`]: tones._90,
-              [`${(key)}FixedDim`]: tones._80,
+              [`${key}Fixed`]: tones._90,
+              [`${key}FixedDim`]: tones._80,
               [`on${toSentenceCase(key)}Fixed`]: tones._10,
               [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
             },
@@ -338,14 +333,14 @@ export default function ThemeProvider({ children }) {
               [`on${toSentenceCase(key)}`]: tones._20,
               [`${key}Container`]: tones._30,
               [`on${toSentenceCase(key)}Container`]: tones._90,
-              [`${(key)}Fixed`]: tones._90,
-              [`${(key)}FixedDim`]: tones._80,
+              [`${key}Fixed`]: tones._90,
+              [`${key}FixedDim`]: tones._80,
               [`on${toSentenceCase(key)}Fixed`]: tones._10,
               [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
             },
           }));
         default:
-          setTheme(prevTheme => ({
+          setTheme((prevTheme) => ({
             ...prevTheme,
             light: {
               ...prevTheme.light,
@@ -353,7 +348,6 @@ export default function ThemeProvider({ children }) {
               [`on${toSentenceCase(key)}`]: tones._98,
               [`${key}Container`]: tones._90,
               [`on${toSentenceCase(key)}Container`]: tones._10,
-
             },
             dark: {
               ...prevTheme.dark,
@@ -368,14 +362,11 @@ export default function ThemeProvider({ children }) {
   }, []);
 
   const updateThemeFromMaster = useCallback(async (hexCode, setPalette) => {
-
     var newPalette = {};
 
     // need to get the key colors to feed back to the ColorModule so it can update the palette
     try {
       const colors = await materialDynamicColors(hexCode);
-
-
 
       newPalette.primary = colors.light.primary;
       newPalette.secondary = colors.light.secondary;
@@ -383,48 +374,49 @@ export default function ThemeProvider({ children }) {
       newPalette.neutral = colors.light.surfaceContainer;
 
       const customColors = {
-        info: '#175bfc',
-        warning: '#ffbf00',
-        success: '#42cb83'
+        info: "#175bfc",
+        warning: "#ffbf00",
+        success: "#42cb83",
       };
 
       Object.keys(customColors).forEach((key) => {
-
         const sourceColor = argbFromHex(hexCode);
         const customColorObj = {
           value: argbFromHex(customColors[key]),
-          blend: true
+          blend: true,
         };
 
         const result = customColor(sourceColor, customColorObj);
 
-
         const newHexVal = hexFromArgb(result.value);
         newPalette[key] = newHexVal;
-
-
       });
-
 
       Object.keys(newPalette).forEach((key) => {
-        setPalette(prevPalette => ({
+        setPalette((prevPalette) => ({
           ...prevPalette,
-          [key]: newPalette[key]
+          [key]: newPalette[key],
         }));
       });
-
-
     } catch (error) {
       console.error(error);
     }
-  }, [])
+  }, []);
 
   //normalization functions; things that prevent weird input behavior
 
-
-
   return (
-    <ThemeContext.Provider value={{ theme, updateTheme, updateThemeFromMaster, palette, setPalette, navIsOpen, setNavIsOpen }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        updateTheme,
+        updateThemeFromMaster,
+        palette,
+        setPalette,
+        navIsOpen,
+        setNavIsOpen,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );
@@ -433,5 +425,3 @@ export default function ThemeProvider({ children }) {
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
-
-

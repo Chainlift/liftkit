@@ -16,7 +16,6 @@ Template: aspect-ratio: width / height;
 
 .aspect-4x3 {
   aspect-ratio: 4 / 3;
-
 }
 
 .aspect-3x2 {

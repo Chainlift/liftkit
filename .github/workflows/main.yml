@@ -1,22 +1,22 @@
 on:
   push:
     branches:
-    - main
-    - release/*
-    
+      - main
+      - release/*
+
 permissions:
   contents: read
-  issues: write 
+  issues: write
 
 jobs:
   create_issues:
     name: deploy to staging
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
-    - name: Run Issue Bot
-      uses: juulsn/todo-issue@main
-      with:
-        excludePattern: '^(node_modules/)'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Run Issue Bot
+        uses: juulsn/todo-issue@main
+        with:
+          excludePattern: "^(node_modules/)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

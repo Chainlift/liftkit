@@ -1,10 +1,12 @@
-@import '../../liftkit-core.css';
+@import "../../liftkit-core.css";
 [lk-component="dropdown-chip"] {
   display: block;
 }
 
 [lk-component="dropdown-chip"] [lk-component="state-layer"] {
-  transition: background-color 0.2s ease-out, opacity 0.2s ease-out;
+  transition:
+    background-color 0.2s ease-out,
+    opacity 0.2s ease-out;
   background-color: var(--lk-primary);
   opacity: 0;
 }

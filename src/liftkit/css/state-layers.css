@@ -33,7 +33,7 @@ li:focus > .state-layer {
   opacity: 0.35 !important;
 }
 
-.is-active .state-layer{
+.is-active .state-layer {
   opacity: 0.16 !important;
 }
 

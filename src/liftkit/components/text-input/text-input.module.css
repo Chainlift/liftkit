@@ -11,7 +11,9 @@
   border-radius: var(--lk-size-md);
   border: 1px solid var(--lk-outlinevariant);
   background: #fff;
-  transition: border 0.2s ease-out, outline 0.2s ease-out;
+  transition:
+    border 0.2s ease-out,
+    outline 0.2s ease-out;
   position: relative;
 }
 
@@ -30,12 +32,18 @@
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  transition: background-color 0.2s ease-out, opacity 0.2s ease-out;
+  transition:
+    background-color 0.2s ease-out,
+    opacity 0.2s ease-out;
   background-color: var(--lk-primary);
   opacity: 0;
 }
 
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:hover [lk-component="state-layer"],
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:focus-within [lk-component="state-layer"] {
+[lk-component="text-input"]
+  [lk-text-input-element="field-wrap"]:hover
+  [lk-component="state-layer"],
+[lk-component="text-input"]
+  [lk-text-input-element="field-wrap"]:focus-within
+  [lk-component="state-layer"] {
   opacity: 0.04;
 }
