@@ -1,19 +1,26 @@
 @import "../../liftkit-core.css";
-[lk-component="button"] {
+
+/* BUTTON DEFAULT STYLING */
+[data-lk-component="button"] {
   --button-font-size: var(--lk-size-md);
   --button-line-height: var(--lk-halfstep);
   --button-padX-default: var(--lk-size-md);
   --button-padX-sideWithIcon: calc(
     1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless))
   );
+
+  /* Only hard codded values worked in calc()
+  --halfstep = 1.272 
+  --lk-size-xl-unitless = 2.618 */
   --button-padY: calc(
-    var(--button-font-size) * calc(var(--halfstep) / var(--lk-size-xl-unitless))
+    var(--button-font-size) * calc(1.272 / 2.618)
   );
 
   --button-gap: var(--button-padX-sideWithIcon);
 
   display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0);
+  /* border: 1px solid rgba(0, 0, 0, 0); */
+  /* border: none; */
   border-radius: 100em;
   position: relative;
   text-decoration: none;
@@ -26,12 +33,87 @@
   line-height: var(--button-line-height);
 }
 
-[lk-component="button"]
-  > [lk-button-content-wrap]
-  > [lk-icon-position="start"] {
-  padding-left: var(--button-padX-sideWithIcon);
+/* BUTTON CONTENT CONTAINER */
+[lk-button-content-wrap="true"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: var(--button-gap, 0.5em); 
 }
 
-[lk-component="button"] > [lk-button-content-wrap] > [lk-icon-position="end"] {
-  padding-right: var(--button-padX-sideWithIcon);
+/* GAP */
+[data-lk-button-size="sm"] > [lk-button-content-wrap="true"]  {
+  gap: 7px;
 }
+[data-lk-button-size="lg"] > [lk-button-content-wrap="true"]  {
+  gap: 10px;
+}
+
+
+[lk-component="icon"] {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+/* BUTTON SIZE */
+
+[data-lk-button-size="sm"]:not(:has([lk-icon-position])) {
+  font-size: var(--lk-size-sm);
+  padding: 5px 13px;
+}
+[data-lk-button-size="lg"]:not(:has([lk-icon-position])) {
+  font-size: var(--lk-size-lg);
+  padding: 10px 18px;
+}
+
+/* BUTTON SIZE WITH ICON */
+
+[data-lk-button-size="sm"]:has([lk-icon-position="start"])  {
+  font-size: var(--lk-size-sm);
+  padding: 7px 15px 7px 8px
+}
+[data-lk-button-size="sm"]:has([lk-icon-position="end"]) {
+  font-size: var(--lk-size-sm);
+  padding: 7px 8px 7px 15px
+}
+
+[data-lk-button-size="lg"]:has([lk-icon-position="start"])  {
+  font-size: var(--lk-size-lg);
+  padding: 10px 20px 10px 15px;
+  gap: 10px;
+  
+}
+[data-lk-button-size="lg"]:has([lk-icon-position="end"])  {
+  font-size: var(--lk-size-lg);
+  padding: 10px 15px 10px 20px;
+  
+}
+
+
+/* BUTTON COLOR */
+
+
+
+/* BUTTON VARIANT */
+
+
+
+
+/* Not affecting stylings. Ensure button stylings do not affect icons elsewhere */
+
+/* [data-lk-component="button"]
+  > [lk-button-content-wrap]
+  > [lk-icon-position="start"] {
+  line-height: normal;
+  /* padding-left: var(--button-padX-sideWithIcon);   
+} */
+
+/* [lk-component="button"] > [lk-button-content-wrap] > [lk-icon-position="end"] {
+  padding-right: var(--button-padX-sideWithIcon);
+} */
