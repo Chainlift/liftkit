@@ -6,6 +6,7 @@ import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import Paragraph from "@/liftkit/components/paragraph";
 import Sticker from "@/liftkit/components/sticker";
+import Button from "@/liftkit/components/button";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -17,6 +18,9 @@ const contentStyle: React.CSSProperties = {
 };
 
 export default function Home() {
+  const variants = ["fill", "outline", "text"] as const;
+  const buttonSizes = ["sm", "md", "lg"] as const;
+
   return (
     <div className={styles.page}>
       <Paragraph fontClass="title1">
@@ -183,6 +187,29 @@ export default function Home() {
           <Section pt="sm" pr="md" pb="lg" pl="xl">
             <div style={contentStyle}>pt=sm + pr=md + pb=lg + pl=xl</div>
           </Section>
+          <h2 style={{ marginTop: "2rem" }}>
+            Row with defaultChildBehavior = auto-grow
+          </h2>
+          <Row gap="sm" default-child-behavior="auto-grow">
+            <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
+            <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
+            <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
+          </Row>
+        </div>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+          <Sticker content="Default" />
+          <Sticker content="Primary" color="primary" />
+          <Sticker content="Secondary" color="secondary" />
+          <Sticker content="Tertiary" color="tertiary" />
+          <Sticker content="Error" color="error" />
+          <Sticker content="Warning" color="warning" />
+          <Sticker content="Success" color="success" />
+          <Sticker content="Info" color="info" />
+          <Sticker content="Surface" color="surface" />
+          <Sticker content="Inverse" color="inversesurface" />
+          <Sticker content="Primary Container" color="primarycontainer" />
+          <Sticker content="Surface Variant" color="surfacevariant" />
         </div>
 
         <Text fontClass="display1" tag="footer" color="primary">
@@ -203,6 +230,61 @@ export default function Home() {
         <Sticker content="Primary Container" color="primarycontainer" />
         <Sticker content="Surface Variant" color="surfacevariant" />
       </div>
+
+      {variants.map((variant) => (
+        <div key={variant}>
+          <h2>{variant} Variant</h2>
+          <div>
+            {buttonSizes.map((size) => (
+              <div key={`${variant}-${size}`}>
+                <h3>Size: {size}</h3>
+                <div>
+                  <div>
+                    <Button
+                      label="Left Icon"
+                      variant={variant}
+                      size={size}
+                      color="error"
+                      startIcon="airplay"
+                    />
+                    <span>startIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Right Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      endIcon="airplay"
+                    />
+                    <span>endIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Both Icons"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      startIcon="airplay"
+                      endIcon="airplay"
+                    />
+                    <span>both</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="No Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                    />
+                    <span>none</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
