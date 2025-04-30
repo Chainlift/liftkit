@@ -7,55 +7,46 @@
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
 
-  --lk-wholestep: 1.618;
+  --lk-wholestep: var(--lk-scalefactor);
   /* equals scalefactor */
-  --lk-halfstep: 1.272;
-  /* sqrt wholestep */
-  --lk-quarterstep: 1.128;
-  /* sqrt halfstep */
-  --lk-eighthstep: 1.062;
-  /* sqrt quarterstep */
-
-  --lk-wholestep-dec: 0.618;
+  /* 1.272 */
+  --lk-halfstep: round(pow(var(--lk-scalefactor), 0.5), 0.001);
+  /* sqrt wholestep 1.128 */
+  --lk-quarterstep: round(pow(var(--lk-scalefactor), 0.25), 0.001);
+  /* sqrt halfstep 1.062*/
+  --lk-eighthstep: round(pow(var(--lk-scalefactor), 0.125), 0.001);
+  /* sqrt quarterstep:  */
+  --lk-wholestep-dec: calc(var(--lk-wholestep) - 1);
   /* wholestep -1 */
-  --lk-halfstep-dec: 0.272;
+  --lk-halfstep-dec: calc(var(--lk-halfstep) - 1);
   /* halfstep -1 */
-  --lk-quarterstep-dec: 0.128;
+  --lk-quarterstep-dec: calc(var(--lk-quarterstep) - 1);
   /* quarterstep -1 */
-  --lk-eighthstep-dec: 0.062;
+  --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
   /* eighthstep -1 */
 
   --lk-size-md: 1em;
   /* It's okay to use em here because the root font size
                   has been manually set to 1rem */
-  /* TODO: [3hr] Change calc method to use the new pow() and round feature */
   --lk-size-sm: calc(1em / var(--lk-scalefactor));
-  --lk-size-xs: calc(var(--lk-size-sm) / var(--lk-scalefactor));
-  --lk-size-2xs: calc(var(--lk-size-xs) / var(--lk-scalefactor));
-  --lk-size-3xs: calc(var(--lk-size-2xs) / var(--lk-scalefactor));
+  --lk-size-xs: round(pow(var(--lk-scalefactor), -1), 0.001);
+  --lk-size-2xs: round(pow(var(--lk-scalefactor), -2), 0.001);
+  --lk-size-3xs: round(pow(var(--lk-scalefactor), -3), 0.001);
   --lk-size-lg: calc(1em * var(--lk-scalefactor));
-  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-scalefactor));
-  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-scalefactor));
-  --lk-size-3xl: calc(var(--lk-size-2xl) * var(--lk-scalefactor));
-  --lk-size-4xl: calc(var(--lk-size-3xl) * var(--lk-scalefactor));
+  --lk-size-xl: round(pow(var(--lk-scalefactor), 2), 0.001);
+  --lk-size-2xl: round(pow(var(--lk-scalefactor), 3), 0.001);
+  --lk-size-3xl: round(pow(var(--lk-scalefactor), 4), 0.001);
+  --lk-size-4xl: round(pow(var(--lk-scalefactor), 5), 0.001);
 
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
 
   --lk-size-sm-unitless: calc(1 / var(--lk-scalefactor));
-  --lk-size-xs-unitless: calc(
-    var(--lk-size-sm-unitless) / var(--lk-scalefactor)
-  );
-  --lk-size-2xs-unitless: calc(
-    var(--lk-size-xs-unitless) / var(--lk-scalefactor)
-  );
+  --lk-size-xs-unitless: calc(var(--lk-size-sm-unitless) / var(--lk-scalefactor));
+  --lk-size-2xs-unitless: calc(var(--lk-size-xs-unitless) / var(--lk-scalefactor));
   --lk-size-lg-unitless: calc(1 * var(--lk-scalefactor));
-  --lk-size-xl-unitless: calc(
-    var(--lk-size-lg-unitless) * var(--lk-scalefactor)
-  );
-  --lk-size-2xl-unitless: calc(
-    var(--lk-size-xl-unitless) * var(--lk-scalefactor)
-  );
+  --lk-size-xl-unitless: calc(var(--lk-size-lg-unitless) * var(--lk-scalefactor));
+  --lk-size-2xl-unitless: calc(var(--lk-size-xl-unitless) * var(--lk-scalefactor));
 
   /*Increments*/
 
@@ -274,10 +265,8 @@
    * In division, the right side must be unitless.
   */
 
-  --display1-font-size: calc(
-    1em * var(--lk-wholestep) * var(--lk-wholestep) * var(--lk-wholestep)
-  );
-  --display2-font-size: calc(1em * var(--lk-wholestep) * var(--lk-wholestep));
+  --display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
+  --display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
   --title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
   --title2-font-size: calc(1em * var(--lk-wholestep));
   --title3-font-size: calc(1em * var(--lk-halfstep));
@@ -308,94 +297,43 @@
   /* Produce padding values for the insides of cards or other containers on sides that
      optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
 
-  --display1-offset: calc(
-    var(--display1-font-size) *
-      calc(var(--display1-line-height) / var(--lk-wholestep))
-  );
-  --display2-offset: calc(
-    var(--display2-font-size) *
-      calc(var(--display2-line-height) / var(--lk-wholestep))
-  );
-  --title1-offset: calc(
-    var(--title1-font-size) *
-      calc(var(--title1-line-height) / var(--lk-wholestep))
-  );
-  --title2-offset: calc(
-    var(--title2-font-size) *
-      calc(var(--title2-line-height) / var(--lk-wholestep))
-  );
-  --title3-offset: calc(
-    var(--title3-font-size) *
-      calc(var(--title3-line-height) / var(--lk-wholestep))
-  );
-  --heading-offset: calc(
-    var(--heading-font-size) *
-      calc(var(--heading-line-height) / var(--lk-wholestep))
-  );
-  --subheading-offset: calc(
-    var(--subheading-font-size) *
-      calc(var(--subheading-line-height) / var(--lk-wholestep))
-  );
+  --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--lk-wholestep)));
+  --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--lk-wholestep)));
+  --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--lk-wholestep)));
+  --title2-offset: calc(var(--title2-font-size) * calc(var(--title2-line-height) / var(--lk-wholestep)));
+  --title3-offset: calc(var(--title3-font-size) * calc(var(--title3-line-height) / var(--lk-wholestep)));
+  --heading-offset: calc(var(--heading-font-size) * calc(var(--heading-line-height) / var(--lk-wholestep)));
+  --subheading-offset: calc(var(--subheading-font-size) * calc(var(--subheading-line-height) / var(--lk-wholestep)));
   --body-offset: calc(var(--body-font-size) / var(--lk-wholestep));
-  --callout-offset: calc(
-    var(--callout-font-size) *
-      calc(var(--callout-line-height) / var(--lk-wholestep))
-  );
-  --label-offset: calc(
-    var(--label-font-size) *
-      calc(var(--label-line-height) / var(--lk-wholestep))
-  );
-  --caption-offset: calc(
-    var(--caption-font-size) *
-      calc(var(--caption-line-height) / var(--lk-wholestep))
-  );
-  --capline-offset: calc(
-    var(--capline-font-size) *
-      calc(var(--capline-line-height) / var(--lk-wholestep))
-  );
+  --callout-offset: calc(var(--callout-font-size) * calc(var(--callout-line-height) / var(--lk-wholestep)));
+  --label-offset: calc(var(--label-font-size) * calc(var(--label-line-height) / var(--lk-wholestep)));
+  --caption-offset: calc(var(--caption-font-size) * calc(var(--caption-line-height) / var(--lk-wholestep)));
+  --capline-offset: calc(var(--capline-font-size) * calc(var(--capline-line-height) / var(--lk-wholestep)));
 
   /* shadows */
   --shadow-sm: 0 0 1px 0 var(--lk-shadow);
-  --shadow-md:
-    0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
     0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-lg:
-    0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07),
+  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07),
     0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-xl:
-    0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
-  --shadow-2xl:
-    0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
+  --shadow-xl: 0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
     0 0 1px rgba(0, 0, 0, 0.4);
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
 
-  --display1BoxHeight: calc(
-    var(--display1-font-size) * var(--display1-line-height)
-  );
-  --display2BoxHeight: calc(
-    var(--display2-font-size) * var(--display2-line-height)
-  );
+  --display1BoxHeight: calc(var(--display1-font-size) * var(--display1-line-height));
+  --display2BoxHeight: calc(var(--display2-font-size) * var(--display2-line-height));
   --title1BoxHeight: calc(var(--title1-font-size) * var(--title1-line-height));
   --title2BoxHeight: calc(var(--title2-font-size) * var(--title2-line-height));
   --title3BoxHeight: calc(var(--title3-font-size) * var(--title3-line-height));
-  --headingBoxHeight: calc(
-    var(--heading-font-size) * var(--heading-line-height)
-  );
-  --subheadingBoxHeight: calc(
-    var(--subheading-font-size) * var(--subheading-line-height)
-  );
+  --headingBoxHeight: calc(var(--heading-font-size) * var(--heading-line-height));
+  --subheadingBoxHeight: calc(var(--subheading-font-size) * var(--subheading-line-height));
   --bodyBoxHeight: calc(var(--body-font-size) * var(--body-line-height));
-  --calloutBoxHeight: calc(
-    var(--callout-font-size) * var(--callout-line-height)
-  );
+  --calloutBoxHeight: calc(var(--callout-font-size) * var(--callout-line-height));
   --labelBoxHeight: calc(var(--label-font-size) * var(--label-line-height));
-  --captionBoxHeight: calc(
-    var(--caption-font-size) * var(--caption-line-height)
-  );
-  --caplineBoxHeight: calc(
-    var(--capline-font-size) * var(--capline-line-height)
-  );
+  --captionBoxHeight: calc(var(--caption-font-size) * var(--caption-line-height));
+  --caplineBoxHeight: calc(var(--capline-font-size) * var(--capline-line-height));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -531,13 +469,8 @@ button {
   --button-font-size: var(--lk-md);
   --button-line-height: var(--lk-halfstep);
   --button-padX-default: var(--lk-md);
-  --button-padX-sideWithIcon: calc(
-    1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless))
-  );
-  --button-padY: calc(
-    var(--button-font-size) *
-      calc(var(--lk-halfstep) / var(--lk-size-xl-unitless))
-  );
+  --button-padX-sideWithIcon: calc(1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless)));
+  --button-padY: calc(var(--button-font-size) * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
 
   --button-gap: var(--button-padX-sideWithIcon);
   /* In division, the second value MUST be unitless */
