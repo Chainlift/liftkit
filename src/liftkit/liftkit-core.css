@@ -356,16 +356,13 @@
 
   /* shadows */
   --shadow-sm: 0 0 1px 0 var(--lk-shadow);
-  --shadow-md:
-    0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
     0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-lg:
-    0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07),
-    0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-xl:
-    0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
-  --shadow-2xl:
-    0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
+  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11),
+    0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0px 0px 1px 0px var(--lk-outline),
+    0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
     0 0 1px rgba(0, 0, 0, 0.4);
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
@@ -528,9 +525,9 @@ body {
 /* Make Buttons into Inline Elements */
 
 button {
-  --button-font-size: var(--lk-md);
+  --button-font-size: var(--lk-size-md);
   --button-line-height: var(--lk-halfstep);
-  --button-padX-default: var(--lk-md);
+  --button-padX-default: var(--lk-size-md);
   --button-padX-sideWithIcon: calc(
     1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless))
   );
