@@ -61,7 +61,13 @@ export default function Home() {
           <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
         </Row>
       </div>
-      <Badge></Badge>
+      <Badge
+        icon="replace"
+        color="surfacecontainerhigh"
+        scale="lg"
+        iconStrokeWidth={1}
+      />
+      <span className="absolute top-0">Hello</span>
       <Icon name="airplay" color="primary" fontClass="title2" />
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
         {/* Padding prop variations */}
