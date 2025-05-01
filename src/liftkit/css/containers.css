@@ -68,3 +68,41 @@
   margin-right: auto;
   max-width: none;
 }
+
+
+
+[lk-container-max-width="xs"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 767px;
+}
+
+[lk-container-max-width="sm"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 992px;
+}
+
+[lk-container-max-width="md"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1257px;
+}
+
+[lk-container-max-width="lg"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+}
+
+[lk-container-max-width="xl"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1806.4px;
+}
+
+[lk-container-max-width="none"] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+}
