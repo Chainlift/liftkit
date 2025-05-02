@@ -1,9 +1,0 @@
-@import "../../liftkit-core.css";
-[lk-component="container"] {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: var(--lk-container-max-width, 100%);
-}
-
-/* Optional: you can add utility classes or media queries to control width by breakpoint */
