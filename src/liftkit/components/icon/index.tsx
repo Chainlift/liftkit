@@ -21,6 +21,7 @@ export default function Icon({
     <div lk-component="icon">
       <DynamicIcon
         name={name}
+        // Unclear what fontClass purpose is here
         className={fontClass}
         color={`var(--lk-${color})`}
         strokeWidth={strokeWidth}
