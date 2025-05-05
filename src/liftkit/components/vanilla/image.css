@@ -1,4 +1,5 @@
 @import "../../liftkit-core.css";
+
 [lk-component="image"] {
   display: block;
   width: 100%;
@@ -9,4 +10,320 @@
 [lk-image-radius]:not([lk-image-radius="none"]):not([lk-image-radius="zero"]) {
   border-radius: var(--lk-size-md);
   overflow: hidden;
+}
+
+
+/* IMAGE RADII TESTING AREA - Remove for production  */
+.radius-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.radius-test-item {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.radius-test-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.radius-test-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+
+/* BORDER RADIUS
+  The CSS pow() and round() functions may not work in many browsers yet because they're part of an experimental CSS spec (Values and Units Level 4) that lacks full support. 
+  
+  I was unable to use var(--lk-size-2xl) as calculated with pow() and round(); */
+[lk-image-border-radius="3xs"] {
+  border-radius: 0.146em; 
+  overflow: hidden;
+
+}[lk-image-border-radius="2xs"] {
+  border-radius: 0.236em;  
+  overflow: hidden;
+}
+
+[lk-image-border-radius="xs"] {
+  border-radius: 0.381em;
+  overflow: hidden;
+}
+
+[lk-image-border-radius="sm"] {
+  border-radius: 0.618em;
+  overflow: hidden;
+}
+[lk-image-border-radius="md"] {
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+[lk-image-border-radius="lg"] {
+  border-radius: 1.618em;    
+  overflow: hidden;
+}
+
+[lk-image-border-radius="xl"] {
+  border-radius: 2.618em; 
+  overflow: hidden;
+}
+
+[lk-image-border-radius="2xl"] {
+  border-radius: 4.236em;
+  overflow: hidden;
+}
+
+[lk-image-border-radius="3xl"] {
+  border-radius: 6.854em;  
+  overflow: hidden;
+}
+
+[lk-image-border-radius="4xl"] {
+  border-radius: 11.090em;
+  overflow: hidden;
+}
+
+/* IMAGE WIDTH AND HEIGHT TESTING AREA - Remove for production */
+.size-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.size-test-item {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.size-test-img {
+  object-fit: cover;
+  display: block;
+}
+
+.size-test-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+/* IMAGE WIDTH */
+[lk-image-width="3xs"] {
+  width: 0.146em; 
+  overflow: hidden;
+
+}[lk-image-width="2xs"] {
+  width: 0.236em;  
+  overflow: hidden;
+}
+
+[lk-image-width="xs"] {
+  width: 0.381em;
+  overflow: hidden;
+}
+
+[lk-image-width="sm"] {
+  width: 0.618em;
+  overflow: hidden;
+}
+[lk-image-width="md"] {
+  width: 1em;
+  overflow: hidden;
+}
+
+[lk-image-width="lg"] {
+  width: 1.618em;    
+  overflow: hidden;
+}
+
+[lk-image-width="xl"] {
+  width: 2.618em; 
+  overflow: hidden;
+}
+
+[lk-image-width="2xl"] {
+  width: 4.236em;
+  overflow: hidden;
+}
+
+[lk-image-width="3xl"] {
+  width: 6.854em;  
+  overflow: hidden;
+}
+
+[lk-image-width="4xl"] {
+  width: 11.090em;
+  overflow: hidden;
+}
+
+/* IMAGE HEIGHT */
+[lk-image-height="3xs"] {
+  height: 0.146em; 
+  overflow: hidden;
+
+}[lk-image-height="2xs"] {
+  height: 0.236em;  
+  overflow: hidden;
+}
+
+[lk-image-height="xs"] {
+  height: 0.381em;
+  overflow: hidden;
+}
+
+[lk-image-height="sm"] {
+  height: 0.618em;
+  overflow: hidden;
+}
+[lk-image-height="md"] {
+  height: 1em;
+  overflow: hidden;
+}
+
+[lk-image-height="lg"] {
+  height: 1.618em;    
+  overflow: hidden;
+}
+
+[lk-image-height="xl"] {
+  height: 2.618em; 
+  overflow: hidden;
+}
+
+[lk-image-height="2xl"] {
+  height: 4.236em;
+  overflow: hidden;
+}
+
+[lk-image-height="3xl"] {
+  height: 6.854em;  
+  overflow: hidden;
+}
+
+[lk-image-height="4xl"] {
+  height: 11.090em;
+  overflow: hidden;
+}
+
+
+/* OBJECT-FIT TESTING AREA - Remove for production */
+.objectfit-test-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+figure {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+[lk-image-object-fit] {
+  width: 300px;
+  height: 200px;
+  background-color: #ddd;
+}
+}
+
+
+/* OBJECT-FIT MAPPING
+Include inherit, initial, unset?
+*/
+[lk-image-object-fit="cover"] {
+  object-fit: cover;
+}
+[lk-image-object-fit="contain"] {
+  object-fit: contain;
+}
+[lk-image-object-fit="fill"] {
+  object-fit: fill;
+}
+[lk-image-object-fit="none"] {
+  object-fit: none;
+}
+[lk-image-object-fit="scale-down"] {
+  object-fit: scale-down;
+}
+
+
+
+/* ASPECT TESTING AREA - Remove for production */
+.aspect-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.aspect-test-item {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  background: #fafafa;
+}
+
+.aspect-test-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.aspect-test-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+
+/* IMAGE ASPECT RATIO MAPPING */
+[lk-image-aspect="auto"] {
+  aspect-ratio: auto;
+}
+[lk-image-aspect="1/1"] {
+  aspect-ratio: 1 / 1;
+}
+[lk-image-aspect="2.39/1"] {
+  aspect-ratio: 2.39 / 1;
+}
+[lk-image-aspect="2/1"] {
+  aspect-ratio: 2 / 1;
+}
+[lk-image-aspect="16/9"] {
+  aspect-ratio: 16 / 9;
+}
+[lk-image-aspect="3/2"] {
+  aspect-ratio: 3 / 2;
+}
+[lk-image-aspect="4/3"] {
+  aspect-ratio: 4 / 3;
+}
+[lk-image-aspect="5/4"] {
+  aspect-ratio: 5 / 4;
+}
+[lk-image-aspect="1/2.39"] {
+  aspect-ratio: 1 / 2.39;
+}
+[lk-image-aspect="1/2"] {
+  aspect-ratio: 1 / 2;
+}
+[lk-image-aspect="9/16"] {
+  aspect-ratio: 9 / 16;
+}
+[lk-image-aspect="4/5"] {
+  aspect-ratio: 4 / 5;
 }
