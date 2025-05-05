@@ -38,6 +38,7 @@ const aspectRatios = [
   "9/16",
   "4/5",
 ];
+
 const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
 const radii = [
