@@ -34,9 +34,9 @@ export default function Row(props: LkRowProps) {
   const { children, ...restProps } = props;
 
   const lkRowAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-row"),
+    () => propsToDataAttrs(restProps, "row"),
     [restProps],
   );
 
-  return <div {...lkRowAttrs}>{children}</div>;
+  return <div {...lkRowAttrs} {...restProps} lk-component="row">{children}</div>;
 }
