@@ -1,6 +1,6 @@
 @import "../../liftkit-core.css";
 
-css CopyEdit [lk-component="row"] {
+[lk-component="row"] {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
