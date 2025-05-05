@@ -1,7 +1,6 @@
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
-import styles from "./page.module.css";
-import Welcome from "@/content/components/button.mdx";
+
 
 const aspectRatios = [
   "auto", "1/1", "2.39/1", "2/1", "16/9", "3/2", "4/3",

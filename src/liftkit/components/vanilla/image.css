@@ -47,50 +47,50 @@
   
   I was unable to use var(--lk-size-2xl) as calculated with pow() and round(); */
 [lk-image-border-radius="3xs"] {
-  border-radius: 0.146em; 
+  border-radius: var(--lk-size-3xs); 
   overflow: hidden;
 
 }[lk-image-border-radius="2xs"] {
-  border-radius: 0.236em;  
+  border-radius: var(--lk-size-2xs);  
   overflow: hidden;
 }
 
 [lk-image-border-radius="xs"] {
-  border-radius: 0.381em;
+  border-radius: var(--lk-size-xs);
   overflow: hidden;
 }
 
 [lk-image-border-radius="sm"] {
-  border-radius: 0.618em;
+  border-radius: var(--lk-size-sm);
   overflow: hidden;
 }
 [lk-image-border-radius="md"] {
-  border-radius: 1em;
+  border-radius: var(--lk-size-md);
   overflow: hidden;
 }
 
 [lk-image-border-radius="lg"] {
-  border-radius: 1.618em;    
+  border-radius: var(--lk-size-lg);    
   overflow: hidden;
 }
 
 [lk-image-border-radius="xl"] {
-  border-radius: 2.618em; 
+  border-radius: var(--lk-size-xl); 
   overflow: hidden;
 }
 
 [lk-image-border-radius="2xl"] {
-  border-radius: 4.236em;
+  border-radius: var(--lk-size-2xl);
   overflow: hidden;
 }
 
 [lk-image-border-radius="3xl"] {
-  border-radius: 6.854em;  
+  border-radius: var(--lk-size-3xl);  
   overflow: hidden;
 }
 
 [lk-image-border-radius="4xl"] {
-  border-radius: 11.090em;
+  border-radius: var(--lk-size-4xl);
   overflow: hidden;
 }
 
@@ -122,99 +122,99 @@
 
 /* IMAGE WIDTH */
 [lk-image-width="3xs"] {
-  width: 0.146em; 
+  width: var(--lk-size-3xs); 
   overflow: hidden;
 
 }[lk-image-width="2xs"] {
-  width: 0.236em;  
+  width: var(--lk-size-2xs);  
   overflow: hidden;
 }
 
 [lk-image-width="xs"] {
-  width: 0.381em;
+  width: var(--lk-size-xs);
   overflow: hidden;
 }
 
 [lk-image-width="sm"] {
-  width: 0.618em;
+  width: var(--lk-size-sm);
   overflow: hidden;
 }
 [lk-image-width="md"] {
-  width: 1em;
+  width: var(--lk-size-md);
   overflow: hidden;
 }
 
 [lk-image-width="lg"] {
-  width: 1.618em;    
+  width: var(--lk-size-lg);
   overflow: hidden;
 }
 
 [lk-image-width="xl"] {
-  width: 2.618em; 
+  width: var(--lk-size-xl); 
   overflow: hidden;
 }
 
 [lk-image-width="2xl"] {
-  width: 4.236em;
+  width: var(--lk-size-2xl);
   overflow: hidden;
 }
 
 [lk-image-width="3xl"] {
-  width: 6.854em;  
+  width: var(--lk-size-3xl);  
   overflow: hidden;
 }
 
 [lk-image-width="4xl"] {
-  width: 11.090em;
+  width: var(--lk-size-4xl);
   overflow: hidden;
 }
 
 /* IMAGE HEIGHT */
 [lk-image-height="3xs"] {
-  height: 0.146em; 
+  height: var(--lk-size-3xs); 
   overflow: hidden;
 
 }[lk-image-height="2xs"] {
-  height: 0.236em;  
+  height: var(--lk-size-2xs);  
   overflow: hidden;
 }
 
 [lk-image-height="xs"] {
-  height: 0.381em;
+  height: var(--lk-size-xs);
   overflow: hidden;
 }
 
 [lk-image-height="sm"] {
-  height: 0.618em;
+  height: var(--lk-size-sm);
   overflow: hidden;
 }
 [lk-image-height="md"] {
-  height: 1em;
+  height: var(--lk-size-md);
   overflow: hidden;
 }
 
 [lk-image-height="lg"] {
-  height: 1.618em;    
+  height: var(--lk-size-lg);    
   overflow: hidden;
 }
 
 [lk-image-height="xl"] {
-  height: 2.618em; 
+  height: var(--lk-size-xl); 
   overflow: hidden;
 }
 
 [lk-image-height="2xl"] {
-  height: 4.236em;
+  height: var(--lk-size-2xl);
   overflow: hidden;
 }
 
 [lk-image-height="3xl"] {
-  height: 6.854em;  
+  height: var(--lk-size-3xl);  
   overflow: hidden;
 }
 
 [lk-image-height="4xl"] {
-  height: 11.090em;
+  height: var(--lk-size-4xl);
   overflow: hidden;
 }
 
@@ -234,7 +234,7 @@ figure {
 
 [lk-image-object-fit] {
   width: 300px;
-  height: 200px;
+  height: 300px;
   background-color: #ddd;
 }
 }
