@@ -1,3 +1,4 @@
+import Icon from "@/liftkit/components/icon";
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
 
@@ -13,6 +14,7 @@ const radii = ["none", "zero", "3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl
 
 export default function Home() {
   return (
+
     <>
 {/* SIZE TESTING */}
     <div className="size-test-grid">

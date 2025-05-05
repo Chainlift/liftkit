@@ -1,5 +1,3 @@
-"use client";
-
 import { DynamicIcon } from "lucide-react/dynamic";
 import type { IconName } from "lucide-react/dynamic";
 
@@ -16,12 +14,20 @@ export default function Icon({
   fontClass,
   color,
   strokeWidth = 2,
+  ...restProps
 }: LkIconProps) {
+
+
+
+
   return (
-    <div lk-component="icon">
+    <div lk-component="icon"
+    {...restProps} lk-icon-font-class={fontClass}>
+ 
       <DynamicIcon
         name={name}
-        className={fontClass}
+        width="1em"
+        height="1em"
         color={`var(--lk-${color})`}
         strokeWidth={strokeWidth}
       />
