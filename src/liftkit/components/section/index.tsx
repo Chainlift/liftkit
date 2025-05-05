@@ -4,19 +4,25 @@ import { propsToDataAttrs } from "../utilities";
 interface LkSectionProps extends React.HTMLAttributes<HTMLElement> {
   padding?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
   container?: React.ReactNode;
+  px?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  py?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  pt?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  pb?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  pl?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  pr?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
 }
 
 export default function Section(props: LkSectionProps) {
   const { container, children, ...restProps } = props;
 
   const lkSectionAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-section"),
+    () => propsToDataAttrs(restProps, "section"),
     [restProps],
   );
 
   return (
     <section {...lkSectionAttrs}>
-      <div lk-component="slot" lk-slot="container">
+      <div lk-component="section">
         {container}
       </div>
       {children}
