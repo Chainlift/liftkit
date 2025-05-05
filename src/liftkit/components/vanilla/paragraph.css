@@ -4,3 +4,152 @@
   display: block;
   margin: 0;
 }
+
+/* Display */
+[lk-paragraph-font-class="display1"] {
+  font-size: var(--display1-font-size);
+  font-weight: 400;
+  line-height: var(--lk-quarterstep);
+  letter-spacing: -0.022em;
+}
+
+[lk-paragraph-font-class="display2"] {
+  font-size: var(--display2-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.022em;
+}
+
+/* Title */
+[lk-paragraph-font-class="title1"] {
+  font-size: var(--title1-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.022em;
+}
+
+[lk-paragraph-font-class="title2"] {
+  font-size: var(--title2-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.02em;
+}
+
+[lk-paragraph-font-class="title3"] {
+  font-size: var(--title3-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.017em;
+}
+
+/* Heading & Subheading */
+[lk-paragraph-font-class="heading"] {
+  font-size: var(--heading-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.014em;
+}
+
+[lk-paragraph-font-class="subheading"] {
+  font-size: var(--subheading-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.007em;
+}
+
+/* Body */
+[lk-paragraph-font-class="body"] {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: var(--lk-wholestep);
+  letter-spacing: -0.011em;
+  cursor: default;
+}
+
+/* Callout */
+[lk-paragraph-font-class="callout"] {
+  font-size: var(--callout-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.009em;
+}
+
+/* Label */
+[lk-paragraph-font-class="label"] {
+  font-size: var(--label-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.004em;
+}
+
+/* Caption */
+[lk-paragraph-font-class="caption"] {
+  font-size: var(--caption-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.007em;
+}
+
+/* Capline */
+[lk-paragraph-font-class="capline"] {
+  font-size: var(--capline-font-size);
+  font-weight: 400;
+  line-height: var(--lk-halfstep);
+  letter-spacing: 0.0618em;
+  text-transform: uppercase;
+}
+
+/* --- Bold Variants --- */
+
+/* Display Bold */
+[lk-paragraph-font-class="display1-bold"] {
+  font-size: var(--display1-font-size);
+  font-weight: 700;
+  line-height: var(--lk-quarterstep);
+  letter-spacing: -0.022em;
+}
+
+[lk-paragraph-font-class="display2-bold"] {
+  font-size: var(--display2-font-size);
+  font-weight: 700;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.022em;
+}
+
+/* Title Bold */
+[lk-paragraph-font-class="title1-bold"] {
+  font-size: var(--title1-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.022em;
+}
+
+[lk-paragraph-font-class="title2-bold"] {
+  font-size: var(--title2-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.02em;
+}
+
+[lk-paragraph-font-class="title3-bold"] {
+  font-size: var(--title3-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.017em;
+}
+
+/* Heading Bold */
+[lk-paragraph-font-class="heading-bold"] {
+  font-size: var(--heading-font-size);
+  font-weight: 700;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.014em;
+}
+
+/* Subheading Bold */
+[lk-paragraph-font-class="subheading-bold"] {
+  font-size: var(--subheading-font-size);
+  font-weight: 600;
+  line-height: var(--lk-halfstep);
+  letter-spacing: -0.007em;
+}
