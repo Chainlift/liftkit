@@ -1,4 +1,4 @@
-import Icon from "@/liftkit/components/icon";
+
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
 
