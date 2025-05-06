@@ -322,10 +322,9 @@ export default function Home() {
       <div className="size-test-grid">
         {sizes.map((size) => (
           <figure key={size} className="size-test-item">
-            <img
+            <Image
               src="/testimage.png"
               alt={size}
-              lk-component="image"
               lk-image-width={size}
               lk-image-height={size}
               className="size-test-img"
@@ -339,10 +338,9 @@ export default function Home() {
       <div className="radius-test-grid">
         {radii.map((radius) => (
           <figure key={radius} className="radius-test-item">
-            <img
+            <Image
               src="/testimage.png"
               alt={radius}
-              lk-component="image"
               lk-image-border-radius={radius}
               className="radius-test-img"
             />
@@ -387,10 +385,9 @@ export default function Home() {
       <div className="aspect-test-grid">
         {aspectRatios.map((ratio) => (
           <figure key={ratio} style={{ border: "1px solid #ccc" }}>
-            <img
+            <Image
               src="/testimage.png"
               alt={ratio}
-              lk-component="image"
               lk-image-aspect={ratio}
               style={{ width: "100%", objectFit: "cover" }}
             />
