@@ -2,6 +2,7 @@ import Badge from "@/liftkit/components/badge";
 import Icon from "@/liftkit/components/icon";
 import styles from "./page.module.css";
 import Section from "@/liftkit/components/section";
+import Text from "@/liftkit/components/text";
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
   border: "1px dashed #888",
@@ -131,6 +132,10 @@ export default function Home() {
             <div style={contentStyle}>pt=sm + pr=md + pb=lg + pl=xl</div>
           </Section>
         </div>
+
+        <Text fontClass="display1" tag="footer" color="primary">
+          Hello World
+        </Text>
       </div>
     </div>
   );
