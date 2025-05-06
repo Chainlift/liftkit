@@ -478,6 +478,9 @@ export default function Home() {
           </figure>
         ))}
       </div>
+      <Text fontClass="display1" tag="footer" color="primary">
+        Hello World
+      </Text>
     </div>
   );
 }
