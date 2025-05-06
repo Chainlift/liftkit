@@ -5,6 +5,7 @@ import Section from "@/liftkit/components/section";
 import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import Paragraph from "@/liftkit/components/paragraph";
+import Sticker from "@/liftkit/components/sticker";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -181,6 +182,20 @@ export default function Home() {
         <Text fontClass="display1" tag="footer" color="primary">
           Hello World
         </Text>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        <Sticker content="Default" />
+        <Sticker content="Primary" color="primary" />
+        <Sticker content="Secondary" color="secondary" />
+        <Sticker content="Tertiary" color="tertiary" />
+        <Sticker content="Error" color="error" />
+        <Sticker content="Warning" color="warning" />
+        <Sticker content="Success" color="success" />
+        <Sticker content="Info" color="info" />
+        <Sticker content="Surface" color="surface" />
+        <Sticker content="Inverse" color="inversesurface" />
+        <Sticker content="Primary Container" color="primarycontainer" />
+        <Sticker content="Surface Variant" color="surfacevariant" />
       </div>
     </div>
   );
