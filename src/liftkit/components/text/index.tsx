@@ -4,10 +4,8 @@ import { propsToDataAttrs } from "../utilities";
 type LkSemanticTag = keyof JSX.IntrinsicElements;
 
 interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
-
-  fontClass?: string; // Ideally: LkFontClass
-  // content?: string;
-
+  fontClass?: LkFontClass;
+  content?: string;
   color?: LkColor;
   tag?: LkSemanticTag;
   // children?: 
