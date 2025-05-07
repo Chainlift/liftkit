@@ -1,11 +1,15 @@
+import Paragraph from "@/liftkit/components/paragraph";
+import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import styles from "./page.module.css";
-import Paragraph from "@/liftkit/components/paragraph";
 import Sticker from "@/liftkit/components/sticker";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Text fontClass="display1" tag="footer" color="primary">
+        Hello World
+      </Text>
       <Paragraph fontClass="title1">
         ancient times, cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
