@@ -1,5 +1,8 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
+import { getOnToken } from "@/lib/colorUtils";
+
+import { IconName } from "lucide-react/dynamic";
 
 interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
@@ -7,42 +10,35 @@ interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: LkColorWithOnToken;
   size?: "sm" | "md" | "lg";
   material?: string;
-  startIcon?: string;
-  endIcon?: string;
+  startIcon?: IconName;
+  endIcon?: IconName;
 }
 
-export default function Button(props: LkButtonProps) {
-  const { label, startIcon, endIcon, color, size, variant, material, ...restProps } = props;
+export default function Button({
+  label = "Button",
+  variant = "fill",
+  color = "primary",
+  size = "md",
+  startIcon,
+  endIcon,
+  ...restProps
+}: LkButtonProps) {
+  const lkButtonAttrs = useMemo(
+    () => propsToDataAttrs({ variant, color, size, restProps }, "button"),
+    [variant, color, size, restProps]
+  );
 
-  const lkButtonAttrs = useMemo(() => {
-    return {
-      ...propsToDataAttrs(restProps, "lk-button"),
-      ...(size && { "data-lk-button-size": size }),
-      ...(color && {"data-lk-button-color": color}),
-      ...(variant && {"data-lk-button-variant": variant}),
-      ...(material && {"data-lk-button-variant": material})
-    };
-  }, [restProps]);
+  const iconColor = getOnToken(color) as LkColor;
+  
 
   return (
     <button
       {...lkButtonAttrs}
+      {...restProps}
       type="button"
-      data-lk-component="button"
-      style={
-        color && variant === "fill"
-          ? {
-              backgroundColor: `var(--light__${color}_lkv)`,
-              color: `var(--light__on${color}_lkv)`,
-            }
-          : color && variant === "outline"
-          ? {
-              borderColor: color === "inversesurface" ? `var(--light__inversesurface_lk)` : `var(--lk-outline)`,
-              color: `var(--light__${color}_lkv)`,
-              backgroundColor: "transparent",
-            }
-          : undefined
-      }
+      lk-component="button"
+      className={`color-${iconColor} bg-${color} `}
+
     >
       <div lk-button-content-wrap="true">
         {startIcon && (
@@ -52,7 +48,7 @@ export default function Button(props: LkButtonProps) {
         )}
         <span lk-button-child="button-text">{label ?? "Button"}</span>
         {endIcon && (
-          <i lk-component="icon" lk-icon-position="end">
+          <i lk-component="icon" lk-icon-position="end" >
             {endIcon}
           </i>
         )}
