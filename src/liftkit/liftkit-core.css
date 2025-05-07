@@ -29,14 +29,15 @@
   /* It's okay to use em here because the root font size
                   has been manually set to 1rem */
   --lk-size-sm: calc(1em / var(--lk-scalefactor));
-  --lk-size-xs: round(pow(var(--lk-scalefactor), -1), 0.001);
-  --lk-size-2xs: round(pow(var(--lk-scalefactor), -2), 0.001);
-  --lk-size-3xs: round(pow(var(--lk-scalefactor), -3), 0.001);
+  --lk-size-xs: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001));
+  --lk-size-2xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001));
+  --lk-size-3xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001));
   --lk-size-lg: calc(1em * var(--lk-scalefactor));
-  --lk-size-xl: round(pow(var(--lk-scalefactor), 2), 0.001);
-  --lk-size-2xl: round(pow(var(--lk-scalefactor), 3), 0.001);
-  --lk-size-3xl: round(pow(var(--lk-scalefactor), 4), 0.001);
-  --lk-size-4xl: round(pow(var(--lk-scalefactor), 5), 0.001);
+  --lk-size-xl: calc(1em * round(pow(var(--lk-scalefactor), 2), 0.001));
+  --lk-size-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001));
+  --lk-size-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
+  --lk-size-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
+
 
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
