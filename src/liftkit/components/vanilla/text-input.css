@@ -1,49 +1,119 @@
 @import "../../liftkit-core.css";
 
-[lk-component="text-input"] [lk-text-input-element="field-wrap"] {
-  appearance: none;
+/* ==========================================================================
+   COMPONENT: TextInput (lk-component="text-input")
+   ========================================================================== */
+
+[lk-component="text-input"] {
   display: flex;
-  padding: 7.76px var(--lk-size-md);
-  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* --------------------------------------------------------------------------
+   LABEL
+   -------------------------------------------------------------------------- */
+[lk-text-input-label="label"] {
+  font-size: 13.44px;
+  font-weight: 500;
+  color: black;
+}
+
+/* Floating label behavior */
+[lk-text-input-label="label"][data-floating="true"] {
+  position: absolute;
+  top: 50%;
+  left: var(--lk-size-md);
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--lk-onbackground);
+  pointer-events: none;
+  transition:
+    top 0.2s ease,
+    transform 0.2s ease,
+    font-size 0.2s ease;
+}
+
+/* Remove label when input is focused or has value */
+[lk-text-input-element="field-wrap"]:has(input:focus) 
+  > [lk-text-input-label="label"][data-floating="true"],
+[lk-text-input-element="field-wrap"]:has(input:not(:placeholder-shown)) 
+  > [lk-text-input-label="label"][data-floating="true"] {
+ display: none;
+}
+
+/* --------------------------------------------------------------------------
+   FIELD WRAP
+   -------------------------------------------------------------------------- */
+[lk-text-input-element="field-wrap"] {
+  position: relative;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--lk-size-sm);
+  padding: 7.76px var(--lk-size-md);
   flex: 1 0 0;
-  border-radius: var(--lk-size-md);
-  border: 1px solid var(--lk-outlinevariant);
+  border-radius: var(--lk-size-sm);
+  outline: 1px solid var(--lk-outline);
   background: #fff;
   transition:
-    border 0.2s ease-out,
+    outline 0.2s ease-out,
     outline 0.2s ease-out;
-  position: relative;
+  appearance: none;
 }
 
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:hover {
-  border: 1px solid var(--lk-outlinevariant);
+/* [lk-text-input-element="field-wrap"]:hover {
+  border: 1px solid var(--lk-primarycontainer);
+} */
+
+[lk-text-input-element="field-wrap"]:active,
+[lk-text-input-element="field-wrap"]:focus-within {
+  outline: 3px solid var(--lk-primarycontainer);
 }
 
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:active,
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:focus-within {
-  border-color: transparent;
-  outline: 3px solid var(--lk-primary);
+/* --------------------------------------------------------------------------
+   INPUT
+   -------------------------------------------------------------------------- */
+[lk-text-input-input="input"] {
+  background-color: #fff;
+  color: black;
+  border: none;
+  
+
 }
 
-[lk-component="text-input"] [lk-component="state-layer"] {
+/* --------------------------------------------------------------------------
+   ICON (within input field)
+   -------------------------------------------------------------------------- */
+[lk-text-input-icon="icon"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   STATE LAYER (currently unused, optional)
+   -------------------------------------------------------------------------- */
+[lk-component="text-input"] > [lk-component="state-layer"] {
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
+  background-color: white;
+  opacity: 0;
   transition:
     background-color 0.2s ease-out,
     opacity 0.2s ease-out;
-  background-color: var(--lk-primary);
-  opacity: 0;
 }
 
-[lk-component="text-input"]
-  [lk-text-input-element="field-wrap"]:hover
-  [lk-component="state-layer"],
-[lk-component="text-input"]
-  [lk-text-input-element="field-wrap"]:focus-within
-  [lk-component="state-layer"] {
-  opacity: 0.04;
+
+/* --------------------------------------------------------------------------
+   HELP TEXT
+   -------------------------------------------------------------------------- */
+[lk-component="text-input"] > [lk-text-input-help="help-text"] {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.67px;
+  opacity: 0.5;
 }
