@@ -19,6 +19,9 @@ import DropdownList from "@/liftkit/components/dropdown-list";
 import Snackbar from "@/liftkit/components/snackbar";
 import NavBar from "@/liftkit/components/navbar";
 import IconButton from "@/liftkit/components/icon-button";
+import MenuList from "@/liftkit/components/menu-list";
+import MenuItem from "@/liftkit/components/menu-item";
+import MenuChip from "@/liftkit/components/menu-chip";
 import { useState } from "react";
 
 const contentStyle: React.CSSProperties = {
@@ -62,6 +65,7 @@ const radii = [
 ];
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
@@ -223,6 +227,17 @@ export default function Home() {
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
+      <div className="bg-light__surface">
+        <MenuChip isActive={open} onClick={() => setOpen(!open)} />
+        <MenuList isOpen={open}>
+          <MenuItem startIcon="home">Home</MenuItem>
+          <MenuItem startIcon="settings" endIcon="chevron_right">
+            Settings
+          </MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </MenuList>
+      </div>
+
       <Paragraph fontClass="title1">
         ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
