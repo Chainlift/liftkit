@@ -11,11 +11,11 @@ export default function MenuItem({
   startIcon,
   endIcon,
   children,
-  ...rest
+  ...restProps
 }: LkMenuItemProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs(rest, "lk-menu-item"),
-    [rest],
+    () => propsToDataAttrs(restProps, "menu-item"),
+    [restProps],
   );
 
   return (
