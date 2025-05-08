@@ -214,6 +214,16 @@ export default function Home() {
         </DropdownList>
       </Dropdown>
 
+      <div className="bg-light__surface">
+        <MenuChip isActive={open} onClick={() => setOpen(!open)} />
+        <MenuList isOpen={open}>
+          <MenuItem startIcon="home">Home</MenuItem>
+          <MenuItem startIcon="settings" endIcon="chevron_right">
+            Settings
+          </MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </MenuList>
+      </div>
       <Grid columns={2} gap="md">
         <div style={{ background: "red" }}>Item 1</div>
         <div style={{ background: "blue" }}>Item 2</div>
