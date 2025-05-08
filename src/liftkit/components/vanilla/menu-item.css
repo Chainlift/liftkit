@@ -28,3 +28,7 @@
 [lk-component="menu-item"]:not(:has([lk-icon-position="end"])) {
   padding-right: var(--body-font-size);
 }
+
+[lk-component="menu-item"] > [lk-component="state-layer"] {
+  border-radius: var(--lk-size-xs);
+}
