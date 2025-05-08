@@ -14,12 +14,13 @@ export default function MenuList({
   ...rest
 }: LkMenuListProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ open: isOpen }, "lk-menu-list"),
+    () => propsToDataAttrs({ open: isOpen }, "menu-list"),
     [isOpen],
   );
 
   return (
     <div
+    lk-component="menu-list"
       style={{
         maxHeight: isOpen ? maxHeight : "0px",
         display: isOpen ? "block" : "none",
