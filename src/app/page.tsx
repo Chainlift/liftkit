@@ -1,15 +1,22 @@
-
-
 import TextInput from "@/liftkit/components/text-input";
-
-
 import Paragraph from "@/liftkit/components/paragraph";
 import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import styles from "./page.module.css";
 import Sticker from "@/liftkit/components/sticker";
+import Button from "@/liftkit/components/button";
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
+import Section from "@/liftkit/components/section";
+
+const contentStyle: React.CSSProperties = {
+  background: "#e0e0e0",
+  border: "1px dashed #888",
+  padding: "1rem",
+  textAlign: "center",
+  fontSize: "14px",
+  color: "darkgreen",
+};
 
 const aspectRatios = [
   "auto",
@@ -25,7 +32,6 @@ const aspectRatios = [
   "9/16",
   "4/5",
 ];
-const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
 const radii = [
   "none",
@@ -41,36 +47,142 @@ const radii = [
   "4xl",
 ];
 
-
 export default function Home() {
+  const variants = ["fill", "outline", "text"] as const;
+  const sizes2 = ["sm", "md", "lg"] as const;
+  const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
+
   return (
     <div className={styles.page}>
+      <div className="bg-light__surface p-sm gap-lg display__flex-v">
+        {/* Default label position (above the input) */}
+        <div>
+          <TextInput
+            label="Default Label"
+            labelPosition="default"
+            placeholderText="Enter text here"
+            helpText={true}
+          />
+        </div>
 
-    <div className="bg-light__surface p-sm gap-lg display__flex-v">
-      {/* Default label position (above the input) */}
-      <div>
-        <TextInput
-          label="Default Label"
-          labelPosition="default"
-          placeholderText="Enter text here"
-          helpText={true}
-        />
-      </div>
-
-      {/* Floating label position (inside the input) */}
-      <div>
-
-        <TextInput
-          label="Floating Label"
-          labelPosition="on-input"
-          placeholderText="Enter text here"
-          helpText={true}
-        />
+        {/* Floating label position (inside the input) */}
+        <div>
+          <TextInput
+            label="Floating Label"
+            labelPosition="on-input"
+            placeholderText="Enter text here"
+            helpText={true}
+          />
+        </div>
       </div>
 
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
+
+      <div style={{ padding: "2rem" }}>
+        <h2>Row with gap, justifyContent, alignItems</h2>
+        <Row gap="lg" justify-content="space-around" align-items="center">
+          <div style={{ background: "#ddd", padding: "1rem" }}>Item 1</div>
+          <div style={{ background: "#bbb", padding: "1rem" }}>Item 2</div>
+          <div style={{ background: "#999", padding: "1rem" }}>Item 3</div>
+        </Row>
+
+        <h2 style={{ marginTop: "2rem" }}>Row with wrapChildren</h2>
+        <Row gap="lg" wrap-children="true" style={{ maxWidth: "300px" }}>
+          <div style={{ background: "#ccc", width: "200px", padding: "1rem" }}>
+            A
+          </div>
+          <div style={{ background: "#aaa", width: "200px", padding: "1rem" }}>
+            B
+          </div>
+          <div style={{ background: "#888", width: "200px", padding: "1rem" }}>
+            C
+          </div>
+        </Row>
+
+        <h2 style={{ marginTop: "2rem" }}>
+          Row with defaultChildBehavior = auto-grow
+        </h2>
+        <Row gap="sm" default-child-behavior="auto-grow">
+          <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
+          <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
+          <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
+        </Row>
+      </div>
+
+      <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
+        {/* Padding prop variations */}
+        <Section padding="none">
+          <div style={contentStyle}>padding=none</div>
+        </Section>
+
+        <Section padding="xs">
+          <div style={contentStyle}>padding=xs</div>
+        </Section>
+
+        <Section padding="sm">
+          <div style={contentStyle}>padding=sm</div>
+        </Section>
+
+        <Section padding="md">
+          <div style={contentStyle}>padding=md</div>
+        </Section>
+
+        <Section padding="lg">
+          <div style={contentStyle}>padding=lg</div>
+        </Section>
+
+        <Section padding="xl">
+          <div style={contentStyle}>padding=xl</div>
+        </Section>
+
+        {/* Individual directional paddings using data attributes */}
+        <Section px="md">
+          <div style={contentStyle}>lk-section-px=md</div>
+        </Section>
+
+        <Section py="lg">
+          <div style={contentStyle}>lk-section-py=lg</div>
+        </Section>
+
+        <Section pt="xs">
+          <div style={contentStyle}>lk-section-pt=xs</div>
+        </Section>
+
+        <Section pr="sm">
+          <div style={contentStyle}>lk-section-pr=sm</div>
+        </Section>
+
+        <Section pb="xl">
+          <div style={contentStyle}>lk-section-pb=xl</div>
+        </Section>
+
+        <Section pl="lg">
+          <div style={contentStyle}>lk-section-pl=lg</div>
+        </Section>
+
+        {/* Combined directional paddings */}
+        <Section pt="sm" pr="md" pb="lg" pl="xl">
+          <div style={contentStyle}>pt=sm + pr=md + pb=lg + pl=xl</div>
+        </Section>
+      </div>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        <Sticker content="Default" />
+        <Sticker content="Primary" color="primary" />
+        <Sticker content="Secondary" color="secondary" />
+        <Sticker content="Tertiary" color="tertiary" />
+        <Sticker content="Error" color="error" />
+        <Sticker content="Warning" color="warning" />
+        <Sticker content="Success" color="success" />
+        <Sticker content="Info" color="info" />
+        <Sticker content="Surface" color="surface" />
+        <Sticker content="Inverse" color="inversesurface" />
+        <Sticker content="Primary Container" color="primarycontainer" />
+        <Sticker content="Surface Variant" color="surfacevariant" />
+      </div>
+
       <Paragraph fontClass="title1">
         ancient times, cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
@@ -83,58 +195,61 @@ export default function Home() {
         cats aren&apos;t just pets, but deities in disguise, quietly ruling
         their human households with regal indifference.
       </Paragraph>
-      <div>
-        <div style={{ padding: "2rem" }}>
-          <h2>Row with gap, justifyContent, alignItems</h2>
-          <Row gap="lg" justify-content="space-around" align-items="center">
-            <div style={{ background: "#ddd", padding: "1rem" }}>Item 1</div>
-            <div style={{ background: "#bbb", padding: "1rem" }}>Item 2</div>
-            <div style={{ background: "#999", padding: "1rem" }}>Item 3</div>
-          </Row>
 
-          <h2 style={{ marginTop: "2rem" }}>Row with wrapChildren</h2>
-          <Row gap="lg" wrap-children="true" style={{ maxWidth: "300px" }}>
-            <div
-              style={{ background: "#ccc", width: "200px", padding: "1rem" }}
-            >
-              A
-            </div>
-            <div
-              style={{ background: "#aaa", width: "200px", padding: "1rem" }}
-            >
-              B
-            </div>
-            <div
-              style={{ background: "#888", width: "200px", padding: "1rem" }}
-            >
-              C
-            </div>
-          </Row>
-
-          <h2 style={{ marginTop: "2rem" }}>
-            Row with defaultChildBehavior = auto-grow
-          </h2>
-          <Row gap="sm" default-child-behavior="auto-grow">
-            <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
-            <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
-            <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
-          </Row>
+      {variants.map((variant) => (
+        <div key={variant}>
+          <h2>{variant} Variant</h2>
+          <div>
+            {sizes2.map((size) => (
+              <div key={`${variant}-${size}`}>
+                <h3>Size: {size}</h3>
+                <div>
+                  <div>
+                    <Button
+                      label="Left Icon"
+                      variant={variant}
+                      size={size}
+                      color="error"
+                      startIcon="airplay"
+                    />
+                    <span>startIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Right Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      endIcon="airplay"
+                    />
+                    <span>endIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Both Icons"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      startIcon="airplay"
+                      endIcon="airplay"
+                    />
+                    <span>both</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="No Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                    />
+                    <span>none</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-          <Sticker content="Default" />
-          <Sticker content="Primary" color="primary" />
-          <Sticker content="Secondary" color="secondary" />
-          <Sticker content="Tertiary" color="tertiary" />
-          <Sticker content="Error" color="error" />
-          <Sticker content="Warning" color="warning" />
-          <Sticker content="Success" color="success" />
-          <Sticker content="Info" color="info" />
-          <Sticker content="Surface" color="surface" />
-          <Sticker content="Inverse" color="inversesurface" />
-          <Sticker content="Primary Container" color="primarycontainer" />
-          <Sticker content="Surface Variant" color="surfacevariant" />
-        </div>
-      </div>
+      ))}
 
       {/* RADII TESTING */}
       <div className="radius-test-grid">
@@ -198,26 +313,26 @@ export default function Home() {
             <figcaption className="text-center mt-2">{ratio}</figcaption>
           </figure>
         ))}
-        {/* SIZE TESTING */}
-        <div className="size-test-grid">
-          {sizes.map((size) => (
-            <figure key={size} className="size-test-item">
-              <Image
-                src="/testimage.png"
-                alt={size}
-                lk-component="image"
-                lk-image-width={size}
-                lk-image-height={size}
-                className="size-test-img"
-              />
-              <figcaption className="size-test-caption">{size}</figcaption>
-            </figure>
-          ))}
-        </div>
       </div>
-      <Badge />
 
+      {/* SIZE TESTING */}
+      <div className="size-test-grid">
+        {sizes.map((size) => (
+          <figure key={size} className="size-test-item">
+            <Image
+              src="/testimage.png"
+              alt={size}
+              lk-component="image"
+              lk-image-width={size}
+              lk-image-height={size}
+              className="size-test-img"
+            />
+            <figcaption className="size-test-caption">{size}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <Badge />
     </div>
-  </div>
   );
 }
