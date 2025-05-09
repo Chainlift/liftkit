@@ -1,15 +1,17 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
+type SpacingSize = "xs" | "sm" | "md" | "lg" | "xl" | "none";
+
 interface LkSectionProps extends React.HTMLAttributes<HTMLElement> {
-  padding?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+  padding?:  SpacingSize;
   container?: React.ReactNode;
-  px?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
-  py?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
-  pt?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
-  pb?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
-  pl?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
-  pr?: "xs" | "sm" | "md" | "lg" | "xl" | "none";
+ px?: SpacingSize;
+  py?: SpacingSize;
+  pt?: SpacingSize;
+  pb?: SpacingSize;
+  pl?: SpacingSize;
+  pr?: SpacingSize;
 }
 
 export default function Section(props: LkSectionProps) {
