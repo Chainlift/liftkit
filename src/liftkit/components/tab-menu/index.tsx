@@ -12,21 +12,25 @@ interface LkTabMenuProps extends React.HTMLAttributes<HTMLDivElement> {
     | "end"
     | "space-between"
     | "space-around";
+    activeTab: number; 
+    setActiveTab: (index: number) => void;
 }
 
 export default function TabMenu({
   tabLinks = ["Tab Link 1", "Tab Link 2", "Tab Link 3"],
   alignItems,
   justifyContent,
+  activeTab,
+  setActiveTab,
   ...rest
 }: LkTabMenuProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({}, "lk-tab-menu"), []);
+  const dataAttrs = useMemo(() => propsToDataAttrs({}, "tab-menu"), []);
 
   return (
-    <div {...dataAttrs} {...rest}>
+    <div lk-component="tab-menu" {...dataAttrs} {...rest}>
       <Row alignItems={alignItems} justifyContent={justifyContent}>
         {tabLinks.map((label, index) => (
-          <TabLink key={index}>
+          <TabLink key={index} selected={index === activeTab} onClick={() => setActiveTab(index)}>
             <div>{label ?? "Tab Link"}</div>
           </TabLink>
         ))}
