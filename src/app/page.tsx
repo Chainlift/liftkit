@@ -56,16 +56,17 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Paragraph fontClass="title1">
-        ancient times, cats were not merely companions—they were revered as
+        ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
-        creatures, embodying grace, mystery, and spiritual power. The goddess
-        Bastet, depicted with the head of a lioness or domestic cat, symbolized
-        protection, fertility, and the nurturing aspects of home life. Even
-        beyond Egypt, the enigmatic nature of cats—their watchful eyes, silent
-        movements, and uncanny independence—has inspired a timeless belief that
-        they walk between worlds. To this day, many still joke (or suspect) that
-        cats aren't just pets, but deities in disguise, quietly ruling their
-        human households with regal indifference.
+        creatures embodying grace&quot; mystery&quot; and spiritual power. The
+        goddess Bastet depicted with the head of a lioness or domestic cat&quot;
+        symbolized protection fertility&quot; and the nurturing aspects of home
+        life. Even beyond Egypt the enigmatic nature of cats—their watchful
+        eyes&quot; silent movements and uncanny independence—has inspired a
+        timeless belief that they walk between worlds. To this day many still
+        joke (or suspect) that cats arent just pets but deities in
+        disguise&quot; quietly ruling their human households with regal
+        indifference.
       </Paragraph>
       <div style={{ padding: "2rem" }}>
         <h2>Row with gap, justifyContent, alignItems</h2>
@@ -108,58 +109,58 @@ export default function Home() {
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
         {/* Padding prop variations */}
         <Section padding="none">
-          <div style={contentStyle}>padding="none"</div>
+          <div style={contentStyle}>padding=none</div>
         </Section>
 
         <Section padding="xs">
-          <div style={contentStyle}>padding="xs"</div>
+          <div style={contentStyle}>padding=xs</div>
         </Section>
 
         <Section padding="sm">
-          <div style={contentStyle}>padding="sm"</div>
+          <div style={contentStyle}>padding=sm</div>
         </Section>
 
         <Section padding="md">
-          <div style={contentStyle}>padding="md"</div>
+          <div style={contentStyle}>padding=md</div>
         </Section>
 
         <Section padding="lg">
-          <div style={contentStyle}>padding="lg"</div>
+          <div style={contentStyle}>padding=lg</div>
         </Section>
 
         <Section padding="xl">
-          <div style={contentStyle}>padding="xl"</div>
+          <div style={contentStyle}>padding=xl</div>
         </Section>
 
         {/* Individual directional paddings using data attributes */}
         {/* <Section {...{ "lk-section-px": "md" }}> */}
         <Section px="md">
-          <div style={contentStyle}>lk-section-px="md"</div>
+          <div style={contentStyle}>lk-section-px=md</div>
         </Section>
 
         <Section py="lg">
-          <div style={contentStyle}>lk-section-py="lg"</div>
+          <div style={contentStyle}>lk-section-py=lg</div>
         </Section>
 
         <Section pt="xs">
-          <div style={contentStyle}>lk-section-pt="xs"</div>
+          <div style={contentStyle}>lk-section-pt=xs</div>
         </Section>
 
         <Section pr="sm">
-          <div style={contentStyle}>lk-section-pr="sm"</div>
+          <div style={contentStyle}>lk-section-pr=sm</div>
         </Section>
 
         <Section pb="xl">
-          <div style={contentStyle}>lk-section-pb="xl"</div>
+          <div style={contentStyle}>lk-section-pb=xl</div>
         </Section>
 
         <Section pl="lg">
-          <div style={contentStyle}>lk-section-pl="lg"</div>
+          <div style={contentStyle}>lk-section-pl=lg</div>
         </Section>
 
         {/* Combined directional paddings */}
         <Section pt="sm" pr="md" pb="lg" pl="xl">
-          <div style={contentStyle}>pt="sm" + pr="md" + pb="lg" + pl="xl"</div>
+          <div style={contentStyle}>pt=sm + pr=md + pb=lg + pl=xl</div>
         </Section>
       </div>
       <div>
