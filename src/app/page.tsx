@@ -1,8 +1,16 @@
+
+"use client"
+import MenuChip from "@/liftkit/components/menu-chip";
 import Paragraph from "@/liftkit/components/paragraph";
 import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import styles from "./page.module.css";
 import Sticker from "@/liftkit/components/sticker";
+
+import MenuList from "@/liftkit/components/menu-list";
+import MenuItem from "@/liftkit/components/menu-item";
+import { useState } from "react";
+
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
 
@@ -36,12 +44,27 @@ const radii = [
   "4xl",
 ];
 
+
 export default function Home() {
+  const [open, setOpen] = useState(false)
   return (
     <div className={styles.page}>
+
+    <div className="bg-light__surface">
+      <MenuChip isActive={open} onClick={() => setOpen(!open)} />
+      <MenuList isOpen={open}>
+        <MenuItem startIcon="home">Home</MenuItem>
+        <MenuItem startIcon="settings" endIcon="chevron_right">Settings</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </MenuList>
+    </div>
+
+
+
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
+
       <Paragraph fontClass="title1">
         ancient times, cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
