@@ -8,6 +8,7 @@ import Button from "@/liftkit/components/button";
 import Image from "@/liftkit/components/image";
 import Badge from "@/liftkit/components/badge";
 import Icon from "@/liftkit/components/icon";
+import Grid from "@/liftkit/components/grid";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -55,6 +56,26 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <Grid columns={2} gap="md">
+        <div style={{ background: "red" }}>Item 1</div>
+        <div style={{ background: "blue" }}>Item 2</div>
+      </Grid>
+
+      <Grid columns={3} gap="sm" autoResponsive>
+        <div style={{ background: "green" }}>Responsive 1</div>
+        <div style={{ background: "purple" }}>Responsive 2</div>
+        <div style={{ background: "orange" }}>Responsive 3</div>
+      </Grid>
+
+      <Grid columns={4} gap="lg" autoResponsive data-lk-grid-minmax="true">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} style={{ background: "#999" }}>{`Item ${i + 1}`}</div>
+        ))}
+      </Grid>
+
+      <Text fontClass="display1" tag="footer" color="primary">
+        Hello World
+      </Text>
       <Paragraph fontClass="title1">
         ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
