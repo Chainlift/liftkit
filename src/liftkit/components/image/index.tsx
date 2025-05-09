@@ -46,10 +46,11 @@ export default function Image({
     () =>
       propsToDataAttrs(
         { aspect, borderRadius, objectFit, width, height },
-        "lk-image",
+        "image",
       ),
     [aspect, borderRadius, objectFit, width, height],
   );
 
-  return <img {...attrs} {...rest} alt="" />;
+  return <img  lk-component="image" {...attrs} {...rest} alt="" />;
+    
 }

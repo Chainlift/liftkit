@@ -3,7 +3,7 @@
   display: inline-block;
   position: relative;
   border-radius: 100em;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
   padding: 0.5em;
   font-weight: 500;
   background: none;
@@ -27,9 +27,15 @@
     opacity 0.2s ease-out;
 }
 
-[lk-component="icon-button"]:hover > [lk-component="state-layer"],
-[lk-component="icon-button"]:focus-visible > [lk-component="state-layer"] {
+/* STATE LAYER OPACITY */
+[lk-component="icon-button"]:hover > [lk-component="state-layer"]
+ {
   opacity: 0.04;
+}
+
+[lk-component="icon-button"]:active > [lk-component="state-layer"],
+[lk-component="icon-button"]:focus-visible > [lk-component="state-layer"] {
+  opacity: 0.1;
 }
 
 /* Size map */
@@ -51,4 +57,105 @@
 
 [lk-icon-button-size="xl"] {
   font-size: var(--title2-font-size);
+}
+
+/* COLORS */
+[lk-icon-button-color="primary"] {
+  background-color: var(--lk-primary);
+  color: var(--lk-onprimary);
+}
+[lk-icon-button-color="primarycontainer"] {
+  background-color: var(--lk-primarycontainer);
+  color: var(--lk-onprimarycontainer);
+}
+[lk-icon-button-color="secondary"] {
+  background-color: var(--lk-secondary);
+  color: var(--lk-onsecondary);
+}
+[lk-icon-button-color="secondarycontainer"] {
+  background-color: var(--lk-secondarycontainer);
+  color: var(--lk-onsecondarycontainer);
+}
+[lk-icon-button-color="tertiary"] {
+  background-color: var(--lk-tertiary);
+  color: var(--lk-ontertiary);
+}
+[lk-icon-button-color="tertiarycontainer"] {
+  background-color: var(--lk-tertiarycontainer);
+  color: var(--lk-ontertiarycontainer);
+}
+[lk-icon-button-color="error"] {
+  background-color: var(--lk-error);
+  color: var(--lk-onerror);
+}
+[lk-icon-button-color="errorcontainer"] {
+  background-color: var(--lk-errorcontainer);
+  color: var(--lk-onerrorcontainer);
+}
+[lk-icon-button-color="success"] {
+  background-color: var(--lk-success);
+  color: var(--lk-onsuccess);
+}
+[lk-icon-button-color="successcontainer"] {
+  background-color: var(--lk-successcontainer);
+  color: var(--lk-onsuccesscontainer);
+}
+[lk-icon-button-color="warning"] {
+  background-color: var(--lk-warning);
+  color: var(--lk-onwarning);
+}
+[lk-icon-button-color="warningcontainer"] {
+  background-color: var(--lk-warningcontainer);
+  color: var(--lk-onwarningcontainer);
+}
+[lk-icon-button-color="info"] {
+  background-color: var(--lk-info);
+  color: var(--lk-oninfo);
+}
+[lk-icon-button-color="infocontainer"] {
+  background-color: var(--lk-infocontainer);
+  color: var(--lk-oninfocontainer);
+}
+[lk-icon-button-color="surface"] {
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+}
+[lk-icon-button-color="surfacecontainer"] {
+  background-color: var(--lk-surfacecontainer);
+  color: var(--lk-onsurfacecontainer);
+}
+[lk-icon-button-color="surfacevariant"] {
+  background-color: var(--lk-surfacevariant);
+  color: var(--lk-onsurfacevariant);
+}
+[lk-icon-button-color="surfacecontainerlowest"] {
+  background-color: var(--lk-surfacecontainerlowest);
+  color: var(--lk-onsurfacecontainerlowest);
+}
+[lk-icon-button-color="surfacecontainerlow"] {
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurfacecontainerlow);
+}
+[lk-icon-button-color="surfacecontainerhigh"] {
+  background-color: var(--lk-surfacecontainerhigh);
+  color: var(--lk-onsurfacecontainerhigh);
+}
+[lk-icon-button-color="surfacecontainerhighest"] {
+  background-color: var(--lk-surfacecontainerhighest);
+  color: var(--lk-onsurfacecontainerhighest);
+}
+[lk-icon-button-color="inversesurface"] {
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-oninversesurface);
+}
+
+/* VARIANT OUTLINE */
+[lk-icon-button-variant="outline"] {
+  border: solid 1px var(--lk-outlinevariant);
+  background-color: transparent;
+}
+
+/* VARIANT TEXT */
+[lk-icon-button-variant="text"] {
+  background-color: transparent;
 }

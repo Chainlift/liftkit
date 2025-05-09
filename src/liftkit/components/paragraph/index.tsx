@@ -2,23 +2,23 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 
 interface LkParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  fontClass?: string; // Should be LkFontClass in production
+  fontClass?: LkFontClass; // Should be LkFontClass in production
   content?: string;
 }
 
 export default function Paragraph({
   fontClass = "body",
-  content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  children,
   ...rest
 }: LkParagraphProps) {
   const paragraphAttrs = useMemo(
-    () => propsToDataAttrs(rest, "lk-paragraph"),
+    () => propsToDataAttrs(rest, "paragraph"),
     [rest],
   );
 
   return (
-    <p className={`lk-font-${fontClass}`} {...paragraphAttrs}>
-      {content}
+    <p lk-component="paragraph" className={`${fontClass}`} {...paragraphAttrs}>
+      {children}
     </p>
   );
 }

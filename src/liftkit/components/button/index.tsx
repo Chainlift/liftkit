@@ -1,5 +1,8 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
+import { getOnToken } from "@/lib/colorUtils";
+
+import { IconName } from "lucide-react/dynamic";
 
 interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
@@ -7,29 +10,37 @@ interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: LkColorWithOnToken;
   size?: "sm" | "md" | "lg";
   material?: string;
-  startIcon?: string;
-  endIcon?: string;
+  startIcon?: IconName;
+  endIcon?: IconName;
 }
 
-export default function Button(props: LkButtonProps) {
-  const { label, startIcon, endIcon, ...restProps } = props;
-
+export default function Button({
+  label = "Button",
+  variant = "fill",
+  color = "primary",
+  size = "md",
+  startIcon,
+  endIcon,
+  ...restProps
+}: LkButtonProps) {
   const lkButtonAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-button"),
-    [
-      // restProps.variant,
-      // restProps.color,
-      // restProps.size,
-      // restProps.material,
-      // startIcon,
-      // endIcon,
-      restProps,
-    ],
+    () => propsToDataAttrs({ variant, color, size, restProps }, "button"),
+    [variant, color, size, restProps]
   );
 
+  const iconColor = getOnToken(color) as LkColor;
+  
+
   return (
-    <button {...lkButtonAttrs} type="button">
-      <div lk-button-content-wrap>
+    <button
+      {...lkButtonAttrs}
+      {...restProps}
+      type="button"
+      lk-component="button"
+      className={`color-${iconColor} bg-${color} `}
+
+    >
+      <div lk-button-content-wrap="true">
         {startIcon && (
           <i lk-component="icon" lk-icon-position="start">
             {startIcon}
@@ -37,7 +48,7 @@ export default function Button(props: LkButtonProps) {
         )}
         <span lk-button-child="button-text">{label ?? "Button"}</span>
         {endIcon && (
-          <i lk-component="icon" lk-icon-position="end">
+          <i lk-component="icon" lk-icon-position="end" >
             {endIcon}
           </i>
         )}

@@ -7,24 +7,25 @@ interface LkIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: string;
   variant?: "fill" | "outline" | "text";
-  color?: string; // LkColor
+  // color?: string; // LkColor
+  color?: LkColorWithOnToken;
   size?: LkSizeUnit;
 }
 
 export default function IconButton({
   icon,
   variant = "fill",
-  color = "lk-primary",
+  color = "primary",
   size = "md",
   ...rest
 }: LkIconButtonProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ variant, color, size }, "lk-icon-button"),
+    () => propsToDataAttrs({ variant, color, size }, "icon-button"),
     [variant, color, size],
   );
 
   return (
-    <button type="button" {...dataAttrs} {...rest}>
+    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} >
       <div>
         <i lk-component="icon">{icon}</i>
       </div>

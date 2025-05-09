@@ -15,13 +15,14 @@ interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Column(props: LkColumnProps) {
   const { children, ...restProps } = props;
 
-  const lkColumnAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-column"),
-    [restProps],
-  );
+
+const lkColumnAttrs = useMemo(
+  () => propsToDataAttrs(restProps, "column"),
+  [restProps],
+);
 
   return (
-    <div lk-component="column" {...lkColumnAttrs}>
+    <div {...lkColumnAttrs} {...restProps} lk-component="column" >
       {children}
     </div>
   );
