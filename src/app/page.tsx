@@ -3,6 +3,7 @@ import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
 import styles from "./page.module.css";
 import Sticker from "@/liftkit/components/sticker";
+import Button from "@/liftkit/components/button";
 import Badge from "@/liftkit/components/badge";
 import Image from "@/liftkit/components/image";
 
@@ -20,7 +21,6 @@ const aspectRatios = [
   "9/16",
   "4/5",
 ];
-const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
 const radii = [
   "none",
@@ -37,6 +37,10 @@ const radii = [
 ];
 
 export default function Home() {
+  const variants = ["fill", "outline", "text"] as const;
+  const sizes2 = ["sm", "md", "lg"] as const;
+  const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
+
   return (
     <div className={styles.page}>
       <Text fontClass="display1" tag="footer" color="primary">
@@ -91,6 +95,7 @@ export default function Home() {
             <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
           </Row>
         </div>
+
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
           <Sticker content="Default" />
           <Sticker content="Primary" color="primary" />
@@ -107,6 +112,60 @@ export default function Home() {
         </div>
       </div>
 
+      {variants.map((variant) => (
+        <div key={variant}>
+          <h2>{variant} Variant</h2>
+          <div>
+            {sizes2.map((size) => (
+              <div key={`${variant}-${size}`}>
+                <h3>Size: {size}</h3>
+                <div>
+                  <div>
+                    <Button
+                      label="Left Icon"
+                      variant={variant}
+                      size={size}
+                      color="error"
+                      startIcon="airplay"
+                    />
+                    <span>startIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Right Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      endIcon="airplay"
+                    />
+                    <span>endIcon</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="Both Icons"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                      startIcon="airplay"
+                      endIcon="airplay"
+                    />
+                    <span>both</span>
+                  </div>
+                  <div>
+                    <Button
+                      label="No Icon"
+                      variant={variant}
+                      size={size}
+                      color="primary"
+                    />
+                    <span>none</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
       {/* RADII TESTING */}
       <div className="radius-test-grid">
         {radii.map((radius) => (
