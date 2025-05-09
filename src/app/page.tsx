@@ -2,7 +2,6 @@
 "use client"
 
 import MenuChip from "@/liftkit/components/menu-chip";
-import styles from "./page.module.css";
 import Paragraph from "@/liftkit/components/paragraph";
 import Text from "@/liftkit/components/text";
 import Row from "@/liftkit/components/row";
