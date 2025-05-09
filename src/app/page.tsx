@@ -80,7 +80,7 @@ export default function Home() {
       </Text>
 
       <Paragraph fontClass="title1">
-        ancient times, cats were not merely companions—they were revered as
+        ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
         creatures, embodying grace, mystery, and spiritual power. The goddess
         Bastet, depicted with the head of a lioness or domestic cat, symbolized
