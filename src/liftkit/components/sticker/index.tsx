@@ -1,20 +1,19 @@
-// import { getOnToken } from "@/lib/colorUtils";
 import Text from "@/liftkit/components/text";
 
 interface LkStickerProps extends React.HTMLAttributes<HTMLDivElement> {
   content?: string;
-  // color?: LkColorWithOnToken; // Should match allowed subset of LkColor from Button
+  color?:  LkColorWithOnToken
+ 
 }
 
 export default function Sticker({
   content = "Sticker",
-  // color = "primarycontainer",
-  ...restprops
+  color = "primarycontainer",
+  ...restProps
 }: LkStickerProps) {
-  // const iconColor = getOnToken(color) as LkColor;
 
   return (
-    <div lk-component="sticker" {...restprops}>
+    <div lk-component="sticker" {...restProps} lk-sticker-color={color}>
       <Text fontClass="label" content={content} />
     </div>
   );
