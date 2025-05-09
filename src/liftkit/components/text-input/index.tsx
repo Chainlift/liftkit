@@ -42,6 +42,7 @@ export default function TextInput( {
         lk-text-input-input="input"
        
       />
+      <div lk-component="state-layer"></div>
       <Icon name="search-x" color="surface" lk-text-input-icon="icon" />
     </div>
 
