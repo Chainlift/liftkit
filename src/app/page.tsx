@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./page.module.css";
 import Section from "@/liftkit/components/section";
 import Text from "@/liftkit/components/text";
@@ -10,6 +11,9 @@ import Image from "@/liftkit/components/image";
 import Badge from "@/liftkit/components/badge";
 import Icon from "@/liftkit/components/icon";
 import Grid from "@/liftkit/components/grid";
+import TabContent from "@/liftkit/components/tab-content";
+import Tabs from "@/liftkit/components/tabs";
+import { useState } from "react";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -52,9 +56,10 @@ const radii = [
 ];
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-
   return (
     <div className={styles.page}>
       <Tabs
@@ -88,6 +93,7 @@ export default function Home() {
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
+
       <Paragraph fontClass="title1">
         ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred

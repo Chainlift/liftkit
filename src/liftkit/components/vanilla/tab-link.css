@@ -1,7 +1,7 @@
 @import "../../liftkit-core.css";
 
 [lk-component="tab-link"] {
-  display: flex;
+  display: inline-flex;
   position: relative;
   padding: var(--lk-size-md);
 }

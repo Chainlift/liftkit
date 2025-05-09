@@ -15,6 +15,7 @@ export default function Text({
   fontClass = "display2-bold",
   color,
   children,
+  style,
   ...rest
 }: LkTextProps) {
   const Tag = tag as ElementType;
@@ -22,12 +23,7 @@ export default function Text({
   const textAttrs = useMemo(() => propsToDataAttrs(rest, "text"), [rest]);
 
   return (
-    <Tag
-      lk-component="text"
-      className={`${fontClass} color-${color}`}
-      {...rest}
-      {...textAttrs}
-    >
+    <Tag className={`${fontClass} color-${color}`} style={style} {...textAttrs}>
       {children}
     </Tag>
   );
