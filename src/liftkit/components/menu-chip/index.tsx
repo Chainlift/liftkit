@@ -12,12 +12,12 @@ export default function MenuChip({
   ...rest
 }: LkMenuChipProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ open: isActive }, "lk-menu-chip"),
+    () => propsToDataAttrs({ open: isActive }, "menu-chip"),
     [isActive],
   );
 
   return (
-    <div {...dataAttrs} {...rest}>
+    <div lk-component="menu-chip" {...dataAttrs} {...rest}>
       <span>{label}</span>
       <div lk-dropdown-el="chip">
         <i lk-component="icon">keyboard_arrow_down</i>

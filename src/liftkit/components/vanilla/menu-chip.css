@@ -1,17 +1,19 @@
 @import "../../liftkit-core.css";
 
 [lk-component="menu-chip"] {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--lk-size-sm);
   padding: var(--lk-size-xs) var(--lk-size-md);
   border: 1px solid var(--lk-outline-variant);
-  border-radius: var(--subheading-line-height);
+  /* border-radius: var(--subheading-line-height); */
+  border-radius: var(--lk-size-lg);
   background-color: #fff;
   position: relative;
   transition:
     border 0.2s ease-out,
     outline 0.2s ease-out;
+  cursor: pointer ;
 }
 
 [lk-component="menu-chip"]:focus-visible {
@@ -29,5 +31,6 @@
 }
 
 [lk-menu-chip-open="true"] > [lk-component="state-layer"] {
-  opacity: 0.15;
+  opacity: 0.25;
+  border-radius: var(--lk-size-lg);
 }
