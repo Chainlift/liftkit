@@ -5,15 +5,17 @@ type LkSemanticTag = keyof JSX.IntrinsicElements;
 
 interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   fontClass?: string; // Ideally: LkFontClass
-  content?: string;
+  // content?: string;
   color?: LkColor;
   tag?: LkSemanticTag;
+  // children?: 
 }
 
 export default function Text({
   tag = "div",
   fontClass = "display2-bold",
-  content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+ children,
+  style,
   ...rest
 }: LkTextProps) {
   const Tag = tag as ElementType;
@@ -21,8 +23,8 @@ export default function Text({
   const textAttrs = useMemo(() => propsToDataAttrs(rest, "lk-text"), [rest]);
 
   return (
-    <Tag className={`${fontClass}`} {...textAttrs}>
-      {content}
+    <Tag className={`${fontClass}`} style={style} {...textAttrs}>
+      {children}
     </Tag>
   );
 }
