@@ -73,6 +73,10 @@ export default function Home() {
           </TabContent>
         ))}
       </Tabs>
+      <Card>
+        <h2>Filled Card</h2>
+        <p>This card uses the fill variant and title1 scale.</p>
+      </Card>
 
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
         {/* Basic Card */}
