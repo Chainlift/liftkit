@@ -14,7 +14,6 @@ interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
 export default function Text({
   tag = "div",
   fontClass = "display2-bold",
-  style,
   color,
   children,
   ...rest
