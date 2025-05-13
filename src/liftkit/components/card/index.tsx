@@ -1,3 +1,4 @@
+
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
   variant?: "fill" | "outline" | "transparent";
@@ -17,7 +18,7 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Card(props: LkCardProps) {
-  const { children, className, ...restProps } = props;
+  const { children, className, isClickable, scaleFactor, opticalCorrection, ...restProps } = props;
 
   function filterCustomProps(props: LkCardProps) {
     const nativeDivProps: (keyof React.HTMLAttributes<HTMLDivElement>)[] = [
@@ -42,7 +43,7 @@ export default function Card(props: LkCardProps) {
             key as keyof React.HTMLAttributes<HTMLDivElement>,
           )
         ) {
-          const kebabKey = `lk-${key
+          const kebabKey = `lk-card-${key
             .replace(/([a-z])([A-Z])/g, "$1-$2")
             .toLowerCase()}`;
           customProps[kebabKey] = props[key as keyof LkCardProps];
@@ -56,7 +57,8 @@ export default function Card(props: LkCardProps) {
   const customProps = filterCustomProps(restProps);
 
   return (
-    <div {...customProps} className={className}>
+    <div lk-component="card" {...customProps} {...restProps} className={`${className ?? ""} ${isClickable ? "clickable" : ""}`}
+    >
       <div lk-component="slot" lk-slot="children">
         {children}
       </div>

@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./page.module.css";
 import Section from "@/liftkit/components/section";
 import Text from "@/liftkit/components/text";
@@ -14,6 +13,7 @@ import Grid from "@/liftkit/components/grid";
 import TabContent from "@/liftkit/components/tab-content";
 import Tabs from "@/liftkit/components/tabs";
 import { useState } from "react";
+import Card from "@/liftkit/components/card";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -73,6 +73,39 @@ export default function Home() {
           </TabContent>
         ))}
       </Tabs>
+
+      <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
+        {/* Basic Card */}
+        <Card>
+          <h2>Basic Card</h2>
+          <p>This is a basic card with default styling.</p>
+        </Card>
+
+        {/* Filled Card with Title Scale */}
+        <Card
+          scaleFactor="title1"
+          variant="fill"
+          material="flat"
+          optical-correction="left"
+        >
+          <h2>Filled Card</h2>
+          <p>This card uses the "fill" variant and "title1" scale.</p>
+        </Card>
+
+        {/* Outline Glass Card with Clickable Style */}
+
+        <Card
+          scaleFactor="body"
+          variant="outline"
+          material="glass"
+          isClickable
+          onClick={() => alert("Card clicked!")}
+        >
+          <h2>Glass Card</h2>
+          <p>This one has a glass blur effect and is clickable.</p>
+        </Card>
+      </div>
+
       <Grid columns={2} gap="md">
         <div style={{ background: "red" }}>Item 1</div>
         <div style={{ background: "blue" }}>Item 2</div>
