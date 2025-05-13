@@ -65,11 +65,12 @@ const radii = [
 ];
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
+  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
   const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
     {},
   );
@@ -78,6 +79,7 @@ export default function Home() {
     setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
   };
   console.log("openDropdown", openDropdown);
+
   return (
     <div className={styles.page}>
       <NavBar
@@ -215,8 +217,13 @@ export default function Home() {
       </Dropdown>
 
       <div className="bg-light__surface">
-        <MenuChip isActive={open} onClick={() => setOpen(!open)} />
-        <MenuList isOpen={open}>
+        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
+        {/* <MenuList isOpen={open}> */}
+        <MenuChip
+          isActive={openMenus["menu1"]}
+          onClick={() => toggleMenu("menu1")}
+        />
+        <MenuList isOpen={openMenus["menu1"]}>
           <MenuItem startIcon="home">Home</MenuItem>
           <MenuItem startIcon="settings" endIcon="chevron_right">
             Settings
@@ -238,8 +245,13 @@ export default function Home() {
         Hello World
       </Text>
       <div className="bg-light__surface">
-        <MenuChip isActive={open} onClick={() => setOpen(!open)} />
-        <MenuList isOpen={open}>
+        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} />
+        <MenuList isOpen={open}> */}
+        <MenuChip
+          isActive={openMenus["menu2"]}
+          onClick={() => toggleMenu("menu2")}
+        />
+        <MenuList isOpen={openMenus["menu2"]}>
           <MenuItem startIcon="home">Home</MenuItem>
           <MenuItem startIcon="settings" endIcon="chevron_right">
             Settings
