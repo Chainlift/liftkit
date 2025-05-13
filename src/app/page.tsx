@@ -17,9 +17,9 @@ import Dropdown from "@/liftkit/components/dropdown";
 import DropdownChip from "@/liftkit/components/dropdown-chip";
 import DropdownList from "@/liftkit/components/dropdown-list";
 import Snackbar from "@/liftkit/components/snackbar";
-import { useState } from "react";
 import NavBar from "@/liftkit/components/navbar";
 import IconButton from "@/liftkit/components/icon-button";
+import { useState } from "react";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
