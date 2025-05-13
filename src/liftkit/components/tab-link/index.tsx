@@ -7,12 +7,14 @@ interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   fontClass?: LkFontClass;
   indicatorClass?: string;
   children?: React.ReactElement<HTMLDivElement>;
+  // activeTab?: number;
 }
 
 export default function TabLink({
   selected = false,
   fontClass = "body",
   indicatorClass = "lk-indicator",
+  // activeTab,
   children,
   ...rest
 }: LkTabLinkProps) {
