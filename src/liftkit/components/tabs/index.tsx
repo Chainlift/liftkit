@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { propsToDataAttrs } from "../utilities";
 import TabMenu from "@/liftkit/components/tab-menu";
 
