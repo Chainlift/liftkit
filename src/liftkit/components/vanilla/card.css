@@ -87,9 +87,26 @@
 }
 
 [lk-card-material="glass"] {
-  backdrop-filter: blur(var(--thick));
+  /* backdrop-filter: blur(var(--thick)); */
+backdrop-filter: blur(var(--lk-size-lg));
 }
 
 [lk-card-material="rubber"] {
   /* Placeholder for neumorphic styling */
 }
+
+/* I do not recall how optical correction is supposed to work. Is it based on font size? */
+[lk-card-optical-correction="left"] {
+  padding-left: var(--lk-size-lg);
+}
+
+
+.clickable {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.clickable:hover {
+  box-shadow: 0 0 0 2px var(--lk-primary, blue);
+}
+
