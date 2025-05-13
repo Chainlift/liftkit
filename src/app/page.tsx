@@ -18,6 +18,8 @@ import DropdownChip from "@/liftkit/components/dropdown-chip";
 import DropdownList from "@/liftkit/components/dropdown-list";
 import Snackbar from "@/liftkit/components/snackbar";
 import { useState } from "react";
+import NavBar from "@/liftkit/components/navbar";
+import IconButton from "@/liftkit/components/icon-button";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -74,6 +76,47 @@ export default function Home() {
   console.log("openDropdown", openDropdown);
   return (
     <div className={styles.page}>
+      <NavBar
+        navButtons={[
+          <Button key="1" label="Home" variant="text" />,
+          <Button key="2" label="About" variant="text" />,
+          <Button key="3" label="Careers" variant="text" />,
+        ]}
+        iconButtons={[
+          <IconButton
+            key="search"
+            icon="search"
+            variant="text"
+            color="surfacecontainer"
+          />,
+          <IconButton
+            key="briefcase"
+            icon="note"
+            variant="text"
+            color="surfacecontainer"
+          />,
+          <IconButton
+            key="heart"
+            icon="book"
+            variant="text"
+            color="surfacecontainer"
+          />,
+        ]}
+        ctaButtons={[
+          <Button
+            key="secondary"
+            label="Secondary"
+            variant="outline"
+            color="surface"
+          />,
+          <Button
+            key="primary"
+            label="Primary"
+            variant="fill"
+            color="surfacecontainer"
+          />,
+        ]}
+      />
       <Snackbar badgeColor="error" globalColor="surface" />
       <div
         style={{
@@ -177,7 +220,60 @@ export default function Home() {
         <div style={{ background: "purple" }}>Responsive 2</div>
         <div style={{ background: "orange" }}>Responsive 3</div>
       </Grid>
+      <Text fontClass="display1" tag="footer" color="primary">
+        Hello World
+      </Text>
+      <Paragraph fontClass="title1">
+        ancient times cats were not merely companions—they were revered as
+        divine beings. Cultures like ancient Egypt honored cats as sacred
+        creatures embodying grace&quot; mystery&quot; and spiritual power. The
+        goddess Bastet depicted with the head of a lioness or domestic cat&quot;
+        symbolized protection fertility&quot; and the nurturing aspects of home
+        life. Even beyond Egypt the enigmatic nature of cats—their watchful
+        eyes&quot; silent movements and uncanny independence—has inspired a
+        timeless belief that they walk between worlds. To this day many still
+        joke (or suspect) that cats arent just pets but deities in
+        disguise&quot; quietly ruling their human households with regal
+        indifference.
+      </Paragraph>
+      <div style={{ padding: "2rem" }}>
+        <h2>Row with gap, justifyContent, alignItems</h2>
+        <Row gap="lg" justify-content="space-around" align-items="center">
+          <div style={{ background: "#ddd", padding: "1rem" }}>Item 1</div>
+          <div style={{ background: "#bbb", padding: "1rem" }}>Item 2</div>
+          <div style={{ background: "#999", padding: "1rem" }}>Item 3</div>
+        </Row>
 
+        <h2 style={{ marginTop: "2rem" }}>Row with wrapChildren</h2>
+        <Row gap="lg" wrap-children="true" style={{ maxWidth: "300px" }}>
+          <div style={{ background: "#ccc", width: "200px", padding: "1rem" }}>
+            A
+          </div>
+          <div style={{ background: "#aaa", width: "200px", padding: "1rem" }}>
+            B
+          </div>
+          <div style={{ background: "#888", width: "200px", padding: "1rem" }}>
+            C
+          </div>
+        </Row>
+
+        <h2 style={{ marginTop: "2rem" }}>
+          Row with defaultChildBehavior = auto-grow
+        </h2>
+        <Row gap="sm" default-child-behavior="auto-grow">
+          <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
+          <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
+          <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
+        </Row>
+      </div>
+      <Badge
+        icon="replace"
+        color="surfacecontainerhigh"
+        scale="lg"
+        iconStrokeWidth={1}
+      />
+      <span className="absolute top-0">Hello</span>
+      <Icon name="airplay" color="primary" fontClass="title2" />
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
         {/* Basic Card */}
         <Card>

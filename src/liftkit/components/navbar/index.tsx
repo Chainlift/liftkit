@@ -1,9 +1,12 @@
-import { useMemo } from "react";
+"use client"
+
+import { useMemo, useState } from "react";
 import { propsToDataAttrs } from "../utilities";
 import Image from "@/liftkit/components/image";
 import IconButton from "@/liftkit/components/icon-button";
 import Row from "@/liftkit/components/row";
 import Link from "next/link";
+import Column from "@/liftkit/components/column";
 
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
@@ -22,35 +25,47 @@ export default function NavBar({
   ...rest
 }: LkNavBarProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ material }, "lk-navbar"),
+    () => propsToDataAttrs({ material }, "navbar"),
     [material],
   );
 
-  return (
-    <div {...dataAttrs} {...rest}>
-      <div lk-navbar-el="navbar-content">
-        <Row>
-          <IconButton icon="menu" />
-          <Link href="/">
-            <Image alt="" />
-          </Link>
-        </Row>
+  const [menuOpen, setMenuOpen] = useState(false)
+  const toggleMenu = () => setMenuOpen(!menuOpen)
 
-        <Row lk-navbar-el="nav-menu">
-          <Image alt="" />
+  console.log("menuOpen", menuOpen)
+
+  return (
+    <div lk-component="navbar" {...dataAttrs}>
+      {/* Desktop Navbar */}
+      <div className="navbar-desktop">
+          <Row alignItems="center" gap="sm">
+            <Link href="/">
+              <Image alt="" src="/vercel.svg" width="md" height="md" />
+            </Link>
+          </Row>
           <Row>
             <Row lk-slot="nav-buttons">{navButtons}</Row>
             <Row lk-slot="nav-dropdowns">{navDropdowns}</Row>
           </Row>
-
-          <Row>
-            <Row lk-slot="nav-icon-buttons">{iconButtons}</Row>
-            <Row lk-slot="nav-cta-buttons">{ctaButtons}</Row>
+          <Row lk-navbar-el="nav-menu-end">
+            <div lk-slot="nav-icon-buttons">{iconButtons}</div>
+            <div lk-slot="nav-cta-buttons">{ctaButtons}</div>
           </Row>
-        </Row>
       </div>
-      <div lk-navbar-el="color-scrim" />
-      <div lk-navbar-el="glass-scrim" />
+  
+      {/* Mobile Navbar */}
+      <div lk-navbar-el="nav-menu">
+        <Column alignItems="start"  className={`navbar-mobile ${menuOpen ? "active" : ""}`}>
+          <IconButton icon="menu" onClick={() => toggleMenu()}/>
+          <Link href="/">
+            <Image alt="" src="/vercel.svg" width="md" height="md" />
+          </Link>
+          <Column>{navButtons}</Column>
+          <Column>{navDropdowns}</Column>
+          <div>{iconButtons}</div>
+          <Column className="flex-h gap-sm">{ctaButtons}</Column>
+        </Column>
+    </div>
     </div>
   );
 }
