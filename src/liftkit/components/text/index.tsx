@@ -14,9 +14,9 @@ interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
 export default function Text({
   tag = "div",
   fontClass = "display2-bold",
- children,
   style,
   color,
+  children,
   ...rest
 }: LkTextProps) {
   const Tag = tag as ElementType;
@@ -27,7 +27,6 @@ export default function Text({
 
     <Tag
       lk-component="text"
-      style={style}
       className={`${fontClass} color-${color}`}
       {...rest}
       {...textAttrs}
