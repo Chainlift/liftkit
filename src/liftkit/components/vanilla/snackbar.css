@@ -6,7 +6,7 @@
   padding: calc(var(--body-line-height) * var(--lk-halfstep-dec));
   gap: var(--lk-size-sm);
   border-radius: calc(var(--callout-line-height) * var(--lk-wholestep-dec));
-  background-color: var(--lk-surface);
+  /* background-color: var(--lk-primary); */
   color: var(--lk-onsurface);
   box-shadow: var(--shadow-xs);
 }
