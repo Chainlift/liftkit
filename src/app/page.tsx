@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./page.module.css";
 import Section from "@/liftkit/components/section";
 import Text from "@/liftkit/components/text";
@@ -17,6 +16,7 @@ import Card from "@/liftkit/components/card";
 import Dropdown from "@/liftkit/components/dropdown";
 import DropdownChip from "@/liftkit/components/dropdown-chip";
 import DropdownList from "@/liftkit/components/dropdown-list";
+import Snackbar from "@/liftkit/components/snackbar";
 import { useState } from "react";
 
 const contentStyle: React.CSSProperties = {
@@ -74,6 +74,52 @@ export default function Home() {
   console.log("openDropdown", openDropdown);
   return (
     <div className={styles.page}>
+      <Snackbar badgeColor="error" globalColor="surface" />
+      <div
+        style={{
+          display: "grid",
+          gap: "1rem",
+          padding: "2rem",
+          background: "#f0f0f0",
+        }}
+      >
+        {/* Default usage */}
+        <Snackbar />
+
+        {/* Custom message */}
+        <Snackbar
+          message="Your changes have been saved."
+          fontClass="label"
+          backgroundColor="error"
+        />
+
+        {/* Custom badge color */}
+        <Snackbar
+          badgeColor="error"
+          message="There was a problem saving your changes."
+        />
+
+        {/* Custom primary and secondary button colors */}
+        <Snackbar
+          primaryButtonColor="success"
+          secondaryButtonColor="error"
+          message="Settings updated successfully."
+        />
+
+        {/* Global color overrides badge + both buttons */}
+        <Snackbar
+          globalColor="warning"
+          message="This will overwrite existing data."
+        />
+
+        {/* Adding custom class or inline styles */}
+        <Snackbar
+          message="Styled with className and onClick!"
+          className="custom-snackbar"
+          onClick={() => alert("Snackbar clicked")}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
       <Tabs
         tabLinks={tabLabels}
         activeTab={activeTab}
