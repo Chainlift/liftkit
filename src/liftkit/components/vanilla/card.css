@@ -4,7 +4,7 @@
   overflow: hidden;
   background-color: var(--lk-surface);
 
-  --local-offset-factor: 1em;
+  --local-offset-factor: 5px;
   --local-offset-diff: 1em;
   --largest-child-font-size: var(--body-font-size);
   --largest-child-line-height: var(--body-line-height);
@@ -39,33 +39,43 @@
 
 [lk-card-scale-factor="title1"] {
   --local-offset-factor: var(--title1-offset);
+  --local-optical-offset: var(--title1-offset);
 }
 [lk-card-scale-factor="title2"] {
   --local-offset-factor: var(--title2-offset);
+  --local-optical-offset: var(--title2-offset);
 }
 [lk-card-scale-factor="title3"] {
   --local-offset-factor: var(--title3-offset);
+  --local-optical-offset: var(--title3-offset);
 }
 [lk-card-scale-factor="heading"] {
   --local-offset-factor: var(--heading-offset);
+  --local-optical-offset: var(--heading-offset);
 }
 [lk-card-scale-factor="subheading"] {
   --local-offset-factor: var(--subheading-offset);
+  --local-optical-offset: var(--subheading-offset);
 }
 [lk-card-scale-factor="body"] {
   --local-offset-factor: var(--body-offset);
+  --local-optical-offset: var(--body-offset);
 }
 [lk-card-scale-factor="callout"] {
   --local-offset-factor: var(--callout-offset);
+  --local-optical-offset: var(--callout-offset);
 }
 [lk-card-scale-factor="label"] {
   --local-offset-factor: var(--label-offset);
+  --local-optical-offset: var(--label-offset);
 }
 [lk-card-scale-factor="caption"] {
   --local-offset-factor: var(--caption-offset);
+  --local-optical-offset: var(--caption-offset);
 }
 [lk-card-scale-factor="capline"] {
   --local-offset-factor: var(--capline-offset);
+  --local-optical-offset: var(--capline-offset);
 }
 
 [lk-card-variant="fill"] {
@@ -95,10 +105,31 @@ backdrop-filter: blur(var(--lk-size-lg));
   /* Placeholder for neumorphic styling */
 }
 
-/* I do not recall how optical correction is supposed to work. Is it based on font size? */
 [lk-card-optical-correction="left"] {
-  padding-left: var(--lk-size-lg);
+  padding-left: var(--local-optical-offset);
 }
+[lk-card-optical-correction="right"] {
+  padding-right: var(--local-optical-offset);
+  border: green solid 1px;
+}
+[lk-card-optical-correction="top"] {
+  padding-top: var(--local-optical-offset);
+}
+[lk-card-optical-correction="bottom"] {
+  padding-bottom: var(--local-optical-offset);
+}
+[lk-card-optical-correction="x"] {
+  padding-left: var(--local-optical-offset);
+  padding-right: var(--local-optical-offset);
+}
+[lk-card-optical-correction="y"] {
+  padding-top: var(--local-optical-offset);
+  padding-bottom: var(--local-optical-offset);
+}
+[lk-card-optical-correction="all"] {
+  padding: var(--local-optical-offset);
+}
+
 
 
 .clickable {
