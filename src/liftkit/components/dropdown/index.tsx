@@ -9,9 +9,9 @@ export default function Dropdown(props: LkDropdownProps) {
   const { children, ...restProps } = props;
 
   const dropdownAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-dropdown"),
+    () => propsToDataAttrs(restProps, "dropdown"),
     [restProps],
   );
 
-  return <div {...dropdownAttrs}>{children}</div>;
+  return <div lk-component="dropdown" {...dropdownAttrs}>{children}</div>;
 }

@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./page.module.css";
 import Section from "@/liftkit/components/section";
 import Text from "@/liftkit/components/text";
@@ -12,8 +13,11 @@ import Icon from "@/liftkit/components/icon";
 import Grid from "@/liftkit/components/grid";
 import TabContent from "@/liftkit/components/tab-content";
 import Tabs from "@/liftkit/components/tabs";
-import { useState } from "react";
 import Card from "@/liftkit/components/card";
+import Dropdown from "@/liftkit/components/dropdown";
+import DropdownChip from "@/liftkit/components/dropdown-chip";
+import DropdownList from "@/liftkit/components/dropdown-list";
+import { useState } from "react";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -60,6 +64,14 @@ export default function Home() {
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
+  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
+    {},
+  );
+
+  const toggleMenu = (key: string) => {
+    setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+  console.log("openDropdown", openDropdown);
   return (
     <div className={styles.page}>
       <Tabs
@@ -73,6 +85,53 @@ export default function Home() {
           </TabContent>
         ))}
       </Tabs>
+
+      <Dropdown id="demo-dropdown">
+        <DropdownChip
+          labelPosition="default"
+          isActive={openDropdown["dropdown1"]}
+          placeholder="Select an option"
+          onClick={() => toggleMenu("dropdown1")}
+        >
+          <div lk-component="state-layer" />
+          <span>Select an option</span>
+        </DropdownChip>
+
+        <DropdownList isOpen={openDropdown["dropdown1"]}>
+          <div className="dropdown-menu-item">Option 1</div>
+          <div className="dropdown-menu-item">Option 2</div>
+          <div className="dropdown-menu-item">Option 3</div>
+        </DropdownList>
+      </Dropdown>
+      <Dropdown id="demo-dropdown">
+        <DropdownChip
+          labelPosition="default"
+          isActive={openDropdown["dropdown2"]}
+          placeholder="Select an option"
+          onClick={() => toggleMenu("dropdown2")}
+        >
+          <div lk-component="state-layer" />
+          <span>Select an option</span>
+        </DropdownChip>
+
+        <DropdownList isOpen={openDropdown["dropdown2"]}>
+          <div className="dropdown-menu-item">Option 1</div>
+          <div className="dropdown-menu-item">Option 2</div>
+          <div className="dropdown-menu-item">Option 3</div>
+        </DropdownList>
+      </Dropdown>
+
+      <Grid columns={2} gap="md">
+        <div style={{ background: "red" }}>Item 1</div>
+        <div style={{ background: "blue" }}>Item 2</div>
+      </Grid>
+
+      <Grid columns={3} gap="sm" autoResponsive>
+        <div style={{ background: "green" }}>Responsive 1</div>
+        <div style={{ background: "purple" }}>Responsive 2</div>
+        <div style={{ background: "orange" }}>Responsive 3</div>
+      </Grid>
+
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
         {/* Basic Card */}
         <Card>
