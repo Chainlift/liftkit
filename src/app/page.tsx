@@ -70,7 +70,8 @@ export default function Home() {
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
   const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
     {},
   );
