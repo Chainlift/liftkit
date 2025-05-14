@@ -67,12 +67,6 @@ export default function Home() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       >
-        {/* Basic Card */}
-        <Card>
-          <h2>Basic Card</h2>
-          <p>This is a basic card with default styling.</p>
-        </Card>
-
         {tabLabels.map((label, index) => (
           <TabContent key={index}>
             <p>This is the content for {label}</p>
