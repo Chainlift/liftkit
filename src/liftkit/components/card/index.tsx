@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { propsToDataAttrs } from "../utilities";
 
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
@@ -16,48 +18,31 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
 }
-
-export default function Card(props: LkCardProps) {
-  const { children, className, isClickable, scaleFactor, opticalCorrection, ...restProps } = props;
-
-  function filterCustomProps(props: LkCardProps) {
-    const nativeDivProps: (keyof React.HTMLAttributes<HTMLDivElement>)[] = [
-      "children",
-      "className",
-      "id",
-      "style",
-      "onClick",
-      "onMouseEnter",
-      "onMouseLeave",
-      "onFocus",
-      "onBlur",
-      "tabIndex",
-      "role",
-      "title",
-    ];
-
-    return Object.keys(props).reduce(
-      (customProps, key) => {
-        if (
-          !nativeDivProps.includes(
-            key as keyof React.HTMLAttributes<HTMLDivElement>,
-          )
-        ) {
-          const kebabKey = `lk-card-${key
-            .replace(/([a-z])([A-Z])/g, "$1-$2")
-            .toLowerCase()}`;
-          customProps[kebabKey] = props[key as keyof LkCardProps];
-        }
-        return customProps;
-      },
-      {} as Record<string, string | undefined>,
-    );
-  }
-
-  const customProps = filterCustomProps(restProps);
+export default function Card({
+  scaleFactor = "body",
+  variant = "fill",
+  material = "flat",
+  opticalCorrection = "none",
+  isClickable,
+  children,
+  className,
+  ...restProps
+}: LkCardProps) {
+  const lkCardAttrs = useMemo(
+    () =>
+      propsToDataAttrs(
+        { scaleFactor, variant, material, opticalCorrection },
+        "card"
+      ),
+    [scaleFactor, variant, material, opticalCorrection]
+  );
 
   return (
-    <div lk-component="card" {...customProps} {...restProps} className={`${className ?? ""} ${isClickable ? "clickable" : ""}`}
+    <div
+      {...lkCardAttrs}
+      {...restProps}
+      lk-component="card"
+      className={`${className ?? ""} ${isClickable ? "clickable" : ""}`}
     >
       <div lk-component="slot" lk-slot="children">
         {children}

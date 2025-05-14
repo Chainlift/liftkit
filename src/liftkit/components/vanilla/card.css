@@ -110,7 +110,6 @@ backdrop-filter: blur(var(--lk-size-lg));
 }
 [lk-card-optical-correction="right"] {
   padding-right: var(--local-optical-offset);
-  border: green solid 1px;
 }
 [lk-card-optical-correction="top"] {
   padding-top: var(--local-optical-offset);
