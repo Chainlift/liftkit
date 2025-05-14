@@ -24,21 +24,26 @@ export default function Snackbar({
   fontClass = "caption",
   ...restProps
 }: LkSnackbarProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({}, "snackbar"), [restProps]);
+  const dataAttrs = useMemo(() => propsToDataAttrs({}, "snackbar"), []);
 
   return (
-    <div lk-component="snackbar" {...dataAttrs} {...restProps} style={{backgroundColor: `var(--lk-${backgroundColor})`}} >
+    <div
+      lk-component="snackbar"
+      {...dataAttrs}
+      {...restProps}
+      style={{ backgroundColor: `var(--lk-${backgroundColor})` }}
+    >
       <Badge color={globalColor ?? badgeColor} />
       <Text fontClass={fontClass}>{message}</Text>
       <Button
-      label="Dismiss"
+        label="Dismiss"
         size="sm"
         variant="outline"
         color={globalColor ?? secondaryButtonColor}
       />
- 
+
       <Button
-      label="Undo"
+        label="Undo"
         size="sm"
         variant="fill"
         color={globalColor ?? primaryButtonColor}
