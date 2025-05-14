@@ -22,11 +22,11 @@ export default function NavBar({
   navDropdowns,
   iconButtons,
   ctaButtons,
-  ...rest
+  ...restProps
 }: LkNavBarProps) {
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ material }, "navbar"),
-    [material],
+    () => propsToDataAttrs({ material, restProps }, "navbar"),
+    [material, restProps],
   );
 
   const [menuOpen, setMenuOpen] = useState(false)
