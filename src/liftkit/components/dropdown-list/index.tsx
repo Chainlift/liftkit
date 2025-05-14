@@ -10,12 +10,12 @@ export default function DropdownList(props: LkDropdownListProps) {
   const { children, ...restProps } = props;
 
   const listAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-dropdown-list"),
+    () => propsToDataAttrs(restProps, "dropdown-list"),
     [restProps],
   );
 
   return (
-    <div {...listAttrs}>
+    <div lk-component="dropdown-list" {...listAttrs}>
       <div lk-component="column">{children}</div>
     </div>
   );

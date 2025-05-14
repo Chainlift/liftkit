@@ -7,15 +7,15 @@ interface LkDropdownChipProps
   helpText?: boolean;
   placeholderText?: string;
   isActive?: boolean;
+  children?: React.ReactNode;
 }
 
-export default function DropdownChip(props: LkDropdownChipProps) {
-  const { children, ...restProps } = props;
+export default function DropdownChip({labelPosition, helpText, placeholderText, isActive, children, ...restProps}: LkDropdownChipProps) {
 
   const dropdownChipAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-dropdown-chip"),
+    () => propsToDataAttrs({restProps, children}, "dropdown-chip"),
     [restProps],
   );
 
-  return <div {...dropdownChipAttrs}>{children}</div>;
+  return <div lk-component="dropdown-chip" {...restProps} {...dropdownChipAttrs}>{children}</div>;
 }
