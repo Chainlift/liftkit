@@ -1,5 +1,5 @@
-import Icon from "@/liftkit/components/icon";
-import { getOnToken } from "@/lib/colorUtils";
+import Icon from "@/registry/nextjs/components/icon";
+import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
 
 interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,7 +26,11 @@ export default function Badge({
       {...restProps}
     >
       <div lk-component="slot" lk-slot="icon">
-        <Icon name={icon} color={iconColor} strokeWidth={iconStrokeWidth}></Icon>
+        <Icon
+          name={icon}
+          color={iconColor}
+          strokeWidth={iconStrokeWidth}
+        ></Icon>
       </div>
     </div>
   );
