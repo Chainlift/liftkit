@@ -1,5 +1,3 @@
-@import "../../liftkit-core.css";
-
 [lk-component="row"] {
   display: flex;
   flex-direction: row;
@@ -11,12 +9,15 @@
 [lk-row-align-items="start"] {
   align-items: flex-start;
 }
+
 [lk-row-align-items="center"] {
   align-items: center;
 }
+
 [lk-row-align-items="end"] {
   align-items: flex-end;
 }
+
 [lk-row-align-items="stretch"] {
   align-items: stretch;
 }
@@ -25,15 +26,19 @@
 [lk-row-justify-content="start"] {
   justify-content: flex-start;
 }
+
 [lk-row-justify-content="center"] {
   justify-content: center;
 }
+
 [lk-row-justify-content="end"] {
   justify-content: flex-end;
 }
+
 [lk-row-justify-content="space-between"] {
   justify-content: space-between;
 }
+
 [lk-row-justify-content="space-around"] {
   justify-content: space-around;
 }
@@ -42,30 +47,39 @@
 [lk-row-gap="3xs"] {
   gap: var(--lk-size-3xs);
 }
+
 [lk-row-gap="2xs"] {
   gap: var(--lk-size-2xs);
 }
+
 [lk-row-gap="xs"] {
   gap: var(--lk-size-xs);
 }
+
 [lk-row-gap="sm"] {
   gap: var(--lk-size-sm);
 }
+
 [lk-row-gap="md"] {
   gap: var(--lk-size-md);
 }
+
 [lk-row-gap="lg"] {
   gap: var(--lk-size-lg);
 }
+
 [lk-row-gap="xl"] {
   gap: var(--lk-size-xl);
 }
+
 [lk-row-gap="2xl"] {
   gap: var(--lk-size-2xl);
 }
+
 [lk-row-gap="3xl"] {
   gap: var(--lk-size-3xl);
 }
+
 [lk-row-gap="4xl"] {
   gap: var(--lk-size-4xl);
 }
@@ -74,26 +88,30 @@
 [lk-row-wrap-children="true"] {
   flex-wrap: wrap;
 }
+
 [lk-row-wrap-children="false"] {
   flex-wrap: nowrap;
 }
 
 /* Default Child Behavior */
-[lk-row-default-child-behavior="auto-grow"] > * {
+[lk-row-default-child-behavior="auto-grow"]>* {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
 }
-[lk-row-default-child-behavior="auto-shrink"] > * {
+
+[lk-row-default-child-behavior="auto-shrink"]>* {
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
 }
-[lk-row-default-child-behavior="ignoreFlexRules"] > * {
+
+[lk-row-default-child-behavior="ignoreFlexRules"]>* {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
 }
-[lk-row-default-child-behavior="ignoreIntrinsicSize"] > * {
+
+[lk-row-default-child-behavior="ignoreIntrinsicSize"]>* {
   flex-basis: 0;
 }

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./image.css";
 
 type LkAspectRatio =
   | "auto"
@@ -51,6 +52,5 @@ export default function Image({
     [aspect, borderRadius, objectFit, width, height],
   );
 
-  return <img  lk-component="image" {...attrs} {...rest} alt="" />;
-    
+  return <img lk-component="image" {...attrs} {...rest} alt="" />;
 }

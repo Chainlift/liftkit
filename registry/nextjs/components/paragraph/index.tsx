@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./paragraph.css";
 
 interface LkParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   fontClass?: LkFontClass; // Should be LkFontClass in production

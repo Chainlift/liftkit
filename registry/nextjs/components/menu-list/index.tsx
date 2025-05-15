@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./menu-list.css";
 
 interface LkMenuListProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
@@ -20,7 +21,7 @@ export default function MenuList({
 
   return (
     <div
-    lk-component="menu-list"
+      lk-component="menu-list"
       style={{
         maxHeight: isOpen ? maxHeight : "0px",
         display: isOpen ? "block" : "none",

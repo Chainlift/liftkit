@@ -1,9 +1,8 @@
-@import "../../liftkit-core.css";
 [lk-component="icon"] {
   font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
-font-size: var(--lk-size-md);
+  font-size: var(--lk-size-md);
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;

@@ -1,5 +1,5 @@
-import type LkColorWithOnToken from "../liftkit/types/lk-color";
-import type LkColor from "../liftkit/types/lk-color";
+import type LkColorWithOnToken from "@/registry/universal/lib/types/lk-color";
+import type LkColor from "@/registry/universal/lib/types/lk-color";
 
 const colorsWithOnTokens = [
   "primary",

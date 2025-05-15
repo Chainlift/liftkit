@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./text-input.css";
 
 interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelPosition?: "default" | "on-input";

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./icon-button.css";
 
 type LkSizeUnit = "xs" | "sm" | "md" | "lg" | "xl";
 
@@ -25,7 +26,7 @@ export default function IconButton({
   );
 
   return (
-    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} >
+    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest}>
       <div>
         <i lk-component="icon">{icon}</i>
       </div>

@@ -1,5 +1,6 @@
 import { DynamicIcon } from "lucide-react/dynamic";
 import type { IconName } from "lucide-react/dynamic";
+import "./icon.css";
 
 interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
   name?: IconName;
@@ -16,14 +17,8 @@ export default function Icon({
   strokeWidth = 2,
   ...restProps
 }: LkIconProps) {
-
-
-
-
   return (
-    <div lk-component="icon"
-    {...restProps} lk-icon-font-class={fontClass}>
- 
+    <div lk-component="icon" {...restProps} lk-icon-font-class={fontClass}>
       <DynamicIcon
         name={name}
         width="1em"

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./dropdown.css";
 
 interface LkDropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -13,5 +14,9 @@ export default function Dropdown(props: LkDropdownProps) {
     [restProps],
   );
 
-  return <div lk-component="dropdown" {...dropdownAttrs}>{children}</div>;
+  return (
+    <div lk-component="dropdown" {...dropdownAttrs}>
+      {children}
+    </div>
+  );
 }

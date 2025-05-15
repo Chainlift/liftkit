@@ -1,4 +1,3 @@
-@import "../../liftkit-core.css";
 [lk-component="column"] {
   display: flex;
   flex-direction: column;
@@ -12,12 +11,15 @@
 [lk-column-align-items="start"] {
   align-items: flex-start;
 }
+
 [lk-column-align-items="center"] {
   align-items: center;
 }
+
 [lk-column-align-items="end"] {
   align-items: flex-end;
 }
+
 [lk-column-align-items="stretch"] {
   align-items: stretch;
 }
@@ -26,15 +28,19 @@
 [lk-column-justify-content="start"] {
   justify-content: flex-start;
 }
+
 [lk-column-justify-content="center"] {
   justify-content: center;
 }
+
 [lk-column-justify-content="end"] {
   justify-content: flex-end;
 }
+
 [lk-column-justify-content="space-between"] {
   justify-content: space-between;
 }
+
 [lk-column-justify-content="space-around"] {
   justify-content: space-around;
 }

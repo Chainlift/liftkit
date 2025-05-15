@@ -1,12 +1,13 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./section.css";
 
 type SpacingSize = "xs" | "sm" | "md" | "lg" | "xl" | "none";
 
 interface LkSectionProps extends React.HTMLAttributes<HTMLElement> {
-  padding?:  SpacingSize;
+  padding?: SpacingSize;
   container?: React.ReactNode;
- px?: SpacingSize;
+  px?: SpacingSize;
   py?: SpacingSize;
   pt?: SpacingSize;
   pb?: SpacingSize;
@@ -24,9 +25,7 @@ export default function Section(props: LkSectionProps) {
 
   return (
     <section {...lkSectionAttrs}>
-      <div lk-component="section">
-        {container}
-      </div>
+      <div lk-component="section">{container}</div>
       {children}
     </section>
   );

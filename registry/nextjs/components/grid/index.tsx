@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./grid.css";
 
 // The LiftkitGrid type definition
 interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {

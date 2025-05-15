@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
 import { useMemo, useState } from "react";
-import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Image from "@/liftkit/components/image";
-import IconButton from "@/liftkit/components/icon-button";
-import Row from "@/liftkit/components/row";
 import Link from "next/link";
-import Column from "@/liftkit/components/column";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import Image from "@/registry/nextjs/components/image";
+import IconButton from "@/registry/nextjs/components/icon-button";
+import Row from "@/registry/nextjs/components/row";
+import Column from "@/registry/nextjs/components/column";
+import "./navbar.css";
 
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
@@ -29,34 +30,37 @@ export default function NavBar({
     [material, restProps],
   );
 
-  const [menuOpen, setMenuOpen] = useState(false)
-  const toggleMenu = () => setMenuOpen(!menuOpen)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  console.log("menuOpen", menuOpen)
+  console.log("menuOpen", menuOpen);
 
   return (
     <div lk-component="navbar" {...dataAttrs}>
       {/* Desktop Navbar */}
       <div className="navbar-desktop">
-          <Row alignItems="center" gap="sm">
-            <Link href="/">
-              <Image alt="" src="/vercel.svg" width="md" height="md" />
-            </Link>
-          </Row>
-          <Row>
-            <Row lk-slot="nav-buttons">{navButtons}</Row>
-            <Row lk-slot="nav-dropdowns">{navDropdowns}</Row>
-          </Row>
-          <Row lk-navbar-el="nav-menu-end">
-            <div lk-slot="nav-icon-buttons">{iconButtons}</div>
-            <div lk-slot="nav-cta-buttons">{ctaButtons}</div>
-          </Row>
+        <Row alignItems="center" gap="sm">
+          <Link href="/">
+            <Image alt="" src="/vercel.svg" width="md" height="md" />
+          </Link>
+        </Row>
+        <Row>
+          <Row lk-slot="nav-buttons">{navButtons}</Row>
+          <Row lk-slot="nav-dropdowns">{navDropdowns}</Row>
+        </Row>
+        <Row lk-navbar-el="nav-menu-end">
+          <div lk-slot="nav-icon-buttons">{iconButtons}</div>
+          <div lk-slot="nav-cta-buttons">{ctaButtons}</div>
+        </Row>
       </div>
-  
+
       {/* Mobile Navbar */}
       <div lk-navbar-el="nav-menu">
-        <Column alignItems="start"  className={`navbar-mobile ${menuOpen ? "active" : ""}`}>
-          <IconButton icon="menu" onClick={() => toggleMenu()}/>
+        <Column
+          alignItems="start"
+          className={`navbar-mobile ${menuOpen ? "active" : ""}`}
+        >
+          <IconButton icon="menu" onClick={() => toggleMenu()} />
           <Link href="/">
             <Image alt="" src="/vercel.svg" width="md" height="md" />
           </Link>
@@ -65,7 +69,7 @@ export default function NavBar({
           <div>{iconButtons}</div>
           <Column className="flex-h gap-sm">{ctaButtons}</Column>
         </Column>
-    </div>
+      </div>
     </div>
   );
 }

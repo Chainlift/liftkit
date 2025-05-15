@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./dropdown-chip.css";
 
 interface LkDropdownChipProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -10,12 +11,33 @@ interface LkDropdownChipProps
   children?: React.ReactNode;
 }
 
-export default function DropdownChip({labelPosition, helpText, placeholderText, isActive, children, ...restProps}: LkDropdownChipProps) {
-
+export default function DropdownChip({
+  labelPosition,
+  helpText,
+  placeholderText,
+  isActive,
+  children,
+  ...restProps
+}: LkDropdownChipProps) {
   const dropdownChipAttrs = useMemo(
-    () => propsToDataAttrs({labelPosition, helpText, placeholderText, isActive, restProps, children}, "dropdown-chip"),
+    () =>
+      propsToDataAttrs(
+        {
+          labelPosition,
+          helpText,
+          placeholderText,
+          isActive,
+          restProps,
+          children,
+        },
+        "dropdown-chip",
+      ),
     [labelPosition, helpText, placeholderText, isActive, children, restProps],
   );
 
-  return <div lk-component="dropdown-chip" {...restProps} {...dropdownChipAttrs}>{children}</div>;
+  return (
+    <div lk-component="dropdown-chip" {...restProps} {...dropdownChipAttrs}>
+      {children}
+    </div>
+  );
 }

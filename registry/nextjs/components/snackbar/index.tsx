@@ -1,8 +1,9 @@
 import { useMemo } from "react";
-import Badge from "@/liftkit/components/badge";
-import Button from "@/liftkit/components/button";
-import Text from "@/liftkit/components/text";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import Badge from "@/registry/nextjs/components/badge";
+import Button from "@/registry/nextjs/components/button";
+import Text from "@/registry/nextjs/components/text";
+import "./snackbar.css";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   badgeColor?: LkColorWithOnToken;

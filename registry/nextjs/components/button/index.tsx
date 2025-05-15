@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
+import "./button.css";
 
 interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;

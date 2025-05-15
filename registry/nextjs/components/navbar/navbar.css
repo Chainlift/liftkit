@@ -1,5 +1,3 @@
-@import "../../liftkit-core.css";
-
 [lk-component="navbar"] {
   position: sticky;
   top: 0;
@@ -13,30 +11,33 @@
 /* Mobile Navbar */
 .navbar-mobile {
   display: none;
- 
+
 }
+
 @media (max-width: 768px) {
   .navbar-desktop {
     display: none;
   }
+
   .navbar-mobile.active {
     display: flex;
   }
 }
+
 @media (max-width: 768px) {
-  [lk-navbar-el="nav-menu"] > .active {
+  [lk-navbar-el="nav-menu"]>.active {
     position: fixed;
     top: 0;
     left: 0;
     height: 100svh;
     width: 100%;
     flex-direction: column;
-    background: white; 
+    background: white;
     transform: translateX(0);
     opacity: 1;
     z-index: 98;
     padding: 1rem;
-  } 
+  }
 }
 
 /* Desktop Navbar */
@@ -44,15 +45,16 @@
   display: flex;
   width: 100%;
 }
+
 [lk-navbar-el="nav-menu-end"] {
   display: flex;
   align-items: center;
   gap: var(--lk-size-xs);
-  margin-left: auto; 
+  margin-left: auto;
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-[lk-slot="nav-icon-buttons"], 
+[lk-slot="nav-icon-buttons"],
 [lk-slot="nav-cta-buttons"] {
   display: flex;
   align-items: center;
@@ -61,4 +63,3 @@
 
 
 }
-

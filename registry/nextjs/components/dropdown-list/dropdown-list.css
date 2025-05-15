@@ -1,4 +1,3 @@
-@import "../../liftkit-core.css";
 [lk-component="dropdown-list"] {
   padding: var(--lk-size-md);
   box-sizing: content-box;
@@ -12,7 +11,7 @@
   overflow-y: auto;
 }
 
-[lk-component="dropdown-list"] > [lk-component="column"] {
+[lk-component="dropdown-list"]>[lk-component="column"] {
   display: flex;
   flex-direction: column;
   gap: calc(var(--body-line-height) * var(--lk-wholestep-dec));

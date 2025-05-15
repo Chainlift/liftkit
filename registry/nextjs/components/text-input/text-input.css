@@ -1,5 +1,3 @@
-@import "../../liftkit-core.css";
-
 [lk-component="text-input"] [lk-text-input-element="field-wrap"] {
   appearance: none;
   display: flex;
@@ -39,11 +37,7 @@
   opacity: 0;
 }
 
-[lk-component="text-input"]
-  [lk-text-input-element="field-wrap"]:hover
-  [lk-component="state-layer"],
-[lk-component="text-input"]
-  [lk-text-input-element="field-wrap"]:focus-within
-  [lk-component="state-layer"] {
+[lk-component="text-input"] [lk-text-input-element="field-wrap"]:hover [lk-component="state-layer"],
+[lk-component="text-input"] [lk-text-input-element="field-wrap"]:focus-within [lk-component="state-layer"] {
   opacity: 0.04;
 }

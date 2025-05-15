@@ -1,4 +1,4 @@
-import { LkCardProps } from "@/liftkit/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
 
 export function filterCustomProps(props: LkCardProps) {
   const nativeDivProps: (keyof React.HTMLAttributes<HTMLDivElement>)[] = [

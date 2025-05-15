@@ -1,9 +1,9 @@
-import Text from "@/liftkit/components/text";
+import Text from "@/registry/nextjs/components/text";
+import "./sticker.css";
 
 interface LkStickerProps extends React.HTMLAttributes<HTMLDivElement> {
   content?: string;
-  color?:  LkColorWithOnToken
- 
+  color?: LkColorWithOnToken;
 }
 
 export default function Sticker({
@@ -11,7 +11,6 @@ export default function Sticker({
   color = "primarycontainer",
   ...restProps
 }: LkStickerProps) {
-
   return (
     <div lk-component="sticker" {...restProps} lk-sticker-color={color}>
       <Text fontClass="label" content={content} />

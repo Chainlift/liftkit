@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./column.css";
 
 interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";
@@ -15,14 +16,13 @@ interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Column(props: LkColumnProps) {
   const { children, ...restProps } = props;
 
-
-const lkColumnAttrs = useMemo(
-  () => propsToDataAttrs(restProps, "column"),
-  [restProps],
-);
+  const lkColumnAttrs = useMemo(
+    () => propsToDataAttrs(restProps, "column"),
+    [restProps],
+  );
 
   return (
-    <div {...lkColumnAttrs} {...restProps} lk-component="column" >
+    <div {...lkColumnAttrs} {...restProps} lk-component="column">
       {children}
     </div>
   );

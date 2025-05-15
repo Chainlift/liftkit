@@ -1,6 +1,7 @@
 import Icon from "@/registry/nextjs/components/icon";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
+import "./badge.css";
 
 interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconName;

@@ -2,16 +2,23 @@
 
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import TabMenu from "@/liftkit/components/tab-menu";
+import TabMenu from "@/registry/nextjs/components/tab-menu";
+import "./tabs.css";
 
 interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks: string[];
   children: React.ReactNode[];
   activeTab: number;
-  setActiveTab: (index: number) => void
+  setActiveTab: (index: number) => void;
 }
 
-export default function Tabs({ tabLinks, activeTab, setActiveTab, children, ...rest }: LkTabsProps) {
+export default function Tabs({
+  tabLinks,
+  activeTab,
+  setActiveTab,
+  children,
+  ...rest
+}: LkTabsProps) {
   // const [activeTab] = useState(0);
 
   const dataAttrs = useMemo(() => propsToDataAttrs({}, "tabs"), []);

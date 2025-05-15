@@ -1,5 +1,3 @@
-@import "../../liftkit-core.css";
-
 [lk-component="menu-item"] {
   display: inline-flex;
   align-items: center;
@@ -29,6 +27,6 @@
   padding-right: var(--body-font-size);
 }
 
-[lk-component="menu-item"] > [lk-component="state-layer"] {
+[lk-component="menu-item"]>[lk-component="state-layer"] {
   border-radius: var(--lk-size-xs);
 }

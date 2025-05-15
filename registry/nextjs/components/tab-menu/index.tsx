@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Row from "@/liftkit/components/row";
-import TabLink from "@/liftkit/components/tab-link";
+import Row from "@/registry/nextjs/components/row";
+import TabLink from "@/registry/nextjs/components/tab-link";
+import "./tab-menu.css";
 
 interface LkTabMenuProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks?: string[];
