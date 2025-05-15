@@ -1,5 +1,6 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import "./index.css";
 
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
@@ -32,9 +33,9 @@ export default function Card({
     () =>
       propsToDataAttrs(
         { scaleFactor, variant, material, opticalCorrection },
-        "card"
+        "card",
       ),
-    [scaleFactor, variant, material, opticalCorrection]
+    [scaleFactor, variant, material, opticalCorrection],
   );
 
   return (

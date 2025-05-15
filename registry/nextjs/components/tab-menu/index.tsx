@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Row from "@/liftkit/components/row";
 import TabLink from "@/liftkit/components/tab-link";
 

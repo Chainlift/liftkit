@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Image from "@/liftkit/components/image";
 import IconButton from "@/liftkit/components/icon-button";
 import Row from "@/liftkit/components/row";

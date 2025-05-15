@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import TabMenu from "@/liftkit/components/tab-menu";
 
 interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {

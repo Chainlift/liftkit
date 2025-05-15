@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 
 interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";

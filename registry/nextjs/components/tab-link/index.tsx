@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Text from "@/liftkit/components/text";
 
 interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {

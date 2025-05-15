@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 
 interface LkMenuChipProps extends React.HTMLAttributes<HTMLDivElement> {
   isActive?: boolean;

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 
 type SpacingSize = "xs" | "sm" | "md" | "lg" | "xl" | "none";
 

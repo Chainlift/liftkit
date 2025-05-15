@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { propsToDataAttrs } from "../utilities";
+import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 
 type LkHeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
