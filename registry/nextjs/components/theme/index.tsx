@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useState, useCallback, useEffect } from "react";
+import {
+  createContext,
+  useState,
+  useCallback,
+  useEffect,
+  ReactNode,
+  useContext,
+} from "react";
 import materialDynamicColors from "material-dynamic-colors";
 import {
   hexFromArgb,
@@ -10,10 +17,96 @@ import {
   customColor,
 } from "@material/material-color-utilities";
 
-export const ThemeContext = createContext({});
+// Define types for theme colors
+interface ThemeColors {
+  primary: string;
+  onPrimary: string;
+  primaryContainer: string;
+  onPrimaryContainer: string;
+  secondary: string;
+  onSecondary: string;
+  secondaryContainer: string;
+  onSecondaryContainer: string;
+  tertiary: string;
+  onTertiary: string;
+  tertiaryContainer: string;
+  onTertiaryContainer: string;
+  error: string;
+  onError: string;
+  errorContainer: string;
+  onErrorContainer: string;
+  background: string;
+  onBackground: string;
+  surface: string;
+  onSurface: string;
+  surfaceVariant: string;
+  onSurfaceVariant: string;
+  outline: string;
+  outlineVariant: string;
+  shadow: string;
+  scrim: string;
+  inverseSurface: string;
+  inverseOnSurface: string;
+  inversePrimary: string;
+  surfaceDim: string;
+  surfaceBright: string;
+  surfaceContainerLowest: string;
+  surfaceContainerLow: string;
+  surfaceContainer: string;
+  surfaceContainerHigh: string;
+  surfaceContainerHighest: string;
+  warning: string;
+  onWarning: string;
+  warningContainer: string;
+  onWarningContainer: string;
+  success: string;
+  onSuccess: string;
+  successContainer: string;
+  onSuccessContainer: string;
+  info: string;
+  onInfo: string;
+  infoContainer: string;
+  onInfoContainer: string;
+  [key: string]: string; // Add index signature for string keys
+}
 
-export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState({
+interface ThemeState {
+  light: ThemeColors;
+  dark: ThemeColors;
+}
+
+interface PaletteState {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  neutral: string;
+  neutralvariant: string;
+  error: string;
+  warning: string;
+  success: string;
+  info: string;
+  [key: string]: string; // Add index signature for string keys
+}
+
+interface ThemeContextType {
+  theme: ThemeState;
+  updateTheme: (palette: PaletteState) => Promise<void>;
+  updateThemeFromMaster: (
+    hexCode: string,
+    setPalette: React.Dispatch<React.SetStateAction<PaletteState>>,
+  ) => Promise<void>;
+  palette: PaletteState;
+  setPalette: React.Dispatch<React.SetStateAction<PaletteState>>;
+  navIsOpen: boolean;
+  setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const ThemeContext = createContext<ThemeContextType>(
+  {} as ThemeContextType,
+);
+
+export default function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<ThemeState>({
     light: {
       primary: "#004ee7",
       onPrimary: "#ffffff",
@@ -116,7 +209,7 @@ export default function ThemeProvider({ children }) {
     },
   });
 
-  const [palette, setPalette] = useState({
+  const [palette, setPalette] = useState<PaletteState>({
     primary: "#035eff",
     secondary: "#badcff",
     tertiary: "#00ddfe",
@@ -153,8 +246,19 @@ export default function ThemeProvider({ children }) {
   useEffect(() => {
     updateTheme(palette);
 
-    const disableScrollOnNumberInputs = (event) => {
-      if (document.activeElement?.type === "number") {
+    const disableScrollOnNumberInputs = (event: WheelEvent) => {
+      const activeElement = document.activeElement as HTMLInputElement;
+      if (activeElement?.type === "number") {
+        event.preventDefault();
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const activeElement = document.activeElement as HTMLInputElement;
+      if (
+        ["ArrowUp", "ArrowDown"].includes(event.key) &&
+        activeElement?.type === "number"
+      ) {
         event.preventDefault();
       }
     };
@@ -162,31 +266,25 @@ export default function ThemeProvider({ children }) {
     document.addEventListener("wheel", disableScrollOnNumberInputs, {
       passive: false,
     });
-    document.addEventListener("keydown", (event) => {
-      if (
-        ["ArrowUp", "ArrowDown"].includes(event.key) &&
-        document.activeElement?.type === "number"
-      ) {
-        event.preventDefault();
-      }
-    });
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("wheel", disableScrollOnNumberInputs);
-      document.removeEventListener("keydown", disableScrollOnNumberInputs);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
-  function toSentenceCase(str) {
+  function toSentenceCase(str: string): string {
     if (!str) return ""; // handle empty or undefined input
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   }
 
-  const getTonesFromKeyColors = (palette) => {
-    class TonalSwatches extends TonalPalette {
-      constructor(hue, chroma) {
-        super(hue, chroma);
-        var swatch = TonalPalette.fromHueAndChroma(hue, chroma);
+  const getTonesFromKeyColors = (palette: PaletteState) => {
+    class TonalSwatches {
+      [key: string]: any; // Add index signature for string keys
+
+      constructor(hue: number, chroma: number) {
+        const swatch = TonalPalette.fromHueAndChroma(hue, chroma);
 
         for (let i = 1; i <= 99; i++) {
           this[`_${i}`] = hexFromArgb(swatch.tone(i));
@@ -196,11 +294,12 @@ export default function ThemeProvider({ children }) {
   };
 
   // Define the updateTheme function
-  const updateTheme = useCallback(async (palette) => {
-    class TonalSwatches extends TonalPalette {
-      constructor(hue, chroma) {
-        super(hue, chroma);
-        var swatch = TonalPalette.fromHueAndChroma(hue, chroma);
+  const updateTheme = useCallback(async (palette: PaletteState) => {
+    class TonalSwatches {
+      [key: string]: any; // Add index signature for string keys
+
+      constructor(hue: number, chroma: number) {
+        const swatch = TonalPalette.fromHueAndChroma(hue, chroma);
 
         for (let i = 1; i <= 99; i++) {
           this[`_${i}`] = hexFromArgb(swatch.tone(i));
@@ -361,47 +460,54 @@ export default function ThemeProvider({ children }) {
     });
   }, []);
 
-  const updateThemeFromMaster = useCallback(async (hexCode, setPalette) => {
-    var newPalette = {};
+  const updateThemeFromMaster = useCallback(
+    async (
+      hexCode: string,
+      setPalette: React.Dispatch<React.SetStateAction<PaletteState>>,
+    ) => {
+      var newPalette: Record<string, string> = {};
 
-    // need to get the key colors to feed back to the ColorModule so it can update the palette
-    try {
-      const colors = await materialDynamicColors(hexCode);
+      // need to get the key colors to feed back to the ColorModule so it can update the palette
+      try {
+        const colors = await materialDynamicColors(hexCode);
 
-      newPalette.primary = colors.light.primary;
-      newPalette.secondary = colors.light.secondary;
-      newPalette.tertiary = colors.light.tertiary;
-      newPalette.neutral = colors.light.surfaceContainer;
+        newPalette.primary = colors.light.primary;
+        newPalette.secondary = colors.light.secondary;
+        newPalette.tertiary = colors.light.tertiary;
+        newPalette.neutral = colors.light.surfaceContainer;
 
-      const customColors = {
-        info: "#175bfc",
-        warning: "#ffbf00",
-        success: "#42cb83",
-      };
-
-      Object.keys(customColors).forEach((key) => {
-        const sourceColor = argbFromHex(hexCode);
-        const customColorObj = {
-          value: argbFromHex(customColors[key]),
-          blend: true,
+        const customColors: Record<string, { color: string; name: string }> = {
+          info: { color: "#175bfc", name: "info" },
+          warning: { color: "#ffbf00", name: "warning" },
+          success: { color: "#42cb83", name: "success" },
         };
 
-        const result = customColor(sourceColor, customColorObj);
+        Object.keys(customColors).forEach((key) => {
+          const sourceColor = argbFromHex(hexCode);
+          const customColorObj = {
+            value: argbFromHex(customColors[key].color),
+            blend: true,
+            name: customColors[key].name,
+          };
 
-        const newHexVal = hexFromArgb(result.value);
-        newPalette[key] = newHexVal;
-      });
+          const result = customColor(sourceColor, customColorObj);
 
-      Object.keys(newPalette).forEach((key) => {
-        setPalette((prevPalette) => ({
-          ...prevPalette,
-          [key]: newPalette[key],
-        }));
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+          const newHexVal = hexFromArgb(result.value);
+          newPalette[key] = newHexVal;
+        });
+
+        Object.keys(newPalette).forEach((key) => {
+          setPalette((prevPalette) => ({
+            ...prevPalette,
+            [key]: newPalette[key],
+          }));
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    [],
+  );
 
   //normalization functions; things that prevent weird input behavior
 
