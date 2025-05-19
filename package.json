@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "registry:build": "shadcn build",
+    "registry": "node ./registry.js && shadcn build",
     "start": "next start",
     "pretty": "prettier --check .",
     "lint": "next lint",
