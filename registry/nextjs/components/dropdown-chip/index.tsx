@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./dropdown-chip.css";
+import "@/registry/nextjs/components/dropdown-chip/dropdown-chip.css";
 
 interface LkDropdownChipProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

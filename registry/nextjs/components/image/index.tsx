@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./image.css";
+import "@/registry/nextjs/components/image/image.css";
 
 type LkAspectRatio =
   | "auto"

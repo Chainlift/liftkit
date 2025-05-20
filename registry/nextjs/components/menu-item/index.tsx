@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./menu-item.css";
+import "@/registry/nextjs/components/menu-item/menu-item.css";
 
 interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   startIcon?: string;

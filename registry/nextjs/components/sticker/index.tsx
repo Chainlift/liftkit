@@ -1,5 +1,5 @@
 import Text from "@/registry/nextjs/components/text";
-import "./sticker.css";
+import "@/registry/nextjs/components/sticker/sticker.css";
 
 interface LkStickerProps extends React.HTMLAttributes<HTMLDivElement> {
   content?: string;

@@ -3,7 +3,7 @@ import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Badge from "@/registry/nextjs/components/badge";
 import Button from "@/registry/nextjs/components/button";
 import Text from "@/registry/nextjs/components/text";
-import "./snackbar.css";
+import "@/registry/nextjs/components/snackbar/snackbar.css";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   badgeColor?: LkColorWithOnToken;

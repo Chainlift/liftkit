@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "./tab-content.css";
+import "@/registry/nextjs/components/tab-content/tab-content.css";
 
 interface TabContentProps {
   children: ReactNode;

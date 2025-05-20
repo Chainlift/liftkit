@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./containers.css";
+import "@/registry/nextjs/components/containers/containers.css";
 
 interface LkContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   maxWidth?: LkContainerWidth;

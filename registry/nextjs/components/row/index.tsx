@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./row.css";
+import "@/registry/nextjs/components/row/row.css";
 
 type LkSizeUnit =
   | "3xs"

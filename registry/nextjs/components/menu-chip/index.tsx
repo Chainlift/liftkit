@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./menu-chip.css";
+import "@/registry/nextjs/components/menu-chip/menu-chip.css";
 
 interface LkMenuChipProps extends React.HTMLAttributes<HTMLDivElement> {
   isActive?: boolean;

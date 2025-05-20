@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./menu-list.css";
+import "@/registry/nextjs/components/menu-list/menu-list.css";
 
 interface LkMenuListProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;

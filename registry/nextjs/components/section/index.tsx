@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./section.css";
+import "@/registry/nextjs/components/section/section.css";
 
 type SpacingSize = "xs" | "sm" | "md" | "lg" | "xl" | "none";
 

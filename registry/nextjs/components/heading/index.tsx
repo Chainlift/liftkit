@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./heading.css";
+import "@/registry/nextjs/components/heading/heading.css";
 
 type LkHeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 

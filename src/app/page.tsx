@@ -1,6 +1,5 @@
 "use client";
 import styles from "./page.module.css";
-// import "./globals.css";
 import Section from "@/registry/nextjs/components/section";
 import Text from "@/registry/nextjs/components/text";
 import Row from "@/registry/nextjs/components/row";

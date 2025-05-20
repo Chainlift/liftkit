@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./dropdown.css";
+import "@/registry/nextjs/components/dropdown/dropdown.css";
 
 interface LkDropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;

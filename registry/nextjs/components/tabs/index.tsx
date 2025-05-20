@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import TabMenu from "@/registry/nextjs/components/tab-menu";
-import "./tabs.css";
+import "@/registry/nextjs/components/tabs/tabs.css";
 
 interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks: string[];

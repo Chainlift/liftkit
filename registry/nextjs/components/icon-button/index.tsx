@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./icon-button.css";
+import "@/registry/nextjs/components/icon-button/icon-button.css";
 
 type LkSizeUnit = "xs" | "sm" | "md" | "lg" | "xl";
 

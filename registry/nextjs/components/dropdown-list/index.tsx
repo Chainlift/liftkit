@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./dropdown-list.css";
+import "@/registry/nextjs/components/dropdown-list/dropdown-list.css";
 
 interface LkDropdownListProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;

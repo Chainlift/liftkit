@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Text from "@/registry/nextjs/components/text";
-import "./tab-link.css";
+import "@/registry/nextjs/components/tab-link/tab-link.css";
 
 interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   selected?: boolean;

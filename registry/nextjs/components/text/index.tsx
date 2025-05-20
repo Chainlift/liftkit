@@ -1,6 +1,6 @@
 import { useMemo, ElementType, JSX } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import "./text.css";
+import "@/registry/nextjs/components/text/text.css";
 
 type LkSemanticTag = keyof JSX.IntrinsicElements;
 

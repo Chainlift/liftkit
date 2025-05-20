@@ -7,7 +7,7 @@ import Image from "@/registry/nextjs/components/image";
 import IconButton from "@/registry/nextjs/components/icon-button";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
-import "./navbar.css";
+import "@/registry/nextjs/components/navbar/navbar.css";
 
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
