@@ -714,10 +714,6 @@
           "type": "registry:lib"
         },
         {
-          "path": "registry/universal/css/normalize.css",
-          "type": "registry:lib"
-        },
-        {
           "path": "registry/universal/css/opacity.css",
           "type": "registry:lib"
         },

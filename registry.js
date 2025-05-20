@@ -11,7 +11,7 @@ const config = {
   ],
   baseDepUrl: `${url}/r/base.json`,
   componentDepUrlPattern: `${url}/r/\${name}.json`,
-  dependencies: ["lucide-react", "@material/material-color-utilities"]
+  dependencies: ["lucide-react", "@material/material-color-utilities", "@csstools/normalize.css"]
 };
 
 /**

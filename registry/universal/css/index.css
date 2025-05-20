@@ -15,7 +15,6 @@
 @import "@/registry/universal/css/iconButtons.css";
 @import "@/registry/universal/css/justify-content.css";
 @import "@/registry/universal/css/margins.css";
-@import "@/registry/universal/css/normalize.css";
 @import "@/registry/universal/css/opacity.css";
 @import "@/registry/universal/css/overflow.css";
 @import "@/registry/universal/css/padding.css";
@@ -55,3 +54,4 @@
 @import "@/registry/universal/css/background-colors.css";
 @import "@/registry/universal/css/code.css";
 @import "@/registry/universal/css/whitespace.css";
+@import '~@csstools/normalize.css';
