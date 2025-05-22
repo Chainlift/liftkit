@@ -30,19 +30,11 @@
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
 
   --lk-size-sm-unitless: calc(1 / var(--lk-scalefactor));
-  --lk-size-xs-unitless: calc(
-    var(--lk-size-sm-unitless) / var(--lk-scalefactor)
-  );
-  --lk-size-2xs-unitless: calc(
-    var(--lk-size-xs-unitless) / var(--lk-scalefactor)
-  );
+  --lk-size-xs-unitless: calc(var(--lk-size-sm-unitless) / var(--lk-scalefactor));
+  --lk-size-2xs-unitless: calc(var(--lk-size-xs-unitless) / var(--lk-scalefactor));
   --lk-size-lg-unitless: calc(1 * var(--lk-scalefactor));
-  --lk-size-xl-unitless: calc(
-    var(--lk-size-lg-unitless) * var(--lk-scalefactor)
-  );
-  --lk-size-2xl-unitless: calc(
-    var(--lk-size-xl-unitless) * var(--lk-scalefactor)
-  );
+  --lk-size-xl-unitless: calc(var(--lk-size-lg-unitless) * var(--lk-scalefactor));
+  --lk-size-2xl-unitless: calc(var(--lk-size-xl-unitless) * var(--lk-scalefactor));
 
   /*Increments*/
 
@@ -236,25 +228,10 @@
   -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
 
-  /* Button Variables */
-  --button-label-line-height: calc(1em * var(--lk-halfstep));
-  --button-pad-sideWithIcon: var(--lk-wholestep-dec);
-  --button-no-icon-pad: 1em;
-  --button-y-pad: calc(var--button) 0.485em;
-  --button-gap: 0.485em;
-  --button-small-y-pad: 0.408em;
-  --button-small-line-height: 1.069em;
-  --button-small-icon-side: 0.518em;
-  --button-large-line-height: 1.619em;
-  --button-large-y-pad: 0.618em;
-  --button-large-icon-side: 0.788em;
-  --button-large-font-size: 1.275em;
-  --button-small-font-size: 0.838em;
-
   /************ Font Size Vars ************/
 
-  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracating, multiplying, and dividing. 
-   * In addition and subtraction, both sides must have the same unit. 
+  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracating, multiplying, and dividing.
+   * In addition and subtraction, both sides must have the same unit.
    * In multiplication, one side must be unitless.
    * In division, the right side must be unitless.
   */
@@ -288,51 +265,18 @@
   --capline-line-height: var(--lk-halfstep);
 
   /* Optical Top Padding Offsets and Border Radii for Cards */
-  --display1-offset: calc(
-    var(--display1-font-size) *
-      calc(var(--display1-line-height) / var(--lk-wholestep))
-  );
-  --display2-offset: calc(
-    var(--display2-font-size) *
-      calc(var(--display2-line-height) / var(--lk-wholestep))
-  );
-  --title1-offset: calc(
-    var(--title1-font-size) *
-      calc(var(--title1-line-height) / var(--lk-wholestep))
-  );
-  --title2-offset: calc(
-    var(--title2-font-size) *
-      calc(var(--title2-line-height) / var(--lk-wholestep))
-  );
-  --title3-offset: calc(
-    var(--title3-font-size) *
-      calc(var(--title3-line-height) / var(--lk-wholestep))
-  );
-  --heading-offset: calc(
-    var(--heading-font-size) *
-      calc(var(--heading-line-height) / var(--lk-wholestep))
-  );
-  --subheading-offset: calc(
-    var(--subheading-font-size) *
-      calc(var(--subheading-line-height) / var(--lk-wholestep))
-  );
+  --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--lk-wholestep)));
+  --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--lk-wholestep)));
+  --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--lk-wholestep)));
+  --title2-offset: calc(var(--title2-font-size) * calc(var(--title2-line-height) / var(--lk-wholestep)));
+  --title3-offset: calc(var(--title3-font-size) * calc(var(--title3-line-height) / var(--lk-wholestep)));
+  --heading-offset: calc(var(--heading-font-size) * calc(var(--heading-line-height) / var(--lk-wholestep)));
+  --subheading-offset: calc(var(--subheading-font-size) * calc(var(--subheading-line-height) / var(--lk-wholestep)));
   --body-offset: calc(var(--body-font-size) / var(--lk-wholestep));
-  --callout-offset: calc(
-    var(--callout-font-size) *
-      calc(var(--callout-line-height) / var(--lk-wholestep))
-  );
-  --label-offset: calc(
-    var(--label-font-size) *
-      calc(var(--label-line-height) / var(--lk-wholestep))
-  );
-  --caption-offset: calc(
-    var(--caption-font-size) *
-      calc(var(--caption-line-height) / var(--lk-wholestep))
-  );
-  --capline-offset: calc(
-    var(--capline-font-size) *
-      calc(var(--capline-line-height) / var(--lk-wholestep))
-  );
+  --callout-offset: calc(var(--callout-font-size) * calc(var(--callout-line-height) / var(--lk-wholestep)));
+  --label-offset: calc(var(--label-font-size) * calc(var(--label-line-height) / var(--lk-wholestep)));
+  --caption-offset: calc(var(--caption-font-size) * calc(var(--caption-line-height) / var(--lk-wholestep)));
+  --capline-offset: calc(var(--capline-font-size) * calc(var(--capline-line-height) / var(--lk-wholestep)));
 
   /* shadows */
   --shadow-sm: 0 0 1px 0 var(--lk-shadow);
@@ -350,32 +294,18 @@
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
 
-  --display1BoxHeight: calc(
-    var(--display1-font-size) * var(--display1-line-height)
-  );
-  --display2BoxHeight: calc(
-    var(--display2-font-size) * var(--display2-line-height)
-  );
+  --display1BoxHeight: calc(var(--display1-font-size) * var(--display1-line-height));
+  --display2BoxHeight: calc(var(--display2-font-size) * var(--display2-line-height));
   --title1BoxHeight: calc(var(--title1-font-size) * var(--title1-line-height));
   --title2BoxHeight: calc(var(--title2-font-size) * var(--title2-line-height));
   --title3BoxHeight: calc(var(--title3-font-size) * var(--title3-line-height));
-  --headingBoxHeight: calc(
-    var(--heading-font-size) * var(--heading-line-height)
-  );
-  --subheadingBoxHeight: calc(
-    var(--subheading-font-size) * var(--subheading-line-height)
-  );
+  --headingBoxHeight: calc(var(--heading-font-size) * var(--heading-line-height));
+  --subheadingBoxHeight: calc(var(--subheading-font-size) * var(--subheading-line-height));
   --bodyBoxHeight: calc(var(--body-font-size) * var(--body-line-height));
-  --calloutBoxHeight: calc(
-    var(--callout-font-size) * var(--callout-line-height)
-  );
+  --calloutBoxHeight: calc(var(--callout-font-size) * var(--callout-line-height));
   --labelBoxHeight: calc(var(--label-font-size) * var(--label-line-height));
-  --captionBoxHeight: calc(
-    var(--caption-font-size) * var(--caption-line-height)
-  );
-  --caplineBoxHeight: calc(
-    var(--capline-font-size) * var(--capline-line-height)
-  );
+  --captionBoxHeight: calc(var(--caption-font-size) * var(--caption-line-height));
+  --caplineBoxHeight: calc(var(--capline-font-size) * var(--capline-line-height));
 }
 
 @media (prefers-color-scheme: dark) {

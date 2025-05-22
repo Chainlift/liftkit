@@ -11,7 +11,6 @@
 @import "@/registry/universal/css/flexboxes.css";
 @import "@/registry/universal/css/gaps.css";
 @import "@/registry/universal/css/grid.css";
-@import "@/registry/universal/css/icons.css";
 @import "@/registry/universal/css/iconButtons.css";
 @import "@/registry/universal/css/justify-content.css";
 @import "@/registry/universal/css/margins.css";
@@ -54,4 +53,4 @@
 @import "@/registry/universal/css/background-colors.css";
 @import "@/registry/universal/css/code.css";
 @import "@/registry/universal/css/whitespace.css";
-@import '~@csstools/normalize.css';
+@import '@csstools/normalize.css';
