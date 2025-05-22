@@ -6,7 +6,7 @@ const config = {
   componentsDir: './registry/nextjs/components',
   outputFile: './registry.json',
   libraryDirs: [
-    './registry/universal',
+    './registry/universal/lib',
     './registry/nextjs/lib',
   ],
   baseDepUrl: `${url}/r/base.json`,

@@ -9,8 +9,9 @@
       "title": "badge Component",
       "description": "A Simple badge Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/icon.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/icon.json",
+        "https://localhost:3000/r/badge.json"
       ],
       "files": [
         {
@@ -29,7 +30,8 @@
       "title": "button Component",
       "description": "A Simple button Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/button.json"
       ],
       "files": [
         {
@@ -48,7 +50,8 @@
       "title": "card Component",
       "description": "A Simple card Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/card.json"
       ],
       "files": [
         {
@@ -67,7 +70,8 @@
       "title": "column Component",
       "description": "A Simple column Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/column.json"
       ],
       "files": [
         {
@@ -86,7 +90,8 @@
       "title": "containers Component",
       "description": "A Simple containers Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/containers.json"
       ],
       "files": [
         {
@@ -105,7 +110,8 @@
       "title": "dropdown Component",
       "description": "A Simple dropdown Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/dropdown.json"
       ],
       "files": [
         {
@@ -124,7 +130,8 @@
       "title": "dropdown-chip Component",
       "description": "A Simple dropdown-chip Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/dropdown-chip.json"
       ],
       "files": [
         {
@@ -143,7 +150,8 @@
       "title": "dropdown-list Component",
       "description": "A Simple dropdown-list Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/dropdown-list.json"
       ],
       "files": [
         {
@@ -162,7 +170,8 @@
       "title": "grid Component",
       "description": "A Simple grid Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/grid.json"
       ],
       "files": [
         {
@@ -181,7 +190,8 @@
       "title": "heading Component",
       "description": "A Simple heading Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/heading.json"
       ],
       "files": [
         {
@@ -200,7 +210,8 @@
       "title": "icon Component",
       "description": "A Simple icon Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/icon.json"
       ],
       "files": [
         {
@@ -219,7 +230,8 @@
       "title": "icon-button Component",
       "description": "A Simple icon-button Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/icon-button.json"
       ],
       "files": [
         {
@@ -238,7 +250,8 @@
       "title": "image Component",
       "description": "A Simple image Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/image.json"
       ],
       "files": [
         {
@@ -257,7 +270,8 @@
       "title": "menu-chip Component",
       "description": "A Simple menu-chip Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/menu-chip.json"
       ],
       "files": [
         {
@@ -276,7 +290,8 @@
       "title": "menu-item Component",
       "description": "A Simple menu-item Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/menu-item.json"
       ],
       "files": [
         {
@@ -295,7 +310,8 @@
       "title": "menu-list Component",
       "description": "A Simple menu-list Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/menu-list.json"
       ],
       "files": [
         {
@@ -314,11 +330,12 @@
       "title": "navbar Component",
       "description": "A Simple navbar Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/image.json",
-        "https://liftkit.pages.dev/r/icon-button.json",
-        "https://liftkit.pages.dev/r/row.json",
-        "https://liftkit.pages.dev/r/column.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/image.json",
+        "https://localhost:3000/r/icon-button.json",
+        "https://localhost:3000/r/row.json",
+        "https://localhost:3000/r/column.json",
+        "https://localhost:3000/r/navbar.json"
       ],
       "files": [
         {
@@ -337,7 +354,8 @@
       "title": "paragraph Component",
       "description": "A Simple paragraph Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/paragraph.json"
       ],
       "files": [
         {
@@ -356,7 +374,8 @@
       "title": "row Component",
       "description": "A Simple row Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/row.json"
       ],
       "files": [
         {
@@ -375,7 +394,8 @@
       "title": "section Component",
       "description": "A Simple section Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/section.json"
       ],
       "files": [
         {
@@ -394,10 +414,11 @@
       "title": "snackbar Component",
       "description": "A Simple snackbar Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/badge.json",
-        "https://liftkit.pages.dev/r/button.json",
-        "https://liftkit.pages.dev/r/text.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/badge.json",
+        "https://localhost:3000/r/button.json",
+        "https://localhost:3000/r/text.json",
+        "https://localhost:3000/r/snackbar.json"
       ],
       "files": [
         {
@@ -416,8 +437,9 @@
       "title": "sticker Component",
       "description": "A Simple sticker Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/text.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/text.json",
+        "https://localhost:3000/r/sticker.json"
       ],
       "files": [
         {
@@ -436,7 +458,8 @@
       "title": "tab-content Component",
       "description": "A Simple tab-content Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/tab-content.json"
       ],
       "files": [
         {
@@ -455,8 +478,9 @@
       "title": "tab-link Component",
       "description": "A Simple tab-link Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/text.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/text.json",
+        "https://localhost:3000/r/tab-link.json"
       ],
       "files": [
         {
@@ -475,9 +499,10 @@
       "title": "tab-menu Component",
       "description": "A Simple tab-menu Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/row.json",
-        "https://liftkit.pages.dev/r/tab-link.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/row.json",
+        "https://localhost:3000/r/tab-link.json",
+        "https://localhost:3000/r/tab-menu.json"
       ],
       "files": [
         {
@@ -496,8 +521,9 @@
       "title": "tabs Component",
       "description": "A Simple tabs Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json",
-        "https://liftkit.pages.dev/r/tab-menu.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/tab-menu.json",
+        "https://localhost:3000/r/tabs.json"
       ],
       "files": [
         {
@@ -516,7 +542,8 @@
       "title": "text Component",
       "description": "A Simple text Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/text.json"
       ],
       "files": [
         {
@@ -535,7 +562,8 @@
       "title": "text-input Component",
       "description": "A Simple text-input Component",
       "registryDependencies": [
-        "https://liftkit.pages.dev/r/base.json"
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/text-input.json"
       ],
       "files": [
         {
@@ -549,260 +577,265 @@
       ]
     },
     {
+      "name": "theme",
+      "type": "registry:block",
+      "title": "theme Component",
+      "description": "A Simple theme Component",
+      "registryDependencies": [
+        "https://localhost:3000/r/base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/nextjs/components/theme/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/theme/theme.css",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "base",
       "type": "registry:lib",
       "title": "base dependencies",
       "description": "base dependencies",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@material/material-color-utilities",
+        "@csstools/normalize.css"
       ],
       "files": [
-        {
-          "path": "registry/universal/css/accordion.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/align-items.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/align-self.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/aspect-ratios.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/background-colors.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/badge.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/border-radius.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/borders.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/breaks.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/buttons.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/cards.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/code.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/column-span.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/containers.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/cursor.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/display.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/dropdown.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/flexboxes.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/font-color.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/gaps.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/globals.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/grid.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/height.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/iconButtons.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/icons.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/index.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/index.d.ts",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/inputs.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/justify-content.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/justify-items.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/liftkit-core.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/liftkitattributes.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/liftkitvars.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/margins.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/material-icons/Material-Symbols-Outlined.woff2",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/material-icons/index.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/material.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/menu.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/modal.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/opacity.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/overflow.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/padding.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/pointer-events.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/position.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/scale.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/scrim.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/sections.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/shadows.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/snackbars.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/state-layers.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/stickers.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/tabs.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/text-alignment.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/text-columns.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/toast.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/tooltip.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/typography.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/whitespace.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/width.css",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/universal/css/z-index.css",
-          "type": "registry:lib"
-        },
         {
           "path": "registry/universal/lib/colorUtils.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/universal/lib/componentUtils.ts",
+          "path": "registry/universal/lib/css/Material-Symbols-Outlined.woff2",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/accordion.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/align-items.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/align-self.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/aspect-ratios.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/background-colors.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/badge.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/border-radius.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/borders.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/breaks.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/buttons.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/cards.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/code.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/column-span.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/containers.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/cursor.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/display.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/dropdown.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/flexboxes.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/font-color.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/gaps.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/grid.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/height.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/iconButtons.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/index.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/index.d.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/inputs.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/justify-content.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/justify-items.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/liftkit-core.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/liftkitvars.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/margins.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/material-icons.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/material.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/menu.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/modal.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/opacity.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/overflow.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/padding.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/pointer-events.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/position.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/scale.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/scrim.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/sections.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/shadows.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/snackbars.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/state-layers.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/stickers.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/tabs.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/text-alignment.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/text-columns.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/toast.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/tooltip.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/typography.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/whitespace.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/width.css",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/universal/lib/css/z-index.css",
           "type": "registry:lib"
         },
         {
@@ -831,6 +864,10 @@
         },
         {
           "path": "registry/universal/lib/types/lk-utility.d.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/nextjs/lib/componentUtils.ts",
           "type": "registry:lib"
         },
         {
