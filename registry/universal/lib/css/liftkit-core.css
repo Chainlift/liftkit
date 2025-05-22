@@ -414,6 +414,10 @@ body {
   background: var(--lk-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--lk-onbackground);
+  background-color: var(--lk-background);
 }
 
 * {
@@ -427,25 +431,10 @@ a {
   text-decoration: none;
 }
 
-/* Depcretated, totally unnecessary */
-.color-picker-popup .react-colorful {
-  position: absolute;
-  z-index: 2;
-  border-radius: 32px;
-}
-
 .swatch {
   padding: calc(1.272em / var(--lk-size-xl-unitless)) var(--lk-size-sm);
   border-radius: var(--lk-size-xs);
   margin: var(--lk-size-sm) 0;
-}
-
-/* not sure why I redefined this here, could be redundant */
-body {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--lk-onbackground);
-  background-color: var(--lk-background);
 }
 
 /* Make Buttons into Inline Elements */

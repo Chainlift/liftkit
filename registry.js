@@ -6,12 +6,12 @@ const config = {
   componentsDir: './registry/nextjs/components',
   outputFile: './registry.json',
   libraryDirs: [
-    './registry/universal',
+    './registry/universal/lib',
     './registry/nextjs/lib',
   ],
   baseDepUrl: `${url}/r/base.json`,
   componentDepUrlPattern: `${url}/r/\${name}.json`,
-  dependencies: ["lucide-react", "@material/material-color-utilities"]
+  dependencies: ["lucide-react", "@material/material-color-utilities", "@csstools/normalize.css"]
 };
 
 /**
