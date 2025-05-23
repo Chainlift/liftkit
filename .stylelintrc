@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "rules": {
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "browsers": [
+          "last 5 Chrome version",
+          "last 5 Firefox version",
+          "last 5 Safari version",
+          "last 5 Edge version",
+          "not op_mini all"
+        ],
+        "ignore": [
+          "rem",
+          "css-variables"
+        ],
+        "ignorePartialSupport": true
+      }
+    ]
+  }
+}
