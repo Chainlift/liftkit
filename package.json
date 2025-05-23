@@ -9,6 +9,7 @@
     "start": "next start",
     "pretty": "prettier --check .",
     "lint": "next lint",
+    "lint:css": "stylelint registry/**/*.css src/**/*.css",
     "test": "vitest"
   },
   "dependencies": {
@@ -24,7 +25,9 @@
     "react-dom": "^19.0.0",
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.1",
-    "shadcn": "2.4.0-canary.12"
+    "shadcn": "2.4.0-canary.12",
+    "stylelint": "^16.19.1",
+    "stylelint-no-unsupported-browser-features": "^8.0.4"
   },
   "devDependencies": {
     "@eslint/css": "^0.7.0",
