@@ -57,3 +57,11 @@ jobs:
           markdown-report-on-step-summary: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           report-json: "eslint_report.json"
+  stylelint:
+      name: Stylelint
+      runs-on: ubuntu-22.04
+      steps:
+        - uses: actions/checkout@v4
+        - run: npm install
+        - name: Run stylelint
+          run: npm run lint:css
