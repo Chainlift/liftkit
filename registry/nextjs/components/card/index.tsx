@@ -48,6 +48,7 @@ export default function Card({
       <div lk-component="slot" lk-slot="children">
         {children}
       </div>
+      
     </div>
   );
 }

@@ -334,7 +334,7 @@ export default function Home() {
           <p>This card uses the fill variant and title1 scale.</p>
         </Card>
 
-        <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
+        <div style={{ display: "grid", gap: "2rem", padding: "2rem", backgroundImage: "url(https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68349a1035e34d978760aa2a_visnu-deva-WZBSRWPKBDw-unsplash.jpg)"}}>
           {/* Basic Card */}
           <Card>
             <h2>Basic Card</h2>
