@@ -33,36 +33,11 @@ const contentStyle: React.CSSProperties = {
   color: "darkgreen",
 };
 
-const aspectRatios = [
-  "auto",
-  "1/1",
-  "2.39/1",
-  "2/1",
-  "16/9",
-  "3/2",
-  "4/3",
-  "5/4",
-  "1/2.39",
-  "1/2",
-  "9/16",
-  "4/5",
-];
+const aspectRatios = ["auto", "1/1", "2.39/1", "2/1", "16/9", "3/2", "4/3", "5/4", "1/2.39", "1/2", "9/16", "4/5"];
 
 const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
-const radii = [
-  "none",
-  "zero",
-  "3xs",
-  "2xs",
-  "xs",
-  "sm",
-  "lg",
-  "xl",
-  "2xl",
-  "3xl",
-  "4xl",
-];
+const radii = ["none", "zero", "3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
 export default function Home() {
   // const [open, setOpen] = useState(false);
@@ -72,9 +47,7 @@ export default function Home() {
   const buttonSizes = ["sm", "md", "lg"] as const;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
-    {},
-  );
+  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>({});
 
   const toggleMenu = (key: string) => {
     setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -90,38 +63,13 @@ export default function Home() {
           <Button key="3" label="Careers" variant="text" />,
         ]}
         iconButtons={[
-          <IconButton
-            key="search"
-            icon="search"
-            variant="text"
-            color="surfacecontainer"
-          />,
-          <IconButton
-            key="briefcase"
-            icon="note"
-            variant="text"
-            color="surfacecontainer"
-          />,
-          <IconButton
-            key="heart"
-            icon="book"
-            variant="text"
-            color="surfacecontainer"
-          />,
+          <IconButton key="search" icon="search" variant="text" color="surfacecontainer" />,
+          <IconButton key="briefcase" icon="note" variant="text" color="surfacecontainer" />,
+          <IconButton key="heart" icon="book" variant="text" color="surfacecontainer" />,
         ]}
         ctaButtons={[
-          <Button
-            key="secondary"
-            label="Secondary"
-            variant="outline"
-            color="surface"
-          />,
-          <Button
-            key="primary"
-            label="Primary"
-            variant="fill"
-            color="surfacecontainer"
-          />,
+          <Button key="secondary" label="Secondary" variant="outline" color="surface" />,
+          <Button key="primary" label="Primary" variant="fill" color="surfacecontainer" />,
         ]}
       />
       <Snackbar badgeColor="error" globalColor="surface" />
@@ -137,30 +85,16 @@ export default function Home() {
         <Snackbar />
 
         {/* Custom message */}
-        <Snackbar
-          message="Your changes have been saved."
-          fontClass="label"
-          backgroundColor="error"
-        />
+        <Snackbar message="Your changes have been saved." fontClass="label" backgroundColor="error" />
 
         {/* Custom badge color */}
-        <Snackbar
-          badgeColor="error"
-          message="There was a problem saving your changes."
-        />
+        <Snackbar badgeColor="error" message="There was a problem saving your changes." />
 
         {/* Custom primary and secondary button colors */}
-        <Snackbar
-          primaryButtonColor="success"
-          secondaryButtonColor="error"
-          message="Settings updated successfully."
-        />
+        <Snackbar primaryButtonColor="success" secondaryButtonColor="error" message="Settings updated successfully." />
 
         {/* Global color overrides badge + both buttons */}
-        <Snackbar
-          globalColor="warning"
-          message="This will overwrite existing data."
-        />
+        <Snackbar globalColor="warning" message="This will overwrite existing data." />
 
         {/* Adding custom class or inline styles */}
         <Snackbar
@@ -170,11 +104,7 @@ export default function Home() {
           style={{ cursor: "pointer" }}
         />
       </div>
-      <Tabs
-        tabLinks={tabLabels}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      >
+      <Tabs tabLinks={tabLabels} activeTab={activeTab} setActiveTab={setActiveTab}>
         {tabLabels.map((label, index) => (
           <TabContent key={index}>
             <p>This is the content for {label}</p>
@@ -220,10 +150,7 @@ export default function Home() {
       <div className="bg-light__surface">
         {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
         {/* <MenuList isOpen={open}> */}
-        <MenuChip
-          isActive={openMenus["menu1"]}
-          onClick={() => toggleMenu("menu1")}
-        />
+        <MenuChip isActive={openMenus["menu1"]} onClick={() => toggleMenu("menu1")} />
         <MenuList isOpen={openMenus["menu1"]}>
           <MenuItem startIcon="home">Home</MenuItem>
           <MenuItem startIcon="settings" endIcon="chevron_right">
@@ -248,10 +175,7 @@ export default function Home() {
       <div className="bg-light__surface">
         {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} />
         <MenuList isOpen={open}> */}
-        <MenuChip
-          isActive={openMenus["menu2"]}
-          onClick={() => toggleMenu("menu2")}
-        />
+        <MenuChip isActive={openMenus["menu2"]} onClick={() => toggleMenu("menu2")} />
         <MenuList isOpen={openMenus["menu2"]}>
           <MenuItem startIcon="home">Home</MenuItem>
           <MenuItem startIcon="settings" endIcon="chevron_right">
@@ -262,17 +186,13 @@ export default function Home() {
       </div>
 
       <Paragraph fontClass="title1">
-        ancient times cats were not merely companions—they were revered as
-        divine beings. Cultures like ancient Egypt honored cats as sacred
-        creatures embodying grace&quot; mystery&quot; and spiritual power. The
-        goddess Bastet depicted with the head of a lioness or domestic cat&quot;
-        symbolized protection fertility&quot; and the nurturing aspects of home
-        life. Even beyond Egypt the enigmatic nature of cats—their watchful
-        eyes&quot; silent movements and uncanny independence—has inspired a
-        timeless belief that they walk between worlds. To this day many still
-        joke (or suspect) that cats arent just pets but deities in
-        disguise&quot; quietly ruling their human households with regal
-        indifference.
+        ancient times cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
+        honored cats as sacred creatures embodying grace&quot; mystery&quot; and spiritual power. The goddess Bastet
+        depicted with the head of a lioness or domestic cat&quot; symbolized protection fertility&quot; and the
+        nurturing aspects of home life. Even beyond Egypt the enigmatic nature of cats—their watchful eyes&quot; silent
+        movements and uncanny independence—has inspired a timeless belief that they walk between worlds. To this day
+        many still joke (or suspect) that cats arent just pets but deities in disguise&quot; quietly ruling their human
+        households with regal indifference.
       </Paragraph>
       <div style={{ padding: "2rem" }}>
         <h2>Row with gap, justifyContent, alignItems</h2>
@@ -284,32 +204,19 @@ export default function Home() {
 
         <h2 style={{ marginTop: "2rem" }}>Row with wrapChildren</h2>
         <Row gap="lg" wrap-children="true" style={{ maxWidth: "300px" }}>
-          <div style={{ background: "#ccc", width: "200px", padding: "1rem" }}>
-            A
-          </div>
-          <div style={{ background: "#aaa", width: "200px", padding: "1rem" }}>
-            B
-          </div>
-          <div style={{ background: "#888", width: "200px", padding: "1rem" }}>
-            C
-          </div>
+          <div style={{ background: "#ccc", width: "200px", padding: "1rem" }}>A</div>
+          <div style={{ background: "#aaa", width: "200px", padding: "1rem" }}>B</div>
+          <div style={{ background: "#888", width: "200px", padding: "1rem" }}>C</div>
         </Row>
 
-        <h2 style={{ marginTop: "2rem" }}>
-          Row with defaultChildBehavior = auto-grow
-        </h2>
+        <h2 style={{ marginTop: "2rem" }}>Row with defaultChildBehavior = auto-grow</h2>
         <Row gap="sm" default-child-behavior="auto-grow">
           <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
           <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
           <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
         </Row>
       </div>
-      <Badge
-        icon="replace"
-        color="surfacecontainerhigh"
-        scale="lg"
-        iconStrokeWidth={1}
-      />
+      <Badge icon="replace" color="surfacecontainerhigh" scale="lg" iconStrokeWidth={1} />
       <span className="absolute top-0">Hello</span>
       <Icon name="airplay" color="primary" fontClass="title2" />
       <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
@@ -320,12 +227,7 @@ export default function Home() {
         </Card>
 
         {/* Filled Card with Title Scale */}
-        <Card
-          scale-factor="caption"
-          variant="fill"
-          material="flat"
-          optical-correction="y"
-        >
+        <Card scale-factor="caption" variant="fill" material="flat" optical-correction="y">
           <Text tag="h1" fontClass="display1">
             Filled Card
           </Text>
@@ -334,7 +236,15 @@ export default function Home() {
           <p>This card uses the fill variant and title1 scale.</p>
         </Card>
 
-        <div style={{ display: "grid", gap: "2rem", padding: "2rem", backgroundImage: "url(https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68349a1035e34d978760aa2a_visnu-deva-WZBSRWPKBDw-unsplash.jpg)"}}>
+        <div
+          style={{
+            display: "grid",
+            gap: "2rem",
+            padding: "2rem",
+            backgroundImage:
+              "url(https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68349a1035e34d978760aa2a_visnu-deva-WZBSRWPKBDw-unsplash.jpg)",
+          }}
+        >
           {/* Basic Card */}
           <Card>
             <h2>Basic Card</h2>
@@ -342,22 +252,50 @@ export default function Home() {
           </Card>
 
           {/* Filled Card with Title Scale */}
-          <Card
-            scaleFactor="title1"
-            variant="fill"
-            material="flat"
-            optical-correction="left"
-          >
+          <Card scaleFactor="title1" variant="fill" material="flat" optical-correction="left">
             <h2>Filled Card</h2>
             <p>This card uses the fill variant and title1 scale.</p>
           </Card>
 
-          {/* Outline Glass Card with Clickable Style */}
+          {/* Outline Glass Card with Clickable Style, thick material  */}
+          {/* Todo: decide on which material prop we're going to pass? global "lk-material" or component-specific "material"? */}
 
           <Card
             scaleFactor="body"
             variant="outline"
             material="glass"
+            // temporarily adding this attribute for testing.
+            lk-material="glass"
+            isClickable
+            onClick={() => alert("Card clicked!")}
+          >
+            <h2>Glass Card</h2>
+            <p>This one has a glass blur effect and is clickable.</p>
+          </Card>
+
+          {/* Outline Glass Card with Clickable Style, default thickness  */}
+
+          <Card
+            scaleFactor="body"
+            variant="outline"
+            material="glass"
+            materialThickness="default"
+            lk-material="glass"
+            isClickable
+            onClick={() => alert("Card clicked!")}
+          >
+            <h2>Glass Card</h2>
+            <p>This one has a glass blur effect and is clickable.</p>
+          </Card>
+
+          {/* Outline Glass Card with Clickable Style, thin thickness  */}
+
+          <Card
+            scaleFactor="body"
+            variant="outline"
+            material="glass"
+            materialThickness="thin"
+            lk-material="glass"
             isClickable
             onClick={() => alert("Card clicked!")}
           >
@@ -388,17 +326,13 @@ export default function Home() {
         </Text>
 
         <Paragraph fontClass="title1">
-          ancient times cats were not merely companions—they were revered as
-          divine beings. Cultures like ancient Egypt honored cats as sacred
-          creatures embodying grace&quot; mystery&quot; and spiritual power. The
-          goddess Bastet depicted with the head of a lioness or domestic
-          cat&quot; symbolized protection fertility&quot; and the nurturing
-          aspects of home life. Even beyond Egypt the enigmatic nature of
-          cats—their watchful eyes&quot; silent movements and uncanny
-          independence—has inspired a timeless belief that they walk between
-          worlds. To this day many still joke (or suspect) that cats arent just
-          pets but deities in disguise&quot; quietly ruling their human
-          households with regal indifference.
+          ancient times cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
+          honored cats as sacred creatures embodying grace&quot; mystery&quot; and spiritual power. The goddess Bastet
+          depicted with the head of a lioness or domestic cat&quot; symbolized protection fertility&quot; and the
+          nurturing aspects of home life. Even beyond Egypt the enigmatic nature of cats—their watchful eyes&quot;
+          silent movements and uncanny independence—has inspired a timeless belief that they walk between worlds. To
+          this day many still joke (or suspect) that cats arent just pets but deities in disguise&quot; quietly ruling
+          their human households with regal indifference.
         </Paragraph>
         <div style={{ padding: "2rem" }}>
           <h2>Row with gap, justifyContent, alignItems</h2>
@@ -410,38 +344,19 @@ export default function Home() {
 
           <h2 style={{ marginTop: "2rem" }}>Row with wrapChildren</h2>
           <Row gap="lg" wrap-children="true" style={{ maxWidth: "300px" }}>
-            <div
-              style={{ background: "#ccc", width: "200px", padding: "1rem" }}
-            >
-              A
-            </div>
-            <div
-              style={{ background: "#aaa", width: "200px", padding: "1rem" }}
-            >
-              B
-            </div>
-            <div
-              style={{ background: "#888", width: "200px", padding: "1rem" }}
-            >
-              C
-            </div>
+            <div style={{ background: "#ccc", width: "200px", padding: "1rem" }}>A</div>
+            <div style={{ background: "#aaa", width: "200px", padding: "1rem" }}>B</div>
+            <div style={{ background: "#888", width: "200px", padding: "1rem" }}>C</div>
           </Row>
 
-          <h2 style={{ marginTop: "2rem" }}>
-            Row with defaultChildBehavior = auto-grow
-          </h2>
+          <h2 style={{ marginTop: "2rem" }}>Row with defaultChildBehavior = auto-grow</h2>
           <Row gap="sm" default-child-behavior="auto-grow">
             <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
             <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
             <div style={{ background: "#aaf", padding: "1rem" }}>Grow 3</div>
           </Row>
         </div>
-        <Badge
-          icon="replace"
-          color="surfacecontainerhigh"
-          scale="lg"
-          iconStrokeWidth={1}
-        />
+        <Badge icon="replace" color="surfacecontainerhigh" scale="lg" iconStrokeWidth={1} />
         <span className="absolute top-0">Hello</span>
         <Icon name="airplay" color="primary" fontClass="title2" />
         <div style={{ display: "grid", gap: "2rem", padding: "2rem" }}>
@@ -558,9 +473,7 @@ export default function Home() {
             <Section pt="sm" pr="md" pb="lg" pl="xl">
               <div style={contentStyle}>pt=sm + pr=md + pb=lg + pl=xl</div>
             </Section>
-            <h2 style={{ marginTop: "2rem" }}>
-              Row with defaultChildBehavior = auto-grow
-            </h2>
+            <h2 style={{ marginTop: "2rem" }}>Row with defaultChildBehavior = auto-grow</h2>
             <Row gap="sm" default-child-behavior="auto-grow">
               <div style={{ background: "#eef", padding: "1rem" }}>Grow 1</div>
               <div style={{ background: "#ccf", padding: "1rem" }}>Grow 2</div>
@@ -611,23 +524,11 @@ export default function Home() {
                   <h3>Size: {size}</h3>
                   <div>
                     <div>
-                      <Button
-                        label="Left Icon"
-                        variant={variant}
-                        size={size}
-                        color="error"
-                        startIcon="airplay"
-                      />
+                      <Button label="Left Icon" variant={variant} size={size} color="error" startIcon="airplay" />
                       <span>startIcon</span>
                     </div>
                     <div>
-                      <Button
-                        label="Right Icon"
-                        variant={variant}
-                        size={size}
-                        color="primary"
-                        endIcon="airplay"
-                      />
+                      <Button label="Right Icon" variant={variant} size={size} color="primary" endIcon="airplay" />
                       <span>endIcon</span>
                     </div>
                     <div>
@@ -642,12 +543,7 @@ export default function Home() {
                       <span>both</span>
                     </div>
                     <div>
-                      <Button
-                        label="No Icon"
-                        variant={variant}
-                        size={size}
-                        color="primary"
-                      />
+                      <Button label="No Icon" variant={variant} size={size} color="primary" />
                       <span>none</span>
                     </div>
                   </div>
@@ -677,12 +573,7 @@ export default function Home() {
         <div className="radius-test-grid">
           {radii.map((radius) => (
             <figure key={radius} className="radius-test-item">
-              <Image
-                src="/testimage.png"
-                alt={radius}
-                lk-image-border-radius={radius}
-                className="radius-test-img"
-              />
+              <Image src="/testimage.png" alt={radius} lk-image-border-radius={radius} className="radius-test-img" />
               <figcaption className="radius-test-caption">{radius}</figcaption>
             </figure>
           ))}
@@ -691,19 +582,11 @@ export default function Home() {
         {/* OBJECT-FIT TESTING */}
         <div className="objectfit-test-grid">
           <figure>
-            <Image
-              src="/testimage.png"
-              alt="cover"
-              lk-image-object-fit="cover"
-            />
+            <Image src="/testimage.png" alt="cover" lk-image-object-fit="cover" />
             <figcaption>object-fit: cover</figcaption>
           </figure>
           <figure>
-            <Image
-              src="/testimage.png"
-              alt="contain"
-              lk-image-object-fit="contain"
-            />
+            <Image src="/testimage.png" alt="contain" lk-image-object-fit="contain" />
             <figcaption>object-fit: contain</figcaption>
           </figure>
           <figure>
@@ -715,11 +598,7 @@ export default function Home() {
             <figcaption>object-fit: none</figcaption>
           </figure>
           <figure>
-            <Image
-              src="/testimage.png"
-              alt="scale-down"
-              lk-image-object-fit="scale-down"
-            />
+            <Image src="/testimage.png" alt="scale-down" lk-image-object-fit="scale-down" />
             <figcaption>object-fit: scale-down</figcaption>
           </figure>
         </div>
@@ -742,16 +621,13 @@ export default function Home() {
           Hello World
         </Text>
         <Paragraph fontClass="title1">
-          ancient times, cats were not merely companions—they were revered as
-          divine beings. Cultures like ancient Egypt honored cats as sacred
-          creatures, embodying grace, mystery, and spiritual power. The goddess
-          Bastet, depicted with the head of a lioness or domestic cat,
-          symbolized protection, fertility, and the nurturing aspects of home
-          life. Even beyond Egypt, the enigmatic nature of cats—their watchful
-          eyes, silent movements, and uncanny independence—has inspired a
-          timeless belief that they walk between worlds. To this day, many still
-          joke (or suspect) that cats aren’t just pets, but deities in disguise,
-          quietly ruling their human households with regal indifference.
+          ancient times, cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
+          honored cats as sacred creatures, embodying grace, mystery, and spiritual power. The goddess Bastet, depicted
+          with the head of a lioness or domestic cat, symbolized protection, fertility, and the nurturing aspects of
+          home life. Even beyond Egypt, the enigmatic nature of cats—their watchful eyes, silent movements, and uncanny
+          independence—has inspired a timeless belief that they walk between worlds. To this day, many still joke (or
+          suspect) that cats aren’t just pets, but deities in disguise, quietly ruling their human households with regal
+          indifference.
         </Paragraph>
       </div>
     </div>

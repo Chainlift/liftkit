@@ -20,7 +20,8 @@
 /* for example, you'd modify [lk-card-material="glass"] in card.css instead and then do the same */
 /* wherever else it's necessary */
 
-position: relative;
+  position: relative;
+  backdrop-filter: blur(calc(var(--lk-size-lg) * var(--lk-halfstep)));
 
   [lk-component="lk-material-scrim"] {
     background-color: var(--lk-surfacecontainerlow);
@@ -31,18 +32,18 @@ position: relative;
     z-index: -1;
 
     &[lk-material-scrim-thickness="thick"] {
-      mix-blend-mode: color-dodge;
-      opacity: 0.72;
+      mix-blend-mode: screen;
+      opacity: 0.75;
     }
 
-    &[lk-material-scrim-thickness="medium"] {
-      mix-blend-mode: color-dodge;
-      opacity: 0.48;
+    &[lk-material-scrim-thickness="default"] {
+      mix-blend-mode: screen;
+      opacity: 0.5;
     }
 
     &[lk-material-scrim-thickness="thin"] {
-      mix-blend-mode: color-dodge;
-      opacity: 0.36;
+      mix-blend-mode: screen;
+      opacity: 0.35;
     }
 
   }
@@ -55,7 +56,6 @@ position: relative;
     mix-blend-mode: multiply;
     color: var(--lk-onsurfacevariant);
     filter: contrast(1.35) brightness(1.1);
-  
   }
 
 
