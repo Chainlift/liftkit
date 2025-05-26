@@ -104,7 +104,7 @@
 
 [lk-card-material="glass"] {
   /* backdrop-filter: blur(var(--thick)); */
-  backdrop-filter: blur(var(--lk-size-lg));
+  backdrop-filter: blur(calc(var(--lk-size-lg) * var(--lk-halfstep)));
 }
 
 /* [lk-card-material="rubber"] { */

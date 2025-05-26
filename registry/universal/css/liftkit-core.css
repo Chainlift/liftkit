@@ -10,7 +10,7 @@
   --lk-wholestep: var(--lk-scalefactor);
   /* equals scalefactor */
   /* 1.272 */
-  --lk-halfstep: calc(1em * round(pow(var(--lk-scalefactor), 0.5), 0.001));
+  --lk-halfstep: calc(round(pow(var(--lk-scalefactor), 0.5), 0.001));
   /* sqrt wholestep 1.128 */
   --lk-quarterstep: round(pow(var(--lk-scalefactor), 0.25), 0.001);
   /* sqrt halfstep 1.062*/

@@ -48,7 +48,8 @@ export default function Card({
       <div lk-component="slot" lk-slot="children">
         {children}
       </div>
-      
+      {/* todo: define types for material scrim color */}
+      <div lk-component="lk-material-scrim" lk-material-scrim-color=""></div> 
     </div>
   );
 }
