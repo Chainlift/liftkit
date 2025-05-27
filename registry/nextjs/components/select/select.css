@@ -1,0 +1,139 @@
+/* @import "../../liftkit-core.css"; */
+
+/* ==========================================================================
+   COMPONENT: Select (lk-component="select")
+   ========================================================================== */
+
+[lk-component="select"] {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   LABEL
+   -------------------------------------------------------------------------- */
+[lk-select-input-label="label"] {
+  font-size: 13.44px;
+  font-weight: 500;
+  color: black;
+}
+
+/* Floating label behavior */
+[lk-select-input-label="label"][data-floating="true"] {
+  position: absolute;
+  top: 50%;
+  left: var(--lk-size-md);
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--lk-onbackground);
+  pointer-events: none;
+  transition:
+    top 0.2s ease,
+    transform 0.2s ease,
+    font-size 0.2s ease;
+}
+
+/* Toggle floating label manually with data attributes */
+[lk-select-input-element="field-wrap"][data-focused="true"]
+  > [lk-select-input-label="label"][data-floating="true"],
+[lk-select-input-element="field-wrap"][data-has-value="true"]
+  > [lk-select-input-label="label"][data-floating="true"] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   FIELD WRAP
+   -------------------------------------------------------------------------- */
+[lk-select-input-element="field-wrap"] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lk-size-sm);
+  padding: 7.76px var(--lk-size-md);
+  flex: 1 0 0;
+  border-radius: var(--lk-size-sm);
+  outline: 1px solid var(--lk-outline);
+  background: #fff;
+  transition:
+    outline 0.2s ease-out,
+    outline 0.2s ease-out;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Active/focused */
+[lk-select-input-element="field-wrap"]:active,
+[lk-select-input-element="field-wrap"][data-focused="true"] {
+  outline: 3px solid var(--lk-primarycontainer);
+}
+
+/* --------------------------------------------------------------------------
+   ICON (within input field)
+   -------------------------------------------------------------------------- */
+[lk-select-input-icon="icon"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   STATE LAYER (optional)
+   -------------------------------------------------------------------------- */
+[lk-component="select-input"] > [lk-component="state-layer"] {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-color: white;
+  opacity: 0;
+  transition:
+    background-color 0.2s ease-out,
+    opacity 0.2s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   HELP TEXT
+   -------------------------------------------------------------------------- */
+[lk-component="select"] > [lk-select-input-help="help-text"] {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.67px;
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   CUSTOM DROPDOWN LIST
+   -------------------------------------------------------------------------- */
+[lk-component="dropdown-list"] {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  color: black;
+  border: 1px solid var(--lk-outline);
+  border-radius: var(--lk-size-sm);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.dropdown-menu-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: black;
+  /* color: var(--lk-onbackground); */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu-item:hover {
+  background-color: var(--lk-primarycontainer);
+}

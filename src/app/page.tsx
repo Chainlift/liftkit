@@ -23,6 +23,7 @@ import MenuList from "@/registry/nextjs/components/menu-list";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import MenuChip from "@/registry/nextjs/components/menu-chip";
 import { useState } from "react";
+import Select from "@/registry/nextjs/components/select";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -65,24 +66,48 @@ const radii = [
 ];
 
 export default function Home() {
-  // const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
-    {},
-  );
+  const [openDropdowns, setOpenDropdowns] = useState<{
+    [key: string]: boolean;
+  }>({});
+  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
+  const [selectedValue, setSelectedValue] = useState("");
+  console.log("selected value", selectedValue);
+  // const handleChange = (value: string) => {
+  //   setSelectedValue(value);
+  //   console.log(value);
+  // };
 
-  const toggleMenu = (key: string) => {
-    setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
+  // const options = [
+  //   { label: "Option 1", value: "option1" },
+  //   { label: "Option 2", value: "option2" },
+  //   { label: "Option 3", value: "option3" },
+  // ];
+
+  const toggleDropdown = (id: string) => {
+    setOpenDropdowns((prev) => ({ ...prev, [id]: !prev[id] }));
   };
-  console.log("openDropdown", openDropdown);
+
+  const toggleMenu = (id: string) => {
+    setOpenMenus((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   return (
     <div className={styles.page}>
+      <Select
+        label="Choose Option"
+        name="mySelect"
+        value={selectedValue}
+        onChange={(e) => setSelectedValue(e.target.value)}
+        options={[
+          { label: "One", value: "One" },
+          { label: "Two", value: "Two" },
+        ]}
+      />
+
       <NavBar
         navButtons={[
           <Button key="1" label="Home" variant="text" />,
@@ -181,19 +206,18 @@ export default function Home() {
           </TabContent>
         ))}
       </Tabs>
-
       <Dropdown id="demo-dropdown">
         <DropdownChip
           labelPosition="default"
-          isActive={openDropdown["dropdown1"]}
+          isActive={openDropdowns["dropdown1"]}
           placeholder="Select an option"
-          onClick={() => toggleMenu("dropdown1")}
+          onClick={() => toggleDropdown("dropdown1")}
         >
           <div lk-component="state-layer" />
           <span>Select an option</span>
         </DropdownChip>
 
-        <DropdownList isOpen={openDropdown["dropdown1"]}>
+        <DropdownList isOpen={openDropdowns["dropdown1"]}>
           <div className="dropdown-menu-item">Option 1</div>
           <div className="dropdown-menu-item">Option 2</div>
           <div className="dropdown-menu-item">Option 3</div>
@@ -202,21 +226,20 @@ export default function Home() {
       <Dropdown id="demo-dropdown">
         <DropdownChip
           labelPosition="default"
-          isActive={openDropdown["dropdown2"]}
+          isActive={openDropdowns["dropdown2"]}
           placeholder="Select an option"
-          onClick={() => toggleMenu("dropdown2")}
+          onClick={() => toggleDropdown("dropdown2")}
         >
           <div lk-component="state-layer" />
           <span>Select an option</span>
         </DropdownChip>
 
-        <DropdownList isOpen={openDropdown["dropdown2"]}>
+        <DropdownList isOpen={openDropdowns["dropdown2"]}>
           <div className="dropdown-menu-item">Option 1</div>
           <div className="dropdown-menu-item">Option 2</div>
           <div className="dropdown-menu-item">Option 3</div>
         </DropdownList>
       </Dropdown>
-
       <div className="bg-light__surface">
         {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
         {/* <MenuList isOpen={open}> */}
@@ -232,22 +255,9 @@ export default function Home() {
           <MenuItem>Logout</MenuItem>
         </MenuList>
       </div>
-      <Grid columns={2} gap="md">
-        <div style={{ background: "red" }}>Item 1</div>
-        <div style={{ background: "blue" }}>Item 2</div>
-      </Grid>
-
-      <Grid columns={3} gap="sm" autoResponsive>
-        <div style={{ background: "green" }}>Responsive 1</div>
-        <div style={{ background: "purple" }}>Responsive 2</div>
-        <div style={{ background: "orange" }}>Responsive 3</div>
-      </Grid>
-      <Text fontClass="display1" tag="footer" color="primary">
-        Hello World
-      </Text>
       <div className="bg-light__surface">
-        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} />
-        <MenuList isOpen={open}> */}
+        {/* {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
+        {/* <MenuList isOpen={open}>  */}
         <MenuChip
           isActive={openMenus["menu2"]}
           onClick={() => toggleMenu("menu2")}
@@ -260,7 +270,18 @@ export default function Home() {
           <MenuItem>Logout</MenuItem>
         </MenuList>
       </div>
-
+      <Grid columns={2} gap="md">
+        <div style={{ background: "red" }}>Item 1</div>
+        <div style={{ background: "blue" }}>Item 2</div>
+      </Grid>
+      <Grid columns={3} gap="sm" autoResponsive>
+        <div style={{ background: "green" }}>Responsive 1</div>
+        <div style={{ background: "purple" }}>Responsive 2</div>
+        <div style={{ background: "orange" }}>Responsive 3</div>
+      </Grid>
+      <Text fontClass="display1" tag="footer" color="primary">
+        Hello World
+      </Text>
       <Paragraph fontClass="title1">
         ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred
