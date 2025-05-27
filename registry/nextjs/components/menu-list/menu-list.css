@@ -1,8 +1,0 @@
-[lk-component="menu-list"] {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--lk-size-sm);
-  border-radius: var(--lk-size-sm);
-  padding: calc(var(--lk-size-xl) * var(--lk-halfstep-dec));
-  position: relative;
-}
