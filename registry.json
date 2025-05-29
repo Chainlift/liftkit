@@ -695,6 +695,10 @@
           "type": "registry:lib"
         },
         {
+          "path": "registry/universal/lib/css/globals.css",
+          "type": "registry:lib"
+        },
+        {
           "path": "registry/universal/lib/css/grid.css",
           "type": "registry:lib"
         },
@@ -875,6 +879,45 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "all",
+      "type": "registry:block",
+      "title": "All Components",
+      "description": "A meta component that links all individual components",
+      "registryDependencies": [
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/badge.json",
+        "https://localhost:3000/r/button.json",
+        "https://localhost:3000/r/card.json",
+        "https://localhost:3000/r/column.json",
+        "https://localhost:3000/r/containers.json",
+        "https://localhost:3000/r/dropdown.json",
+        "https://localhost:3000/r/dropdown-chip.json",
+        "https://localhost:3000/r/dropdown-list.json",
+        "https://localhost:3000/r/grid.json",
+        "https://localhost:3000/r/heading.json",
+        "https://localhost:3000/r/icon.json",
+        "https://localhost:3000/r/icon-button.json",
+        "https://localhost:3000/r/image.json",
+        "https://localhost:3000/r/menu-chip.json",
+        "https://localhost:3000/r/menu-item.json",
+        "https://localhost:3000/r/menu-list.json",
+        "https://localhost:3000/r/navbar.json",
+        "https://localhost:3000/r/paragraph.json",
+        "https://localhost:3000/r/row.json",
+        "https://localhost:3000/r/section.json",
+        "https://localhost:3000/r/snackbar.json",
+        "https://localhost:3000/r/sticker.json",
+        "https://localhost:3000/r/tab-content.json",
+        "https://localhost:3000/r/tab-link.json",
+        "https://localhost:3000/r/tab-menu.json",
+        "https://localhost:3000/r/tabs.json",
+        "https://localhost:3000/r/text.json",
+        "https://localhost:3000/r/text-input.json",
+        "https://localhost:3000/r/theme.json"
+      ],
+      "files": []
     }
   ]
 }
