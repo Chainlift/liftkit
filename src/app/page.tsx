@@ -67,14 +67,14 @@ export default function Home() {
   const buttonSizes = ["sm", "md", "lg"] as const;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
-    {}
-  );
+  // const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
+  //   {}
+  // );
 
-  const toggleMenu = (key: string) => {
-    setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-  console.log("openDropdown", openDropdown);
+  // const toggleMenu = (key: string) => {
+  //   setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
+  // };
+  // console.log("openDropdown", openDropdown);
 
   const [dropdownConfig, setDropdownConfig] = useState({
     isOpen: false,
@@ -102,20 +102,24 @@ export default function Home() {
     <div className={styles.page}>
       {/* Refactored Dropdown Menu Component */}
       <div className="flex-h justify-content-space-between w-full">
-        <IconButton
-          icon="airplay"
-          onClick={(e) => handleDropdownClick(e, "A")}
-        />
-        <IconButton
-          icon="airplay"
-          onClick={(e) => handleDropdownClick(e, "B")}
-        />
-        <IconButton
-          icon="airplay"
-          onClick={(e) => handleDropdownClick(e, "C")}
-        />
+        {["A", "B", "C"].map((key, index) => {
+          const align = index === 0 ? "left" : index === 2 ? "right" : "center";
+          return (
+            <div className="dropdown" key={key}>
+              <IconButton
+                icon="airplay"
+                aria-expanded="false"
+                aria-controls={`${key}-dropdown`}
+                tabIndex={0}
+              />
+              <DropdownList id={`${key}-dropdown`} align={align}>
+                <a href="#">Item {key}1</a>
+                <a href="#">Item {key}2</a>
+              </DropdownList>
+            </div>
+          );
+        })}
       </div>
-      <DropdownList {...dropdownConfig} />
 
       <NavBar
         navButtons={[
