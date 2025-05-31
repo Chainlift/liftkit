@@ -13,16 +13,12 @@ import Grid from "@/registry/nextjs/components/grid";
 import TabContent from "@/registry/nextjs/components/tab-content";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Card from "@/registry/nextjs/components/card";
-import Dropdown from "@/registry/nextjs/components/dropdown";
-import DropdownChip from "@/registry/nextjs/components/dropdown-chip";
 import DropdownList from "@/registry/nextjs/components/dropdown-list";
 import Snackbar from "@/registry/nextjs/components/snackbar";
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import MenuList from "@/registry/nextjs/components/menu-list";
-import MenuItem from "@/registry/nextjs/components/menu-item";
-import MenuChip from "@/registry/nextjs/components/menu-chip";
 import { useState } from "react";
+import Link from "next/link";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -65,24 +61,34 @@ const radii = [
 ];
 
 export default function Home() {
-  // const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
-    {},
-  );
-
-  const toggleMenu = (key: string) => {
-    setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-  console.log("openDropdown", openDropdown);
 
   return (
     <div className={styles.page}>
+      {/* Refactored Dropdown Menu Component */}
+      <div className="flex-h justify-content-space-between w-full">
+        {["A", "B", "C"].map((key, index) => {
+          const align = index === 0 ? "left" : index === 2 ? "right" : "center";
+          return (
+            <div className="dropdown" key={key}>
+              <IconButton
+                icon="airplay"
+                aria-expanded="false"
+                aria-controls={`${key}-dropdown`}
+                tabIndex={0}
+              />
+              <DropdownList id={`${key}-dropdown`} align={align}>
+                <Link href="/">Item {key}1</Link>
+                <Link href="/">Item {key}2</Link>
+              </DropdownList>
+            </div>
+          );
+        })}
+      </div>
+
       <NavBar
         navButtons={[
           <Button key="1" label="Home" variant="text" />,
@@ -182,56 +188,6 @@ export default function Home() {
         ))}
       </Tabs>
 
-      <Dropdown id="demo-dropdown">
-        <DropdownChip
-          labelPosition="default"
-          isActive={openDropdown["dropdown1"]}
-          placeholder="Select an option"
-          onClick={() => toggleMenu("dropdown1")}
-        >
-          <div lk-component="state-layer" />
-          <span>Select an option</span>
-        </DropdownChip>
-
-        <DropdownList isOpen={openDropdown["dropdown1"]}>
-          <div className="dropdown-menu-item">Option 1</div>
-          <div className="dropdown-menu-item">Option 2</div>
-          <div className="dropdown-menu-item">Option 3</div>
-        </DropdownList>
-      </Dropdown>
-      <Dropdown id="demo-dropdown">
-        <DropdownChip
-          labelPosition="default"
-          isActive={openDropdown["dropdown2"]}
-          placeholder="Select an option"
-          onClick={() => toggleMenu("dropdown2")}
-        >
-          <div lk-component="state-layer" />
-          <span>Select an option</span>
-        </DropdownChip>
-
-        <DropdownList isOpen={openDropdown["dropdown2"]}>
-          <div className="dropdown-menu-item">Option 1</div>
-          <div className="dropdown-menu-item">Option 2</div>
-          <div className="dropdown-menu-item">Option 3</div>
-        </DropdownList>
-      </Dropdown>
-
-      <div className="bg-light__surface">
-        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
-        {/* <MenuList isOpen={open}> */}
-        <MenuChip
-          isActive={openMenus["menu1"]}
-          onClick={() => toggleMenu("menu1")}
-        />
-        <MenuList isOpen={openMenus["menu1"]}>
-          <MenuItem startIcon="home">Home</MenuItem>
-          <MenuItem startIcon="settings" endIcon="chevron_right">
-            Settings
-          </MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </div>
       <Grid columns={2} gap="md">
         <div style={{ background: "red" }}>Item 1</div>
         <div style={{ background: "blue" }}>Item 2</div>
@@ -245,22 +201,6 @@ export default function Home() {
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
-      <div className="bg-light__surface">
-        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} />
-        <MenuList isOpen={open}> */}
-        <MenuChip
-          isActive={openMenus["menu2"]}
-          onClick={() => toggleMenu("menu2")}
-        />
-        <MenuList isOpen={openMenus["menu2"]}>
-          <MenuItem startIcon="home">Home</MenuItem>
-          <MenuItem startIcon="settings" endIcon="chevron_right">
-            Settings
-          </MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </div>
-
       <Paragraph fontClass="title1">
         ancient times cats were not merely companions—they were revered as
         divine beings. Cultures like ancient Egypt honored cats as sacred

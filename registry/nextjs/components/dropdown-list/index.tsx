@@ -1,23 +1,26 @@
-import { useMemo } from "react";
-import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+"use client";
+
+import type { ReactNode } from "react";
 import "@/registry/nextjs/components/dropdown-list/dropdown-list.css";
 
-interface LkDropdownListProps extends React.HTMLAttributes<HTMLDivElement> {
-  isOpen?: boolean;
-  children?: React.ReactNode;
+export interface LkDropdownProps {
+  id?: string;
+  align?: "left" | "right" | "center";
+  children: ReactNode;
 }
 
-export default function DropdownList(props: LkDropdownListProps) {
-  const { children, ...restProps } = props;
-
-  const listAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "dropdown-list"),
-    [restProps],
-  );
-
+export default function DropdownList({
+  id,
+  align = "left",
+  children,
+}: LkDropdownProps) {
   return (
-    <div lk-component="dropdown-list" {...listAttrs}>
-      <div lk-component="column">{children}</div>
+    <div
+      id={id}
+      className={`dropdown__menu dropdown__menu--${align}`}
+      role="menu"
+    >
+      {children}
     </div>
   );
 }
