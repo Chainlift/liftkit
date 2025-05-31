@@ -18,6 +18,7 @@ import Snackbar from "@/registry/nextjs/components/snackbar";
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
 import { useState } from "react";
+import Link from "next/link";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -60,43 +61,10 @@ const radii = [
 ];
 
 export default function Home() {
-  // const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [openMenus, _setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  // const [openDropdown, setOpenDropdown] = useState<{ [key: string]: boolean }>(
-  //   {}
-  // );
-
-  // const toggleMenu = (key: string) => {
-  //   setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
-  // };
-  // console.log("openDropdown", openDropdown);
-
-  const [dropdownConfig, setDropdownConfig] = useState({
-    isOpen: false,
-    triggerCoords: { x: 0, y: 0 },
-    items: [] as React.ReactNode[],
-  });
-
-  function handleDropdownClick(e: React.MouseEvent, source: "A" | "B" | "C") {
-    const coords = { x: e.clientX, y: e.clientY };
-
-    const menuItems = {
-      A: [<div key="1">Item A1</div>, <div key="2">Item A2</div>],
-      B: [<div key="3">Item B1</div>, <div key="4">Item B2</div>],
-      C: [<div key="5">Item C1</div>, <div key="6">Item C2</div>],
-    };
-
-    setDropdownConfig({
-      isOpen: true,
-      triggerCoords: coords,
-      items: menuItems[source],
-    });
-  }
 
   return (
     <div className={styles.page}>
@@ -113,8 +81,8 @@ export default function Home() {
                 tabIndex={0}
               />
               <DropdownList id={`${key}-dropdown`} align={align}>
-                <a href="#">Item {key}1</a>
-                <a href="#">Item {key}2</a>
+                <Link href="/">Item {key}1</Link>
+                <Link href="/">Item {key}2</Link>
               </DropdownList>
             </div>
           );
