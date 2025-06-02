@@ -13,17 +13,13 @@ import Grid from "@/registry/nextjs/components/grid";
 import TabContent from "@/registry/nextjs/components/tab-content";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Card from "@/registry/nextjs/components/card";
-import Dropdown from "@/registry/nextjs/components/dropdown";
-import DropdownChip from "@/registry/nextjs/components/dropdown-chip";
 import DropdownList from "@/registry/nextjs/components/dropdown-list";
 import Snackbar from "@/registry/nextjs/components/snackbar";
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import MenuList from "@/registry/nextjs/components/menu-list";
-import MenuItem from "@/registry/nextjs/components/menu-item";
-import MenuChip from "@/registry/nextjs/components/menu-chip";
-import { useState } from "react";
 import Select from "@/registry/nextjs/components/select";
+import { useState } from "react";
+import Link from "next/link";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -94,7 +90,6 @@ export default function Home() {
   const toggleMenu = (id: string) => {
     setOpenMenus((prev) => ({ ...prev, [id]: !prev[id] }));
   };
-
   return (
     <div className={styles.page}>
       <Select
@@ -107,6 +102,26 @@ export default function Home() {
           { label: "Two", value: "Two" },
         ]}
       />
+      {/* Refactored Dropdown Menu Component */}
+      <div className="flex-h justify-content-space-between w-full">
+        {["A", "B", "C"].map((key, index) => {
+          const align = index === 0 ? "left" : index === 2 ? "right" : "center";
+          return (
+            <div className="dropdown" key={key}>
+              <IconButton
+                icon="airplay"
+                aria-expanded="false"
+                aria-controls={`${key}-dropdown`}
+                tabIndex={0}
+              />
+              <DropdownList id={`${key}-dropdown`} align={align}>
+                <Link href="/">Item {key}1</Link>
+                <Link href="/">Item {key}2</Link>
+              </DropdownList>
+            </div>
+          );
+        })}
+      </div>
 
       <NavBar
         navButtons={[
@@ -206,74 +221,12 @@ export default function Home() {
           </TabContent>
         ))}
       </Tabs>
-      <Dropdown id="demo-dropdown">
-        <DropdownChip
-          labelPosition="default"
-          isActive={openDropdowns["dropdown1"]}
-          placeholder="Select an option"
-          onClick={() => toggleDropdown("dropdown1")}
-        >
-          <div lk-component="state-layer" />
-          <span>Select an option</span>
-        </DropdownChip>
 
-        <DropdownList isOpen={openDropdowns["dropdown1"]}>
-          <div className="dropdown-menu-item">Option 1</div>
-          <div className="dropdown-menu-item">Option 2</div>
-          <div className="dropdown-menu-item">Option 3</div>
-        </DropdownList>
-      </Dropdown>
-      <Dropdown id="demo-dropdown">
-        <DropdownChip
-          labelPosition="default"
-          isActive={openDropdowns["dropdown2"]}
-          placeholder="Select an option"
-          onClick={() => toggleDropdown("dropdown2")}
-        >
-          <div lk-component="state-layer" />
-          <span>Select an option</span>
-        </DropdownChip>
-
-        <DropdownList isOpen={openDropdowns["dropdown2"]}>
-          <div className="dropdown-menu-item">Option 1</div>
-          <div className="dropdown-menu-item">Option 2</div>
-          <div className="dropdown-menu-item">Option 3</div>
-        </DropdownList>
-      </Dropdown>
-      <div className="bg-light__surface">
-        {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
-        {/* <MenuList isOpen={open}> */}
-        <MenuChip
-          isActive={openMenus["menu1"]}
-          onClick={() => toggleMenu("menu1")}
-        />
-        <MenuList isOpen={openMenus["menu1"]}>
-          <MenuItem startIcon="home">Home</MenuItem>
-          <MenuItem startIcon="settings" endIcon="chevron_right">
-            Settings
-          </MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </div>
-      <div className="bg-light__surface">
-        {/* {/* <MenuChip isActive={open} onClick={() => setOpen(!open)} /> */}
-        {/* <MenuList isOpen={open}>  */}
-        <MenuChip
-          isActive={openMenus["menu2"]}
-          onClick={() => toggleMenu("menu2")}
-        />
-        <MenuList isOpen={openMenus["menu2"]}>
-          <MenuItem startIcon="home">Home</MenuItem>
-          <MenuItem startIcon="settings" endIcon="chevron_right">
-            Settings
-          </MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </div>
       <Grid columns={2} gap="md">
         <div style={{ background: "red" }}>Item 1</div>
         <div style={{ background: "blue" }}>Item 2</div>
       </Grid>
+
       <Grid columns={3} gap="sm" autoResponsive>
         <div style={{ background: "green" }}>Responsive 1</div>
         <div style={{ background: "purple" }}>Responsive 2</div>

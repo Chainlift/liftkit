@@ -1,4 +1,4 @@
-@import "globals.css";
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .color-light__primary {
   color: var(--light__primary_lkv) !important;

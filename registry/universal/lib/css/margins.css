@@ -1,23 +1,29 @@
-@import "globals.css";
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .m-top-2xs {
   margin-top: var(--lk-size-2xs);
 }
+
 .m-top-xs {
   margin-top: var(--lk-size-xs);
 }
+
 .m-top-sm {
   margin-top: var(--lk-size-sm);
 }
+
 .m-top-md {
   margin-top: var(--lk-size-md);
 }
+
 .m-top-lg {
   margin-top: var(--lk-size-lg);
 }
+
 .m-top-xl {
   margin-top: var(--lk-size-xl);
 }
+
 .m-top-2xl {
   margin-top: var(--lk-size-2xl);
 }
@@ -25,21 +31,27 @@
 .m-right-2xs {
   margin-right: var(--lk-size-2xs);
 }
+
 .m-right-xs {
   margin-right: var(--lk-size-xs);
 }
+
 .m-right-sm {
   margin-right: var(--lk-size-sm);
 }
+
 .m-right-md {
   margin-right: var(--lk-size-md);
 }
+
 .m-right-lg {
   margin-right: var(--lk-size-lg);
 }
+
 .m-right-xl {
   margin-right: var(--lk-size-xl);
 }
+
 .m-right-2xl {
   margin-right: var(--lk-size-2xl);
 }
@@ -47,21 +59,27 @@
 .m-bottom-2xs {
   margin-bottom: var(--lk-size-2xs);
 }
+
 .m-bottom-xs {
   margin-bottom: var(--lk-size-xs);
 }
+
 .m-bottom-sm {
   margin-bottom: var(--lk-size-sm);
 }
+
 .m-bottom-md {
   margin-bottom: var(--lk-size-md);
 }
+
 .m-bottom-lg {
   margin-bottom: var(--lk-size-lg);
 }
+
 .m-bottom-xl {
   margin-bottom: var(--lk-size-xl);
 }
+
 .m-bottom-2xl {
   margin-bottom: var(--lk-size-2xl);
 }
@@ -69,21 +87,27 @@
 .m-left-2xs {
   margin-left: var(--lk-size-2xs);
 }
+
 .m-left-xs {
   margin-left: var(--lk-size-xs);
 }
+
 .m-left-sm {
   margin-left: var(--lk-size-sm);
 }
+
 .m-left-md {
   margin-left: var(--lk-size-md);
 }
+
 .m-left-lg {
   margin-left: var(--lk-size-lg);
 }
+
 .m-left-xl {
   margin-left: var(--lk-size-xl);
 }
+
 .m-left-2xl {
   margin-left: var(--lk-size-2xl);
 }
@@ -92,26 +116,32 @@
   margin-top: var(--lk-size-2xs);
   margin-bottom: var(--lk-size-2xs);
 }
+
 .m-y-xs {
   margin-top: var(--lk-size-xs);
   margin-bottom: var(--lk-size-xs);
 }
+
 .m-y-sm {
   margin-top: var(--lk-size-sm);
   margin-bottom: var(--lk-size-sm);
 }
+
 .m-y-md {
   margin-top: var(--lk-size-md);
   margin-bottom: var(--lk-size-md);
 }
+
 .m-y-lg {
   margin-top: var(--lk-size-lg);
   margin-bottom: var(--lk-size-lg);
 }
+
 .m-y-xl {
   margin-top: var(--lk-size-xl);
   margin-bottom: var(--lk-size-xl);
 }
+
 .m-y-2xl {
   margin-top: var(--lk-size-2xl);
   margin-bottom: var(--lk-size-2xl);
@@ -121,26 +151,32 @@
   margin-right: var(--lk-size-2xs);
   margin-left: var(--lk-size-2xs);
 }
+
 .m-x-xs {
   margin-right: var(--lk-size-xs);
   margin-left: var(--lk-size-xs);
 }
+
 .m-x-sm {
   margin-right: var(--lk-size-sm);
   margin-left: var(--lk-size-sm);
 }
+
 .m-x-md {
   margin-right: var(--lk-size-md);
   margin-left: var(--lk-size-md);
 }
+
 .m-x-lg {
   margin-right: var(--lk-size-lg);
   margin-left: var(--lk-size-lg);
 }
+
 .m-x-xl {
   margin-right: var(--lk-size-xl);
   margin-left: var(--lk-size-xl);
 }
+
 .m-x-2xl {
   margin-right: var(--lk-size-2xl);
   margin-left: var(--lk-size-2xl);
@@ -226,6 +262,7 @@
 .capline-bold.m-top-sm {
   margin-top: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.m-top-md,
@@ -416,6 +453,7 @@
 .capline-bold.m-right-sm {
   margin-right: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.m-right-md,
@@ -606,6 +644,7 @@
 .capline-bold.m-bottom-sm {
   margin-bottom: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.m-bottom-md,
@@ -796,6 +835,7 @@
 .capline-bold.m-left-sm {
   margin-left: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.m-left-md,

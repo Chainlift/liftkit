@@ -1,5 +1,5 @@
 /* Gaps */
-@import "globals.css";
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .gap-2xs {
   gap: var(--lk-size-2xs);

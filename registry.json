@@ -105,46 +105,6 @@
       ]
     },
     {
-      "name": "dropdown",
-      "type": "registry:block",
-      "title": "dropdown Component",
-      "description": "A Simple dropdown Component",
-      "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/dropdown.json"
-      ],
-      "files": [
-        {
-          "path": "registry/nextjs/components/dropdown/index.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/nextjs/components/dropdown/dropdown.css",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "dropdown-chip",
-      "type": "registry:block",
-      "title": "dropdown-chip Component",
-      "description": "A Simple dropdown-chip Component",
-      "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/dropdown-chip.json"
-      ],
-      "files": [
-        {
-          "path": "registry/nextjs/components/dropdown-chip/index.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/nextjs/components/dropdown-chip/dropdown-chip.css",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "dropdown-list",
       "type": "registry:block",
       "title": "dropdown-list Component",
@@ -265,26 +225,6 @@
       ]
     },
     {
-      "name": "menu-chip",
-      "type": "registry:block",
-      "title": "menu-chip Component",
-      "description": "A Simple menu-chip Component",
-      "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/menu-chip.json"
-      ],
-      "files": [
-        {
-          "path": "registry/nextjs/components/menu-chip/index.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/nextjs/components/menu-chip/menu-chip.css",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "menu-item",
       "type": "registry:block",
       "title": "menu-item Component",
@@ -300,26 +240,6 @@
         },
         {
           "path": "registry/nextjs/components/menu-item/menu-item.css",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "menu-list",
-      "type": "registry:block",
-      "title": "menu-list Component",
-      "description": "A Simple menu-list Component",
-      "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/menu-list.json"
-      ],
-      "files": [
-        {
-          "path": "registry/nextjs/components/menu-list/index.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/nextjs/components/menu-list/menu-list.css",
           "type": "registry:component"
         }
       ]
@@ -875,6 +795,41 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "all",
+      "type": "registry:block",
+      "title": "All Components",
+      "description": "A meta component that links all individual components",
+      "registryDependencies": [
+        "https://localhost:3000/r/base.json",
+        "https://localhost:3000/r/badge.json",
+        "https://localhost:3000/r/button.json",
+        "https://localhost:3000/r/card.json",
+        "https://localhost:3000/r/column.json",
+        "https://localhost:3000/r/containers.json",
+        "https://localhost:3000/r/dropdown-list.json",
+        "https://localhost:3000/r/grid.json",
+        "https://localhost:3000/r/heading.json",
+        "https://localhost:3000/r/icon.json",
+        "https://localhost:3000/r/icon-button.json",
+        "https://localhost:3000/r/image.json",
+        "https://localhost:3000/r/menu-item.json",
+        "https://localhost:3000/r/navbar.json",
+        "https://localhost:3000/r/paragraph.json",
+        "https://localhost:3000/r/row.json",
+        "https://localhost:3000/r/section.json",
+        "https://localhost:3000/r/snackbar.json",
+        "https://localhost:3000/r/sticker.json",
+        "https://localhost:3000/r/tab-content.json",
+        "https://localhost:3000/r/tab-link.json",
+        "https://localhost:3000/r/tab-menu.json",
+        "https://localhost:3000/r/tabs.json",
+        "https://localhost:3000/r/text.json",
+        "https://localhost:3000/r/text-input.json",
+        "https://localhost:3000/r/theme.json"
+      ],
+      "files": []
     }
   ]
 }
