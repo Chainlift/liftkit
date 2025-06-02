@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Icon from "../icon";
+
 import "@/registry/nextjs/components/select/select.css";
 import DropdownList from "../dropdown-list";
+import Icon from "@/registry/nextjs/components/icon";
 
 interface Option {
   label: string;
