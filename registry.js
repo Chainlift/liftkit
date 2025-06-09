@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const url = process.env.CF_PAGES_URL || "https://localhost:3000"
+const url = process.env.CF_PAGES_URL || "https://localhost:3000";
+
 // Configuration
 const config = {
   componentsDir: './registry/nextjs/components',
@@ -11,7 +12,7 @@ const config = {
   ],
   baseDepUrl: `${url}/r/base.json`,
   componentDepUrlPattern: `${url}/r/\${name}.json`,
-  dependencies: ["lucide-react", "@material/material-color-utilities"]
+  dependencies: ["lucide-react", "@material/material-color-utilities", "@csstools/normalize.css"]
 };
 
 /**
@@ -56,14 +57,11 @@ function getAllFiles(dir, baseDir) {
  * Generate registry entries for components
  */
 function generateComponentEntries() {
-  // Get all component directories
   const componentDirs = fs.readdirSync(config.componentsDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
 
-  // Create component entries
-  return componentDirs.map(componentName => {
-    // Check for index.tsx to extract dependencies
+  const entries = componentDirs.map(componentName => {
     const indexPath = path.join(config.componentsDir, componentName, 'index.tsx');
     let additionalDeps = [];
 
@@ -72,7 +70,6 @@ function generateComponentEntries() {
       additionalDeps = extractComponentDependencies(content);
     }
 
-    // Build component registry entry
     return {
       name: componentName,
       type: "registry:block",
@@ -94,13 +91,14 @@ function generateComponentEntries() {
       ]
     };
   });
+
+  return { componentDirs, entries };
 }
 
 /**
  * Generate base library entry with all utility files
  */
 function generateBaseLibraryEntry() {
-  // Collect all files from library directories
   const files = config.libraryDirs.flatMap(inputDir => {
     const absDir = path.resolve(inputDir);
     const registryPrefix = path.relative(process.cwd(), absDir);
@@ -111,7 +109,6 @@ function generateBaseLibraryEntry() {
     }));
   });
 
-  // Create base library entry
   return {
     name: "base",
     type: "registry:lib",
@@ -123,20 +120,38 @@ function generateBaseLibraryEntry() {
 }
 
 /**
+ * Generate a special "all" component that depends on all other components
+ */
+function generateAllComponentEntry(componentNames) {
+  const depUrls = componentNames.map(name =>
+    config.componentDepUrlPattern.replace('${name}', name)
+  );
+
+  return {
+    name: "all",
+    type: "registry:block",
+    title: "All Components",
+    description: "A meta component that links all individual components",
+    registryDependencies: [config.baseDepUrl, ...depUrls],
+    files: [] // no files, just a virtual meta component
+  };
+}
+
+/**
  * Main function to generate the registry
  */
 function generateRegistry() {
-  const components = generateComponentEntries();
+  const { componentDirs, entries: components } = generateComponentEntries();
   const baseLibrary = generateBaseLibraryEntry();
+  const allComponent = generateAllComponentEntry(componentDirs);
 
   const registry = {
     $schema: "https://ui.shadcn.com/schema/registry.json",
     name: "lift kit",
     homepage: "https://liftkit.pages.dev/",
-    items: [...components, baseLibrary]
+    items: [...components, baseLibrary, allComponent]
   };
 
-  // Write registry to file
   fs.writeFileSync(config.outputFile, JSON.stringify(registry, null, 2));
   console.log(`✅ JSON saved to ${config.outputFile}`);
 }

@@ -13,7 +13,7 @@ interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
 export default function Icon({
   name = "roller-coaster",
   fontClass,
-  color,
+  color = "onsurface",
   strokeWidth = 2,
   ...restProps
 }: LkIconProps) {

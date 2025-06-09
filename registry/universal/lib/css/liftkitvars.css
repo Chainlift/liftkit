@@ -1,43 +1,30 @@
-/* @import "../liftkit/index.css"; */
-
-/* Random comment */
-
 :root {
-  font-size: 1rem;
-  --lk-scalefactor: 1.618;
-  /* these are the only two you set manually */
+  font-size: 16px;
 
-  --lk-wholestep: var(--lk-scalefactor);
-  /* equals scalefactor */
-  /* 1.272 */
-  --lk-halfstep: calc(round(pow(var(--lk-scalefactor), 0.5), 0.001));
-  /* sqrt wholestep 1.128 */
-  --lk-quarterstep: round(pow(var(--lk-scalefactor), 0.25), 0.001);
-  /* sqrt halfstep 1.062*/
-  --lk-eighthstep: round(pow(var(--lk-scalefactor), 0.125), 0.001);
-  /* sqrt quarterstep:  */
-  --lk-wholestep-dec: calc(var(--lk-wholestep) - 1);
-  /* wholestep -1 */
-  --lk-halfstep-dec: calc(var(--lk-halfstep) - 1);
-  /* halfstep -1 */
-  --lk-quarterstep-dec: calc(var(--lk-quarterstep) - 1);
-  /* quarterstep -1 */
-  --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
-  /* eighthstep -1 */
+  --lk-scalefactor: 1.618;
+  --lk-wholestep: 1.618;
+  --lk-halfstep: 1.272;
+  --lk-quarterstep: 1.128;
+  --lk-eighthstep: 1.062;
+
+  --lk-wholestep-dec: 0.618;
+  --lk-halfstep-dec: 0.272;
+  --lk-quarterstep-dec: 0.128;
+  --lk-eighthstep-dec: 0.062;
 
   --lk-size-md: 1em;
   /* It's okay to use em here because the root font size
                   has been manually set to 1rem */
-  --lk-size-sm: calc(1em / var(--lk-scalefactor));
-  --lk-size-xs: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001));
-  --lk-size-2xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001));
-  --lk-size-3xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001));
-  --lk-size-lg: calc(1em * var(--lk-scalefactor));
-  --lk-size-xl: calc(1em * round(pow(var(--lk-scalefactor), 2), 0.001));
-  --lk-size-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001));
-  --lk-size-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
-  --lk-size-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
 
+  --lk-size-sm: calc(1em / var(--lk-scalefactor));
+  --lk-size-xs: calc(var(--lk-size-sm) / var(--lk-scalefactor));
+  --lk-size-2xs: calc(var(--lk-size-xs) / var(--lk-scalefactor));
+  --lk-size-3xs: calc(var(--lk-size-2xs) / var(--lk-scalefactor));
+  --lk-size-lg: calc(1em * var(--lk-scalefactor));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-scalefactor));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-scalefactor));
+  --lk-size-3xl: calc(var(--lk-size-2xl) * var(--lk-scalefactor));
+  --lk-size-4xl: calc(var(--lk-size-3xl) * var(--lk-scalefactor));
 
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
@@ -250,7 +237,7 @@
   */
 
   --display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
-  --display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
+  --display2-font-size: calc(1em * var(--lk-wholestep) * var(--lk-wholestep));
   --title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
   --title2-font-size: calc(1em * var(--lk-wholestep));
   --title3-font-size: calc(1em * var(--lk-halfstep));
@@ -278,9 +265,6 @@
   --capline-line-height: var(--lk-halfstep);
 
   /* Optical Top Padding Offsets and Border Radii for Cards */
-  /* Produce padding values for the insides of cards or other containers on sides that
-     optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
-
   --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--lk-wholestep)));
   --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--lk-wholestep)));
   --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--lk-wholestep)));
@@ -296,13 +280,16 @@
 
   /* shadows */
   --shadow-sm: 0 0 1px 0 var(--lk-shadow);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
+  --shadow-md:
+    0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
     0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11),
-    0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0px 0px 1px 0px var(--lk-outline),
-    0px 50px 100px 0px rgba(0, 0, 0, 0.15);
-  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
+  --shadow-lg:
+    0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07),
+    0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-xl:
+    0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl:
+    0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
     0 0 1px rgba(0, 0, 0, 0.4);
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
@@ -388,90 +375,4 @@
     --lk-error: var(--dark__error_lkv);
     --lk-primary: var(--dark__primary_lkv);
   }
-}
-
-/* Everything from here is done to disable native display behavior of HTML elements
-
-/* TODO: Consider a more robust noramlizing solution. there's gotta be open source solutions to this.
-
-*/
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  color: var(--lk-onbackground);
-  background: var(--lk-background);
-  color-scheme: dark;
-}
-
-input:focus-visible {
-  outline: none;
-}
-
-body {
-  color: var(--lk-onbackground);
-  background: var(--lk-background);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Depcretated, totally unnecessary */
-.color-picker-popup .react-colorful {
-  position: absolute;
-  z-index: 2;
-  border-radius: 32px;
-}
-
-.swatch {
-  padding: calc(1.272em / var(--lk-size-xl-unitless)) var(--lk-size-sm);
-  border-radius: var(--lk-size-xs);
-  margin: var(--lk-size-sm) 0;
-}
-
-/* not sure why I redefined this here, could be redundant */
-body {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--lk-onbackground);
-  background-color: var(--lk-background);
-}
-
-/* Make Buttons into Inline Elements */
-
-button {
-  --button-font-size: var(--lk-size-md);
-  --button-line-height: var(--lk-halfstep);
-  --button-padX-default: var(--lk-size-md);
-  --button-padX-sideWithIcon: calc(1em * calc(var(--lk-wholestep) / var(--lk-size-xl-unitless)));
-  --button-padY: calc(var(--button-font-size) * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
-  --button-gap: var(--button-padX-sideWithIcon);
-  /* In division, the second value MUST be unitless */
-  display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0);
-  border-radius: 100em;
-  position: relative;
-  text-decoration: none;
-  white-space: normal;
-  word-break: keep-all;
-  overflow: hidden;
-  padding: var(--button-padY) 1em;
-  font-weight: 500;
-  font-size: var(--button-font-size);
-  line-height: var(--button-line-height);
-}
-
-button span {
-  text-transform: capitalize;
 }

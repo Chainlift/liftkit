@@ -44,3 +44,44 @@
 [lk-column-justify-content="space-around"] {
   justify-content: space-around;
 }
+
+/* Gap */
+[lk-column-gap="3xs"] {
+  gap: var(--lk-size-3xs);
+}
+
+[lk-column-gap="2xs"] {
+  gap: var(--lk-size-2xs);
+}
+
+[lk-column-gap="xs"] {
+  gap: var(--lk-size-xs);
+}
+
+[lk-column-gap="sm"] {
+  gap: var(--lk-size-sm);
+}
+
+[lk-column-gap="md"] {
+  gap: var(--lk-size-md);
+}
+
+[lk-column-gap="lg"] {
+  gap: var(--lk-size-lg);
+}
+
+[lk-column-gap="xl"] {
+  gap: var(--lk-size-xl);
+}
+
+[lk-column-gap="2xl"] {
+  gap: var(--lk-size-2xl);
+}
+
+[lk-column-gap="3xl"] {
+  gap: var(--lk-size-3xl);
+}
+
+[lk-column-gap="4xl"] {
+  gap: var(--lk-size-4xl);
+}

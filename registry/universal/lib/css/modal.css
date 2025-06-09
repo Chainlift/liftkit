@@ -1,4 +1,4 @@
-@import url("./globals.css");
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .modal-wrap {
   position: fixed;

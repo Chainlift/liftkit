@@ -1,4 +1,4 @@
-@import "globals.css";
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .p-0 {
   padding: 0px !important;
@@ -7,21 +7,27 @@
 .p-2xs {
   padding: var(--lk-size-2xs);
 }
+
 .p-xs {
   padding: var(--lk-size-xs);
 }
+
 .p-sm {
   padding: var(--lk-size-sm);
 }
+
 .p-md {
   padding: var(--lk-size-md);
 }
+
 .p-lg {
   padding: var(--lk-size-lg);
 }
+
 .p-xl {
   padding: var(--lk-size-xl);
 }
+
 .p-2xl {
   padding: var(--lk-size-2xl);
 }
@@ -29,21 +35,27 @@
 .p-top-2xs {
   padding-top: var(--lk-size-2xs);
 }
+
 .p-top-xs {
   padding-top: var(--lk-size-xs);
 }
+
 .p-top-sm {
   padding-top: var(--lk-size-sm);
 }
+
 .p-top-md {
   padding-top: var(--lk-size-md);
 }
+
 .p-top-lg {
   padding-top: var(--lk-size-lg);
 }
+
 .p-top-xl {
   padding-top: var(--lk-size-xl);
 }
+
 .p-top-2xl {
   padding-top: var(--lk-size-2xl);
 }
@@ -51,21 +63,27 @@
 .p-right-2xs {
   padding-right: var(--lk-size-2xs);
 }
+
 .p-right-xs {
   padding-right: var(--lk-size-xs);
 }
+
 .p-right-sm {
   padding-right: var(--lk-size-sm);
 }
+
 .p-right-md {
   padding-right: var(--lk-size-md);
 }
+
 .p-right-lg {
   padding-right: var(--lk-size-lg);
 }
+
 .p-right-xl {
   padding-right: var(--lk-size-xl);
 }
+
 .p-right-2xl {
   padding-right: var(--lk-size-2xl);
 }
@@ -73,21 +91,27 @@
 .p-bottom-2xs {
   padding-bottom: var(--lk-size-2xs);
 }
+
 .p-bottom-xs {
   padding-bottom: var(--lk-size-xs);
 }
+
 .p-bottom-sm {
   padding-bottom: var(--lk-size-sm);
 }
+
 .p-bottom-md {
   padding-bottom: var(--lk-size-md);
 }
+
 .p-bottom-lg {
   padding-bottom: var(--lk-size-lg);
 }
+
 .p-bottom-xl {
   padding-bottom: var(--lk-size-xl);
 }
+
 .p-bottom-2xl {
   padding-bottom: var(--lk-size-2xl);
 }
@@ -95,21 +119,27 @@
 .p-left-2xs {
   padding-left: var(--lk-size-2xs);
 }
+
 .p-left-xs {
   padding-left: var(--lk-size-xs);
 }
+
 .p-left-sm {
   padding-left: var(--lk-size-sm);
 }
+
 .p-left-md {
   padding-left: var(--lk-size-md);
 }
+
 .p-left-lg {
   padding-left: var(--lk-size-lg);
 }
+
 .p-left-xl {
   padding-left: var(--lk-size-xl);
 }
+
 .p-left-2xl {
   padding-left: var(--lk-size-2xl);
 }
@@ -118,26 +148,32 @@
   padding-top: var(--lk-size-2xs);
   padding-bottom: var(--lk-size-2xs);
 }
+
 .py-xs {
   padding-top: var(--lk-size-xs);
   padding-bottom: var(--lk-size-xs);
 }
+
 .py-sm {
   padding-top: var(--lk-size-sm);
   padding-bottom: var(--lk-size-sm);
 }
+
 .py-md {
   padding-top: var(--lk-size-md);
   padding-bottom: var(--lk-size-md);
 }
+
 .py-lg {
   padding-top: var(--lk-size-lg);
   padding-bottom: var(--lk-size-lg);
 }
+
 .py-xl {
   padding-top: var(--lk-size-xl);
   padding-bottom: var(--lk-size-xl);
 }
+
 .py-2xl {
   padding-top: var(--lk-size-2xl);
   padding-bottom: var(--lk-size-2xl);
@@ -147,26 +183,32 @@
   padding-right: var(--lk-size-2xs);
   padding-left: var(--lk-size-2xs);
 }
+
 .px-xs {
   padding-right: var(--lk-size-xs);
   padding-left: var(--lk-size-xs);
 }
+
 .px-sm {
   padding-right: var(--lk-size-sm);
   padding-left: var(--lk-size-sm);
 }
+
 .px-md {
   padding-right: var(--lk-size-md);
   padding-left: var(--lk-size-md);
 }
+
 .px-lg {
   padding-right: var(--lk-size-lg);
   padding-left: var(--lk-size-lg);
 }
+
 .px-xl {
   padding-right: var(--lk-size-xl);
   padding-left: var(--lk-size-xl);
 }
+
 .px-2xl {
   padding-right: var(--lk-size-2xl);
   padding-left: var(--lk-size-2xl);
@@ -252,6 +294,7 @@
 .capline-bold.p-top-sm {
   padding-top: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.p-top-md,
@@ -442,6 +485,7 @@
 .capline-bold.p-right-sm {
   padding-right: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.p-right-md,
@@ -632,6 +676,7 @@
 .capline-bold.p-bottom-sm {
   padding-bottom: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.p-bottom-md,
@@ -822,6 +867,7 @@
 .capline-bold.p-left-sm {
   padding-left: var(--lk-size-sm);
 }
+
 /* Repeat for other margin directions and sizes */
 
 .display1.p-left-md,

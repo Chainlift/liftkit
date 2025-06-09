@@ -1,4 +1,4 @@
-@import "globals.css";
+@import "@/registry/universal/lib/css/liftkitvars.css";
 
 .border-radius-2xs {
   border-radius: var(--lk-size-2xs);
