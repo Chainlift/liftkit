@@ -6,6 +6,7 @@ import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
+import { IconName } from "lucide-react/dynamic";
 export default function Staging() {
   const buttonColors: LkColorWithOnToken[] = [
     "primary",
@@ -41,7 +42,7 @@ export default function Staging() {
           Hello world!
         </Heading>
       </Section>
-      <Row alignItems="start" gap="md" className="w-full" wrapChildren={true}>
+      <Row alignItems="start" style={{ gap: "var(--lk-size-md)" }} className="w-full" wrapChildren={true}>
         {(() => {
           const sizes = ["sm", "md", "lg"];
           const iconConfigs = [
@@ -55,13 +56,12 @@ export default function Staging() {
             colors: LkColorWithOnToken[],
             variants: string[],
             sizes: string[],
-            iconConfigs: any[],
+            iconConfigs: { startIcon?: string; endIcon?: string; label: string }[],
             colorIndex = 0,
             variantIndex = 0,
             sizeIndex = 0,
             iconIndex = 0
-            //adding ts-ignore because it's reporting JSX isn't a recognized namespace (it is)
-            //@ts-ignore
+            //@ts-expect-error
           ): JSX.Element[] => {
             if (colorIndex >= colors.length) return [];
             if (variantIndex >= variants.length)
@@ -79,8 +79,8 @@ export default function Staging() {
                 variant={variants[variantIndex] as any}
                 color={colors[colorIndex]}
                 size={sizes[sizeIndex] as any}
-                startIcon={currentConfig.startIcon}
-                endIcon={currentConfig.endIcon}
+                startIcon={currentConfig.startIcon as IconName | undefined}
+                endIcon={currentConfig.endIcon as IconName | undefined}
                 opticIconShift={false}
               />
             );
@@ -103,10 +103,10 @@ export default function Staging() {
           return generateButtons(buttonColors, buttonVariants, sizes, iconConfigs);
         })()}
       </Row>
-      <Row alignItems="start" gap="md" className="w-full" wrapChildren={true}>
+      <Row alignItems="start" style={{ gap: "var(--lk-size-md)" }} className="w-full" wrapChildren={true}>
         {/* Small Buttons */}
 
-        <Column  justifyContent="start">
+        <Column style={{ gap: "var(--lk-size-md)" }} justifyContent="start">
           {buttonColors.map((color, index) => (
             <Button
               key={index}
@@ -119,7 +119,7 @@ export default function Staging() {
             ></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button
               key={index}
@@ -132,7 +132,7 @@ export default function Staging() {
             ></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button
               key={index}
@@ -148,17 +148,17 @@ export default function Staging() {
 
         {/* Normal Buttons */}
 
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button key={index} label="Button" variant="fill" color={color} size="md" startIcon="circle"></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button key={index} label="Button" variant="outline" color={color} size="md" startIcon="circle"></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button key={index} label="Button" variant="text" color={color} size="md" startIcon="circle"></Button>
           ))}
@@ -166,7 +166,7 @@ export default function Staging() {
 
         {/* Large buttons */}
 
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button
               key={index}
@@ -179,7 +179,7 @@ export default function Staging() {
             ></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button
               key={index}
@@ -192,7 +192,7 @@ export default function Staging() {
             ></Button>
           ))}
         </Column>
-        <Column >
+        <Column style={{ gap: "var(--lk-size-md)" }}>
           {buttonColors.map((color, index) => (
             <Button
               key={index}

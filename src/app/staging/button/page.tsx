@@ -6,6 +6,7 @@ import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
+import { IconName } from "lucide-react/dynamic";
 export default function Staging() {
   const buttonColors: LkColorWithOnToken[] = [
     "primary",
@@ -55,12 +56,12 @@ export default function Staging() {
             colors: LkColorWithOnToken[],
             variants: string[],
             sizes: string[],
-            iconConfigs: any[],
+            iconConfigs: { startIcon?: string; endIcon?: string; label: string }[],
             colorIndex = 0,
             variantIndex = 0,
             sizeIndex = 0,
             iconIndex = 0
-            //@ts-ignore
+            //@ts-expect-error
           ): JSX.Element[] => {
             if (colorIndex >= colors.length) return [];
             if (variantIndex >= variants.length)
@@ -78,8 +79,8 @@ export default function Staging() {
                 variant={variants[variantIndex] as any}
                 color={colors[colorIndex]}
                 size={sizes[sizeIndex] as any}
-                startIcon={currentConfig.startIcon}
-                endIcon={currentConfig.endIcon}
+                startIcon={currentConfig.startIcon as IconName | undefined}
+                endIcon={currentConfig.endIcon as IconName | undefined}
                 opticIconShift={false}
               />
             );
