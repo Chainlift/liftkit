@@ -5,8 +5,8 @@ import "@/registry/nextjs/components/grid/grid.css";
 
 // The LiftkitGrid type definition
 interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
-  columns: number;
-  gap: LkSizeUnit;
+  columns?: number;
+  gap?: LkSizeUnit;
   autoResponsive?: boolean; // Mark as optional since we provide a default
 }
 
@@ -22,7 +22,7 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns A div element with grid layout styling and data attributes
  */
 export default function Grid({
-  columns,
+  columns = 2,
   gap = "md",
   autoResponsive = false, // Default value
   children,
