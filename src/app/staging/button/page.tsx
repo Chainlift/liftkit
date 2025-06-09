@@ -42,14 +42,15 @@ export default function Staging() {
           Hello world!
         </Heading>
       </Section>
-      <Row alignItems="start" style={{ gap: "var(--lk-size-md)" }} className="w-full" wrapChildren={true}>
+      <Grid columns={4} gap="md" style={{alignItems: "center", justifyItems: "center"}}>
+
         {(() => {
           const sizes = ["sm", "md", "lg"];
           const iconConfigs = [
             { startIcon: undefined, endIcon: undefined, label: "No Icons" },
-            { startIcon: "circle", endIcon: undefined, label: "Start Icon" },
-            { startIcon: undefined, endIcon: "circle", label: "End Icon" },
-            { startIcon: "circle", endIcon: "circle", label: "Both Icons" },
+            { startIcon: "airplay", endIcon: undefined, label: "Start Icon" },
+            { startIcon: undefined, endIcon: "airplay", label: "End Icon" },
+            { startIcon: "airplay", endIcon: "airplay", label: "Both Icons" },
           ];
 
           const generateButtons = (
@@ -81,6 +82,7 @@ export default function Staging() {
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
                 opticIconShift={false}
+                style={{alignSelf: "center", justifySelf: "center"}}
               />
             );
 
@@ -101,110 +103,8 @@ export default function Staging() {
 
           return generateButtons(buttonColors, buttonVariants, sizes, iconConfigs);
         })()}
-      </Row>
-      <Row alignItems="start" style={{ gap: "var(--lk-size-md)" }} className="w-full" wrapChildren={true}>
-        {/* Small Buttons */}
-
-        <Column style={{ gap: "var(--lk-size-md)" }} justifyContent="start">
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="fill"
-              color={color}
-              size="sm"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="outline"
-              color={color}
-              size="sm"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="text"
-              color={color}
-              size="sm"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-
-        {/* Normal Buttons */}
-
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button key={index} label="Button" variant="fill" color={color} size="md" startIcon="circle"></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button key={index} label="Button" variant="outline" color={color} size="md" startIcon="circle"></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button key={index} label="Button" variant="text" color={color} size="md" startIcon="circle"></Button>
-          ))}
-        </Column>
-
-        {/* Large buttons */}
-
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="fill"
-              color={color}
-              size="lg"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="outline"
-              color={color}
-              size="lg"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-        <Column style={{ gap: "var(--lk-size-md)" }}>
-          {buttonColors.map((color, index) => (
-            <Button
-              key={index}
-              label="Button"
-              variant="text"
-              color={color}
-              size="lg"
-              startIcon="circle"
-              opticIconShift={false}
-            ></Button>
-          ))}
-        </Column>
-      </Row>
+      </Grid>
+      <Row alignItems="start" style={{ gap: "var(--lk-size-md)" }} className="w-full" wrapChildren={true}></Row>
     </div>
   );
 }
