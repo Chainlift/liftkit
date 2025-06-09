@@ -61,8 +61,7 @@ export default function Staging() {
             variantIndex = 0,
             sizeIndex = 0,
             iconIndex = 0
-            //@ts-expect-error
-          ): JSX.Element[] => {
+          ): React.JSX.Element[] => {
             if (colorIndex >= colors.length) return [];
             if (variantIndex >= variants.length)
               return generateButtons(colors, variants, sizes, iconConfigs, colorIndex + 1, 0, 0, 0);
@@ -76,9 +75,9 @@ export default function Staging() {
               <Button
                 key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
                 label={`Button`}
-                variant={variants[variantIndex] as any}
-                color={colors[colorIndex]}
-                size={sizes[sizeIndex] as any}
+                variant={variants[variantIndex] as "fill" | "outline" | "text"}
+                color={colors[colorIndex] as LkColorWithOnToken}
+                size={sizes[sizeIndex] as "sm" | "md" | "lg"}
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
                 opticIconShift={false}
