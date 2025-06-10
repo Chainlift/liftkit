@@ -17,7 +17,7 @@
   white-space: pre;
   word-break: keep-all;
   overflow: hidden;
-  padding: var(--button-padY) var(--button-padX);
+  padding: var(--button-padY) 1em;
   font-weight: 500;
   font-size: var(--button-font-size);
   line-height: var(--button-line-height);
