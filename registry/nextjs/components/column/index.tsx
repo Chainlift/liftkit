@@ -11,14 +11,15 @@ interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
     | "space-between"
     | "space-around";
   children?: React.ReactNode;
+  gap?: LkSizeUnit;
 }
 
 export default function Column(props: LkColumnProps) {
-  const { children, ...restProps } = props;
+  const { children, alignItems, justifyContent, gap, ...restProps } = props;
 
   const lkColumnAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "column"),
-    [restProps],
+    () => propsToDataAttrs({alignItems, justifyContent, gap}, "column"),
+    [alignItems, justifyContent, gap],
   );
 
   return (
