@@ -17,6 +17,29 @@ interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   ctaButtons?: React.ReactNode;
 }
 
+/**
+ * A responsive navigation bar component that displays different layouts for desktop and mobile views.
+ * 
+ * @param material - The visual style/material of the navbar, defaults to "flat"
+ * @param navButtons - React elements to be displayed as navigation buttons
+ * @param navDropdowns - React elements to be displayed as navigation dropdown menus
+ * @param iconButtons - React elements to be displayed as icon-based buttons
+ * @param ctaButtons - React elements to be displayed as call-to-action buttons
+ * @param restProps - Additional props to be passed to the component
+ * 
+ * @returns A JSX element containing a responsive navbar with desktop and mobile layouts
+ * 
+ * @example
+ * ```tsx
+ * <NavBar
+ *   material="elevated"
+ *   navButtons={<Button>Home</Button>}
+ *   navDropdowns={<Dropdown items={menuItems} />}
+ *   iconButtons={<IconButton icon="search" />}
+ *   ctaButtons={<Button variant="primary">Sign Up</Button>}
+ * />
+ * ```
+ */
 export default function NavBar({
   material = "flat",
   navButtons,

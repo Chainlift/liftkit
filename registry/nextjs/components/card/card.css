@@ -104,11 +104,14 @@
 
 [lk-card-material="glass"] {
   /* backdrop-filter: blur(var(--thick)); */
-  backdrop-filter: blur(var(--lk-size-lg));
+
 }
+
 
 /* [lk-card-material="rubber"] { */
 /* } */
+
+
 
 [lk-card-optical-correction="left"] {
   padding-left: var(--local-optical-offset);
