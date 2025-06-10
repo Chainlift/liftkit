@@ -35,7 +35,7 @@ export default function Card({
         {/* todo: define types for material scrim thickness, */}
       </div>
       {material === "glass" && (
-        <div lk-component="lk-material-scrim" lk-material-scrim-thickness={materialThickness ?? "thick"} />
+        <div lk-component="lk-material-scrim" lk-material-scrim-thickness={materialThickness ?? "default"} />
       )}
     </div>
   );

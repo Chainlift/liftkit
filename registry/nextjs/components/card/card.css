@@ -6,31 +6,56 @@
   --local-offset-factor: calc(
     var(--largest-child-font-size) / var(--largest-child-line-height)
   ); /* The line height of the largest child */
-  --local-offset-diff: 1em;
   --largest-child-font-size: var(--body-font-size);
   --largest-child-line-height: var(--body-line-height);
-  --local-optical-offset: 0px;
 
   border-radius: var(--local-offset-factor);
 
-  
+  /* Special material handling */
+
+  /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
+  &[lk-card-material="glass"] {
+    background-color: transparent;
+    position: relative; /* Necessary for scrim to position itself absolutely to this element */
+    backdrop-filter: blur(calc(var(--lk-size-lg) * var(--lk-halfstep)));
+
+    /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+    [lk-slot="children"] {
+      mix-blend-mode: multiply;
+      color: var(--lk-onsurfacevariant);
+      filter: contrast(1.35) brightness(1.1);
+    }
+  }
 }
+
+/* Other material handling (that doesn't need to be nested) */
+
+[lk-card-variant="fill"] {
+  background-color: var(--lk-surfacecontainerlowest);
+}
+
+[lk-card-variant="outline"] {
+  background-color: transparent;
+  border: 1px solid var(--lk-outlinevariant);
+}
+
+[lk-card-variant="transparent"] {
+  background-color: transparent;
+  border: none;
+}
+
+/* For each scale factor, recalculate largest child font size and line height so that padding can adjust */
 
 [lk-card-scale-factor="zero"] {
   padding: 0;
   border-radius: var(--lk-size-sm);
 }
 
-
-/* For each scale factor, recalculate largest child font size and line height so that padding can adjust */
-
 [lk-card-scale-factor="display1"] {
-  /* --local-offset-factor: var(--display1-offset);
-  --local-offset-diff: calc(1em - var(--local-offset-factor)); */
   --largest-child-font-size: var(--display1-font-size);
   --largest-child-line-height: var(--display1-line-height);
   --opticCorrectedPadding: calc(var(--display1-font-size) / var(--display1-line-height));
-  /* padding: var(--local-offset-factor) var(--largest-child-font-size) var(--largest-child-font-size); */
   border-radius: var(--local-offset-factor);
 }
 
@@ -100,20 +125,6 @@
   --opticCorrectedPadding: calc(var(--capline-font-size) / var(--capline-line-height));
 }
 
-[lk-card-variant="fill"] {
-  background-color: var(--lk-surfacecontainerlowest);
-}
-
-[lk-card-variant="outline"] {
-  background-color: transparent;
-  border: 1px solid var(--lk-outlinevariant);
-}
-
-[lk-card-variant="transparent"] {
-  background-color: transparent;
-  border: none;
-}
-
 [lk-card-material="flat"] {
   backdrop-filter: none;
 }
@@ -152,7 +163,7 @@
 }
 
 [lk-card-optical-correction="bottom"] {
-  padding-bottom: var(--opticCorrectedPadding);;
+  padding-bottom: var(--opticCorrectedPadding);
 }
 
 [lk-card-optical-correction="x"] {
