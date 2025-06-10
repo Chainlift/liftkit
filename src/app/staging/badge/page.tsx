@@ -7,6 +7,7 @@ import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
 import Container from "@/registry/nextjs/components/containers";
+import Badge from "@/registry/nextjs/components/badge";
 export default function Staging() {
   const buttonColors: LkColorWithOnToken[] = [
     "primary",
@@ -37,13 +38,11 @@ export default function Staging() {
 
   return (
     <div>
-      <Section>
-        <Container>
-          <Heading tag="h1" fontClass="display1-bold" className="text-align-center">
-            Hello world!
-          </Heading>
-        </Container>
-      </Section>
+    <Row>
+        {buttonColors.map((color) => <Badge key={color} color={color} />)}
+    
+    </Row>
+  
     </div>
   );
 }

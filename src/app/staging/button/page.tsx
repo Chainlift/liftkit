@@ -48,9 +48,9 @@ export default function Staging() {
           const sizes = ["sm", "md", "lg"];
           const iconConfigs = [
             { startIcon: undefined, endIcon: undefined, label: "No Icons" },
-            { startIcon: "airplay", endIcon: undefined, label: "Start Icon" },
-            { startIcon: undefined, endIcon: "airplay", label: "End Icon" },
-            { startIcon: "airplay", endIcon: "airplay", label: "Both Icons" },
+            { startIcon: "circle", endIcon: undefined, label: "Start Icon" },
+            { startIcon: undefined, endIcon: "circle", label: "End Icon" },
+            { startIcon: "circle", endIcon: "circle", label: "Both Icons" },
           ];
 
           const generateButtons = (
