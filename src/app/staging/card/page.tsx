@@ -33,13 +33,22 @@ export default function CardStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-md">Card Staging</h1>
-          <Grid style={{alignItems: "center", justifyContent: "center"}} >
-            {scaleFactors.map((scaleFactor) => (
-              <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="top">
-                <h2 className={`${scaleFactor}`}>Heading</h2>
-              </Card>
-            ))}
-          </Grid>
+          <Row gap="md">
+            <Column gap="md">
+              {scaleFactors.map((scaleFactor) => (
+                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y">
+                  <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
+                </Card>
+              ))}
+            </Column>
+            <Column gap="md">
+              {scaleFactors.map((scaleFactor) => (
+                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y" variant="fill" material="glass">
+                  <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
+                </Card>
+              ))}
+            </Column>
+          </Row>
         </Container>
       </Section>
     </div>

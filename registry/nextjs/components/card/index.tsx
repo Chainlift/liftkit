@@ -5,7 +5,7 @@ import "@/registry/nextjs/components/card/card.css";
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
   variant?: "fill" | "outline" | "transparent";
-  material?: "flat" | "glass" | "rubber";
+  material?: "flat" | "glass";
   materialThickness?: "thick" | "default" | "thin"; // Optional, not added to type def yet. only has an effect if material === glass
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
@@ -22,21 +22,18 @@ export default function Card({
   ...restProps
 }: LkCardProps) {
   const lkCardAttrs = useMemo(
-    () => propsToDataAttrs({ scaleFactor, variant, material, opticalCorrection }, "card"),
+    () => propsToDataAttrs({ scaleFactor, variant, material }, "card"),
     [scaleFactor, variant, material, opticalCorrection]
   );
 
   return (
-    <div
-      {...lkCardAttrs}
-      {...restProps}
-      lk-component="card"
-      className={`${isClickable ? "clickable" : ""}`}
-    >
-      <div lk-component="slot" lk-slot="children">
-        {children}
+    <div {...lkCardAttrs} {...restProps} lk-component="card" className={`${isClickable ? "clickable" : ""}`}>
+      <div lk-card-element="padding-box" lk-card-optical-correction={opticalCorrection}>
+        <div lk-component="slot" lk-slot="children">
+          {children}
+        </div>
+        {/* todo: define types for material scrim thickness, */}
       </div>
-      {/* todo: define types for material scrim thickness, */}
       {material === "glass" && (
         <div lk-component="lk-material-scrim" lk-material-scrim-thickness={materialThickness ?? "thick"} />
       )}
