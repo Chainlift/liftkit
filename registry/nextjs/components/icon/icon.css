@@ -1,18 +1,10 @@
 [lk-component="icon"] {
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  font-size: var(--lk-size-md);
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: block;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
+  width: calc(1em * var(--lk-halfstep));
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 /* Regular families */
 [lk-icon-font-class="display1"] {
