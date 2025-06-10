@@ -11,42 +11,34 @@ import Badge from "@/registry/nextjs/components/badge";
 import Card from "@/registry/nextjs/components/card";
 import Paragraph from "@/registry/nextjs/components/paragraph";
 export default function CardStaging() {
-  const buttonColors: LkColorWithOnToken[] = [
-    "primary",
-    "secondary",
-    "tertiary",
-    "error",
-    "warning",
-    "info",
-    "success",
-    "primarycontainer",
-    "secondarycontainer",
-    "tertiarycontainer",
-    "errorcontainer",
-    "warningcontainer",
-    "infocontainer",
-    "successcontainer",
-    "surface",
-    "surfacecontainerlowest",
-    "surfacecontainerlow",
-    "surfacecontainerhigh",
-    "surfacecontainerhighest",
-    "surfacevariant",
-    "inversesurface",
-    "background",
+  const scaleFactors: LkFontClass[] = [
+    "display1",
+    "display2",
+    "title1",
+    "title2",
+    "title3",
+    "heading",
+    "subheading",
+    "body",
+    "callout",
+    "label",
+    "caption",
+    "capline",
   ];
 
   const buttonVariants = ["fill", "outline", "text"];
 
   return (
-    <div className="bg-surfacecontainer">
+    <div className="bg-surfacecontainer" style={{ backgroundImage: "url(/testimage.png)" }}>
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-md">Card Staging</h1>
-          <Grid>
-            <Card scaleFactor="heading">
-              <SampleCardContent></SampleCardContent>
-            </Card>
+          <Grid style={{alignItems: "center", justifyContent: "center"}} >
+            {scaleFactors.map((scaleFactor) => (
+              <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="top">
+                <h2 className={`${scaleFactor}`}>Heading</h2>
+              </Card>
+            ))}
           </Grid>
         </Container>
       </Section>

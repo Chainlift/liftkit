@@ -10,7 +10,6 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
   children?: React.ReactNode;
-  className?: string;
 }
 export default function Card({
   scaleFactor = "body",
@@ -20,7 +19,6 @@ export default function Card({
   opticalCorrection = "none",
   isClickable,
   children,
-  className,
   ...restProps
 }: LkCardProps) {
   const lkCardAttrs = useMemo(
@@ -33,7 +31,7 @@ export default function Card({
       {...lkCardAttrs}
       {...restProps}
       lk-component="card"
-      className={`${className ?? ""} ${isClickable ? "clickable" : ""}`}
+      className={`${isClickable ? "clickable" : ""}`}
     >
       <div lk-component="slot" lk-slot="children">
         {children}
