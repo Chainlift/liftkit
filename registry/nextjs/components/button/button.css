@@ -56,13 +56,15 @@
   gap: var(--button-gap);
 }
 
-[lk-component="button"] div:has(> [lk-component="icon"]) {
+/* TODO: Remove entirely */
+
+/* [lk-component="button"] div:has(> [lk-component="icon"]) {
   width: calc(1em * var(--lk-halfstep));
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* ICON VERTICAL OPTICAL ALIGNMENTS */
 

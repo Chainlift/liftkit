@@ -19,13 +19,7 @@ export default function Icon({
 }: LkIconProps) {
   return (
     <div lk-component="icon" {...restProps} lk-icon-font-class={fontClass}>
-      <DynamicIcon
-        name={name}
-        width="1em"
-        height="1em"
-        color={`var(--lk-${color})`}
-        strokeWidth={strokeWidth}
-      />
+      <DynamicIcon name={name} width="1em" height="1em" color={`var(--lk-${color})`} strokeWidth={strokeWidth} />
     </div>
   );
 }
