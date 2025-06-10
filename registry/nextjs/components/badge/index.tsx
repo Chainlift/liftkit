@@ -29,6 +29,21 @@ export default function Badge({
 }: LkBadgeProps) {
   const iconColor = getOnToken(color) as LkColor;
 
+
+/** Dynamically set default iconStrokeWidth based on provided scale, if provided */
+  let defaultIconStrokeWidth;
+  
+  switch (scale) {
+    case "lg":
+      defaultIconStrokeWidth = 1;
+      break;
+    case "md":
+    default:
+      defaultIconStrokeWidth = 1.5;
+      break;
+  
+  }
+  
   return (
     <div
       lk-component="badge"
@@ -37,11 +52,13 @@ export default function Badge({
       {...restProps}
     >
       <div lk-component="slot" lk-slot="icon">
-        <Icon
-          name={icon}
-          color={iconColor}
-          strokeWidth={iconStrokeWidth}
-        ></Icon>
+        <div lk-icon-element="wrapper">
+          <Icon
+            name={icon}
+            color={iconColor}
+            strokeWidth={iconStrokeWidth || defaultIconStrokeWidth}
+          ></Icon>
+        </div>
       </div>
     </div>
   );

@@ -38,11 +38,16 @@ export default function Staging() {
 
   return (
     <div>
-    <Row>
-        {buttonColors.map((color) => <Badge key={color} color={color} />)}
-    
-    </Row>
-  
+      <Row>
+        {buttonColors.map((color) => (
+          <Badge key={color} color={color} scale="lg" iconStrokeWidth={1} />
+        ))}
+      </Row>
+      <Row>
+        {buttonColors.map((color) => (
+          <Badge key={color} color={color}/>
+        ))}
+      </Row>
     </div>
   );
 }

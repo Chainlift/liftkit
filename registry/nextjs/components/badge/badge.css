@@ -128,3 +128,10 @@
   background-color: var(--lk-surfacevariant);
   color: var(--lk-onsurfacevariant);
 }
+
+
+[lk-badge-color="lk-inversesurface"] {
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
+}
+
