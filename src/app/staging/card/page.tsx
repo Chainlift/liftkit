@@ -39,12 +39,17 @@ export default function CardStaging() {
   const buttonVariants = ["fill", "outline", "text"];
 
   return (
-    <div>
-      <Grid>
-        <Card>
-          <SampleCardContent></SampleCardContent>
-        </Card>
-      </Grid>
+    <div className="bg-surfacecontainer">
+      <Section padding="md">
+        <Container>
+          <h1 className="display2-bold m-bottom-md">Card Staging</h1>
+          <Grid>
+            <Card scaleFactor="heading">
+              <SampleCardContent></SampleCardContent>
+            </Card>
+          </Grid>
+        </Container>
+      </Section>
     </div>
   );
 }
