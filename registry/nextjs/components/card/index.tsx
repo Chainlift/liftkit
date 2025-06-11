@@ -13,6 +13,22 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
 }
+/**
+ * A flexible card component that supports various visual styles and behaviors.
+ * 
+ * @param scaleFactor - LkFontClass. Scales card according to this font size. Should be whatever the largest font size in the card is.
+ * @param variant - Visual variant. "fill," "outline," or "transparent." Defaults to "fill"
+ * @param material - Material style of the card (e.g., "flat", "glass"). Defaults to "flat"
+ * @param materialThickness - Thickness of the material scrim when using glass material. "thick", "default," or "thin"
+ * @param opticalCorrection - Optical correction method to apply. Defaults to "none"
+ * @param isClickable - Whether the card should have clickable styling
+ * @param children - Content to be rendered inside the card
+ * @param bgColor - Background color of the card. Defaults to "surface"
+ * @param className - Additional CSS classes to apply
+ * @param restProps - Additional props passed through to the root div element
+ * 
+ * @returns A card component with configurable styling and material effects
+ */
 export default function Card({
   scaleFactor = "body",
   variant = "fill",
