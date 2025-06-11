@@ -40,12 +40,9 @@ export default function CardStaging() {
           <Row gap="md">
             <div style={tempCardStyles}>
               <SampleCardContent />
-              <MaterialLayer material="debug"  />
+              <MaterialLayer material="glass" materialSpecs={{ thickness: "thick",  }} />
             </div>
-            <div style={tempCardStyles}>
-              <SampleCardContent />
-              <MaterialLayer material="glass" materialSpecs={{ thickness: "thick", tint: "primary" }}/>
-            </div>
+        
           </Row>
         </Container>
       </Section>

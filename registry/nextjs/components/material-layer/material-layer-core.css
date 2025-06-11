@@ -1,31 +1,19 @@
+@import url("./material-glass.css");
+@import url("./material-debug.css");
+
 [lk-component="material-layer"] {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+
+  [lk-material-sublayer] {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
 }
-
-/* Material Types */
-
-[lk-material-type="debug"] {
-  background-color: red;
-}
-
-[lk-material-type="glass"] {
-  backdrop-filter: blur(4px);
-}
-
-
-
-
-/* Handle MaterialSpecs */
-
-/* For Glass */
-
-
-
-
 
 /* Dark Mode behavior */
 

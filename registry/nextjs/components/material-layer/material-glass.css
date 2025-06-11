@@ -1,0 +1,17 @@
+[lk-material-type="glass"] {
+  [lk-material-sublayer="tint"] {
+    z-index: 0;
+  }
+
+  [lk-material-sublayer="texture"] {
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    isolation: isolate;
+  }
+
+  [lk-material-sublayer="light"] {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+    mix-blend-mode: soft-light;
+    opacity: 1;
+  }
+}
