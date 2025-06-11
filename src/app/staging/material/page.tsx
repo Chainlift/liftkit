@@ -44,7 +44,7 @@ export default function CardStaging() {
                 thickness: "normal", 
                 tint: "primary",
                 tintOpacity: 0.5,
-                light: true }} />
+                }} />
             </div>
         
           </Row>

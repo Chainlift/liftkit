@@ -43,9 +43,11 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
     <>
       <div lk-component="material-layer" lk-material-type={material} style={{ zIndex: zIndex }}>
         <div lk-material-sublayer="texture">
-          <div lk-material-sublayer="tint">
-            <div lk-material-sublayer="light"></div>
-          </div>
+          {(materialSpecs as LkMatProps_Glass).tint && (
+            <div lk-material-sublayer="tint">
+              {(materialSpecs as LkMatProps_Glass).light && <div lk-material-sublayer="light"></div>}
+            </div>
+          )}
         </div>
         <div lk-material-sublayer="base-fill"></div>
       </div>
