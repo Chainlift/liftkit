@@ -65,7 +65,7 @@ export default function Button({
 
   const onColorToken = getOnToken(color) as LkColor;
 
-  console.log(onColorToken);
+
 
   // Define different base color classes based on variant
 

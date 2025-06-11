@@ -1,4 +1,4 @@
-import "@/registry/nextjs/material-layer/material-layer.css";
+import './material-layer.css';
 
 type LkMatProps_Glass = {
   thickness?: "thick" | "normal" | "thin"; // Thickness of the glass material. Thicker material blurs more.
@@ -13,6 +13,10 @@ interface LkMaterialLayerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: LkMaterialLayerProps) {
+
+    if (materialSpecs) {
+        console.log("Material specs provided:", materialSpecs);
+    }
 
   return (
     <>

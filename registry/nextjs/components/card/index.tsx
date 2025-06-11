@@ -46,7 +46,7 @@ export default function Card({
     [scaleFactor, variant, material, className, opticalCorrection]
   );
 
-  console.log(restProps);
+
 
   return (
     <div
