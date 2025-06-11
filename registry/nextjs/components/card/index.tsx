@@ -6,7 +6,7 @@ import MaterialLayer from "@/registry/nextjs/components/material-layer";
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
   variant?: "fill" | "outline" | "transparent";
-  material?: "flat" | "glass";
+  material?: "flat" | "glass"; //TODO: Integrate these material controls with the new MaterialLayer component features
   materialThickness?: "thick" | "default" | "thin"; // Optional, not added to type def yet. only has an effect if material === glass
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
@@ -60,7 +60,12 @@ export default function Card({
         </div>
         {/* todo: define types for material scrim thickness, */}
       </div>
-      {material === "glass" && <MaterialLayer material="glass" />}
+      {material === "glass" && (
+        <MaterialLayer
+          material="glass"
+          materialSpecs={{ thickness: "thin", tint: "onerrorcontainer", tintOpacity: 0.5, light: true }}
+        />
+      )}
     </div>
   );
 }

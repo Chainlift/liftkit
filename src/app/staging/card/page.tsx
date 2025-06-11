@@ -60,11 +60,12 @@ export default function CardStaging() {
                   opticalCorrection="y"
                   material="glass"
                   isClickable={true}
-                  materialThickness="thin"
+                  materialThickness="thin" 
+                  className="color-inverseonsurface"
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
-                  <p className="body m-top-sm">
+                  <p className="body m-top-sm opacity-70">
                     Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
                     his attic in Irvine.
                   </p>
