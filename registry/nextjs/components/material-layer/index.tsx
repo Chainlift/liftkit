@@ -47,6 +47,7 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
             <div lk-material-sublayer="light"></div>
           </div>
         </div>
+        <div lk-material-sublayer="base-fill"></div>
       </div>
       <style jsx>
         {`
@@ -72,7 +73,7 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
         [lk-material-type="glass"] {
           [lk-material-sublayer="tint"] {
             opacity: ${(materialSpecs as LkMatProps_Glass).tintOpacity || 0.2};
-            background-color: var(--lk-${(materialSpecs as LkMatProps_Glass).tint || "primary"});
+            background-color: var(--lk-${(materialSpecs as LkMatProps_Glass).tint || "transparent"});
           }
 
           [lk-material-sublayer="texture"] {
@@ -90,8 +91,26 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
             mix-blend-mode: soft-light;
             opacity: 1;
           }
+
+          [lk-material-sublayer="base-fill"] {
+            background-color: var(--lk-surface);
+            opacity: ${getGlassFillOpacity((materialSpecs as LkMatProps_Glass).thickness || "normal")};
+          }
         }
       `}</style>
     </>
   );
+}
+
+function getGlassFillOpacity(thickness: "thick" | "normal" | "thin") {
+  switch (thickness) {
+    case "thick":
+      return 0.8;
+    case "normal":
+      return 0.4;
+    case "thin":
+      return 0.3;
+    default:
+      return 0.5;
+  }
 }
