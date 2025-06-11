@@ -16,6 +16,17 @@
   backdrop-filter: blur(4px);
 }
 
+
+
+
+/* Handle MaterialSpecs */
+
+/* For Glass */
+
+
+
+
+
 /* Dark Mode behavior */
 
 @media (prefers-color-scheme: dark) {

@@ -25,7 +25,7 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
 
   if (materialSpecs) {
     console.log("Material specs provided:", materialSpecs);
-    lkMatProps = useMemo(() => propsToDataAttrs(materialSpecs, `material-layer-${material}`), [materialSpecs]);
+    lkMatProps = useMemo(() => propsToDataAttrs(materialSpecs, `${material}`), [materialSpecs]);
     console.log("LK Material Props:", lkMatProps);
   }
 
