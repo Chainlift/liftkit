@@ -9,6 +9,8 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   materialThickness?: "thick" | "default" | "thin"; // Optional, not added to type def yet. only has an effect if material === glass
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
+  bgColor?: LkColor; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
+  className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
 }
 export default function Card({
@@ -19,15 +21,24 @@ export default function Card({
   opticalCorrection = "none",
   isClickable,
   children,
+  bgColor = "surface",
+  className,
   ...restProps
 }: LkCardProps) {
   const lkCardAttrs = useMemo(
-    () => propsToDataAttrs({ scaleFactor, variant, material }, "card"),
-    [scaleFactor, variant, material, opticalCorrection]
+    () => propsToDataAttrs({ scaleFactor, variant, material, className, opticalCorrection }, "card"),
+    [scaleFactor, variant, material, className, opticalCorrection]
   );
 
+  console.log(restProps);
+
   return (
-    <div {...lkCardAttrs} {...restProps} lk-component="card" className={`${isClickable ? "clickable" : ""}`}>
+    <div
+      {...lkCardAttrs}
+      lk-component="card"
+      className={`${isClickable ? "clickable" : ""} ${"bg-" + bgColor} ${className || ""}`}
+      {...restProps}
+    >
       <div lk-card-element="padding-box" lk-card-optical-correction={opticalCorrection}>
         <div lk-component="slot" lk-slot="children">
           {children}

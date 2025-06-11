@@ -1,7 +1,7 @@
 [lk-component="card"] {
   display: block;
   overflow: hidden;
-  background-color: var(--lk-surface);
+
 
   --local-offset-factor: calc(
     var(--largest-child-font-size) / var(--largest-child-line-height)
@@ -32,7 +32,8 @@
 /* Other material handling (that doesn't need to be nested) */
 
 [lk-card-variant="fill"] {
-  background-color: var(--lk-surfacecontainerlowest);
+
+
 }
 
 [lk-card-variant="outline"] {
@@ -179,3 +180,5 @@
 [lk-card-optical-correction="all"] {
   padding: var(--opticCorrectedPadding);
 }
+
+/* TODO: Consider adding a 'tint' prop which would let you combine frosted glass effects with a slight color */

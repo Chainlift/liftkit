@@ -36,15 +36,51 @@ export default function CardStaging() {
           <Row gap="md">
             <Column gap="md">
               {scaleFactors.map((scaleFactor) => (
-                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y">
+                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y" bgColor="tertiary" className="shadow-2xl">
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
+                  <p className="subheading">Subheading</p>
+                  <p className="body m-top-sm">
+                    Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
+                    his attic in Irvine.
+                  </p>
                 </Card>
               ))}
             </Column>
             <Column gap="md">
               {scaleFactors.map((scaleFactor) => (
-                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y" variant="fill" material="glass">
+                <Card
+                  key={scaleFactor}
+                  scaleFactor={scaleFactor}
+                  opticalCorrection="y"
+                  material="glass"
+                  isClickable={true}
+               
+                >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
+                  <p className="subheading">Subheading</p>
+                  <p className="body m-top-sm">
+                    Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
+                    his attic in Irvine.
+                  </p>
+                </Card>
+              ))}
+            </Column>
+            <Column gap="md">
+              {scaleFactors.map((scaleFactor) => (
+                <Card
+                  key={scaleFactor}
+                  scaleFactor={scaleFactor}
+                  opticalCorrection="y"
+                  variant="outline"
+                  materialThickness="thin"
+                  isClickable={true}
+                >
+                  <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
+                  <p className="subheading">Subheading</p>
+                  <p className="body m-top-sm">
+                    Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
+                    his attic in Irvine.
+                  </p>
                 </Card>
               ))}
             </Column>
