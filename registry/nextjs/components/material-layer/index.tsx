@@ -3,6 +3,7 @@
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { useMemo } from "react";
 
+
 /** LKMatProps is an object of any of the given types. Each material type has different unique props. */
 type LkMatProps = LkMatProps_Glass | LkMatProps_Flat;
 
@@ -11,7 +12,7 @@ type LkMatProps_Glass = {
   tint?: LkColor; // Optional tint color for the glass material.
   tintOpacity?: number; // Optional opacity for the tint color. Defaults to 0.5.
   light?: boolean; // Optional. If true, adds a secondary layer for luminance effects.
-  lightValue?: string; //Optional. The value to pass to the light's background prop. Should be a gradient.
+  lightExpression?: string; //Optional. The value to pass to the light's background prop. Should be a gradient.
 };
 
 type LkMatProps_Flat = {};
@@ -43,9 +44,9 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
     <>
       <div lk-component="material-layer" lk-material-type={material} style={{ zIndex: zIndex }}>
         <div lk-material-sublayer="texture">
-          {(materialSpecs as LkMatProps_Glass).tint && (
+          {(materialSpecs as LkMatProps_Glass)?.tint && (
             <div lk-material-sublayer="tint">
-              {(materialSpecs as LkMatProps_Glass).light && <div lk-material-sublayer="light"></div>}
+              {(materialSpecs as LkMatProps_Glass)?.light && <div lk-material-sublayer="light"></div>}
             </div>
           )}
         </div>
@@ -74,8 +75,8 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
       <style jsx>{`
         [lk-material-type="glass"] {
           [lk-material-sublayer="tint"] {
-            opacity: ${(materialSpecs as LkMatProps_Glass).tintOpacity || 0.2};
-            background-color: var(--lk-${(materialSpecs as LkMatProps_Glass).tint || "transparent"});
+            opacity: ${(materialSpecs as LkMatProps_Glass)?.tintOpacity || 0.2};
+            background-color: var(--lk-${(materialSpecs as LkMatProps_Glass)?.tint || "transparent"});
           }
 
           [lk-material-sublayer="texture"] {
@@ -85,18 +86,18 @@ export default function MaterialLayer({ zIndex = 0, material, materialSpecs }: L
 
             z-index: 1;
             isolation: isolate;
-            backdrop-filter: blur(var(--blur-${(materialSpecs as LkMatProps_Glass).thickness || "normal"}));
+            backdrop-filter: blur(var(--blur-${(materialSpecs as LkMatProps_Glass)?.thickness || "normal"}));
           }
 
           [lk-material-sublayer="light"] {
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+            background: ${(materialSpecs as LkMatProps_Glass)?.lightExpression || "none"}
             mix-blend-mode: soft-light;
             opacity: 1;
           }
 
           [lk-material-sublayer="base-fill"] {
             background-color: var(--lk-surface);
-            opacity: ${getGlassFillOpacity((materialSpecs as LkMatProps_Glass).thickness || "normal")};
+            opacity: ${getGlassFillOpacity((materialSpecs as LkMatProps_Glass)?.thickness || "normal")};
           }
         }
       `}</style>
