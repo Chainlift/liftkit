@@ -60,6 +60,7 @@ export default function CardStaging() {
                   opticalCorrection="y"
                   material="glass"
                   isClickable={true}
+                  materialThickness="thin"
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>

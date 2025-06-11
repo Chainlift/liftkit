@@ -59,3 +59,44 @@
 
 [lk-material-thickness="thick"] {
 }
+
+@media (prefers-color-scheme: dark) {
+  [lk-material="glass"] {
+    /* TODO: make sure that assigning position:relative here won't cause cascading problems. */
+    /* It needs to be relative because its child scrim is positioned absolutely to it. */
+    /* There shouldn't be any instances where you need glass but not a scrim, so this should be fine. */
+    /* But if problems arise, define relative under a more spacific selector per-component*/
+    /* for example, you'd modify [lk-card-material="glass"] in card.css instead and then do the same */
+    /* wherever else it's necessary */
+
+    [lk-slot="children"] {
+      mix-blend-mode: plus-lighter;
+      color: var(--lk-onsurfacevariant);
+      filter: contrast(1.35) brightness(1.1);
+    }
+  }
+
+  [lk-component="lk-material-scrim"] {
+    background-color: var(--lk-surface);
+    position: absolute;
+    inset: 0;
+    border-radius: inherit; /* Todo: see if this is a suitable replacement for defining border radius
+    on parent and then applying overflow hidden to parent (probably, bc sidebars will use this) */
+    z-index: -1;
+
+    &[lk-material-scrim-thickness="thick"] {
+      /* mix-blend-mode: multiply; */
+      opacity: 0.75;
+    }
+
+    &[lk-material-scrim-thickness="default"] {
+      /* mix-blend-mode: difference; */
+      opacity: 0.5;
+    }
+
+    &[lk-material-scrim-thickness="thin"] {
+      /* mix-blend-mode: multiply; */
+      opacity: 0.35;
+    }
+  }
+}

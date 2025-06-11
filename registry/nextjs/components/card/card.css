@@ -2,7 +2,6 @@
   display: block;
   overflow: hidden;
 
-
   --local-offset-factor: calc(
     var(--largest-child-font-size) / var(--largest-child-line-height)
   ); /* The line height of the largest child */
@@ -32,8 +31,6 @@
 /* Other material handling (that doesn't need to be nested) */
 
 [lk-card-variant="fill"] {
-
-
 }
 
 [lk-card-variant="outline"] {
@@ -179,6 +176,26 @@
 
 [lk-card-optical-correction="all"] {
   padding: var(--opticCorrectedPadding);
+}
+
+@media (prefers-color-scheme: dark) {
+  [lk-component="card"] {
+
+
+    /* Special material handling */
+
+    /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
+    &[lk-card-material="glass"] {
+
+      /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+      [lk-slot="children"] {
+        mix-blend-mode: plus-lighter;
+        color: var(--lk-onsurface);
+
+      }
+    }
+  }
 }
 
 /* TODO: Consider adding a 'tint' prop which would let you combine frosted glass effects with a slight color */
