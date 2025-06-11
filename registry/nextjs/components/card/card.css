@@ -1,6 +1,7 @@
 [lk-component="card"] {
   display: block;
   overflow: hidden;
+  position: relative;
 
   --local-offset-factor: calc(
     var(--largest-child-font-size) / var(--largest-child-line-height)
@@ -10,22 +11,8 @@
 
   border-radius: var(--local-offset-factor);
 
-  /* Special material handling */
-
-  /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
-  &[lk-card-material="glass"] {
-    background-color: transparent;
-    position: relative; /* Necessary for scrim to position itself absolutely to this element */
-    backdrop-filter: blur(calc(var(--lk-size-lg) * var(--lk-halfstep)));
-
-    /* Modifies direct child text elements of the children slot (that way nested components like buttons
+  /* Modifies direct child text elements of the children slot (that way nested components like buttons
        don't inherit color blending props */
-    [lk-slot="children"] {
-      mix-blend-mode: multiply;
-      color: var(--lk-onsurfacevariant);
-      filter: contrast(1.35) brightness(1.1);
-    }
-  }
 }
 
 /* Other material handling (that doesn't need to be nested) */
@@ -136,15 +123,13 @@
   box-shadow: 0 0 0 2px var(--lk-primary, blue);
 }
 
-[lk-card-material="glass"] {
-  backdrop-filter: blur(var(--thick));
-}
-
 /* [lk-card-material="rubber"] { */
 /* } */
 
 /* Default padding behavior: equal on all sides */
 [lk-card-element="padding-box"] {
+  position: relative;
+  z-index: 1;
   padding: var(--largest-child-font-size);
 }
 
@@ -180,19 +165,15 @@
 
 @media (prefers-color-scheme: dark) {
   [lk-component="card"] {
-
-
     /* Special material handling */
 
     /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
     &[lk-card-material="glass"] {
-
       /* Modifies direct child text elements of the children slot (that way nested components like buttons
        don't inherit color blending props */
       [lk-slot="children"] {
         mix-blend-mode: plus-lighter;
         color: var(--lk-onsurface);
-
       }
     }
   }

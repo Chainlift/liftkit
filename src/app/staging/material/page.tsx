@@ -5,7 +5,7 @@ import Column from "@/registry/nextjs/components/column";
 import Container from "@/registry/nextjs/components/containers";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
-export default function CardStaging() {
+export default function MaterialStaging() {
   const scaleFactors: LkFontClass[] = [
     "display1",
     "display2",

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/card/card.css";
+import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
@@ -37,7 +38,7 @@ export default function Card({
   opticalCorrection = "none",
   isClickable,
   children,
-  bgColor = "surface",
+  bgColor,
   className,
   ...restProps
 }: LkCardProps) {
@@ -45,8 +46,6 @@ export default function Card({
     () => propsToDataAttrs({ scaleFactor, variant, material, className, opticalCorrection }, "card"),
     [scaleFactor, variant, material, className, opticalCorrection]
   );
-
-
 
   return (
     <div
@@ -61,9 +60,7 @@ export default function Card({
         </div>
         {/* todo: define types for material scrim thickness, */}
       </div>
-      {material === "glass" && (
-        <div lk-component="lk-material-scrim" lk-material-scrim-thickness={materialThickness ?? "default"} />
-      )}
+      {material === "glass" && <MaterialLayer material="glass" />}
     </div>
   );
 }
