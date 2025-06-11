@@ -28,26 +28,24 @@ export default function CardStaging() {
 
   const buttonVariants = ["fill", "outline", "text"];
 
+  /** Defining a temporary style to use for testing material */
+  const tempCardStyles: React.CSSProperties = {
+    display: "block",
+    position: "relative",
+    borderRadius: "1em",
+    padding: "1em",
+  };
+
   return (
     <div className="bg-surfacecontainer" style={{ backgroundImage: "url(/testimage.png)" }}>
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-md">Card Staging</h1>
           <Row gap="md">
-            <Card
-              scaleFactor="heading"
-              opticalCorrection="y"
-              material="glass"
-              isClickable={true}
-              materialThickness="thin"
-            >
-              <h2 className="heading">Heading</h2>
-              <p className="subheading">Subheading</p>
-              <p className="body m-top-sm">
-                Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from his
-                attic in Irvine.
-              </p>
-            </Card>
+            <div style={tempCardStyles}>
+              <SampleCardContent />
+              
+            </div>
           </Row>
         </Container>
       </Section>
@@ -58,10 +56,11 @@ export default function CardStaging() {
 function SampleCardContent() {
   return (
     <>
-      <h2 className="heading m-bottom-2xs">Heading</h2>
-      <div className="subheading color-onsurfacevariant">Subheading</div>
+      <h2 className="heading">Heading</h2>
+      <p className="subheading">Subheading</p>
       <p className="body m-top-sm">
-        Chainlift is a company that makes design kits based on the golden ratio. Founded in 2021 by Garrett Mack.{" "}
+        Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from his attic in
+        Irvine.
       </p>
     </>
   );

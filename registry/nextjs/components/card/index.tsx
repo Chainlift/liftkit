@@ -15,7 +15,7 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 /**
  * A flexible card component that supports various visual styles and behaviors.
- * 
+ *
  * @param scaleFactor - LkFontClass. Scales card according to this font size. Should be whatever the largest font size in the card is.
  * @param variant - Visual variant. "fill," "outline," or "transparent." Defaults to "fill"
  * @param material - Material style of the card (e.g., "flat", "glass"). Defaults to "flat"
@@ -26,7 +26,7 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @param bgColor - Background color of the card. Defaults to "surface"
  * @param className - Additional CSS classes to apply
  * @param restProps - Additional props passed through to the root div element
- * 
+ *
  * @returns A card component with configurable styling and material effects
  */
 export default function Card({
@@ -50,9 +50,9 @@ export default function Card({
 
   return (
     <div
-      {...lkCardAttrs}
       lk-component="card"
       className={`${isClickable ? "clickable" : ""} ${"bg-" + bgColor} ${className || ""}`}
+      {...lkCardAttrs}
       {...restProps}
     >
       <div lk-card-element="padding-box" lk-card-optical-correction={opticalCorrection}>
