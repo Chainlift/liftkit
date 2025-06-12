@@ -6,7 +6,7 @@ import StateLayer from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
-type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+declare global {type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl"};
 
 interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconName;

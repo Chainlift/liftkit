@@ -225,3 +225,12 @@
   font-weight: 400;
   line-height: var(--lk-halfstep);
 }
+
+
+
+/* Ignore the width and aspect ratio rules when inside an icon-button component */
+
+[lk-component="icon-button"] [lk-component="icon"] {
+  width: unset;
+  aspect-ratio: unset;
+}

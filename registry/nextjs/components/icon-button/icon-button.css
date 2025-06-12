@@ -1,5 +1,7 @@
 [lk-component="icon-button"] {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   border-radius: 100em;
   /* border: 1px solid transparent; */
@@ -7,6 +9,7 @@
   font-weight: 500;
   background: none;
   overflow: hidden;
+  cursor: pointer;
 }
 
 [lk-component="icon-button"]>[lk-button-content-wrap] {
@@ -14,6 +17,8 @@
   justify-content: center;
   align-items: center;
 }
+
+
 
 /* [lk-component="icon-button"]>[lk-component="state-layer"] {
   position: absolute;
