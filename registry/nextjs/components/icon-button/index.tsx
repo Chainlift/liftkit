@@ -17,6 +17,7 @@ interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
   color?: LkColorWithOnToken;
   size?: LkIconButtonSize;
   fontClass?: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>; //optional, if present it will control the size directly via fontClass
+  className?: string; //optional, making explicit here so we can control how it mixes in with locally-passed props
 }
 
 export default function IconButton({
@@ -25,38 +26,55 @@ export default function IconButton({
   color = "primary",
   size = "md",
   fontClass = "body",
-  ...rest
+  className,
+  ...restProps
 }: LkIconButtonProps) {
   const dataAttrs = useMemo(() => propsToDataAttrs({ variant, color, size }, "icon-button"), [variant, color, size]);
 
   const onToken = getOnToken(color) as LkColor;
 
   /** Dynamically set stroke width based on font class */
-
   let iconStrokeWidth: number = getIconStrokeWidth(fontClass);
 
+  function getIconStrokeWidth(fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>) {
+    switch (fontClass) {
+      case "display1":
+      case "display2":
+      case "title1":
+        return 1.5;
+      case "subheading":
+      case "label":
+      case "caption":
+      case "capline":
+        return 2;
+      default:
+        return 1.75;
+    }
+  }
+
+/**Dynamically set icon and state-layer color based on variant */
+  function getIconColor(variant: LkIconButtonProps["variant"]) {
+    switch (variant) {
+      case "outline":
+      case "text":
+        return color;
+      case "fill":
+        return onToken;
+    }
+  }
+
   return (
-    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} className={fontClass}>
+    <button
+      lk-component="icon-button"
+      type="button"
+      {...dataAttrs}
+      {...restProps}
+      className={`${fontClass} ${className || ""}`}
+    >
       <div>
-        <Icon name={icon} color={onToken} strokeWidth={iconStrokeWidth}></Icon>
+        <Icon name={icon} color={getIconColor(variant)} strokeWidth={iconStrokeWidth}></Icon>
       </div>
-      <StateLayer bgColor={onToken}></StateLayer>
+      <StateLayer bgColor={getIconColor(variant)}></StateLayer>
     </button>
   );
-}
-
-function getIconStrokeWidth(fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>) {
-  switch (fontClass) {
-    case "display1":
-    case "display2":
-    case "title1":
-      return 1.5;
-    case "subheading":
-    case "label":
-    case "caption":
-    case "capline":
-      return 2.5;
-    default:
-      return 2;
-  }
 }
