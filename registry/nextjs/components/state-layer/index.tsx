@@ -7,6 +7,8 @@ interface StateLayerProps {
 export default function StateLayer(props: StateLayerProps) {
   const { bgColor } = props;
 
+  console.log(bgColor);
+
   return (
     <>
       <div lk-component="state-layer" className={`bg-${bgColor}`}></div>

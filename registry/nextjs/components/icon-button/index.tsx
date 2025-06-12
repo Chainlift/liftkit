@@ -1,12 +1,15 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/icon-button/icon-button.css";
+import Icon from "@/registry/nextjs/components/icon";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { IconName } from "lucide-react/dynamic";
+import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
 type LkSizeUnit = "xs" | "sm" | "md" | "lg" | "xl";
 
-interface LkIconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: string;
+interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: IconName;
   variant?: "fill" | "outline" | "text";
   // color?: string; // LkColor
   color?: LkColorWithOnToken;
@@ -14,23 +17,24 @@ interface LkIconButtonProps
 }
 
 export default function IconButton({
-  icon,
+  icon = "roller-coaster",
   variant = "fill",
   color = "primary",
   size = "md",
   ...rest
 }: LkIconButtonProps) {
-  const dataAttrs = useMemo(
-    () => propsToDataAttrs({ variant, color, size }, "icon-button"),
-    [variant, color, size],
-  );
+  const dataAttrs = useMemo(() => propsToDataAttrs({ variant, color, size }, "icon-button"), [variant, color, size]);
+
+  const onToken = getOnToken(color) as LkColor;
+
+  console.log('ontoken', onToken);
 
   return (
     <button lk-component="icon-button" type="button" {...dataAttrs} {...rest}>
       <div>
-        <i lk-component="icon">{icon}</i>
+        <Icon name={icon} color={onToken}></Icon>
       </div>
-      <div lk-component="state-layer"></div>
+      <StateLayer bgColor={onToken}></StateLayer>
     </button>
   );
 }

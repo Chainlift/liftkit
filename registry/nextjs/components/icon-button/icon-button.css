@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-[lk-component="icon-button"]>[lk-component="state-layer"] {
+/* [lk-component="icon-button"]>[lk-component="state-layer"] {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -24,9 +24,9 @@
   transition:
     background-color 0.2s ease-out,
     opacity 0.2s ease-out;
-}
+} */
 
-/* STATE LAYER OPACITY */
+/* STATE LAYER OPACITY
 [lk-component="icon-button"]:hover>[lk-component="state-layer"] {
   opacity: 0.04;
 }
@@ -34,7 +34,7 @@
 [lk-component="icon-button"]:active>[lk-component="state-layer"],
 [lk-component="icon-button"]:focus-visible>[lk-component="state-layer"] {
   opacity: 0.1;
-}
+} */
 
 /* Size map */
 [lk-icon-button-size="xs"] {
