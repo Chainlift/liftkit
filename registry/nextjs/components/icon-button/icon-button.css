@@ -5,7 +5,7 @@
   position: relative;
   border-radius: 100em;
   /* border: 1px solid transparent; */
-  padding: 0.5em;
+  padding: var(--lk-size-xs);
   font-weight: 500;
   background: none;
   overflow: hidden;
@@ -17,6 +17,8 @@
   justify-content: center;
   align-items: center;
 }
+
+
 
 
 
@@ -41,7 +43,7 @@
   opacity: 0.1;
 } */
 
-/* Size map */
+/* Size map
 [lk-icon-button-size="xs"] {
   font-size: var(--caption-font-size);
 }
@@ -60,7 +62,7 @@
 
 [lk-icon-button-size="xl"] {
   font-size: var(--title2-font-size);
-}
+} */
 
 /* COLORS */
 [lk-icon-button-color="primary"] {

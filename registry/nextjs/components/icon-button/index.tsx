@@ -14,7 +14,7 @@ interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
   // color?: string; // LkColor
   color?: LkColorWithOnToken;
   size?: LkIconButtonSize;
-  fontClass?: LkFontClass; //optional, if present it will control the size directly via fontClass
+  fontClass?: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>; //optional, if present it will control the size directly via fontClass
 }
 
 export default function IconButton({
@@ -31,12 +31,11 @@ export default function IconButton({
 
 
   return (
-    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} className={`${fontClass}`}>
+    <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} className={fontClass}>
       <div>
         <Icon 
           name={icon} 
           color={onToken}
-          fontClass={fontClass}
           ></Icon>
       </div>
       <StateLayer bgColor={onToken}></StateLayer>
