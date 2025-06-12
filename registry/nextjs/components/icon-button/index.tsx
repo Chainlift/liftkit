@@ -6,7 +6,9 @@ import StateLayer from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
-declare global {type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl"};
+declare global {
+  type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+}
 
 interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconName;
@@ -29,16 +31,32 @@ export default function IconButton({
 
   const onToken = getOnToken(color) as LkColor;
 
+  /** Dynamically set stroke width based on font class */
+
+  let iconStrokeWidth: number = getIconStrokeWidth(fontClass);
 
   return (
     <button lk-component="icon-button" type="button" {...dataAttrs} {...rest} className={fontClass}>
       <div>
-        <Icon 
-          name={icon} 
-          color={onToken}
-          ></Icon>
+        <Icon name={icon} color={onToken} strokeWidth={iconStrokeWidth}></Icon>
       </div>
       <StateLayer bgColor={onToken}></StateLayer>
     </button>
   );
+}
+
+function getIconStrokeWidth(fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>) {
+  switch (fontClass) {
+    case "display1":
+    case "display2":
+    case "title1":
+      return 1.5;
+    case "subheading":
+    case "label":
+    case "caption":
+    case "capline":
+      return 2.5;
+    default:
+      return 2;
+  }
 }
