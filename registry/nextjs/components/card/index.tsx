@@ -7,10 +7,10 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
   variant?: "fill" | "outline" | "transparent";
   material?: "flat" | "glass"; //TODO: Integrate these material controls with the new MaterialLayer component features
-  materialThickness?: "thick" | "default" | "thin"; // Optional, not added to type def yet. only has an effect if material === glass
+  materialProps?: LkMatProps;
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
-  bgColor?: LkColor; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
+  bgColor?: LkColorWithOnToken; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
   className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
 }
@@ -34,7 +34,7 @@ export default function Card({
   scaleFactor = "body",
   variant = "fill",
   material = "flat",
-  materialThickness,
+  materialProps = {},
   opticalCorrection = "none",
   isClickable,
   children,
@@ -50,7 +50,7 @@ export default function Card({
   return (
     <div
       lk-component="card"
-      className={`${isClickable ? "clickable" : ""} ${"bg-" + bgColor} ${className || ""}`}
+      className={`${isClickable ? "clickable" : ""}  ${className || ""}`}
       {...lkCardAttrs}
       {...restProps}
     >
@@ -60,12 +60,9 @@ export default function Card({
         </div>
         {/* todo: define types for material scrim thickness, */}
       </div>
-      {material === "glass" && (
-        <MaterialLayer
-          material="glass"
-          materialSpecs={{ thickness: "thin", tint: "onerrorcontainer", tintOpacity: 0.5, light: true }}
-        />
-      )}
+      {material === "glass" && <MaterialLayer material="glass" materialProps={{ thickness: "normal" }} />}
+      {material === "flat" && <MaterialLayer material="flat" materialProps={{ bgColor: bgColor }} />}
+      {/**TODO: Define outlined card behavior */}
     </div>
   );
 }

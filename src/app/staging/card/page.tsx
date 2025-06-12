@@ -40,7 +40,7 @@ export default function CardStaging() {
                   key={scaleFactor}
                   scaleFactor={scaleFactor}
                   opticalCorrection="y"
-                  bgColor="inversesurface"
+                 
                   className="shadow-2xl"
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
@@ -60,8 +60,7 @@ export default function CardStaging() {
                   opticalCorrection="y"
                   material="glass"
                   isClickable={true}
-                  materialThickness="thin" 
-                  className="color-inverseonsurface"
+                  bgColor="info"
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
@@ -79,7 +78,6 @@ export default function CardStaging() {
                   scaleFactor={scaleFactor}
                   opticalCorrection="y"
                   variant="outline"
-                  materialThickness="thin"
                   isClickable={true}
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
