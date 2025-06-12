@@ -116,7 +116,7 @@ function generateColorVariants(fontClass: Exclude<LkFontClass, `${string}-bold` 
     "background",
   ];
 
-  let colorSpread = buttonColors.map((buttonColor) => generateVariants(buttonColor, fontClass));
+  const colorSpread = buttonColors.map((buttonColor) => generateVariants(buttonColor, fontClass));
 
   return <div>{colorSpread}</div>;
 }
