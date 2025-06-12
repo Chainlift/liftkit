@@ -137,12 +137,6 @@ export default function Home() {
             color="surfacecontainer"
           />,
           <IconButton
-            key="briefcase"
-            icon="note"
-            variant="text"
-            color="surfacecontainer"
-          />,
-          <IconButton
             key="heart"
             icon="book"
             variant="text"
