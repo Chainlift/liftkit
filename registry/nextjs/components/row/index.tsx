@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/row/row.css";
 
-type LkSizeUnit = "3xs" | "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+
 
 interface LkRowProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";
@@ -13,11 +13,19 @@ interface LkRowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Row(props: LkRowProps) {
-  const { children, alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior, ...restProps } = props;
+  const {
+    children,
+    alignItems="start",
+    justifyContent="start",
+    gap,
+    wrapChildren,
+    defaultChildBehavior,
+    ...restProps
+  } = props;
 
   console.log("Row props:", restProps);
 
-    const lkRowAttrs = useMemo(
+  const lkRowAttrs = useMemo(
     () =>
       propsToDataAttrs(
         { alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior },

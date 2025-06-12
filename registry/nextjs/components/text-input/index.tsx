@@ -9,14 +9,9 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function TextInput(props: LkTextInputProps) {
-  const { ...restProps } = props;
+  const { labelPosition = "default", helpText, placeholderText, ...restProps } = props;
 
-  const lkTextInputAttrs = useMemo(
-    () => propsToDataAttrs(restProps, "lk-text-input"),
-    [restProps],
-  );
+  const lkTextInputAttrs = useMemo(() => propsToDataAttrs(restProps, "lk-text-input"), [restProps]);
 
-  return (
-    <div {...lkTextInputAttrs}>{/* implementation omitted for brevity */}</div>
-  );
+  return <div {...lkTextInputAttrs}>{/* implementation omitted for brevity */}</div>;
 }

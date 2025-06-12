@@ -11,20 +11,15 @@ interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   tag?: LkSemanticTag;
 }
 
-export default function Text({
-  tag = "div",
-  fontClass = "display2-bold",
-  color,
-  children,
-  style,
-  ...rest
-}: LkTextProps) {
+export default function Text(props: LkTextProps) {
+  const { tag = "div", fontClass = "display2-bold", color, children, style, ...restProps } = props;
   const Tag = tag as ElementType;
 
-  const textAttrs = useMemo(() => propsToDataAttrs(rest, "text"), [rest]);
+  /**Temporarily removing the attr spreader because it's not being used */
+  // const textAttrs = useMemo(() => propsToDataAttrs(restProps, "text"), [restProps]);
 
   return (
-    <Tag className={`${fontClass} color-${color}`} style={style} {...textAttrs}>
+    <Tag className={`${fontClass} color-${color}`} style={style} {...restProps}>
       {children}
     </Tag>
   );

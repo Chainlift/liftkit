@@ -4,22 +4,19 @@ import "@/registry/nextjs/components/column/column.css";
 
 interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";
-  justifyContent?:
-    | "start"
-    | "center"
-    | "end"
-    | "space-between"
-    | "space-around";
-  children?: React.ReactNode;
+  justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
   gap?: LkSizeUnit;
+  wrapChildren?: boolean;
+  defaultChildBehavior?: "auto-grow" | "auto-shrink" | "ignoreFlexRules" | "ignoreIntrinsicSize";
+  children?: React.ReactNode;
 }
 
 export default function Column(props: LkColumnProps) {
-  const { children, alignItems, justifyContent, gap, ...restProps } = props;
+  const { children, alignItems="start", justifyContent="start", gap, wrapChildren, defaultChildBehavior, ...restProps } = props;
 
   const lkColumnAttrs = useMemo(
-    () => propsToDataAttrs({alignItems, justifyContent, gap}, "column"),
-    [alignItems, justifyContent, gap],
+    () => propsToDataAttrs({ alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior }, "column"),
+    [alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior]
   );
 
   return (

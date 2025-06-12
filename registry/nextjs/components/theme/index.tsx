@@ -246,6 +246,10 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     updateTheme(palette);
 
+
+    /**TODO: Debundle scroll behavior overrides from the central theme context */
+    /**This is such a confusing place to put it. */
+
     const disableScrollOnNumberInputs = (event: WheelEvent) => {
       const activeElement = document.activeElement as HTMLInputElement;
       if (activeElement?.type === "number") {

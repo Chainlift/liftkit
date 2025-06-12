@@ -12,19 +12,15 @@ interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   setActiveTab: (index: number) => void;
 }
 
-export default function Tabs({
-  tabLinks,
-  activeTab,
-  setActiveTab,
-  children,
-  ...rest
-}: LkTabsProps) {
+export default function Tabs(props: LkTabsProps) {
   // const [activeTab] = useState(0);
 
-  const dataAttrs = useMemo(() => propsToDataAttrs({}, "tabs"), []);
+  const { tabLinks, activeTab, setActiveTab, children, ...restProps } = props;
+
+  const dataAttrs = useMemo(() => propsToDataAttrs({activeTab}, "tabs"), [activeTab]);
 
   return (
-    <div lk-component="tabs" {...dataAttrs} {...rest}>
+    <div lk-component="tabs" {...dataAttrs} {...restProps}>
       <TabMenu
         tabLinks={tabLinks}
         justifyContent="start"
@@ -34,10 +30,7 @@ export default function Tabs({
       />
       <div lk-tabs-el="tab-content">
         {children.map((child, index) => (
-          <div
-            key={index}
-            style={{ display: index === activeTab ? "block" : "none" }}
-          >
+          <div key={index} style={{ display: index === activeTab ? "block" : "none" }}>
             {child}
           </div>
         ))}

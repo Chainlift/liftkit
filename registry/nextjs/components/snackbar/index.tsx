@@ -15,17 +15,34 @@ interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   fontClass?: LkFontClass;
 }
 
-export default function Snackbar({
-  badgeColor,
-  primaryButtonColor = "primary",
-  secondaryButtonColor = "secondary",
-  backgroundColor = "surface",
-  globalColor,
-  message = "Notification text goes here.",
-  fontClass = "caption",
-  ...restProps
-}: LkSnackbarProps) {
-  const dataAttrs = useMemo(() => propsToDataAttrs({}, "snackbar"), []);
+export default function Snackbar(props: LkSnackbarProps) {
+  const {
+    badgeColor,
+    primaryButtonColor = "primary",
+    secondaryButtonColor = "secondary",
+    backgroundColor = "surface",
+    globalColor,
+    message = "Notification text goes here.",
+    fontClass = "caption",
+    ...restProps
+  } = props;
+
+  const dataAttrs = useMemo(
+    () =>
+      propsToDataAttrs(
+        {
+          badgeColor,
+          primaryButtonColor,
+          secondaryButtonColor,
+          backgroundColor,
+          globalColor,
+          message,
+          fontClass,
+        },
+        "snackbar"
+      ),
+    [badgeColor, primaryButtonColor, secondaryButtonColor, backgroundColor, globalColor, message, fontClass]
+  );
 
   return (
     <div
@@ -36,19 +53,9 @@ export default function Snackbar({
     >
       <Badge color={globalColor ?? badgeColor} />
       <Text fontClass={fontClass}>{message}</Text>
-      <Button
-        label="Dismiss"
-        size="sm"
-        variant="outline"
-        color={globalColor ?? secondaryButtonColor}
-      />
+      <Button label="Dismiss" size="sm" variant="outline" color={globalColor ?? secondaryButtonColor} />
 
-      <Button
-        label="Undo"
-        size="sm"
-        variant="fill"
-        color={globalColor ?? primaryButtonColor}
-      />
+      <Button label="Undo" size="sm" variant="fill" color={globalColor ?? primaryButtonColor} />
     </div>
   );
 }

@@ -10,20 +10,27 @@ interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactElement<HTMLDivElement>;
 }
 
-export default function TabLink({
-  selected = false,
-  fontClass = "body",
-  indicatorClass = "lk-indicator",
-  children,
-  ...rest
-}: LkTabLinkProps) {
+export default function TabLink(props: LkTabLinkProps) {
+
+
+  const {
+    selected = false,
+    fontClass = "body",
+    indicatorClass = "lk-indicator",
+    children,
+    ...restProps
+  } = props;
+
+
   const dataAttrs = useMemo(
-    () => propsToDataAttrs({ selected }, "tab-link"),
+    () => propsToDataAttrs({ selected, fontClass, indicatorClass }, "tab-link"),
     [selected],
   );
+
+
   console.log("Selected:", selected);
   return (
-    <div lk-component="tab-link" {...dataAttrs} {...rest}>
+    <div lk-component="tab-link" {...dataAttrs} {...restProps}>
       <div lk-slot="child">
         <Text fontClass={fontClass} style={selected ? { fontWeight: 700 } : {}}>
           {children}
