@@ -6,6 +6,7 @@ import Section from "@/registry/nextjs/components/section";
 
 export default function IconButtonStaging() {
   const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
+  const fontClasses: LkFontClass[] = ["display1", "display2", "title1", "title2", "title3", "heading", "subheading", "body", "callout", "label", "caption", "capline"];
 
   return (
     <>
@@ -19,8 +20,8 @@ export default function IconButtonStaging() {
       <Section padding="md">
         <Container>
           <Row gap="md">
-            {sizes.map((size) => (
-              <IconButton key={size} icon="circle" size={size}></IconButton>
+            {fontClasses.map((fontClass) => (
+              <IconButton key={fontClass} icon="circle" fontClass={fontClass}></IconButton>
             ))}
           </Row>
         </Container>
