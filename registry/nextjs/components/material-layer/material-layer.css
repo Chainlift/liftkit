@@ -1,6 +1,4 @@
-@import url("./material-glass.css");
-@import url("./material-debug.css");
-
+/* This file is not used in the component currently. Component uses styled jsx due to high demand for dynamic features. */
 [lk-component="material-layer"] {
   position: absolute;
   inset: 0;
