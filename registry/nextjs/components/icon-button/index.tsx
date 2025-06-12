@@ -6,14 +6,14 @@ import StateLayer from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
-type LkSizeUnit = "xs" | "sm" | "md" | "lg" | "xl";
+type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconName;
   variant?: "fill" | "outline" | "text";
   // color?: string; // LkColor
   color?: LkColorWithOnToken;
-  size?: LkSizeUnit;
+  size?: LkIconButtonSize;
 }
 
 export default function IconButton({
@@ -27,12 +27,14 @@ export default function IconButton({
 
   const onToken = getOnToken(color) as LkColor;
 
-  console.log('ontoken', onToken);
 
   return (
     <button lk-component="icon-button" type="button" {...dataAttrs} {...rest}>
       <div>
-        <Icon name={icon} color={onToken}></Icon>
+        <Icon 
+          name={icon} 
+          color={onToken}
+          ></Icon>
       </div>
       <StateLayer bgColor={onToken}></StateLayer>
     </button>

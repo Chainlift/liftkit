@@ -15,7 +15,7 @@ export default function IconButtonStaging() {
       </Section>
       <Section padding="md">
         <Container>
-          <IconButton></IconButton>
+          <IconButton icon="airplay" size="md"></IconButton>
         </Container>
       </Section>
     </>
