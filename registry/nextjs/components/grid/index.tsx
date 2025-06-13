@@ -9,10 +9,13 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
   columns?: number;
   gap?: LkSizeUnit;
   autoResponsive?: boolean; // Mark as optional since we provide a default
+  className?: string; // Optional. Specifying manually here because internal logic checks for it.
 }
 
 /**
  * A responsive grid component that provides flexible layout options.
+ * NOTE: It's deliberately low-detail. If you need complex features, like areas, asymmetrical column widths, or manual row sizing, 
+ * we strongly recommend defining your own CSS grid styles and using the `className` prop to apply them.
  *
  * @param columns - The number of columns for the grid layout
  * @param gap - The spacing between grid items. Expects LkSizeUnit from 3xs to 4xl.
@@ -22,11 +25,13 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  * @returns A div element with grid layout styling and data attributes
  */
+
 export default function Grid({
   columns = 2,
   gap = "md",
   autoResponsive = false, // Default value
   children,
+  className,
   ...restProps
 }: LkGridProps) {
 
@@ -54,7 +59,8 @@ export default function Grid({
         lk-component="grid"
         {...lkGridAttrs}
         {...restProps}
-        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+        className={className}
+        style={!className ? { gridTemplateColumns: `repeat(${columns}, 1fr)` } : undefined}
       >
         {children || placeholderBlocks}
       </div>

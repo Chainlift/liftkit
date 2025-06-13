@@ -18,18 +18,18 @@ export default function GridStaging() {
             <Column gap="3xl" alignItems="stretch">
               <div>
                 <h3 className="title2 m-bottom-md">3 columns with no children</h3>
-                <Grid columns={3} gap="md" autoResponsive></Grid>
+                <Grid columns={3} gap="md"></Grid>
               </div>
               <div>
                 <h3 className="title2 m-bottom-md">12 columns with no children</h3>
-                <Grid columns={12} gap="md" autoResponsive></Grid>
+                <Grid columns={12} gap="md"></Grid>
               </div>
               <div>
                 <h3 className="title2 m-bottom-xs">50 columns with no children</h3>
                 <p className="title3 color-error m-bottom-xl">
                   Deliberately overflows in order to show how placeholders help show that.
                 </p>
-                <Grid columns={50} gap="md" autoResponsive></Grid>
+                <Grid columns={50} gap="md"></Grid>
               </div>
             </Column>
           </div>
@@ -43,9 +43,26 @@ export default function GridStaging() {
               {lkSizes.map((size) => (
                 <div key={size}>
                   <h3 className="title2 m-bottom-md">gap={size}</h3>
-                  <Grid columns={3} gap={size as LkSizeUnit} autoResponsive></Grid>
+                  <Grid columns={3} gap={size as LkSizeUnit}></Grid>
                 </div>
               ))}
+            </Column>
+          </div>
+          <div lk-component="divider" className="">
+            <div lk-divider-element="line"></div>
+          </div>
+          <div>
+            <h2 className="display2-bold m-bottom-2xs">autoResponsive tests</h2>
+            <p className="heading color-info m-bottom-2xl">(Breakpoint: 480px)</p>
+            <Column gap="3xl" alignItems="stretch">
+              <div>
+                <h3 className="title2 m-bottom-md">autoResponsive=true</h3>
+                <Grid columns={3} autoResponsive></Grid>
+              </div>
+              <div>
+                <h3 className="title2 m-bottom-md">autoResponsive=false</h3>
+                <Grid columns={3}></Grid>
+              </div>
             </Column>
           </div>
         </Container>

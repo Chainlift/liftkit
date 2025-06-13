@@ -251,3 +251,8 @@
 }
 
 /* No rule needed for 12 – all slots are shown by default */
+
+.lk-debug--grid-override {
+  grid-template-columns: 0.5fr repeat(2, 1fr) 320px;
+
+}
