@@ -23,8 +23,6 @@ export default function Row(props: LkRowProps) {
     ...restProps
   } = props;
 
-  console.log("Row props:", restProps);
-
   const lkRowAttrs = useMemo(
     () =>
       propsToDataAttrs(
