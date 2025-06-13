@@ -5,7 +5,7 @@ import "@/registry/nextjs/components/column/column.css";
 interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   alignItems?: "start" | "center" | "end" | "stretch";
   justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
-  gap?: LkSizeUnit;
+  gap?: LkSizeUnit | "none";
   wrapChildren?: boolean;
   defaultChildBehavior?: "auto-grow" | "auto-shrink" | "ignoreFlexRules" | "ignoreIntrinsicSize";
   children?: React.ReactNode;

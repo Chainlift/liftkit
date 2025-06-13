@@ -87,7 +87,8 @@ export default function HeadingStaging() {
       <Section padding="md" style={{maxWidth: "100vw", overflowX: "auto"}}>
         <Row gap="md">
           {fontClasses.map((fontClass) => (
-            <Column key={fontClass} gap="md">
+            <Column key={fontClass} gap="none">
+                <div className="body-bold m-bottom-md">{fontClass}</div>
               {getHeadingList(fontClass)}
             </Column>
           ))}
@@ -103,7 +104,7 @@ function getHeadingList(fontClass: LkFontClass) {
     <>
       {headingTags.map((tag) => (
         <Heading key={tag} tag={tag} fontClass={fontClass} fontColor="primary">
-          Heading
+          {tag}
         </Heading>
       ))}
     </>
