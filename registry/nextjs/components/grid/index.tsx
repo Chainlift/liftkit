@@ -15,7 +15,7 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
  * A responsive grid component that provides flexible layout options.
  *
  * @param columns - The number of columns for the grid layout
- * @param gap - The spacing between grid items
+ * @param gap - The spacing between grid items. Expects LkSizeUnit from 3xs to 4xl.
  * @param autoResponsive - Whether the grid should automatically adjust to different screen sizes. Defaults to false
  * @param children - The child elements to be rendered within the grid
  * @param restProps - Additional props that will be passed to the underlying div element
@@ -41,7 +41,9 @@ export default function Grid({
 
   if (!children) {
     for (let i = 0; i < columns; i++) {
-      placeholderBlocks.push(<PlaceholderBlock key={i} />);
+      placeholderBlocks.push(<PlaceholderBlock key={i * 2} />);
+      placeholderBlocks.push(<PlaceholderBlock key={i * 2 + 1} />);
+
     }
     children = placeholderBlocks;
   }

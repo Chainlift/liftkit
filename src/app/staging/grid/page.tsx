@@ -1,33 +1,68 @@
+"use client";
+
 import Container from "@/registry/nextjs/components/containers";
 import Grid from "@/registry/nextjs/components/grid";
 import Section from "@/registry/nextjs/components/section";
 import Column from "@/registry/nextjs/components/column";
 
 export default function GridStaging() {
+  const lkSizes = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"];
+
   return (
     <>
       <Section padding="md">
         <Container maxWidth="md">
-          <h1 className="display1-bold m-bottom-md">Grid staging</h1>
-          <Column gap="3xl" alignItems="stretch">
-            <div>
-              <h2 className="display2 m-bottom-md">3 columns with no children</h2>
-              <Grid columns={3} gap="md" autoResponsive></Grid>
-            </div>
-            <div>
-              <h2 className="display2 m-bottom-md">12 columns with no children</h2>
-              <Grid columns={12} gap="md" autoResponsive></Grid>
-            </div>
-            <div>
-              <h2 className="display2 m-bottom-xs">27 columns with no children</h2>
-              <p className="title3 color-error m-bottom-xl">
-                Deliberately overflows in order to show how placeholders help show that.
-              </p>
-              <Grid columns={50} gap="md" autoResponsive></Grid>
-            </div>
-          </Column>
+          <h1 className="display1-bold m-bottom-lg">Grid staging</h1>
+          <div>
+            <h2 className="display2-bold m-bottom-md">Column count tests</h2>
+            <Column gap="3xl" alignItems="stretch">
+              <div>
+                <h3 className="title2 m-bottom-md">3 columns with no children</h3>
+                <Grid columns={3} gap="md" autoResponsive></Grid>
+              </div>
+              <div>
+                <h3 className="title2 m-bottom-md">12 columns with no children</h3>
+                <Grid columns={12} gap="md" autoResponsive></Grid>
+              </div>
+              <div>
+                <h3 className="title2 m-bottom-xs">50 columns with no children</h3>
+                <p className="title3 color-error m-bottom-xl">
+                  Deliberately overflows in order to show how placeholders help show that.
+                </p>
+                <Grid columns={50} gap="md" autoResponsive></Grid>
+              </div>
+            </Column>
+          </div>
+          {/**TODO: Create a modular divider component from the following one, created ad-hoc during grid testing */}
+          <div lk-component="divider" className="">
+            <div lk-divider-element="line"></div>
+          </div>
+          <div>
+            <h2 className="display2-bold m-bottom-md">Gap tests</h2>
+            <Column gap="3xl" alignItems="stretch">
+              {lkSizes.map((size) => (
+                <div key={size}>
+                  <h3 className="title2 m-bottom-md">gap={size}</h3>
+                  <Grid columns={3} gap={size as LkSizeUnit} autoResponsive></Grid>
+                </div>
+              ))}
+            </Column>
+          </div>
         </Container>
       </Section>
+      <style jsx>{`
+        [lk-component="divider"] {
+          display: flex;
+          align-items: center;
+          padding: var(--lk-size-3xl) 0px;
+
+          [lk-divider-element="line"] {
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--lk-outlinevariant);
+          }
+        }
+      `}</style>
     </>
   );
 }
