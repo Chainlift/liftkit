@@ -1,0 +1,6 @@
+        [lk-component="placeholder-block"] {
+          display: block;
+          border: 1px dashed var(--lk-color-info);
+          background-color: var(--lk-color-infocontainer);
+          padding: var(--lk-size-md);
+        }
