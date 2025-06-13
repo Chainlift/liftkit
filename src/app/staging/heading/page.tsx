@@ -3,7 +3,7 @@ import Heading from "@/registry/nextjs/components/heading";
 import Row from "@/registry/nextjs/components/row";
 import Section from "@/registry/nextjs/components/section";
 
-const LkColors: LkColor[] = [
+const lkColors: LkColor[] = [
   "primary",
   "onprimary",
   "primarycontainer",
@@ -67,6 +67,27 @@ const LkColors: LkColor[] = [
 ];
 
 export default function HeadingStaging() {
+  return (
+    <>
+      {getColors(lkColors)}
+    </>
+  );
+}
+
+function getHeadingList(fontClass: LkFontClass, color: LkColor) {
+  const headingTags: LkHeadingTag[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
+  return (
+    <>
+      {headingTags.map((tag) => (
+        <Heading key={tag + fontClass + color} tag={tag} fontClass={fontClass} fontColor={color}>
+          {tag}
+        </Heading>
+      ))}
+    </>
+  );
+}
+
+function getFontClasses(color: LkColor) {
   const fontClasses: LkFontClass[] = [
     "display1",
     "display2",
@@ -83,30 +104,20 @@ export default function HeadingStaging() {
   ];
 
   return (
-    <>
-      <Section padding="md" style={{maxWidth: "100vw", overflowX: "auto"}}>
-        <Row gap="md">
-          {fontClasses.map((fontClass) => (
-            <Column key={fontClass} gap="none">
-                <div className="body-bold m-bottom-md">{fontClass}</div>
-              {getHeadingList(fontClass)}
-            </Column>
-          ))}
-        </Row>
-      </Section>
-    </>
+    <Section padding="md" style={{ maxWidth: "100vw", overflowX: "auto" }}>
+    <h2 className="title3-bold mono m-bottom-md">{color}</h2> 
+      <Row gap="md">
+        {fontClasses.map((fontClass) => (
+          <Column key={fontClass} gap="none">
+            <div className={`caption mono m-bottom-md`}>{fontClass}</div>
+            {getHeadingList(fontClass, color)}
+          </Column>
+        ))}
+      </Row>
+    </Section>
   );
 }
 
-function getHeadingList(fontClass: LkFontClass) {
-  const headingTags: LkHeadingTag[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
-  return (
-    <>
-      {headingTags.map((tag) => (
-        <Heading key={tag} tag={tag} fontClass={fontClass} fontColor="primary">
-          {tag}
-        </Heading>
-      ))}
-    </>
-  );
+function getColors(lkColors: LkColor[]) {
+ return lkColors.map((color) => <div className="title3-bold m-bottom-sm">{getFontClasses(color)}</div>);
 }
