@@ -119,5 +119,5 @@ function getFontClasses(color: LkColor) {
 }
 
 function getColors(lkColors: LkColor[]) {
- return lkColors.map((color) => <div className="title3-bold m-bottom-sm">{getFontClasses(color)}</div>);
+ return lkColors.map((color) => <div key={color} className="title3-bold m-bottom-sm">{getFontClasses(color)}</div>);
 }
