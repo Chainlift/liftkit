@@ -15,6 +15,7 @@ type LkAspectRatio =
   | "1/2"
   | "9/16"
   | "4/5";
+  
 type LkSizeUnit =
   | "3xs"
   | "2xs"
