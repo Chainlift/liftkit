@@ -47,8 +47,9 @@ export default function Grid({
   if (!children) {
     for (let i = 0; i < columns; i++) {
       placeholderBlocks.push(<PlaceholderBlock key={i * 2} />);
+      if (!className) {
       placeholderBlocks.push(<PlaceholderBlock key={i * 2 + 1} />);
-
+      }
     }
     children = placeholderBlocks;
   }

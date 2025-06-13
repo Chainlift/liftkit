@@ -65,6 +65,25 @@ export default function GridStaging() {
               </div>
             </Column>
           </div>
+          <div>
+            <h2 className="display2-bold m-bottom-2xs">class override tests</h2>
+            <p className="heading color-info m-bottom-2xl">(Breakpoint: 480px)</p>
+            <Column gap="3xl" alignItems="stretch">
+              <div>
+                <h3 className="title2 mono m-bottom-md">className="lk-debug--grid-override"</h3>
+                <ul>
+                  <li>
+                    If this doesn't look as expected, you got a className problem. Check that the prop spreaders aren't
+                    creating conflicting attributes.
+                  </li>
+                  <li>
+                    Remember to manually change column count to whatever amount you need
+                  </li>
+                </ul>
+                <Grid columns={5} className="lk-debug--grid-override"></Grid>
+              </div>
+            </Column>
+          </div>
         </Container>
       </Section>
       <style jsx>{`
