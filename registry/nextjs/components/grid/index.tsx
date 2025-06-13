@@ -2,6 +2,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/grid/grid.css";
+import PlaceholderBlock from "@/registry/nextjs/components/placeholder-block";
 
 // The LiftkitGrid type definition
 interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,10 +29,22 @@ export default function Grid({
   children,
   ...restProps
 }: LkGridProps) {
+
   const lkGridAttrs = useMemo(
     () => propsToDataAttrs({ autoResponsive, gap, ...restProps }, "grid"),
     [autoResponsive, columns, gap]
   );
+
+  /**Render placeholder blocks for columns if no children are passed */
+
+  let placeholderBlocks = [];
+
+  if (!children) {
+    for (let i = 0; i < columns; i++) {
+      placeholderBlocks.push(<PlaceholderBlock key={i} />);
+    }
+    children = placeholderBlocks;
+  }
 
   return (
     <>
@@ -41,7 +54,7 @@ export default function Grid({
         {...restProps}
         style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
       >
-        {children}
+        {children || placeholderBlocks}
       </div>
     </>
   );
