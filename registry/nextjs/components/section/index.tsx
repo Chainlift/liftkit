@@ -13,11 +13,11 @@ interface LkSectionProps extends React.HTMLAttributes<HTMLElement> {
   pb?: SpacingSize;
   pl?: SpacingSize;
   pr?: SpacingSize;
+  children?: React.ReactNode;
 }
 
 export default function Section(props: LkSectionProps) {
-
-/**TODO:  Give section default padding of "md" */
+  /**TODO:  Give section default padding of "md" */
   const { container, children, padding, px, py, pt, pb, pl, pr, ...restProps } = props;
 
   const lkSectionAttrs = useMemo(
@@ -26,9 +26,8 @@ export default function Section(props: LkSectionProps) {
   );
 
   return (
-    <section {...lkSectionAttrs}>
-      <div lk-component="section">{container}</div>
-      {children}
+    <section {...lkSectionAttrs} {...restProps}>
+      <div lk-component="section">{container || children}</div>
     </section>
   );
 }
