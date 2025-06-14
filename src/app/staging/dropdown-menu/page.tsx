@@ -8,7 +8,7 @@ import Grid from "@/registry/nextjs/components/grid";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
-import DropdownMenu from "@/registry/nextjs/components/dropdown-menu";
+import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 
 export default function DropdownMenuStaging() {
   const fontClasses: LkFontClass[] = [
@@ -105,7 +105,16 @@ export default function DropdownMenuStaging() {
             <h2 className="subheading mono m-bottom-xs">
               fontClass=<strong className="color-primary">{fontClass}</strong>
             </h2>
-            <MenuItemGroup color="onsurface" fontClass={fontClass} />
+            <Dropdown>
+              <DropdownTrigger>
+                <button>Open Menu</button>
+              </DropdownTrigger>
+              <DropdownMenu cardProps={{ scaleFactor: fontClass }}>
+                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                  End icon with extremely long text
+                </MenuItem>
+              </DropdownMenu>
+            </Dropdown>
           </Container>
         ))}
         <MenuItemGroup color="warning" />
@@ -123,39 +132,18 @@ function MenuItemGroup({
 }) {
   return (
     <>
-      <div className="bg-surfacecontainerhigh p-xl">
-        <Row gap="md">
-          <div className={`tempcard color-${color}`}>
-            <DropdownMenu>
-              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-                End icon
-              </MenuItem>
-              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-                End icon with long text
-              </MenuItem>
-              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-                boop
-              </MenuItem>
-              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-                End icon with extremely long text
-              </MenuItem>
-            </DropdownMenu>
-          </div>
-        </Row>
-      </div>
-
-      <style jsx>{`
-        .tempcard {
-          padding: 1em;
-          background-color: var(--lk-surfacecontainerlowest);
-          border-radius: 0.5em;
-          display: flex;
-          flex-flow: column nowrap;
-          flex: 1 0 0;
-          flex-basis: 0;
-          overflow: hidden;
-        }
-      `}</style>
+      <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+        End icon
+      </MenuItem>
+      <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+        End icon with long text
+      </MenuItem>
+      <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+        boop
+      </MenuItem>
+      <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+        End icon with extremely long text
+      </MenuItem>
     </>
   );
 }

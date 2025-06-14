@@ -36,11 +36,22 @@ interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; //explicitly defining because it's used in internal component logic
 }
 
-export default function MenuItem({ startIcon, endIcon, fontClass="body", children, className, ...restProps }: LkMenuItemProps) {
+export default function MenuItem({
+  startIcon,
+  endIcon,
+  fontClass = "body",
+  children,
+  className,
+  ...restProps
+}: LkMenuItemProps) {
   // const dataAttrs = useMemo(() => propsToDataAttrs(restProps, "menu-item"), [restProps]); omitting because it is not used
 
   return (
-    <div lk-component="menu-item" title={typeof children === "string" ? children : ""} className={`${fontClass} ${className || ''}`}>
+    <div
+      lk-component="menu-item"
+      title={typeof children === "string" ? children : ""}
+      className={`${fontClass} ${className || ""}`}
+    >
       {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
       <p lk-menu-item-element="content-wrap">{children}</p>
       {endIcon && <Icon {...endIcon} lk-icon-position="end"></Icon>}

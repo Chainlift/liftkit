@@ -45,3 +45,10 @@
 [lk-component="menu-item"] > [lk-component="state-layer"] {
   border-radius: var(--lk-size-xs);
 }
+
+
+/* Force-inherit font size when nested within lk-component="dropdown-menu" */
+
+[lk-component="dropdown-menu"] [lk-component="menu-item"] {
+  font-size: inherit !important;
+}
