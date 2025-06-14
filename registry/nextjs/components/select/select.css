@@ -36,10 +36,8 @@
 }
 
 /* Toggle floating label manually with data attributes */
-[lk-select-input-element="field-wrap"][data-focused="true"]
-  > [lk-select-input-label="label"][data-floating="true"],
-[lk-select-input-element="field-wrap"][data-has-value="true"]
-  > [lk-select-input-label="label"][data-floating="true"] {
+[lk-select-input-element="field-wrap"][data-focused="true"] > [lk-select-input-label="label"][data-floating="true"],
+[lk-select-input-element="field-wrap"][data-has-value="true"] > [lk-select-input-label="label"][data-floating="true"] {
   display: none;
 }
 
@@ -110,7 +108,7 @@
 /* --------------------------------------------------------------------------
    CUSTOM DROPDOWN LIST
    -------------------------------------------------------------------------- */
-[lk-component="dropdown-list"] {
+[lk-component="dropdown-menu"] {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;

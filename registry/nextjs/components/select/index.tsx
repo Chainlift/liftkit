@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import "@/registry/nextjs/components/select/select.css";
-import DropdownList from "@/registry/nextjs/components/dropdown-list";
+import DropdownMenu from "@/registry/nextjs/components/dropdown-menu";
 import Icon from "@/registry/nextjs/components/icon";
 
 interface Option {
@@ -45,10 +45,7 @@ export default function Select({
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(event.target as Node)
-      ) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
@@ -62,11 +59,7 @@ export default function Select({
     <div lk-component="select">
       {!isFloating && <label>{label}</label>}
 
-      <div
-        lk-select-input-element="field-wrap"
-        onClick={() => setOpen((prev) => !prev)}
-        style={{ cursor: "pointer" }}
-      >
+      <div lk-select-input-element="field-wrap" onClick={() => setOpen((prev) => !prev)} style={{ cursor: "pointer" }}>
         {isFloating && <label data-floating="true">{label}</label>}
 
         <div lk-component="state-layer" />
@@ -84,11 +77,7 @@ export default function Select({
           style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
         >
           {options.map((opt) => (
-            <option
-              key={opt.value}
-              value={opt.value}
-              onClick={() => handleSelect(opt.value)}
-            >
+            <option key={opt.value} value={opt.value} onClick={() => handleSelect(opt.value)}>
               {opt.label}
             </option>
           ))}
@@ -96,17 +85,13 @@ export default function Select({
       </div>
 
       {isOpen && (
-        <DropdownList lk-component="dropdown-list">
+        <DropdownMenu lk-component="dropdown-menu">
           {options.map((opt) => (
-            <div
-              key={opt.value}
-              className="dropdown-menu-item"
-              onClick={() => handleSelect(opt.value)}
-            >
+            <div key={opt.value} className="dropdown-menu-item" onClick={() => handleSelect(opt.value)}>
               {opt.label}
             </div>
           ))}
-        </DropdownList>
+        </DropdownMenu>
       )}
 
       {helpText && (
