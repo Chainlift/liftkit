@@ -8,6 +8,7 @@ import Container from "@/registry/nextjs/components/containers";
 import Grid from "@/registry/nextjs/components/grid";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import type { IconName } from "lucide-react/dynamic";
+import { LkIconProps } from "@/registry/nextjs/components/icon";
 
 export default function MenuItemStaging() {
   const fontClasses: LkFontClass[] = [
@@ -92,48 +93,83 @@ export default function MenuItemStaging() {
 
   return (
     <>
-      <Section>
-        <Heading tag="h2">Image Component Tests</Heading>
-        <MenuItemGroup color="primary" />
+      <Section padding="md">
+        <Container>
+          <Heading tag="h2" className="m-bottom-md">
+            Menu Item Component Tests
+          </Heading>
+        </Container>
+
+        {fontClasses.map((fontClass) => (
+          <Container className="m-bottom-xl" key={fontClass}>
+            <h2 className="subheading mono m-bottom-xs">
+              fontClass=<strong className="color-primary">{fontClass}</strong>
+            </h2>
+            <MenuItemGroup color="onsurface" fontClass={fontClass} />
+          </Container>
+        ))}
+        <MenuItemGroup color="warning" />
       </Section>
     </>
   );
 }
 
-function MenuItemGroup({ color = "primary" }: { color?: LkColor | string }) {
+function MenuItemGroup({
+  color = "warning",
+  fontClass = "body",
+}: {
+  color?: LkColor | string;
+  fontClass?: LkFontClass;
+}) {
   return (
     <>
       <div className="bg-surfacecontainerhigh p-xl">
         <Row gap="md">
           <div className={`tempcard color-${color}`}>
-            <MenuItem>Start icon</MenuItem>
-            <MenuItem>Start icon with long text</MenuItem>
-            <MenuItem>boop</MenuItem>
-            <MenuItem>Start icon with extremely long text</MenuItem>
+            <MenuItem fontClass={fontClass}>Start icon</MenuItem>
+            <MenuItem fontClass={fontClass}>Start icon with long text</MenuItem>
+            <MenuItem fontClass={fontClass}>boop</MenuItem>
+            <MenuItem fontClass={fontClass}>Start icon with extremely long text</MenuItem>
           </div>
           <div className={`tempcard color-${color}`}>
-            <MenuItem startIcon="circle">Start icon</MenuItem>
-            <MenuItem startIcon="circle">Start icon with long text</MenuItem>
-            <MenuItem startIcon="circle">boop</MenuItem>
-            <MenuItem startIcon="circle">Start icon with extremely long text</MenuItem>
-          </div>
-          <div className={`tempcard color-${color}`}>
-            <MenuItem endIcon="arrow-right">End icon</MenuItem>
-            <MenuItem endIcon="arrow-right">End icon with long text</MenuItem>
-            <MenuItem endIcon="arrow-right">boop</MenuItem>
-            <MenuItem endIcon="arrow-right">End icon with extremely long text</MenuItem>
-          </div>
-          <div className={`tempcard color-${color}`}>
-            <MenuItem startIcon="circle" endIcon="arrow-right">
-              End icon
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig}>
+              Start icon
             </MenuItem>
-            <MenuItem startIcon="circle" endIcon="arrow-right">
-              End icon with long text
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig}>
+              Start icon with long text
             </MenuItem>
-            <MenuItem startIcon="circle" endIcon="arrow-right">
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig}>
               boop
             </MenuItem>
-            <MenuItem startIcon="circle" endIcon="arrow-right">
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig}>
+              Start icon with extremely long text
+            </MenuItem>
+          </div>
+          <div className={`tempcard color-${color}`}>
+            <MenuItem fontClass={fontClass} endIcon={endIconConfig}>
+              End icon
+            </MenuItem>
+            <MenuItem fontClass={fontClass} endIcon={endIconConfig}>
+              End icon with long text
+            </MenuItem>
+            <MenuItem fontClass={fontClass} endIcon={endIconConfig}>
+              boop
+            </MenuItem>
+            <MenuItem fontClass={fontClass} endIcon={endIconConfig}>
+              End icon with extremely long text
+            </MenuItem>
+          </div>
+          <div className={`tempcard color-${color}`}>
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+              End icon
+            </MenuItem>
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+              End icon with long text
+            </MenuItem>
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+              boop
+            </MenuItem>
+            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
               End icon with extremely long text
             </MenuItem>
           </div>
@@ -155,3 +191,19 @@ function MenuItemGroup({ color = "primary" }: { color?: LkColor | string }) {
     </>
   );
 }
+
+const startIconConfig: LkIconProps = {
+  name: "circle",
+  fontClass: "body",
+  color: "error",
+  display: "block",
+  strokeWidth: 4,
+};
+
+const endIconConfig: LkIconProps = {
+  name: "arrow-right",
+  fontClass: "body",
+  color: "success",
+  display: "block",
+  strokeWidth: 2,
+};
