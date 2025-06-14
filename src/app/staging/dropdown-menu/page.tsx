@@ -100,30 +100,89 @@ export default function DropdownMenuStaging() {
             Dropdown Menu Component Tests
           </Heading>
         </Container>
-
-        {fontClasses.map((fontClass) => (
-          <Container className="m-bottom-xl" key={fontClass}>
-            <h2 className="subheading mono m-bottom-xs">
-              fontClass=<strong className="color-primary">{fontClass}</strong>
-            </h2>
-            <Dropdown>
-              <DropdownTrigger>
-                <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
-              </DropdownTrigger>
-              <DropdownMenu cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: {thickness: "normal", } }}>
-                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                  End icon with extremely long text
-                </MenuItem>
-                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                  End icon with extremely long text
-                </MenuItem>
-                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                  End icon with extremely long text
-                </MenuItem>
-              </DropdownMenu>
-            </Dropdown>
-          </Container>
-        ))}
+        <Row defaultChildBehavior="auto-grow">
+          <Column>
+            {fontClasses.map((fontClass) => (
+              <div>
+                <h2 className="subheading mono m-bottom-xs">
+                  fontClass=<strong className="color-primary">{fontClass}</strong>
+                </h2>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: { thickness: "normal" } }}
+                  >
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </div>
+            ))}
+          </Column>
+          <Column>
+            {fontClasses.map((fontClass) => (
+              <div>
+                <h2 className="subheading mono m-bottom-xs">
+                  fontClass=<strong className="color-primary">{fontClass}</strong>
+                </h2>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: { thickness: "normal" } }}
+                  >
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </div>
+            ))}
+          </Column>
+          <Column>
+            {fontClasses.map((fontClass) => (
+              <div>
+                <h2 className="subheading mono m-bottom-xs">
+                  fontClass=<strong className="color-primary">{fontClass}</strong>
+                </h2>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: { thickness: "normal" } }}
+                  >
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                    <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                      End icon with extremely long text
+                    </MenuItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </div>
+            ))}
+          </Column>
+        </Row>
       </Section>
     </>
   );
