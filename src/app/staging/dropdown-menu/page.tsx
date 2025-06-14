@@ -8,6 +8,7 @@ import Grid from "@/registry/nextjs/components/grid";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
+import DropdownMenu from "@/registry/nextjs/components/dropdown-menu";
 
 export default function DropdownMenuStaging() {
   const fontClasses: LkFontClass[] = [
@@ -125,18 +126,21 @@ function MenuItemGroup({
       <div className="bg-surfacecontainerhigh p-xl">
         <Row gap="md">
           <div className={`tempcard color-${color}`}>
-            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-              End icon
-            </MenuItem>
-            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-              End icon with long text
-            </MenuItem>
-            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-              boop
-            </MenuItem>
-            <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
-              End icon with extremely long text
-            </MenuItem>
+            <DropdownMenu>
+           
+              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+                End icon
+              </MenuItem>
+              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+                End icon with long text
+              </MenuItem>
+              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+                boop
+              </MenuItem>
+              <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
+                End icon with extremely long text
+              </MenuItem>
+            </DropdownMenu>
           </div>
         </Row>
       </div>

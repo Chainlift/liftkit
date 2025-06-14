@@ -7,13 +7,14 @@ import Card from "@/registry/nextjs/components/card";
 export interface LkDropdownProps {
   id?: string;
   align?: "left" | "right" | "center";
+  fontClass?: LkFontClass;
   children: ReactNode;
 }
 
-export default function DropdownMenu({ id, align = "left", children }: LkDropdownProps) {
+export default function DropdownMenu({ id, align = "left", fontClass="body", children }: LkDropdownProps) {
   return (
     <div id={id} className={`dropdown__menu dropdown__menu--${align}`} role="menu">
-      <Card> {children}</Card>
+      <Card scaleFactor={fontClass}>{children}</Card>
     </div>
   );
 }
