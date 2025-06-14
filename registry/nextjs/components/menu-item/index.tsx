@@ -20,6 +20,7 @@ import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/menu-item/menu-item.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import type { IconName } from "lucide-react/dynamic";
+import Icon from "@/registry/nextjs/components/icon";
 
 interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   startIcon?: IconName;
@@ -32,17 +33,9 @@ export default function MenuItem({ startIcon, endIcon, children, ...restProps }:
 
   return (
     <div lk-component="menu-item" {...dataAttrs}>
-      {startIcon && (
-        <i lk-component="icon" lk-icon-position="start">
-          {startIcon}
-        </i>
-      )}
+      {startIcon && <Icon name={startIcon} lk-icon-position="start"></Icon>}
       <span>{children}</span>
-      {endIcon && (
-        <i lk-component="icon" lk-icon-position="end">
-          {endIcon}
-        </i>
-      )}
+      {endIcon && <Icon name={endIcon} lk-icon-position="end"></Icon>}
       <StateLayer></StateLayer>
     </div>
   );

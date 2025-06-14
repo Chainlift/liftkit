@@ -103,12 +103,14 @@ export default function MenuItemStaging() {
 function MenuItemGroup() {
   return (
     <>
-      <MenuItem>No icon</MenuItem>
-      <MenuItem startIcon="circle">Start icon</MenuItem>
-      <MenuItem endIcon="arrow-right">End icon</MenuItem>
-      <MenuItem startIcon="circle" endIcon="arrow-right">
-        Both icons
-      </MenuItem>
+      <Row gap="md">
+        <MenuItem>No icon</MenuItem>
+        <MenuItem startIcon="circle">Start icon</MenuItem>
+        <MenuItem endIcon="arrow-right">End icon</MenuItem>
+        <MenuItem startIcon="circle" endIcon="arrow-right">
+          Both icons
+        </MenuItem>
+      </Row>
     </>
   );
 }
