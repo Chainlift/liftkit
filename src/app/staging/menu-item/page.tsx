@@ -94,8 +94,21 @@ export default function MenuItemStaging() {
     <>
       <Section>
         <Heading tag="h2">Image Component Tests</Heading>
-        <MenuItem></MenuItem>
+        <MenuItemGroup />
       </Section>
+    </>
+  );
+}
+
+function MenuItemGroup() {
+  return (
+    <>
+      <MenuItem>No icon</MenuItem>
+      <MenuItem startIcon="circle">Start icon</MenuItem>
+      <MenuItem endIcon="arrow-right">End icon</MenuItem>
+      <MenuItem startIcon="circle" endIcon="arrow-right">
+        Both icons
+      </MenuItem>
     </>
   );
 }
