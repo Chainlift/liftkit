@@ -1,3 +1,20 @@
+/**
+ * A menu item component that displays content with optional start and end icons.
+ * 
+ * @param startIcon - Optional icon to display at the start of the menu item
+ * @param endIcon - Optional icon to display at the end of the menu item
+ * @param children - The content to display in the menu item
+ * @param restProps - Additional HTML div attributes passed through to the component
+ * 
+ * @returns A menu item component with icons, content, and a state layer for interactions
+ * 
+ * @example
+ * ```tsx
+ * <MenuItem startIcon="🏠" endIcon="→">
+ *   Home
+ * </MenuItem>
+ * ```
+ */
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/menu-item/menu-item.css";
@@ -7,6 +24,8 @@ interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   endIcon?: string;
   children?: React.ReactNode;
 }
+
+
 
 export default function MenuItem({
   startIcon,
