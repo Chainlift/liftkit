@@ -10,7 +10,6 @@
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   min-width: 220px;
-  padding: 0.5rem 0;
   opacity: 0;
   transform: scaleY(0);
   visibility: hidden;
