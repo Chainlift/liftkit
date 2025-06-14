@@ -4,8 +4,8 @@ interface StateLayerProps {
   bgColor?: LkColor | "currentColor";
 }
 
-export default function StateLayer({ bgColor = "onsurface" }: StateLayerProps) {
-  console.log(bgColor);
+export default function StateLayer({ bgColor="currentColor"}: StateLayerProps) {
+  console.log('statelayer bgColor:', bgColor);
 
   return (
     <>

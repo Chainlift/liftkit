@@ -2,7 +2,7 @@ import { DynamicIcon } from "lucide-react/dynamic";
 import type { IconName } from "lucide-react/dynamic";
 import "@/registry/nextjs/components/icon/icon.css";
 
-interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
+export interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
   name?: IconName;
   fontClass?: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>;
   color?: LkColor | "currentColor";

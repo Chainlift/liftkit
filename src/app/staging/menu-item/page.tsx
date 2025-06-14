@@ -94,36 +94,36 @@ export default function MenuItemStaging() {
     <>
       <Section>
         <Heading tag="h2">Image Component Tests</Heading>
-        <MenuItemGroup />
+        <MenuItemGroup color="primary" />
       </Section>
     </>
   );
 }
 
-function MenuItemGroup() {
+function MenuItemGroup({ color = "primary" }: { color?: LkColor | string }) {
   return (
     <>
       <div className="bg-surfacecontainerhigh p-xl">
         <Row gap="md">
-          <div className="tempcard">
+          <div className={`tempcard color-${color}`}>
             <MenuItem>Start icon</MenuItem>
             <MenuItem>Start icon with long text</MenuItem>
             <MenuItem>boop</MenuItem>
             <MenuItem>Start icon with extremely long text</MenuItem>
           </div>
-          <div className="tempcard">
+          <div className={`tempcard color-${color}`}>
             <MenuItem startIcon="circle">Start icon</MenuItem>
             <MenuItem startIcon="circle">Start icon with long text</MenuItem>
             <MenuItem startIcon="circle">boop</MenuItem>
             <MenuItem startIcon="circle">Start icon with extremely long text</MenuItem>
           </div>
-          <div className="tempcard">
+          <div className={`tempcard color-${color}`}>
             <MenuItem endIcon="arrow-right">End icon</MenuItem>
             <MenuItem endIcon="arrow-right">End icon with long text</MenuItem>
             <MenuItem endIcon="arrow-right">boop</MenuItem>
             <MenuItem endIcon="arrow-right">End icon with extremely long text</MenuItem>
           </div>
-          <div className="tempcard">
+          <div className={`tempcard color-${color}`}>
             <MenuItem startIcon="circle" endIcon="arrow-right">
               End icon
             </MenuItem>

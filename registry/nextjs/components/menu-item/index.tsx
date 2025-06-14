@@ -21,10 +21,11 @@ import "@/registry/nextjs/components/menu-item/menu-item.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import type { IconName } from "lucide-react/dynamic";
 import Icon from "@/registry/nextjs/components/icon";
+import { LkIconProps } from "@/registry/nextjs/components/icon";
 
 interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  startIcon?: IconName;
-  endIcon?: IconName;
+  startIcon?: LkIconProps;
+  endIcon?: LkIconProps;
   children?: React.ReactNode;
   title?: string;
 }
@@ -34,9 +35,10 @@ export default function MenuItem({ startIcon, endIcon, children, ...restProps }:
 
   return (
     <div lk-component="menu-item" title={typeof children === "string" ? children : ""} {...dataAttrs}>
-      {startIcon && <Icon name={startIcon} lk-icon-position="start"></Icon>}
+      {startIcon && <Icon name={startIcon.name} lk-icon-position="start"></Icon>}
       <p lk-menu-item-element="content-wrap">{children}</p>
-      {endIcon && <Icon name={endIcon} lk-icon-position="end"></Icon>}
+      <Icon {...endIcon} lk-icon-position="end"></Icon>
+
       <StateLayer></StateLayer>
     </div>
   );
