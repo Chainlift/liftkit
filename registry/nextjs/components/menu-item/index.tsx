@@ -36,7 +36,7 @@ export default function MenuItem({ startIcon, endIcon, children, ...restProps }:
       {startIcon && <Icon name={startIcon} lk-icon-position="start"></Icon>}
       <span>{children}</span>
       {endIcon && <Icon name={endIcon} lk-icon-position="end"></Icon>}
-      <StateLayer ></StateLayer>
+      <StateLayer></StateLayer>
     </div>
   );
 }
