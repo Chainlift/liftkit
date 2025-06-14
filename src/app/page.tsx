@@ -80,32 +80,6 @@ export default function Home() {
           { label: "Two", value: "Two" },
         ]}
       />
-      {/* Refactored Dropdown Menu Component */}
-      <div className="flex-h justify-content-space-between w-full">
-        {["A", "B", "C"].map((key, index) => {
-          const align = index === 0 ? "left" : index === 2 ? "right" : "center";
-          return (
-            <div className="dropdown" key={key}>
-              <IconButton icon="airplay" aria-expanded="false" aria-controls={`${key}-dropdown`} tabIndex={0} />
-              <DropdownMenu
-                id={`${key}-dropdown`}
-                align={align}
-                cardProps={{ material: "glass", materialProps: { thickness: "thin", tint: "primary" } }}
-              >
-                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
-                  Airplay
-                </MenuItem>
-                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
-                  Airplay
-                </MenuItem>
-                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
-                  Airplay
-                </MenuItem>
-              </DropdownMenu>
-            </div>
-          );
-        })}
-      </div>
 
       <NavBar
         navButtons={[
