@@ -124,7 +124,6 @@ function MenuItemGroup({
     <>
       <div className="bg-surfacecontainerhigh p-xl">
         <Row gap="md">
-
           <div className={`tempcard color-${color}`}>
             <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
               End icon
