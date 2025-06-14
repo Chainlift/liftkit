@@ -13,7 +13,7 @@ import Grid from "@/registry/nextjs/components/grid";
 import TabContent from "@/registry/nextjs/components/tab-content";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Card from "@/registry/nextjs/components/card";
-import DropdownMenu from "@/registry/nextjs/components/dropdown-menu";
+
 import Snackbar from "@/registry/nextjs/components/snackbar";
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
