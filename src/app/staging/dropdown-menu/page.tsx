@@ -127,7 +127,6 @@ function MenuItemGroup({
         <Row gap="md">
           <div className={`tempcard color-${color}`}>
             <DropdownMenu>
-           
               <MenuItem fontClass={fontClass} startIcon={startIconConfig} endIcon={endIconConfig}>
                 End icon
               </MenuItem>

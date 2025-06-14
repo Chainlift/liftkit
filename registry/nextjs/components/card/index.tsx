@@ -60,7 +60,7 @@ export default function Card({
         </div>
         {/* todo: define types for material scrim thickness, */}
       </div>
-      {material === "glass" && <MaterialLayer material="glass" materialProps={{ thickness: "normal" }} />}
+      {material === "glass" && <MaterialLayer material="glass" materialProps={materialProps as LkMatProps_Glass} />}
       {material === "flat" && <MaterialLayer material="flat" materialProps={{ bgColor: bgColor }} />}
       {/**TODO: Define outlined card behavior */}
     </div>

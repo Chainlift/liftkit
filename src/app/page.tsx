@@ -20,6 +20,7 @@ import IconButton from "@/registry/nextjs/components/icon-button";
 import Select from "@/registry/nextjs/components/select";
 import { useState } from "react";
 import Link from "next/link";
+import MenuItem from "@/registry/nextjs/components/menu-item";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -65,6 +66,8 @@ export default function Home() {
   const toggleMenu = (id: string) => {
     setOpenMenus((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  
   return (
     <div className={styles.page}>
       <Select
@@ -84,12 +87,21 @@ export default function Home() {
           return (
             <div className="dropdown" key={key}>
               <IconButton icon="airplay" aria-expanded="false" aria-controls={`${key}-dropdown`} tabIndex={0} />
-              <DropdownMenu id={`${key}-dropdown`} align={align}>
-                <Link href="/">Item {key}1</Link>
-                <Link href="/">Item {key}2</Link>
+              <DropdownMenu
+                id={`${key}-dropdown`}
+                align={align}
+                cardProps={{ material: "glass", materialProps: { thickness: "thin", tint: "primary" } }}
+              >
+                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
+                  Airplay
+                </MenuItem>
+                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
+                  Airplay
+                </MenuItem>
+                <MenuItem fontClass="body" startIcon={{ name: "airplay" }}>
+                  Airplay
+                </MenuItem>
               </DropdownMenu>
-            
-        
             </div>
           );
         })}
