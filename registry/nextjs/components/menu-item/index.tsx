@@ -26,17 +26,18 @@ interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   startIcon?: IconName;
   endIcon?: IconName;
   children?: React.ReactNode;
+  title?: string;
 }
 
 export default function MenuItem({ startIcon, endIcon, children, ...restProps }: LkMenuItemProps) {
   const dataAttrs = useMemo(() => propsToDataAttrs(restProps, "menu-item"), [restProps]);
 
   return (
-    <div lk-component="menu-item" {...dataAttrs}>
+    <div lk-component="menu-item" title={typeof children === "string" ? children : ""} {...dataAttrs}>
       {startIcon && <Icon name={startIcon} lk-icon-position="start"></Icon>}
       <p lk-menu-item-element="content-wrap">{children}</p>
       {endIcon && <Icon name={endIcon} lk-icon-position="end"></Icon>}
-      <StateLayer ></StateLayer>
+      <StateLayer></StateLayer>
     </div>
   );
 }
