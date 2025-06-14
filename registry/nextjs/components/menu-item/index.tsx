@@ -1,10 +1,14 @@
 /**
  * A menu item component that displays content with optional start and end icons.
  *
- * @param startIcon - Optional icon to display at the start of the menu item
- * @param endIcon - Optional icon to display at the end of the menu item
- * @param children - The content to display in the menu item in between the icons
- * @param restProps - Additional HTML div attributes passed through to the component
+ * @param props - The menu item component props
+ * @param props.startIcon - Optional icon configuration to display at the start of the menu item
+ * @param props.endIcon - Optional icon configuration to display at the end of the menu item
+ * @param props.children - The content to display in the menu item between the icons
+ * @param props.fontClass - Font class to apply to the menu item, defaults to "body"
+ * @param props.title - Optional title attribute for the menu item element
+ * @param props.className - Additional CSS classes to apply to the menu item
+ * @param props.restProps - Additional HTML div attributes passed through to the component
  *
  * @returns A menu item component with icons, content, and a state layer for interactions
  *
