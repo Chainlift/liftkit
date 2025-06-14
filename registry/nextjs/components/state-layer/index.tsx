@@ -4,15 +4,12 @@ interface StateLayerProps {
   bgColor?: LkColor;
 }
 
-export default function StateLayer(props: StateLayerProps) {
-  const { bgColor } = props;
-
+export default function StateLayer({ bgColor = "onsurface" }: StateLayerProps) {
   console.log(bgColor);
 
   return (
     <>
       <div lk-component="state-layer" className={`bg-${bgColor}`}></div>
-
     </>
   );
 }
