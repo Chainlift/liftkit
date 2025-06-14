@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Section from "@/registry/nextjs/components/section";
 import Text from "@/registry/nextjs/components/text";
 import Row from "@/registry/nextjs/components/row";
-import Paragraph from "@/registry/nextjs/components/paragraph";
+
 import Sticker from "@/registry/nextjs/components/sticker";
 import Button from "@/registry/nextjs/components/button";
 import Image from "@/registry/nextjs/components/image";
@@ -149,7 +149,7 @@ export default function Home() {
       <Text fontClass="display1" tag="footer" color="primary">
         Hello World
       </Text>
-      <Paragraph fontClass="title1">
+      <p className="title1">
         ancient times cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
         honored cats as sacred creatures embodying grace&quot; mystery&quot; and spiritual power. The goddess Bastet
         depicted with the head of a lioness or domestic cat&quot; symbolized protection fertility&quot; and the
@@ -157,7 +157,7 @@ export default function Home() {
         movements and uncanny independence—has inspired a timeless belief that they walk between worlds. To this day
         many still joke (or suspect) that cats arent just pets but deities in disguise&quot; quietly ruling their human
         households with regal indifference.
-      </Paragraph>
+      </p>
       <div style={{ padding: "2rem" }}>
         <h2>Row with gap, justifyContent, alignItems</h2>
         <Row gap="lg" justify-content="space-around" align-items="center">
@@ -248,7 +248,7 @@ export default function Home() {
           Hello World
         </Text>
 
-        <Paragraph fontClass="title1">
+        <p className="title1">
           ancient times cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
           honored cats as sacred creatures embodying grace&quot; mystery&quot; and spiritual power. The goddess Bastet
           depicted with the head of a lioness or domestic cat&quot; symbolized protection fertility&quot; and the
@@ -256,7 +256,7 @@ export default function Home() {
           silent movements and uncanny independence—has inspired a timeless belief that they walk between worlds. To
           this day many still joke (or suspect) that cats arent just pets but deities in disguise&quot; quietly ruling
           their human households with regal indifference.
-        </Paragraph>
+        </p>
         <div style={{ padding: "2rem" }}>
           <h2>Row with gap, justifyContent, alignItems</h2>
           <Row gap="lg" justify-content="space-around" align-items="center">
@@ -543,7 +543,7 @@ export default function Home() {
         <Text fontClass="display1" tag="footer" color="primary">
           Hello World
         </Text>
-        <Paragraph fontClass="title1">
+        <p className="title1">
           ancient times, cats were not merely companions—they were revered as divine beings. Cultures like ancient Egypt
           honored cats as sacred creatures, embodying grace, mystery, and spiritual power. The goddess Bastet, depicted
           with the head of a lioness or domestic cat, symbolized protection, fertility, and the nurturing aspects of
@@ -551,7 +551,7 @@ export default function Home() {
           independence—has inspired a timeless belief that they walk between worlds. To this day, many still joke (or
           suspect) that cats aren’t just pets, but deities in disguise, quietly ruling their human households with regal
           indifference.
-        </Paragraph>
+        </p>
       </div>
     </div>
   );
