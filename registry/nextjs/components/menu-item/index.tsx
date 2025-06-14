@@ -3,7 +3,7 @@
  * 
  * @param startIcon - Optional icon to display at the start of the menu item
  * @param endIcon - Optional icon to display at the end of the menu item
- * @param children - The content to display in the menu item
+ * @param children - The content to display in the menu item in between the icons
  * @param restProps - Additional HTML div attributes passed through to the component
  * 
  * @returns A menu item component with icons, content, and a state layer for interactions
