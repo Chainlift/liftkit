@@ -10,8 +10,17 @@
   padding-bottom: var(--py);
   gap: var(--gap);
   position: relative;
+
+  /* Required for text-overflow ellipsis */
   overflow: hidden;
   cursor: pointer;
+}
+
+[lk-menu-item-element="content-wrap"] {
+  flex: 1 0 0;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 
 /* Left padding with start icon */

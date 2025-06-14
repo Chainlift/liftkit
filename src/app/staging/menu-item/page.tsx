@@ -103,18 +103,42 @@ export default function MenuItemStaging() {
 function MenuItemGroup() {
   return (
     <>
-      <body className="bg-surfacecontainerhigh">
+      <div className="bg-surfacecontainerhigh p-xl">
         <Row gap="md">
           <div className="tempcard">
-            <MenuItem>No icon</MenuItem>
+            <MenuItem>Start icon</MenuItem>
+            <MenuItem>Start icon with long text</MenuItem>
+            <MenuItem>boop</MenuItem>
+            <MenuItem>Start icon with extremely long text</MenuItem>
+          </div>
+          <div className="tempcard">
             <MenuItem startIcon="circle">Start icon</MenuItem>
+            <MenuItem startIcon="circle">Start icon with long text</MenuItem>
+            <MenuItem startIcon="circle">boop</MenuItem>
+            <MenuItem startIcon="circle">Start icon with extremely long text</MenuItem>
+          </div>
+          <div className="tempcard">
             <MenuItem endIcon="arrow-right">End icon</MenuItem>
+            <MenuItem endIcon="arrow-right">End icon with long text</MenuItem>
+            <MenuItem endIcon="arrow-right">boop</MenuItem>
+            <MenuItem endIcon="arrow-right">End icon with extremely long text</MenuItem>
+          </div>
+          <div className="tempcard">
             <MenuItem startIcon="circle" endIcon="arrow-right">
-              Both icons
+              End icon
+            </MenuItem>
+            <MenuItem startIcon="circle" endIcon="arrow-right">
+              End icon with long text
+            </MenuItem>
+            <MenuItem startIcon="circle" endIcon="arrow-right">
+              boop
+            </MenuItem>
+            <MenuItem startIcon="circle" endIcon="arrow-right">
+              End icon with extremely long text
             </MenuItem>
           </div>
         </Row>
-      </body>
+      </div>
 
       <style jsx>{`
         .tempcard {
@@ -123,6 +147,9 @@ function MenuItemGroup() {
           border-radius: 0.5em;
           display: flex;
           flex-flow: column nowrap;
+          flex: 1 0 0;
+          flex-basis: 0;
+          overflow: hidden;
         }
       `}</style>
     </>

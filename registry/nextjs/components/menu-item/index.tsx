@@ -34,7 +34,7 @@ export default function MenuItem({ startIcon, endIcon, children, ...restProps }:
   return (
     <div lk-component="menu-item" {...dataAttrs}>
       {startIcon && <Icon name={startIcon} lk-icon-position="start"></Icon>}
-      <span>{children}</span>
+      <p lk-menu-item-element="content-wrap">{children}</p>
       {endIcon && <Icon name={endIcon} lk-icon-position="end"></Icon>}
       <StateLayer ></StateLayer>
     </div>
