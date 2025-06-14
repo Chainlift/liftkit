@@ -6,6 +6,7 @@
   padding-top: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
   padding-bottom: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
   position: relative;
+  overflow: hidden;
 }
 
 /* Left padding with start icon */
