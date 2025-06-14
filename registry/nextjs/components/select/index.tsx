@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import "@/registry/nextjs/components/select/select.css";
-import DropdownMenu from "@/registry/nextjs/components/dropdown-menu";
+
 import Icon from "@/registry/nextjs/components/icon";
 
 interface Option {
@@ -84,7 +84,7 @@ export default function Select({
         </select>
       </div>
 
-      {isOpen && (
+      {/* {isOpen && (
         <DropdownMenu lk-component="dropdown-menu">
           {options.map((opt) => (
             <div key={opt.value} className="dropdown-menu-item" onClick={() => handleSelect(opt.value)}>
@@ -92,7 +92,7 @@ export default function Select({
             </div>
           ))}
         </DropdownMenu>
-      )}
+      )} */}
 
       {helpText && (
         <div lk-select-input-help="help-text">
