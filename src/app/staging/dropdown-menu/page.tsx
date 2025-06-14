@@ -103,7 +103,7 @@ export default function DropdownMenuStaging() {
         <Row defaultChildBehavior="auto-grow">
           <Column>
             {fontClasses.map((fontClass) => (
-              <div>
+              <div key={fontClass}>
                 <h2 className="subheading mono m-bottom-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
@@ -130,7 +130,7 @@ export default function DropdownMenuStaging() {
           </Column>
           <Column>
             {fontClasses.map((fontClass) => (
-              <div>
+              <div key={fontClass + "1"}>
                 <h2 className="subheading mono m-bottom-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
@@ -157,7 +157,7 @@ export default function DropdownMenuStaging() {
           </Column>
           <Column>
             {fontClasses.map((fontClass) => (
-              <div>
+              <div key={fontClass + "2"}>
                 <h2 className="subheading mono m-bottom-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
