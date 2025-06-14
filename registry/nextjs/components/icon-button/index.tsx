@@ -16,7 +16,7 @@ interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
   // color?: string; // LkColor
   color?: LkColorWithOnToken;
   size?: LkIconButtonSize;
-  fontClass?: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>; //optional, if present it will control the size directly via fontClass
+  fontClass?: LkFontClass; //optional, if present it will control the size directly via fontClass
   className?: string; //optional, making explicit here so we can control how it mixes in with locally-passed props
 }
 
@@ -36,7 +36,7 @@ export default function IconButton({
   /** Dynamically set stroke width based on font class */
   let iconStrokeWidth: number = getIconStrokeWidth(fontClass);
 
-  function getIconStrokeWidth(fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>) {
+  function getIconStrokeWidth(fontClass: LkFontClass) {
     switch (fontClass) {
       case "display1":
       case "display2":

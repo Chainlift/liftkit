@@ -81,8 +81,8 @@ export function DropdownMenu({ children, cardProps }: LkDropdownMenuProps) {
 
   return ReactDOM.createPortal(
     <div ref={contentRef} style={style} role="menu" lk-component="dropdown-menu">
-      <Card {...cardProps}>
-        <Column gap="none">{children}</Column>
+      <Card {...cardProps} className="shadow-xl">
+        <Column gap="none" className={cardProps?.scaleFactor}>{children}</Column>
       </Card>
     </div>,
     document.body

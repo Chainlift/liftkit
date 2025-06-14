@@ -9,6 +9,7 @@ import MenuItem from "@/registry/nextjs/components/menu-item";
 import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
+import IconButton from "@/registry/nextjs/components/icon-button";
 
 export default function DropdownMenuStaging() {
   const fontClasses: LkFontClass[] = [
@@ -107,9 +108,15 @@ export default function DropdownMenuStaging() {
             </h2>
             <Dropdown>
               <DropdownTrigger>
-                <button>Open Menu</button>
+                <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
               </DropdownTrigger>
-              <DropdownMenu cardProps={{ scaleFactor: fontClass }}>
+              <DropdownMenu cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: {thickness: "normal", } }}>
+                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                  End icon with extremely long text
+                </MenuItem>
+                <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
+                  End icon with extremely long text
+                </MenuItem>
                 <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
                   End icon with extremely long text
                 </MenuItem>
@@ -117,7 +124,6 @@ export default function DropdownMenuStaging() {
             </Dropdown>
           </Container>
         ))}
-        <MenuItemGroup color="warning" />
       </Section>
     </>
   );

@@ -50,7 +50,7 @@ export default function MenuItem({
     <div
       lk-component="menu-item"
       title={typeof children === "string" ? children : ""}
-      className={`${fontClass} ${className || ""}`}
+      className={`${className || ""}`}
     >
       {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
       <p lk-menu-item-element="content-wrap">{children}</p>
