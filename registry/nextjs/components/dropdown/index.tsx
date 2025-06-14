@@ -1,3 +1,5 @@
+'use client';
+
 // CustomDropdown.tsx
 import Card, { LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";

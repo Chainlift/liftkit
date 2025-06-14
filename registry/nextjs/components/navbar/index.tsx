@@ -8,6 +8,7 @@ import IconButton from "@/registry/nextjs/components/icon-button";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
 import "@/registry/nextjs/components/navbar/navbar.css";
+import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
@@ -19,16 +20,16 @@ interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * A responsive navigation bar component that displays different layouts for desktop and mobile views.
- * 
+ *
  * @param material - The visual style/material of the navbar, defaults to "flat"
  * @param navButtons - React elements to be displayed as navigation buttons
  * @param navDropdowns - React elements to be displayed as navigation dropdown menus
  * @param iconButtons - React elements to be displayed as icon-based buttons
  * @param ctaButtons - React elements to be displayed as call-to-action buttons
  * @param restProps - Additional props to be passed to the component
- * 
+ *
  * @returns A JSX element containing a responsive navbar with desktop and mobile layouts
- * 
+ *
  * @example
  * ```tsx
  * <NavBar
@@ -48,10 +49,7 @@ export default function NavBar({
   ctaButtons,
   ...restProps
 }: LkNavBarProps) {
-  const dataAttrs = useMemo(
-    () => propsToDataAttrs({ material, restProps }, "navbar"),
-    [material, restProps],
-  );
+  const dataAttrs = useMemo(() => propsToDataAttrs({ material, restProps }, "navbar"), [material, restProps]);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -79,10 +77,7 @@ export default function NavBar({
 
       {/* Mobile Navbar */}
       <div lk-navbar-el="nav-menu">
-        <Column
-          alignItems="start"
-          className={`navbar-mobile ${menuOpen ? "active" : ""}`}
-        >
+        <Column alignItems="start" className={`navbar-mobile ${menuOpen ? "active" : ""}`}>
           <IconButton icon="menu" onClick={() => toggleMenu()} />
           <Link href="/">
             <Image alt="" src="/vercel.svg" width="md" height="md" />
@@ -93,6 +88,7 @@ export default function NavBar({
           <Column className="flex-h gap-sm">{ctaButtons}</Column>
         </Column>
       </div>
+      {material === "glass" && <MaterialLayer material="glass"></MaterialLayer>}
     </div>
   );
 }

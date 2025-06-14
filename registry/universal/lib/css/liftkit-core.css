@@ -399,7 +399,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   color: var(--lk-onbackground);
   background: var(--lk-background);
   color-scheme: dark;
