@@ -10,6 +10,7 @@ import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import IconButton from "@/registry/nextjs/components/icon-button";
+import Select from "@/registry/nextjs/components/select";
 
 export default function SelectStaging() {
   const fontClasses: LkFontClass[] = [
@@ -106,6 +107,7 @@ export default function SelectStaging() {
               <h2 className="subheading mono m-bottom-xs">
                 fontClass=<strong className="color-primary">{fontClass}</strong>
               </h2>
+              <Select></Select>
               <Dropdown>
                 <DropdownTrigger>
                   <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
