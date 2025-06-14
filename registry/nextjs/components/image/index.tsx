@@ -1,3 +1,15 @@
+/**
+ * A customizable image component with built-in aspect ratio, sizing, and styling options.
+ * 
+ * @param aspect - The aspect ratio of the image. Defaults to "auto"
+ * @param borderRadius - The border radius size unit or "none"/"zero". Defaults to undefined
+ * @param objectFit - CSS object-fit property value. Defaults to "fill"
+ * @param width - Width size unit or "auto". Defaults to "auto"
+ * @param height - Height size unit or "auto". Defaults to "auto"
+ * @param rest - Additional HTML img element attributes
+ * 
+ * @returns A styled img element with data attributes for CSS styling
+ */
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/image/image.css";
@@ -15,7 +27,7 @@ type LkAspectRatio =
   | "1/2"
   | "9/16"
   | "4/5";
-  
+
 type LkSizeUnit =
   | "3xs"
   | "2xs"

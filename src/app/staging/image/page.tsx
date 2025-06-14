@@ -59,7 +59,7 @@ export default function ImageStaging() {
                     <div key={width + aspect + objectFit}>
                       <div className="caption">ObjectFit: {objectFit}</div>
                       <div style={{ outline: "1px solid var(--lk-info)" }}>
-                        <Image src="/testimage.png" width={width} aspect={aspect} objectFit={objectFit}></Image>
+                        <Image src="/testimage.png" width={width} aspect={aspect} objectFit={objectFit} alt=""></Image>
                       </div>
                     </div>
                   ))}
