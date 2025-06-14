@@ -103,14 +103,28 @@ export default function MenuItemStaging() {
 function MenuItemGroup() {
   return (
     <>
-      <Row gap="md">
-        <MenuItem>No icon</MenuItem>
-        <MenuItem startIcon="circle">Start icon</MenuItem>
-        <MenuItem endIcon="arrow-right">End icon</MenuItem>
-        <MenuItem startIcon="circle" endIcon="arrow-right">
-          Both icons
-        </MenuItem>
-      </Row>
+      <body className="bg-surfacecontainerhigh">
+        <Row gap="md">
+          <div className="tempcard">
+            <MenuItem>No icon</MenuItem>
+            <MenuItem startIcon="circle">Start icon</MenuItem>
+            <MenuItem endIcon="arrow-right">End icon</MenuItem>
+            <MenuItem startIcon="circle" endIcon="arrow-right">
+              Both icons
+            </MenuItem>
+          </div>
+        </Row>
+      </body>
+
+      <style jsx>{`
+        .tempcard {
+          padding: 1em;
+          background-color: var(--lk-surfacecontainerlowest);
+          border-radius: 0.5em;
+          display: flex;
+          flex-flow: column nowrap;
+        }
+      `}</style>
     </>
   );
 }
