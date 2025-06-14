@@ -18,13 +18,13 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/menu-item/menu-item.css";
+import type { IconName } from "lucide-react/dynamic";
 
 interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  startIcon?: string;
-  endIcon?: string;
+  startIcon?: IconName;
+  endIcon?: IconName;
   children?: React.ReactNode;
 }
-
 
 
 export default function MenuItem({
