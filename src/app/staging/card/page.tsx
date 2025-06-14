@@ -9,7 +9,6 @@ import Column from "@/registry/nextjs/components/column";
 import Container from "@/registry/nextjs/components/containers";
 import Badge from "@/registry/nextjs/components/badge";
 import Card from "@/registry/nextjs/components/card";
-import Paragraph from "@/registry/nextjs/components/paragraph";
 export default function CardStaging() {
   const scaleFactors: LkFontClass[] = [
     "display1",
