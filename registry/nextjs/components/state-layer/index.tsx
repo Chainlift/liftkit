@@ -2,10 +2,11 @@ import "@/registry/nextjs/components/state-layer/state-layer.css";
 
 interface StateLayerProps {
   bgColor?: LkColor | "currentColor";
+  forcedState?: "hover" | "active" | "focus"; // Used when you need a static state controlled by something higher, like a select field that keeps actively-selected options grayed out
 }
 
-export default function StateLayer({ bgColor="currentColor"}: StateLayerProps) {
-  console.log('statelayer bgColor:', bgColor);
+export default function StateLayer({ bgColor = "currentColor", forcedState }: StateLayerProps) {
+  console.log("statelayer bgColor:", bgColor);
 
   return (
     <>
@@ -13,6 +14,7 @@ export default function StateLayer({ bgColor="currentColor"}: StateLayerProps) {
         lk-component="state-layer"
         className={bgColor !== "currentColor" ? `bg-${bgColor}` : ""}
         style={bgColor === "currentColor" ? { backgroundColor: "currentColor" } : {}}
+        {...(forcedState && { "lk-forced-state": forcedState })}
       ></div>
     </>
   );

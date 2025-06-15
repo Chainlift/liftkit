@@ -40,3 +40,7 @@ li:focus > [lk-component="state-layer"] {
 .list-item.active [lk-component="state-layer"] {
   opacity: 0.24 !important;
 }
+
+[lk-forced-state="active"] {
+  opacity: 0.12 !important;
+}

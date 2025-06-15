@@ -245,7 +245,6 @@ export function SelectOption({ value, children, onClick, startIcon, endIcon }: L
       data-selected={isSelected}
       style={{
         cursor: "pointer",
-        backgroundColor: isSelected ? "#f0f0f0" : "transparent",
         fontWeight: isSelected ? "bold" : "normal",
       }}
       className="select-option"
@@ -253,7 +252,7 @@ export function SelectOption({ value, children, onClick, startIcon, endIcon }: L
       {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
       <p lk-menu-item-element="content-wrap">{children}</p>
       {endIcon && <Icon {...endIcon} lk-icon-position="end"></Icon>}
-      <StateLayer></StateLayer>
+      <StateLayer forcedState={isSelected ? 'active' : undefined}></StateLayer>
     </div>
   );
 }
