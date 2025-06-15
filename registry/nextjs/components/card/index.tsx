@@ -43,8 +43,8 @@ export default function Card({
   ...restProps
 }: LkCardProps) {
   const lkCardAttrs = useMemo(
-    () => propsToDataAttrs({ scaleFactor, variant, material, className, opticalCorrection }, "card"),
-    [scaleFactor, variant, material, className, opticalCorrection]
+    () => propsToDataAttrs({ scaleFactor, variant, material, className }, "card"),
+    [scaleFactor, variant, material, className]
   );
 
   return (

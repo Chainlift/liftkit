@@ -7,5 +7,13 @@
   /* background-color: var(--lk-primary); */
   color: var(--lk-onsurface);
   box-shadow: var(--shadow-xs);
+
+[lk-slot="snackbar-text"] {
+  flex: 1 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 }
 

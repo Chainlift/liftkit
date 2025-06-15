@@ -8,6 +8,7 @@ export interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: LkColorWithOnToken;
   scale?: "md" | "lg";
   iconStrokeWidth?: number;
+  scrim?: boolean;
 }
 
 /**
@@ -60,6 +61,7 @@ export default function Badge({
           ></Icon>
         </div>
       </div>
+      <div lk-component="badge-scrim" className={`bg-${iconColor}`}></div>
     </div>
   );
 }

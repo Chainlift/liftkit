@@ -7,6 +7,13 @@
   border-radius: var(--lk-size-sm);
   background: var(--LiftKit-Default-sys-light-surface-container, #eeedf8);
   font-size: var(--lk-size-md);
+  position: relative;
+  overflow: hidden;
+
+  [lk-slot="icon"] {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 /* Scale modifiers */
@@ -129,9 +136,14 @@
   color: var(--lk-onsurfacevariant);
 }
 
-
 [lk-badge-color="lk-inversesurface"] {
   background-color: var(--lk-inversesurface);
   color: var(--lk-inverseonsurface);
 }
 
+[lk-component="badge-scrim"] {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.2;
+}

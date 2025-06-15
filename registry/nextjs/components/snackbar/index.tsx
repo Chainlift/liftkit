@@ -92,10 +92,9 @@ export default function Snackbar(props: LkSnackbarProps) {
   );
 
   return (
-    <div lk-component="snackbar" {...dataAttrs} {...restProps} >
-      <Card scaleFactor={fontClass} bgColor={globalColor}>
-        <Row alignItems="center">
-      
+    <div lk-component="snackbar" {...dataAttrs} {...restProps}>
+      <Card scaleFactor={fontClass} bgColor={globalColor} >
+        <Row alignItems="center" gap="md">
           {/* Badge slot */}
           {badge && (
             <div lk-slot="snackbar-badge">
@@ -117,32 +116,39 @@ export default function Snackbar(props: LkSnackbarProps) {
             </div>
           )}
           {/* Action buttons slot */}
-          {buttons.length > 0 && (
-            <div lk-slot="snackbar-actions">
-              {buttons.map((button, index) =>
-                globalColor
-                  ? React.cloneElement(button, { key: index, color: globalColor, size: "sm" } as Partial<LkButtonProps>)
-                  : React.cloneElement(button, { key: index, size: "sm" } as Partial<LkButtonProps>)
-              )}
-            </div>
-          )}
-          {/* Icon buttons slot (typically for close/dismiss) */}
-          {iconButtons.length > 0 && (
-            <div lk-slot="snackbar-icon-actions">
-              {iconButtons.map((iconButton, index) =>
-                globalColor
-                  ? React.cloneElement(iconButton, {
-                      key: index,
-                      color: globalColor,
-                      fontClass: "heading",
-                    } as Partial<LkIconButtonProps>)
-                  : React.cloneElement(iconButton, {
-                      key: index,
-                      fontClass: getAdjustedFontClass("IconButton", fontClass),
-                    } as Partial<LkIconButtonProps>)
-              )}
-            </div>
-          )}
+          <Row>
+            {" "}
+            {buttons.length > 0 && (
+              <div lk-slot="snackbar-actions">
+                {buttons.map((button, index) =>
+                  globalColor
+                    ? React.cloneElement(button, {
+                        key: index,
+                        color: globalColor,
+                        size: "sm",
+                      } as Partial<LkButtonProps>)
+                    : React.cloneElement(button, { key: index, size: "sm" } as Partial<LkButtonProps>)
+                )}
+              </div>
+            )}
+            {/* Icon buttons slot (typically for close/dismiss) */}
+            {iconButtons.length > 0 && (
+              <div lk-slot="snackbar-icon-actions">
+                {iconButtons.map((iconButton, index) =>
+                  globalColor
+                    ? React.cloneElement(iconButton, {
+                        key: index,
+                        color: globalColor,
+                        fontClass: "heading",
+                      } as Partial<LkIconButtonProps>)
+                    : React.cloneElement(iconButton, {
+                        key: index,
+                        fontClass: getAdjustedFontClass("IconButton", fontClass),
+                      } as Partial<LkIconButtonProps>)
+                )}
+              </div>
+            )}
+          </Row>
         </Row>
       </Card>
     </div>
@@ -171,6 +177,4 @@ function getAdjustedFontClass(componentName: string, parentFontClass: LkFontClas
   }
 }
 
-function getBadgeColor(globalColor: LkColorWithOnToken) {
-
-}
+function getBadgeColor(globalColor: LkColorWithOnToken) {}
