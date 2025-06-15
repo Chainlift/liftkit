@@ -86,6 +86,14 @@ export default function SnackbarStaging() {
                 </Snackbar>
               ))}
             </Column>
+            <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+              <h2 className="title2 mono m-bottom-md">Neither AND no globalColor</h2>
+              {colors.map((color) => (
+                <Snackbar key={color}>
+                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                </Snackbar>
+              ))}
+            </Column>
           </Row>
         </Container>
       </Section>

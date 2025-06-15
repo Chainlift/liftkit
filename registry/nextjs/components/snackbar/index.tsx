@@ -27,14 +27,7 @@ interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
  * A snackbar component that displays temporary notifications with optional action buttons.
  */
 export default function Snackbar(props: LkSnackbarProps) {
-  const {
-    globalColor,
-    message = "Notification text goes here.",
-
-    cardProps,
-    children,
-    ...restProps
-  } = props;
+  const { globalColor, message = "Notification text goes here.", cardProps, children, ...restProps } = props;
 
   // Declare allowed types, so if a child with the wrong type is passed, it'll throw an error
   const allowedTypes = [Badge, Button, Icon, IconButton, Text] as React.ComponentType<any>[];
@@ -104,7 +97,12 @@ export default function Snackbar(props: LkSnackbarProps) {
   }
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor={icon ? "subheading" : "body"} bgColor={globalColor} opticalCorrection={icon ? "none" : "y"}>
+      <Card
+        scaleFactor={icon ? "subheading" : "body"}
+        bgColor={globalColor}
+        opticalCorrection={icon ? "none" : "y"}
+        className={`shadow-sm ${(cardProps && cardProps.className) || ""}`}
+      >
         <Row alignItems="center">
           {/* Badge slot */}
 
