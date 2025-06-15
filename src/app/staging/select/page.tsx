@@ -10,7 +10,7 @@ import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select2";
+import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select";
 import TextInput from "@/registry/nextjs/components/text-input";
 import React from "react";
 

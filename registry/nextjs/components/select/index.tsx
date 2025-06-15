@@ -1,8 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+"use client";
 
-import "@/registry/nextjs/components/select/select.css";
-
+// CustomSelect.tsx
+import Card, { LkCardProps } from "@/registry/nextjs/components/card";
+import React, { useContext, useState, useRef, useEffect, createContext } from "react";
+import Column from "@/registry/nextjs/components/column";
 import Icon from "@/registry/nextjs/components/icon";
+import { LkIconProps } from "@/registry/nextjs/components/icon";
+import ReactDOM from "react-dom";
+import "@/registry/nextjs/components/select/select.css";
+import StateLayer from "@/registry/nextjs/components/state-layer";
 
 interface Option {
   label: string;
@@ -18,88 +24,253 @@ interface SelectProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   name?: string;
+  children: React.ReactNode;
 }
 
-export default function Select({
-  label,
-  labelPosition = "default",
-  helpText,
-  placeholderText = "Select an option",
-  options,
-  value,
-  onChange,
-  name,
-}: SelectProps) {
-  const [isOpen, setOpen] = useState(false);
-  const selectedOption = options.find((opt) => opt.value === value);
-  const isFloating = labelPosition === "on-input";
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const handleSelect = (val: string) => {
-    const syntheticEvent = {
-      target: { name, value: val },
-    } as unknown as React.ChangeEvent<HTMLSelectElement>;
-    onChange(syntheticEvent);
+interface LkSelectContext {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  triggerRef: React.RefObject<HTMLElement | null>;
+  contentRef: React.RefObject<HTMLDivElement | null>;
+  selectedValue: string;
+  setSelectedValue: (value: string) => void;
+  options: Option[];
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  name?: string;
+}
+
+export interface LkSelectTriggerProps {
+  children: React.ReactElement;
+}
+
+export interface LkSelectMenuProps {
+  children: React.ReactNode;
+  cardProps?: LkCardProps;
+}
+
+export interface LkSelectOptionProps {
+  value: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+  startIcon?: LkIconProps;
+  endIcon?: LkIconProps;
+}
+
+// Context for select state
+const SelectContext = createContext<LkSelectContext>({} as LkSelectContext);
+
+export function Select({ children, options = [], value = "", onChange, name }: SelectProps) {
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(value);
+  const triggerRef = useRef(null);
+  const contentRef = useRef(null);
+  const hiddenSelectRef = useRef<HTMLSelectElement>(null);
+
+  // Update selected value when prop changes
+  useEffect(() => {
+    setSelectedValue(value);
+  }, [value]);
+
+  // Handle value changes and trigger onChange callback
+  const handleValueChange = (newValue: string) => {
+    setSelectedValue(newValue);
     setOpen(false);
+
+    // Update hidden select and trigger change event
+    if (hiddenSelectRef.current && onChange) {
+      hiddenSelectRef.current.value = newValue;
+      const syntheticEvent = {
+        target: hiddenSelectRef.current,
+        currentTarget: hiddenSelectRef.current,
+        nativeEvent: new Event("change", { bubbles: true }),
+        bubbles: true,
+        cancelable: true,
+        defaultPrevented: false,
+        eventPhase: 0,
+        isTrusted: false,
+        timeStamp: Date.now(),
+        type: "change",
+        isDefaultPrevented: () => false,
+        isPropagationStopped: () => false,
+        persist: () => {},
+        preventDefault: () => {},
+        stopPropagation: () => {},
+      } as React.ChangeEvent<HTMLSelectElement>;
+      onChange(syntheticEvent);
+    }
   };
 
-  // Close dropdown when clicking outside
+  // Global singleton registry
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    if (!open) return;
+    const self = { close: () => setOpen(false) };
+    SelectRegistry.register(self);
+    return () => SelectRegistry.unregister(self);
+  }, [open]);
 
   return (
-    <div lk-component="select">
-      {!isFloating && <label>{label}</label>}
+    <SelectContext.Provider
+      value={{
+        open,
+        setOpen,
+        triggerRef,
+        contentRef,
+        selectedValue,
+        setSelectedValue: handleValueChange,
+        options,
+        onChange,
+        name,
+      }}
+    >
+      {/* Hidden native select for form compatibility */}
+      <select
+        ref={hiddenSelectRef}
+        name={name}
+        value={selectedValue}
+        onChange={() => {}} // Controlled by our custom logic
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          opacity: 0,
+          pointerEvents: "none",
+        }}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        <option value="" disabled></option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      {children}
+    </SelectContext.Provider>
+  );
+}
 
-      <div lk-select-input-element="field-wrap" onClick={() => setOpen((prev) => !prev)} style={{ cursor: "pointer" }}>
-        {isFloating && <label data-floating="true">{label}</label>}
+export function SelectTrigger({ children }: LkSelectTriggerProps) {
+  const { open, setOpen, triggerRef } = useContext(SelectContext);
+  return React.cloneElement(children, {
+    ref: triggerRef,
+    onClick: () => setOpen(!open),
+    "aria-expanded": open,
+    "aria-haspopup": "menu",
+  } as any);
+}
 
-        <div lk-component="state-layer" />
-        <span>{selectedOption?.label || placeholderText}</span>
+export function SelectMenu({ children, cardProps }: LkSelectMenuProps) {
+  const { open, setOpen, triggerRef, contentRef } = useContext(SelectContext);
 
-        <Icon name="chevron-down" color="surface" lk-select-input-icon="icon" />
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        contentRef.current &&
+        !contentRef.current.contains(e.target as Node) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+    if (open) document.addEventListener("mousedown", handleClickOutside);
 
-        {/* Hidden native select for semantic support */}
-        <select
-          name={name}
-          value={value}
-          onChange={onChange}
-          aria-hidden="true"
-          tabIndex={-1}
-          style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
-        >
-          {options.map((opt) => (
-            <option key={opt.value} value={opt.value} onClick={() => handleSelect(opt.value)}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      </div>
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
-      {/* {isOpen && (
-        <DropdownMenu lk-component="dropdown-menu">
-          {options.map((opt) => (
-            <div key={opt.value} className="dropdown-menu-item" onClick={() => handleSelect(opt.value)}>
-              {opt.label}
-            </div>
-          ))}
-        </DropdownMenu>
-      )} */}
+  // Handle keyboard navigation
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (!open) return;
 
-      {helpText && (
-        <div lk-select-input-help="help-text">
-          <Icon name="info" color="surface" />
-          {helpText}
-        </div>
-      )}
+      if (e.key === "Escape") {
+        setOpen(false);
+        if (triggerRef.current) {
+          (triggerRef.current as HTMLElement).focus();
+        }
+      }
+    }
+
+    if (open) document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open, setOpen, triggerRef]);
+
+  if (!open || !triggerRef.current) return null;
+
+  const rect = triggerRef.current.getBoundingClientRect();
+
+  return ReactDOM.createPortal(
+    <div
+      ref={contentRef}
+      style={{ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX }}
+      role="menu"
+      lk-component="select-menu"
+      data-isactive={open}
+    >
+      <Card {...cardProps} className="shadow-xl">
+        <Column gap="none" className={cardProps?.scaleFactor}>
+          {children}
+        </Column>
+      </Card>
+    </div>,
+    document.body
+  );
+}
+
+export function SelectOption({ value, children, onClick, startIcon, endIcon }: LkSelectOptionProps) {
+  const { selectedValue, setSelectedValue } = useContext(SelectContext);
+  const isSelected = selectedValue === value;
+
+  const handleClick = () => {
+    setSelectedValue(value);
+    onClick?.();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
+  return (
+    <div
+      role="menuitem"
+      lk-component="menu-item"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      data-selected={isSelected}
+      style={{
+        cursor: "pointer",
+        fontWeight: isSelected ? "bold" : "normal",
+      }}
+      className="select-option"
+    >
+      {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
+      <p lk-menu-item-element="content-wrap">{children}</p>
+      {endIcon && <Icon {...endIcon} lk-icon-position="end"></Icon>}
+      <StateLayer forcedState={isSelected ? 'active' : undefined}></StateLayer>
     </div>
   );
 }
+
+// Singleton registry to track open selects
+const SelectRegistry = (() => {
+  interface SelectInstance {
+    close: () => void;
+  }
+
+  let current: SelectInstance | null = null;
+  return {
+    register(instance: SelectInstance) {
+      if (current && current !== instance) current.close();
+      current = instance;
+    },
+    unregister(instance: SelectInstance) {
+      if (current === instance) current = null;
+    },
+  };
+})();
