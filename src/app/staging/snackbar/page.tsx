@@ -49,7 +49,7 @@ export default function SnackbarStaging() {
           <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
  
               <Snackbar  globalColor="successcontainer">
-                <Badge color="primary" icon="check-circle"></Badge>
+            
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
                 {/**Note: snackbar will override the button's variant and color props. */}
                 <Button label="Confirm" color="success"></Button>

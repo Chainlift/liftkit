@@ -14,6 +14,7 @@ import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import Card from "@/registry/nextjs/components/card";
 import Row from "@/registry/nextjs/components/row";
 import { LkCardProps } from "@/registry/nextjs/components/card";
+import Icon, { LkIconProps } from "@/registry/nextjs/components/icon";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   globalColor?: LkColorWithOnToken;
@@ -36,7 +37,7 @@ export default function Snackbar(props: LkSnackbarProps) {
   } = props;
 
   // Declare allowed types, so if a child with the wrong type is passed, it'll throw an error
-  const allowedTypes = [Badge, Button, IconButton, Text] as React.ComponentType<any>[];
+  const allowedTypes = [Badge, Button, Icon, IconButton, Text] as React.ComponentType<any>[];
 
   // Validate all children first
   const childArray = React.Children.toArray(children);
@@ -60,7 +61,9 @@ export default function Snackbar(props: LkSnackbarProps) {
   // Find components and validate at the same time
   let badge: React.ReactElement | undefined;
   let buttons: React.ReactElement[] = [];
+  let icon: React.ReactElement | undefined;
   let iconButtons: React.ReactElement[] = [];
+
   let text: React.ReactElement[] = [];
 
   childArray.forEach((child) => {
@@ -72,6 +75,8 @@ export default function Snackbar(props: LkSnackbarProps) {
       buttons.push(child);
     } else if (child.type === IconButton) {
       iconButtons.push(child);
+    } else if (child.type === Icon) {
+      icon = child;
     } else if (child.type === Text) {
       text.push(child);
     }
@@ -91,14 +96,15 @@ export default function Snackbar(props: LkSnackbarProps) {
 
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor="heading" bgColor={globalColor}>
+      <Card scaleFactor="callout" bgColor={globalColor}>
         <Row alignItems="center" gap="md">
           {/* Badge slot */}
-          {badge && (
-            <div lk-slot="snackbar-badge">
-              {globalColor ? React.cloneElement(badge, { color: globalColor } as LkBadgeProps) : badge}
-            </div>
-          )}
+          <div lk-slot="snackbar-icon">
+            {icon &&
+              (globalColor ? React.cloneElement(icon, { color: globalColor, strokeWidth: 1.5 } as LkIconProps) : icon)}
+            {!icon && <Icon name="info" fontClass="heading" color={getOnToken(globalColor as LkColor) as LkColor} strokeWidth={1.5}  />}
+          </div>
+
           {/* Message slot */}
           {text.length > 0 && (
             <div lk-slot="snackbar-text">
@@ -125,7 +131,8 @@ export default function Snackbar(props: LkSnackbarProps) {
                         variant: "outline",
                         size: "sm",
                         modifiers: `color-on${globalColor}`,
-                        style: { border: `1px solid var(--lk-on${globalColor})` },
+                        style: { border: `1px solid var(--lk-on${globalColor}` },
+                        stateLayerOverride: { bgColor: `on${globalColor}` },
                       } as Partial<LkButtonProps>)
                     : React.cloneElement(button, {
                         key: index,

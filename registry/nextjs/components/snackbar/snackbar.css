@@ -15,5 +15,15 @@
   text-overflow: ellipsis;
 }
 
+[lk-slot="snackbar-icon"] {
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--title3-font-size);
+  transform: translateY(-0.25px);
+}
+
 }
 
