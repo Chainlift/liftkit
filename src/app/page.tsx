@@ -17,7 +17,7 @@ import Card from "@/registry/nextjs/components/card";
 import Snackbar from "@/registry/nextjs/components/snackbar";
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import Select from "@/registry/nextjs/components/select";
+
 import { useState } from "react";
 import Link from "next/link";
 import MenuItem from "@/registry/nextjs/components/menu-item";
@@ -70,16 +70,7 @@ export default function Home() {
   
   return (
     <div className={styles.page}>
-      <Select
-        label="Choose Option"
-        name="mySelect"
-        value={selectedValue}
-        onChange={(e) => setSelectedValue(e.target.value)}
-        options={[
-          { label: "One", value: "One" },
-          { label: "Two", value: "Two" },
-        ]}
-      />
+
 
       <NavBar
         navButtons={[
