@@ -12,15 +12,7 @@ import Button from "@/registry/nextjs/components/button";
 
 export default function SnackbarStaging() {
   const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
-  const fontClasses: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>[] = [
-    "heading",
-    "body",
-    "callout",
-    "subheading",
-    "label",
-    "caption",
-    "capline",
-  ];
+
 
   const variants = ["fill", "outline", "text"];
 
@@ -57,11 +49,11 @@ export default function SnackbarStaging() {
           <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
             {fontClasses.map((fontClass) => (
               <Snackbar key={fontClass} fontClass={fontClass} globalColor="successcontainer">
-                <Badge color="primary"></Badge>
+                <Badge color="primary" icon="check-circle"></Badge>
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
                 {/**Note: snackbar will override the button's variant and color props. */}
                 <Button label="Confirm" color="success"></Button>
-                <IconButton icon="arrow-right"></IconButton>
+  
               </Snackbar>
             ))}
           </Column>
