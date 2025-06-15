@@ -10,8 +10,9 @@ import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import { Select, SelectTrigger, SelectMenu } from "@/registry/nextjs/components/select2";
+import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select2";
 import TextInput from "@/registry/nextjs/components/text-input";
+import React from "react";
 
 export default function SelectStaging() {
   const fontClasses: LkFontClass[] = [
@@ -94,6 +95,11 @@ export default function SelectStaging() {
 
   const testIcons: IconName[] = ["arrow-right", "circle"];
 
+  const [selectedValue, setSelectedValue] = React.useState<string>("Please choose an option");
+  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedValue(event.target.value);
+  }
+
   return (
     <>
       <Section padding="md">
@@ -103,28 +109,32 @@ export default function SelectStaging() {
           </Heading>
         </Container>
         <Column>
+          {selectedValue}
           {fontClasses.map((fontClass) => (
             <div key={fontClass}>
               <h2 className="subheading mono m-bottom-xs">
                 fontClass=<strong className="color-primary">{fontClass}</strong>
               </h2>
 
-              <Select>
+              <Select
+                options={[
+                  { label: "Option 1", value: "opt1" },
+                  { label: "Option 2", value: "opt2" },
+                  { label: "Option 3", value: "opt3" },
+                ]}
+                value={selectedValue}
+                onChange={handleChange}
+                name={fontClass}
+              >
                 <SelectTrigger>
                   <Button label="Select"></Button>
                 </SelectTrigger>
                 <SelectMenu
                   cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: { thickness: "normal" } }}
                 >
-                  <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                    End icon with extremely long text
-                  </MenuItem>
-                  <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                    End icon with extremely long text
-                  </MenuItem>
-                  <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
-                    End icon with extremely long text
-                  </MenuItem>
+                  <SelectOption value="opt1">Option 1</SelectOption>
+                  <SelectOption value="opt2">Option 2</SelectOption>
+                  <SelectOption value="opt3">Option 3</SelectOption>
                 </SelectMenu>
               </Select>
             </div>
