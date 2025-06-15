@@ -6,6 +6,7 @@ import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
 import "@/registry/nextjs/components/button/button.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
 
 export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -18,6 +19,7 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   endIcon?: IconName;
   opticIconShift?: boolean;
   modifiers?: string;
+  stateLayerOverride?: LkStateLayerProps; // Optional override for state layer properties
 }
 
 /**
@@ -33,6 +35,7 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
  * @param props.restProps - Additional props to be spread to the underlying button element
  * @param props.opticIconShift - Boolean to control optical icon alignment on the y-axis. Defaults to true. Pulls icons up slightly.
  * @param props.modifiers - Additional class names to concatenate onto the button's default class list
+ * @param props.stateLayerOverride - Optional override for state layer properties, allowing customization of the state layer's appearance
  *
  * @returns A styled button element with optional start/end icons and a state layer overlay
  *
@@ -56,6 +59,7 @@ export default function Button({
   endIcon,
   opticIconShift = true,
   modifiers,
+  stateLayerOverride,
   ...restProps
 }: LkButtonProps) {
   const lkButtonAttrs = useMemo(
@@ -64,8 +68,6 @@ export default function Button({
   );
 
   const onColorToken = getOnToken(color) as LkColor;
-
-
 
   // Define different base color classes based on variant
 
@@ -86,6 +88,20 @@ export default function Button({
   if (modifiers) {
     baseButtonClasses += ` ${modifiers}`;
   }
+
+  /**Determine state layer props dynamically */
+  function getLocalStateLayerProps() {
+    if (stateLayerOverride) {
+      return stateLayerOverride;
+    } else {
+      return {
+        bgColor: variant === "fill" ? onColorToken : color
+      }
+    
+    }
+  }
+
+  const localStateLayerProps: LkStateLayerProps = getLocalStateLayerProps();
 
   return (
     <button
@@ -108,7 +124,7 @@ export default function Button({
           </div>
         )}
       </div>
-      <StateLayer bgColor={variant === "fill" ? onColorToken : color} />
+      <StateLayer {...localStateLayerProps}/>
     </button>
   );
 }
