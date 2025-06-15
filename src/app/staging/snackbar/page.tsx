@@ -61,7 +61,7 @@ export default function SnackbarStaging() {
           <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
           <Column gap="md">
             {fontClasses.map((fontClass) => (
-              <Snackbar key={fontClass} fontClass={fontClass}>
+              <Snackbar key={fontClass} fontClass={fontClass} globalColor="surfacevariant">
                 <Badge color="primary"></Badge>
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
                 <Button label="Confirm"></Button>
