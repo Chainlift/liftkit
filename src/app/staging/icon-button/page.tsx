@@ -5,10 +5,8 @@ import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
 import Section from "@/registry/nextjs/components/section";
 import Text from "@/registry/nextjs/components/text";
-import Grid from "@/registry/nextjs/components/grid";
 
 export default function IconButtonStaging() {
-  const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
   const fontClasses: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>[] = [
     "display1",
     "display2",
@@ -22,33 +20,6 @@ export default function IconButtonStaging() {
     "label",
     "caption",
     "capline",
-  ];
-
-  const variants = ["fill", "outline", "text"];
-
-  const buttonColors: LkColorWithOnToken[] = [
-    "primary",
-    "secondary",
-    "tertiary",
-    "error",
-    "warning",
-    "info",
-    "success",
-    "primarycontainer",
-    "secondarycontainer",
-    "tertiarycontainer",
-    "errorcontainer",
-    "warningcontainer",
-    "infocontainer",
-    "successcontainer",
-    "surface",
-    "surfacecontainerlowest",
-    "surfacecontainerlow",
-    "surfacecontainerhigh",
-    "surfacecontainerhighest",
-    "surfacevariant",
-    "inversesurface",
-    "background",
   ];
 
   return (
@@ -77,14 +48,23 @@ export default function IconButtonStaging() {
   );
 }
 
-function generateVariants(color: LkColorWithOnToken, fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`> = "body") {
+function generateVariants(
+  color: LkColorWithOnToken,
+  fontClass: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`> = "body"
+) {
   const variants = ["fill", "outline", "text"];
 
   return (
     <Row gap="md" key={Math.random() * 10} alignItems="center" justifyContent="center">
       {variants.map((variant, index) => (
-      //@ts-expect-error - IconButton variant prop is not typed correctly here but it really isn't an issue
-        <IconButton key={index} icon="roller-coaster" color={color} fontClass={fontClass} variant={variant}></IconButton>
+        <IconButton
+          key={index}
+          icon="roller-coaster"
+          color={color}
+          fontClass={fontClass}
+          //@ts-expect-error - IconButton variant prop is not typed correctly here but it really isn't an issue
+          variant={variant}
+        ></IconButton>
       ))}
     </Row>
   );
@@ -137,5 +117,5 @@ function generateSizes() {
     "capline",
   ];
 
-  return <div>{fontClasses.map((fontClass) => generateColorVariants(fontClass))}</div>
+  return <div>{fontClasses.map((fontClass) => generateColorVariants(fontClass))}</div>;
 }

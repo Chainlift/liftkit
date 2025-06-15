@@ -14,13 +14,13 @@ import TabContent from "@/registry/nextjs/components/tab-content";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Card from "@/registry/nextjs/components/card";
 
-import Snackbar from "@/registry/nextjs/components/snackbar";
+
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
 
 import { useState } from "react";
-import Link from "next/link";
-import MenuItem from "@/registry/nextjs/components/menu-item";
+
+
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -42,12 +42,9 @@ export default function Home() {
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-  const [openDropdowns, setOpenDropdowns] = useState<{
-    [key: string]: boolean;
-  }>({});
-  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const [selectedValue, setSelectedValue] = useState("");
-  console.log("selected value", selectedValue);
+
+
+
   // const handleChange = (value: string) => {
   //   setSelectedValue(value);
   //   console.log(value);
@@ -59,13 +56,6 @@ export default function Home() {
   //   { label: "Option 3", value: "option3" },
   // ];
 
-  const toggleDropdown = (id: string) => {
-    setOpenDropdowns((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
-
-  const toggleMenu = (id: string) => {
-    setOpenMenus((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
 
   
   return (

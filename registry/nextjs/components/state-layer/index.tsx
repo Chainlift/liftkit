@@ -6,7 +6,7 @@ export interface LkStateLayerProps {
 }
 
 export default function StateLayer({ bgColor = "currentColor", forcedState }: LkStateLayerProps) {
-  console.log("statelayer bgColor:", bgColor);
+
 
   return (
     <>

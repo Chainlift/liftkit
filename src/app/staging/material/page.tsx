@@ -1,27 +1,13 @@
 import React from "react";
 import Section from "@/registry/nextjs/components/section";
 import Row from "@/registry/nextjs/components/row";
-import Column from "@/registry/nextjs/components/column";
 import Container from "@/registry/nextjs/components/containers";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
 export default function MaterialStaging() {
-  const scaleFactors: LkFontClass[] = [
-    "display1",
-    "display2",
-    "title1",
-    "title2",
-    "title3",
-    "heading",
-    "subheading",
-    "body",
-    "callout",
-    "label",
-    "caption",
-    "capline",
-  ];
 
-  const buttonVariants = ["fill", "outline", "text"];
+
+
 
   /** Defining a temporary style to use for testing material */
   const tempCardStyles: React.CSSProperties = {

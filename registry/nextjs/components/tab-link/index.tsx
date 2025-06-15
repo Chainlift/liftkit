@@ -28,7 +28,7 @@ export default function TabLink(props: LkTabLinkProps) {
   );
 
 
-  console.log("Selected:", selected);
+
   return (
     <div lk-component="tab-link" {...dataAttrs} {...restProps}>
       <div lk-slot="child">

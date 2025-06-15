@@ -30,9 +30,9 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
   let lkMatProps: LkMatProps;
 
   if (materialProps) {
-    console.log("Material specs provided:", materialProps);
+
     lkMatProps = useMemo(() => propsToDataAttrs(materialProps, `${material}`), [materialProps]);
-    console.log("LK Material Props:", lkMatProps);
+
   }
 
   switch (material) {
@@ -136,7 +136,7 @@ function getGlassFillOpacity(thickness: "thick" | "normal" | "thin") {
 }
 
 function getBgColor(token: LkColorWithOnToken | undefined) {
-  console.log("token", token);
+
 
   if (token) {
     return `var(--lk-${token})`;

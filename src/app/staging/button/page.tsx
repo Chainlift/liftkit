@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "@/registry/nextjs/components/navbar";
+
 import Button from "@/registry/nextjs/components/button";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
-import Column from "@/registry/nextjs/components/column";
+
 import { IconName } from "lucide-react/dynamic";
 export default function Staging() {
   const buttonColors: LkColorWithOnToken[] = [

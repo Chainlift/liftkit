@@ -1,20 +1,14 @@
 import Container from "@/registry/nextjs/components/containers";
-import Heading from "@/registry/nextjs/components/heading";
-import IconButton from "@/registry/nextjs/components/icon-button";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
 import Section from "@/registry/nextjs/components/section";
 import Text from "@/registry/nextjs/components/text";
-import Grid from "@/registry/nextjs/components/grid";
 import Snackbar from "@/registry/nextjs/components/snackbar";
-import Badge from "@/registry/nextjs/components/badge";
 import Button from "@/registry/nextjs/components/button";
 import Icon from "@/registry/nextjs/components/icon";
 
 export default function SnackbarStaging() {
-  const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
 
-  const variants = ["fill", "outline", "text"];
 
   const colors: LkColorWithOnToken[] = [
     "primary",
@@ -52,7 +46,7 @@ export default function SnackbarStaging() {
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Icon name="check-circle"></Icon>
-                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
                   {/**Note: snackbar will override the button's variant and color props. */}
                 </Snackbar>
               ))}
@@ -61,7 +55,7 @@ export default function SnackbarStaging() {
               <h2 className="title2 mono m-bottom-md">Button only</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
-                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
                   {/**Note: snackbar will override the button's variant and color props. */}
                   <Button label="Confirm" color="success"></Button>
                 </Snackbar>
@@ -72,7 +66,7 @@ export default function SnackbarStaging() {
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Icon name="check-circle"></Icon>
-                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
                   {/**Note: snackbar will override the button's variant and color props. */}
                   <Button label="Confirm" color="success"></Button>
                 </Snackbar>
@@ -82,7 +76,7 @@ export default function SnackbarStaging() {
               <h2 className="title2 mono m-bottom-md">Neither</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
-                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
                 </Snackbar>
               ))}
             </Column>
@@ -90,7 +84,7 @@ export default function SnackbarStaging() {
               <h2 className="title2 mono m-bottom-md">Neither AND no globalColor</h2>
               {colors.map((color) => (
                 <Snackbar key={color}>
-                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
                 </Snackbar>
               ))}
             </Column>
