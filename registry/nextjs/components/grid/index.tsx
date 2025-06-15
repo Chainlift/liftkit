@@ -61,7 +61,7 @@ export default function Grid({
         {...lkGridAttrs}
         {...restProps}
         className={className}
-        style={!className ? { gridTemplateColumns: `repeat(${columns}, 1fr)` } : undefined}
+        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)`, ...restProps.style }}
       >
         {children || placeholderBlocks}
       </div>
