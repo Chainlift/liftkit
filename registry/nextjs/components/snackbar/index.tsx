@@ -99,7 +99,7 @@ export default function Snackbar(props: LkSnackbarProps) {
         <div lk-slot="snackbar-actions">
           {text.map((text, index) =>
             globalColor
-              ? React.cloneElement(text, { key: index, color: globalColor } as LkTextProps)
+              ? React.cloneElement(text, { key: index, color: globalColor, fontClass: fontClass } as LkTextProps)
               : React.cloneElement(text, { key: index })
           )}
         </div>
@@ -110,8 +110,8 @@ export default function Snackbar(props: LkSnackbarProps) {
         <div lk-slot="snackbar-actions">
           {buttons.map((button, index) =>
             globalColor
-              ? React.cloneElement(button, { key: index, color: globalColor, size:"sm" } as Partial<LkButtonProps>)
-              : React.cloneElement(button, { key: index, size:"sm" } as Partial<LkButtonProps>)
+              ? React.cloneElement(button, { key: index, color: globalColor, size: "sm" } as Partial<LkButtonProps>)
+              : React.cloneElement(button, { key: index, size: "sm" } as Partial<LkButtonProps>)
           )}
         </div>
       )}
@@ -121,11 +121,40 @@ export default function Snackbar(props: LkSnackbarProps) {
         <div lk-slot="snackbar-icon-actions">
           {iconButtons.map((iconButton, index) =>
             globalColor
-              ? React.cloneElement(iconButton, { key: index, color: globalColor } as Partial<LkIconButtonProps>)
-              : React.cloneElement(iconButton, { key: index })
+              ? React.cloneElement(iconButton, {
+                  key: index,
+                  color: globalColor,
+                  fontClass: "heading",
+                } as Partial<LkIconButtonProps>)
+              : React.cloneElement(iconButton, { key: index, fontClass: getAdjustedFontClass("IconButton", fontClass) } as Partial<LkIconButtonProps>)
           )}
         </div>
       )}
     </div>
   );
+}
+
+/** Functions for handling component scaling */
+
+const fontClassList: LkFontClass[] = [
+  "display1",
+  "display2",
+  "title1",
+  "title2",
+  "title3",
+  "heading",
+  "body",
+  "callout",
+  "subheading",
+  "label",
+  "caption",
+  "capline",
+];
+
+function getAdjustedFontClass(componentName: string, parentFontClass: LkFontClass) {
+
+  switch (componentName) {
+    
+  }
+
 }

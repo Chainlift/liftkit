@@ -10,7 +10,6 @@ import Snackbar from "@/registry/nextjs/components/snackbar";
 import Badge from "@/registry/nextjs/components/badge";
 import Button from "@/registry/nextjs/components/button";
 
-
 export default function SnackbarStaging() {
   const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
   const fontClasses: Exclude<LkFontClass, `${string}-bold` | `${string}-mono`>[] = [
@@ -60,12 +59,16 @@ export default function SnackbarStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
-          <Snackbar>
-            <Badge color="primary"></Badge>
-            <Text fontClass="body" color="onsurface">Hello World, I'm just some text.</Text>
-            <Button label="hello world"></Button>
-            <IconButton icon="arrow-right"></IconButton>
-          </Snackbar>
+          <Column gap="md">
+            {fontClasses.map((fontClass) => (
+              <Snackbar key={fontClass} fontClass={fontClass}>
+                <Badge color="primary"></Badge>
+                <Text color="onsurface">Hello World, I'm just some text.</Text>
+                <Button label="Confirm"></Button>
+                <IconButton icon="arrow-right"></IconButton>
+              </Snackbar>
+            ))}
+          </Column>
         </Container>
       </Section>
     </>

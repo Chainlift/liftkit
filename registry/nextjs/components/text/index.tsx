@@ -11,8 +11,7 @@ export interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   tag?: LkSemanticTag;
 }
 
-export default function Text(props: LkTextProps) {
-  const { tag = "div", fontClass = "display2-bold", color, children, style, ...restProps } = props;
+export default function Text({ tag = "div", fontClass, color, children, style, ...restProps }: LkTextProps) {
   const Tag = tag as ElementType;
 
   /**Temporarily removing the attr spreader because it's not being used */
