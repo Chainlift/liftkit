@@ -94,9 +94,17 @@ export default function Snackbar(props: LkSnackbarProps) {
     [globalColor, message]
   );
 
+  /** If you have an icon, but no button, render extra margin-right on the body text. */
+  function getMargin() {
+    if (icon && buttons.length === 0) {
+      return "m-right-sm";
+    } else {
+      return "";
+    }
+  }
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor={icon ? 'subheading' : 'body'} bgColor={globalColor} opticalCorrection={icon ? "none" : "y"}>
+      <Card scaleFactor={icon ? "subheading" : "body"} bgColor={globalColor} opticalCorrection={icon ? "none" : "y"}>
         <Row alignItems="center">
           {/* Badge slot */}
 
@@ -117,7 +125,7 @@ export default function Snackbar(props: LkSnackbarProps) {
                       key: index,
                       color: getOnToken(globalColor as LkColor) as LkColor,
                       fontClass: "body",
-                      className: "m-right-sm"
+                      className: getMargin(),
                     } as LkTextProps)
                   : React.cloneElement(text, { key: index })
               )}
@@ -137,7 +145,7 @@ export default function Snackbar(props: LkSnackbarProps) {
                         style: {
                           backgroundColor: `rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.1)`,
                           border: `1px solid rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.2)`,
-                          marginRight: !icon && "calc(-1em * pow(var(--lk-wholestep-dec), 2))"
+                          marginRight: !icon && "calc(-1em * pow(var(--lk-wholestep-dec), 2))",
                         },
                         stateLayerOverride: { bgColor: `on${globalColor}` },
                       } as Partial<LkButtonProps>)
