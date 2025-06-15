@@ -4,7 +4,7 @@ import "@/registry/nextjs/components/text/text.css";
 
 type LkSemanticTag = keyof JSX.IntrinsicElements;
 
-interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
+export interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   fontClass?: LkFontClass;
   content?: string;
   color?: LkColor;

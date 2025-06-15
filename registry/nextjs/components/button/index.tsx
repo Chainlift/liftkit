@@ -8,7 +8,7 @@ import "@/registry/nextjs/components/button/button.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
 
-interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   variant?: "fill" | "outline" | "text";
   color?: LkColorWithOnToken;

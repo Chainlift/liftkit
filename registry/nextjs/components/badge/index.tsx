@@ -3,7 +3,7 @@ import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
 import "@/registry/nextjs/components/badge/badge.css";
 
-interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconName;
   color?: LkColorWithOnToken;
   scale?: "md" | "lg";

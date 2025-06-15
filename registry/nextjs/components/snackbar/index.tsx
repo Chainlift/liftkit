@@ -2,51 +2,74 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import Badge from "@/registry/nextjs/components/badge";
 import Button from "@/registry/nextjs/components/button";
+import IconButton from "@/registry/nextjs/components/icon-button";
+import React from "react";
 import Text from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/snackbar/snackbar.css";
-
-type LkSnackbarConfig = {
-  
-}
-
+import { LkBadgeProps } from "@/registry/nextjs/components/badge";
+import { LkTextProps } from "@/registry/nextjs/components/text";
+import { LkButtonProps } from "@/registry/nextjs/components/button";
+import { LkIconButtonProps } from "@/registry/nextjs/components/icon-button";
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   globalColor?: LkColorWithOnToken;
   message?: string;
   fontClass?: LkFontClass;
+  children?: React.ReactNode;
 }
 
 /**
  * A snackbar component that displays temporary notifications with optional action buttons.
- *
- * @param props - The props for the Snackbar component
- * @param props.badgeColor - Color token for the badge indicator
- * @param props.primaryButtonColor - Color token for the primary action button (defaults to "primary")
- * @param props.secondaryButtonColor - Color token for the secondary action button (defaults to "secondary")
- * @param props.backgroundColor - Color token for the snackbar background (defaults to "surface")
- * @param props.globalColor - Global color token that overrides badge and button colors when set
- * @param props.message - The notification message text (defaults to "Notification text goes here.")
- * @param props.fontClass - Font class for the message text (defaults to "caption")
- *
- * @returns A snackbar notification component with badge, message, and action buttons
- *
- * @example
- * ```tsx
- * <Snackbar
- *   message="File saved successfully"
- *   badgeColor="success"
- *   primaryButtonColor="primary"
- * />
- * ```
  */
-
 export default function Snackbar(props: LkSnackbarProps) {
-  /**Declare allowed types, so if a child with the wrong type is passed, it'll throw an error. */
+  const {
+    globalColor,
+    message = "Notification text goes here.",
+    fontClass = "caption",
+    children,
+    ...restProps
+  } = props;
 
-  const allowedTypes = [Badge, Button, Text];
+  // Declare allowed types, so if a child with the wrong type is passed, it'll throw an error
+  const allowedTypes = [Badge, Button, IconButton, Text] as React.ComponentType<any>[];
 
-  /**Validate all children */
+  // Validate all children first
+  const childArray = React.Children.toArray(children);
 
-  const { globalColor, message = "Notification text goes here.", fontClass = "caption", ...restProps } = props;
+  // Helper function to get component name for error messages
+  const getComponentName = (type: any): string => {
+    if (typeof type === "string") return type;
+    return type?.displayName || type?.name || "Unknown";
+  };
+
+  // Validate all children upfront
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child) && !allowedTypes.includes(child.type as React.ComponentType)) {
+      throw new Error(
+        `Snackbar component received an invalid child component: ${getComponentName(child.type)}. ` +
+          `Only Badge, Button, and IconButton components are allowed.`
+      );
+    }
+  });
+
+  // Find components and validate at the same time
+  let badge: React.ReactElement | undefined;
+  let buttons: React.ReactElement[] = [];
+  let iconButtons: React.ReactElement[] = [];
+  let text: React.ReactElement[] = [];
+
+  childArray.forEach((child) => {
+    if (!React.isValidElement(child)) return;
+
+    if (child.type === Badge) {
+      badge = child;
+    } else if (child.type === Button) {
+      buttons.push(child);
+    } else if (child.type === IconButton) {
+      iconButtons.push(child);
+    } else if (child.type === Text) {
+      text.push(child);
+    }
+  });
 
   const dataAttrs = useMemo(
     () =>
@@ -61,5 +84,48 @@ export default function Snackbar(props: LkSnackbarProps) {
     [globalColor, message, fontClass]
   );
 
-  return <div lk-component="snackbar" {...dataAttrs} {...restProps}></div>;
+  return (
+    <div lk-component="snackbar" {...dataAttrs} {...restProps}>
+      {/* Badge slot */}
+      {badge && (
+        <div lk-slot="snackbar-badge">
+          {globalColor ? React.cloneElement(badge, { color: globalColor } as LkBadgeProps) : badge}
+        </div>
+      )}
+
+      {/* Message slot */}
+
+      {text.length > 0 && (
+        <div lk-slot="snackbar-actions">
+          {text.map((text, index) =>
+            globalColor
+              ? React.cloneElement(text, { key: index, color: globalColor } as LkTextProps)
+              : React.cloneElement(text, { key: index })
+          )}
+        </div>
+      )}
+
+      {/* Action buttons slot */}
+      {buttons.length > 0 && (
+        <div lk-slot="snackbar-actions">
+          {buttons.map((button, index) =>
+            globalColor
+              ? React.cloneElement(button, { key: index, color: globalColor, size:"sm" } as Partial<LkButtonProps>)
+              : React.cloneElement(button, { key: index, size:"sm" } as Partial<LkButtonProps>)
+          )}
+        </div>
+      )}
+
+      {/* Icon buttons slot (typically for close/dismiss) */}
+      {iconButtons.length > 0 && (
+        <div lk-slot="snackbar-icon-actions">
+          {iconButtons.map((iconButton, index) =>
+            globalColor
+              ? React.cloneElement(iconButton, { key: index, color: globalColor } as Partial<LkIconButtonProps>)
+              : React.cloneElement(iconButton, { key: index })
+          )}
+        </div>
+      )}
+    </div>
+  );
 }

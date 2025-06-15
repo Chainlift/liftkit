@@ -10,7 +10,7 @@ declare global {
   type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 }
 
-interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconName;
   variant?: "fill" | "outline" | "text";
   // color?: string; // LkColor
