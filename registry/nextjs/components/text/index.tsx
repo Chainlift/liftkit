@@ -9,16 +9,17 @@ export interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   content?: string;
   color?: LkColor;
   tag?: LkSemanticTag;
+  className?: string; // explicitly extracting because internal logic controls its rendering order
 }
 
-export default function Text({ tag = "div", fontClass, color, children, style, ...restProps }: LkTextProps) {
+export default function Text({ tag = "div", fontClass, color, children, style, className, ...restProps }: LkTextProps) {
   const Tag = tag as ElementType;
 
   /**Temporarily removing the attr spreader because it's not being used */
   // const textAttrs = useMemo(() => propsToDataAttrs(restProps, "text"), [restProps]);
 
   return (
-    <Tag className={`${fontClass} color-${color}`} style={style} {...restProps}>
+    <Tag className={`${fontClass} color-${color} ${className || ''}`} style={style} {...restProps}>
       {children}
     </Tag>
   );

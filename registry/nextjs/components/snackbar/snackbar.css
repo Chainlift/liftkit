@@ -13,7 +13,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: calc(1em / var(--lk-halfstep));
   }
 
   [lk-slot="snackbar-icon"] {
@@ -26,4 +25,10 @@
     transform: translateY(-0.25px);
     margin-right: calc(1em / var(--lk-halfstep));
   }
+
+  [lk-slot="snackbar-actions"] {
+    margin-left: calc(1em / var(--lk-halfstep));
+  }
+
 }
+

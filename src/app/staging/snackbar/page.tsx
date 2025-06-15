@@ -9,6 +9,7 @@ import Grid from "@/registry/nextjs/components/grid";
 import Snackbar from "@/registry/nextjs/components/snackbar";
 import Badge from "@/registry/nextjs/components/badge";
 import Button from "@/registry/nextjs/components/button";
+import Icon from "@/registry/nextjs/components/icon";
 
 export default function SnackbarStaging() {
   const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
@@ -45,15 +46,47 @@ export default function SnackbarStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
-          <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-            {colors.map((color) => (
-              <Snackbar globalColor={color} key={color}>
-                <Text color="onsurface">Hello World, I'm just some text.</Text>
-                {/**Note: snackbar will override the button's variant and color props. */}
-                <Button label="Confirm" color="success"></Button>
-              </Snackbar>
-            ))}
-          </Column>
+          <Row gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+            <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+              <h2 className="title2 mono m-bottom-md">Icon only</h2>
+              {colors.map((color) => (
+                <Snackbar globalColor={color} key={color}>
+                  <Icon name="check-circle"></Icon>
+                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  {/**Note: snackbar will override the button's variant and color props. */}
+                </Snackbar>
+              ))}
+            </Column>
+            <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+              <h2 className="title2 mono m-bottom-md">Button only</h2>
+              {colors.map((color) => (
+                <Snackbar globalColor={color} key={color}>
+                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  {/**Note: snackbar will override the button's variant and color props. */}
+                  <Button label="Confirm" color="success"></Button>
+                </Snackbar>
+              ))}
+            </Column>
+            <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+              <h2 className="title2 mono m-bottom-md">Icon and button</h2>
+              {colors.map((color) => (
+                <Snackbar globalColor={color} key={color}>
+                  <Icon name="check-circle"></Icon>
+                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                  {/**Note: snackbar will override the button's variant and color props. */}
+                  <Button label="Confirm" color="success"></Button>
+                </Snackbar>
+              ))}
+            </Column>
+            <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
+              <h2 className="title2 mono m-bottom-md">Neither</h2>
+              {colors.map((color) => (
+                <Snackbar globalColor={color} key={color}>
+                  <Text color="onsurface">Hello World, I'm just some text.</Text>
+                </Snackbar>
+              ))}
+            </Column>
+          </Row>
         </Container>
       </Section>
     </>

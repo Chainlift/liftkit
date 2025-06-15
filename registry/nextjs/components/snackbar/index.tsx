@@ -96,21 +96,17 @@ export default function Snackbar(props: LkSnackbarProps) {
 
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor="subheading" bgColor={globalColor}>
+      <Card scaleFactor={icon ? 'subheading' : 'body'} bgColor={globalColor} opticalCorrection={icon ? "none" : "y"}>
         <Row alignItems="center">
           {/* Badge slot */}
-          <div lk-slot="snackbar-icon">
-            {icon &&
-              (globalColor ? React.cloneElement(icon, { color: globalColor, strokeWidth: 1.5 } as LkIconProps) : icon)}
-            {!icon && (
-              <Icon
-                name="info"
-                
-                color={getOnToken(globalColor as LkColor) as LkColor}
-                strokeWidth={1.75}
-              />
-            )}
-          </div>
+
+          {icon && (
+            <div lk-slot="snackbar-icon">
+              {globalColor
+                ? React.cloneElement(icon, { color: getOnToken(globalColor), strokeWidth: 1.75 } as LkIconProps)
+                : icon}
+            </div>
+          )}
 
           {/* Message slot */}
           {text.length > 0 && (
@@ -120,7 +116,8 @@ export default function Snackbar(props: LkSnackbarProps) {
                   ? React.cloneElement(text, {
                       key: index,
                       color: getOnToken(globalColor as LkColor) as LkColor,
-                      fontClass: "subheading-bold"
+                      fontClass: "body",
+                      className: "m-right-sm"
                     } as LkTextProps)
                   : React.cloneElement(text, { key: index })
               )}
@@ -140,6 +137,7 @@ export default function Snackbar(props: LkSnackbarProps) {
                         style: {
                           backgroundColor: `rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.1)`,
                           border: `1px solid rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.2)`,
+                          marginRight: !icon && "calc(-1em * pow(var(--lk-wholestep-dec), 2))"
                         },
                         stateLayerOverride: { bgColor: `on${globalColor}` },
                       } as Partial<LkButtonProps>)
