@@ -1,17 +1,25 @@
-import Column from "@/registry/nextjs/components/column";
+import Grid from "@/registry/nextjs/components/grid";
+import Container from "@/registry/nextjs/components/containers";
+import Section from "@/registry/nextjs/components/section";
 import Sticker from "@/registry/nextjs/components/sticker";
 import { LkColors } from "@/registry/universal/lib/utils/debugUtils";
 
 export default function StickerStaging() {
   return (
     <>
-      <Column gap="md">
-        {LkColors.map((color) => (
-          <Sticker key={color} bgColor={color}>
-            {color}
-          </Sticker>
-        ))}
-      </Column>
+      <Section padding="md">
+        <Container>
+          <h1 className="display2-bold m-bottom-md">Sticker Staging Area</h1>
+          <Grid columns={4} gap="md">
+      
+            {LkColors.map((color) => (
+              <Sticker key={color} bgColor={color}>
+                {color}
+              </Sticker>
+            ))}
+          </Grid>
+        </Container>
+      </Section>
     </>
   );
 }
