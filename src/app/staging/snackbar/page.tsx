@@ -13,10 +13,9 @@ import Button from "@/registry/nextjs/components/button";
 export default function SnackbarStaging() {
   const sizes: LkIconButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
 
-
   const variants = ["fill", "outline", "text"];
 
-  const buttonColors: LkColorWithOnToken[] = [
+  const colors: LkColorWithOnToken[] = [
     "primary",
     "secondary",
     "tertiary",
@@ -47,14 +46,13 @@ export default function SnackbarStaging() {
         <Container>
           <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
           <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
- 
-              <Snackbar  globalColor="successcontainer">
-            
+            {colors.map((color) => (
+              <Snackbar globalColor={color} key={color}>
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
                 {/**Note: snackbar will override the button's variant and color props. */}
                 <Button label="Confirm" color="success"></Button>
-  
               </Snackbar>
+            ))}
           </Column>
         </Container>
       </Section>

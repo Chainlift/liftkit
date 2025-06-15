@@ -96,13 +96,20 @@ export default function Snackbar(props: LkSnackbarProps) {
 
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor="callout" bgColor={globalColor}>
-        <Row alignItems="center" gap="md">
+      <Card scaleFactor="subheading" bgColor={globalColor}>
+        <Row alignItems="center">
           {/* Badge slot */}
           <div lk-slot="snackbar-icon">
             {icon &&
               (globalColor ? React.cloneElement(icon, { color: globalColor, strokeWidth: 1.5 } as LkIconProps) : icon)}
-            {!icon && <Icon name="info" fontClass="heading" color={getOnToken(globalColor as LkColor) as LkColor} strokeWidth={1.5}  />}
+            {!icon && (
+              <Icon
+                name="info"
+                
+                color={getOnToken(globalColor as LkColor) as LkColor}
+                strokeWidth={1.75}
+              />
+            )}
           </div>
 
           {/* Message slot */}
@@ -112,7 +119,8 @@ export default function Snackbar(props: LkSnackbarProps) {
                 globalColor
                   ? React.cloneElement(text, {
                       key: index,
-                      color: getOnToken(globalColor),
+                      color: getOnToken(globalColor as LkColor) as LkColor,
+                      fontClass: "subheading-bold"
                     } as LkTextProps)
                   : React.cloneElement(text, { key: index })
               )}
@@ -120,7 +128,6 @@ export default function Snackbar(props: LkSnackbarProps) {
           )}
           {/* Action buttons slot */}
           <Row>
-            {" "}
             {buttons.length > 0 && (
               <div lk-slot="snackbar-actions">
                 {buttons.map((button, index) =>
@@ -128,10 +135,12 @@ export default function Snackbar(props: LkSnackbarProps) {
                     ? React.cloneElement(button, {
                         key: index,
                         color: globalColor,
-                        variant: "outline",
                         size: "sm",
                         modifiers: `color-on${globalColor}`,
-                        style: { border: `1px solid var(--lk-on${globalColor}` },
+                        style: {
+                          backgroundColor: `rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.1)`,
+                          border: `1px solid rgb(from var(--lk-${getOnToken(globalColor)}) r g b / 0.2)`,
+                        },
                         stateLayerOverride: { bgColor: `on${globalColor}` },
                       } as Partial<LkButtonProps>)
                     : React.cloneElement(button, {
