@@ -3,7 +3,7 @@
 /** All Color Tokens (Array)
 An array containing all the LkColor tokens. */
 
-export const LkColorsArray: LkColor[] = [
+export const LkColors: LkColor[] = [
   "primary",
   "onprimary",
   "primarycontainer",
@@ -67,3 +67,27 @@ export const LkColorsArray: LkColor[] = [
 ];
 
 /** LK Colors with On-Tokens */
+export const LkColorsWithOnTokens: LkColor[] = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "error",
+  "warning",
+  "info",
+  "success",
+  "primarycontainer",
+  "secondarycontainer",
+  "tertiarycontainer",
+  "errorcontainer",
+  "warningcontainer",
+  "infocontainer",
+  "successcontainer",
+  "surface",
+  "surfacecontainerlowest",
+  "surfacecontainerlow",
+  "surfacecontainerhigh",
+  "surfacecontainerhighest",
+  "surfacevariant",
+  "inversesurface",
+  "background",
+];

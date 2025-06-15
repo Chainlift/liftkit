@@ -1,5 +1,6 @@
 import Text from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/sticker/sticker.css";
+import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
 /**
  * Props for the LkSticker component.
@@ -24,7 +25,7 @@ export default function Sticker({
   ...restProps
 }: LkStickerProps) {
   return (
-    <div lk-component="sticker" {...restProps} className={`bg-${bgColor} ${className || ""}`}>
+    <div lk-component="sticker" {...restProps} className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || ""}`}>
       <Text fontClass={fontClass}>{children || "Sticker"}</Text>
     </div>
   );
