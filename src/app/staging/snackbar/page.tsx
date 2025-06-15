@@ -47,15 +47,14 @@ export default function SnackbarStaging() {
         <Container>
           <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
           <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-            {fontClasses.map((fontClass) => (
-              <Snackbar key={fontClass} fontClass={fontClass} globalColor="successcontainer">
+ 
+              <Snackbar  globalColor="successcontainer">
                 <Badge color="primary" icon="check-circle"></Badge>
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
                 {/**Note: snackbar will override the button's variant and color props. */}
                 <Button label="Confirm" color="success"></Button>
   
               </Snackbar>
-            ))}
           </Column>
         </Container>
       </Section>

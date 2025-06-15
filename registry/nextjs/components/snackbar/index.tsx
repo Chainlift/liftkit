@@ -18,7 +18,6 @@ import { LkCardProps } from "@/registry/nextjs/components/card";
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   globalColor?: LkColorWithOnToken;
   message?: string;
-  fontClass?: LkFontClass;
   children?: React.ReactNode;
   cardProps?: LkCardProps;
 }
@@ -30,7 +29,7 @@ export default function Snackbar(props: LkSnackbarProps) {
   const {
     globalColor,
     message = "Notification text goes here.",
-    fontClass = "caption",
+
     cardProps,
     children,
     ...restProps
@@ -84,16 +83,15 @@ export default function Snackbar(props: LkSnackbarProps) {
         {
           globalColor,
           message,
-          fontClass,
         },
         "snackbar"
       ),
-    [globalColor, message, fontClass]
+    [globalColor, message]
   );
 
   return (
     <div lk-component="snackbar" {...dataAttrs} {...restProps}>
-      <Card scaleFactor={fontClass} bgColor={globalColor} >
+      <Card scaleFactor="heading" bgColor={globalColor}>
         <Row alignItems="center" gap="md">
           {/* Badge slot */}
           {badge && (
@@ -109,7 +107,6 @@ export default function Snackbar(props: LkSnackbarProps) {
                   ? React.cloneElement(text, {
                       key: index,
                       color: getOnToken(globalColor),
-                      fontClass: fontClass,
                     } as LkTextProps)
                   : React.cloneElement(text, { key: index })
               )}
@@ -125,12 +122,16 @@ export default function Snackbar(props: LkSnackbarProps) {
                     ? React.cloneElement(button, {
                         key: index,
                         color: globalColor,
-                        variant:"outline",
+                        variant: "outline",
                         size: "sm",
                         modifiers: `color-on${globalColor}`,
-                        style: {border: `1px solid var(--lk-on${globalColor})`},
+                        style: { border: `1px solid var(--lk-on${globalColor})` },
                       } as Partial<LkButtonProps>)
-                    : React.cloneElement(button, { key: index, size: "sm", variant:"outline" } as Partial<LkButtonProps>)
+                    : React.cloneElement(button, {
+                        key: index,
+                        size: "sm",
+                        variant: "outline",
+                      } as Partial<LkButtonProps>)
                 )}
               </div>
             )}
@@ -146,7 +147,7 @@ export default function Snackbar(props: LkSnackbarProps) {
                       } as Partial<LkIconButtonProps>)
                     : React.cloneElement(iconButton, {
                         key: index,
-                        fontClass: getAdjustedFontClass("IconButton", fontClass),
+                        fontClass: "heading",
                       } as Partial<LkIconButtonProps>)
                 )}
               </div>
