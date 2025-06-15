@@ -125,9 +125,11 @@ export default function Snackbar(props: LkSnackbarProps) {
                     ? React.cloneElement(button, {
                         key: index,
                         color: globalColor,
+                        variant:"outline",
                         size: "sm",
+                        modifiers: `color-on${globalColor} border-on${globalColor}`
                       } as Partial<LkButtonProps>)
-                    : React.cloneElement(button, { key: index, size: "sm" } as Partial<LkButtonProps>)
+                    : React.cloneElement(button, { key: index, size: "sm", variant:"outline" } as Partial<LkButtonProps>)
                 )}
               </div>
             )}

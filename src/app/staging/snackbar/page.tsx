@@ -59,7 +59,8 @@ export default function SnackbarStaging() {
               <Snackbar key={fontClass} fontClass={fontClass} globalColor="successcontainer">
                 <Badge color="primary"></Badge>
                 <Text color="onsurface">Hello World, I'm just some text.</Text>
-                <Button label="Confirm"></Button>
+                {/**Note: snackbar will override the button's variant and color props. */}
+                <Button label="Confirm" color="success"></Button>
                 <IconButton icon="arrow-right"></IconButton>
               </Snackbar>
             ))}
