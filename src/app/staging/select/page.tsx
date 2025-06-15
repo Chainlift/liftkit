@@ -4,13 +4,14 @@ import Heading from "@/registry/nextjs/components/heading";
 import Row from "@/registry/nextjs/components/row";
 import Section from "@/registry/nextjs/components/section";
 import Container from "@/registry/nextjs/components/containers";
-import Grid from "@/registry/nextjs/components/grid";
+import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import type { IconName } from "lucide-react/dynamic";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import Select from "@/registry/nextjs/components/select";
+import { Select, SelectTrigger, SelectMenu } from "@/registry/nextjs/components/select2";
+import TextInput from "@/registry/nextjs/components/text-input";
 
 export default function SelectStaging() {
   const fontClasses: LkFontClass[] = [
@@ -107,12 +108,12 @@ export default function SelectStaging() {
               <h2 className="subheading mono m-bottom-xs">
                 fontClass=<strong className="color-primary">{fontClass}</strong>
               </h2>
-              <Select></Select>
-              <Dropdown>
-                <DropdownTrigger>
-                  <IconButton fontClass={fontClass} icon="ellipsis"></IconButton>
-                </DropdownTrigger>
-                <DropdownMenu
+
+              <Select>
+                <SelectTrigger>
+                  <Button label="Select"></Button>
+                </SelectTrigger>
+                <SelectMenu
                   cardProps={{ scaleFactor: fontClass, material: "glass", materialProps: { thickness: "normal" } }}
                 >
                   <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
@@ -124,12 +125,11 @@ export default function SelectStaging() {
                   <MenuItem startIcon={startIconConfig} endIcon={endIconConfig}>
                     End icon with extremely long text
                   </MenuItem>
-                </DropdownMenu>
-              </Dropdown>
+                </SelectMenu>
+              </Select>
             </div>
           ))}
         </Column>
-
       </Section>
     </>
   );

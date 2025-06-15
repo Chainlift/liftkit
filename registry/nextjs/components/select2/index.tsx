@@ -1,32 +1,50 @@
-'use client';
+"use client";
 
-// CustomDropdown.tsx
+// CustomSelect.tsx
 import Card, { LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";
 import Column from "@/registry/nextjs/components/column";
 import ReactDOM from "react-dom";
-import "@/registry/nextjs/components/dropdown/dropdown.css";
+import "@/registry/nextjs/components/select2/select.css";
 
-interface LkDropdownContext {
+
+interface Option {
+  label: string;
+  value: string;
+}
+
+interface SelectProps {
+  label?: string;
+  labelPosition?: "default" | "on-input";
+  helpText?: string;
+  placeholderText?: string;
+  options: Option[];
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  name?: string;
+}
+
+
+interface LkSelectContext {
   open: boolean;
   setOpen: (open: boolean) => void;
   triggerRef: React.RefObject<HTMLElement | null>;
   contentRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export interface LkDropdownTriggerProps {
+export interface LkSelectTriggerProps {
   children: React.ReactElement;
 }
 
-export interface LkDropdownMenuProps {
+export interface LkSelectMenuProps {
   children: React.ReactNode;
   cardProps?: LkCardProps; // Optional props to pass to the child Card component.
 }
 
-// Context for dropdown state
-const DropdownContext = createContext<LkDropdownContext>({} as LkDropdownContext);
+// Context for select state
+const SelectContext = createContext<LkSelectContext>({} as LkSelectContext);
 
-export function Dropdown({ children }: { children: React.ReactNode }) {
+export function Select({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef(null);
   const contentRef = useRef(null);
@@ -35,17 +53,15 @@ export function Dropdown({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!open) return;
     const self = { close: () => setOpen(false) };
-    DropdownRegistry.register(self);
-    return () => DropdownRegistry.unregister(self);
+    SelectRegistry.register(self);
+    return () => SelectRegistry.unregister(self);
   }, [open]);
 
-  return (
-    <DropdownContext.Provider value={{ open, setOpen, triggerRef, contentRef }}>{children}</DropdownContext.Provider>
-  );
+  return <SelectContext.Provider value={{ open, setOpen, triggerRef, contentRef }}>{children}</SelectContext.Provider>;
 }
 
-export function DropdownTrigger({ children }: LkDropdownTriggerProps) {
-  const { open, setOpen, triggerRef } = useContext(DropdownContext);
+export function SelectTrigger({ children }: LkSelectTriggerProps) {
+  const { open, setOpen, triggerRef } = useContext(SelectContext);
   return React.cloneElement(children, {
     ref: triggerRef,
     onClick: () => setOpen(!open),
@@ -54,8 +70,8 @@ export function DropdownTrigger({ children }: LkDropdownTriggerProps) {
   } as any);
 }
 
-export function DropdownMenu({ children, cardProps }: LkDropdownMenuProps) {
-  const { open, setOpen, triggerRef, contentRef } = useContext(DropdownContext);
+export function SelectMenu({ children, cardProps }: LkSelectMenuProps) {
+  const { open, setOpen, triggerRef, contentRef } = useContext(SelectContext);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -79,60 +95,14 @@ export function DropdownMenu({ children, cardProps }: LkDropdownMenuProps) {
 
   /**Calculate transform origin based on triggerRef viewport quadrant */
 
-  function getQuadrant() {
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-
-    /** Origin as in "the corner of the trigger the menu will expand from" */
-    var triggerQuadrant: "top-left" | "top-right" | "bottom-right" | "bottom-left";
-
-    const isTop: boolean = rect.top < windowHeight / 2;
-    const isLeft: boolean = rect.left < windowWidth / 2;
-
-    if (isTop) {
-      triggerQuadrant = isLeft ? "bottom-left" : "bottom-right";
-    } else {
-      triggerQuadrant = isLeft ? "top-left" : "top-right";
-    }
-
-    var positionStyle: React.CSSProperties = {};
-
-    switch (triggerQuadrant) {
-      case "top-left":
-        positionStyle = {
-          top: rect.top + window.scrollY,
-          left: rect.left + window.scrollX,
-        };
-        break;
-      case "top-right":
-        positionStyle = { top: rect.top + window.scrollY, left: rect.right + window.scrollX };
-        break;
-      case "bottom-right":
-        positionStyle = { top: rect.bottom + window.scrollY, left: rect.right + window.scrollX };
-        break;
-      case "bottom-left":
-        positionStyle = { top: rect.bottom + window.scrollY, left: rect.left + window.scrollX };
-        break;
-    }
-
-    return { triggerQuadrant, positionStyle };
-  }
-
-  const quadrantData = getQuadrant();
-
-  const style = {
-    top: rect.bottom + window.scrollY,
-    left: rect.right + window.scrollX,
-  };
 
   return ReactDOM.createPortal(
     <div
       ref={contentRef}
-      style={quadrantData.positionStyle}
+      style={{ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX }}
       role="menu"
-      lk-component="dropdown-menu"
+      lk-component="select-menu"
       data-isactive={open}
-      lk-dropdown-trigger-quadrant={quadrantData.triggerQuadrant}
     >
       <Card {...cardProps} className="shadow-xl">
         <Column gap="none" className={cardProps?.scaleFactor}>
@@ -144,19 +114,19 @@ export function DropdownMenu({ children, cardProps }: LkDropdownMenuProps) {
   );
 }
 
-// Singleton registry to track open dropdowns
-const DropdownRegistry = (() => {
-  interface DropdownInstance {
+// Singleton registry to track open selects
+const SelectRegistry = (() => {
+  interface SelectInstance {
     close: () => void;
   }
 
-  let current: DropdownInstance | null = null;
+  let current: SelectInstance | null = null;
   return {
-    register(instance: DropdownInstance) {
+    register(instance: SelectInstance) {
       if (current && current !== instance) current.close();
       current = instance;
     },
-    unregister(instance: DropdownInstance) {
+    unregister(instance: SelectInstance) {
       if (current === instance) current = null;
     },
   };
