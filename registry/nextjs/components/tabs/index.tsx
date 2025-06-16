@@ -4,20 +4,31 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import TabMenu from "@/registry/nextjs/components/tab-menu";
 import "@/registry/nextjs/components/tabs/tabs.css";
+import { useState, useEffect } from "react";
 
 interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks: string[];
   children: React.ReactNode[];
-  activeTab: number;
-  setActiveTab: (index: number) => void;
+  onActiveTabChange?: (index: number) => void; // Optional function to lift state
 }
 
-export default function Tabs(props: LkTabsProps) {
-  // const [activeTab] = useState(0);
+export default function Tabs({ tabLinks, onActiveTabChange, children, ...restProps }: LkTabsProps) {
+  const [activeTab, setActiveTab] = useState(0);
 
-  const { tabLinks, activeTab, setActiveTab, children, ...restProps } = props;
+  const handleTabClick = (index: number) => {
+    setActiveTab(index); // Set the clicked tab as active
+    console.log("index is", index);
+  };
 
-  const dataAttrs = useMemo(() => propsToDataAttrs({activeTab}, "tabs"), [activeTab]);
+  useEffect(() => {
+    if (onActiveTabChange) {
+      onActiveTabChange(activeTab);
+    } else {
+      return;
+    }
+  }, [activeTab]);
+
+  const dataAttrs = useMemo(() => propsToDataAttrs({ activeTab }, "tabs"), [activeTab]);
 
   return (
     <div lk-component="tabs" {...dataAttrs} {...restProps}>
@@ -27,6 +38,7 @@ export default function Tabs(props: LkTabsProps) {
         alignItems="stretch"
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        onClick={handleTabClick}
       />
       <div lk-tabs-el="tab-content">
         {children.map((child, index) => (

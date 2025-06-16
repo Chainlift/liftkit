@@ -4,12 +4,13 @@ import Row from "@/registry/nextjs/components/row";
 import TabLink from "@/registry/nextjs/components/tab-link";
 import "@/registry/nextjs/components/tab-menu/tab-menu.css";
 
-interface LkTabMenuProps extends React.HTMLAttributes<HTMLDivElement> {
+interface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
   tabLinks?: string[];
   alignItems?: "start" | "center" | "end" | "stretch";
   justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
   activeTab: number;
   setActiveTab: (index: number) => void;
+  onClick?: (index: number) => void; // Optional function to lift state
 }
 
 export default function TabMenu(props: LkTabMenuProps) {
@@ -19,6 +20,7 @@ export default function TabMenu(props: LkTabMenuProps) {
     justifyContent,
     activeTab,
     setActiveTab,
+    onClick,
     ...restProps
   } = props;
 
