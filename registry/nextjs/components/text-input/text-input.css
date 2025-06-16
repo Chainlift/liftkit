@@ -1,43 +1,55 @@
-[lk-component="text-input"] [lk-text-input-element="field-wrap"] {
-  appearance: none;
+[lk-component="text-input"] {
   display: flex;
-  padding: 7.76px var(--lk-size-md);
-  justify-content: center;
-  align-items: center;
-  gap: var(--lk-size-sm);
-  flex: 1 0 0;
-  border-radius: var(--lk-size-md);
+  flex-flow: column nowrap;
+}
+
+[lk-component="text-input"] input {
+  appearance: none;
+  background: white;
+  border: none;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  width: 100%;
+  padding: var(--lk-size-xs) var(--lk-size-sm);
+}
+
+[lk-text-input-el="input-wrap"] {
   border: 1px solid var(--lk-outlinevariant);
-  background: #fff;
-  transition:
-    border 0.2s ease-out,
-    outline 0.2s ease-out;
+  margin-top: calc(var(--bodyBoxHeight) * var(--lk-halfstep-dec));
   position: relative;
-}
-
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:hover {
-  border: 1px solid var(--lk-outlinevariant);
-}
-
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:active,
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:focus-within {
-  border-color: transparent;
-  outline: 3px solid var(--lk-primary);
-}
-
-[lk-component="text-input"] [lk-component="state-layer"] {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
+  overflow: hidden;
+  border-radius: var(--lk-size-sm);
+  outline: 3px solid transparent;
+  outline-offset: -3px;
   transition:
-    background-color 0.2s ease-out,
-    opacity 0.2s ease-out;
-  background-color: var(--lk-primary);
-  opacity: 0;
+    outline 0.2s ease-out,
+    outline-offset 0.2s ease-out;
+
+  &:hover {
+    outline: 3px solid var(--lk-tertiarycontainer);
+    outline-offset: 0px;
+  }
+
+  &:has(input:focus-visible) {
+    outline: 3px solid var(--lk-primary);
+    outline-offset: 0px;
+  }
+
+  &:placeholder-shown {
+    color: var(--lk-outline);
+  }
+
+  [lk-component="icon"] {
+    position: absolute;
+    top: 50%;
+    right: var(--lk-size-sm);
+    transform: translateY(-50%);
+  }
 }
 
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:hover [lk-component="state-layer"],
-[lk-component="text-input"] [lk-text-input-element="field-wrap"]:focus-within [lk-component="state-layer"] {
-  opacity: 0.04;
+[lk-component="text-input"]:focus-within {
+  [lk-component="state-layer"] {
+    display: none;
+  }
 }

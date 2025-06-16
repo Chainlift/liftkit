@@ -14,8 +14,8 @@ export default function TextInputStaging() {
     <>
       <Section padding="md">
         <Container>
-          <h1 className="display2-bold m-bottom-md">Tabs Staging Area</h1>
-       
+          <h1 className="display2-bold m-bottom-md">Text Input Staging Area</h1>
+          <TextInput></TextInput>
         </Container>
       </Section>
     </>
