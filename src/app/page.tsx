@@ -14,13 +14,8 @@ import TabContent from "@/registry/nextjs/components/tab-content";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Card from "@/registry/nextjs/components/card";
 
-
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
-
-import { useState } from "react";
-
-
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -38,12 +33,9 @@ const sizes = ["3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 const radii = ["none", "zero", "3xs", "2xs", "xs", "sm", "lg", "xl", "2xl", "3xl", "4xl"];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(0);
   const tabLabels = ["Home", "Profile", "Settings"];
   const variants = ["fill", "outline", "text"] as const;
   const buttonSizes = ["sm", "md", "lg"] as const;
-
-
 
   // const handleChange = (value: string) => {
   //   setSelectedValue(value);
@@ -56,12 +48,8 @@ export default function Home() {
   //   { label: "Option 3", value: "option3" },
   // ];
 
-
-  
   return (
     <div className={styles.page}>
-
-
       <NavBar
         navButtons={[
           <Button key="1" label="Home" variant="text" />,
@@ -109,7 +97,7 @@ export default function Home() {
           style={{ cursor: "pointer" }}
         /> */}
       </div>
-      <Tabs tabLinks={tabLabels} activeTab={activeTab} setActiveTab={setActiveTab}>
+      <Tabs tabLinks={tabLabels}>
         {tabLabels.map((label, index) => (
           <TabContent key={index}>
             <p>This is the content for {label}</p>
