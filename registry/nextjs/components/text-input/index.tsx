@@ -14,6 +14,7 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   name?: string;
   endIcon?: IconName;
+  labelBackgroundColor?: LkColor;
 }
 
 export default function TextInput({
@@ -22,6 +23,7 @@ export default function TextInput({
   placeholder = "Placeholder",
   name = "Label",
   endIcon = "search",
+  labelBackgroundColor,
   ...restProps
 }: LkTextInputProps) {
   const textInputProps = useMemo(() => propsToDataAttrs({ labelPosition }, "text-input"), [labelPosition]);
@@ -35,7 +37,7 @@ export default function TextInput({
 
       <div lk-text-input-el="input-wrap">
         {labelPosition === "on-input" && (
-          <label htmlFor={name} className="body">
+          <label htmlFor={name} className={`body ${labelBackgroundColor ? ` bg-${labelBackgroundColor}` : ""}`}>
             {name}
           </label>
         )}
