@@ -1,4 +1,4 @@
-@import "@/registry/universal/lib/css/liftkitvars.css";
+@import "@/registry/universal/lib/css/liftkit-core.css";
 
 .color-light__primary {
   color: var(--light__primary_lkv) !important;

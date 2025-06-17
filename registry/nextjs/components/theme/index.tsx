@@ -372,8 +372,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
               ...prevTheme.light,
               surfaceVariant: tones._80,
               onSurfaceVariant: tones._30,
-              outline: tones._90,
-              outlineVariant: tones._80,
+              outline: tones._60,
+              outlineVariant: tones._90,
             },
 
             dark: {
