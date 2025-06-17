@@ -17,26 +17,34 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function TextInput({
-  labelPosition,
+  labelPosition = "default",
   helpText,
   placeholder = "Placeholder",
   name = "Label",
   endIcon = "search",
   ...restProps
 }: LkTextInputProps) {
+  const textInputProps = useMemo(() => propsToDataAttrs({ labelPosition }, "text-input"), [labelPosition]);
   return (
-    <div lk-component="text-input">
-      <label htmlFor={name} className="label">
-        {name}
-      </label>
+    <div lk-component="text-input" {...textInputProps}>
+      {labelPosition === "default" && (
+        <label htmlFor={name} className="label">
+          {name}
+        </label>
+      )}
+
       <div lk-text-input-el="input-wrap">
-        {" "}
-        <input type="text" name={name} placeholder={placeholder} {...restProps} />
+        {labelPosition === "on-input" && (
+          <label htmlFor={name} className="body">
+            {name}
+          </label>
+        )}
+        <input type="text" name={name} placeholder={labelPosition !== "on-input" ? placeholder : ""} {...restProps} />
         <StateLayer />
         <Icon name={endIcon} />
         {/* implementation omitted for brevity */}
       </div>
-      
+
       {helpText && (
         <Row>
           <Icon name="info" fontClass="caption" />

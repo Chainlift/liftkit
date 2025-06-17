@@ -1,6 +1,11 @@
 [lk-component="text-input"] {
   display: flex;
   flex-flow: column nowrap;
+
+  [lk-component="state-layer"] {
+    border-radius: var(--lk-size-sm);
+    font-size: inherit;
+  }
 }
 
 [lk-component="text-input"] input {
@@ -12,13 +17,26 @@
   color: inherit;
   width: 100%;
   padding: var(--lk-size-xs) var(--lk-size-sm);
+  border-radius: var(--lk-size-sm);
+}
+
+[lk-text-input-label-position="on-input"] {
+  label {
+    position: absolute;
+    top: 50%;
+    left: var(--lk-size-sm);
+    transform: translateY(-50%);
+    opacity: 50%;
+    pointer-events: none;
+    transition: top 0.2s ease-out, font-size 0.2s ease-out, letter-spacing 0.2s ease-out, opacity 0.2s ease-out;
+  }
 }
 
 [lk-text-input-el="input-wrap"] {
   border: 1px solid var(--lk-outlinevariant);
   margin-top: calc(var(--bodyBoxHeight) * var(--lk-halfstep-dec));
   position: relative;
-  overflow: hidden;
+
   border-radius: var(--lk-size-sm);
   outline: 3px solid transparent;
   outline-offset: -3px;
@@ -26,13 +44,16 @@
     outline 0.2s ease-out,
     outline-offset 0.2s ease-out;
 
-  &:hover {
-
-  }
-
   &:has(input:focus-visible) {
     outline: 3px solid var(--lk-primary);
     outline-offset: 0px;
+
+    label {
+      opacity: 100%;
+      top: 0;
+      font-size: var(--label-font-size);
+      letter-spacing: 
+    }
   }
 
   &:placeholder-shown {

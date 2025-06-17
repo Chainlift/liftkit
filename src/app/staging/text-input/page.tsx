@@ -15,7 +15,10 @@ export default function TextInputStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold m-bottom-md">Text Input Staging Area</h1>
-          <TextInput></TextInput>
+          <Column gap="md">
+            <TextInput name="Minimal props passed" placeholder="placeholder"></TextInput>{" "}
+            <TextInput name="Label on input" placeholder="placeholder" labelPosition="on-input"></TextInput>
+          </Column>
         </Container>
       </Section>
     </>
