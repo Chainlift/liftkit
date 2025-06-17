@@ -28,7 +28,21 @@
     transform: translateY(-50%);
     opacity: 50%;
     pointer-events: none;
-    transition: top 0.2s ease-out, font-size 0.2s ease-out, letter-spacing 0.2s ease-out, opacity 0.2s ease-out;
+    transition:
+      top 0.2s ease-out,
+      font-size 0.2s ease-out,
+      letter-spacing 0.2s ease-out,
+      opacity 0.2s ease-out,
+      padding 0.2s ease-out,
+      transform 0.2s ease-out;
+  }
+
+  label.on-field-with-value-set {
+    opacity: 100%;
+    top: 0;
+    font-size: var(--label-font-size);
+    letter-spacing: -0.004em;
+    padding: 0 var(--lk-size-xs);
   }
 }
 
@@ -52,7 +66,8 @@
       opacity: 100%;
       top: 0;
       font-size: var(--label-font-size);
-      letter-spacing: 
+      letter-spacing: -0.004em;
+      padding: 0 var(--lk-size-xs);
     }
   }
 

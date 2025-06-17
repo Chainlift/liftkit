@@ -16,8 +16,8 @@ export default function TextInputStaging() {
         <Container>
           <h1 className="display2-bold m-bottom-md">Text Input Staging Area</h1>
           <Column gap="md">
-            <TextInput name="Minimal props passed" placeholder="placeholder"></TextInput>{" "}
-            <TextInput name="Label on input" placeholder="placeholder" labelPosition="on-input"></TextInput>
+            <TextInput name="Minimal props passed" placeholder="placeholder"></TextInput>
+            <TextInput name="Label on input" placeholder="placeholder" labelPosition="on-input" labelBackgroundColor="background"></TextInput>
           </Column>
         </Container>
       </Section>

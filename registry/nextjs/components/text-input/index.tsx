@@ -6,6 +6,7 @@ import Row from "@/registry/nextjs/components/row";
 import Text from "@/registry/nextjs/components/text";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
+import { useState, useEffect } from "react";
 Text;
 
 interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -27,6 +28,11 @@ export default function TextInput({
   ...restProps
 }: LkTextInputProps) {
   const textInputProps = useMemo(() => propsToDataAttrs({ labelPosition }, "text-input"), [labelPosition]);
+
+  const [inputValue, setInputValue] = useState("");
+
+  
+
   return (
     <div lk-component="text-input" {...textInputProps}>
       {labelPosition === "default" && (
@@ -37,11 +43,21 @@ export default function TextInput({
 
       <div lk-text-input-el="input-wrap">
         {labelPosition === "on-input" && (
-          <label htmlFor={name} className={`body ${labelBackgroundColor ? ` bg-${labelBackgroundColor}` : ""}`}>
+          <label
+            htmlFor={name}
+            className={`body ${labelBackgroundColor ? ` bg-${labelBackgroundColor}` : ""} ${inputValue ? "on-field-with-value-set" : ""}`}
+          >
             {name}
           </label>
         )}
-        <input type="text" name={name} placeholder={labelPosition !== "on-input" ? placeholder : ""} {...restProps} />
+        <input
+          type="text"
+          name={name}
+          placeholder={labelPosition !== "on-input" ? placeholder : ""}
+          onChange={(e) => setInputValue(e.target.value)}
+          value={inputValue}
+          {...restProps}
+        />
         <StateLayer />
         <Icon name={endIcon} />
         {/* implementation omitted for brevity */}
