@@ -27,8 +27,7 @@
     outline-offset 0.2s ease-out;
 
   &:hover {
-    outline: 3px solid var(--lk-tertiarycontainer);
-    outline-offset: 0px;
+
   }
 
   &:has(input:focus-visible) {

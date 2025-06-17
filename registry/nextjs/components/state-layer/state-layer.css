@@ -16,7 +16,7 @@ div:hover > [lk-component="state-layer"],
 a:hover > [lk-component="state-layer"],
 button:hover > [lk-component="state-layer"],
 li:hover > [lk-component="state-layer"] {
-  opacity: 0.25 !important;
+  opacity: 0.16 !important;
 }
 
 div:active > [lk-component="state-layer"],
