@@ -1,14 +1,14 @@
-[lk-component="text-input"] {
+[data-lk-component="text-input"] {
   display: flex;
   flex-flow: column nowrap;
 
-  [lk-component="state-layer"] {
+  [data-lk-component="state-layer"] {
     border-radius: var(--lk-size-sm);
     font-size: inherit;
   }
 }
 
-[lk-component="text-input"] input {
+[data-lk-component="text-input"] input {
   appearance: none;
   background: white;
   border: none;
@@ -20,7 +20,7 @@
   border-radius: var(--lk-size-sm);
 }
 
-[lk-text-input-label-position="on-input"] {
+[data-lk-text-input-label-position="on-input"] {
   label {
     position: absolute;
     top: 50%;
@@ -49,7 +49,7 @@
   }
 }
 
-[lk-text-input-el="input-wrap"] {
+[data-lk-text-input-el="input-wrap"] {
   border: 1px solid var(--lk-outlinevariant);
   margin-top: calc(var(--bodyBoxHeight) * var(--lk-halfstep-dec));
   position: relative;
@@ -80,7 +80,7 @@
     color: var(--lk-outline);
   }
 
-  [lk-component="icon"] {
+  [data-lk-component="icon"] {
     position: absolute;
     top: 50%;
     right: var(--lk-size-sm);
@@ -88,13 +88,13 @@
   }
 }
 
-[lk-component="text-input"]:focus-within {
-  [lk-component="state-layer"] {
+[data-lk-component="text-input"]:focus-within {
+  [data-lk-component="state-layer"] {
     display: none;
   }
 }
 
-[lk-input-help-text="true"] {
+[data-lk-input-help-text="true"] {
   margin-bottom: var(--lk-size-xs);
   color: var(--lk-outline);
 }

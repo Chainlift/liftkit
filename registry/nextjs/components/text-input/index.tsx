@@ -33,14 +33,14 @@ export default function TextInput({
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <div lk-component="text-input" {...textInputProps}>
+    <div data-lk-component="text-input" {...textInputProps}>
       {labelPosition === "default" && (
         <label htmlFor={name} className="label">
           {name}
         </label>
       )}
 
-      <div lk-text-input-el="input-wrap" lk-input-help-text={helpText ? "true" : "false"} data-help-text={helpText}>
+      <div data-lk-text-input-el="input-wrap" data-lk-input-help-text={helpText ? "true" : "false"} data-help-text={helpText}>
         {labelPosition === "on-input" && (
           <label
             htmlFor={name}
