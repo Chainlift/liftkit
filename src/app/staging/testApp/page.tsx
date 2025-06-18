@@ -10,6 +10,7 @@ import TextInput from "@/registry/nextjs/components/text-input";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
+import Text from "@/registry/nextjs/components/text";
 
 export default function TestApp() {
   return (
@@ -34,41 +35,52 @@ export default function TestApp() {
           </Row>
           <Tabs tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}>
             <Card scaleFactor="body">
-              <Row alignItems="center" gap="md">
-                <TextInput name="search" labelPosition="on-input"></TextInput>
-                <Dropdown>
-                  <DropdownTrigger>
-                    <Button
-                      startIcon="shield"
-                      endIcon="chevron-down"
-                      opticIconShift={false}
-                      variant="outline"
-                      label="All Roles"
-                    ></Button>
-                  </DropdownTrigger>
-                  <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
-                    <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
-                    <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
-                    <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
-                  </DropdownMenu>
-                </Dropdown>
-                <Dropdown>
-                  <DropdownTrigger>
-                    <Button
-                      startIcon="calendar"
-                      endIcon="chevron-down"
-                      opticIconShift={false}
-                      variant="outline"
-                      label="All Roles"
-                    ></Button>
-                  </DropdownTrigger>
-                  <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
-                    <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
-                    <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
-                    <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
-                  </DropdownMenu>
-                </Dropdown>
+              <Row alignItems="center" justifyContent="space-between">
+                <Row alignItems="center" gap="md">
+                  <TextInput name="search" labelPosition="on-input"></TextInput>
+                  <Dropdown>
+                    <DropdownTrigger>
+                      <Button
+                        startIcon="shield"
+                        endIcon="chevron-down"
+                        opticIconShift={false}
+                        variant="outline"
+                        label="All Roles"
+                        color="secondary"
+                      ></Button>
+                    </DropdownTrigger>
+                    <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
+                      <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
+                      <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
+                      <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                  <Dropdown>
+                    <DropdownTrigger>
+                      <Button
+                        startIcon="calendar"
+                        endIcon="chevron-down"
+                        opticIconShift={false}
+                        variant="outline"
+                        label="All Join Dates"
+                        color="secondary"
+                      ></Button>
+                    </DropdownTrigger>
+                    <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
+                      <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
+                      <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
+                      <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </Row>
+                <Button startIcon="download" color="primary" label="Export" />
               </Row>
+              <Column>
+                <Row alignItems="center">
+                  <Icon name="square"></Icon>
+                  <Text className="m-left-sm m-right-md">Lorem ipsum</Text>
+                </Row>
+              </Column>
             </Card>
             <Card scaleFactor="body"></Card>
             <Card scaleFactor="body"></Card>

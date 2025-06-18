@@ -54,6 +54,7 @@ export default function TextInput({
         <input
           type="text"
           name={name}
+          id={name}
           placeholder={labelPosition !== "on-input" ? placeholder : ""}
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
