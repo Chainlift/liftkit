@@ -10,6 +10,8 @@ import Column from "@/registry/nextjs/components/column";
 import "@/registry/nextjs/components/navbar/navbar.css";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
+import PlaceholderBlock from "@/registry/nextjs/components/placeholder-block";
+
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
   navButtons?: React.ReactNode;
@@ -55,6 +57,15 @@ export default function NavBar({
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
 
+  // If no navButtons or navDropdowns are provided, render placeholder blocks
+  function getPlaceholderBlocks(count: number) {
+    const blocks = [];
+    for (let i = 0; i < count; i++) {
+      blocks.push(<PlaceholderBlock key={i} />);
+    }
+    return blocks;
+  }
+
 
   return (
     <div data-lk-component="navbar" {...dataAttrs}>
@@ -66,12 +77,12 @@ export default function NavBar({
           </Link>
         </Row>
         <Row>
-          <Row data-lk-slot="nav-buttons">{navButtons}</Row>
-          <Row data-lk-slot="nav-dropdowns">{navDropdowns}</Row>
+          <Row data-lk-slot="nav-buttons">{navButtons || getPlaceholderBlocks(2)}</Row>
+          <Row data-lk-slot="nav-dropdowns">{navDropdowns || getPlaceholderBlocks(2) }</Row>
         </Row>
         <Row data-lk-navbar-el="nav-menu-end">
-          <div data-lk-slot="nav-icon-buttons">{iconButtons}</div>
-          <div data-lk-slot="nav-cta-buttons">{ctaButtons}</div>
+          <div data-lk-slot="nav-icon-buttons">{iconButtons || getPlaceholderBlocks(3)}</div>
+          <div data-lk-slot="nav-cta-buttons">{ctaButtons || getPlaceholderBlocks(2)}</div>
         </Row>
       </div>
 
@@ -92,3 +103,4 @@ export default function NavBar({
     </div>
   );
 }
+
