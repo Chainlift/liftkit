@@ -1,4 +1,4 @@
-[lk-component="heading"] {
+[data-lk-component="heading"] {
   display: block;
   margin: 0;
 }

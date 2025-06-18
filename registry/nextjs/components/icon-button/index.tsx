@@ -65,7 +65,7 @@ export default function IconButton({
 
   return (
     <button
-      lk-component="icon-button"
+      data-lk-component="icon-button"
       type="button"
       {...dataAttrs}
       {...restProps}

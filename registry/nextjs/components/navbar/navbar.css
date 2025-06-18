@@ -1,4 +1,4 @@
-[lk-component="navbar"] {
+[data-lk-component="navbar"] {
   position: sticky;
   top: 0;
   z-index: 99;
@@ -26,7 +26,7 @@
 }
 
 @media (max-width: 768px) {
-  [lk-navbar-el="nav-menu"]>.active {
+  [data-lk-navbar-el="nav-menu"]>.active {
     position: fixed;
     top: 0;
     left: 0;
@@ -49,7 +49,7 @@
   z-index: 1;
 }
 
-[lk-navbar-el="nav-menu-end"] {
+[data-lk-navbar-el="nav-menu-end"] {
   display: flex;
   align-items: center;
   gap: var(--lk-size-xs);
@@ -57,8 +57,8 @@
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-[lk-slot="nav-icon-buttons"],
-[lk-slot="nav-cta-buttons"] {
+[data-lk-slot="nav-icon-buttons"],
+[data-lk-slot="nav-cta-buttons"] {
   display: flex;
   align-items: center;
   gap: var(--lk-size-xs);

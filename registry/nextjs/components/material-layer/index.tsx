@@ -44,35 +44,35 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
 
   return (
     <>
-      <div lk-component="material-layer" lk-material-type={material} style={{ zIndex: zIndex }}>
+      <div data-lk-component="material-layer" data-lk-material-type={material} style={{ zIndex: zIndex }}>
         {material === "glass" && (
           <div>
-            <div lk-material-sublayer="texture">
+            <div data-lk-material-sublayer="texture">
               {(materialProps as LkMatProps_Glass)?.tint && (
-                <div lk-material-sublayer="tint">
-                  {(materialProps as LkMatProps_Glass)?.light && <div lk-material-sublayer="light"></div>}
+                <div data-lk-material-sublayer="tint">
+                  {(materialProps as LkMatProps_Glass)?.light && <div data-lk-material-sublayer="light"></div>}
                 </div>
               )}
             </div>
-            <div lk-material-sublayer="base-glass-fill"></div>
+            <div data-lk-material-sublayer="base-glass-fill"></div>
           </div>
         )}
 
         {material === "flat" && (
-          <div><div lk-material-sublayer="bgColor"></div></div>
+          <div><div data-lk-material-sublayer="bgColor"></div></div>
         )}
       </div>
 
       <style jsx>
         {`
-          [lk-component="material-layer"] {
+          [data-lk-component="material-layer"] {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
 
-            [lk-material-sublayer] {
+            [data-lk-material-sublayer] {
               position: absolute;
               inset: 0;
               pointer-events: none;
@@ -84,13 +84,13 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
       {/** Glass behavior */}
 
       <style jsx>{`
-        [lk-material-type="glass"] {
-          [lk-material-sublayer="tint"] {
+        [data-lk-material-type="glass"] {
+          [data-lk-material-sublayer="tint"] {
             opacity: ${(materialProps as LkMatProps_Glass)?.tintOpacity || 0.2};
             background-color: var(--lk-${(materialProps as LkMatProps_Glass)?.tint || "transparent"});
           }
 
-          [lk-material-sublayer="texture"] {
+          [data-lk-material-sublayer="texture"] {
             --blur-thick: var(--lk-size-lg);
             --blur-normal: var(--lk-size-md);
             --blur-thin: var(--lk-size-xs);
@@ -100,19 +100,19 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
             backdrop-filter: blur(var(--blur-${(materialProps as LkMatProps_Glass)?.thickness || "normal"}));
           }
 
-          [lk-material-sublayer="light"] {
+          [data-lk-material-sublayer="light"] {
             background: ${(materialProps as LkMatProps_Glass)?.lightExpression || "none"}
             mix-blend-mode: soft-light;
             opacity: 1;
           }
 
-          [lk-material-sublayer="base-glass-fill"] {
+          [data-lk-material-sublayer="base-glass-fill"] {
             background-color: var(--lk-surface);
             opacity: ${getGlassFillOpacity((materialProps as LkMatProps_Glass)?.thickness || "normal")};
           }
         }
-        [lk-material-type="flat"] {
-          [lk-material-sublayer="bgColor"] {
+        [data-lk-material-type="flat"] {
+          [data-lk-material-sublayer="bgColor"] {
             background-color: ${getBgColor((materialProps as LkMatProps_Flat)?.bgColor)};
 
           }

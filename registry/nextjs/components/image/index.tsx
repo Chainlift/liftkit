@@ -65,5 +65,5 @@ export default function Image({
     [aspect, borderRadius, objectFit, width, height],
   );
 
-  return <img lk-component="image" {...attrs} {...rest} alt="" />;
+  return <img data-lk-component="image" {...attrs} {...rest} alt="" />;
 }

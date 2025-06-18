@@ -48,13 +48,13 @@ export default function MenuItem({
 
   return (
     <div
-      lk-component="menu-item"
+      data-lk-component="menu-item"
       title={typeof children === "string" ? children : ""}
       className={`${className || ""}`}
     >
-      {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
-      <p lk-menu-item-element="content-wrap">{children}</p>
-      {endIcon && <Icon {...endIcon} lk-icon-position="end"></Icon>}
+      {startIcon && <Icon {...startIcon} data-lk-icon-position="start"></Icon>}
+      <p data-lk-menu-item-element="content-wrap">{children}</p>
+      {endIcon && <Icon {...endIcon} data-lk-icon-position="end"></Icon>}
 
       <StateLayer></StateLayer>
     </div>

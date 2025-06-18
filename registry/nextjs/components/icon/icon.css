@@ -1,4 +1,4 @@
-[lk-component="icon"] {
+[data-lk-component="icon"] {
   width: calc(1em * var(--lk-halfstep));
   aspect-ratio: 1;
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 /* Regular families */
-[lk-icon-font-class="display1"] {
+[data-lk-icon-font-class="display1"] {
   --lineHeightInEms: calc(1em * var(--lk-quarterstep));
   --md: var(--lineHeightInEms);
 
@@ -26,7 +26,7 @@
   line-height: var(--lk-quarterstep);
 }
 
-[lk-icon-font-class="display2"] {
+[data-lk-icon-font-class="display2"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -44,7 +44,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="title1"] {
+[data-lk-icon-font-class="title1"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -62,7 +62,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="title2"] {
+[data-lk-icon-font-class="title2"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -80,7 +80,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="title3"] {
+[data-lk-icon-font-class="title3"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -98,7 +98,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="heading"] {
+[data-lk-icon-font-class="heading"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -116,7 +116,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="subheading"] {
+[data-lk-icon-font-class="subheading"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -134,7 +134,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="body"] {
+[data-lk-icon-font-class="body"] {
   --lineHeightInEms: var(--title2-font-size);
   --md: 1em;
   --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
@@ -152,7 +152,7 @@
   line-height: var(--lk-wholestep);
 }
 
-[lk-icon-font-class="callout"] {
+[data-lk-icon-font-class="callout"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -170,7 +170,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="label"] {
+[data-lk-icon-font-class="label"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -189,7 +189,7 @@
   position: static;
 }
 
-[lk-icon-font-class="caption"] {
+[data-lk-icon-font-class="caption"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -207,7 +207,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[lk-icon-font-class="capline"] {
+[data-lk-icon-font-class="capline"] {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -228,7 +228,7 @@
 
 /* Ignore the width and aspect ratio rules when inside an icon-button component */
 
-[lk-component="icon-button"] [lk-component="icon"] {
+[data-lk-component="icon-button"] [data-lk-component="icon"] {
   width: unset;
   aspect-ratio: unset;
 }

@@ -1,4 +1,4 @@
-[lk-component="menu-item"] {
+[data-lk-component="menu-item"] {
   --py: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
   --gap: calc(var(--py) / var(--lk-eighthstep));
 
@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-[lk-menu-item-element="content-wrap"] {
+[data-lk-menu-item-element="content-wrap"] {
   flex: 1 0 0;
   overflow: hidden;
   white-space: nowrap; 
@@ -24,31 +24,31 @@
 }
 
 /* Left padding with start icon */
-[lk-component="menu-item"]:has([lk-icon-position="start"]) {
+[data-lk-component="menu-item"]:has([data-lk-icon-position="start"]) {
   padding-left: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
 }
 
 /* Right padding with end icon */
-[lk-component="menu-item"]:has([lk-icon-position="end"]) {
+[data-lk-component="menu-item"]:has([data-lk-icon-position="end"]) {
   padding-right: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
 }
 
 /* Default padding without icons */
-[lk-component="menu-item"]:not(:has([lk-icon-position="start"])) {
+[data-lk-component="menu-item"]:not(:has([data-lk-icon-position="start"])) {
   padding-left: var(--body-font-size);
 }
 
-[lk-component="menu-item"]:not(:has([lk-icon-position="end"])) {
+[data-lk-component="menu-item"]:not(:has([data-lk-icon-position="end"])) {
   padding-right: var(--body-font-size);
 }
 
-[lk-component="menu-item"] > [lk-component="state-layer"] {
+[data-lk-component="menu-item"] > [data-lk-component="state-layer"] {
   border-radius: var(--lk-size-xs);
 }
 
 
 /* Force-inherit font size when nested within lk-component="dropdown-menu" */
 
-[lk-component="dropdown-menu"] [lk-component="menu-item"] {
+[data-lk-component="dropdown-menu"] [data-lk-component="menu-item"] {
   font-size: inherit !important;
 }

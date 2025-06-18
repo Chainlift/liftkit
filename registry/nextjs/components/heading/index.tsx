@@ -36,7 +36,7 @@ export default function Heading({
   const Tag = tag;
 
   return (
-    <Tag lk-component="heading" className={`${fontClass} color-${fontColor} ${className || ""}`} {...headingAttrs}>
+    <Tag data-lk-component="heading" className={`${fontClass} color-${fontColor} ${className || ""}`} {...headingAttrs}>
       {children}
     </Tag>
   );

@@ -1,12 +1,12 @@
 /* This file is not used in the component currently. Component uses styled jsx due to high demand for dynamic features. */
-[lk-component="material-layer"] {
+[data-lk-component="material-layer"] {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
 
-  [lk-material-sublayer] {
+  [data-lk-material-sublayer] {
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -16,7 +16,7 @@
 /* Dark Mode behavior */
 
 @media (prefers-color-scheme: dark) {
-  [lk-material-type="glass"] {
+  [data-lk-material-type="glass"] {
     backdrop-filter: blur(4px);
   }
 }

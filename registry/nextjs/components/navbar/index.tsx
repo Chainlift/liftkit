@@ -57,7 +57,7 @@ export default function NavBar({
 
 
   return (
-    <div lk-component="navbar" {...dataAttrs}>
+    <div data-lk-component="navbar" {...dataAttrs}>
       {/* Desktop Navbar */}
       <div className="navbar-desktop">
         <Row alignItems="center" gap="sm">
@@ -66,17 +66,17 @@ export default function NavBar({
           </Link>
         </Row>
         <Row>
-          <Row lk-slot="nav-buttons">{navButtons}</Row>
-          <Row lk-slot="nav-dropdowns">{navDropdowns}</Row>
+          <Row data-lk-slot="nav-buttons">{navButtons}</Row>
+          <Row data-lk-slot="nav-dropdowns">{navDropdowns}</Row>
         </Row>
-        <Row lk-navbar-el="nav-menu-end">
-          <div lk-slot="nav-icon-buttons">{iconButtons}</div>
-          <div lk-slot="nav-cta-buttons">{ctaButtons}</div>
+        <Row data-lk-navbar-el="nav-menu-end">
+          <div data-lk-slot="nav-icon-buttons">{iconButtons}</div>
+          <div data-lk-slot="nav-cta-buttons">{ctaButtons}</div>
         </Row>
       </div>
 
       {/* Mobile Navbar */}
-      <div lk-navbar-el="nav-menu">
+      <div data-lk-navbar-el="nav-menu">
         <Column alignItems="start" className={`navbar-mobile ${menuOpen ? "active" : ""}`}>
           <IconButton icon="menu" onClick={() => toggleMenu()} />
           <Link href="/">
