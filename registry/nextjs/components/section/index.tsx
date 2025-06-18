@@ -27,7 +27,7 @@ export default function Section(props: LkSectionProps) {
 
   return (
     <section {...lkSectionAttrs} {...restProps}>
-      <div lk-component="section">{container || children}</div>
+      <div data-lk-component="section">{container || children}</div>
     </section>
   );
 }

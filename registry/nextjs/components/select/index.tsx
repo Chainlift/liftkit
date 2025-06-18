@@ -206,7 +206,7 @@ export function SelectMenu({ children, cardProps }: LkSelectMenuProps) {
       ref={contentRef}
       style={{ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX }}
       role="menu"
-      lk-component="select-menu"
+      data-lk-component="select-menu"
       data-isactive={open}
     >
       <Card {...cardProps} className="shadow-xl">
@@ -238,7 +238,7 @@ export function SelectOption({ value, children, onClick, startIcon, endIcon }: L
   return (
     <div
       role="menuitem"
-      lk-component="menu-item"
+      data-lk-component="menu-item"
       tabIndex={0}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -249,9 +249,9 @@ export function SelectOption({ value, children, onClick, startIcon, endIcon }: L
       }}
       className="select-option"
     >
-      {startIcon && <Icon {...startIcon} lk-icon-position="start"></Icon>}
-      <p lk-menu-item-element="content-wrap">{children}</p>
-      {endIcon && <Icon {...endIcon} lk-icon-position="end"></Icon>}
+      {startIcon && <Icon {...startIcon} data-lk-icon-position="start"></Icon>}
+      <p data-lk-menu-item-element="content-wrap">{children}</p>
+      {endIcon && <Icon {...endIcon} data-lk-icon-position="end"></Icon>}
       <StateLayer forcedState={isSelected ? 'active' : undefined}></StateLayer>
     </div>
   );
