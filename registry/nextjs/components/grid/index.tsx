@@ -14,7 +14,7 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * A responsive grid component that provides flexible layout options.
- * NOTE: It's deliberately low-detail. If you need complex features, like areas, asymmetrical column widths, or manual row sizing, 
+ * NOTE: It's deliberately low-detail. If you need complex features, like areas, asymmetrical column widths, or manual row sizing,
  * we strongly recommend defining your own CSS grid styles and using the `className` prop to apply them.
  *
  * @param columns - The number of columns for the grid layout
@@ -34,7 +34,6 @@ export default function Grid({
   className,
   ...restProps
 }: LkGridProps) {
-
   const lkGridAttrs = useMemo(
     () => propsToDataAttrs({ autoResponsive, gap, ...restProps }, "grid"),
     [autoResponsive, columns, gap]
@@ -48,11 +47,19 @@ export default function Grid({
     for (let i = 0; i < columns; i++) {
       placeholderBlocks.push(<PlaceholderBlock key={i * 2} />);
       if (!className) {
-      placeholderBlocks.push(<PlaceholderBlock key={i * 2 + 1} />);
+        placeholderBlocks.push(<PlaceholderBlock key={i * 2 + 1} />);
       }
     }
     children = placeholderBlocks;
   }
+
+  function getColumnCount() {
+    if (!className) {
+      return `repeat(${columns}, 1fr)`;
+    }
+  }
+
+  const columnCount = {};
 
   return (
     <>
@@ -61,7 +68,7 @@ export default function Grid({
         {...lkGridAttrs}
         {...restProps}
         className={className}
-        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)`, ...restProps.style }}
+        style={{ gridTemplateColumns: getColumnCount(), ...restProps.style }}
       >
         {children || placeholderBlocks}
       </div>
