@@ -1,4 +1,4 @@
-[lk-component="state-layer"] {
+[data-lk-component="state-layer"] {
   z-index: 1;
   opacity: 0;
 
@@ -11,36 +11,36 @@
   transition: opacity 0.1s ease-out;
 }
 
-/* Only apply styles to the [lk-component="state-layer"] when its direct parent is hovered, active, or focused */
-div:hover > [lk-component="state-layer"],
-a:hover > [lk-component="state-layer"],
-button:hover > [lk-component="state-layer"],
-li:hover > [lk-component="state-layer"] {
+/* Only apply styles to the [data-lk-component="state-layer"] when its direct parent is hovered, active, or focused */
+div:hover > [data-lk-component="state-layer"],
+a:hover > [data-lk-component="state-layer"],
+button:hover > [data-lk-component="state-layer"],
+li:hover > [data-lk-component="state-layer"] {
   opacity: 0.16 !important;
 }
 
-div:active > [lk-component="state-layer"],
-a:active > [lk-component="state-layer"],
-button:active > [lk-component="state-layer"],
-li:active > [lk-component="state-layer"] {
+div:active > [data-lk-component="state-layer"],
+a:active > [data-lk-component="state-layer"],
+button:active > [data-lk-component="state-layer"],
+li:active > [data-lk-component="state-layer"] {
   opacity: 0.5 !important;
 }
 
-div:focus > [lk-component="state-layer"],
-a:focus > [lk-component="state-layer"],
-button:focus > [lk-component="state-layer"],
-li:focus > [lk-component="state-layer"] {
+div:focus > [data-lk-component="state-layer"],
+a:focus > [data-lk-component="state-layer"],
+button:focus > [data-lk-component="state-layer"],
+li:focus > [data-lk-component="state-layer"] {
   opacity: 0.35 !important;
 }
 
-.is-active [lk-component="state-layer"] {
+.is-active [data-lk-component="state-layer"] {
   opacity: 0.16 !important;
 }
 
-.list-item.active [lk-component="state-layer"] {
+.list-item.active [data-lk-component="state-layer"] {
   opacity: 0.24 !important;
 }
 
-[lk-forced-state="active"] {
+[data-lk-forced-state="active"] {
   opacity: 0.12 !important;
 }

@@ -11,10 +11,10 @@ export default function StateLayer({ bgColor = "currentColor", forcedState }: Lk
   return (
     <>
       <div
-        lk-component="state-layer"
+        data-lk-component="state-layer"
         className={bgColor !== "currentColor" ? `bg-${bgColor}` : ""}
         style={bgColor === "currentColor" ? { backgroundColor: "currentColor" } : {}}
-        {...(forcedState && { "lk-forced-state": forcedState })}
+        {...(forcedState && { "data-lk-forced-state": forcedState })}
       ></div>
     </>
   );
