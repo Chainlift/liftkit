@@ -96,7 +96,7 @@ export default function Snackbar(props: LkSnackbarProps) {
     }
   }
   return (
-    <div lk-component="snackbar" {...dataAttrs} {...restProps}>
+    <div data-lk-component="snackbar" {...dataAttrs} {...restProps}>
       <Card
         scaleFactor={icon ? "subheading" : "body"}
         bgColor={globalColor}
@@ -107,7 +107,7 @@ export default function Snackbar(props: LkSnackbarProps) {
           {/* Badge slot */}
 
           {icon && (
-            <div lk-slot="snackbar-icon">
+            <div data-lk-slot="snackbar-icon">
               {globalColor
                 ? React.cloneElement(icon, { color: getOnToken(globalColor), strokeWidth: 1.75 } as LkIconProps)
                 : icon}
@@ -116,7 +116,7 @@ export default function Snackbar(props: LkSnackbarProps) {
 
           {/* Message slot */}
           {text.length > 0 && (
-            <div lk-slot="snackbar-text">
+            <div data-lk-slot="snackbar-text">
               {text.map((text, index) =>
                 globalColor
                   ? React.cloneElement(text, {
@@ -132,7 +132,7 @@ export default function Snackbar(props: LkSnackbarProps) {
           {/* Action buttons slot */}
           <Row>
             {buttons.length > 0 && (
-              <div lk-slot="snackbar-actions">
+              <div data-lk-slot="snackbar-actions">
                 {buttons.map((button, index) =>
                   globalColor
                     ? React.cloneElement(button, {
@@ -157,7 +157,7 @@ export default function Snackbar(props: LkSnackbarProps) {
             )}
             {/* Icon buttons slot (typically for close/dismiss) */}
             {iconButtons.length > 0 && (
-              <div lk-slot="snackbar-icon-actions">
+              <div data-lk-slot="snackbar-icon-actions">
                 {iconButtons.map((iconButton, index) =>
                   globalColor
                     ? React.cloneElement(iconButton, {

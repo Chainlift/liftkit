@@ -1,4 +1,4 @@
-[lk-component="snackbar"] {
+[data-lk-component="snackbar"] {
   display: inline-flex;
   align-items: center;
   padding: calc(var(--body-line-height) * var(--lk-halfstep-dec));
@@ -8,14 +8,14 @@
   color: var(--lk-onsurface);
   box-shadow: var(--shadow-xs);
 
-  [lk-slot="snackbar-text"] {
+  [data-lk-slot="snackbar-text"] {
     flex: 1 0 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  [lk-slot="snackbar-icon"] {
+  [data-lk-slot="snackbar-icon"] {
     width: 1em;
     height: 1em;
     display: flex;
@@ -26,9 +26,8 @@
     margin-right: calc(1em / var(--lk-halfstep));
   }
 
-  [lk-slot="snackbar-actions"] {
+  [data-lk-slot="snackbar-actions"] {
     margin-left: calc(1em / var(--lk-halfstep));
   }
 
 }
-
