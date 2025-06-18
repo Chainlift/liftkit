@@ -16,7 +16,7 @@ export function propsToDataAttrs(
 
     const kebabKey = key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 
-    dataAttrs[`lk-${baseAttr}-${kebabKey}`] = String(value);
+    dataAttrs[`data-lk-${baseAttr}-${kebabKey}`] = String(value);
   });
 
   return dataAttrs;
