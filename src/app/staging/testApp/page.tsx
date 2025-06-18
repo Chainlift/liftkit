@@ -15,12 +15,12 @@ export default function TestApp() {
           <IconButton icon="user"></IconButton>
           <IconButton icon="settings"></IconButton>
         </Column>
-        <Column className="flex-grow">
+        <Column className="flex-grow bg-primary">
           <Row justifyContent="space-between" alignItems="center" gap="md">
-            <Heading tag="h1" fontClass="title2-bold">
+            <Heading tag="h1" fontClass="title2-bold" className="flex-grow">
               Manage Users
             </Heading>
-            <Row alignItems="center" gap="md">
+            <Row alignItems="center" gap="md" justifyContent="end" >
               <IconButton icon="x" color="errorcontainer"></IconButton>
               <IconButton icon="message-circle-warning" color="warningcontainer"></IconButton>
               <IconButton icon="check-circle" color="successcontainer"></IconButton>
