@@ -1,4 +1,4 @@
-[lk-component="tab-menu"] {
+[data-lk-component="tab-menu"] {
   display: flex;
   flex-direction: row;
   align-items: stretch;

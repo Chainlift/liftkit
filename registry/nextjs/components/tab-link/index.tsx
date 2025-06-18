@@ -30,8 +30,8 @@ export default function TabLink(props: LkTabLinkProps) {
 
 
   return (
-    <div lk-component="tab-link" {...dataAttrs} {...restProps}>
-      <div lk-slot="child">
+    <div data-lk-component="tab-link" {...dataAttrs} {...restProps}>
+      <div data-lk-slot="child">
         <Text fontClass={fontClass} style={selected ? { fontWeight: 700 } : {}}>
           {children}
         </Text>

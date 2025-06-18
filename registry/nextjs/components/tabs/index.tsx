@@ -31,7 +31,7 @@ export default function Tabs({ tabLinks, onActiveTabChange, children, ...restPro
   const dataAttrs = useMemo(() => propsToDataAttrs({ activeTab }, "tabs"), [activeTab]);
 
   return (
-    <div lk-component="tabs" {...dataAttrs} {...restProps}>
+    <div data-lk-component="tabs" {...dataAttrs} {...restProps}>
       <TabMenu
         tabLinks={tabLinks}
         justifyContent="start"
@@ -40,7 +40,7 @@ export default function Tabs({ tabLinks, onActiveTabChange, children, ...restPro
         setActiveTab={setActiveTab}
         onClick={handleTabClick}
       />
-      <div lk-tabs-el="tab-content">
+      <div data-lk-tabs-el="tab-content">
         {children.map((child, index) => (
           <div key={index} style={{ display: index === activeTab ? "block" : "none" }}>
             {child}

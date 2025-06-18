@@ -32,7 +32,7 @@ export default function TabMenu(props: LkTabMenuProps) {
   );
 
   return (
-    <div lk-component="tab-menu" {...dataAttrs} {...restProps}>
+    <div data-lk-component="tab-menu" {...dataAttrs} {...restProps}>
       <Row alignItems={alignItems} justifyContent={justifyContent}>
         {tabLinks.map((label, index) => (
           <TabLink key={index} selected={index === activeTab} onClick={() => setActiveTab(index)}>

@@ -1,4 +1,4 @@
-[lk-component="tab-link"] {
+[data-lk-component="tab-link"] {
   display: inline-flex;
   position: relative;
   padding: var(--lk-size-md);
@@ -15,6 +15,6 @@
   transition: opacity 0.2s ease-out;
 }
 
-[lk-tab-link-selected="true"]>.lk-indicator {
+[data-lk-tab-link-selected="true"]>.lk-indicator {
   opacity: 1;
 }

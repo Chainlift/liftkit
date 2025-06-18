@@ -1,10 +1,10 @@
-[lk-component="tabs"] {
+[data-lk-component="tabs"] {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
 }
 
-[lk-tabs-el="tab-content"]>* {
+[data-lk-tabs-el="tab-content"]>* {
   width: 100%;
 }

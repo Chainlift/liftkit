@@ -6,5 +6,5 @@ interface TabContentProps {
 }
 
 export default function TabContent({ children }: TabContentProps) {
-  return <div lk-component="tab-content">{children} </div>;
+  return <div data-lk-component="tab-content">{children} </div>;
 }
