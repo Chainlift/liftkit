@@ -57,7 +57,7 @@ export default function Grid({
   return (
     <>
       <div
-        lk-component="grid"
+        data-lk-component="grid"
         {...lkGridAttrs}
         {...restProps}
         className={className}

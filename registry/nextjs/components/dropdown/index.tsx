@@ -130,9 +130,9 @@ export function DropdownMenu({ children, cardProps }: LkDropdownMenuProps) {
       ref={contentRef}
       style={quadrantData.positionStyle}
       role="menu"
-      lk-component="dropdown-menu"
+      data-lk-component="dropdown-menu"
       data-isactive={open}
-      lk-dropdown-trigger-quadrant={quadrantData.triggerQuadrant}
+      data-lk-dropdown-trigger-quadrant={quadrantData.triggerQuadrant}
     >
       <Card {...cardProps} className="shadow-xl">
         <Column gap="none" className={cardProps?.scaleFactor}>

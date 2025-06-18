@@ -1,4 +1,4 @@
-[lk-component="dropdown-menu"] {
+[data-lk-component="dropdown-menu"] {
   position: absolute;
   z-index: 1000;
   transform: scale(0%);
@@ -9,25 +9,25 @@
         transform: scale(100%);
   }
 
-  &[lk-dropdown-trigger-quadrant="top-left"] {
+  &[data-lk-dropdown-trigger-quadrant="top-left"] {
     transform: translate(0%, -100%);
     transform-origin: top left;
 
   }
 
-  &[lk-dropdown-trigger-quadrant="top-right"] {
+  &[data-lk-dropdown-trigger-quadrant="top-right"] {
     transform: translate(-100%, -100%);
     transform-origin: top right;
   
   }
 
-  &[lk-dropdown-trigger-quadrant="bottom-right"] {
+  &[data-lk-dropdown-trigger-quadrant="bottom-right"] {
     transform: translate(-100%, 0%);
     transform-origin: bottom right;
 
   }
 
-  &[lk-dropdown-trigger-quadrant="bottom-left"] {
+  &[data-lk-dropdown-trigger-quadrant="bottom-left"] {
     transform: translate(0%, 0%);
     transform-origin: bottom left;
 

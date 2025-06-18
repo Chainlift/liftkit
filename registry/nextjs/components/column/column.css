@@ -1,4 +1,4 @@
-[lk-component="column"] {
+[data-lk-component="column"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,80 +8,80 @@
 }
 
 /* align-items variations */
-[lk-column-align-items="start"] {
+[data-lk-column-align-items="start"] {
   align-items: flex-start;
 }
 
-[lk-column-align-items="center"] {
+[data-lk-column-align-items="center"] {
   align-items: center;
 }
 
-[lk-column-align-items="end"] {
+[data-lk-column-align-items="end"] {
   align-items: flex-end;
 }
 
-[lk-column-align-items="stretch"] {
+[data-lk-column-align-items="stretch"] {
   align-items: stretch;
 }
 
 /* justify-content variations */
-[lk-column-justify-content="start"] {
+[data-lk-column-justify-content="start"] {
   justify-content: flex-start;
 }
 
-[lk-column-justify-content="center"] {
+[data-lk-column-justify-content="center"] {
   justify-content: center;
 }
 
-[lk-column-justify-content="end"] {
+[data-lk-column-justify-content="end"] {
   justify-content: flex-end;
 }
 
-[lk-column-justify-content="space-between"] {
+[data-lk-column-justify-content="space-between"] {
   justify-content: space-between;
 }
 
-[lk-column-justify-content="space-around"] {
+[data-lk-column-justify-content="space-around"] {
   justify-content: space-around;
 }
 
 /* Gap */
-[lk-column-gap="3xs"] {
+[data-lk-column-gap="3xs"] {
   gap: var(--lk-size-3xs);
 }
 
-[lk-column-gap="2xs"] {
+[data-lk-column-gap="2xs"] {
   gap: var(--lk-size-2xs);
 }
 
-[lk-column-gap="xs"] {
+[data-lk-column-gap="xs"] {
   gap: var(--lk-size-xs);
 }
 
-[lk-column-gap="sm"] {
+[data-lk-column-gap="sm"] {
   gap: var(--lk-size-sm);
 }
 
-[lk-column-gap="md"] {
+[data-lk-column-gap="md"] {
   gap: var(--lk-size-md);
 }
 
-[lk-column-gap="lg"] {
+[data-lk-column-gap="lg"] {
   gap: var(--lk-size-lg);
 }
 
-[lk-column-gap="xl"] {
+[data-lk-column-gap="xl"] {
   gap: var(--lk-size-xl);
 }
 
-[lk-column-gap="2xl"] {
+[data-lk-column-gap="2xl"] {
   gap: var(--lk-size-2xl);
 }
 
-[lk-column-gap="3xl"] {
+[data-lk-column-gap="3xl"] {
   gap: var(--lk-size-3xl);
 }
 
-[lk-column-gap="4xl"] {
+[data-lk-column-gap="4xl"] {
   gap: var(--lk-size-4xl);
 }

@@ -20,7 +20,7 @@ export default function Column(props: LkColumnProps) {
   );
 
   return (
-    <div {...lkColumnAttrs} {...restProps} lk-component="column">
+    <div {...lkColumnAttrs} {...restProps} data-lk-component="column">
       {children}
     </div>
   );
