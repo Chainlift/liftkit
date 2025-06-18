@@ -49,13 +49,13 @@ export default function Card({
 
   return (
     <div
-      lk-component="card"
+      data-lk-component="card"
       className={`${isClickable ? "clickable" : ""}  ${className || ""}`}
       {...lkCardAttrs}
       {...restProps}
     >
-      <div lk-card-element="padding-box" lk-card-optical-correction={opticalCorrection}>
-        <div lk-component="slot" lk-slot="children">
+      <div data-lk-card-element="padding-box" data-lk-card-optical-correction={opticalCorrection}>
+        <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>
         {/* todo: define types for material scrim thickness, */}
