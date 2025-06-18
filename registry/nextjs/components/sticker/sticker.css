@@ -1,4 +1,4 @@
-[lk-component="sticker"] {
+[data-lk-component="sticker"] {
   display: inline-block;
   padding: var(--lk-size-xs) var(--lk-size-sm);
   color: var(--lk-onprimary);

@@ -25,7 +25,7 @@ export default function Sticker({
   ...restProps
 }: LkStickerProps) {
   return (
-    <div lk-component="sticker" {...restProps} className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || ""}`}>
+    <div data-lk-component="sticker" {...restProps} className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || ""}`}>
       <Text fontClass={fontClass}>{children || "Sticker"}</Text>
     </div>
   );
