@@ -1,3 +1,4 @@
+"use client";
 import Column from "@/registry/nextjs/components/column";
 import Heading from "@/registry/nextjs/components/heading";
 import Icon from "@/registry/nextjs/components/icon";
@@ -12,8 +13,38 @@ import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
 import StateLayer from "@/registry/nextjs/components/state-layer";
+import { useState, useContext, useEffect } from "react";
+import { ThemeContext } from "@/registry/nextjs/components/theme";
 
 export default function TestApp() {
+  const { updateTheme } = useContext(ThemeContext);
+
+  const theme1 = {
+    primary: "#035eff",
+    secondary: "#badcff",
+    tertiary: "#00ddfe",
+    neutral: "#000000",
+    neutralvariant: "#3f4f5b",
+    error: "#dd305c",
+    warning: "#feb600",
+    success: "#0cfecd",
+    info: "#175bfc",
+  };
+
+  const theme2 = {
+    primary: "#FFDE3F",
+    secondary: "#9B9168",
+    tertiary: "#6D9B7B",
+    neutral: "#949088",
+    neutralvariant: "#969080",
+    error: "#FF5449",
+    warning: "#8b4f24",
+    success: "#35693f",
+    info: "#415f91",
+  };
+
+  const [currentTheme, setCurrentTheme] = useState(theme1);
+
   function getRows(count: number) {
     const rows = [];
     for (let i = 0; i < count; i++) {
@@ -59,8 +90,12 @@ export default function TestApp() {
               <IconButton icon="check-circle" color="successcontainer"></IconButton>
             </Row>
           </Row>
-          <Tabs tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]} className="flex-grow" scrollableContent={true}>
-            <Card scaleFactor="body"  >
+          <Tabs
+            tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}
+            className="flex-grow"
+            scrollableContent={true}
+          >
+            <Card scaleFactor="body">
               <Row alignItems="center" justifyContent="space-between" className="m-bottom-xs">
                 <Row alignItems="center" gap="md">
                   <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
@@ -75,7 +110,9 @@ export default function TestApp() {
                         color="secondary"
                       ></Button>
                     </DropdownTrigger>
-                    <DropdownMenu cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: {thickness: "thin"} }}>
+                    <DropdownMenu
+                      cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: { thickness: "thin" } }}
+                    >
                       <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
                       <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
                       <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
@@ -99,7 +136,21 @@ export default function TestApp() {
                     </DropdownMenu>
                   </Dropdown>
                 </Row>
-                <Button startIcon="download" color="primary" label="Export" />
+                <Row justifyContent="end" gap="md">
+            
+                  <Button
+                    startIcon="arrow-left-right"
+                    color="primary"
+                    label="Blue theme"
+                    onClick={() => updateTheme(theme1)}
+                  />
+                  <Button
+                    startIcon="arrow-left-right"
+                    color="primary"
+                    label="Yellow Theme"
+                    onClick={() => updateTheme(theme2)}
+                  />
+                </Row>
               </Row>
               <Column>{getRows(25)}</Column>
             </Card>
