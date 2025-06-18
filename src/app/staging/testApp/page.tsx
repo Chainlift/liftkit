@@ -11,18 +11,44 @@ import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/compo
 import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
+import StateLayer from "@/registry/nextjs/components/state-layer";
 
 export default function TestApp() {
+  function getRows(count: number) {
+    const rows = [];
+    for (let i = 0; i < count; i++) {
+      rows.push(
+        <div className="position-relative overflow-hidden" key={i}>
+          <Row alignItems="center" className="py-sm position-relative">
+            <Icon name="square"></Icon>
+            <Text className="m-left-sm m-right-md">Lorem ipsum</Text>
+            <div className="p-right-md">
+              <Text color="outline">Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur...</Text>
+            </div>
+            <Button startIcon="image" color="tertiary" variant="text" label="filename.jpg" size="sm" />
+            <Row alignItems="center" gap="2xs" justifyContent="end" className="flex-grow">
+              <IconButton icon="edit" variant="text" size="sm"></IconButton>
+              <IconButton icon="trash" variant="text" size="sm"></IconButton>
+              <IconButton icon="check" variant="text" size="sm"></IconButton>
+            </Row>
+            <StateLayer bgColor="onsurface" />
+          </Row>
+        </div>
+      );
+    }
+    return rows;
+  }
+
   return (
     <>
-      <Row style={{ height: "100vh" }} gap="md" className="bg-surfacecontainer">
-        <Column>
-          <IconButton icon="grid"></IconButton>
-          <IconButton icon="database"></IconButton>
-          <IconButton icon="user"></IconButton>
-          <IconButton icon="settings"></IconButton>
+      <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
+        <Column gap="lg">
+          <IconButton icon="grid" fontClass="title3"></IconButton>
+          <IconButton icon="database" fontClass="title3" variant="text"></IconButton>
+          <IconButton icon="user" fontClass="title3" variant="text"></IconButton>
+          <IconButton icon="settings" fontClass="title3" variant="text"></IconButton>
         </Column>
-        <Column className="flex-grow">
+        <Column className="flex-grow overflow-hidden h-full" gap="lg">
           <Row justifyContent="space-between" alignItems="center" gap="md">
             <Heading tag="h1" fontClass="title2-bold">
               Manage Users
@@ -33,11 +59,11 @@ export default function TestApp() {
               <IconButton icon="check-circle" color="successcontainer"></IconButton>
             </Row>
           </Row>
-          <Tabs tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}>
-            <Card scaleFactor="body">
-              <Row alignItems="center" justifyContent="space-between">
+          <Tabs tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]} className="flex-grow" scrollableContent={true}>
+            <Card scaleFactor="body"  >
+              <Row alignItems="center" justifyContent="space-between" className="m-bottom-xs">
                 <Row alignItems="center" gap="md">
-                  <TextInput name="search" labelPosition="on-input"></TextInput>
+                  <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
                   <Dropdown>
                     <DropdownTrigger>
                       <Button
@@ -49,7 +75,7 @@ export default function TestApp() {
                         color="secondary"
                       ></Button>
                     </DropdownTrigger>
-                    <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
+                    <DropdownMenu cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: {thickness: "thin"} }}>
                       <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
                       <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
                       <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
@@ -75,12 +101,7 @@ export default function TestApp() {
                 </Row>
                 <Button startIcon="download" color="primary" label="Export" />
               </Row>
-              <Column>
-                <Row alignItems="center">
-                  <Icon name="square"></Icon>
-                  <Text className="m-left-sm m-right-md">Lorem ipsum</Text>
-                </Row>
-              </Column>
+              <Column>{getRows(25)}</Column>
             </Card>
             <Card scaleFactor="body"></Card>
             <Card scaleFactor="body"></Card>

@@ -10,7 +10,7 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   materialProps?: LkMatProps;
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   isClickable?: boolean;
-  bgColor?: LkColorWithOnToken; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
+  bgColor?: LkColorWithOnToken | "transparent"; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
   className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
 }
@@ -61,7 +61,7 @@ export default function Card({
         {/* todo: define types for material scrim thickness, */}
       </div>
       {material === "glass" && <MaterialLayer material="glass" materialProps={materialProps as LkMatProps_Glass} />}
-      {material === "flat" && <MaterialLayer material="flat" materialProps={{ bgColor: bgColor }} />}
+      {material === "flat" && <MaterialLayer material="flat" materialProps={{ bgColor: variant === "fill" ? bgColor : "transparent" }} />}
       {/**TODO: Define outlined card behavior */}
     </div>
   );

@@ -9,10 +9,11 @@ import { useState, useEffect } from "react";
 interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   tabLinks: string[];
   children: React.ReactNode[];
+  scrollableContent?: boolean; // Optional prop to enable scrollable content
   onActiveTabChange?: (index: number) => void; // Optional function to lift state
 }
 
-export default function Tabs({ tabLinks, onActiveTabChange, children, ...restProps }: LkTabsProps) {
+export default function Tabs({ tabLinks, onActiveTabChange, scrollableContent, children, ...restProps }: LkTabsProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index: number) => {
@@ -31,7 +32,7 @@ export default function Tabs({ tabLinks, onActiveTabChange, children, ...restPro
   const dataAttrs = useMemo(() => propsToDataAttrs({ activeTab }, "tabs"), [activeTab]);
 
   return (
-    <div data-lk-component="tabs" {...dataAttrs} {...restProps}>
+    <div data-lk-component="tabs" data-lk-tabs-content-scrollable={scrollableContent} {...dataAttrs} {...restProps}>
       <TabMenu
         tabLinks={tabLinks}
         justifyContent="start"
@@ -40,10 +41,10 @@ export default function Tabs({ tabLinks, onActiveTabChange, children, ...restPro
         setActiveTab={setActiveTab}
         onClick={handleTabClick}
       />
-      <div data-lk-tabs-el="tab-content">
+      <div data-lk-tabs-el="tab-content" data-lk-tabs-content-scrollable={scrollableContent}>
         {children.map((child, index) => (
           <div key={index} style={{ display: index === activeTab ? "block" : "none" }}>
-            {child}
+            {child }
           </div>
         ))}
       </div>
