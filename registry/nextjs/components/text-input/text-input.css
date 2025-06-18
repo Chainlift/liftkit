@@ -93,3 +93,8 @@
     display: none;
   }
 }
+
+[lk-input-help-text="true"] {
+  margin-bottom: var(--lk-size-xs);
+  color: var(--lk-outline);
+}

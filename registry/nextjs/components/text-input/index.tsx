@@ -7,11 +7,12 @@ import Text from "@/registry/nextjs/components/text";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { useState, useEffect } from "react";
+import { truncateSync } from "node:fs";
 Text;
 
 interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelPosition?: "default" | "on-input";
-  helpText?: boolean;
+  helpText?: string;
   placeholder?: string;
   name?: string;
   endIcon?: IconName;
@@ -31,8 +32,6 @@ export default function TextInput({
 
   const [inputValue, setInputValue] = useState("");
 
-  
-
   return (
     <div lk-component="text-input" {...textInputProps}>
       {labelPosition === "default" && (
@@ -41,7 +40,7 @@ export default function TextInput({
         </label>
       )}
 
-      <div lk-text-input-el="input-wrap">
+      <div lk-text-input-el="input-wrap" lk-input-help-text={helpText ? "true" : "false"} data-help-text={helpText}>
         {labelPosition === "on-input" && (
           <label
             htmlFor={name}
@@ -64,9 +63,9 @@ export default function TextInput({
       </div>
 
       {helpText && (
-        <Row>
-          <Icon name="info" fontClass="caption" />
-          <Text fontClass="caption">Help text goes here</Text>
+        <Row alignItems="center">
+          <Icon name="info" fontClass="capline" color="outline" opticShift={true} />
+          <Text color="outline" fontClass="caption" className="m-left-2xs">Help text goes here</Text>
         </Row>
       )}
     </div>

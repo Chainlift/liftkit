@@ -226,11 +226,13 @@
   line-height: var(--lk-halfstep);
 }
 
-
-
 /* Ignore the width and aspect ratio rules when inside an icon-button component */
 
 [lk-component="icon-button"] [lk-component="icon"] {
   width: unset;
   aspect-ratio: unset;
+}
+
+[data-lk-icon-offset="true"] {
+  margin-top: calc(-1 * calc(1em * var(--lk-quarterstep-dec)));
 }

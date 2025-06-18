@@ -8,6 +8,7 @@ export interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
   color?: LkColor | "currentColor";
   display?: "block" | "inline-block" | "inline";
   strokeWidth?: number;
+  opticShift?: boolean; //if true, pulls icon slightly upward
 }
 
 export default function Icon({
@@ -15,10 +16,11 @@ export default function Icon({
   fontClass,
   color = "onsurface",
   strokeWidth = 2,
+  opticShift = false,
   ...restProps
 }: LkIconProps) {
   return (
-    <div lk-component="icon" {...restProps} lk-icon-font-class={fontClass}>
+    <div lk-component="icon" data-lk-icon-offset={opticShift} {...restProps} lk-icon-font-class={fontClass} >
       <DynamicIcon name={name} width="1em" height="1em" color={`var(--lk-${color})`} strokeWidth={strokeWidth} />
     </div>
   );
