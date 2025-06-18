@@ -7,6 +7,9 @@ import Row from "@/registry/nextjs/components/row";
 import Card from "@/registry/nextjs/components/card";
 import Tabs from "@/registry/nextjs/components/tabs";
 import TextInput from "@/registry/nextjs/components/text-input";
+import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
+import Button from "@/registry/nextjs/components/button";
+import MenuItem from "@/registry/nextjs/components/menu-item";
 
 export default function TestApp() {
   return (
@@ -23,7 +26,7 @@ export default function TestApp() {
             <Heading tag="h1" fontClass="title2-bold">
               Manage Users
             </Heading>
-            <Row alignItems="center" gap="md" justifyContent="end" >
+            <Row alignItems="center" gap="md" justifyContent="end">
               <IconButton icon="x" color="errorcontainer"></IconButton>
               <IconButton icon="message-circle-warning" color="warningcontainer"></IconButton>
               <IconButton icon="check-circle" color="successcontainer"></IconButton>
@@ -33,6 +36,38 @@ export default function TestApp() {
             <Card scaleFactor="body">
               <Row alignItems="center" gap="md">
                 <TextInput name="search" labelPosition="on-input"></TextInput>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button
+                      startIcon="shield"
+                      endIcon="chevron-down"
+                      opticIconShift={false}
+                      variant="outline"
+                      label="All Roles"
+                    ></Button>
+                  </DropdownTrigger>
+                  <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
+                    <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
+                    <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
+                    <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
+                  </DropdownMenu>
+                </Dropdown>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button
+                      startIcon="calendar"
+                      endIcon="chevron-down"
+                      opticIconShift={false}
+                      variant="outline"
+                      label="All Roles"
+                    ></Button>
+                  </DropdownTrigger>
+                  <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
+                    <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
+                    <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
+                    <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
+                  </DropdownMenu>
+                </Dropdown>
               </Row>
             </Card>
             <Card scaleFactor="body"></Card>
