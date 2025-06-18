@@ -13,7 +13,7 @@ export interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * A badge component that displays an icon with customizable appearance.
- * 
+ *
  * @param icon - The name of the icon to display. Defaults to "roller-coaster".
  * @param color - Any LkColorWithOnToken value to set the badge color. Defaults to "surface".
  * @param scale - The size scale of the badge. Defaults to "md".
@@ -26,14 +26,14 @@ export default function Badge({
   color = "surface",
   scale = "md",
   iconStrokeWidth = 1.5,
+  scrim = false,
   ...restProps
 }: LkBadgeProps) {
   const iconColor = getOnToken(color) as LkColor;
 
-
-/** Dynamically set default iconStrokeWidth based on provided scale, if provided */
+  /** Dynamically set default iconStrokeWidth based on provided scale, if provided */
   let defaultIconStrokeWidth;
-  
+
   switch (scale) {
     case "lg":
       defaultIconStrokeWidth = 1;
@@ -42,26 +42,16 @@ export default function Badge({
     default:
       defaultIconStrokeWidth = 1.5;
       break;
-  
   }
-  
+
   return (
-    <div
-      lk-component="badge"
-      lk-badge-scale={scale}
-      lk-badge-color={`lk-${color}`}
-      {...restProps}
-    >
-      <div lk-component="slot" lk-slot="icon">
-        <div lk-icon-element="wrapper">
-          <Icon
-            name={icon}
-            color={iconColor}
-            strokeWidth={iconStrokeWidth || defaultIconStrokeWidth}
-          ></Icon>
+    <div data-lk-component="badge" data-lk-badge-scale={scale} data-lk-badge-color={`lk-${color}`} {...restProps}>
+      <div data-lk-component="slot" data-lk-slot="icon">
+        <div data-lk-icon-element="wrapper">
+          <Icon name={icon} color={iconColor} strokeWidth={iconStrokeWidth || defaultIconStrokeWidth}></Icon>
         </div>
       </div>
-      <div lk-component="badge-scrim" className={`bg-${iconColor}`}></div>
+      {scrim && <div data-lk-component="badge-scrim" className={`bg-${iconColor}`}></div>}
     </div>
   );
 }
