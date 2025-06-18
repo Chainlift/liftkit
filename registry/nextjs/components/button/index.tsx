@@ -108,19 +108,19 @@ export default function Button({
       {...lkButtonAttrs}
       {...restProps}
       type="button"
-      lk-component="button"
+      data-lk-component="button"
       className={`${baseButtonClasses} ${modifiers || ""}`}
     >
-      <div lk-button-content-wrap="true">
+      <div data-lk-button-content-wrap="true">
         {startIcon && (
-          <div lk-icon-position="start">
-            <Icon name={startIcon} color={variant === "fill" ? onColorToken : color} lk-icon-position="start"></Icon>
+          <div data-lk-icon-position="start">
+            <Icon name={startIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="start"></Icon>
           </div>
         )}
-        <span lk-button-child="button-text">{label ?? "Button"}</span>
+        <span data-lk-button-child="button-text">{label ?? "Button"}</span>
         {endIcon && (
-          <div lk-icon-position="end">
-            <Icon name={endIcon} color={variant === "fill" ? onColorToken : color} lk-icon-position="end"></Icon>
+          <div data-lk-icon-position="end">
+            <Icon name={endIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="end"></Icon>
           </div>
         )}
       </div>
