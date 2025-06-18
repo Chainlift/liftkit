@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/text-input/text-input.css";
