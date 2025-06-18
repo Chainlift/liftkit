@@ -33,7 +33,7 @@ export default function Row(props: LkRowProps) {
   );
 
   return (
-    <div {...lkRowAttrs} {...restProps} lk-component="row">
+    <div {...lkRowAttrs} {...restProps} data-lk-component="row">
       {children}
     </div>
   );
