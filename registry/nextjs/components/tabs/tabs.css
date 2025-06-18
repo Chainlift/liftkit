@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-[data-lk-tabs-content-scrollable="true"] {
+[data-lk-tabs-el="tab-content"][data-lk-tabs-content-scrollable="true"] {
   overflow: auto;
   flex-grow: 1;
   scrollbar-color: var(--lk-outline) transparent;
