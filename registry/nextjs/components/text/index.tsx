@@ -19,7 +19,7 @@ export default function Text({ tag = "div", fontClass, color, children, style, c
   // const textAttrs = useMemo(() => propsToDataAttrs(restProps, "text"), [restProps]);
 
   return (
-    <Tag className={`${fontClass} color-${color} ${className || ''}`} style={style} {...restProps}>
+    <Tag data-lk-component="text" className={`${fontClass} color-${color} ${className || ''}`} style={style} {...restProps}>
       {children}
     </Tag>
   );

@@ -1,4 +1,4 @@
-[lk-component="text"] {
+[data-lk-component="text"] {
   display: block;
   margin: 0;
 }
