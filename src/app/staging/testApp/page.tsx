@@ -108,7 +108,7 @@ export default function TestApp() {
             <Row alignItems="center" gap="md" justifyContent="end">
               <IconButton icon="x" color="error"></IconButton>
               <IconButton icon="message-circle-warning" color="warning"></IconButton>
-              <IconButton icon="check-circle" color="success"></IconButton>
+           
 
             </Row>
           </Row>
