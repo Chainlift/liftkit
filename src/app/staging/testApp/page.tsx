@@ -83,7 +83,7 @@ export default function TestApp() {
               <IconButton icon="trash" variant="text" size="sm"></IconButton>
               <IconButton icon="check" variant="text" size="sm"></IconButton>
             </Row>
-            <StateLayer bgColor="onsurface" />
+            <StateLayer bgColor="primary" />
           </Row>
         </div>
       );
