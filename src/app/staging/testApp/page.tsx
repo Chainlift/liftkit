@@ -3,7 +3,6 @@ import Column from "@/registry/nextjs/components/column";
 import Heading from "@/registry/nextjs/components/heading";
 import Icon from "@/registry/nextjs/components/icon";
 import IconButton from "@/registry/nextjs/components/icon-button";
-import NavBar from "@/registry/nextjs/components/navbar";
 import Row from "@/registry/nextjs/components/row";
 import Card from "@/registry/nextjs/components/card";
 import Tabs from "@/registry/nextjs/components/tabs";
@@ -13,7 +12,7 @@ import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
 import StateLayer from "@/registry/nextjs/components/state-layer";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
 
 export default function TestApp() {
@@ -66,20 +65,6 @@ export default function TestApp() {
     success: "#5d6300",
     info: "#006b54",
   };
-
-  const cottonCandy = {
-    primary: "#f4af00",
-    secondary: "#b15f00",
-    tertiary: "#009fb8",
-    neutral: "#837560",
-    neutralvariant: "#d5c4ac",
-    error: "#ba1a1a",
-    warning: "#87521e",
-    success: "#5d6300",
-    info: "#006b54",
-  };
-
-  const [currentTheme, setCurrentTheme] = useState(theme1);
 
   function getRows(count: number) {
     const rows = [];
