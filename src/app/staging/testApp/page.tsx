@@ -43,6 +43,42 @@ export default function TestApp() {
     info: "#415f91",
   };
 
+  const theme3 = {
+    primary: "#a92660",
+    secondary: "#e7b4fd",
+    tertiary: "#006d31",
+    neutral: "#8a7177",
+    neutralvariant: "#ddbfc6",
+    error: "#ba1a1a",
+    warning: "#8c4e2d",
+    success: "#446900",
+    info: "#006a63",
+  };
+
+  const rubberDuck = {
+    primary: "#f4af00",
+    secondary: "#b15f00",
+    tertiary: "#009fb8",
+    neutral: "#837560",
+    neutralvariant: "#d5c4ac",
+    error: "#ba1a1a",
+    warning: "#87521e",
+    success: "#5d6300",
+    info: "#006b54",
+  };
+
+  const cottonCandy = {
+    primary: "#f4af00",
+    secondary: "#b15f00",
+    tertiary: "#009fb8",
+    neutral: "#837560",
+    neutralvariant: "#d5c4ac",
+    error: "#ba1a1a",
+    warning: "#87521e",
+    success: "#5d6300",
+    info: "#006b54",
+  };
+
   const [currentTheme, setCurrentTheme] = useState(theme1);
 
   function getRows(count: number) {
@@ -56,7 +92,7 @@ export default function TestApp() {
             <div className="p-right-md">
               <Text color="outline">Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur...</Text>
             </div>
-            <Button startIcon="image" color="tertiary" variant="text" label="filename.jpg" size="sm" />
+            <Button startIcon="image" color="secondary" variant="text" label="filename.jpg" size="sm" />
             <Row alignItems="center" gap="2xs" justifyContent="end" className="flex-grow">
               <IconButton icon="edit" variant="text" size="sm"></IconButton>
               <IconButton icon="trash" variant="text" size="sm"></IconButton>
@@ -85,9 +121,10 @@ export default function TestApp() {
               Manage Users
             </Heading>
             <Row alignItems="center" gap="md" justifyContent="end">
-              <IconButton icon="x" color="errorcontainer"></IconButton>
-              <IconButton icon="message-circle-warning" color="warningcontainer"></IconButton>
-              <IconButton icon="check-circle" color="successcontainer"></IconButton>
+              <IconButton icon="x" color="error"></IconButton>
+              <IconButton icon="message-circle-warning" color="warning"></IconButton>
+              <IconButton icon="check-circle" color="success"></IconButton>
+              <IconButton icon="help-circle" color="info"></IconButton>
             </Row>
           </Row>
           <Tabs
@@ -95,61 +132,33 @@ export default function TestApp() {
             className="flex-grow"
             scrollableContent={true}
           >
-            <Card scaleFactor="body">
+            <Card scaleFactor="body" bgColor="surface">
               <Row alignItems="center" justifyContent="space-between" className="m-bottom-xs">
                 <Row alignItems="center" gap="md">
                   <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
+                </Row>
+                <Row justifyContent="end" gap="md">
                   <Dropdown>
                     <DropdownTrigger>
                       <Button
-                        startIcon="shield"
+                        startIcon="palette"
                         endIcon="chevron-down"
                         opticIconShift={false}
                         variant="outline"
-                        label="All Roles"
-                        color="secondary"
+                        label="Themes"
+                        color="tertiary"
                       ></Button>
                     </DropdownTrigger>
                     <DropdownMenu
                       cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: { thickness: "thin" } }}
                     >
-                      <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
-                      <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
-                      <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
+                      <MenuItem onClick={() => updateTheme(theme1)}>Marine Blue</MenuItem>
+                      <MenuItem onClick={() => updateTheme(theme2)}>Sahara</MenuItem>
+                      <MenuItem onClick={() => updateTheme(theme3)}>Watermelon</MenuItem>
+                      <MenuItem onClick={() => updateTheme(rubberDuck)}>Rubber Duck</MenuItem>
+                      <MenuItem onClick={() => updateTheme(rubberDuck)}>Cotton Candy</MenuItem>
                     </DropdownMenu>
                   </Dropdown>
-                  <Dropdown>
-                    <DropdownTrigger>
-                      <Button
-                        startIcon="calendar"
-                        endIcon="chevron-down"
-                        opticIconShift={false}
-                        variant="outline"
-                        label="All Join Dates"
-                        color="secondary"
-                      ></Button>
-                    </DropdownTrigger>
-                    <DropdownMenu cardProps={{ scaleFactor: "subheading" }}>
-                      <MenuItem startIcon={{ name: "square-check" }}>Admin</MenuItem>
-                      <MenuItem startIcon={{ name: "edit" }}>Contributor</MenuItem>
-                      <MenuItem startIcon={{ name: "view" }}>Viewer</MenuItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </Row>
-                <Row justifyContent="end" gap="md">
-            
-                  <Button
-                    startIcon="arrow-left-right"
-                    color="primary"
-                    label="Blue theme"
-                    onClick={() => updateTheme(theme1)}
-                  />
-                  <Button
-                    startIcon="arrow-left-right"
-                    color="primary"
-                    label="Yellow Theme"
-                    onClick={() => updateTheme(theme2)}
-                  />
                 </Row>
               </Row>
               <Column>{getRows(25)}</Column>

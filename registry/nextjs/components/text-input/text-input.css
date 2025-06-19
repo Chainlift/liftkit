@@ -10,7 +10,7 @@
 
 [data-lk-component="text-input"] input {
   appearance: none;
-  background: white;
+  background: var(--lk-surface);
   border: none;
   font-size: inherit;
   line-height: inherit;

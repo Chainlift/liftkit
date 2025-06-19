@@ -342,22 +342,17 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             },
             dark: {
               ...prevTheme.dark,
-              background: "#081021",
+              background: tones._10,
               onBackground:
-                tones._85 /** Let's just deal with background and onbackground for now. */,
-              /**
-              NOTE: In m3, surface containers from lowest to highest in dark mode go from darkest to brightest. In our system, LiftKit, they go from brightest to darkest.
-              This is because the default dark backgrounds and surfaces are a little too black and cause halation effects
-              for people with astigmatism, which includes me as well as a sizeable portion of our userbase (people who stare at screens all day) */
-
-              surfaceContainerLowest: "#142034",
-              surfaceDim: tones._14,
-              surface: "#172136",
-              surfaceContainerLow: "#1F2A3F",
-              surfaceContainer: "#253146",
-              surfaceContainerHigh: "#2E394F",
-              surfaceContainerHighest: "#374258",
-              surfaceBright: tones._30,
+                tones._85,
+              surfaceContainerLowest: tones._4,
+              surfaceDim: tones._6,
+              surface: tones._6,
+              surfaceContainerLow: tones._10,
+              surfaceContainer: tones._12,
+              surfaceContainerHigh: tones._17,
+              surfaceContainerHighest: tones._22,
+              surfaceBright: tones._24,
               onSurface: tones._90,
               inverseSurface: tones._98,
               inverseOnSurface: tones._10,

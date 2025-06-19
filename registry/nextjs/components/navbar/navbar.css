@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 99;
-  padding: var(--lk-size-xs);
+  padding: var(--lk-size-md);
 }
 
 
@@ -47,6 +47,7 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  gap: var(--lk-size-sm);
 }
 
 [data-lk-navbar-el="nav-menu-end"] {
@@ -65,4 +66,8 @@
   margin-left: var(--lk-size-xs);
 
 
+}
+
+[data-lk-navbar-material="glass"] {
+  border-bottom: 1px solid var(--lk-outlinevariant);
 }

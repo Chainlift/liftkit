@@ -34,14 +34,17 @@ interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   fontClass?: LkFontClass;
   title?: string;
   className?: string; //explicitly defining because it's used in internal component logic
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export default function MenuItem({
   startIcon,
   endIcon,
   fontClass = "body",
+  title,
   children,
   className,
+  onClick,
   ...restProps
 }: LkMenuItemProps) {
   // const dataAttrs = useMemo(() => propsToDataAttrs(restProps, "menu-item"), [restProps]); omitting because it is not used
@@ -51,6 +54,7 @@ export default function MenuItem({
       data-lk-component="menu-item"
       title={typeof children === "string" ? children : ""}
       className={`${className || ""}`}
+      onClick={onClick || undefined}
     >
       {startIcon && <Icon {...startIcon} data-lk-icon-position="start"></Icon>}
       <p data-lk-menu-item-element="content-wrap">{children}</p>
