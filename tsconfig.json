@@ -36,7 +36,7 @@
     "src/liftkit/index.d.ts",
     "src/localComponents/CodeEditor.jsx",
     "src/app/localComponents/CodeBlock.jsx"
-  ],
+, "registry/nextjs/components/button/buttonstyles.tsx"  ],
   "exclude": [
     "node_modules"
   ]

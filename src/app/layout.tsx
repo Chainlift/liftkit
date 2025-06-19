@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/src/app/globals.css";
 import ThemeProvider from "@/registry/nextjs/components/theme";
+import StyledJsxRegistry from "@/src/app/registry";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <StyledJsxRegistry>{children}</StyledJsxRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

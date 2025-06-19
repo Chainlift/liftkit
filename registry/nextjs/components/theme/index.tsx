@@ -11,6 +11,7 @@ import {
 import materialDynamicColors from "material-dynamic-colors";
 import {
   hexFromArgb,
+  rgbaFromArgb,
   argbFromHex,
   TonalPalette,
   Hct,
@@ -99,6 +100,7 @@ interface ThemeContextType {
   setPalette: React.Dispatch<React.SetStateAction<PaletteState>>;
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  componentProps: any; // Define this type based on your component props structure
 }
 
 export const ThemeContext = createContext<ThemeContextType>(
@@ -306,7 +308,12 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         const swatch = TonalPalette.fromHueAndChroma(hue, chroma);
 
         for (let i = 1; i <= 99; i++) {
-          this[`_${i}`] = hexFromArgb(swatch.tone(i));
+
+          // Use rgbaFromArgb to convert the tone to RGBA format
+          const rgbaObject = rgbaFromArgb(swatch.tone(i));
+          const passableColorValue = `rgb(${rgbaObject.r} ${rgbaObject.g} ${rgbaObject.b} / ${rgbaObject.a})`;
+
+          this[`_${i}`] = passableColorValue;;
         }
       }
     }
@@ -510,6 +517,16 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   //normalization functions; things that prevent weird input behavior
 
+  const componentProps = {
+
+    defaults: {
+      preset: "rubberduck"
+    },
+    button: {
+      defaultMaterial: "rubber",
+    }
+  }
+
   return (
     <ThemeContext.Provider
       value={{
@@ -520,6 +537,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         setPalette,
         navIsOpen,
         setNavIsOpen,
+        componentProps
       }}
     >
       {children}
