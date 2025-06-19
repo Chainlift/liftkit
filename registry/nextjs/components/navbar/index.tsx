@@ -73,7 +73,7 @@ export default function NavBar({
       <div className="navbar-desktop">
         <Row alignItems="center" gap="sm">
           <Link href="/">
-            <Image alt="" src="/vercel.svg" width="md" height="md" />
+            <Image alt="" src="/logotype.svg" height="md"/>
           </Link>
         </Row>
         <Row>

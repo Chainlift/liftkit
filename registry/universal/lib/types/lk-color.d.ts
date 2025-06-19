@@ -64,7 +64,8 @@ declare global {
     | "surfacecontainerhigh"
     | "surfacecontainerhighest"
     | "outline"
-    | "outlinevariant";
+    | "outlinevariant"
+    | "transparent";
 
   /**
    * Represents a subset of LiftKit color tokens that have explicitly defined "on-" swatches to match them.
@@ -97,7 +98,8 @@ declare global {
     | "surfacecontainer"
     | "surfacecontainerhigh"
     | "surfacecontainerhighest"
-    | "inversesurface";
+    | "inversesurface"
+    | "transparent"
 
   type LkOnColor =
     | "onprimary"
