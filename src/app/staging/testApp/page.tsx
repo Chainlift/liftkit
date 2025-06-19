@@ -141,7 +141,6 @@ export default function TestApp() {
                       <MenuItem onClick={() => updateTheme(theme2)}>Sahara</MenuItem>
                       <MenuItem onClick={() => updateTheme(theme3)}>Watermelon</MenuItem>
                       <MenuItem onClick={() => updateTheme(rubberDuck)}>Rubber Duck</MenuItem>
-                      <MenuItem onClick={() => updateTheme(rubberDuck)}>Cotton Candy</MenuItem>
                     </DropdownMenu>
                   </Dropdown>
                 </Row>
