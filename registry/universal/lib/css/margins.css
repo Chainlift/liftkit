@@ -1,4 +1,4 @@
-@import "@/registry/universal/lib/css/liftkitvars.css";
+@import "./liftkitvars.css";
 
 .m-top-2xs {
   margin-top: var(--lk-size-2xs);

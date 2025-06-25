@@ -1,4 +1,4 @@
-@import "@/registry/universal/lib/css/liftkitvars.css";
+@import "./liftkitvars.css";
 
 .p-0 {
   padding: 0px !important;

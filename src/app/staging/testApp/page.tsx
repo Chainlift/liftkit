@@ -31,15 +31,15 @@ export default function TestApp() {
   };
 
   const theme2 = {
-    primary: "#FFDE3F",
-    secondary: "#9B9168",
-    tertiary: "#6D9B7B",
-    neutral: "#949088",
-    neutralvariant: "#969080",
-    error: "#FF5449",
-    warning: "#8b4f24",
-    success: "#35693f",
-    info: "#415f91",
+    primary: "#f4af00",
+    secondary: "#b15f00",
+    tertiary: "#009fb8",
+    neutral: "#837560",
+    neutralvariant: "#d5c4ac",
+    error: "#ba1a1a",
+    warning: "#87521e",
+    success: "#5d6300",
+    info: "#006b54",
   };
 
   const theme3 = {
@@ -67,25 +67,52 @@ export default function TestApp() {
   };
 
   function getRows(count: number) {
+    const firstNames = ["Alice", "Bob", "Charlie", "Diana", "Edward", "Fiona", "George", "Helen", "Ian", "Julia"];
+    const lastNames = [
+      "Smith",
+      "Johnson",
+      "Williams",
+      "Brown",
+      "Jones",
+      "Garcia",
+      "Miller",
+      "Davis",
+      "Rodriguez",
+      "Martinez",
+    ];
+    const roles = ["Admin", "Contributor", "Viewer"];
+
     const rows = [];
     for (let i = 0; i < count; i++) {
+      const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+      const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+      const role = roles[Math.floor(Math.random() * roles.length)];
+
       rows.push(
-        <div className="position-relative overflow-hidden" key={i}>
-          <Row alignItems="center" className="py-sm position-relative">
+        <tr key={i} className="position-relative overflow-hidden">
+          <td className="py-sm">
             <Icon name="square"></Icon>
-            <Text className="m-left-sm m-right-md">Lorem ipsum</Text>
-            <div className="p-right-md">
-              <Text color="outline">Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur...</Text>
-            </div>
+          </td>
+          <td className="py-sm">
+            <Text>
+              {firstName} {lastName}
+            </Text>
+          </td>
+          <td className="py-sm">
+            <Text color="outline">{role}</Text>
+          </td>
+          <td className="py-sm">
             <Button startIcon="image" color="secondary" variant="text" label="filename.jpg" size="sm" />
-            <Row alignItems="center" gap="2xs" justifyContent="end" className="flex-grow">
+          </td>
+          <td className="py-sm">
+            <Row alignItems="center" gap="2xs" justifyContent="end">
               <IconButton icon="edit" variant="text" size="sm"></IconButton>
               <IconButton icon="trash" variant="text" size="sm"></IconButton>
               <IconButton icon="check" variant="text" size="sm"></IconButton>
             </Row>
-            <StateLayer bgColor="primary" />
-          </Row>
-        </div>
+          </td>
+          <StateLayer bgColor="primary" />
+        </tr>
       );
     }
     return rows;
@@ -106,10 +133,10 @@ export default function TestApp() {
               Manage Users
             </Heading>
             <Row alignItems="center" gap="md" justifyContent="end">
-              <IconButton icon="x" color="error"></IconButton>
-              <IconButton icon="message-circle-warning" color="warning"></IconButton>
-              <IconButton icon="check-circle" color="success"></IconButton>
-              <IconButton icon="help-circle" color="info"></IconButton>
+              <IconButton icon="x" color="error" fontClass="title2"></IconButton>
+              <IconButton icon="message-circle-warning" color="warning" fontClass="title2"></IconButton>
+              <IconButton icon="check-circle" color="success" fontClass="title2"></IconButton>
+              <IconButton icon="help-circle" color="info" fontClass="title2"></IconButton>
             </Row>
           </Row>
           <Tabs
@@ -137,15 +164,16 @@ export default function TestApp() {
                     <DropdownMenu
                       cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: { thickness: "thin" } }}
                     >
-                      <MenuItem onClick={() => updateTheme(theme1)}>Marine Blue</MenuItem>
-                      <MenuItem onClick={() => updateTheme(theme2)}>Sahara</MenuItem>
+                      <MenuItem onClick={() => updateTheme(theme1)}>Blueberry</MenuItem>
+                      <MenuItem onClick={() => updateTheme(theme2)}>Lemonbar</MenuItem>
                       <MenuItem onClick={() => updateTheme(theme3)}>Watermelon</MenuItem>
-                      <MenuItem onClick={() => updateTheme(rubberDuck)}>Rubber Duck</MenuItem>
                     </DropdownMenu>
                   </Dropdown>
                 </Row>
               </Row>
-              <Column>{getRows(25)}</Column>
+              <Column>
+                <table>{getRows(25)}</table>
+              </Column>
             </Card>
             <Card scaleFactor="body"></Card>
             <Card scaleFactor="body"></Card>

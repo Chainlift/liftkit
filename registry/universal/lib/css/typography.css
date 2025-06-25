@@ -1,4 +1,4 @@
-@import "@/registry/universal/lib/css/liftkitvars.css";
+@import "./liftkitvars.css";
 
 /* Regular families */
 .display1 {
@@ -444,7 +444,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .display1-bold,
   .display1 {
     font-size: 3.3301em;
@@ -604,5 +603,5 @@
 }
 
 .mono {
-  font-family: monospace ;
+  font-family: monospace;
 }
