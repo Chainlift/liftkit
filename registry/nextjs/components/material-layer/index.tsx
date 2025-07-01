@@ -19,11 +19,17 @@ type LkMatProps_Flat = {
   textColor?: LkColor;
 };
 
+type LkMaterialType = "flat" | "glass" | "debug";
+
 interface LkMaterialLayerProps extends React.HTMLAttributes<HTMLDivElement> {
   zIndex?: number; // Optional z-index for the material layer. Different use cases might need it to be at different z-indexes.
-  material?: "flat" | "glass" | "debug";
-  materialProps?: LkMatProps_Flat | LkMatProps_Glass; // Optional material-specific properties
+  material?: LkMaterialType;
+  materialProps?: LkMatProps; // Optional material-specific properties
 }
+
+
+
+
 
 export default function MaterialLayer({ zIndex = 0, material, materialProps }: LkMaterialLayerProps) {
   /**If materialProps are provided, loop through the keys and pass each one as a data attribute to the component. */
@@ -35,12 +41,14 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
 
   }
 
-  switch (material) {
-    case "glass":
-      break;
-    case "debug":
-      break;
-  }
+  /**Commented out, was likely used for debugging */
+
+  // switch (material) {
+  //   case "glass":
+  //     break;
+  //   case "debug":
+  //     break;
+  // }
 
   return (
     <>
