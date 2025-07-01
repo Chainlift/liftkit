@@ -11,7 +11,7 @@ type LkMatProps_Glass = {
   tint?: LkColor; // Optional tint color for the glass material.
   tintOpacity?: number; // Optional opacity for the tint color. Defaults to 0.5.
   light?: boolean; // Optional. If true, adds a secondary layer for luminance effects.
-  lightExpression?: string; //Optional. The value to pass to the light's background prop. Should be a gradient.
+  lightExpression?: string; //Optional. The value to pass to the light's background css property. Should be a gradient.
 };
 
 type LkMatProps_Flat = {
@@ -23,21 +23,18 @@ type LkMaterialType = "flat" | "glass" | "debug";
 
 interface LkMaterialLayerProps extends React.HTMLAttributes<HTMLDivElement> {
   zIndex?: number; // Optional z-index for the material layer. Different use cases might need it to be at different z-indexes.
-  material?: LkMaterialType;
+  type?: LkMaterialType;
   materialProps?: LkMatProps; // Optional material-specific properties
 }
 
 
-
-
-
-export default function MaterialLayer({ zIndex = 0, material, materialProps }: LkMaterialLayerProps) {
+export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMaterialLayerProps) {
   /**If materialProps are provided, loop through the keys and pass each one as a data attribute to the component. */
   let lkMatProps: LkMatProps;
 
   if (materialProps) {
 
-    lkMatProps = useMemo(() => propsToDataAttrs(materialProps, `${material}`), [materialProps]);
+    lkMatProps = useMemo(() => propsToDataAttrs(materialProps, `${type}`), [materialProps]);
 
   }
 
@@ -52,8 +49,8 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
 
   return (
     <>
-      <div data-lk-component="material-layer" data-lk-material-type={material} style={{ zIndex: zIndex }}>
-        {material === "glass" && (
+      <div data-lk-component="material-layer" data-lk-material-type={type} style={{ zIndex: zIndex }}>
+        {type === "glass" && (
           <div>
             <div data-lk-material-sublayer="texture">
               {(materialProps as LkMatProps_Glass)?.tint && (
@@ -66,7 +63,7 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
           </div>
         )}
 
-        {material === "flat" && (
+        {type === "flat" && (
           <div><div data-lk-material-sublayer="bgColor"></div></div>
         )}
       </div>
@@ -109,7 +106,7 @@ export default function MaterialLayer({ zIndex = 0, material, materialProps }: L
           }
 
           [data-lk-material-sublayer="light"] {
-            background: ${(materialProps as LkMatProps_Glass)?.lightExpression || "none"}
+            background: ${(materialProps as LkMatProps_Glass)?.lightExpression || "none"};
             mix-blend-mode: soft-light;
             opacity: 1;
           }

@@ -99,7 +99,7 @@ export default function NavBar({
           <Column className="flex-h gap-sm">{ctaButtons}</Column>
         </Column>
       </div>
-      {material === "glass" && <MaterialLayer material="glass"></MaterialLayer>}
+      {material === "glass" && <MaterialLayer type="glass"></MaterialLayer>}
     </div>
   );
 }

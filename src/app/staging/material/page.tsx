@@ -27,7 +27,7 @@ export default function MaterialStaging() {
             <div style={tempCardStyles}>
               <SampleCardContent />
               <MaterialLayer
-                material="glass"
+                type="glass"
 
               />
             </div>
