@@ -5,7 +5,7 @@
 @import "./aspect-ratios.css";
 @import "./border-radius.css";
 @import "./column-span.css";
-@import "./containers.css";
+@import "./container.css";
 @import "./display.css";
 @import "./font-color.css";
 @import "./flexboxes.css";
@@ -53,4 +53,4 @@
 @import "./background-colors.css";
 @import "./code.css";
 @import "./whitespace.css";
-@import '@csstools/normalize.css';
+@import "@csstools/normalize.css";

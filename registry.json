@@ -87,7 +87,7 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/nextjs/components/containers/containers.css",
+          "path": "registry/nextjs/components/containers/container.css",
           "type": "registry:component"
         }
       ]
@@ -530,7 +530,7 @@
           "type": "registry:lib"
         },
         {
-          "path": "registry/universal/lib/css/containers.css",
+          "path": "registry/universal/lib/css/container.css",
           "type": "registry:lib"
         },
         {
