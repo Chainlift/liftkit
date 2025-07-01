@@ -3,7 +3,7 @@ import Column from "@/registry/nextjs/components/column";
 import Heading from "@/registry/nextjs/components/heading";
 import Section from "@/registry/nextjs/components/section";
 import Image from "@/registry/nextjs/components/image";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Grid from "@/registry/nextjs/components/grid";
 
 type LkAspectRatio =
@@ -50,7 +50,7 @@ export default function ImageStaging() {
             <Column gap="md" className="w-full">
               <div className="title1-bold">Width: {width}</div>
               {aspects.map((aspect) => (
-                <Grid key={width + aspect} columns={6} gap="md" style={{width: "100%"}}>
+                <Grid key={width + aspect} columns={6} gap="md" style={{ width: "100%" }}>
                   <div>
                     <div className="heading mono">Aspect: {aspect}</div>
                   </div>

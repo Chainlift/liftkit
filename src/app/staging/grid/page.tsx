@@ -1,6 +1,6 @@
 "use client";
 
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Grid from "@/registry/nextjs/components/grid";
 import Section from "@/registry/nextjs/components/section";
 import Column from "@/registry/nextjs/components/column";
@@ -76,8 +76,8 @@ export default function GridStaging() {
                 <h3 className="title2 mono m-bottom-md">className=&quot;lk-debug--grid-override&quot;</h3>
                 <ul>
                   <li>
-                    If this doesn&apos;t look as expected, you got a className problem. Check that the prop spreaders aren&apos;t
-                    creating conflicting attributes.
+                    If this doesn&apos;t look as expected, you got a className problem. Check that the prop spreaders
+                    aren&apos;t creating conflicting attributes.
                   </li>
                   <li>Remember to manually change column count to whatever amount you need</li>
                 </ul>

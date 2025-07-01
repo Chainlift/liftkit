@@ -97,6 +97,8 @@ interface ThemeContextType {
   ) => Promise<void>;
   palette: PaletteState;
   setPalette: React.Dispatch<React.SetStateAction<PaletteState>>;
+
+  //todo: why are these here?
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }

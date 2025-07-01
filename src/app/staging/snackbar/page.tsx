@@ -1,4 +1,4 @@
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
 import Section from "@/registry/nextjs/components/section";
@@ -8,8 +8,6 @@ import Button from "@/registry/nextjs/components/button";
 import Icon from "@/registry/nextjs/components/icon";
 
 export default function SnackbarStaging() {
-
-
   const colors: LkColorWithOnToken[] = [
     "primary",
     "secondary",

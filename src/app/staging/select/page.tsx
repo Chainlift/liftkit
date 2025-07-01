@@ -2,7 +2,7 @@
 import Column from "@/registry/nextjs/components/column";
 import Heading from "@/registry/nextjs/components/heading";
 import Section from "@/registry/nextjs/components/section";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Button from "@/registry/nextjs/components/button";
 import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select";
 import React from "react";
@@ -22,8 +22,6 @@ export default function SelectStaging() {
     "caption",
     "capline",
   ];
-
-
 
   const [selectedValue, setSelectedValue] = React.useState<string>("Please choose an option");
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -74,5 +72,3 @@ export default function SelectStaging() {
     </>
   );
 }
-
-

@@ -3,7 +3,7 @@
 import Heading from "@/registry/nextjs/components/heading";
 import Row from "@/registry/nextjs/components/row";
 import Section from "@/registry/nextjs/components/section";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 
@@ -22,7 +22,6 @@ export default function MenuItemStaging() {
     "caption",
     "capline",
   ];
-
 
   return (
     <>

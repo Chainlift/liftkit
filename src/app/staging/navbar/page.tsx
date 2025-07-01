@@ -1,6 +1,6 @@
 import NavBar from "@/registry/nextjs/components/navbar";
 import Section from "@/registry/nextjs/components/section";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Button from "@/registry/nextjs/components/button";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
 import MenuItem from "@/registry/nextjs/components/menu-item";

@@ -1,4 +1,4 @@
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Heading from "@/registry/nextjs/components/heading";
 import IconButton from "@/registry/nextjs/components/icon-button";
 import Row from "@/registry/nextjs/components/row";

@@ -1,14 +1,10 @@
 import React from "react";
 import Section from "@/registry/nextjs/components/section";
 import Row from "@/registry/nextjs/components/row";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
 export default function MaterialStaging() {
-
-
-
-
   /** Defining a temporary style to use for testing material */
   const tempCardStyles: React.CSSProperties = {
     display: "block",
@@ -26,10 +22,7 @@ export default function MaterialStaging() {
           <Row gap="md">
             <div style={tempCardStyles}>
               <SampleCardContent />
-              <MaterialLayer
-                type="glass"
-
-              />
+              <MaterialLayer type="glass" />
             </div>
           </Row>
         </Container>

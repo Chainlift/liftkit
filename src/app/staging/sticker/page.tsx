@@ -1,5 +1,5 @@
 import Grid from "@/registry/nextjs/components/grid";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Sticker from "@/registry/nextjs/components/sticker";
 import { LkColors } from "@/registry/universal/lib/utils/debugUtils";

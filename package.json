@@ -10,7 +10,9 @@
     "pretty": "prettier --check .",
     "lint": "next lint",
     "lint:css": "stylelint registry/**/*.css src/**/*.css",
-    "test": "vitest"
+    "test": "vitest",
+    "list:types": "ts-node scripts/list-types.ts",
+    "find:type-usages": "ts-node scripts/find-type-usages.ts"
   },
   "dependencies": {
     "@csstools/normalize.css": "^12.1.1",
@@ -47,10 +49,12 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react": "^7.37.5",
+    "fast-glob": "^3.3.3",
     "globals": "^16.0.0",
     "jsdom": "^26.1.0",
     "prettier": "3.5.3",
-    "typescript": "^5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.2"

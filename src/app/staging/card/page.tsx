@@ -4,7 +4,7 @@ import Section from "@/registry/nextjs/components/section";
 
 import Row from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
-import Container from "@/registry/nextjs/components/containers";
+import Container from "@/registry/nextjs/components/container";
 
 import Card from "@/registry/nextjs/components/card";
 export default function CardStaging() {
@@ -23,8 +23,6 @@ export default function CardStaging() {
     "capline",
   ];
 
-
-
   return (
     <div className="bg-surfacecontainer" style={{ backgroundImage: "url(/testimage.png)" }}>
       <Section padding="md">
@@ -33,13 +31,7 @@ export default function CardStaging() {
           <Row gap="md">
             <Column gap="md">
               {scaleFactors.map((scaleFactor) => (
-                <Card
-                  key={scaleFactor}
-                  scaleFactor={scaleFactor}
-                  opticalCorrection="y"
-                 
-                  className="shadow-2xl"
-                >
+                <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y" className="shadow-2xl">
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
                   <p className="body m-top-sm">
@@ -92,4 +84,3 @@ export default function CardStaging() {
     </div>
   );
 }
-
