@@ -206,95 +206,153 @@ export default function TestApp() {
   return (
     <>
       {/* Render a set of color inputs, one for each color group. */}
-      <Grid columns={5}>
-        <div>
-          <h2 className="heading">Globals</h2>
-        </div>
-        <Column>
-          <label className="label m-bottom-xs" htmlFor="master">
-            Master
-          </label>
-          <input
-            type="color"
-            name="master"
-            value={palette["master"]}
-            onChange={(event) => handleColorChange("master", event.target.value)}
-          ></input>
-        </Column>
-      </Grid>
-      <Grid columns={5}>
-        <div>
-          <h2 className="heading">Brand Palette</h2>
-        </div>
-        {brandPalette.map((colorGroup) => (
-          <Column key={colorGroup}>
-            <label className="label m-bottom-xs" htmlFor={colorGroup}>
-              {colorGroup}
-            </label>
-            <input
-              type="color"
-              name={colorGroup}
-              value={palette[colorGroup]}
-              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-            ></input>
+      <div className="p-2xl">
+        <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg m-bottom-2xl">
+          <Column gap="lg">
+            <Grid columns={5} gap="md">
+              <div>
+                <h2 className="heading m-bottom-2xs">Globals</h2>
+                <p className="subheading color-onsurfacevariant">
+                  The "root" color of your theme. The color utilities will calculate all other color group swatches from
+                  this one.
+                </p>
+              </div>
+              <Row alignItems="start" gap="md">
+                <input
+                  type="color"
+                  name="master"
+                  value={palette["master"]}
+                  onChange={(event) => handleColorChange("master", event.target.value)}
+                ></input>
+                <Column>
+                  <label className="label m-bottom-xs" htmlFor={"master"}>
+                    {"master"}
+                  </label>
+                  <p className="caption color-onsurfacevariant m-bottom-xs">
+                    The seed color.{" "}
+                    <strong className="color-error">If you edit this, all other color tokens will reset.</strong>
+                  </p>
+                </Column>
+              </Row>
+              <Row alignItems="start" gap="md">
+                <Column>
+                  <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
+                </Column>
+                <Column>
+                  <label className="label m-bottom-xs">Default to Dark Mode</label>
+                  <p className="caption color-onsurfacevariant m-bottom-xs">Toggles dark mode.</p>
+                </Column>
+              </Row>
+            </Grid>
+            <Grid columns={5}>
+              <div>
+                <h2 className="heading m-bottom-2xs">Brand palette </h2>
+                <p className="subheading color-onsurfacevariant m-bottom-md">The key colors of your brand.</p>
+              </div>
+              {brandPalette.map((colorGroup) => (
+                <Row key={colorGroup} alignItems="start" gap="md">
+                  <input
+                    type="color"
+                    name={colorGroup}
+                    value={palette[colorGroup]}
+                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+                  ></input>
+                  <Column>
+                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                      {colorGroup}
+                    </label>
+                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                      {colorGroup === "primary"
+                        ? "Main brand color, used for most UI elements."
+                        : colorGroup === "secondary"
+                          ? "Desaturated variant of primary."
+                          : colorGroup === "tertiary"
+                            ? "Your accent color. Defaults to complementary hue to primary."
+                            : null}
+                    </p>
+                  </Column>
+                </Row>
+              ))}
+            </Grid>
+            <Grid columns={5}>
+              <div>
+                <h2 className="heading m-bottom-2xs">Semantic Palette</h2>
+                <p className="subheading color-onsurfacevariant m-bottom-md">Colors for communicating with the user.</p>
+              </div>
+              {semanticPalette.map((colorGroup) => (
+                <Row key={colorGroup} alignItems="start" gap="md">
+                  <input
+                    type="color"
+                    name={colorGroup}
+                    value={palette[colorGroup]}
+                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+                  ></input>
+                  <Column>
+                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                      {colorGroup}
+                    </label>
+                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                      {colorGroup === "error"
+                        ? "A pink or red, indicating problems."
+                        : colorGroup === "warning"
+                          ? "An orange or yellow, indicating caution."
+                          : colorGroup === "success"
+                            ? "A green, indicating success."
+                            : colorGroup === "info"
+                              ? "A blue, indicating neutral information."
+                              : null}
+                    </p>
+                  </Column>
+                </Row>
+              ))}
+            </Grid>
+            <Grid columns={5}>
+              <div>
+                <h2 className="heading m-bottom-2xs">Layout Palette</h2>
+                <p className="subheading color-onsurfacevariant m-bottom-md">
+                  Backgrounds, surfaces, default text colors, and outlines.
+                </p>
+              </div>
+              {layoutPalette.map((colorGroup) => (
+                <Row key={colorGroup} alignItems="start" gap="md">
+                  <input
+                    type="color"
+                    name={colorGroup}
+                    value={palette[colorGroup]}
+                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+                  ></input>
+                  <Column>
+                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                      {colorGroup}
+                    </label>
+                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                      {colorGroup === "neutral"
+                        ? "Backgrounds, surfaces, outlines, and default text color"
+                        : colorGroup === "neutralvariant"
+                          ? "Surface variant, outline variant, and text color variant"
+                          : null}
+                    </p>
+                  </Column>
+                </Row>
+              ))}
+            </Grid>
           </Column>
-        ))}
-      </Grid>
-      <Grid columns={5}>
-        <div>
-          <h2 className="heading">Semantic Palette</h2>
-        </div>
-        {semanticPalette.map((colorGroup) => (
-          <Column key={colorGroup}>
-            <label className="label m-bottom-xs" htmlFor={colorGroup}>
-              {colorGroup}
-            </label>
-            <input
-              type="color"
-              name={colorGroup}
-              value={palette[colorGroup]}
-              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-            ></input>
-          </Column>
-        ))}
-      </Grid>
-      <Grid columns={5}>
-        <div>
-          <h2 className="heading">Layout Palette</h2>
-        </div>
-        {layoutPalette.map((colorGroup) => (
-          <Column key={colorGroup} className="colspan-2">
-            <label className="label m-bottom-xs" htmlFor={colorGroup}>
-              {colorGroup}
-            </label>
-            <input
-              type="color"
-              name={colorGroup}
-              value={palette[colorGroup]}
-              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-            ></input>
-          </Column>
-        ))}
-      </Grid>
-      <Column>
-        <label className="label m-bottom-xs">Dark Mode</label>
-        <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
-      </Column>
-      <Card bgColor="surfacevariant" scaleFactor="body" className="position-relative">
-        <pre>
-{`
+          <Card bgColor="surfacevariant" scaleFactor="body" className="position-relative">
+            <pre>
+    {`
 const [colorMode, setColorMode] = useState<"light" | "dark">("${colorMode}");
 
 const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, null, 2)}
 `}
-          
-        </pre>
-        <IconButton
-          icon="copy"
-          style={{ position: "absolute", inset: "1em 1em auto auto" }}
-          onClick={handleCopyPalette}
-        ></IconButton>
-      </Card>
+            </pre>
+            <IconButton
+              icon="copy"
+              style={{ position: "absolute", inset: "1em 1em auto auto" }}
+              onClick={handleCopyPalette}
+            ></IconButton>
+          </Card>
+        </Card>
+      </div>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
           <IconButton icon="grid" fontClass="title3"></IconButton>
@@ -392,6 +450,37 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
 
         thead tr {
           border-bottom: 1px solid black;
+        }
+
+        input[type="color"] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: var(--lk-size-xl);
+          height: var(--lk-size-xl);
+          flex-basis: auto;
+          flex: 0 0 auto;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          outline: 2px solid var(--lk-onsurface);
+          border-radius: 100em;
+
+          padding-block: 0px;
+          padding-inline: 0px;
+
+          &::-webkit-color-swatch-wrapper {
+            padding: 0;
+          }
+
+          &::-webkit-color-swatch {
+            border-radius: 100em;
+            border: none;
+          }
+          &::-moz-color-swatch {
+            border-radius: 100%;
+            border: none;
+          }
         }
       `}</style>
     </>
