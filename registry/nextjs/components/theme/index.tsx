@@ -1,21 +1,8 @@
 "use client";
 
-import {
-  createContext,
-  useState,
-  useCallback,
-  useEffect,
-  ReactNode,
-  useContext,
-} from "react";
+import { createContext, useState, useCallback, useEffect, ReactNode, useContext } from "react";
 import materialDynamicColors from "material-dynamic-colors";
-import {
-  hexFromArgb,
-  argbFromHex,
-  TonalPalette,
-  Hct,
-  customColor,
-} from "@material/material-color-utilities";
+import { hexFromArgb, argbFromHex, TonalPalette, Hct, customColor } from "@material/material-color-utilities";
 
 // Define types for theme colors
 interface ThemeColors {
@@ -93,27 +80,21 @@ interface ThemeContextType {
   updateTheme: (palette: PaletteState) => Promise<void>;
   updateThemeFromMaster: (
     hexCode: string,
-    setPalette: React.Dispatch<React.SetStateAction<PaletteState>>,
+    setPalette: React.Dispatch<React.SetStateAction<PaletteState>>
   ) => Promise<void>;
   palette: PaletteState;
   setPalette: React.Dispatch<React.SetStateAction<PaletteState>>;
+  colorMode: "light" | "dark";
+  setColorMode: React.Dispatch<React.SetStateAction<"light" | "dark">>;
 
   //todo: why are these here?
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isDarkMode: boolean;
-  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
-
 }
 
-export const ThemeContext = createContext<ThemeContextType>(
-  {} as ThemeContextType,
-);
+export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-
-
-
   const [theme, setTheme] = useState<ThemeState>({
     light: {
       primary: "#004ee7",
@@ -217,7 +198,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     },
   });
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
 
   const [palette, setPalette] = useState<PaletteState>({
     primary: "#035eff",
@@ -238,32 +219,23 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement;
     // console.log(root);
     Object.keys(theme.light).forEach((key) => {
-      root.style.setProperty(
-        `--light__${key.toLowerCase()}_lkv`,
-        theme.light[key],
-      );
+      root.style.setProperty(`--light__${key.toLowerCase()}_lkv`, theme.light[key]);
     });
 
     Object.keys(theme.dark).forEach((key) => {
-      root.style.setProperty(
-        `--dark__${key.toLowerCase()}_lkv`,
-        theme.dark[key],
-      );
+      root.style.setProperty(`--dark__${key.toLowerCase()}_lkv`, theme.dark[key]);
     });
 
-    if (isDarkMode !== false) {
+    if (colorMode === "dark") {
       Object.keys(theme.dark).forEach((key) => {
-        root.style.setProperty(
-          `--light__${key.toLowerCase()}_lkv`,
-          theme.dark[key],)
-      })
+        root.style.setProperty(`--light__${key.toLowerCase()}_lkv`, theme.dark[key]);
+      });
     }
-  }, [theme, isDarkMode]);
+  }, [theme, colorMode]);
 
   //run the initial theme generation on first load
   useEffect(() => {
     updateTheme(palette);
-
 
     /**TODO: Debundle scroll behavior overrides from the central theme context */
     /**This is such a confusing place to put it. */
@@ -277,10 +249,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       const activeElement = document.activeElement as HTMLInputElement;
-      if (
-        ["ArrowUp", "ArrowDown"].includes(event.key) &&
-        activeElement?.type === "number"
-      ) {
+      if (["ArrowUp", "ArrowDown"].includes(event.key) && activeElement?.type === "number") {
         event.preventDefault();
       }
     };
@@ -361,8 +330,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             dark: {
               ...prevTheme.dark,
               background: tones._10,
-              onBackground:
-                tones._85,
+              onBackground: tones._85,
               surfaceContainerLowest: tones._4,
               surfaceDim: tones._6,
               surface: tones._6,
@@ -478,10 +446,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updateThemeFromMaster = useCallback(
-    async (
-      hexCode: string,
-      setPalette: React.Dispatch<React.SetStateAction<PaletteState>>,
-    ) => {
+    async (hexCode: string, setPalette: React.Dispatch<React.SetStateAction<PaletteState>>) => {
       var newPalette: Record<string, string> = {};
 
       // need to get the key colors to feed back to the ColorModule so it can update the palette
@@ -523,7 +488,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         console.error(error);
       }
     },
-    [],
+    []
   );
 
   //normalization functions; things that prevent weird input behavior
@@ -538,8 +503,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         setPalette,
         navIsOpen,
         setNavIsOpen,
-        isDarkMode,
-        setIsDarkMode
+        colorMode,
+        setColorMode,
       }}
     >
       {children}

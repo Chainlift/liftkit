@@ -13,6 +13,7 @@ import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
+import Switch from "@/registry/nextjs/components/switch";
 
 type LkColorGroup =
   | "master"
@@ -27,7 +28,7 @@ type LkColorGroup =
   | "info";
 
 export default function TestApp() {
-  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster } = useContext(ThemeContext);
+  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } = useContext(ThemeContext);
 
   const colorGroups: LkColorGroup[] = [
     "master",
@@ -177,6 +178,14 @@ export default function TestApp() {
     return rows;
   }
 
+  function handleColorModeSwitch() {
+    if (colorMode === "dark") {
+      setColorMode("light");
+    } else {
+      setColorMode("dark");
+    }
+  }
+
   return (
     <>
       <Row gap="md">
@@ -194,6 +203,7 @@ export default function TestApp() {
             ></input>
           </Column>
         ))}
+        <Switch onClick={handleColorModeSwitch}></Switch>
       </Row>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
