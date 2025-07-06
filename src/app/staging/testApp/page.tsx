@@ -29,6 +29,19 @@ type LkColorGroup =
 export default function TestApp() {
   const { palette, setPalette, theme, updateTheme, updateThemeFromMaster } = useContext(ThemeContext);
 
+  const colorGroups: LkColorGroup[] = [
+    "master",
+    "primary",
+    "secondary",
+    "tertiary",
+    "neutral",
+    "neutralvariant",
+    "error",
+    "warning",
+    "success",
+    "info",
+  ];
+
   const [paletteArray, setPaletteArray] = useState(
     Object.keys(palette).map((key) => {
       return { key, value: palette[key] };
@@ -105,20 +118,6 @@ export default function TestApp() {
   };
 
   function getRows(count: number) {
-    const firstNames = ["Alice", "Bob", "Charlie", "Diana", "Edward", "Fiona", "George", "Helen", "Ian", "Julia"];
-    const lastNames = [
-      "Smith",
-      "Johnson",
-      "Williams",
-      "Brown",
-      "Jones",
-      "Garcia",
-      "Miller",
-      "Davis",
-      "Rodriguez",
-      "Martinez",
-    ];
-
     const fullNames = [
       "Emma Thompson",
       "Liam Rodriguez",
@@ -167,7 +166,7 @@ export default function TestApp() {
           </td>
           <td className="py-sm">
             <Row alignItems="center" gap="2xs" justifyContent="end">
-              <IconButton icon="edit" variant="text" size="sm" color="outline"></IconButton>
+              <IconButton icon="edit" variant="text" size="sm" color="secondary"></IconButton>
               <IconButton icon="download" variant="text" size="sm"></IconButton>
               <IconButton icon="trash" color="error" variant="text" size="sm"></IconButton>
             </Row>
@@ -180,10 +179,21 @@ export default function TestApp() {
 
   return (
     <>
-      <Row>
-        <div>
-          <input type="color" onChange={(event) => handleColorChange("master", event.target.value)}></input>
-        </div>
+      <Row gap="md">
+        {/* Render a set of color inputs, one for each color group. */}
+        {colorGroups.map((colorGroup) => (
+          <Column key={colorGroup}>
+            <label className="label" htmlFor={colorGroup}>
+              {colorGroup}
+            </label>
+            <input
+              type="color"
+              name={colorGroup}
+              value={palette[colorGroup]}
+              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+            ></input>
+          </Column>
+        ))}
       </Row>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
