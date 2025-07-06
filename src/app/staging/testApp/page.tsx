@@ -11,12 +11,50 @@ import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/compo
 import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
 
+type LkColorGroup =
+  | "master"
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "neutral"
+  | "neutralvariant"
+  | "error"
+  | "warning"
+  | "success"
+  | "info";
+
 export default function TestApp() {
-  const { updateTheme } = useContext(ThemeContext);
+  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster } = useContext(ThemeContext);
+
+  const [paletteArray, setPaletteArray] = useState(
+    Object.keys(palette).map((key) => {
+      return { key, value: palette[key] };
+    })
+  );
+
+  useEffect(() => {
+    updateTheme(palette);
+    const newPaletteArray = Object.keys(palette).map((key) => {
+      return { key, value: palette[key] };
+    });
+    setPaletteArray(newPaletteArray);
+  }, [palette]);
+
+  const handleColorChange = (key: LkColorGroup, newValue: string) => {
+    console.log(key);
+
+    if (key === "master") {
+      updateThemeFromMaster(newValue, setPalette);
+    } else {
+      setPalette((prevPalette) => ({
+        ...prevPalette,
+        [key]: newValue,
+      }));
+    }
+  };
 
   const theme1 = {
     primary: "#035eff",
@@ -80,13 +118,35 @@ export default function TestApp() {
       "Rodriguez",
       "Martinez",
     ];
+
+    const fullNames = [
+      "Emma Thompson",
+      "Liam Rodriguez",
+      "Olivia Chen",
+      "Noah Williams",
+      "Ava Martinez",
+      "Ethan Johnson",
+      "Sophia Davis",
+      "Mason Garcia",
+      "Isabella Miller",
+      "Logan Wilson",
+      "Mia Anderson",
+      "Lucas Taylor",
+      "Charlotte Moore",
+      "Benjamin Jackson",
+      "Amelia White",
+      "Oliver Harris",
+      "Harper Martin",
+      "Elijah Clark",
+      "Evelyn Lewis",
+      "James Robinson",
+    ];
     const roles = ["Admin", "Contributor", "Viewer"];
 
     const rows = [];
     for (let i = 0; i < count; i++) {
-      const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-      const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-      const role = roles[Math.floor(Math.random() * roles.length)];
+      const fullName = fullNames[i % fullNames.length];
+      const role = roles[i % roles.length];
 
       rows.push(
         <tr key={i} className="position-relative overflow-hidden">
@@ -94,24 +154,24 @@ export default function TestApp() {
             <Icon name="square"></Icon>
           </td>
           <td className="py-sm">
-            <Text>
-              {firstName} {lastName}
-            </Text>
+            <Text>{fullName}</Text>
           </td>
           <td className="py-sm">
             <Text color="outline">{role}</Text>
           </td>
           <td className="py-sm">
-            <Button startIcon="image" color="secondary" variant="text" label="filename.jpg" size="sm" />
+            <Row alignItems="center" gap="xs" className="color-tertiary">
+              <Icon color="tertiary" fontClass="body" name="image" />
+              <p className="callout-bold">Filename.jpg</p>
+            </Row>
           </td>
           <td className="py-sm">
             <Row alignItems="center" gap="2xs" justifyContent="end">
-              <IconButton icon="edit" variant="text" size="sm"></IconButton>
-              <IconButton icon="trash" variant="text" size="sm"></IconButton>
-              <IconButton icon="check" variant="text" size="sm"></IconButton>
+              <IconButton icon="edit" variant="text" size="sm" color="surface"></IconButton>
+              <IconButton icon="download" variant="text" size="sm"></IconButton>
+              <IconButton icon="trash" color="error" variant="text" size="sm"></IconButton>
             </Row>
           </td>
-          <StateLayer bgColor="primary" />
         </tr>
       );
     }
@@ -120,6 +180,11 @@ export default function TestApp() {
 
   return (
     <>
+      <Row>
+        <div>
+          <input type="color" onChange={(event) => handleColorChange("master", event.target.value)}></input>
+        </div>
+      </Row>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
           <IconButton icon="grid" fontClass="title3"></IconButton>
@@ -172,7 +237,20 @@ export default function TestApp() {
                 </Row>
               </Row>
               <Column>
-                <table>{getRows(25)}</table>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        <Icon name="square"></Icon>
+                      </th>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Profile Photo</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>{getRows(25)}</tbody>
+                </table>
               </Column>
             </Card>
             <Card scaleFactor="body"></Card>
@@ -182,6 +260,30 @@ export default function TestApp() {
           </Tabs>
         </Column>
       </Row>
+      <style jsx>{`
+        table {
+          border-collapse: collapse;
+        }
+        th {
+          text-align: left;
+          font-size: var(--subheading-font-size);
+          padding: var(--lk-size-sm) 0px;
+          border-bottom: 1px solid black;
+          font-weight: 500;
+        }
+
+        th:first-child {
+          font-size: var(--body-font-size);
+        }
+
+        th:last-child {
+          text-align: right;
+        }
+
+        thead tr {
+          border-bottom: 1px solid black;
+        }
+      `}</style>
     </>
   );
 }
