@@ -198,7 +198,12 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     },
   });
 
-  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
+  /**
+   * REPLACE THE BELOW IF USING THE CHAINLIFT THEME BUILDER
+   * 
+   */
+
+  const [colorMode, setColorMode] = useState<"light" | "dark">("dark");
 
   const [palette, setPalette] = useState<PaletteState>({
     primary: "#035eff",
@@ -211,6 +216,10 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     success: "#0cfecd",
     info: "#175bfc",
   });
+
+  /**
+   * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
+   */
 
   const [navIsOpen, setNavIsOpen] = useState(false);
 

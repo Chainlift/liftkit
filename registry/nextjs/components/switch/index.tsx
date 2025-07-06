@@ -8,10 +8,11 @@ export interface LkSwitchProps {
   onClick?: (switchIsOn?: boolean) => void;
   offColor?: LkColorWithOnToken;
   onColor?: LkColorWithOnToken;
+  value?: boolean;
 }
 
-export default function Switch({ onClick, offColor = "surfacevariant", onColor = "primary" }: LkSwitchProps) {
-  const [switchIsOn, setSwitchIsOn] = useState(false);
+export default function Switch({ onClick, offColor = "surfacevariant", onColor = "primary", value }: LkSwitchProps) {
+  const [switchIsOn, setSwitchIsOn] = useState(value ? value : false);
 
   const switchThumbOffColor = getOnToken(offColor);
   const switchThumbOnColor = getOnToken(onColor);

@@ -197,9 +197,9 @@ export default function TestApp() {
   const handleCopyPalette = async () => {
     try {
       await navigator.clipboard.writeText(JSON.stringify(palette, null, 2));
-      alert('Code copied');
+      alert("Code copied");
     } catch (err) {
-      console.error('Failed to copy palette:', err);
+      console.error("Failed to copy palette:", err);
     }
   };
 
@@ -278,12 +278,22 @@ export default function TestApp() {
       </Grid>
       <Column>
         <label className="label m-bottom-xs">Dark Mode</label>
-        <Switch onClick={handleColorModeSwitch}></Switch>
+        <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
       </Column>
       <Card bgColor="surfacevariant" scaleFactor="body" className="position-relative">
-        <pre>{JSON.stringify(palette, null, 2)}</pre>
-        <IconButton icon="copy" style={{position: 'absolute', inset: '1em 1em auto auto'}} onClick={handleCopyPalette
-        }></IconButton>
+        <pre>
+{`
+const [colorMode, setColorMode] = useState<"light" | "dark">("${colorMode}");
+
+const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, null, 2)}
+`}
+          
+        </pre>
+        <IconButton
+          icon="copy"
+          style={{ position: "absolute", inset: "1em 1em auto auto" }}
+          onClick={handleCopyPalette}
+        ></IconButton>
       </Card>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
