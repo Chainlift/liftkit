@@ -15,6 +15,7 @@ import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
 import Switch from "@/registry/nextjs/components/switch";
 import Grid from "@/registry/nextjs/components/grid";
+import ThemeController from "@/registry/nextjs/components/theme-controller";
 
 type LkColorGroup =
   | "master"
@@ -206,8 +207,8 @@ export default function TestApp() {
   return (
     <>
       {/* Render a set of color inputs, one for each color group. */}
-      <div className="p-2xl">
-        <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg m-bottom-2xl">
+
+      {/* <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg m-bottom-2xl">
           <Column gap="lg">
             <Grid columns={5} gap="md">
               <div>
@@ -351,8 +352,9 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
               onClick={handleCopyPalette}
             ></IconButton>
           </Card>
-        </Card>
-      </div>
+        </Card> */}
+      <ThemeController />
+
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
           <IconButton icon="grid" fontClass="title3"></IconButton>

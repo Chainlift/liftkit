@@ -131,6 +131,15 @@
   position: relative;
   z-index: 1;
   padding: var(--largest-child-font-size);
+  height: 100%;
+}
+
+[data-lk-card-element="padding-box"].overflow-auto {
+  position: relative;
+  z-index: 1;
+  padding: var(--largest-child-font-size);
+  height: 100%;
+  overflow: auto;
 }
 
 [data-lk-card-optical-correction="left"] {

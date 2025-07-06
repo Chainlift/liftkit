@@ -13,6 +13,8 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   bgColor?: LkColorWithOnToken | "transparent"; //optional. does not need to have an "on" token because handled via bg global utility class, which assigns text color
   className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
+  isScrollable?: boolean; //optional. if true, will add overflow-y: scroll to the card
+  
 }
 /**
  * A flexible card component that supports various visual styles and behaviors.
@@ -40,6 +42,7 @@ export default function Card({
   children,
   bgColor,
   className,
+  isScrollable = false,
   ...restProps
 }: LkCardProps) {
   const lkCardAttrs = useMemo(
@@ -54,7 +57,7 @@ export default function Card({
       {...lkCardAttrs}
       {...restProps}
     >
-      <div data-lk-card-element="padding-box" data-lk-card-optical-correction={opticalCorrection}>
+      <div data-lk-card-element="padding-box" className={isScrollable ? "overflow-auto" : ""} data-lk-card-optical-correction={opticalCorrection}>
         <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>

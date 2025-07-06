@@ -200,26 +200,28 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   /**
    * REPLACE THE BELOW IF USING THE CHAINLIFT THEME BUILDER
-   * 
+   *
    */
 
-  const [colorMode, setColorMode] = useState<"light" | "dark">("dark");
-
+const [colorMode, setColorMode] = useState<"light" | "dark">("light");
+  
   const [palette, setPalette] = useState<PaletteState>({
-    primary: "#035eff",
-    secondary: "#badcff",
-    tertiary: "#00ddfe",
-    neutral: "#000000",
-    neutralvariant: "#3f4f5b",
-    error: "#dd305c",
-    warning: "#feb600",
-    success: "#0cfecd",
-    info: "#175bfc",
-  });
+  "primary": "#035eff",
+  "secondary": "#badcff",
+  "tertiary": "#00ddfe",
+  "neutral": "#000000",
+  "neutralvariant": "#3f4f5b",
+  "error": "#dd305c",
+  "warning": "#feb600",
+  "success": "#0cfecd",
+  "info": "#175bfc"
+}
 
   /**
    * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
    */
+
+  );
 
   const [navIsOpen, setNavIsOpen] = useState(false);
 
@@ -361,7 +363,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             light: {
               ...prevTheme.light,
               surfaceVariant: tones._80,
-              onSurfaceVariant: tones._30,
+              onSurfaceVariant: tones._40,
               outline: tones._60,
               outlineVariant: tones._90,
             },
@@ -369,7 +371,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             dark: {
               ...prevTheme.dark,
               surfaceVariant: tones._20,
-              onSurfaceVariant: tones._70,
+              onSurfaceVariant: tones._60,
               outline: tones._50,
               outlineVariant: tones._30,
             },
