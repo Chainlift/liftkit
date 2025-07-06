@@ -14,6 +14,7 @@ import Text from "@/registry/nextjs/components/text";
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
 import Switch from "@/registry/nextjs/components/switch";
+import Grid from "@/registry/nextjs/components/grid";
 
 type LkColorGroup =
   | "master"
@@ -28,7 +29,8 @@ type LkColorGroup =
   | "info";
 
 export default function TestApp() {
-  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } = useContext(ThemeContext);
+  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } =
+    useContext(ThemeContext);
 
   const colorGroups: LkColorGroup[] = [
     "master",
@@ -42,6 +44,12 @@ export default function TestApp() {
     "success",
     "info",
   ];
+
+  const brandPalette: LkColorGroup[] = ["primary", "secondary", "tertiary"];
+
+  const semanticPalette: LkColorGroup[] = ["error", "warning", "success", "info"];
+
+  const layoutPalette: LkColorGroup[] = ["neutral", "neutralvariant"];
 
   const [paletteArray, setPaletteArray] = useState(
     Object.keys(palette).map((key) => {
@@ -186,13 +194,41 @@ export default function TestApp() {
     }
   }
 
+  const handleCopyPalette = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(palette, null, 2));
+      alert('Code copied');
+    } catch (err) {
+      console.error('Failed to copy palette:', err);
+    }
+  };
+
   return (
     <>
-      <Row gap="md">
-        {/* Render a set of color inputs, one for each color group. */}
-        {colorGroups.map((colorGroup) => (
+      {/* Render a set of color inputs, one for each color group. */}
+      <Grid columns={5}>
+        <div>
+          <h2 className="heading">Globals</h2>
+        </div>
+        <Column>
+          <label className="label m-bottom-xs" htmlFor="master">
+            Master
+          </label>
+          <input
+            type="color"
+            name="master"
+            value={palette["master"]}
+            onChange={(event) => handleColorChange("master", event.target.value)}
+          ></input>
+        </Column>
+      </Grid>
+      <Grid columns={5}>
+        <div>
+          <h2 className="heading">Brand Palette</h2>
+        </div>
+        {brandPalette.map((colorGroup) => (
           <Column key={colorGroup}>
-            <label className="label" htmlFor={colorGroup}>
+            <label className="label m-bottom-xs" htmlFor={colorGroup}>
               {colorGroup}
             </label>
             <input
@@ -203,8 +239,52 @@ export default function TestApp() {
             ></input>
           </Column>
         ))}
+      </Grid>
+      <Grid columns={5}>
+        <div>
+          <h2 className="heading">Semantic Palette</h2>
+        </div>
+        {semanticPalette.map((colorGroup) => (
+          <Column key={colorGroup}>
+            <label className="label m-bottom-xs" htmlFor={colorGroup}>
+              {colorGroup}
+            </label>
+            <input
+              type="color"
+              name={colorGroup}
+              value={palette[colorGroup]}
+              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+            ></input>
+          </Column>
+        ))}
+      </Grid>
+      <Grid columns={5}>
+        <div>
+          <h2 className="heading">Layout Palette</h2>
+        </div>
+        {layoutPalette.map((colorGroup) => (
+          <Column key={colorGroup} className="colspan-2">
+            <label className="label m-bottom-xs" htmlFor={colorGroup}>
+              {colorGroup}
+            </label>
+            <input
+              type="color"
+              name={colorGroup}
+              value={palette[colorGroup]}
+              onChange={(event) => handleColorChange(colorGroup, event.target.value)}
+            ></input>
+          </Column>
+        ))}
+      </Grid>
+      <Column>
+        <label className="label m-bottom-xs">Dark Mode</label>
         <Switch onClick={handleColorModeSwitch}></Switch>
-      </Row>
+      </Column>
+      <Card bgColor="surfacevariant" scaleFactor="body" className="position-relative">
+        <pre>{JSON.stringify(palette, null, 2)}</pre>
+        <IconButton icon="copy" style={{position: 'absolute', inset: '1em 1em auto auto'}} onClick={handleCopyPalette
+        }></IconButton>
+      </Card>
       <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
         <Column gap="lg">
           <IconButton icon="grid" fontClass="title3"></IconButton>
