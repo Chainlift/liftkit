@@ -101,6 +101,9 @@ interface ThemeContextType {
   //todo: why are these here?
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isDarkMode: boolean;
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
 export const ThemeContext = createContext<ThemeContextType>(
@@ -108,6 +111,9 @@ export const ThemeContext = createContext<ThemeContextType>(
 );
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
+
+
+
   const [theme, setTheme] = useState<ThemeState>({
     light: {
       primary: "#004ee7",
@@ -211,6 +217,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     },
   });
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const [palette, setPalette] = useState<PaletteState>({
     primary: "#035eff",
     secondary: "#badcff",
@@ -242,7 +250,15 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         theme.dark[key],
       );
     });
-  }, [theme]);
+
+    if (isDarkMode !== false) {
+      Object.keys(theme.dark).forEach((key) => {
+        root.style.setProperty(
+          `--light__${key.toLowerCase()}_lkv`,
+          theme.dark[key],)
+      })
+    }
+  }, [theme, isDarkMode]);
 
   //run the initial theme generation on first load
   useEffect(() => {
@@ -522,6 +538,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         setPalette,
         navIsOpen,
         setNavIsOpen,
+        isDarkMode,
+        setIsDarkMode
       }}
     >
       {children}
