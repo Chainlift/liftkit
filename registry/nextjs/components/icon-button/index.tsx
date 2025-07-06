@@ -10,25 +10,30 @@ declare global {
   type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 }
 
-export interface LkIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LkIconButtonBaseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconName;
-  variant?: "fill" | "outline" | "text";
-  // color?: string; // LkColor
-  color?: LkColorWithOnToken;
   size?: LkIconButtonSize;
   fontClass?: LkFontClass; //optional, if present it will control the size directly via fontClass
   className?: string; //optional, making explicit here so we can control how it mixes in with locally-passed props
 }
 
-export default function IconButton({
+type IconButtonColor<T extends "fill" | "outline" | "text"> = T extends "fill" ? LkColorWithOnToken : LkColor;
+
+export interface LkIconButtonProps<T extends "fill" | "outline" | "text" = "fill"> extends LkIconButtonBaseProps {
+  icon: IconName;
+  variant?: T;
+  color?: IconButtonColor<T>;
+}
+
+export default function IconButton<T extends "fill" | "outline" | "text" = "fill">({
   icon = "roller-coaster",
-  variant = "fill",
-  color = "primary",
+  variant = "fill" as T,
+  color = "primary" as IconButtonColor<T>,
   size = "md",
   fontClass = "body",
   className,
   ...restProps
-}: LkIconButtonProps) {
+}: LkIconButtonProps<T>) {
   const dataAttrs = useMemo(() => propsToDataAttrs({ variant, color, size }, "icon-button"), [variant, color, size]);
 
   const onToken = getOnToken(color) as LkColor;
@@ -52,8 +57,8 @@ export default function IconButton({
     }
   }
 
-/**Dynamically set icon and state-layer color based on variant */
-  function getIconColor(variant: LkIconButtonProps["variant"]) {
+  /**Dynamically set icon and state-layer color based on variant */
+  function getIconColor(variant: "fill" | "outline" | "text") {
     switch (variant) {
       case "outline":
       case "text":

@@ -167,7 +167,7 @@ export default function TestApp() {
           </td>
           <td className="py-sm">
             <Row alignItems="center" gap="2xs" justifyContent="end">
-              <IconButton icon="edit" variant="text" size="sm" color="surface"></IconButton>
+              <IconButton icon="edit" variant="text" size="sm" color="outline"></IconButton>
               <IconButton icon="download" variant="text" size="sm"></IconButton>
               <IconButton icon="trash" color="error" variant="text" size="sm"></IconButton>
             </Row>
