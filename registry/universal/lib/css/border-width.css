@@ -1,3 +1,5 @@
+@import "./liftkitvars.css";
+
 .border-width-3xs {
   border-width: var(--lk-size-3xs);
 }
