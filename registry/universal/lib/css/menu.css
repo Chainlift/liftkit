@@ -68,8 +68,8 @@
   left: 0;
   right: 0;
   max-height: 0;
-  border-topl-radius: 0;
-  border-topr-radius: 0;
+  border-top-radius: 0;
+  border-top-radius: 0;
   border: 1px solid var(--lk-tertiaryfixed);
   border-top: 0px;
   margin-left: -1px;
