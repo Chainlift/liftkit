@@ -4,15 +4,6 @@
   grid-template-rows: auto;
 }
 
-.grid.propList {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  transition: all 0.3s;
-}
-
-.grid.propList.listMode {
-  grid-template-columns: 1fr;
-}
-
 .grid.col-1 {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -71,12 +62,4 @@
 .grid.col-12 {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-}
-
-.grid.justify-items-start {
-  justify-items: start;
-}
-
-.grid.col-3.max-content-cols {
-  grid-template-columns: repeat(3, max-content);
 }

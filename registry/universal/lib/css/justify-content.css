@@ -1,20 +1,20 @@
-.justify-content-start {
+.justify-start {
   justify-content: flex-start;
 }
 
-.justify-content-center {
+.justify-center {
   justify-content: center;
 }
 
-.justify-content-end {
+.justify-end {
   justify-content: end;
 }
 
-.justify-content-space-between {
+.justify-space-between {
   justify-content: space-between;
 }
 
-.justify-content-space-around {
+.justify-space-around {
   justify-content: space-between;
 }
 
