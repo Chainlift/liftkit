@@ -2,15 +2,9 @@
   display: block;
 }
 
-.display-flex-h {
+.display-flex {
   display: flex;
 }
-
-.display-flex-v {
-  display: flex;
-  flex-direction: column;
-}
-
 
 .display-grid {
   display: grid;
