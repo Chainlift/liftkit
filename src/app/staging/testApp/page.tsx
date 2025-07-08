@@ -13,8 +13,6 @@ import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
-import Switch from "@/registry/nextjs/components/switch";
-import Grid from "@/registry/nextjs/components/grid";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
 
 type LkColorGroup =
@@ -33,24 +31,7 @@ export default function TestApp() {
   const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } =
     useContext(ThemeContext);
 
-  const colorGroups: LkColorGroup[] = [
-    "master",
-    "primary",
-    "secondary",
-    "tertiary",
-    "neutral",
-    "neutralvariant",
-    "error",
-    "warning",
-    "success",
-    "info",
-  ];
 
-  const brandPalette: LkColorGroup[] = ["primary", "secondary", "tertiary"];
-
-  const semanticPalette: LkColorGroup[] = ["error", "warning", "success", "info"];
-
-  const layoutPalette: LkColorGroup[] = ["neutral", "neutralvariant"];
 
   const [paletteArray, setPaletteArray] = useState(
     Object.keys(palette).map((key) => {
@@ -64,20 +45,9 @@ export default function TestApp() {
       return { key, value: palette[key] };
     });
     setPaletteArray(newPaletteArray);
-  }, [palette]);
+  }, [palette, paletteArray]);
 
-  const handleColorChange = (key: LkColorGroup, newValue: string) => {
-    console.log(key);
 
-    if (key === "master") {
-      updateThemeFromMaster(newValue, setPalette);
-    } else {
-      setPalette((prevPalette) => ({
-        ...prevPalette,
-        [key]: newValue,
-      }));
-    }
-  };
 
   const theme1 = {
     primary: "#035eff",
@@ -115,17 +85,6 @@ export default function TestApp() {
     info: "#006a63",
   };
 
-  const rubberDuck = {
-    primary: "#f4af00",
-    secondary: "#b15f00",
-    tertiary: "#009fb8",
-    neutral: "#837560",
-    neutralvariant: "#d5c4ac",
-    error: "#ba1a1a",
-    warning: "#87521e",
-    success: "#5d6300",
-    info: "#006b54",
-  };
 
   function getRows(count: number) {
     const fullNames = [

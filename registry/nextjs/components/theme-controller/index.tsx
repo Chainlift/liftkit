@@ -45,7 +45,7 @@ export default function ThemeController() {
   }, [palette]);
 
   const handleColorChange = (key: LkColorGroup, newValue: string) => {
-    console.log(key);
+
 
     if (key === "master") {
       updateThemeFromMaster(newValue, setPalette);

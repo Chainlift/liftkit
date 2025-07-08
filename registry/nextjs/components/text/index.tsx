@@ -15,7 +15,7 @@ export interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
 export default function Text({ tag = "div", fontClass, color, children, style, className, ...restProps }: LkTextProps) {
   const Tag = tag as ElementType;
 
-  console.log(color);
+
 
   /**Temporarily removing the attr spreader because it's not being used */
   // const textAttrs = useMemo(() => propsToDataAttrs(restProps, "text"), [restProps]);

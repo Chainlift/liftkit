@@ -18,7 +18,7 @@ export default function Tabs({ tabLinks, onActiveTabChange, scrollableContent, c
 
   const handleTabClick = (index: number) => {
     setActiveTab(index); // Set the clicked tab as active
-    console.log("index is", index);
+
   };
 
   useEffect(() => {
