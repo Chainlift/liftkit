@@ -1,37 +1,49 @@
 @import "./liftkitvars.css";
 
-.border-radius-2xs {
+.rounded-3xs {
+  border-radius: var(--lk-size-3xs);
+}
+
+.rounded-2xs {
   border-radius: var(--lk-size-2xs);
 }
 
-.border-radius-xs {
+.rounded-xs {
   border-radius: var(--lk-size-xs);
 }
 
-.border-radius-sm {
+.rounded-sm {
   border-radius: var(--lk-size-sm);
 }
 
-.border-radius-md {
+.rounded-md {
   border-radius: var(--lk-size-md);
 }
 
-.border-radius-lg {
+.rounded-lg {
   border-radius: var(--lk-size-lg);
 }
 
-.border-radius-xl {
+.rounded-xl {
   border-radius: var(--lk-size-xl);
 }
 
-.border-radius-2xl {
+.rounded-2xl {
   border-radius: var(--lk-size-2xl);
 }
 
-.border-radius-circle {
+.rounded-3xl {
+  border-radius: var(--lk-size-3xl);
+}
+
+.rounded-4xl {
+  border-radius: var(--lk-size-4xl);
+}
+
+.rounded-circle {
   border-radius: 100em;
 }
 
-.border-radius-0 {
+.rounded-0 {
   border-radius: 0em;
 }
