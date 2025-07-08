@@ -92,12 +92,12 @@
   border: 1px solid var(--lk-tertiaryfixed);
   border-bottom: 1px solid transparent;
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottomr-radius: 0;
 }
 
 .select-field-toggle.open {
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottomr-radius: 0;
 }
 
 .text-input-wrap:focus-within > .state-layer,

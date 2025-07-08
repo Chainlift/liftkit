@@ -26,7 +26,7 @@ export default function IconButtonStaging() {
     <>
       <Section padding="md">
         <Container>
-          <Heading tag="h1" className="display2-bold m-bottom-md">
+          <Heading tag="h1" className="display2-bold mb-md">
             Icon Button Staging
           </Heading>
         </Container>

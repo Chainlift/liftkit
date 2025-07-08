@@ -16,6 +16,7 @@ import Card from "@/registry/nextjs/components/card";
 
 import NavBar from "@/registry/nextjs/components/navbar";
 import IconButton from "@/registry/nextjs/components/icon-button";
+import ThemeController from "@/registry/nextjs/components/theme-controller";
 
 const contentStyle: React.CSSProperties = {
   background: "#e0e0e0",
@@ -50,6 +51,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+    <ThemeController/>
       <NavBar
         navButtons={[
           <Button key="1" label="Home" variant="text" />,

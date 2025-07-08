@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
@@ -104,7 +104,7 @@ export default function ThemeController() {
             <Card
               scaleFactor="heading"
               bgColor="surfacecontainerlowest"
-              className="shadow-lg m-bottom-2xl h-full"
+              className="shadow-lg mb-2xl h-full"
               material="glass"
               materialProps={{ thickness: "normal" }}
               isScrollable={true}
@@ -121,9 +121,10 @@ export default function ThemeController() {
                   ></IconButton>
                 </Row>
                 <div>
-                  <h2 className="label m-bottom-xs">Config</h2>
-                  <p className="caption color-onsurfacevariant m-bottom-xs">
-                    Copy and paste this snippet into your theme/index.tsx file to update your project to match the current configuration.
+                  <h2 className="label mb-xs">Config</h2>
+                  <p className="caption color-onsurfacevariant mb-xs">
+                    Copy and paste this snippet into your theme/index.tsx file to update your project to match the
+                    current configuration.
                   </p>
 
                   <Card
@@ -148,19 +149,19 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                   </Card>
                 </div>
                 <div>
-                  <h2 className="capline m-bottom-lg color-onsurfacevariant">Mode</h2>
+                  <h2 className="capline mb-lg color-onsurfacevariant">Mode</h2>
                   <Row alignItems="start" gap="md">
                     <Column>
                       <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
                     </Column>
                     <Column>
-                      <label className="label m-bottom-xs">Default to Dark Mode</label>
-                      <p className="caption color-onsurfacevariant m-bottom-xs">Toggles dark mode.</p>
+                      <label className="label mb-xs">Default to Dark Mode</label>
+                      <p className="caption color-onsurfacevariant mb-xs">Toggles dark mode.</p>
                     </Column>
                   </Row>
                 </div>
                 <div>
-                  <h2 className="capline m-bottom-lg color-onsurfacevariant">Globals</h2>
+                  <h2 className="capline mb-lg color-onsurfacevariant">Globals</h2>
                   <Row alignItems="start" gap="md">
                     <input
                       type="color"
@@ -169,10 +170,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                       onChange={(event) => handleColorChange("master", event.target.value)}
                     ></input>
                     <Column>
-                      <label className="label m-bottom-xs" htmlFor={"master"}>
+                      <label className="label mb-xs" htmlFor={"master"}>
                         {"master"}
                       </label>
-                      <p className="caption color-onsurfacevariant m-bottom-xs">
+                      <p className="caption color-onsurfacevariant mb-xs">
                         The seed color.{" "}
                         <strong className="color-error">If you edit this, all other color tokens will reset.</strong>
                       </p>
@@ -181,10 +182,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                 </div>
                 <div>
                   <div>
-                    <h2 className="capline m-bottom-lg color-onsurfacevariant">Brand</h2>
+                    <h2 className="capline mb-lg color-onsurfacevariant">Brand</h2>
                   </div>
                   {brandPalette.map((colorGroup) => (
-                    <Row key={colorGroup} alignItems="start" gap="md" className="m-bottom-sm">
+                    <Row key={colorGroup} alignItems="start" gap="md" className="mb-sm">
                       <input
                         type="color"
                         name={colorGroup}
@@ -192,10 +193,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                         onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                       ></input>
                       <Column>
-                        <label className="caption-bold mono m-bottom-2xs" htmlFor={colorGroup}>
+                        <label className="caption-bold mono mb-2xs" htmlFor={colorGroup}>
                           {colorGroup}
                         </label>
-                        <p className="caption color-onsurfacevariant m-bottom-xs">
+                        <p className="caption color-onsurfacevariant mb-xs">
                           {colorGroup === "primary"
                             ? "Main brand color, used for most UI elements."
                             : colorGroup === "secondary"
@@ -210,10 +211,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                 </div>
                 <div>
                   <div>
-                    <h2 className="capline color-onsurfacevariant m-bottom-lg">Semantic</h2>
+                    <h2 className="capline color-onsurfacevariant mb-lg">Semantic</h2>
                   </div>
                   {semanticPalette.map((colorGroup) => (
-                    <Row key={colorGroup} alignItems="start" gap="md" className="m-bottom-sm">
+                    <Row key={colorGroup} alignItems="start" gap="md" className="mb-sm">
                       <input
                         type="color"
                         name={colorGroup}
@@ -221,10 +222,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                         onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                       ></input>
                       <Column>
-                        <label className="caption-bold mono m-bottom-2xs" htmlFor={colorGroup}>
+                        <label className="caption-bold mono mb-2xs" htmlFor={colorGroup}>
                           {colorGroup}
                         </label>
-                        <p className="caption color-onsurfacevariant m-bottom-xs">
+                        <p className="caption color-onsurfacevariant mb-xs">
                           {colorGroup === "error"
                             ? "A pink or red, indicating problems."
                             : colorGroup === "warning"
@@ -241,10 +242,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                 </div>
                 <div>
                   <div>
-                    <h2 className="capline color-onsurfacevariant m-bottom-lg">Layout</h2>
+                    <h2 className="capline color-onsurfacevariant mb-lg">Layout</h2>
                   </div>
                   {layoutPalette.map((colorGroup) => (
-                    <Row key={colorGroup} alignItems="start" gap="md" className="m-bottom-sm">
+                    <Row key={colorGroup} alignItems="start" gap="md" className="mb-sm">
                       <input
                         type="color"
                         name={colorGroup}
@@ -252,10 +253,10 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                         onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                       ></input>
                       <Column>
-                        <label className="caption-bold mono m-bottom-xs" htmlFor={colorGroup}>
+                        <label className="caption-bold mono mb-xs" htmlFor={colorGroup}>
                           {colorGroup}
                         </label>
-                        <p className="caption color-onsurfacevariant m-bottom-xs">
+                        <p className="caption color-onsurfacevariant mb-xs">
                           {colorGroup === "neutral"
                             ? "Backgrounds, surfaces, outlines, and default text color"
                             : colorGroup === "neutralvariant"

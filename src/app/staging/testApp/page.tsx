@@ -208,11 +208,11 @@ export default function TestApp() {
     <>
       {/* Render a set of color inputs, one for each color group. */}
 
-      {/* <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg m-bottom-2xl">
+      {/* <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg mb-2xl">
           <Column gap="lg">
             <Grid columns={5} gap="md">
               <div>
-                <h2 className="heading m-bottom-2xs">Globals</h2>
+                <h2 className="heading mb-2xs">Globals</h2>
                 <p className="subheading color-onsurfacevariant">
                   The "root" color of your theme. The color utilities will calculate all other color group swatches from
                   this one.
@@ -226,10 +226,10 @@ export default function TestApp() {
                   onChange={(event) => handleColorChange("master", event.target.value)}
                 ></input>
                 <Column>
-                  <label className="label m-bottom-xs" htmlFor={"master"}>
+                  <label className="label mb-xs" htmlFor={"master"}>
                     {"master"}
                   </label>
-                  <p className="caption color-onsurfacevariant m-bottom-xs">
+                  <p className="caption color-onsurfacevariant mb-xs">
                     The seed color.{" "}
                     <strong className="color-error">If you edit this, all other color tokens will reset.</strong>
                   </p>
@@ -240,15 +240,15 @@ export default function TestApp() {
                   <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
                 </Column>
                 <Column>
-                  <label className="label m-bottom-xs">Default to Dark Mode</label>
-                  <p className="caption color-onsurfacevariant m-bottom-xs">Toggles dark mode.</p>
+                  <label className="label mb-xs">Default to Dark Mode</label>
+                  <p className="caption color-onsurfacevariant mb-xs">Toggles dark mode.</p>
                 </Column>
               </Row>
             </Grid>
             <Grid columns={5}>
               <div>
-                <h2 className="heading m-bottom-2xs">Brand palette </h2>
-                <p className="subheading color-onsurfacevariant m-bottom-md">The key colors of your brand.</p>
+                <h2 className="heading mb-2xs">Brand palette </h2>
+                <p className="subheading color-onsurfacevariant mb-md">The key colors of your brand.</p>
               </div>
               {brandPalette.map((colorGroup) => (
                 <Row key={colorGroup} alignItems="start" gap="md">
@@ -259,10 +259,10 @@ export default function TestApp() {
                     onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                   ></input>
                   <Column>
-                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                    <label className="label mb-xs" htmlFor={colorGroup}>
                       {colorGroup}
                     </label>
-                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                    <p className="caption color-onsurfacevariant mb-xs">
                       {colorGroup === "primary"
                         ? "Main brand color, used for most UI elements."
                         : colorGroup === "secondary"
@@ -277,8 +277,8 @@ export default function TestApp() {
             </Grid>
             <Grid columns={5}>
               <div>
-                <h2 className="heading m-bottom-2xs">Semantic Palette</h2>
-                <p className="subheading color-onsurfacevariant m-bottom-md">Colors for communicating with the user.</p>
+                <h2 className="heading mb-2xs">Semantic Palette</h2>
+                <p className="subheading color-onsurfacevariant mb-md">Colors for communicating with the user.</p>
               </div>
               {semanticPalette.map((colorGroup) => (
                 <Row key={colorGroup} alignItems="start" gap="md">
@@ -289,10 +289,10 @@ export default function TestApp() {
                     onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                   ></input>
                   <Column>
-                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                    <label className="label mb-xs" htmlFor={colorGroup}>
                       {colorGroup}
                     </label>
-                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                    <p className="caption color-onsurfacevariant mb-xs">
                       {colorGroup === "error"
                         ? "A pink or red, indicating problems."
                         : colorGroup === "warning"
@@ -309,8 +309,8 @@ export default function TestApp() {
             </Grid>
             <Grid columns={5}>
               <div>
-                <h2 className="heading m-bottom-2xs">Layout Palette</h2>
-                <p className="subheading color-onsurfacevariant m-bottom-md">
+                <h2 className="heading mb-2xs">Layout Palette</h2>
+                <p className="subheading color-onsurfacevariant mb-md">
                   Backgrounds, surfaces, default text colors, and outlines.
                 </p>
               </div>
@@ -323,10 +323,10 @@ export default function TestApp() {
                     onChange={(event) => handleColorChange(colorGroup, event.target.value)}
                   ></input>
                   <Column>
-                    <label className="label m-bottom-xs" htmlFor={colorGroup}>
+                    <label className="label mb-xs" htmlFor={colorGroup}>
                       {colorGroup}
                     </label>
-                    <p className="caption color-onsurfacevariant m-bottom-xs">
+                    <p className="caption color-onsurfacevariant mb-xs">
                       {colorGroup === "neutral"
                         ? "Backgrounds, surfaces, outlines, and default text color"
                         : colorGroup === "neutralvariant"
@@ -380,7 +380,7 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
             scrollableContent={true}
           >
             <Card scaleFactor="body" bgColor="surface">
-              <Row alignItems="center" justifyContent="space-between" className="m-bottom-xs">
+              <Row alignItems="center" justifyContent="space-between" className="mb-xs">
                 <Row alignItems="center" gap="md">
                   <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
                 </Row>

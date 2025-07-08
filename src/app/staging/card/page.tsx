@@ -27,14 +27,14 @@ export default function CardStaging() {
     <div className="bg-surfacecontainer" style={{ backgroundImage: "url(/testimage.png)" }}>
       <Section padding="md">
         <Container>
-          <h1 className="display2-bold m-bottom-md">Card Staging</h1>
+          <h1 className="display2-bold mb-md">Card Staging</h1>
           <Row gap="md">
             <Column gap="md">
               {scaleFactors.map((scaleFactor) => (
                 <Card key={scaleFactor} scaleFactor={scaleFactor} opticalCorrection="y" className="shadow-2xl">
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
-                  <p className="body m-top-sm">
+                  <p className="body mt-sm">
                     Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
                     his attic in Irvine.
                   </p>
@@ -53,7 +53,7 @@ export default function CardStaging() {
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
-                  <p className="body m-top-sm opacity-70">
+                  <p className="body mt-sm opacity-70">
                     Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
                     his attic in Irvine.
                   </p>
@@ -71,7 +71,7 @@ export default function CardStaging() {
                 >
                   <h2 className={`${scaleFactor}`}>{scaleFactor}</h2>
                   <p className="subheading">Subheading</p>
-                  <p className="body m-top-sm">
+                  <p className="body mt-sm">
                     Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
                     his attic in Irvine.
                   </p>

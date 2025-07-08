@@ -12,21 +12,21 @@ export default function GridStaging() {
     <>
       <Section padding="md">
         <Container maxWidth="md">
-          <h1 className="display1-bold m-bottom-lg">Grid staging</h1>
+          <h1 className="display1-bold mb-lg">Grid staging</h1>
           <div>
-            <h2 className="display2-bold m-bottom-md">Column count tests</h2>
+            <h2 className="display2-bold mb-md">Column count tests</h2>
             <Column gap="3xl" alignItems="stretch">
               <div>
-                <h3 className="title2 m-bottom-md">3 columns with no children</h3>
+                <h3 className="title2 mb-md">3 columns with no children</h3>
                 <Grid columns={3} gap="md"></Grid>
               </div>
               <div>
-                <h3 className="title2 m-bottom-md">12 columns with no children</h3>
+                <h3 className="title2 mb-md">12 columns with no children</h3>
                 <Grid columns={12} gap="md"></Grid>
               </div>
               <div>
-                <h3 className="title2 m-bottom-xs">50 columns with no children</h3>
-                <p className="title3 color-error m-bottom-xl">
+                <h3 className="title2 mb-xs">50 columns with no children</h3>
+                <p className="title3 color-error mb-xl">
                   Deliberately overflows in order to show how placeholders help show that.
                 </p>
                 <Grid columns={50} gap="md"></Grid>
@@ -38,11 +38,11 @@ export default function GridStaging() {
             <div lk-divider-element="line"></div>
           </div>
           <div>
-            <h2 className="display2-bold m-bottom-md">Gap tests</h2>
+            <h2 className="display2-bold mb-md">Gap tests</h2>
             <Column gap="3xl" alignItems="stretch">
               {lkSizes.map((size) => (
                 <div key={size}>
-                  <h3 className="title2 m-bottom-md">gap={size}</h3>
+                  <h3 className="title2 mb-md">gap={size}</h3>
                   <Grid columns={3} gap={size as LkSizeUnit}></Grid>
                 </div>
               ))}
@@ -52,15 +52,15 @@ export default function GridStaging() {
             <div lk-divider-element="line"></div>
           </div>
           <div>
-            <h2 className="display2-bold m-bottom-2xs">autoResponsive tests</h2>
-            <p className="heading color-info m-bottom-2xl">(Breakpoint: 480px)</p>
+            <h2 className="display2-bold mb-2xs">autoResponsive tests</h2>
+            <p className="heading color-info mb-2xl">(Breakpoint: 480px)</p>
             <Column gap="3xl" alignItems="stretch">
               <div>
-                <h3 className="title2 m-bottom-md">autoResponsive=true</h3>
+                <h3 className="title2 mb-md">autoResponsive=true</h3>
                 <Grid columns={3} autoResponsive></Grid>
               </div>
               <div>
-                <h3 className="title2 m-bottom-md">autoResponsive=false</h3>
+                <h3 className="title2 mb-md">autoResponsive=false</h3>
                 <Grid columns={3}></Grid>
               </div>
             </Column>
@@ -69,11 +69,11 @@ export default function GridStaging() {
             <div lk-divider-element="line"></div>
           </div>
           <div>
-            <h2 className="display2-bold m-bottom-2xs">class override tests</h2>
-            <p className="heading color-info m-bottom-2xl">(Breakpoint: 480px)</p>
+            <h2 className="display2-bold mb-2xs">class override tests</h2>
+            <p className="heading color-info mb-2xl">(Breakpoint: 480px)</p>
             <Column gap="3xl" alignItems="stretch">
               <div>
-                <h3 className="title2 mono m-bottom-md">className=&quot;lk-debug--grid-override&quot;</h3>
+                <h3 className="title2 mono mb-md">className=&quot;lk-debug--grid-override&quot;</h3>
                 <ul>
                   <li>
                     If this doesn&apos;t look as expected, you got a className problem. Check that the prop spreaders

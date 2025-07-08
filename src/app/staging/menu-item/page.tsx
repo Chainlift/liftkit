@@ -27,14 +27,14 @@ export default function MenuItemStaging() {
     <>
       <Section padding="md">
         <Container>
-          <Heading tag="h2" className="m-bottom-md">
+          <Heading tag="h2" className="mb-md">
             Menu Item Component Tests
           </Heading>
         </Container>
 
         {fontClasses.map((fontClass) => (
-          <Container className="m-bottom-xl" key={fontClass}>
-            <h2 className="subheading mono m-bottom-xs">
+          <Container className="mb-xl" key={fontClass}>
+            <h2 className="subheading mono mb-xs">
               fontClass=<strong className="color-primary">{fontClass}</strong>
             </h2>
             <MenuItemGroup color="onsurface" fontClass={fontClass} />

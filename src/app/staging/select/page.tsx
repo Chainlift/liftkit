@@ -32,7 +32,7 @@ export default function SelectStaging() {
     <>
       <Section padding="md">
         <Container>
-          <Heading tag="h2" className="m-bottom-md">
+          <Heading tag="h2" className="mb-md">
             Select Component Tests
           </Heading>
         </Container>
@@ -40,7 +40,7 @@ export default function SelectStaging() {
           {selectedValue}
           {fontClasses.map((fontClass) => (
             <div key={fontClass}>
-              <h2 className="subheading mono m-bottom-xs">
+              <h2 className="subheading mono mb-xs">
                 fontClass=<strong className="color-primary">{fontClass}</strong>
               </h2>
 

@@ -37,10 +37,10 @@ export default function SnackbarStaging() {
     <>
       <Section padding="md">
         <Container>
-          <h1 className="display2-bold m-bottom-xl">Snackbar Staging</h1>
+          <h1 className="display2-bold mb-xl">Snackbar Staging</h1>
           <Row gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
             <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-              <h2 className="title2 mono m-bottom-md">Icon only</h2>
+              <h2 className="title2 mono mb-md">Icon only</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Icon name="check-circle"></Icon>
@@ -50,7 +50,7 @@ export default function SnackbarStaging() {
               ))}
             </Column>
             <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-              <h2 className="title2 mono m-bottom-md">Button only</h2>
+              <h2 className="title2 mono mb-md">Button only</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
@@ -60,7 +60,7 @@ export default function SnackbarStaging() {
               ))}
             </Column>
             <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-              <h2 className="title2 mono m-bottom-md">Icon and button</h2>
+              <h2 className="title2 mono mb-md">Icon and button</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Icon name="check-circle"></Icon>
@@ -71,7 +71,7 @@ export default function SnackbarStaging() {
               ))}
             </Column>
             <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-              <h2 className="title2 mono m-bottom-md">Neither</h2>
+              <h2 className="title2 mono mb-md">Neither</h2>
               {colors.map((color) => (
                 <Snackbar globalColor={color} key={color}>
                   <Text color="onsurface">Hello World, I&apos;m just some text.</Text>
@@ -79,7 +79,7 @@ export default function SnackbarStaging() {
               ))}
             </Column>
             <Column gap="md" justifyContent="start" defaultChildBehavior="auto-shrink">
-              <h2 className="title2 mono m-bottom-md">Neither AND no globalColor</h2>
+              <h2 className="title2 mono mb-md">Neither AND no globalColor</h2>
               {colors.map((color) => (
                 <Snackbar key={color}>
                   <Text color="onsurface">Hello World, I&apos;m just some text.</Text>

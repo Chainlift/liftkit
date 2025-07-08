@@ -18,7 +18,7 @@ export default function MaterialStaging() {
     <div className="bg-surfacecontainer" style={{ backgroundImage: "url(/testimage.png)" }}>
       <Section padding="md">
         <Container>
-          <h1 className="display2-bold m-bottom-md">Card Staging</h1>
+          <h1 className="display2-bold mb-md">Card Staging</h1>
           <Row gap="md">
             <div style={tempCardStyles}>
               <SampleCardContent />
@@ -36,7 +36,7 @@ function SampleCardContent() {
     <div style={{ position: "relative", zIndex: 1 }}>
       <h2 className="heading">Heading</h2>
       <p className="subheading">Subheading</p>
-      <p className="body m-top-sm">
+      <p className="body mt-sm">
         Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from his attic in
         Irvine.
       </p>

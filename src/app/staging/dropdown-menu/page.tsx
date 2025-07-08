@@ -29,7 +29,7 @@ export default function DropdownMenuStaging() {
     <>
       <Section padding="md">
         <Container>
-          <Heading tag="h2" className="m-bottom-md">
+          <Heading tag="h2" className="mb-md">
             Dropdown Menu Component Tests
           </Heading>
         </Container>
@@ -37,7 +37,7 @@ export default function DropdownMenuStaging() {
           <Column>
             {fontClasses.map((fontClass) => (
               <div key={fontClass}>
-                <h2 className="subheading mono m-bottom-xs">
+                <h2 className="subheading mono mb-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
                 <Dropdown>
@@ -64,7 +64,7 @@ export default function DropdownMenuStaging() {
           <Column>
             {fontClasses.map((fontClass) => (
               <div key={fontClass + "1"}>
-                <h2 className="subheading mono m-bottom-xs">
+                <h2 className="subheading mono mb-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
                 <Dropdown>
@@ -91,7 +91,7 @@ export default function DropdownMenuStaging() {
           <Column>
             {fontClasses.map((fontClass) => (
               <div key={fontClass + "2"}>
-                <h2 className="subheading mono m-bottom-xs">
+                <h2 className="subheading mono mb-xs">
                   fontClass=<strong className="color-primary">{fontClass}</strong>
                 </h2>
                 <Dropdown>

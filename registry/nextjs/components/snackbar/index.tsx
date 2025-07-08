@@ -90,7 +90,7 @@ export default function Snackbar(props: LkSnackbarProps) {
   /** If you have an icon, but no button, render extra margin-right on the body text. */
   function getMargin() {
     if (icon && buttons.length === 0) {
-      return "m-right-sm";
+      return "mr-sm";
     } else {
       return "";
     }

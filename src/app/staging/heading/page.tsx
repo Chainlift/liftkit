@@ -67,11 +67,7 @@ const lkColors: LkColor[] = [
 ];
 
 export default function HeadingStaging() {
-  return (
-    <>
-      {getColors(lkColors)}
-    </>
-  );
+  return <>{getColors(lkColors)}</>;
 }
 
 function getHeadingList(fontClass: LkFontClass, color: LkColor) {
@@ -105,11 +101,11 @@ function getFontClasses(color: LkColor) {
 
   return (
     <Section padding="md" style={{ maxWidth: "100vw", overflowX: "auto" }}>
-    <h2 className="title3-bold mono m-bottom-md">{color}</h2> 
+      <h2 className="title3-bold mono mb-md">{color}</h2>
       <Row gap="md">
         {fontClasses.map((fontClass) => (
           <Column key={fontClass} gap="none">
-            <div className={`caption mono m-bottom-md`}>{fontClass}</div>
+            <div className={`caption mono mb-md`}>{fontClass}</div>
             {getHeadingList(fontClass, color)}
           </Column>
         ))}
@@ -119,5 +115,9 @@ function getFontClasses(color: LkColor) {
 }
 
 function getColors(lkColors: LkColor[]) {
- return lkColors.map((color) => <div key={color} className="title3-bold m-bottom-sm">{getFontClasses(color)}</div>);
+  return lkColors.map((color) => (
+    <div key={color} className="title3-bold mb-sm">
+      {getFontClasses(color)}
+    </div>
+  ));
 }
