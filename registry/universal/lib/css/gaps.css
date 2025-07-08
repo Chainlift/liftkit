@@ -1,6 +1,10 @@
 /* Gaps */
 @import "./liftkitvars.css";
 
+.gap-3xs {
+  gap: var(--lk-size-3xs);
+} 
+
 .gap-2xs {
   gap: var(--lk-size-2xs);
 }
@@ -27,4 +31,12 @@
 
 .gap-2xl {
   gap: var(--lk-size-2xl);
+}
+
+.gap-3xl {
+  gap: var(--lk-size-3xl);
+}
+
+.gap-4xl {
+  gap: var(--lk-size-4xl);
 }
