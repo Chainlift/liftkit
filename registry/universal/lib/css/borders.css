@@ -7,19 +7,19 @@
   border-style: dashed;
 }
 
-.border-top {
+.border-t {
   border-top: 1px solid var(--lk-outline);
 }
 
-.border-right {
+.border-r {
   border-right: 1px solid var(--lk-outline);
 }
 
-.border-left {
+.border-l {
   border-left: 1px solid var(--lk-outline);
 }
 
-.border-bottom {
+.border-b {
   border-bottom: 1px solid var(--lk-outline);
 }
 
