@@ -1,23 +1,23 @@
-.scaleUp__wholestep {
+.scaleUp-wholestep {
   transform: scale(var(--wholestep));
 }
 
-.scaleUp__halfstep {
+.scaleUp-halfstep {
   transform: scale(var(--halfstep));
 }
 
-.scaleUp__quarterstep {
+.scaleUp-quarterstep {
   transform: scale(var(--quarterstep));
 }
 
-.scaleDown__wholestep {
+.scaleDown-wholestep {
   transform: scale(calc(1 / var(--wholestep)));
 }
 
-.scaleDown__halfstep {
+.scaleDown-halfstep {
   transform: scale(calc(1 / var(--halfstep)));
 }
 
-.scaleDown__quarterstep {
+.scaleDown-quarterstep {
   transform: scale(calc(1 / var(--quarterstep)));
 }

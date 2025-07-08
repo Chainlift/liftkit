@@ -1,5 +1,5 @@
 @import "./liftkit-core.css";
-
+/* 
 .color-light__primary {
   color: var(--light__primary_lkv) !important;
 }
@@ -478,244 +478,244 @@
 
 .color-dark__surfacecontainerhighest {
   color: var(--dark__surfacecontainerhighest_lkv) !important;
-}
+} */
 
 .color-primary {
-  color: var(--lk-primary) !important;
+  color: var(--lk-primary);
 }
 
 .color-onprimary {
-  color: var(--lk-onprimary) !important;
+  color: var(--lk-onprimary);
 }
 
 .color-primarycontainer {
-  color: var(--lk-primarycontainer) !important;
+  color: var(--lk-primarycontainer);
 }
 
 .color-onprimarycontainer {
-  color: var(--lk-onprimarycontainer) !important;
+  color: var(--lk-onprimarycontainer);
 }
 
 .color-secondary {
-  color: var(--lk-secondary) !important;
+  color: var(--lk-secondary);
 }
 
 .color-onsecondary {
-  color: var(--lk-onsecondary) !important;
+  color: var(--lk-onsecondary);
 }
 
 .color-secondarycontainer {
-  color: var(--lk-secondarycontainer) !important;
+  color: var(--lk-secondarycontainer);
 }
 
 .color-onsecondarycontainer {
-  color: var(--lk-onsecondarycontainer) !important;
+  color: var(--lk-onsecondarycontainer);
 }
 
 .color-tertiary {
-  color: var(--lk-tertiary) !important;
+  color: var(--lk-tertiary);
 }
 
 .color-ontertiary {
-  color: var(--lk-ontertiary) !important;
+  color: var(--lk-ontertiary);
 }
 
 .color-tertiarycontainer {
-  color: var(--lk-tertiarycontainer) !important;
+  color: var(--lk-tertiarycontainer);
 }
 
 .color-ontertiarycontainer {
-  color: var(--lk-ontertiarycontainer) !important;
+  color: var(--lk-ontertiarycontainer);
 }
 
 .color-error {
-  color: var(--lk-error) !important;
+  color: var(--lk-error);
 }
 
 .color-onerror {
-  color: var(--lk-onerror) !important;
+  color: var(--lk-onerror);
 }
 
 .color-errorcontainerv {
-  color: var(--lk-errorcontainer) !important;
+  color: var(--lk-errorcontainer);
 }
 
 .color-onerrorcontainer {
-  color: var(--lk-onerrorcontainer) !important;
+  color: var(--lk-onerrorcontainer);
 }
 
 .color-background {
-  color: var(--lk-background) !important;
+  color: var(--lk-background);
 }
 
 .color-onbackground {
-  color: var(--lk-onbackground) !important;
+  color: var(--lk-onbackground);
 }
 
 .color-surface {
-  color: var(--lk-surface) !important;
+  color: var(--lk-surface);
 }
 
 .color-onsurface {
-  color: var(--lk-onsurface) !important;
+  color: var(--lk-onsurface);
 }
 
 .color-surfacevariant {
-  color: var(--lk-surfacevariant) !important;
+  color: var(--lk-surfacevariant);
 }
 
 .color-onsurfacevariant {
-  color: var(--lk-onsurfacevariant) !important;
+  color: var(--lk-onsurfacevariant);
 }
 
 .color-outline {
-  color: var(--lk-outline) !important;
+  color: var(--lk-outline);
 }
 
 .color-outlinevariant {
-  color: var(--lk-outlinevariant) !important;
+  color: var(--lk-outlinevariant);
 }
 
 .color-shadow {
-  color: var(--lk-shadow) !important;
+  color: var(--lk-shadow);
 }
 
 .color-scrim {
-  color: var(--lk-scrim) !important;
+  color: var(--lk-scrim);
 }
 
 .color-inversesurface {
-  color: var(--lk-inversesurface) !important;
+  color: var(--lk-inversesurface);
 }
 
 .color-inverseonsurface {
-  color: var(--lk-inverseonsurface) !important;
+  color: var(--lk-inverseonsurface);
 }
 
 .color-inverseprimary {
-  color: var(--lk-inverseprimary) !important;
+  color: var(--lk-inverseprimary);
 }
 
 .color-success {
-  color: var(--lk-success) !important;
+  color: var(--lk-success);
 }
 
 .color-successcontainer {
-  color: var(--lk-successcontainer) !important;
+  color: var(--lk-successcontainer);
 }
 
 .color-onsuccess {
-  color: var(--lk-onsuccess) !important;
+  color: var(--lk-onsuccess);
 }
 
 .color-onsuccesscontainer {
-  color: var(--lk-onsuccesscontainer) !important;
+  color: var(--lk-onsuccesscontainer);
 }
 
 .color-warning {
-  color: var(--lk-warning) !important;
+  color: var(--lk-warning);
 }
 
 .color-warningcontainer {
-  color: var(--lk-warningcontainer) !important;
+  color: var(--lk-warningcontainer);
 }
 
 .color-onwarning {
-  color: var(--lk-onwarning) !important;
+  color: var(--lk-onwarning);
 }
 
 .color-onwarningcontainer {
-  color: var(--lk-onwarningcontainer) !important;
+  color: var(--lk-onwarningcontainer);
 }
 
 .color-info {
-  color: var(--lk-info) !important;
+  color: var(--lk-info);
 }
 
 .color-infocontainer {
-  color: var(--lk-infocontainer) !important;
+  color: var(--lk-infocontainer);
 }
 
 .color-oninfo {
-  color: var(--lk-oninfo) !important;
+  color: var(--lk-oninfo);
 }
 
 .color-oninfocontainer {
-  color: var(--lk-oninfocontainer) !important;
+  color: var(--lk-oninfocontainer);
 }
 
 .color-primaryfixed {
-  color: var(--lk-primaryfixed) !important;
+  color: var(--lk-primaryfixed);
 }
 
 .color-primaryfixeddim {
-  color: var(--lk-primaryfixeddim) !important;
+  color: var(--lk-primaryfixeddim);
 }
 
 .color-onprimaryfixed {
-  color: var(--lk-onprimaryfixed) !important;
+  color: var(--lk-onprimaryfixed);
 }
 
 .color-onprimaryfixedvariant {
-  color: var(--lk-onprimaryfixedvariant) !important;
+  color: var(--lk-onprimaryfixedvariant);
 }
 
 .color-secondaryfixed {
-  color: var(--lk-secondaryfixed) !important;
+  color: var(--lk-secondaryfixed);
 }
 
 .color-secondaryfixeddim {
-  color: var(--lk-secondaryfixeddim) !important;
+  color: var(--lk-secondaryfixeddim);
 }
 
 .color-onsecondaryfixed {
-  color: var(--lk-onsecondaryfixed) !important;
+  color: var(--lk-onsecondaryfixed);
 }
 
 .color-onsecondaryfixedvariant {
-  color: var(--lk-onsecondaryfixedvariant) !important;
+  color: var(--lk-onsecondaryfixedvariant);
 }
 
 .color-tertiaryfixed {
-  color: var(--lk-tertiaryfixed) !important;
+  color: var(--lk-tertiaryfixed);
 }
 
 .color-tertiaryfixeddim {
-  color: var(--lk-tertiaryfixeddim) !important;
+  color: var(--lk-tertiaryfixeddim);
 }
 
 .color-ontertiaryfixed {
-  color: var(--lk-ontertiaryfixed) !important;
+  color: var(--lk-ontertiaryfixed);
 }
 
 .color-ontertiaryfixedvariant {
-  color: var(--lk-ontertiaryfixedvariant) !important;
+  color: var(--lk-ontertiaryfixedvariant);
 }
 
 .color-surfacedim {
-  color: var(--lk-surfacedim) !important;
+  color: var(--lk-surfacedim);
 }
 
 .color-surfacebright {
-  color: var(--lk-surfacebright) !important;
+  color: var(--lk-surfacebright);
 }
 
 .color-surfacecontainerlowest {
-  color: var(--lk-surfacecontainerlowest) !important;
+  color: var(--lk-surfacecontainerlowest);
 }
 
 .color-surfacecontainerlow {
-  color: var(--lk-surfacecontainerlow) !important;
+  color: var(--lk-surfacecontainerlow);
 }
 
 .color-surfacecontainer {
-  color: var(--lk-surfacecontainer) !important;
+  color: var(--lk-surfacecontainer);
 }
 
 .color-surfacecontainerhigh {
-  color: var(--lk-surfacecontainerhigh) !important;
+  color: var(--lk-surfacecontainerhigh);
 }
 
 .color-surfacecontainerhighest {
-  color: var(--lk-surfacecontainerhighest) !important;
+  color: var(--lk-surfacecontainerhighest);
 }

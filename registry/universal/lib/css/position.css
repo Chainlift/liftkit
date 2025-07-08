@@ -1,30 +1,21 @@
-.position-static {
+.static {
   position: static;
 }
 
-.position-relative {
+.relative {
   position: relative;
 }
 
-.position-absolute {
+.absolute {
   position: absolute;
 }
 
-.position-fixed {
+.fixed {
   position: fixed;
 }
 
-.position-sticky {
+.sticky {
   position: sticky;
   top: 0;
 }
 
-.position-fixed-overlay {
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-
-  position: fixed;
-}
