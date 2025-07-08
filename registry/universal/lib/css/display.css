@@ -1,26 +1,23 @@
-.display__block,
 .display-block {
   display: block;
 }
 
-.flex-h {
+.display-flex-h {
   display: flex;
 }
 
-.display__flex-v,
 .display-flex-v {
   display: flex;
   flex-direction: column;
 }
 
-.display__grid,
+
 .display-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
 }
 
-.display__inlineBlock,
 .display-inline-block {
   display: inline-block;
 }
