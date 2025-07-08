@@ -1,0 +1,241 @@
+@import "./liftkit-core.css";
+
+.border-color-primary {
+  border-color: var(--lk-primary);
+}
+
+.border-color-onprimary {
+  border-color: var(--lk-onprimary);
+}
+
+.border-color-primarycontainer {
+  border-color: var(--lk-primarycontainer);
+}
+
+.border-color-onprimarycontainer {
+  border-color: var(--lk-onprimarycontainer);
+}
+
+.border-color-secondary {
+  border-color: var(--lk-secondary);
+}
+
+.border-color-onsecondary {
+  border-color: var(--lk-onsecondary);
+}
+
+.border-color-secondarycontainer {
+  border-color: var(--lk-secondarycontainer);
+}
+
+.border-color-onsecondarycontainer {
+  border-color: var(--lk-onsecondarycontainer);
+}
+
+.border-color-tertiary {
+  border-color: var(--lk-tertiary);
+}
+
+.border-color-ontertiary {
+  border-color: var(--lk-ontertiary);
+}
+
+.border-color-tertiarycontainer {
+  border-color: var(--lk-tertiarycontainer);
+}
+
+.border-color-ontertiarycontainer {
+  border-color: var(--lk-ontertiarycontainer);
+}
+
+.border-color-error {
+  border-color: var(--lk-error);
+}
+
+.border-color-onerror {
+  border-color: var(--lk-onerror);
+}
+
+.border-color-errorcontainerv {
+  border-color: var(--lk-errorcontainer);
+}
+
+.border-color-onerrorcontainer {
+  border-color: var(--lk-onerrorcontainer);
+}
+
+.border-color-background {
+  border-color: var(--lk-background);
+}
+
+.border-color-onbackground {
+  border-color: var(--lk-onbackground);
+}
+
+.border-color-surface {
+  border-color: var(--lk-surface);
+}
+
+.border-color-onsurface {
+  border-color: var(--lk-onsurface);
+}
+
+.border-color-surfacevariant {
+  border-color: var(--lk-surfacevariant);
+}
+
+.border-color-onsurfacevariant {
+  border-color: var(--lk-onsurfacevariant);
+}
+
+.border-color-outline {
+  border-color: var(--lk-outline);
+}
+
+.border-color-outlinevariant {
+  border-color: var(--lk-outlinevariant);
+}
+
+.border-color-shadow {
+  border-color: var(--lk-shadow);
+}
+
+.border-color-scrim {
+  border-color: var(--lk-scrim);
+}
+
+.border-color-inversesurface {
+  border-color: var(--lk-inversesurface);
+}
+
+.border-color-inverseonsurface {
+  border-color: var(--lk-inverseonsurface);
+}
+
+.border-color-inverseprimary {
+  border-color: var(--lk-inverseprimary);
+}
+
+.border-color-success {
+  border-color: var(--lk-success);
+}
+
+.border-color-successcontainer {
+  border-color: var(--lk-successcontainer);
+}
+
+.border-color-onsuccess {
+  border-color: var(--lk-onsuccess);
+}
+
+.border-color-onsuccesscontainer {
+  border-color: var(--lk-onsuccesscontainer);
+}
+
+.border-color-warning {
+  border-color: var(--lk-warning);
+}
+
+.border-color-warningcontainer {
+  border-color: var(--lk-warningcontainer);
+}
+
+.border-color-onwarning {
+  border-color: var(--lk-onwarning);
+}
+
+.border-color-onwarningcontainer {
+  border-color: var(--lk-onwarningcontainer);
+}
+
+.border-color-info {
+  border-color: var(--lk-info);
+}
+
+.border-color-infocontainer {
+  border-color: var(--lk-infocontainer);
+}
+
+.border-color-oninfo {
+  border-color: var(--lk-oninfo);
+}
+
+.border-color-oninfocontainer {
+  border-color: var(--lk-oninfocontainer);
+}
+
+.border-color-primaryfixed {
+  border-color: var(--lk-primaryfixed);
+}
+
+.border-color-primaryfixeddim {
+  border-color: var(--lk-primaryfixeddim);
+}
+
+.border-color-onprimaryfixed {
+  border-color: var(--lk-onprimaryfixed);
+}
+
+.border-color-onprimaryfixedvariant {
+  border-color: var(--lk-onprimaryfixedvariant);
+}
+
+.border-color-secondaryfixed {
+  border-color: var(--lk-secondaryfixed);
+}
+
+.border-color-secondaryfixeddim {
+  border-color: var(--lk-secondaryfixeddim);
+}
+
+.border-color-onsecondaryfixed {
+  border-color: var(--lk-onsecondaryfixed);
+}
+
+.border-color-onsecondaryfixedvariant {
+  border-color: var(--lk-onsecondaryfixedvariant);
+}
+
+.border-color-tertiaryfixed {
+  border-color: var(--lk-tertiaryfixed);
+}
+
+.border-color-tertiaryfixeddim {
+  border-color: var(--lk-tertiaryfixeddim);
+}
+
+.border-color-ontertiaryfixed {
+  border-color: var(--lk-ontertiaryfixed);
+}
+
+.border-color-ontertiaryfixedvariant {
+  border-color: var(--lk-ontertiaryfixedvariant);
+}
+
+.border-color-surfacedim {
+  border-color: var(--lk-surfacedim);
+}
+
+.border-color-surfacebright {
+  border-color: var(--lk-surfacebright);
+}
+
+.border-color-surfacecontainerlowest {
+  border-color: var(--lk-surfacecontainerlowest);
+}
+
+.border-color-surfacecontainerlow {
+  border-color: var(--lk-surfacecontainerlow);
+}
+
+.border-color-surfacecontainer {
+  border-color: var(--lk-surfacecontainer);
+}
+
+.border-color-surfacecontainerhigh {
+  border-color: var(--lk-surfacecontainerhigh);
+}
+
+.border-color-surfacecontainerhighest {
+  border-color: var(--lk-surfacecontainerhighest);
+}
