@@ -92,8 +92,7 @@
   line-height: var(--lk-halfstep);
 }
 
-.heading,
-.tiptap h3 {
+.heading {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -258,8 +257,7 @@
   line-height: var(--lk-halfstep);
 }
 
-.title1-bold,
-.tiptap h1 {
+.title1-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -277,8 +275,7 @@
   line-height: var(--lk-halfstep);
 }
 
-.title2-bold,
-.tiptap h2 {
+.title2-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 

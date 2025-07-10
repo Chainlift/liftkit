@@ -46,3 +46,4 @@ public/r
 /scripts
 type-usage-report.csv
 type-usage-report.txt
+*.csv

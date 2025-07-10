@@ -14,77 +14,61 @@ import Text from "@/registry/nextjs/components/text";
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
-
-type LkColorGroup =
-  | "master"
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "neutral"
-  | "neutralvariant"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+import Section from "@/registry/nextjs/components/section";
+import Container from "@/registry/nextjs/components/container";
 
 export default function TestApp() {
-  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } =
-    useContext(ThemeContext);
+  // const { palette, updateTheme } = useContext(ThemeContext);
 
+  // const [paletteArray, setPaletteArray] = useState(
+  //   Object.keys(palette).map((key) => {
+  //     return { key, value: palette[key] };
+  //   })
+  // );
 
+  // useEffect(() => {
+  //   updateTheme(palette);
+  //   const newPaletteArray = Object.keys(palette).map((key) => {
+  //     return { key, value: palette[key] };
+  //   });
+  //   setPaletteArray(newPaletteArray);
+  // }, [palette]);
 
-  const [paletteArray, setPaletteArray] = useState(
-    Object.keys(palette).map((key) => {
-      return { key, value: palette[key] };
-    })
-  );
+  // const theme1 = {
+  //   primary: "#035eff",
+  //   secondary: "#badcff",
+  //   tertiary: "#00ddfe",
+  //   neutral: "#000000",
+  //   neutralvariant: "#3f4f5b",
+  //   error: "#dd305c",
+  //   warning: "#feb600",
+  //   success: "#0cfecd",
+  //   info: "#175bfc",
+  // };
 
-  useEffect(() => {
-    updateTheme(palette);
-    const newPaletteArray = Object.keys(palette).map((key) => {
-      return { key, value: palette[key] };
-    });
-    setPaletteArray(newPaletteArray);
-  }, [palette, paletteArray]);
+  // const theme2 = {
+  //   primary: "#f4af00",
+  //   secondary: "#b15f00",
+  //   tertiary: "#009fb8",
+  //   neutral: "#837560",
+  //   neutralvariant: "#d5c4ac",
+  //   error: "#ba1a1a",
+  //   warning: "#87521e",
+  //   success: "#5d6300",
+  //   info: "#006b54",
+  // };
 
-
-
-  const theme1 = {
-    primary: "#035eff",
-    secondary: "#badcff",
-    tertiary: "#00ddfe",
-    neutral: "#000000",
-    neutralvariant: "#3f4f5b",
-    error: "#dd305c",
-    warning: "#feb600",
-    success: "#0cfecd",
-    info: "#175bfc",
-  };
-
-  const theme2 = {
-    primary: "#f4af00",
-    secondary: "#b15f00",
-    tertiary: "#009fb8",
-    neutral: "#837560",
-    neutralvariant: "#d5c4ac",
-    error: "#ba1a1a",
-    warning: "#87521e",
-    success: "#5d6300",
-    info: "#006b54",
-  };
-
-  const theme3 = {
-    primary: "#a92660",
-    secondary: "#e7b4fd",
-    tertiary: "#006d31",
-    neutral: "#8a7177",
-    neutralvariant: "#ddbfc6",
-    error: "#ba1a1a",
-    warning: "#8c4e2d",
-    success: "#446900",
-    info: "#006a63",
-  };
-
+  // const theme3 = {
+  //   primary: "#a92660",
+  //   secondary: "#e7b4fd",
+  //   tertiary: "#006d31",
+  //   neutral: "#8a7177",
+  //   neutralvariant: "#ddbfc6",
+  //   error: "#ba1a1a",
+  //   warning: "#8c4e2d",
+  //   success: "#446900",
+  //   info: "#006a63",
+  // };
 
   function getRows(count: number) {
     const fullNames = [
@@ -146,249 +130,96 @@ export default function TestApp() {
     return rows;
   }
 
-  function handleColorModeSwitch() {
-    if (colorMode === "dark") {
-      setColorMode("light");
-    } else {
-      setColorMode("dark");
-    }
-  }
-
-  const handleCopyPalette = async () => {
-    try {
-      await navigator.clipboard.writeText(JSON.stringify(palette, null, 2));
-      alert("Code copied");
-    } catch (err) {
-      console.error("Failed to copy palette:", err);
-    }
-  };
-
   return (
     <>
       {/* Render a set of color inputs, one for each color group. */}
 
-      {/* <Card scaleFactor="heading" bgColor="surfacecontainerlowest" className="shadow-lg mb-2xl">
-          <Column gap="lg">
-            <Grid columns={5} gap="md">
-              <div>
-                <h2 className="heading mb-2xs">Globals</h2>
-                <p className="subheading color-onsurfacevariant">
-                  The "root" color of your theme. The color utilities will calculate all other color group swatches from
-                  this one.
-                </p>
-              </div>
-              <Row alignItems="start" gap="md">
-                <input
-                  type="color"
-                  name="master"
-                  value={palette["master"]}
-                  onChange={(event) => handleColorChange("master", event.target.value)}
-                ></input>
-                <Column>
-                  <label className="label mb-xs" htmlFor={"master"}>
-                    {"master"}
-                  </label>
-                  <p className="caption color-onsurfacevariant mb-xs">
-                    The seed color.{" "}
-                    <strong className="color-error">If you edit this, all other color tokens will reset.</strong>
-                  </p>
-                </Column>
-              </Row>
-              <Row alignItems="start" gap="md">
-                <Column>
-                  <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
-                </Column>
-                <Column>
-                  <label className="label mb-xs">Default to Dark Mode</label>
-                  <p className="caption color-onsurfacevariant mb-xs">Toggles dark mode.</p>
-                </Column>
-              </Row>
-            </Grid>
-            <Grid columns={5}>
-              <div>
-                <h2 className="heading mb-2xs">Brand palette </h2>
-                <p className="subheading color-onsurfacevariant mb-md">The key colors of your brand.</p>
-              </div>
-              {brandPalette.map((colorGroup) => (
-                <Row key={colorGroup} alignItems="start" gap="md">
-                  <input
-                    type="color"
-                    name={colorGroup}
-                    value={palette[colorGroup]}
-                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-                  ></input>
-                  <Column>
-                    <label className="label mb-xs" htmlFor={colorGroup}>
-                      {colorGroup}
-                    </label>
-                    <p className="caption color-onsurfacevariant mb-xs">
-                      {colorGroup === "primary"
-                        ? "Main brand color, used for most UI elements."
-                        : colorGroup === "secondary"
-                          ? "Desaturated variant of primary."
-                          : colorGroup === "tertiary"
-                            ? "Your accent color. Defaults to complementary hue to primary."
-                            : null}
-                    </p>
-                  </Column>
-                </Row>
-              ))}
-            </Grid>
-            <Grid columns={5}>
-              <div>
-                <h2 className="heading mb-2xs">Semantic Palette</h2>
-                <p className="subheading color-onsurfacevariant mb-md">Colors for communicating with the user.</p>
-              </div>
-              {semanticPalette.map((colorGroup) => (
-                <Row key={colorGroup} alignItems="start" gap="md">
-                  <input
-                    type="color"
-                    name={colorGroup}
-                    value={palette[colorGroup]}
-                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-                  ></input>
-                  <Column>
-                    <label className="label mb-xs" htmlFor={colorGroup}>
-                      {colorGroup}
-                    </label>
-                    <p className="caption color-onsurfacevariant mb-xs">
-                      {colorGroup === "error"
-                        ? "A pink or red, indicating problems."
-                        : colorGroup === "warning"
-                          ? "An orange or yellow, indicating caution."
-                          : colorGroup === "success"
-                            ? "A green, indicating success."
-                            : colorGroup === "info"
-                              ? "A blue, indicating neutral information."
-                              : null}
-                    </p>
-                  </Column>
-                </Row>
-              ))}
-            </Grid>
-            <Grid columns={5}>
-              <div>
-                <h2 className="heading mb-2xs">Layout Palette</h2>
-                <p className="subheading color-onsurfacevariant mb-md">
-                  Backgrounds, surfaces, default text colors, and outlines.
-                </p>
-              </div>
-              {layoutPalette.map((colorGroup) => (
-                <Row key={colorGroup} alignItems="start" gap="md">
-                  <input
-                    type="color"
-                    name={colorGroup}
-                    value={palette[colorGroup]}
-                    onChange={(event) => handleColorChange(colorGroup, event.target.value)}
-                  ></input>
-                  <Column>
-                    <label className="label mb-xs" htmlFor={colorGroup}>
-                      {colorGroup}
-                    </label>
-                    <p className="caption color-onsurfacevariant mb-xs">
-                      {colorGroup === "neutral"
-                        ? "Backgrounds, surfaces, outlines, and default text color"
-                        : colorGroup === "neutralvariant"
-                          ? "Surface variant, outline variant, and text color variant"
-                          : null}
-                    </p>
-                  </Column>
-                </Row>
-              ))}
-            </Grid>
-          </Column>
-          <Card bgColor="surfacevariant" scaleFactor="body" className="position-relative">
-            <pre>
-    {`
-const [colorMode, setColorMode] = useState<"light" | "dark">("${colorMode}");
-
-const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, null, 2)}
-`}
-            </pre>
-            <IconButton
-              icon="copy"
-              style={{ position: "absolute", inset: "1em 1em auto auto" }}
-              onClick={handleCopyPalette}
-            ></IconButton>
-          </Card>
-        </Card> */}
       <ThemeController />
-
-      <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl overflow-hidden">
-        <Column gap="lg">
-          <IconButton icon="grid" fontClass="title3"></IconButton>
-          <IconButton icon="database" fontClass="title3" variant="text"></IconButton>
-          <IconButton icon="user" fontClass="title3" variant="text"></IconButton>
-          <IconButton icon="settings" fontClass="title3" variant="text"></IconButton>
-        </Column>
-        <Column className="flex-grow overflow-hidden h-full" gap="lg">
-          <Row justifyContent="space-between" alignItems="center" gap="md">
-            <Heading tag="h1" fontClass="title2-bold">
-              Manage Users
-            </Heading>
-            <Row alignItems="center" gap="md" justifyContent="end">
-              <IconButton icon="x" color="error" fontClass="title2"></IconButton>
-              <IconButton icon="message-circle-warning" color="warning" fontClass="title2"></IconButton>
-              <IconButton icon="check-circle" color="success" fontClass="title2"></IconButton>
-              <IconButton icon="help-circle" color="info" fontClass="title2"></IconButton>
-            </Row>
-          </Row>
-          <Tabs
-            tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}
-            className="flex-grow"
-            scrollableContent={true}
-          >
-            <Card scaleFactor="body" bgColor="surface">
-              <Row alignItems="center" justifyContent="space-between" className="mb-xs">
-                <Row alignItems="center" gap="md">
-                  <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
-                </Row>
-                <Row justifyContent="end" gap="md">
-                  <Dropdown>
-                    <DropdownTrigger>
-                      <Button
-                        startIcon="palette"
-                        endIcon="chevron-down"
-                        opticIconShift={false}
-                        variant="outline"
-                        label="Themes"
-                        color="tertiary"
-                      ></Button>
-                    </DropdownTrigger>
-                    <DropdownMenu
-                      cardProps={{ scaleFactor: "subheading", material: "glass", materialProps: { thickness: "thin" } }}
-                    >
-                      <MenuItem onClick={() => updateTheme(theme1)}>Blueberry</MenuItem>
-                      <MenuItem onClick={() => updateTheme(theme2)}>Lemonbar</MenuItem>
-                      <MenuItem onClick={() => updateTheme(theme3)}>Watermelon</MenuItem>
-                    </DropdownMenu>
-                  </Dropdown>
+      <Section>
+        <Container maxWidth="sm">
+          {" "}
+          <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl pl-4xl overflow-hidden">
+            <Column gap="lg">
+              <IconButton icon="grid" fontClass="title3"></IconButton>
+              <IconButton icon="database" fontClass="title3" variant="text"></IconButton>
+              <IconButton icon="user" fontClass="title3" variant="text"></IconButton>
+              <IconButton icon="settings" fontClass="title3" variant="text"></IconButton>
+            </Column>
+            <Column className="flex-grow overflow-hidden h-full" gap="lg">
+              <Row justifyContent="space-between" alignItems="center" gap="md">
+                <Heading tag="h1" fontClass="title2-bold">
+                  Manage Users
+                </Heading>
+                <Row alignItems="center" gap="md" justifyContent="end">
+                  <IconButton icon="x" color="error" fontClass="title2"></IconButton>
+                  <IconButton icon="message-circle-warning" color="warning" fontClass="title2"></IconButton>
+                  <IconButton icon="check-circle" color="success" fontClass="title2"></IconButton>
+                  <IconButton icon="help-circle" color="info" fontClass="title2"></IconButton>
                 </Row>
               </Row>
-              <Column>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>
-                        <Icon name="square"></Icon>
-                      </th>
-                      <th>Name</th>
-                      <th>Role</th>
-                      <th>Profile Photo</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>{getRows(25)}</tbody>
-                </table>
-              </Column>
-            </Card>
-            <Card scaleFactor="body"></Card>
-            <Card scaleFactor="body"></Card>
-            <Card scaleFactor="body"></Card>
-            <Card scaleFactor="body"></Card>
-          </Tabs>
-        </Column>
-      </Row>
+              <Tabs
+                tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}
+                className="flex-grow"
+                scrollableContent={true}
+              >
+                <Card scaleFactor="body" bgColor="surface">
+                  <Row alignItems="center" justifyContent="space-between" className="mb-xs">
+                    <Row alignItems="center" gap="md">
+                      <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface"></TextInput>
+                    </Row>
+                    <Row justifyContent="end" gap="md">
+                      <Dropdown>
+                        <DropdownTrigger>
+                          <Button
+                            startIcon="palette"
+                            endIcon="chevron-down"
+                            opticIconShift={false}
+                            variant="outline"
+                            label="Themes"
+                            color="tertiary"
+                          ></Button>
+                        </DropdownTrigger>
+                        <DropdownMenu
+                          cardProps={{
+                            scaleFactor: "subheading",
+                            material: "glass",
+                            materialProps: { thickness: "thin" },
+                          }}
+                        >
+                          <MenuItem>Blueberry</MenuItem>
+                          <MenuItem>Lemonbar</MenuItem>
+                          <MenuItem>Watermelon</MenuItem>
+                        </DropdownMenu>
+                      </Dropdown>
+                    </Row>
+                  </Row>
+                  <Column>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>
+                            <Icon name="square"></Icon>
+                          </th>
+                          <th>Name</th>
+                          <th>Role</th>
+                          <th>Profile Photo</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>{getRows(25)}</tbody>
+                    </table>
+                  </Column>
+                </Card>
+                <Card scaleFactor="body"></Card>
+                <Card scaleFactor="body"></Card>
+                <Card scaleFactor="body"></Card>
+                <Card scaleFactor="body"></Card>
+              </Tabs>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
       <style jsx>{`
         table {
           border-collapse: collapse;

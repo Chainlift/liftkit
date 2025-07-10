@@ -550,7 +550,7 @@
           "type": "registry:lib"
         },
         {
-          "path": "registry/universal/lib/css/font-color.css",
+          "path": "registry/universal/lib/css/text-color.css",
           "type": "registry:lib"
         },
         {

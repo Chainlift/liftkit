@@ -5,6 +5,7 @@ import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
+import ThemeController from "@/registry/nextjs/components/theme-controller";
 
 import { IconName } from "lucide-react/dynamic";
 export default function Staging() {
@@ -38,6 +39,7 @@ export default function Staging() {
   return (
     <div>
       <Section>
+      <ThemeController/>
         <Heading tag="h1" fontClass="display1-bold" className="text-align-center">
           Hello world!
         </Heading>
