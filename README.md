@@ -129,7 +129,7 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 
 ### Clone the Community File
 
-* [View File on Figma](https://www.figma.com) (opens in new tab)
+* [View File on Figma](https://www.figma.com/community/file/1404856652359938563) (opens in new tab)
 
 ---
 
