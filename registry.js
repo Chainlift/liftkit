@@ -62,13 +62,68 @@ function generateComponentEntries() {
     .map(dirent => dirent.name);
 
   const entries = componentDirs.map(componentName => {
-    const indexPath = path.join(config.componentsDir, componentName, 'index.tsx');
+    const componentDir = path.join(config.componentsDir, componentName);
+    const indexPath = path.join(componentDir, 'index.tsx');
     let additionalDeps = [];
+    let importedFiles = [];
 
     if (fs.existsSync(indexPath)) {
       const content = fs.readFileSync(indexPath, 'utf-8');
       additionalDeps = extractComponentDependencies(content);
+
+      // Remove comments before parsing imports
+      const contentWithoutComments = content
+        // Remove single-line comments
+        .replace(/\/\/.*$/gm, '')
+        // Remove multi-line comments
+        .replace(/\/\*[\s\S]*?\*\//g, '');
+
+      // Find all relative imports in the same directory
+      const relativeImportRegex = /import\s+[^'"]*\s+from\s+['"]\.\/([^'"]+)['"]/g;
+      let match;
+
+      while ((match = relativeImportRegex.exec(contentWithoutComments)) !== null) {
+        const importPath = match[1];
+        // Add file extension if not present
+        const possibleExtensions = ['', '.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.less'];
+
+        for (const ext of possibleExtensions) {
+          const fullPath = path.join(componentDir, importPath + ext);
+          if (fs.existsSync(fullPath)) {
+            const fileName = path.basename(fullPath);
+            if (!importedFiles.includes(fileName)) {
+              importedFiles.push(fileName);
+            }
+            break;
+          }
+        }
+      }
+
+      // Also check for CSS imports with quotes only (no 'from')
+      const cssImportRegex = /import\s+['"]\.\/([^'"]+\.(?:css|scss|less))['"]/g;
+      while ((match = cssImportRegex.exec(contentWithoutComments)) !== null) {
+        const fileName = path.basename(match[1]);
+        if (!importedFiles.includes(fileName)) {
+          importedFiles.push(fileName);
+        }
+      }
     }
+
+    // Build files array starting with the index file
+    const files = [
+      {
+        path: `registry/nextjs/components/${componentName}/index.tsx`,
+        type: "registry:component"
+      }
+    ];
+
+    // Add all imported files from the same directory
+    importedFiles.forEach(fileName => {
+      files.push({
+        path: `registry/nextjs/components/${componentName}/${fileName}`,
+        type: "registry:component"
+      });
+    });
 
     return {
       name: componentName,
@@ -79,16 +134,7 @@ function generateComponentEntries() {
         config.baseDepUrl,
         ...additionalDeps
       ],
-      files: [
-        {
-          path: `registry/nextjs/components/${componentName}/index.tsx`,
-          type: "registry:component"
-        },
-        {
-          path: `registry/nextjs/components/${componentName}/${componentName}.css`,
-          type: "registry:component"
-        }
-      ]
+      files
     };
   });
 
