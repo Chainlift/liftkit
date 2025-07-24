@@ -1,5 +1,4 @@
 "use client";
-// import "./material-layer-core.css";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { useMemo } from "react";
 
@@ -27,15 +26,19 @@ interface LkMaterialLayerProps extends React.HTMLAttributes<HTMLDivElement> {
   materialProps?: LkMatProps; // Optional material-specific properties
 }
 
-
-export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMaterialLayerProps) {
+export default function MaterialLayer({
+  zIndex = 0,
+  type,
+  materialProps,
+}: LkMaterialLayerProps) {
   /**If materialProps are provided, loop through the keys and pass each one as a data attribute to the component. */
   let lkMatProps: LkMatProps;
 
   if (materialProps) {
-
-    lkMatProps = useMemo(() => propsToDataAttrs(materialProps, `${type}`), [materialProps]);
-
+    lkMatProps = useMemo(
+      () => propsToDataAttrs(materialProps, `${type}`),
+      [materialProps],
+    );
   }
 
   /**Commented out, was likely used for debugging */
@@ -49,13 +52,19 @@ export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMat
 
   return (
     <>
-      <div data-lk-component="material-layer" data-lk-material-type={type} style={{ zIndex: zIndex }}>
+      <div
+        data-lk-component="material-layer"
+        data-lk-material-type={type}
+        style={{ zIndex: zIndex }}
+      >
         {type === "glass" && (
           <div>
             <div data-lk-material-sublayer="texture">
               {(materialProps as LkMatProps_Glass)?.tint && (
                 <div data-lk-material-sublayer="tint">
-                  {(materialProps as LkMatProps_Glass)?.light && <div data-lk-material-sublayer="light"></div>}
+                  {(materialProps as LkMatProps_Glass)?.light && (
+                    <div data-lk-material-sublayer="light"></div>
+                  )}
                 </div>
               )}
             </div>
@@ -64,7 +73,9 @@ export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMat
         )}
 
         {type === "flat" && (
-          <div><div data-lk-material-sublayer="bgColor"></div></div>
+          <div>
+            <div data-lk-material-sublayer="bgColor"></div>
+          </div>
         )}
       </div>
 
@@ -92,7 +103,9 @@ export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMat
         [data-lk-material-type="glass"] {
           [data-lk-material-sublayer="tint"] {
             opacity: ${(materialProps as LkMatProps_Glass)?.tintOpacity || 0.2};
-            background-color: var(--lk-${(materialProps as LkMatProps_Glass)?.tint || "transparent"});
+            background-color: var(
+              --lk-${(materialProps as LkMatProps_Glass)?.tint || "transparent"}
+            );
           }
 
           [data-lk-material-sublayer="texture"] {
@@ -102,24 +115,33 @@ export default function MaterialLayer({ zIndex = 0, type, materialProps }: LkMat
 
             z-index: 1;
             isolation: isolate;
-            backdrop-filter: blur(var(--blur-${(materialProps as LkMatProps_Glass)?.thickness || "normal"}));
+            backdrop-filter: blur(
+              var(
+                --blur-${(materialProps as LkMatProps_Glass)?.thickness ||
+                  "normal"}
+              )
+            );
           }
 
           [data-lk-material-sublayer="light"] {
-            background: ${(materialProps as LkMatProps_Glass)?.lightExpression || "none"};
+            background: ${(materialProps as LkMatProps_Glass)
+              ?.lightExpression || "none"};
             mix-blend-mode: soft-light;
             opacity: 1;
           }
 
           [data-lk-material-sublayer="base-glass-fill"] {
             background-color: var(--lk-surface);
-            opacity: ${getGlassFillOpacity((materialProps as LkMatProps_Glass)?.thickness || "normal")};
+            opacity: ${getGlassFillOpacity(
+              (materialProps as LkMatProps_Glass)?.thickness || "normal",
+            )};
           }
         }
         [data-lk-material-type="flat"] {
           [data-lk-material-sublayer="bgColor"] {
-            background-color: ${getBgColor((materialProps as LkMatProps_Flat)?.bgColor)};
-
+            background-color: ${getBgColor(
+              (materialProps as LkMatProps_Flat)?.bgColor,
+            )};
           }
         }
       `}</style>
@@ -141,8 +163,6 @@ function getGlassFillOpacity(thickness: "thick" | "normal" | "thin") {
 }
 
 function getBgColor(token: LkColorWithOnToken | undefined) {
-
-
   if (token) {
     return `var(--lk-${token})`;
   } else {

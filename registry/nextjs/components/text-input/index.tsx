@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
@@ -30,7 +30,10 @@ export default function TextInput({
   labelBackgroundColor,
   ...restProps
 }: LkTextInputProps) {
-  const textInputProps = useMemo(() => propsToDataAttrs({ labelPosition }, "text-input"), [labelPosition]);
+  const textInputProps = useMemo(
+    () => propsToDataAttrs({ labelPosition }, "text-input"),
+    [labelPosition],
+  );
 
   const [inputValue, setInputValue] = useState("");
 
@@ -42,7 +45,11 @@ export default function TextInput({
         </label>
       )}
 
-      <div data-lk-text-input-el="input-wrap" data-lk-input-help-text={helpText ? "true" : "false"} data-help-text={helpText}>
+      <div
+        data-lk-text-input-el="input-wrap"
+        data-lk-input-help-text={helpText ? "true" : "false"}
+        data-help-text={helpText}
+      >
         {labelPosition === "on-input" && (
           <label
             htmlFor={name}
@@ -67,8 +74,15 @@ export default function TextInput({
 
       {helpText && (
         <Row alignItems="center">
-          <Icon name="info" fontClass="capline" color="outline" opticShift={true} />
-          <Text color="outline" fontClass="caption" className="m-left-2xs">Help text goes here</Text>
+          <Icon
+            name="info"
+            fontClass="capline"
+            color="outline"
+            opticShift={true}
+          />
+          <Text color="outline" fontClass="caption" className="m-left-2xs">
+            Help text goes here
+          </Text>
         </Row>
       )}
     </div>
