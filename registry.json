@@ -10,12 +10,15 @@
       "description": "A Simple badge Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/icon.json",
-        "https://localhost:3000/r/badge.json"
+        "https://localhost:3000/r/icon.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/badge/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/badge/badge.css",
           "type": "registry:component"
         }
       ]
@@ -27,13 +30,16 @@
       "description": "A Simple button Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/button.json",
         "https://localhost:3000/r/state-layer.json",
         "https://localhost:3000/r/icon.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/button/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/button/button.css",
           "type": "registry:component"
         }
       ]
@@ -45,12 +51,15 @@
       "description": "A Simple card Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/card.json",
         "https://localhost:3000/r/material-layer.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/card/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/card/card.css",
           "type": "registry:component"
         }
       ]
@@ -61,12 +70,15 @@
       "title": "column Component",
       "description": "A Simple column Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/column.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/column/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/column/column.css",
           "type": "registry:component"
         }
       ]
@@ -77,12 +89,15 @@
       "title": "container Component",
       "description": "A Simple container Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/container.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/container/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/container/container.css",
           "type": "registry:component"
         }
       ]
@@ -95,12 +110,15 @@
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
         "https://localhost:3000/r/card.json",
-        "https://localhost:3000/r/column.json",
-        "https://localhost:3000/r/dropdown.json"
+        "https://localhost:3000/r/column.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/dropdown/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/dropdown/dropdown.css",
           "type": "registry:component"
         }
       ]
@@ -112,12 +130,15 @@
       "description": "A Simple grid Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/grid.json",
         "https://localhost:3000/r/placeholder-block.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/grid/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/grid/grid.css",
           "type": "registry:component"
         }
       ]
@@ -128,12 +149,15 @@
       "title": "heading Component",
       "description": "A Simple heading Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/heading.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/heading/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/heading/heading.css",
           "type": "registry:component"
         }
       ]
@@ -144,12 +168,15 @@
       "title": "icon Component",
       "description": "A Simple icon Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/icon.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/icon/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/icon/icon.css",
           "type": "registry:component"
         }
       ]
@@ -161,13 +188,16 @@
       "description": "A Simple icon-button Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/icon-button.json",
         "https://localhost:3000/r/icon.json",
         "https://localhost:3000/r/state-layer.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/icon-button/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/icon-button/icon-button.css",
           "type": "registry:component"
         }
       ]
@@ -178,12 +208,15 @@
       "title": "image Component",
       "description": "A Simple image Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/image.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/image/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/image/image.css",
           "type": "registry:component"
         }
       ]
@@ -210,13 +243,16 @@
       "description": "A Simple menu-item Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/menu-item.json",
         "https://localhost:3000/r/state-layer.json",
         "https://localhost:3000/r/icon.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/menu-item/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/menu-item/menu-item.css",
           "type": "registry:component"
         }
       ]
@@ -232,13 +268,16 @@
         "https://localhost:3000/r/icon-button.json",
         "https://localhost:3000/r/row.json",
         "https://localhost:3000/r/column.json",
-        "https://localhost:3000/r/navbar.json",
         "https://localhost:3000/r/material-layer.json",
         "https://localhost:3000/r/placeholder-block.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/navbar/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/navbar/navbar.css",
           "type": "registry:component"
         }
       ]
@@ -249,12 +288,15 @@
       "title": "placeholder-block Component",
       "description": "A Simple placeholder-block Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/placeholder-block.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/placeholder-block/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/placeholder-block/placeholder-block.css",
           "type": "registry:component"
         }
       ]
@@ -265,12 +307,15 @@
       "title": "row Component",
       "description": "A Simple row Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/row.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/row/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/row/row.css",
           "type": "registry:component"
         }
       ]
@@ -281,12 +326,15 @@
       "title": "section Component",
       "description": "A Simple section Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/section.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/section/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/section/section.css",
           "type": "registry:component"
         }
       ]
@@ -301,12 +349,15 @@
         "https://localhost:3000/r/card.json",
         "https://localhost:3000/r/column.json",
         "https://localhost:3000/r/icon.json",
-        "https://localhost:3000/r/select.json",
         "https://localhost:3000/r/state-layer.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/select/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/select/select.css",
           "type": "registry:component"
         }
       ]
@@ -322,7 +373,6 @@
         "https://localhost:3000/r/button.json",
         "https://localhost:3000/r/icon-button.json",
         "https://localhost:3000/r/text.json",
-        "https://localhost:3000/r/snackbar.json",
         "https://localhost:3000/r/card.json",
         "https://localhost:3000/r/row.json",
         "https://localhost:3000/r/icon.json"
@@ -330,6 +380,10 @@
       "files": [
         {
           "path": "registry/nextjs/components/snackbar/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/snackbar/snackbar.css",
           "type": "registry:component"
         }
       ]
@@ -340,12 +394,15 @@
       "title": "state-layer Component",
       "description": "A Simple state-layer Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/state-layer.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/state-layer/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/state-layer/state-layer.css",
           "type": "registry:component"
         }
       ]
@@ -357,12 +414,15 @@
       "description": "A Simple sticker Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/text.json",
-        "https://localhost:3000/r/sticker.json"
+        "https://localhost:3000/r/text.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/sticker/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/sticker/sticker.css",
           "type": "registry:component"
         }
       ]
@@ -373,12 +433,15 @@
       "title": "switch Component",
       "description": "A Simple switch Component",
       "registryDependencies": [
-        "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/switch.json"
+        "https://localhost:3000/r/base.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/switch/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/switch/switch.css",
           "type": "registry:component"
         }
       ]
@@ -405,12 +468,15 @@
       "description": "A Simple tab-link Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/text.json",
-        "https://localhost:3000/r/tab-link.json"
+        "https://localhost:3000/r/text.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/tab-link/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/tab-link/tab-link.css",
           "type": "registry:component"
         }
       ]
@@ -423,12 +489,15 @@
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
         "https://localhost:3000/r/row.json",
-        "https://localhost:3000/r/tab-link.json",
-        "https://localhost:3000/r/tab-menu.json"
+        "https://localhost:3000/r/tab-link.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/tab-menu/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/tab-menu/tab-menu.css",
           "type": "registry:component"
         }
       ]
@@ -440,12 +509,15 @@
       "description": "A Simple tabs Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/tab-menu.json",
-        "https://localhost:3000/r/tabs.json"
+        "https://localhost:3000/r/tab-menu.json"
       ],
       "files": [
         {
           "path": "registry/nextjs/components/tabs/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/tabs/tabs.css",
           "type": "registry:component"
         }
       ]
@@ -472,7 +544,6 @@
       "description": "A Simple text-input Component",
       "registryDependencies": [
         "https://localhost:3000/r/base.json",
-        "https://localhost:3000/r/text-input.json",
         "https://localhost:3000/r/icon.json",
         "https://localhost:3000/r/row.json",
         "https://localhost:3000/r/text.json",
@@ -481,6 +552,10 @@
       "files": [
         {
           "path": "registry/nextjs/components/text-input/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/text-input/text-input.css",
           "type": "registry:component"
         }
       ]
@@ -496,6 +571,10 @@
       "files": [
         {
           "path": "registry/nextjs/components/theme/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/theme/theme.css",
           "type": "registry:component"
         }
       ]
@@ -517,6 +596,10 @@
       "files": [
         {
           "path": "registry/nextjs/components/theme-controller/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/nextjs/components/theme-controller/theme-controller.css",
           "type": "registry:component"
         }
       ]
