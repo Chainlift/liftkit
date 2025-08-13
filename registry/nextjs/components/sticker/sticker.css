@@ -1,9 +1,13 @@
-[data-lk-component="sticker"] {
-  display: inline-block;
-  padding: var(--lk-size-xs) var(--lk-size-sm);
-  color: var(--lk-onprimary);
-  border-radius: var(--lk-size-sm);
-  font-weight: 500;
-  line-height: var(--label-line-height);
-  font-size: var(--label-font-size);
+@layer components {
+
+  [data-lk-component="sticker"] {
+    display: inline-block;
+    padding: var(--lk-size-xs) var(--lk-size-sm);
+    color: var(--lk-onprimary);
+    border-radius: var(--lk-size-sm);
+    font-weight: 500;
+    line-height: var(--label-line-height);
+    font-size: var(--label-font-size);
+  }
+
 }

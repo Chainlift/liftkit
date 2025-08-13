@@ -1,1 +1,390 @@
-@import "../../registry/universal/lib/css/index.css"
+@layer theme, lk-base, components, utilities;
+/* from left to right, right one has most power */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@layer */
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(lk-base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* @import "tailwindcss"; */
+
+@layer lk-base {
+    @import "../../registry/universal/lib/css/index.css";
+}
+
+/* maps variables to direct usable tailwind utility classes automatically */
+@theme {
+    /* m-*, p-*, h-*, w-*, border-*, gap-* from 2xs to 2xl 
+       use m-xs for liftkit's values,
+       m-<number> for tailwind */
+    --spacing-2xs: var(--lk-size-2xs);
+    --spacing-xs: var(--lk-size-xs);
+    --spacing-sm: var(--lk-size-sm);
+    --spacing-md: var(--lk-size-md);
+    --spacing-lg: var(--lk-size-lg);
+    --spacing-xl: var(--lk-size-xl);
+    --spacing-2xl: var(--lk-size-2xl);
+
+    --breakpoint-tablet: 47.9375rem;
+    /* 767px */
+    --breakpoint-mobile: 29.9375rem;
+    /* 479px */
+
+    /* https://tailwindcss.com/docs/colors#using-color-utilities */
+    /* bg-*, text-*, border-*, shadow-* and anywhere where color will be used  */
+
+    /**** COLORS ****/
+
+    /* Primary */
+    --color-primary: var(--lk-primary);
+    --color-onprimary: var(--lk-onprimary);
+    --color-primarycontainer: var(--lk-primarycontainer);
+    --color-onprimarycontainer: var(--lk-onprimarycontainer);
+    --color-primaryfixed: var(--lk-primaryfixed);
+    --color-onprimaryfixed: var(--lk-onprimaryfixed);
+    --color-primaryfixeddim: var(--lk-primaryfixeddim);
+    --color-onprimaryfixedvariant: var(--lk-onprimaryfixedvariant);
+
+    /* Secondary */
+    --color-secondary: var(--lk-secondary);
+    --color-onsecondary: var(--lk-onsecondary);
+    --color-secondarycontainer: var(--lk-secondarycontainer);
+    --color-onsecondarycontainer: var(--lk-onsecondarycontainer);
+    --color-secondaryfixed: var(--lk-secondaryfixed);
+    --color-onsecondaryfixed: var(--lk-onsecondaryfixed);
+    --color-secondaryfixeddim: var(--lk-secondaryfixeddim);
+    --color-onsecondaryfixedvariant: var(--lk-onsecondaryfixedvariant);
+
+    /* Tertiary */
+    --color-tertiary: var(--lk-tertiary);
+    --color-ontertiary: var(--lk-ontertiary);
+    --color-tertiarycontainer: var(--lk-tertiarycontainer);
+    --color-ontertiarycontainer: var(--lk-ontertiarycontainer);
+    --color-tertiaryfixed: var(--lk-tertiaryfixed);
+    --color-ontertiaryfixed: var(--lk-ontertiaryfixed);
+    --color-tertiaryfixeddim: var(--lk-tertiaryfixeddim);
+    --color-ontertiaryfixedvariant: var(--lk-ontertiaryfixedvariant);
+
+    /* Background & Surface */
+    --color-background: var(--lk-background);
+    --color-onbackground: var(--lk-onbackground);
+
+    --color-surface: var(--lk-surface);
+    --color-onsurface: var(--lk-onsurface);
+    --color-surfacevariant: var(--lk-surfacevariant);
+    --color-onsurfacevariant: var(--lk-onsurfacevariant);
+
+    /* surface elevation levels */
+    --color-surfacecontainerlowest: var(--lk-surfacecontainerlowest);
+    --color-surfacecontainerlow: var(--lk-surfacecontainerlow);
+    --color-surfacecontainer: var(--lk-surfacecontainer);
+    --color-surfacecontainerhigh: var(--lk-surfacecontainerhigh);
+    --color-surfacecontainerhighest: var(--lk-surfacecontainerhighest);
+
+    /* dimmest & brightest surface color
+    
+     For example, in an interface using the default surface role,
+     the mapped area is the brightest in light theme and the dimmest in dark theme.
+     with surface bright role, the mapped area is the brightest in both light and dark theme.
+
+     https://m3.material.io/styles/color/roles#b2454878-db47-4621-b058-ecfcff7da730
+    */
+    --color-surfacedim: var(--lk-surfacedim);
+    --color-surfacebright: var(--lk-surfacebright);
+
+
+    /* Error */
+    --color-error: var(--lk-error);
+    --color-onerror: var(--lk-onerror);
+    --color-errorcontainer: var(--lk-errorcontainer);
+    --color-onerrorcontainer: var(--lk-onerrorcontainer);
+
+    /* Warning */
+    --color-warning: var(--lk-warning);
+    --color-onwarning: var(--lk-onwarning);
+    --color-warningcontainer: var(--lk-warningcontainer);
+    --color-onwarningcontainer: var(--lk-onwarningcontainer);
+
+    /* Success */
+    --color-success: var(--lk-success);
+    --color-onsuccess: var(--lk-onsuccess);
+    --color-successcontainer: var(--lk-successcontainer);
+    --color-onsuccesscontainer: var(--lk-onsuccesscontainer);
+
+    /* Info */
+    --color-info: var(--lk-info);
+    --color-oninfo: var(--lk-oninfo);
+    --color-infocontainer: var(--lk-infocontainer);
+    --color-oninfocontainer: var(--lk-oninfocontainer);
+
+    /* Inverse 
+     for achieving colors that are inverse of surrounding ui for contrasting effect
+
+     https://m3.material.io/styles/color/roles#7fc6b47e-db22-4e98-8359-7649a099e4a1 
+     */
+
+    --color-inversesurface: var(--lk-inversesurface);
+    --color-inverseonsurface: var(--lk-inverseonsurface);
+    --color-inverseprimary: var(--lk-inverseprimary);
+
+    /* Outline 
+      for borders outline
+      for dividers outline variant  
+
+     https://m3.material.io/styles/color/roles#cdd40805-d18c-4cd7-80b0-077b6b4a6b19
+    */
+    --color-outline: var(--lk-outline);
+    --color-outlinevariant: var(--lk-outlinevariant);
+
+    --color-shadow: var(--lk-shadow);
+    --color-scrim: var(--lk-scrim);
+
+    /* Shadow */
+    --shadow-sm: 0 0 1px 0 var(--lk-shadow);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
+        0 0 1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11),
+        0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0px 0px 1px 0px var(--lk-outline),
+        0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
+        0 0 1px rgba(0, 0, 0, 0.4);
+
+    /* Border radius */
+    --rounded-3xs: var(--lk-size-3xs);
+    --rounded-2xs: var(--lk-size-2xs);
+    --rounded-xs: var(--lk-size-xs);
+    --rounded-sm: var(--lk-size-sm);
+    --rounded-md: var(--lk-size-md);
+    --rounded-lg: var(--lk-size-lg);
+    --rounded-xl: var(--lk-size-xl);
+    --rounded-2xl: var(--lk-size-2xl);
+    --rounded-3xl: var(--lk-size-3xl);
+    --rounded-4xl: var(--lk-size-4xl);
+
+    /* Scale */
+    --scale-up-w: var(--wholestep);
+    --scale-up-h: var(--halfstep);
+    --scale-up-q: var(--quarterstep);
+    --scale-down-w: calc(1 / var(--wholestep));
+    --scale-down-h: calc(1 / var(--halfstep));
+    --scale-down-q: calc(1 / var(--quarterstep));
+}
+
+@utility display1 {
+    letter-spacing: -0.022em;
+    font-size: var(--display1-font-size);
+    font-weight: 400;
+    line-height: var(--lk-quarterstep);
+
+    @variant max-tablet {
+        font-size: 3.3301em;
+    }
+
+    @variant max-mobile {
+        font-size: 2.61743em;
+    }
+}
+
+@utility display1-bold {
+    letter-spacing: -0.022em;
+    font-size: var(--display1-font-size);
+    font-weight: 700;
+    line-height: var(--lk-quarterstep);
+
+    @variant max-tablet {
+        font-size: 3.3301em;
+    }
+
+    @variant max-mobile {
+        font-size: 2.61743em;
+    }
+}
+
+@utility display2 {
+    letter-spacing: -0.022em;
+    font-size: var(--display2-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+
+    @variant max-mobile {
+        font-size: 2.05818em;
+    }
+}
+
+@utility display2-bold {
+    letter-spacing: -0.022em;
+    font-size: var(--display2-font-size);
+    font-weight: 700;
+    line-height: var(--lk-halfstep);
+
+    @variant max-mobile {
+        font-size: 2.05818em;
+    }
+}
+
+@utility title1 {
+    letter-spacing: -0.022em;
+    font-size: var(--title1-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+
+    @variant max-mobile {
+        font-size: 1.82285em;
+    }
+}
+
+@utility title1-bold {
+    letter-spacing: -0.022em;
+    font-size: var(--title1-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+
+    @variant max-mobile {
+        font-size: 1.82285em;
+    }
+}
+
+@utility title2 {
+    letter-spacing: -0.02em;
+    font-size: var(--title2-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility title2-bold {
+    letter-spacing: -0.02em;
+    font-size: var(--title2-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility title3 {
+    letter-spacing: -0.017em;
+    font-size: var(--title3-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility title3-bold {
+    letter-spacing: -0.017em;
+    font-size: var(--title3-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility heading {
+    letter-spacing: -0.014em;
+    font-size: var(--heading-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility heading-bold {
+    letter-spacing: -0.014em;
+    font-size: var(--heading-font-size);
+    font-weight: 700;
+    line-height: var(--lk-halfstep);
+}
+
+@utility subheading {
+    letter-spacing: -0.007em;
+    font-size: var(--subheading-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility subheading-bold {
+    letter-spacing: -0.007em;
+    font-size: var(--subheading-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility body {
+    letter-spacing: -0.011em;
+    cursor: default;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: var(--lk-wholestep);
+}
+
+@utility body-bold {
+    letter-spacing: -0.011em;
+    padding: 0;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: var(--lk-wholestep);
+    position: relative;
+}
+
+@utility callout {
+    letter-spacing: -0.009em;
+    font-size: var(--callout-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility callout-bold {
+    letter-spacing: -0.009em;
+    font-size: var(--callout-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+    text-decoration: none;
+}
+
+@utility label {
+    letter-spacing: -0.004em;
+    font-size: var(--label-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+    position: static;
+}
+
+@utility label-bold {
+    letter-spacing: -0.004em;
+    font-size: var(--label-font-size);
+    font-weight: 700;
+    line-height: var(--lk-halfstep);
+}
+
+@utility caption {
+    letter-spacing: -0.007em;
+    font-size: var(--caption-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility caption-bold {
+    letter-spacing: -0.007em;
+    font-size: var(--caption-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility capline {
+    letter-spacing: 0.0618em;
+    text-transform: uppercase;
+    font-size: var(--capline-font-size);
+    font-weight: 400;
+    line-height: var(--lk-halfstep);
+}
+
+@utility capline-bold {
+    letter-spacing: 0.0618em;
+    text-transform: uppercase;
+    font-size: var(--capline-font-size);
+    font-weight: 600;
+    line-height: var(--lk-halfstep);
+}
+
+@utility scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--lk-scrim);
+  opacity: 0.5;
+  z-index: -1;
+}
