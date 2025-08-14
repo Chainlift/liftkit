@@ -6,7 +6,6 @@
 @import "tailwindcss/preflight.css" layer(lk-base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* @import "tailwindcss"; */
 
 @layer lk-base {
     @import "../../registry/universal/lib/css/index.css";
