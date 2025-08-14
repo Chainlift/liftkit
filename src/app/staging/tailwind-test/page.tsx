@@ -120,6 +120,9 @@ export default function TailwindTest() {
     "capline-bold",
   ];
 
+  // you can use any number here to customize opacity
+  const opacities = ["opacity-100", "opacity-75", "opacity-43", "opacity-23", "opacity-3", "opacity-0"]
+  const colorOpacities = ["bg-tertiary/100", "bg-tertiary/75", "bg-tertiary/43", "bg-tertiary/23", "bg-tertiary/3", "bg-tertiary/0"]
 
   const aspects = [
     "aspect-auto",
@@ -173,7 +176,7 @@ export default function TailwindTest() {
 
       <Section padding="md" className="bg-surfacecontainer">
         <Container maxWidth="md">
-          <h2 className="heading mb-sm">Colors</h2>
+          <h2 className="heading mb-sm">Colors test</h2>
 
           <Row className="gap-lg flex-wrap">
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-md">
@@ -187,6 +190,31 @@ export default function TailwindTest() {
           </Row>
         </Container>
       </Section>
+
+      <Section padding="md" className="bg-surfacecontainer">
+        <Container maxWidth="md">
+          <h2 className="heading mb-sm">Opacity test</h2>
+
+          <Row className="gap-lg flex-wrap">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-md">
+              {opacities.map((opacity) => (
+                <div key={opacity}>
+                  <h3 className='body'>{opacity}</h3>
+                  <div className={`bg-success ${opacity} px-sm py-xl rounded-md`}></div>
+                </div>
+              ))}
+
+              {colorOpacities.map((color) => (
+                <div key={color}>
+                  <h3 className='body'>{color}</h3>
+                  <div className={`${color} px-sm py-xl rounded-md`}></div>
+                </div>
+              ))}
+            </div>
+          </Row>
+        </Container>
+      </Section>
+
 
       <Section padding="md">
         <Container maxWidth="md">
