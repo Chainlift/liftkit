@@ -1,6 +1,6 @@
 @layer components {
 
-  [lk-component="container"] {
+  [data-lk-component="container"] {
     margin-left: auto;
     margin-right: auto;
     width: 100%;

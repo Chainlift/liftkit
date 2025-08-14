@@ -1,197 +1,305 @@
 "use client";
 import Column from "@/registry/nextjs/components/column";
-import Heading from "@/registry/nextjs/components/heading";
-import Icon from "@/registry/nextjs/components/icon";
-import IconButton from "@/registry/nextjs/components/icon-button";
 import Row from "@/registry/nextjs/components/row";
 import Card from "@/registry/nextjs/components/card";
-import Tabs from "@/registry/nextjs/components/tabs";
-import TextInput from "@/registry/nextjs/components/text-input";
-import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
-import Button from "@/registry/nextjs/components/button";
-import MenuItem from "@/registry/nextjs/components/menu-item";
-import Text from "@/registry/nextjs/components/text";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
 import Section from "@/registry/nextjs/components/section";
 import Container from "@/registry/nextjs/components/container";
+import Grid from "@/registry/nextjs/components/grid";
+import Image from "@/registry/nextjs/components/image";
 
-export default function TestApp() {
- 
-  function getRows(count: number) {
-    const fullNames = [
-      "Emma Thompson",
-      "Liam Rodriguez",
-      "Olivia Chen",
-      "Noah Williams",
-      "Ava Martinez",
-      "Ethan Johnson",
-      "Sophia Davis",
-      "Mason Garcia",
-      "Isabella Miller",
-      "Logan Wilson",
-      "Mia Anderson",
-      "Lucas Taylor",
-      "Charlotte Moore",
-      "Benjamin Jackson",
-      "Amelia White",
-      "Oliver Harris",
-      "Harper Martin",
-      "Elijah Clark",
-      "Evelyn Lewis",
-      "James Robinson",
-    ];
-    const roles = ["Admin", "Contributor", "Viewer"];
+export default function TailwindTest() {
 
-    const rows = [];
-    for (let i = 0; i < count; i++) {
-      const fullName = fullNames[i % fullNames.length];
-      const role = roles[i % roles.length];
+  const lkSizes: LkSizeUnit[] = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"];
+  const lkColors: LkColor[] = [
+    "primary",
+    "secondary",
+    "tertiary",
 
-      rows.push(
-        <tr key={i} className="position-relative overflow-hidden">
-          <td className="py-sm">
-            <Icon name="square"></Icon>
-          </td>
-          <td className="py-sm">
-            <Text>{fullName}</Text>
-          </td>
-          <td className="py-sm">
-            <Text color="outline">{role}</Text>
-          </td>
-          <td className="py-sm">
-            <Row className="items-center gap-xs">
-              <Icon color="tertiary" fontClass="body" name="image" />
-              <p className="callout-bold">Filename.jpg</p>
-            </Row>
-          </td>
-          <td className="py-sm">
-            <Row alignItems="center" gap="2xs" justifyContent="end">
-              <IconButton icon="edit" variant="text" size="sm" color="secondary"></IconButton>
-              <IconButton icon="download" variant="outline" size="sm"></IconButton>
-              <IconButton icon="trash" variant="text" color="error"  size="sm"></IconButton>
-            </Row>
-          </td>
-        </tr>
-      );
-    }
-    return rows;
-  }
+    "onprimary",
+    "onsecondary",
+    "ontertiary",
+
+    "primarycontainer",
+    "secondarycontainer",
+    "tertiarycontainer",
+
+    "onprimarycontainer",
+    "ontertiarycontainer",
+    "onsecondarycontainer",
+
+    "primaryfixed",
+    "secondaryfixed",
+    "tertiaryfixed",
+
+    "onprimaryfixed",
+    "onsecondaryfixed",
+    "ontertiaryfixed",
+
+    "primaryfixeddim",
+    "secondaryfixeddim",
+    "tertiaryfixeddim",
+
+    "onprimaryfixedvariant",
+    "onsecondaryfixedvariant",
+    "ontertiaryfixedvariant",
+
+    "background",
+    "onbackground",
+    "surface",
+
+
+    "onsurface",
+    "surfacevariant",
+    "onsurfacevariant",
+
+    "surfacecontainerlowest",
+    "surfacecontainerlow",
+    "surfacecontainer",
+    "surfacecontainerhigh",
+    "surfacecontainerhighest",
+
+    "surfacedim",
+    "surfacebright",
+
+    "error",
+    "warning",
+    "success",
+
+    "onerror",
+    "onwarning",
+    "onsuccess",
+
+    "errorcontainer",
+    "warningcontainer",
+    "successcontainer",
+
+    "onerrorcontainer",
+    "onwarningcontainer",
+    "onsuccesscontainer",
+
+    "info",
+    "oninfo",
+    "infocontainer",
+    "oninfocontainer",
+
+    "inversesurface",
+    "inverseonsurface",
+    "inverseprimary",
+
+    "outline",
+    "outlinevariant",
+    "shadow",
+    "scrim"
+  ];
+
+  const lkTypography: LkFontClass[] = [
+    "display1",
+    "display1-bold",
+    "display2",
+    "display2-bold",
+    "title1",
+    "title1-bold",
+    "title2",
+    "title2-bold",
+    "title3",
+    "title3-bold",
+    "heading",
+    "heading-bold",
+    "subheading",
+    "subheading-bold",
+    "body",
+    "body-bold",
+    "callout",
+    "callout-bold",
+    "label",
+    "label-bold",
+    "caption",
+    "caption-bold",
+    "capline",
+    "capline-bold",
+  ];
+
+
+  const aspects = [
+    "aspect-auto",
+    "aspect-1/1",
+    "aspect-2.39/1",
+    "aspect-2/1",
+    "aspect-16/9",
+    "aspect-3/2",
+    "aspect-4/3",
+    "aspect-5/4",
+    "aspect-1/2.39",
+    "aspect-1/2",
+    "aspect-9/16",
+    "aspect-4/5",
+  ];
+
+  const objectFitVals = ["object-fill", "object-contain", "object-cover"];
+
 
   return (
     <>
-      {/* Render a set of color inputs, one for each color group. */}
-
       <ThemeController />
-      <Section>
-        <Container>
-          <Row className="bg-surfacecontainer p-2xl pl-4xl gap-2xl overflow-hidden">
-            <Column className="gap-lg">
-              <IconButton icon="grid" className="title3"></IconButton>
-              <IconButton icon="database" className="title3" variant="text"></IconButton>
-              <IconButton icon="user" className="title3" variant="text"></IconButton>
-              <IconButton icon="settings" className="title3" variant="text"></IconButton>
-            </Column>
-            <Column className="flex-grow overflow-hidden h-full gap-lg">
-              <Row className="justify-between items-center gap-md">
-                <Heading tag="h1" className="title2-bold">
-                  Manage Users
-                </Heading>
-                <Row className="items-center gap-md justify-end">
-                  <IconButton icon="x" color="error" className="title2"></IconButton>
-                  <IconButton icon="message-circle-warning" color="warning" className="title2"></IconButton>
-                  <IconButton icon="check-circle" color="success" className="title2"></IconButton>
-                  <IconButton icon="help-circle" color="info" className="title2"></IconButton>
-                </Row>
-              </Row>
-              <Tabs
-                tabLinks={["All Users", "Recently Added", "Inactive", "Pending Approval", "Banned"]}
-                className="flex-grow"
-                scrollableContent={true}
-              >
-                <Card scaleFactor="body" bgColor="surface">
-                  <Row className="mb-xs items-center justify-between">
-                    <Row className="items-center gap-md">
-                      <TextInput name="search" labelPosition="on-input" labelBackgroundColor="surface" className="pr-xl"></TextInput>
-                    </Row>
-                    <Row className="justify-md gap-md">
-                      <Dropdown>
-                        <DropdownTrigger>
-                          <Button
-                            startIcon="palette"
-                            endIcon="chevron-down"
-                            opticIconShift={false}
-                            variant="outline"
-                            label="Themes"
-                            color="tertiary"
-                          ></Button>
-                        </DropdownTrigger>
-                        <DropdownMenu
-                          cardProps={{
-                            scaleFactor: "subheading",
-                            material: "glass",
-                            materialProps: { thickness: "thin" },
-                          }}
-                        >
-                          <MenuItem>Blueberry</MenuItem>
-                          <MenuItem>Lemonbar</MenuItem>
-                          <MenuItem>Watermelon</MenuItem>
-                        </DropdownMenu>
-                      </Dropdown>
-                    </Row>
-                  </Row>
-                  <Column>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>
-                            <Icon name="square"></Icon>
-                          </th>
-                          <th>Name</th>
-                          <th>Role</th>
-                          <th>Profile Photo</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>{getRows(25)}</tbody>
-                    </table>
-                  </Column>
-                </Card>
-                <Card scaleFactor="body"></Card>
-                <Card scaleFactor="body"></Card>
-                <Card scaleFactor="body"></Card>
-                <Card scaleFactor="body"></Card>
-              </Tabs>
-            </Column>
+      <Section padding="md">
+        <Container maxWidth="md">
+          <h1 className="display2-bold mb-md">Tailwind staging</h1>
+
+          <h2 className="heading mb-sm">Gap tests (taiwind first)</h2>
+          <Row className="gap-lg flex-wrap">
+            {lkSizes.map((size) => (
+              <Column className="gap-sm" key={size}>
+
+                <h3 className='body'>{size}</h3>
+
+                <div className="flex flex-col gap-md">
+                  <Grid columns={1} gap={size as LkSizeUnit} className={`gap-${size} bg-ontertiarycontainer`}>
+                    <div data-lk-component="placeholder-block"></div>
+                    <div data-lk-component="placeholder-block"></div>
+                  </Grid>
+                  <Grid columns={1} gap={size as LkSizeUnit} className="bg-onsecondarycontainer">
+                    <div data-lk-component="placeholder-block"></div>
+                    <div data-lk-component="placeholder-block"></div>
+                  </Grid>
+                </div>
+
+              </Column>
+            ))}
+
           </Row>
         </Container>
       </Section>
 
-      <style jsx>{`
-        table {
-          border-collapse: collapse;
-        }
-        th {
-          text-align: left;
-          font-size: var(--subheading-font-size);
-          padding: var(--lk-size-sm) 0px;
-          border-bottom: 1px solid black;
-          font-weight: 500;
-        }
+      <Section padding="md" className="bg-surfacecontainer">
+        <Container maxWidth="md">
+          <h2 className="heading mb-sm">Colors</h2>
 
-        th:first-child {
-          font-size: var(--body-font-size);
-        }
+          <Row className="gap-lg flex-wrap">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-md">
+              {lkColors.map((color, index) => (
+                <div key={color} className={`${[23, 33, 51].includes(index) && 'mb-3xl'}`}>
+                  <h3 className='body'>{color}</h3>
+                  <div className={`bg-${color} px-sm py-xl rounded-md`}></div>
+                </div>
+              ))}
+            </div>
+          </Row>
+        </Container>
+      </Section>
 
-        th:last-child {
-          text-align: right;
-        }
+      <Section padding="md">
+        <Container maxWidth="md">
+          <h2 className="heading mb-sm">Radius (Rounded) test</h2>
 
-        thead tr {
-          border-bottom: 1px solid black;
-        }
+          <Row className="gap-lg flex-wrap">
+            <div className="w-full grid grid-cols-5 gap-md">
+              {lkSizes.map((size) => (
+                <div key={size}>
+                  <h3 className='body'> rounded-{size}</h3>
+                  <div className={`px-md h-50 rounded-${size} bg-warningcontainer border-2 border-warning`}></div>
+                </div>
+              ))}
+            </div>
+          </Row>
+        </Container>
+      </Section>
 
-       
-      `}</style>
+      <Section padding="md" className="bg-surfacecontainer">
+        <Container maxWidth="md">
+          <h2 className="heading mb-xl">Typography test</h2>
+
+          <Grid columns={2} className="gap-lg items-center">
+            {lkTypography.map((size) => (
+              <p key={size} className={`${size} capitalize`}>{size}</p>
+            ))}
+          </Grid>
+        </Container>
+      </Section>
+
+      <Section padding="md" className="bg-inversesurface">
+        <Container maxWidth="md">
+          <h2 className="heading mb-xl">Shadow test</h2>
+
+          <Grid columns={3} gap="xl">
+            {['sm', 'md', 'lg', 'xl', '2xl'].map((size) => (
+              <div key={size}>
+                <h3 className='body'> rounded-{size}</h3>
+
+                <div key={size} className={`shadow-${size} bg-onsurface px-md p-lg`}>
+                </div>
+              </div>
+            ))}
+          </Grid>
+        </Container>
+
+      </Section>
+
+      <Section padding="md" className="bg-inversesurface">
+        <Container maxWidth="md">
+          <h2 className="heading mb-xl">Card test</h2>
+
+          <Grid columns={2} gap="lg">
+            {lkTypography
+              .filter(className => !className.includes('-bold'))
+              .map((size) => (
+                <Card key={size} scaleFactor={size} opticalCorrection="y" className="shadow-2xl text-onsurface capitalize" material="flat">
+                  <h2 className={`${size}`}>{size}</h2>
+                  <p className="subheading">Subheading</p>
+                  <p className="body mt-sm">
+                    Chainlift is a company that makes design kits for programmers. Founded in 2021 by Garrett Mack from
+                    his attic in Irvine.
+                  </p>
+                </Card>
+              ))}
+          </Grid>
+        </Container>
+      </Section>
+
+      <Section padding="md">
+        <h2 className="heading mb-xl">Image component test</h2>
+
+
+        <Container>
+          <Column gap="md" className="w-full">
+
+            {[...lkSizes,].map((width) => (
+              <Container key={width}>
+                <Column gap="md" className="w-full">
+                  <div className="title1-bold mt-md">Width: {width}</div>
+                  {aspects.map((aspect) => (
+                    <Grid key={width + aspect} className="w-full gap-md grid-cols-4">
+
+                      <div className="heading">{aspect}</div>
+
+                      {objectFitVals.map((objectFit) => (
+                        <div key={width + aspect + objectFit}>
+                          <div className="caption">{objectFit}</div>
+                          <div className="outline outline-info">
+                            <Image
+                              src="/testimage.png"
+                              className={`${aspect} ${objectFit}`}
+                              width={width}
+                              alt={`${aspect} ratio with ${objectFit} `}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </Grid>
+                  ))}
+                </Column>
+                <div lk-component="divider" className="">
+                  <div lk-divider-element="line"></div>
+                </div>
+              </Container>
+            ))}
+          </Column>
+          <div lk-component="divider" className="">
+            <div lk-divider-element="line"></div>
+          </div>
+        </Container>
+
+      </Section>
     </>
   );
 }

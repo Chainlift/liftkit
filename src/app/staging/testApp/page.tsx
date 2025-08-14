@@ -11,8 +11,8 @@ import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/compo
 import Button from "@/registry/nextjs/components/button";
 import MenuItem from "@/registry/nextjs/components/menu-item";
 import Text from "@/registry/nextjs/components/text";
-import { useState, useEffect, useContext } from "react";
-import { ThemeContext } from "@/registry/nextjs/components/theme";
+// import { useState, useEffect, useContext } from "react";
+// import { ThemeContext } from "@/registry/nextjs/components/theme";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
 import Section from "@/registry/nextjs/components/section";
 import Container from "@/registry/nextjs/components/container";

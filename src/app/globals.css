@@ -14,9 +14,10 @@
 
 /* maps variables to direct usable tailwind utility classes automatically */
 @theme {
-    /* m-*, p-*, h-*, w-*, border-*, gap-* from 2xs to 2xl 
+    /* m-*, p-*, h-*, w-*, border-*, gap-* from 3xs to 4xl 
        use m-xs for liftkit's values,
        m-<number> for tailwind */
+    --spacing-3xs: var(--lk-size-3xs);
     --spacing-2xs: var(--lk-size-2xs);
     --spacing-xs: var(--lk-size-xs);
     --spacing-sm: var(--lk-size-sm);
@@ -24,6 +25,8 @@
     --spacing-lg: var(--lk-size-lg);
     --spacing-xl: var(--lk-size-xl);
     --spacing-2xl: var(--lk-size-2xl);
+    --spacing-3xl: var(--lk-size-3xl);
+    --spacing-4xl: var(--lk-size-4xl);
 
     --breakpoint-tablet: 47.9375rem;
     /* 767px */
