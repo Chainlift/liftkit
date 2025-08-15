@@ -124,19 +124,21 @@ export default function TailwindTest() {
   const opacities = ["opacity-100", "opacity-75", "opacity-43", "opacity-23", "opacity-3", "opacity-0"]
   const colorOpacities = ["bg-tertiary/100", "bg-tertiary/75", "bg-tertiary/43", "bg-tertiary/23", "bg-tertiary/3", "bg-tertiary/0"]
 
-  const aspects = [
-    "aspect-auto",
-    "aspect-1/1",
-    "aspect-2.39/1",
-    "aspect-2/1",
-    "aspect-16/9",
-    "aspect-3/2",
-    "aspect-4/3",
-    "aspect-5/4",
-    "aspect-1/2.39",
-    "aspect-1/2",
-    "aspect-9/16",
-    "aspect-4/5",
+  type LkAspectRatio = "auto" | "1/1" | "2.39/1" | "2/1" | "16/9" | "3/2" | "4/3" | "5/4" | "1/2.39" | "1/2" | "9/16" | "4/5";
+
+  const aspects: LkAspectRatio[] = [
+    "auto",
+    "1/1",
+    "2.39/1",
+    "2/1",
+    "16/9",
+    "3/2",
+    "4/3",
+    "5/4",
+    "1/2.39",
+    "1/2",
+    "9/16",
+    "4/5",
   ];
 
   const objectFitVals = ["object-fill", "object-contain", "object-cover"];
@@ -151,24 +153,30 @@ export default function TailwindTest() {
 
           <h2 className="heading mb-sm">Gap tests (taiwind first)</h2>
           <Row className="gap-lg flex-wrap">
-            {lkSizes.map((size) => (
-              <Column className="gap-sm" key={size}>
+            {lkSizes.map((size, index) => {
+              const gapClass = `gap-${size}`;
 
-                <h3 className='body'>{size}</h3>
+              return (
+                <Column className="gap-sm" key={size}>
+                  <h3 className='body'>{size}</h3>
 
-                <div className="flex flex-col gap-md">
-                  <Grid columns={1} gap={size as LkSizeUnit} className={`gap-${size} bg-ontertiarycontainer`}>
-                    <div data-lk-component="placeholder-block"></div>
-                    <div data-lk-component="placeholder-block"></div>
-                  </Grid>
-                  <Grid columns={1} gap={size as LkSizeUnit} className="bg-onsecondarycontainer">
-                    <div data-lk-component="placeholder-block"></div>
-                    <div data-lk-component="placeholder-block"></div>
-                  </Grid>
-                </div>
+                  <div className="flex flex-col gap-md">
+                    {/* First Grid: Tailwind gap class */}
+                    <Grid columns={1} className={`${gapClass} bg-ontertiarycontainer`}>
+                      <div data-lk-component="placeholder-block"></div>
+                      <div data-lk-component="placeholder-block"></div>
+                    </Grid>
 
-              </Column>
-            ))}
+                    {/* Second Grid: Direct prop value */}
+                    <Grid columns={1} gap={size as LkSizeUnit} className="bg-onsecondarycontainer">
+                      <div data-lk-component="placeholder-block"></div>
+                      <div data-lk-component="placeholder-block"></div>
+                    </Grid>
+                  </div>
+                </Column>
+              );
+            })}
+
 
           </Row>
         </Container>
@@ -179,13 +187,16 @@ export default function TailwindTest() {
           <h2 className="heading mb-sm">Colors test</h2>
 
           <Row className="gap-lg flex-wrap">
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-md">
-              {lkColors.map((color, index) => (
-                <div key={color} className={`${[23, 33, 51].includes(index) && 'mb-3xl'}`}>
-                  <h3 className='body'>{color}</h3>
-                  <div className={`bg-${color} px-sm py-xl rounded-md`}></div>
-                </div>
-              ))}
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-lg">
+              {lkColors.map((color, index) => {
+                const bgClass = `bg-${color}`
+                return (
+                  <div key={color} className={`${[23, 33, 51].includes(index) && 'mb-3xl'}`}>
+                    <h3 className='body mb-sm'>{color}</h3>
+                    <div className={`${bgClass} px-sm py-xl rounded-lg`}></div>
+                  </div>
+                )
+              })}
             </div>
           </Row>
         </Container>
@@ -291,40 +302,40 @@ export default function TailwindTest() {
         <Container>
           <Column gap="md" className="w-full">
 
-            {[...lkSizes,].map((width) => (
+            {lkSizes.map((width) => {
+              const widthClass = `w-${width}`
+              return(
               <Container key={width}>
                 <Column gap="md" className="w-full">
                   <div className="title1-bold mt-md">Width: {width}</div>
-                  {aspects.map((aspect) => (
-                    <Grid key={width + aspect} className="w-full gap-md grid-cols-4">
+                  {aspects.map((value) => {
+                    const aspectClass = `aspect-${value}`
 
-                      <div className="heading">{aspect}</div>
+                    return (
+                      <Grid key={aspectClass} className="w-full gap-md grid-cols-4">
 
-                      {objectFitVals.map((objectFit) => (
-                        <div key={width + aspect + objectFit}>
-                          <div className="caption">{objectFit}</div>
-                          <div className="outline outline-info">
-                            <Image
-                              src="/testimage.png"
-                              className={`${aspect} ${objectFit}`}
-                              width={width}
-                              alt={`${aspect} ratio with ${objectFit} `}
-                            />
+                        <div className="heading">{value}</div>
+
+                        {objectFitVals.map((objectFit) => (
+                          <div key={width + objectFit}>
+                            <div className="caption mb-sm">{objectFit}</div>
+                            <div className="bg-info outline outline-info">
+                              <Image
+                                src="/testimage.png"
+                                className={`${aspectClass} ${objectFit} ${widthClass} mx-auto`}
+                                alt={`${value} ratio with ${objectFit} `}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </Grid>
-                  ))}
+                        ))}
+                      </Grid>
+                    )
+                  })}
                 </Column>
-                <div lk-component="divider" className="">
-                  <div lk-divider-element="line"></div>
-                </div>
               </Container>
-            ))}
+            )})}
           </Column>
-          <div lk-component="divider" className="">
-            <div lk-divider-element="line"></div>
-          </div>
+
         </Container>
 
       </Section>
