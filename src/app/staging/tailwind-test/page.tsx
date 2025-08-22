@@ -25,8 +25,8 @@ export default function TailwindTest() {
     "tertiarycontainer",
 
     "onprimarycontainer",
-    "ontertiarycontainer",
     "onsecondarycontainer",
+    "ontertiarycontainer",
 
     "primaryfixed",
     "secondaryfixed",
