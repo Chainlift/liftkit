@@ -11,6 +11,9 @@
     @import "../../registry/universal/lib/css/index.css";
 }
 
+/* Force generate class */
+@source inline("{gap-,w-,h-}{3xs,2xs,xs,sm,md,lg,xl,2xl,3xl,4xl}");
+
 /* maps variables to direct usable tailwind utility classes automatically */
 @theme {
     /* m-*, p-*, h-*, w-*, border-*, gap-* from 3xs to 4xl 
@@ -381,12 +384,12 @@
 }
 
 @utility scrim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--lk-scrim);
-  opacity: 0.5;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--lk-scrim);
+    opacity: 0.5;
+    z-index: -1;
 }
