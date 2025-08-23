@@ -124,25 +124,22 @@ export default function TailwindTest() {
   const opacities = ["opacity-100", "opacity-75", "opacity-43", "opacity-23", "opacity-3", "opacity-0"]
   const colorOpacities = ["bg-tertiary/100", "bg-tertiary/75", "bg-tertiary/43", "bg-tertiary/23", "bg-tertiary/3", "bg-tertiary/0"]
 
-  type LkAspectRatio = "auto" | "1/1" | "2.39/1" | "2/1" | "16/9" | "3/2" | "4/3" | "5/4" | "1/2.39" | "1/2" | "9/16" | "4/5";
-
-  const aspects: LkAspectRatio[] = [
-    "auto",
-    "1/1",
-    "2.39/1",
-    "2/1",
-    "16/9",
-    "3/2",
-    "4/3",
-    "5/4",
-    "1/2.39",
-    "1/2",
-    "9/16",
-    "4/5",
+  const aspects= [
+    "aspect-auto",
+    "aspect-1/1",
+    "aspect-2.39/1",
+    "aspect-2/1",
+    "aspect-16/9",
+    "aspect-3/2",
+    "aspect-4/3",
+    "aspect-5/4",
+    "aspect-1/2.39",
+    "aspect-1/2",
+    "aspect-9/16",
+    "aspect-4/5",
   ];
 
   const objectFitVals = ["object-fill", "object-contain", "object-cover"];
-
 
   return (
     <>
@@ -298,46 +295,44 @@ export default function TailwindTest() {
       <Section padding="md">
         <h2 className="heading mb-xl">Image component test</h2>
 
-
         <Container>
-          <Column gap="md" className="w-full">
-
+          <Column className="w-full gap-md">
             {lkSizes.map((width) => {
-              const widthClass = `w-${width}`
-              return(
-              <Container key={width}>
-                <Column gap="md" className="w-full">
-                  <div className="title1-bold mt-md">Width: {width}</div>
-                  {aspects.map((value) => {
-                    const aspectClass = `aspect-${value}`
+              const widthClass = `w-${width}`;
+              return (
+                <Container key={width}>
+                  <Column className="w-full gap-md">
+                    <div className="title1-bold mt-md">Width: {width}</div>
 
-                    return (
-                      <Grid key={aspectClass} className="w-full gap-md grid-cols-4">
+                    {aspects.map((value) => {
+                      const aspectClass = `${value}`;
 
-                        <div className="heading">{value}</div>
+                      return (
+                        <Grid key={aspectClass} className="w-full grid-cols-4 gap-md">
+                          {/* Aspect ratio label */}
+                          <div className="heading">{value}</div>
 
-                        {objectFitVals.map((objectFit) => (
-                          <div key={width + objectFit}>
-                            <div className="caption mb-sm">{objectFit}</div>
-                            <div className="bg-info outline outline-info">
-                              <Image
-                                src="/testimage.png"
-                                className={`${aspectClass} ${objectFit} ${widthClass} mx-auto`}
-                                alt={`${value} ratio with ${objectFit} `}
-                              />
+                          {objectFitVals.map((objectFit) => (
+                            <div key={width + objectFit}>
+                              <div className="caption mb-sm">{objectFit}</div>
+                              <div className="bg-info outline outline-info">
+                                <Image
+                                  src="/testimage.png"
+                                  alt={`${value} ratio with ${objectFit}`}
+                                  className={`${widthClass} ${aspectClass} ${objectFit} `}
+                                />
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </Grid>
-                    )
-                  })}
-                </Column>
-              </Container>
-            )})}
+                          ))}
+                        </Grid>
+                      );
+                    })}
+                  </Column>
+                </Container>
+              );
+            })}
           </Column>
-
         </Container>
-
       </Section>
     </>
   );
