@@ -7,6 +7,8 @@ import Section from "@/registry/nextjs/components/section";
 import Container from "@/registry/nextjs/components/container";
 import Grid from "@/registry/nextjs/components/grid";
 import Image from "@/registry/nextjs/components/image";
+import TypographyTable from "@/src/app/staging/tailwind-test/qaTable";
+import {RelativeSpacingTable} from "@/src/app/staging/tailwind-test/qaTable";
 
 export default function TailwindTest() {
 
@@ -247,7 +249,8 @@ export default function TailwindTest() {
       <Section padding="md" className="bg-surfacecontainer">
         <Container maxWidth="md">
           <h2 className="heading mb-xl">Typography test</h2>
-
+          <TypographyTable/>
+          <RelativeSpacingTable/>
           <Grid columns={2} className="gap-lg items-center">
             {lkTypography.map((size) => (
               <p key={size} className={`${size} capitalize`}>{size}</p>

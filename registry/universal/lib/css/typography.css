@@ -3,16 +3,16 @@
 /* Regular families */
 .display1 {
   --lineHeightInEms: calc(1em * var(--lk-quarterstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --sm: calc(var(--lineHeightInEms) * calc(1 / var(--lk-halfstep)));
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-sm: calc(var(--lineHeightInEms) * calc(1 / var(--lk-halfstep)));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--display1-font-size);
@@ -22,15 +22,15 @@
 
 .display2 {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--display2-font-size);
@@ -40,15 +40,15 @@
 
 .title1 {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--title1-font-size);
@@ -58,15 +58,15 @@
 
 .title2 {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.02em;
   font-size: var(--title2-font-size);
@@ -76,15 +76,15 @@
 
 .title3 {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.017em;
   font-size: var(--title3-font-size);
@@ -94,15 +94,15 @@
 
 .heading {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.014em;
   font-size: var(--heading-font-size);
@@ -112,15 +112,15 @@
 
 .subheading {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.007em;
   font-size: var(--subheading-font-size);
@@ -130,14 +130,14 @@
 
 .body {
   --lineHeightInEms: var(--title2-font-size);
-  --md: 1em;
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-md: 1em;
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(1em * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(1em * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.011em;
   cursor: default;
@@ -148,15 +148,15 @@
 
 .callout {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.009em;
   font-size: var(--callout-font-size);
@@ -166,15 +166,15 @@
 
 .label {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.004em;
   font-size: var(--label-font-size);
@@ -185,15 +185,15 @@
 
 .caption {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.007em;
   font-size: var(--caption-font-size);
@@ -203,15 +203,15 @@
 
 .capline {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: 0.0618em;
   text-transform: uppercase;
@@ -224,14 +224,14 @@
 
 .display1-bold {
   --lineHeightInEms: calc(1em * var(--lk-quarterstep));
-  --md: calc(1em / var(--lk-wholestep));
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-md: calc(1em / var(--lk-wholestep));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(1em * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(1em * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--display1-font-size);
@@ -241,15 +241,15 @@
 
 .display2-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--display2-font-size);
@@ -259,15 +259,15 @@
 
 .title1-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.022em;
   font-size: var(--title1-font-size);
@@ -277,15 +277,15 @@
 
 .title2-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.02em;
   font-size: var(--title2-font-size);
@@ -295,15 +295,15 @@
 
 .title3-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.017em;
   font-size: var(--title3-font-size);
@@ -313,15 +313,15 @@
 
 .heading-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.014em;
   font-size: var(--heading-font-size);
@@ -331,15 +331,15 @@
 
 .subheading-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.007em;
   font-size: var(--subheading-font-size);
@@ -349,14 +349,14 @@
 
 .body-bold {
   --lineHeightInEms: var(--title2-font-size);
-  --md: calc(1em / var(--lk-wholestep));
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-md: calc(1em / var(--lk-wholestep));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(1em * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(1em * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.011em;
   padding: 0;
@@ -368,15 +368,15 @@
 
 .callout-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.009em;
   font-size: var(--callout-font-size);
@@ -387,15 +387,15 @@
 
 .label-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.004em;
   font-size: var(--label-font-size);
@@ -405,15 +405,15 @@
 
 .caption-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.007em;
   font-size: var(--caption-font-size);
@@ -423,15 +423,15 @@
 
 .capline-bold {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --md: var(--lineHeightInEms);
+  --lk-size-md: var(--lineHeightInEms);
 
-  --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+  --lk-size-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-size-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-size-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
 
-  --lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
-  --2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
+  --lk-size-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-size-xl: calc(var(--lk-size-lg) * var(--lk-wholestep));
+  --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: 0.0618em;
   text-transform: uppercase;

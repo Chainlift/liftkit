@@ -9,6 +9,11 @@
 
 @layer lk-base {
     @import "../../registry/universal/lib/css/index.css";
+
+    ul, ol, menu {
+        list-style: revert;
+        padding-left: 1em;
+    }
 }
 
 /* Force generate class */
@@ -174,6 +179,8 @@
     --scale-down-w: calc(1 / var(--wholestep));
     --scale-down-h: calc(1 / var(--halfstep));
     --scale-down-q: calc(1 / var(--quarterstep));
+
+    
 }
 
 @utility display1 {
