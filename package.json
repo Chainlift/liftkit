@@ -11,7 +11,7 @@
     "lint": "next lint",
     "lint:css": "stylelint registry/**/*.css src/**/*.css",
     "test": "vitest",
-    "playwright" : "playwright --ui",
+    "playwright" : "playwright test --ui",
     "list:types": "ts-node scripts/list-types.ts",
     "find:type-usages": "ts-node scripts/find-type-usages.ts"
   },
