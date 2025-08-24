@@ -11,6 +11,7 @@
     "lint": "next lint",
     "lint:css": "stylelint registry/**/*.css src/**/*.css",
     "test": "vitest",
+    "playwright" : "playwright --ui",
     "list:types": "ts-node scripts/list-types.ts",
     "find:type-usages": "ts-node scripts/find-type-usages.ts"
   },
@@ -40,6 +41,7 @@
     "@eslint/js": "^9.25.1",
     "@eslint/json": "^0.12.0",
     "@next/eslint-plugin-next": "15.3.2",
+    "@playwright/test": "^1.55.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^20",
