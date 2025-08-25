@@ -139,7 +139,6 @@
   --lk-size-2xl: calc(var(--lk-size-xl) * var(--lk-wholestep));
 
   letter-spacing: -0.011em;
-  cursor: default;
   font-size: 1em;
   font-weight: 400;
   line-height: var(--lk-wholestep);
@@ -179,7 +178,6 @@
   font-size: var(--label-font-size);
   font-weight: 600;
   line-height: var(--lk-halfstep);
-  position: static;
 }
 
 .caption {
@@ -362,7 +360,6 @@
   font-size: 1em;
   font-weight: 600;
   line-height: var(--lk-wholestep);
-  position: relative;
 }
 
 .callout-bold {

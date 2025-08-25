@@ -477,7 +477,6 @@
     --spacing-2xl: calc(var(--spacing-xl) * var(--lk-wholestep));
 
     letter-spacing: -0.011em;
-    cursor: default;
     font-size: 1em;
     font-weight: 400;
     line-height: var(--lk-wholestep);
@@ -499,7 +498,6 @@
     font-size: 1em;
     font-weight: 600;
     line-height: var(--lk-halfstep);
-    position: relative;
 }
 
 @utility callout {
@@ -555,7 +553,6 @@
     font-size: var(--label-font-size);
     font-weight: 600;
     line-height: var(--lk-halfstep);
-    position: static;
 }
 
 @utility label-bold {
