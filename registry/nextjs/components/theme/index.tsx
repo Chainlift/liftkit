@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useCallback, useEffect, ReactNode, useContext } from "react";
+import { createContext, useState, useCallback, useEffect, ReactNode, useContext, useMemo } from "react";
 import materialDynamicColors from "material-dynamic-colors";
 import { hexFromArgb, argbFromHex, TonalPalette, Hct, customColor } from "@material/material-color-utilities";
 
@@ -90,6 +90,8 @@ interface ThemeContextType {
   //todo: why are these here?
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  scaleFactor: number;
+  setScaleFactor: (n: number) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
@@ -203,27 +205,42 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
    *
    */
 
-const [colorMode, setColorMode] = useState<"light" | "dark">("light");
-  
-  const [palette, setPalette] = useState<PaletteState>({
-  "primary": "#035eff",
-  "secondary": "#badcff",
-  "tertiary": "#00ddfe",
-  "neutral": "#000000",
-  "neutralvariant": "#3f4f5b",
-  "error": "#dd305c",
-  "warning": "#feb600",
-  "success": "#0cfecd",
-  "info": "#175bfc"
-}
+  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
+  const [scaleFactor, _setScaleFactor] = useState(1.618);
 
-  /**
-   * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
-   */
+  const [palette, setPalette] = useState<PaletteState>(
+    {
+      primary: "#035eff",
+      secondary: "#badcff",
+      tertiary: "#00ddfe",
+      neutral: "#000000",
+      neutralvariant: "#3f4f5b",
+      error: "#dd305c",
+      warning: "#feb600",
+      success: "#0cfecd",
+      info: "#175bfc",
+    }
 
+    /**
+     * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
+     */
   );
 
   const [navIsOpen, setNavIsOpen] = useState(false);
+
+  // initialize from CSS (if present)
+  useEffect(() => {
+    const fromCss = getComputedStyle(document.documentElement).getPropertyValue("--lk-scalefactor").trim();
+    const parsed = parseFloat(fromCss);
+    if (!Number.isNaN(parsed)) _setScaleFactor(parsed);
+  }, []);
+
+  useEffect(() => {
+    const sf = Math.min(2, Math.max(1, scaleFactor));
+    document.documentElement.style.setProperty("--lk-scalefactor", String(sf));
+  }, [scaleFactor]);
+
+  const setScaleFactor = (v: number) => _setScaleFactor(Math.min(2, Math.max(1, v)));
 
   // update the root css variables with the theme values
   useEffect(() => {
@@ -242,6 +259,8 @@ const [colorMode, setColorMode] = useState<"light" | "dark">("light");
         root.style.setProperty(`--light__${key.toLowerCase()}_lkv`, theme.dark[key]);
       });
     }
+
+    console.log(root.style.getPropertyValue("--scalefactor"));
   }, [theme, colorMode]);
 
   //run the initial theme generation on first load
@@ -503,7 +522,22 @@ const [colorMode, setColorMode] = useState<"light" | "dark">("light");
   );
 
   //normalization functions; things that prevent weird input behavior
-
+  const value = useMemo(
+    () => ({
+      // existing context values...
+      palette,
+      setPalette,
+      theme,
+      updateTheme,
+      updateThemeFromMaster,
+      colorMode,
+      setColorMode,
+      // NEW
+      scaleFactor,
+      setScaleFactor,
+    }),
+    [/* include deps incl. scaleFactor */ palette, theme, colorMode, scaleFactor]
+  );
   return (
     <ThemeContext.Provider
       value={{
@@ -516,6 +550,8 @@ const [colorMode, setColorMode] = useState<"light" | "dark">("light");
         setNavIsOpen,
         colorMode,
         setColorMode,
+        scaleFactor,
+        setScaleFactor,
       }}
     >
       {children}

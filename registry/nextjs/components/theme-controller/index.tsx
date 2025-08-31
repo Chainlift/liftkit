@@ -22,8 +22,17 @@ type LkColorGroup =
   | "info";
 
 export default function ThemeController() {
-  const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } =
-    useContext(ThemeContext);
+  const {
+    palette,
+    setPalette,
+    theme,
+    updateTheme,
+    updateThemeFromMaster,
+    colorMode,
+    setColorMode,
+    scaleFactor,
+    setScaleFactor,
+  } = useContext(ThemeContext);
 
   const brandPalette: LkColorGroup[] = ["primary", "secondary", "tertiary"];
 
@@ -45,8 +54,6 @@ export default function ThemeController() {
   }, [palette]);
 
   const handleColorChange = (key: LkColorGroup, newValue: string) => {
-
-
     if (key === "master") {
       updateThemeFromMaster(newValue, setPalette);
     } else {
@@ -162,6 +169,27 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                 </div>
                 <div>
                   <h2 className="capline mb-lg color-onsurfacevariant">Globals</h2>
+
+                  <Row alignItems="center" gap="md" className="mb-md">
+                    <input
+                      type="range"
+                      min={1}
+                      max={2}
+                      step={0.001}
+                      value={scaleFactor}
+                      onChange={(e) => setScaleFactor(parseFloat(e.target.value))}
+                      aria-label="Scale factor"
+                      style={{ width: "min(32ch, 100%)" }}
+                    />
+                    <Column>
+                      <label className="label mb-2xs">Scale Factor</label>
+                      <p className="caption color-onsurfacevariant">
+                        Controls global sizing ratios. Current:{" "}
+                        <span className="mono caption-bold">{scaleFactor.toFixed(3)}</span>
+                      </p>
+                    </Column>
+                  </Row>
+
                   <Row alignItems="start" gap="md">
                     <input
                       type="color"
@@ -312,9 +340,11 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
           bottom: 0;
           overflow: hidden;
 
-          width: calc(var(--lk-size-4xl) * var(--lk-wholestep));
+          /* Use viewport-safe, stable sizing so it doesn't “yo-yo” with the slider */
+          width: min(320px, 100vw);
+          padding: 16px;
+
           z-index: 1000;
-          padding: var(--lk-size-md);
         }
       `}</style>
     </>
