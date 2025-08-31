@@ -4,3 +4,8 @@
   width: 100%;
   max-width: var(--lk-container-max-width, 100%);
 }
+
+[data-lk-container-max-width="xs"] {
+
+  max-width: 992px;
+}

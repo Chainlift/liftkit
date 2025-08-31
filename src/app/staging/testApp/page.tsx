@@ -136,7 +136,7 @@ export default function TestApp() {
 
       <ThemeController />
       <Section>
-        <Container maxWidth="sm">
+        <Container maxWidth="xs">
           {" "}
           <Row style={{ height: "100vh" }} gap="2xl" className="bg-surfacecontainer p-2xl pl-4xl overflow-hidden">
             <Column gap="lg">
