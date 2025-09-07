@@ -54,6 +54,7 @@ This documentation assumes the following:
 
    ```css
    @import url('@/lib/css/index.css');
+   @layer components
    ```
 
 #### What’s in the template?
@@ -83,6 +84,7 @@ A blank Next.js project with LiftKit Core’s config files pre-installed—faste
 
    ```css
    @import url('@/lib/css/index.css');
+   @layer components
    ```
 
 #### What does `npx liftkit init` do?
