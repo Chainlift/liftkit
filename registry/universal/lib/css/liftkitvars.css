@@ -1,4 +1,6 @@
+@layer lk {
 :root {
+
   font-size: 16px;
 
   --lk-scalefactor: 1.618;
@@ -375,4 +377,5 @@
     --lk-error: var(--dark__error_lkv);
     --lk-primary: var(--dark__primary_lkv);
   }
+}
 }

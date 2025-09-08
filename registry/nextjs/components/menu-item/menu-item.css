@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="menu-item"] {
   --py: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
   --gap: calc(var(--py) / var(--lk-eighthstep));
@@ -51,4 +52,4 @@
 
 [data-lk-component="dropdown-menu"] [data-lk-component="menu-item"] {
   font-size: inherit !important;
-}
+}}

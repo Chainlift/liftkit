@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="image"] {
   display: block;
   width: 100%;
@@ -348,4 +349,5 @@ Include inherit, initial, unset?
 
 [data-lk-image-aspect="4/5"] {
   aspect-ratio: 4 / 5;
+}
 }

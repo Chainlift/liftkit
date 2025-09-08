@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="sticker"] {
   display: inline-block;
   padding: var(--lk-size-xs) var(--lk-size-sm);
@@ -6,4 +7,5 @@
   font-weight: 500;
   line-height: var(--label-line-height);
   font-size: var(--label-font-size);
+}
 }

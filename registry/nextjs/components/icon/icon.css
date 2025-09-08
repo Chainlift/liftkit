@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="icon"] {
   width: calc(1em * var(--lk-halfstep));
   aspect-ratio: 1;
@@ -235,4 +236,5 @@
 
 [data-lk-icon-offset="true"] {
   margin-top: calc(-1 * calc(1em * var(--lk-quarterstep-dec)));
+}
 }

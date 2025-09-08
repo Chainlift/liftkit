@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="icon-button"] {
   display: inline-flex;
   align-items: center;
@@ -184,4 +185,5 @@
 /* VARIANT TEXT */
 [data-lk-icon-button-variant="text"] {
   background-color: transparent;
+}
 }

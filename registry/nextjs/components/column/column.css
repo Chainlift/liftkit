@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="column"] {
   display: flex;
   flex-direction: column;
@@ -84,4 +85,5 @@
 
 [data-lk-column-gap="4xl"] {
   gap: var(--lk-size-4xl);
+}
 }

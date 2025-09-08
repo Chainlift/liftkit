@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="navbar"] {
   position: sticky;
   top: 0;
@@ -70,4 +71,5 @@
 
 [data-lk-navbar-material="glass"] {
   border-bottom: 1px solid var(--lk-outlinevariant);
+}
 }

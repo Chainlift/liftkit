@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="switch"] {
   position: relative;
   display: block;
@@ -28,4 +29,5 @@
 
 [data-lk-switch-state="on"] [data-lk-component="switch-thumb"] {
   left: calc(100% - calc(var(--lk-size-md) + var(--lk-size-2xs)));
+}
 }

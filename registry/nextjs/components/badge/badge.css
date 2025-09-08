@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="badge"] {
   display: inline-flex;
   padding: var(--lk-size-xs);
@@ -146,4 +147,5 @@
   inset: 0;
   z-index: 0;
   opacity: 0.1;
+}
 }

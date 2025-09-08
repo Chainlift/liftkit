@@ -1,5 +1,5 @@
 /* Component selector: [data-lk-component="section"] */
-
+@layer lk {
 [data-lk-component="section"] {
   display: block;
   position: relative;
@@ -202,4 +202,5 @@
     padding-left: var(--lk-size-md);
     padding-right: var(--lk-size-md);
   }
+}
 }

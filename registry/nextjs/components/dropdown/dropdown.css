@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="dropdown-menu"] {
   position: absolute;
   z-index: 1000;
@@ -32,4 +33,5 @@
     transform-origin: bottom left;
 
   }
+}
 }

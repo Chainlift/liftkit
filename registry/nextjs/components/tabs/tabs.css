@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="tabs"] {
   display: flex;
   flex-direction: column;
@@ -22,3 +23,4 @@
   scrollbar-width: thin;
 }
 
+}

@@ -1,3 +1,4 @@
+@layer lk {
 [data-lk-component="row"] {
   display: flex;
   flex-direction: row;
@@ -114,4 +115,5 @@
 
 [data-lk-row-default-child-behavior="ignoreIntrinsicSize"]>* {
   flex-basis: 0;
+}
 }
