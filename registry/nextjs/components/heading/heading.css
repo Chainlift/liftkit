@@ -1,8 +1,4 @@
-@layer components {
-
-  [data-lk-component="heading"] {
-    display: block;
-    margin: 0;
-  }
-
+[data-lk-component="heading"] {
+  display: block;
+  margin: 0;
 }

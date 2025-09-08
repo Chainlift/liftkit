@@ -203,24 +203,24 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
    *
    */
 
-  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
+const [colorMode, setColorMode] = useState<"light" | "dark">("light");
+  
+  const [palette, setPalette] = useState<PaletteState>({
+  "primary": "#035eff",
+  "secondary": "#badcff",
+  "tertiary": "#00ddfe",
+  "neutral": "#000000",
+  "neutralvariant": "#3f4f5b",
+  "error": "#dd305c",
+  "warning": "#feb600",
+  "success": "#0cfecd",
+  "info": "#175bfc"
+}
 
-  const [palette, setPalette] = useState<PaletteState>(
-    {
-      primary: "#035eff",
-      secondary: "#badcff",
-      tertiary: "#00ddfe",
-      neutral: "#000000",
-      neutralvariant: "#3f4f5b",
-      error: "#dd305c",
-      warning: "#feb600",
-      success: "#0cfecd",
-      info: "#175bfc",
-    }
+  /**
+   * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
+   */
 
-    /**
-     * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
-     */
   );
 
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -434,26 +434,6 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
               [`on${toSentenceCase(key)}FixedVariant`]: tones._30,
             },
           }));
-          break;
-        case "warning":
-          setTheme((prevTheme) => ({
-            ...prevTheme,
-            light: {
-              ...prevTheme.light,
-              [key]: tones._75,
-              [`on${toSentenceCase(key)}`]: tones._30,
-              [`${key}Container`]: tones._90,
-              [`on${toSentenceCase(key)}Container`]: tones._10,
-            },
-            dark: {
-              ...prevTheme.dark,
-              [key]: tones._80,
-              [`on${toSentenceCase(key)}`]: tones._20,
-              [`${key}Container`]: tones._30,
-              [`on${toSentenceCase(key)}Container`]: tones._90,
-            },
-          }));
-          break;
         default:
           setTheme((prevTheme) => ({
             ...prevTheme,
