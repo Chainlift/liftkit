@@ -60,6 +60,7 @@ export default function Button({
   opticIconShift = true,
   modifiers,
   stateLayerOverride,
+  className,
   ...restProps
 }: LkButtonProps) {
   const lkButtonAttrs = useMemo(
@@ -109,7 +110,7 @@ export default function Button({
       {...restProps}
       type="button"
       data-lk-component="button"
-      className={`${baseButtonClasses} ${modifiers || ""}`}
+      className={`${baseButtonClasses} ${modifiers || ""} ${className || ""}`}
     >
       <div data-lk-button-content-wrap="true">
         {startIcon && (
