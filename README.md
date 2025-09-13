@@ -16,21 +16,42 @@
 
 [![GPL2 License][license-shield]][license-url]
 [![Issues][issues-shield]][issues-url]
+
 </div>
 <!-- markdownlint-restore -->
 
 # :grey_question: What is LiftKit?
-LiftKit is a UI framework based on the golden ratio. At its core, it's a set of formulas and variables that unlock advanced visual design features like optical spacing corrections and dynamic color, powered by Material 3. 
 
-## Getting Started
+LiftKit is a UI framework that makes you a better designer without even realizing it. At its core, it's a platform-agnostic system of formulas for scaling, spacing, and color that automatically enforce high-detail design principles behind the scenes. You get easy utility classes, and LiftKit applies golden ratio scaling, optical symmetry, and contrast ratio checks for you under the hood.
+
+## Overview
+
 - The following instructions are easier to read on our website: See [Documentation](https://www.chainlift.io/liftkit/get-started)
 
-# Install
+### This is the official repo.
+
+This is the official repository. Currently, it only has support for Next.js without Tailwind. The project is mmaintained by Chainlift, which is itself maintained entirely by part-time contributors. So while we do plan to expand support to every framework imaginable, we are currently limited by time and availability.
+
+Community contributors are responsible for their own forks. However, we help out however we can by adding serious contributors to our internal Slack, where they can communicate and collaborate with everyone else working on the project.
+
+### Community Projects
+
+Not officially supported by Chainlift, but we do communicate with the owners. Contact each project's owner for support.
+
+- [liftkit-tailwind](https://github.com/jellydeck/liftkit-tailwind)
+
+### How to Become a Contributor
+
+We strongly prefer that contributors work with us directly to maintain the system's integrity.
+
+If interested in contributing and being listed on our site and this readme, contact info@chainlift.io with a brief introduction and description of how you'd like to help.
+
+# Install for Next.js
 
 This documentation assumes the following:
 
-* You already have **Node.js**, **npm**, and **Git** installed on your local machine
-* You’re familiar with basic terminal commands like `cd`
+- You already have **Node.js**, **npm**, and **Git** installed on your local machine
+- You’re familiar with basic terminal commands like `cd`
 
 ## 1. Create the Config Files
 
@@ -41,19 +62,22 @@ This documentation assumes the following:
    ```bash
    git clone https://github.com/Chainlift/liftkit-template.git
    ```
+
 2. `cd` into the newly-created project.
 
-   * If you get an error that says `direnv: error`, just ignore it. It's a bug we'll fix soon.
+   - If you get an error that says `direnv: error`, just ignore it. It's a bug we'll fix soon.
+
 3. Run:
 
    ```bash
    npm install
    ```
+
 4. Install the components you need (see section 2 below).
 5. Import LiftKit’s CSS into your app’s `globals.css`:
 
    ```css
-   @import url('@/lib/css/index.css');
+   @import url("@/lib/css/index.css");
    ```
 
 #### What’s in the template?
@@ -70,29 +94,31 @@ A blank Next.js project with LiftKit Core’s config files pre-installed—faste
    ```bash
    npm install @chainlift/liftkit --save-dev
    ```
+
 3. Initialize LiftKit:
 
    ```bash
    npx liftkit init
    ```
 
-   * If prompted to add an `add` script to `package.json`, say **yes**.
-   * If prompted to install **shadcn** as a devDependency, say **yes**.
+   - If prompted to add an `add` script to `package.json`, say **yes**.
+   - If prompted to install **shadcn** as a devDependency, say **yes**.
+
 4. Install the components you need (see section 2 below).
 5. Import LiftKit’s CSS into your app’s `globals.css`:
 
    ```css
-   @import url('@/lib/css/index.css');
+   @import url("@/lib/css/index.css");
    ```
 
 #### What does `npx liftkit init` do?
 
 It adds two files to your project root:
 
-* `components.json`
-* `tailwind.config.ts`
+- `components.json`
+- `tailwind.config.ts`
 
-> *You do not need Tailwind itself to use LiftKit—just the config file for now.*
+> _You do not need Tailwind itself to use LiftKit—just the config file for now._
 
 ---
 
@@ -112,14 +138,14 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 
 ## FAQ
 
-* **I only installed one component, but it installed multiple. Why?**
+- **I only installed one component, but it installed multiple. Why?**
   Some components import others. E.g., installing `Badge` also brings in `Icon`.
-* **Why did it install CSS for components I’m not using?**
+- **Why did it install CSS for components I’m not using?**
   By design—to let you play freely. Unused styles are removed at build time.
-* **How can I get rid of unused CSS?**
+- **How can I get rid of unused CSS?**
   It’s automatically removed at build time.
-* **Does LiftKit require Tailwind?**
-  No—only a `tailwind.config.ts` file is needed (a requirement of the current registry). Tailwind itself is *not* a dependency.
+- **Does LiftKit require Tailwind?**
+  No—only a `tailwind.config.ts` file is needed (a requirement of the current registry). Tailwind itself is _not_ a dependency.
 
 ---
 
@@ -129,7 +155,7 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 
 ### Clone the Community File
 
-* [View File on Figma](https://www.figma.com/community/file/1404856652359938563) (opens in new tab)
+- [View File on Figma](https://www.figma.com/community/file/1404856652359938563) (opens in new tab)
 
 ---
 
@@ -137,28 +163,27 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 
 ### Button variants are out of control
 
-* We know. We’ll fix it soon.
+- We know. We’ll fix it soon.
 
-  * Buttons adjust padding based on icon presence, and padding values aren’t controllable via props.
-  * Our only option was to list everything explicitly—clearly a bad idea in hindsight.
+  - Buttons adjust padding based on icon presence, and padding values aren’t controllable via props.
+  - Our only option was to list everything explicitly—clearly a bad idea in hindsight.
 
 ### Local variables need documentation
 
-* Figma doesn’t support margins or `em` units, so we converted everything to pixels (assuming `1rem = 16px`).
-* Variables are organized into collections:
+- Figma doesn’t support margins or `em` units, so we converted everything to pixels (assuming `1rem = 16px`).
+- Variables are organized into collections:
 
-  * **Global collection** = base `LkSizeUnit` variables
-  * **Text Spacing Vals** = subsets per `LkFontClass`, simulating spacing props like `.m-bottom-xs`
+  - **Global collection** = base `LkSizeUnit` variables
+  - **Text Spacing Vals** = subsets per `LkFontClass`, simulating spacing props like `.m-bottom-xs`
 
 ---
 
 ## Clone the Webflow Template
 
-* [View on Made in Webflow](https://www.webflow.com) (opens in new tab)
-
-
+- [View on Made in Webflow](https://www.webflow.com) (opens in new tab)
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [nextjs-shield]: https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=next.js&logoColor=white
 [nextjs-url]: https://github.com/vercel/next.js
 [nix-shield]: https://img.shields.io/badge/nix-0175C2?style=for-the-badge&logo=NixOS&logoColor=white
@@ -167,7 +192,6 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 [css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [shadcn-shield]: https://img.shields.io/badge/shadcn-registry-%23EDE9FE.svg?style=for-the-badge&logo=vercel&logoColor=black
 [shadcn-url]: https://ui.shadcn.com/docs/registry
-
 [license-shield]: https://img.shields.io/github/license/chainlift/liftkit.svg?style=for-the-badge
 [license-url]: https://github.com/chainlift/liftkit/blob/master/LICENSE
 [issues-shield]: https://img.shields.io/github/issues/chainlift/liftkit.svg?style=for-the-badge
