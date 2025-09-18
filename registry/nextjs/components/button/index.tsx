@@ -73,13 +73,33 @@ export default function Button({
 
   let baseButtonClasses = "";
 
+  let colorSubsetForVariantSwap = [
+    "primary",
+    "secondary",
+    "tertiary",
+    "error",
+    "warning",
+    "info",
+    "success",
+    "inversesurface",
+  ];
+  const preserveColorOnVariantSwap = colorSubsetForVariantSwap.includes(color);
+
+//todo: test all button variants and color combos to see that they work as expected
   switch (variant) {
     case "fill":
       baseButtonClasses = `bg-${color} color-${onColorToken}`;
       break;
     case "outline":
     case "text":
-      baseButtonClasses = `color-${color}`;
+      switch (preserveColorOnVariantSwap) {
+        case true:
+          baseButtonClasses = `color-${color}`;
+          break;
+        case false:
+          baseButtonClasses = `color-${onColorToken}`;
+          break;
+      }
       break;
     default:
       baseButtonClasses = `bg-${color} color-${onColorToken}`;
@@ -95,9 +115,8 @@ export default function Button({
       return stateLayerOverride;
     } else {
       return {
-        bgColor: variant === "fill" ? onColorToken : color
-      }
-    
+        bgColor: variant === "fill" ? onColorToken : color,
+      };
     }
   }
 
@@ -114,7 +133,11 @@ export default function Button({
       <div data-lk-button-content-wrap="true">
         {startIcon && (
           <div data-lk-icon-position="start">
-            <Icon name={startIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="start"></Icon>
+            <Icon
+              name={startIcon}
+              color={variant === "fill" ? onColorToken : color}
+              data-lk-icon-position="start"
+            ></Icon>
           </div>
         )}
         <span data-lk-button-child="button-text">{label ?? "Button"}</span>
@@ -124,7 +147,7 @@ export default function Button({
           </div>
         )}
       </div>
-      <StateLayer {...localStateLayerProps}/>
+      <StateLayer {...localStateLayerProps} />
     </button>
   );
 }
