@@ -1,5 +1,7 @@
 'use client';
 
+
+//TODO: Define a specific dropdown-menu-item child OR move the current menu-item component to this one so that you can pass down an onClick to it and then bundle with a click handler here that will bundle the menu open/close behavior with the click function.
 // CustomDropdown.tsx
 import Card, { LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";
