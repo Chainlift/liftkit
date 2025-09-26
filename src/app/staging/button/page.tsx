@@ -40,13 +40,12 @@ export default function Staging() {
   return (
     <div>
       <Section>
-      <ThemeController/>
+        <ThemeController />
         <Heading tag="h1" fontClass="display1-bold" className="text-align-center">
           Hello world!
         </Heading>
       </Section>
-      <Grid columns={4} gap="md" style={{alignItems: "center", justifyItems: "center"}}>
-
+      <Grid columns={4} gap="md" style={{ alignItems: "center", justifyItems: "center" }}>
         {(() => {
           const sizes = ["sm", "md", "lg"];
           const iconConfigs = [
@@ -85,12 +84,24 @@ export default function Staging() {
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
                 opticIconShift={false}
-                style={{alignSelf: "center", justifySelf: "center"}}
+                style={{ alignSelf: "center", justifySelf: "center" }}
               />
             );
 
+            const button2 = (
+              <ButtonWithCVA
+                key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
+                variant={variants[variantIndex] as "fill" | "outline" | "text"}
+                color={colors[colorIndex] as any}
+                startIcon={currentConfig.startIcon as IconName | undefined}
+                endIcon={currentConfig.endIcon as IconName | undefined}
+              >
+                Button
+              </ButtonWithCVA>
+            );
+
             return [
-              button,
+              button2,
               ...generateButtons(
                 colors,
                 variants,

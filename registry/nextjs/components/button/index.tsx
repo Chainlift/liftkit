@@ -10,8 +10,8 @@ import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import { LK_FONT_CLASSES } from "@/registry/nextjs/lib/utilities";
-import { Slot } from "radix-ui";
+import { LK_FONT_CLASSES, colorsWithOnTokens } from "@/registry/nextjs/lib/utilities";
+import { Slot } from "@radix-ui/react-slot";
 
 export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
@@ -137,31 +137,17 @@ export default function Button({
   );
 }
 
-const buttonVariants = cva([
-  "lk-btn"],
-  {
-    variants: {
-      variant: {
-        fill: "lk-btn-style--fill",
-        outline: "lk-btn-style--outline",
-        text: "lk-btn-style--text",
-      },
-      color: {
-        primary: "bg-primary color-onprimary",
-        secondary: "bg-secondary color-onsecondary",
-        tertiary: "bg-tertiary color-ontertiary",
-        error: "bg-error color-onerror",
-        success: "bg-success color-onsuccess",
-        warning: "bg-warning color-onwarning",
-      },
-      fontClass: LK_FONT_CLASSES,
-      opticIconShift: {
-        true: "lk-btn--optic-icon-shift",
-        false: "",
-      },
+const buttonVariants = cva(["lk-btn"], {
+  variants: {
+    variant: {
+      fill: "lk-btn-style--fill",
+      outline: "lk-btn-style--outline",
+      text: "lk-btn-style--text",
     },
+    color: colorsWithOnTokens,
+    fontClass: LK_FONT_CLASSES,
   },
-);
+});
 
 function ButtonWithCVA({
   className,
@@ -170,14 +156,41 @@ function ButtonWithCVA({
   fontClass,
   startIcon,
   endIcon,
-  opticIconShift,
   asChild = false,
-  ...props
+  children,
+  ...rest
 }: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & { asChild?: boolean; startIcon: IconName; endIcon: IconName }) {
-  
-   const Comp = asChild ? Slot : "button";
-  
-  }
+  VariantProps<typeof buttonVariants> & { asChild?: boolean; startIcon?: IconName; endIcon?: IconName }) {
+  const Comp = asChild ? Slot : "button";
+
+  // Only set type on an actual <button>
+  const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
+
+  return (
+    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, className }))} {...rest}>
+      <div data-lk-button-root>
+        <div data-lk-button-content-wrap="true">
+          {startIcon && (
+            <span data-lk-icon-position="start">
+              <Icon name={startIcon} data-lk-icon-position="start" aria-hidden />
+            </span>
+          )}
+
+          {/* render children exactly once */}
+          <span data-lk-button-child="button-text">{children}</span>
+
+          {endIcon && (
+            <span data-lk-icon-position="end">
+              <Icon name={endIcon} data-lk-icon-position="end" aria-hidden />
+            </span>
+          )}
+        </div>
+
+        {/* Keep StateLayer inside the single root */}
+        <StateLayer />
+      </div>
+    </Comp>
+  );
+}
 
 export { ButtonWithCVA, buttonVariants };

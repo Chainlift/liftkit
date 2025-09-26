@@ -77,10 +77,10 @@
 
 /* STYLE VARIANTS */
 
-[data-lk-button-variant="text"] {
+.lk-btn-style--outline, [data-lk-button-variant="text"] {
   background: transparent !important;
 }
-[data-lk-button-variant="outline"] {
+.lk-btn-style--text, [data-lk-button-variant="outline"] {
   background: transparent !important;
   border: 1px solid var(--lk-outlinevariant);
 }
