@@ -8,6 +8,7 @@ import "@/registry/nextjs/components/button/button.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
+import { cva } from "class-variance-authority";
 
 export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
@@ -50,6 +51,7 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
  * />
  * ```
  */
+
 export default function Button({
   label = "Button",
   variant = "fill",
@@ -95,9 +97,8 @@ export default function Button({
       return stateLayerOverride;
     } else {
       return {
-        bgColor: variant === "fill" ? onColorToken : color
-      }
-    
+        bgColor: variant === "fill" ? onColorToken : color,
+      };
     }
   }
 
@@ -114,7 +115,11 @@ export default function Button({
       <div data-lk-button-content-wrap="true">
         {startIcon && (
           <div data-lk-icon-position="start">
-            <Icon name={startIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="start"></Icon>
+            <Icon
+              name={startIcon}
+              color={variant === "fill" ? onColorToken : color}
+              data-lk-icon-position="start"
+            ></Icon>
           </div>
         )}
         <span data-lk-button-child="button-text">{label ?? "Button"}</span>
@@ -124,12 +129,40 @@ export default function Button({
           </div>
         )}
       </div>
-      <StateLayer {...localStateLayerProps}/>
+      <StateLayer {...localStateLayerProps} />
     </button>
   );
 }
 
 export function ButtonCVA() {
+  const buttonClasses = cva([
+    "lk-btn",
+    {
+      variants: {
+        variant: {
+          fill: "lk-btn-style--fill",
+          outline: "lk-btn-style--outline",
+          text: "lk-btn-style--text",
+        },
+        color: {
+          primary: "bg-primary color-onprimary",
+          secondary: "bg-secondary color-onsecondary",
+          tertiary: "bg-tertiary color-ontertiary",
+          error: "bg-error color-onerror",
+          success: "bg-success color-onsuccess",
+          warning: "bg-warning color-onwarning",
 
-  
+        },
+        size: {
+          sm: ""
+        },
+        startIcon: {},
+        endIcon: {},
+        opticIconShift: {
+          true: "lk-btn--optic-icon-shift",
+          false: "",
+        },
+      },
+    },
+  ]);
 }
