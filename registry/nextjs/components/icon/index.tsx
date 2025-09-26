@@ -14,14 +14,14 @@ export interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
 export default function Icon({
   name = "roller-coaster",
   fontClass,
-  color = "onsurface",
+  color="currentColor",
   strokeWidth = 2,
   opticShift = false,
   ...restProps
 }: LkIconProps) {
   return (
     <div data-lk-component="icon" data-lk-icon-offset={opticShift} {...restProps} data-lk-icon-font-class={fontClass} >
-      <DynamicIcon name={name} width="1em" height="1em" color={`var(--lk-${color})`} strokeWidth={strokeWidth} />
+      <DynamicIcon name={name} width="1em" height="1em" color={color === "currentColor" ? "currentColor" : `var(--lk-${color})`} strokeWidth={strokeWidth} />
     </div>
   );
 }
