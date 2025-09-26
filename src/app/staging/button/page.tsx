@@ -6,6 +6,7 @@ import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
+import { ButtonWithCVA } from "@/registry/nextjs/components/button";
 
 import { IconName } from "lucide-react/dynamic";
 export default function Staging() {

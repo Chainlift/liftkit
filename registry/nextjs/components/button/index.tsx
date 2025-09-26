@@ -8,7 +8,10 @@ import "@/registry/nextjs/components/button/button.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
-import { cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import { LK_FONT_CLASSES } from "@/registry/nextjs/lib/utilities";
+import { Slot } from "radix-ui";
 
 export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
@@ -134,40 +137,47 @@ export default function Button({
   );
 }
 
- const buttonClasses = cva([
-    "lk-btn",
-    {
-      variants: {
-        variant: {
-          fill: "lk-btn-style--fill",
-          outline: "lk-btn-style--outline",
-          text: "lk-btn-style--text",
-        },
-        color: {
-          primary: "bg-primary color-onprimary",
-          secondary: "bg-secondary color-onsecondary",
-          tertiary: "bg-tertiary color-ontertiary",
-          error: "bg-error color-onerror",
-          success: "bg-success color-onsuccess",
-          warning: "bg-warning color-onwarning",
-
-        },
-        size: {
-          sm: ""
-        },
-        startIcon: {},
-        endIcon: {},
-        opticIconShift: {
-          true: "lk-btn--optic-icon-shift",
-          false: "",
-        },
+const buttonVariants = cva([
+  "lk-btn"],
+  {
+    variants: {
+      variant: {
+        fill: "lk-btn-style--fill",
+        outline: "lk-btn-style--outline",
+        text: "lk-btn-style--text",
+      },
+      color: {
+        primary: "bg-primary color-onprimary",
+        secondary: "bg-secondary color-onsecondary",
+        tertiary: "bg-tertiary color-ontertiary",
+        error: "bg-error color-onerror",
+        success: "bg-success color-onsuccess",
+        warning: "bg-warning color-onwarning",
+      },
+      fontClass: LK_FONT_CLASSES,
+      opticIconShift: {
+        true: "lk-btn--optic-icon-shift",
+        false: "",
       },
     },
-  ]);
+  },
+);
 
-export function ButtonCVA() {
- 
+function ButtonWithCVA({
+  className,
+  variant,
+  color,
+  fontClass,
+  startIcon,
+  endIcon,
+  opticIconShift,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & { asChild?: boolean; startIcon: IconName; endIcon: IconName }) {
+  
+   const Comp = asChild ? Slot : "button";
+  
+  }
 
-
-
-}
+export { ButtonWithCVA, buttonVariants };
