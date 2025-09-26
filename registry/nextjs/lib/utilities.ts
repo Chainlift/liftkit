@@ -1,3 +1,5 @@
+import { clsx, type ClassValue } from "clsx";
+
 export function propsToDataAttrs(
   props: Record<string, unknown>,
   baseAttr: string,
@@ -22,4 +24,6 @@ export function propsToDataAttrs(
   return dataAttrs;
 }
 
-export function 
+export function cn(...inputs: ClassValue[]) {
+  return clsx(inputs);
+}
