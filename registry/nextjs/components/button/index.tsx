@@ -134,8 +134,7 @@ export default function Button({
   );
 }
 
-export function ButtonCVA() {
-  const buttonClasses = cva([
+ const buttonClasses = cva([
     "lk-btn",
     {
       variants: {
@@ -165,4 +164,10 @@ export function ButtonCVA() {
       },
     },
   ]);
+
+export function ButtonCVA() {
+ 
+
+
+
 }
