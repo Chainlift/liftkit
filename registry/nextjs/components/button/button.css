@@ -46,17 +46,17 @@
 }
 
 /* ICON-BASED PADDING ADJUSTMENTS */
-[data-lk-component="button"]:has([data-lk-icon-position="start"]) {
+.lk-btn:has([data-lk-icon-position="start"]) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX);
 }
 
-[data-lk-component="button"]:has([data-lk-icon-position="end"]) {
+.lk-btn:has([data-lk-icon-position="end"]) {
   padding-left: 1em;
   padding-right: var(--button-padX-sideWithIcon);
 }
 
-[data-lk-component="button"]:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
+.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX-sideWithIcon);
 }
