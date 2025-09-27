@@ -10,7 +10,7 @@ import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import { LK_FONT_CLASSES, colorsWithOnTokens } from "@/registry/nextjs/lib/utilities";
+import { LK_FONT_CLASSES, colorsWithOnTokens, colorsWithOnTokensTransparent } from "@/registry/nextjs/lib/utilities";
 import { Slot } from "@radix-ui/react-slot";
 
 export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -55,91 +55,91 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
  * ```
  */
 
-export default function Button({
-  label = "Button",
-  variant = "fill",
-  color = "primary",
-  size = "md",
-  startIcon,
-  endIcon,
-  opticIconShift = true,
-  modifiers,
-  stateLayerOverride,
-  ...restProps
-}: LkButtonProps) {
-  const lkButtonAttrs = useMemo(
-    () => propsToDataAttrs({ variant, color, size, startIcon, endIcon, opticIconShift }, "button"),
-    [variant, color, size, startIcon, endIcon, opticIconShift]
-  );
+// export default function Button({
+//   label = "Button",
+//   variant = "fill",
+//   color = "primary",
+//   size = "md",
+//   startIcon,
+//   endIcon,
+//   opticIconShift = true,
+//   modifiers,
+//   stateLayerOverride,
+//   ...restProps
+// }: LkButtonProps) {
+//   const lkButtonAttrs = useMemo(
+//     () => propsToDataAttrs({ variant, color, size, startIcon, endIcon, opticIconShift }, "button"),
+//     [variant, color, size, startIcon, endIcon, opticIconShift]
+//   );
 
-  const onColorToken = getOnToken(color) as LkColor;
+//   const onColorToken = getOnToken(color) as LkColor;
 
-  // Define different base color classes based on variant
+//   // Define different base color classes based on variant
 
-  let baseButtonClasses = "";
+//   let baseButtonClasses = "";
 
-  switch (variant) {
-    case "fill":
-      baseButtonClasses = `bg-${color} color-${onColorToken}`;
-      break;
-    case "outline":
-    case "text":
-      baseButtonClasses = `color-${color}`;
-      break;
-    default:
-      baseButtonClasses = `bg-${color} color-${onColorToken}`;
-      break;
-  }
-  if (modifiers) {
-    baseButtonClasses += ` ${modifiers}`;
-  }
+//   switch (variant) {
+//     case "fill":
+//       baseButtonClasses = `bg-${color} color-${onColorToken}`;
+//       break;
+//     case "outline":
+//     case "text":
+//       baseButtonClasses = `color-${color}`;
+//       break;
+//     default:
+//       baseButtonClasses = `bg-${color} color-${onColorToken}`;
+//       break;
+//   }
+//   if (modifiers) {
+//     baseButtonClasses += ` ${modifiers}`;
+//   }
 
-  /**Determine state layer props dynamically */
-  function getLocalStateLayerProps() {
-    if (stateLayerOverride) {
-      return stateLayerOverride;
-    } else {
-      return {
-        bgColor: variant === "fill" ? onColorToken : color,
-      };
-    }
-  }
+//   /**Determine state layer props dynamically */
+//   function getLocalStateLayerProps() {
+//     if (stateLayerOverride) {
+//       return stateLayerOverride;
+//     } else {
+//       return {
+//         bgColor: variant === "fill" ? onColorToken : color,
+//       };
+//     }
+//   }
 
-  const localStateLayerProps: LkStateLayerProps = getLocalStateLayerProps();
+//   const localStateLayerProps: LkStateLayerProps = getLocalStateLayerProps();
 
-  return (
-    <button
-      {...lkButtonAttrs}
-      {...restProps}
-      type="button"
-      data-lk-component="button"
-      className={`${baseButtonClasses} ${modifiers || ""}`}
-    >
-      <div data-lk-button-content-wrap="true">
-        {startIcon && (
-          <div data-lk-icon-position="start">
-            <Icon
-              name={startIcon}
-              color={variant === "fill" ? onColorToken : color}
-              data-lk-icon-position="start"
-            ></Icon>
-          </div>
-        )}
-        <span data-lk-button-child="button-text">{label ?? "Button"}</span>
-        {endIcon && (
-          <div data-lk-icon-position="end">
-            <Icon name={endIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="end"></Icon>
-          </div>
-        )}
-      </div>
-      <StateLayer {...localStateLayerProps} />
-    </button>
-  );
-}
+//   return (
+//     <button
+//       {...lkButtonAttrs}
+//       {...restProps}
+//       type="button"
+//       data-lk-component="button"
+//       className={`${baseButtonClasses} ${modifiers || ""}`}
+//     >
+//       <div data-lk-button-content-wrap="true">
+//         {startIcon && (
+//           <div data-lk-icon-position="start">
+//             <Icon
+//               name={startIcon}
+//               color={variant === "fill" ? onColorToken : color}
+//               data-lk-icon-position="start"
+//             ></Icon>
+//           </div>
+//         )}
+//         <span data-lk-button-child="button-text">{label ?? "Button"}</span>
+//         {endIcon && (
+//           <div data-lk-icon-position="end">
+//             <Icon name={endIcon} color={variant === "fill" ? onColorToken : color} data-lk-icon-position="end"></Icon>
+//           </div>
+//         )}
+//       </div>
+//       <StateLayer {...localStateLayerProps} />
+//     </button>
+//   );
+// }
 
 const buttonVariants = cva(["lk-btn"], {
   variants: {
-    variant: {
+    style: {
       fill: "lk-btn-style--fill",
       outline: "lk-btn-style--outline",
       text: "lk-btn-style--text",
@@ -151,7 +151,7 @@ const buttonVariants = cva(["lk-btn"], {
 
 function ButtonWithCVA({
   className,
-  variant,
+  style,
   color,
   fontClass,
   startIcon,
@@ -167,7 +167,7 @@ function ButtonWithCVA({
   const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
 
   return (
-    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, className }))} {...rest}>
+    <Comp data-slot="button" className={cn(buttonVariants({ style, color, fontClass, className }))} {...rest}>
       <div data-lk-button-root>
         <div data-lk-button-content-wrap="true">
           {startIcon && (

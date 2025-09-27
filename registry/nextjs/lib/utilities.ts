@@ -88,6 +88,35 @@ export const colorsWithOnTokens = {
   tertiaryfixed: "bg-tertiaryfixed color-ontertiaryfixed",
 };
 
+export const colorsWithOnTokensTransparent = {
+  primary: "bg-transparent color-primary",
+  primarycontainer: "bg-transparent color-primarycontainer",
+  secondary: "bg-transparent color-secondary",
+  secondarycontainer: "bg-transparent color-secondarycontainer",
+  tertiary: "bg-transparent color-tertiary",
+  tertiarycontainer: "bg-transparent color-tertiarycontainer",
+  error: "bg-transparent color-error",
+  errorcontainer: "bg-transparent color-errorcontainer",
+  success: "bg-transparent color-success",
+  successcontainer: "bg-transparent color-successcontainer",
+  warning: "bg-transparent color-warning",
+  warningcontainer: "bg-transparent color-warningcontainer",
+  info: "bg-transparent color-info",
+  infocontainer: "bg-transparent color-infocontainer",
+  background: "bg-transparent color-background",
+  surface: "bg-transparent color-surface",
+  surfacevariant: "bg-transparent color-surfacevariant",
+  surfacecontainerlowest: "bg-transparent color-surfacecontainerlowest",
+  surfacecontainerlow: "bg-transparent color-surfacecontainerlow",
+  surfacecontainer: "bg-transparent color-surfacecontainer",
+  surfacecontainerhigh: "bg-transparent color-surfacecontainerhigh",
+  surfacecontainerhighest: "bg-transparent color-surfacecontainerhighest",
+  inversesurface: "bg-transparent color-inversesurface",
+  primaryfixed: "bg-transparent color-primaryfixed",
+  secondaryfixed: "bg-transparent color-secondaryfixed",
+  tertiaryfixed: "bg-transparent color-tertiaryfixed",
+};
+
 function arrayToObject(arr: string[]) {
   return Object.fromEntries(arr.map((item) => [item, item]));
 }

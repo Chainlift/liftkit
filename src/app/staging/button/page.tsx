@@ -91,7 +91,7 @@ export default function Staging() {
             const button2 = (
               <ButtonWithCVA
                 key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
-                variant={variants[variantIndex] as "fill" | "outline" | "text"}
+                style={variants[variantIndex] as "fill" | "outline" | "text"}
                 color={colors[colorIndex] as any}
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
