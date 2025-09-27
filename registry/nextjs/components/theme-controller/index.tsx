@@ -6,7 +6,7 @@ import { ThemeContext } from "@/registry/nextjs/components/theme";
 import Card from "@/registry/nextjs/components/card";
 import Column from "@/registry/nextjs/components/column";
 import Row from "@/registry/nextjs/components/row";
-import Switch from "@/registry/nextjs/components/switch";
+import { Switch } from "@/registry/nextjs/components/switch";
 import IconButton from "@/registry/nextjs/components/icon-button";
 
 type LkColorGroup =
