@@ -463,3 +463,162 @@ button {
 button span {
   text-transform: capitalize;
 }
+
+
+/* Component schemes */
+
+.lk-scheme--primary {
+  --lk-scheme-bg: var(--lk-primary);
+  --lk-scheme-on: var(--lk-onprimary);
+  --lk-scheme-base: var(--lk-primary);
+}
+
+.lk-scheme--primarycontainer {
+  --lk-scheme-bg: var(--lk-primarycontainer);
+  --lk-scheme-on: var(--lk-onprimarycontainer);
+  --lk-scheme-base: var(--lk-primarycontainer);
+}
+
+.lk-scheme--secondary {
+  --lk-scheme-bg: var(--lk-secondary);
+  --lk-scheme-on: var(--lk-onsecondary);
+  --lk-scheme-base: var(--lk-secondary);
+}
+
+.lk-scheme--secondarycontainer {
+  --lk-scheme-bg: var(--lk-secondarycontainer);
+  --lk-scheme-on: var(--lk-onsecondarycontainer);
+  --lk-scheme-base: var(--lk-secondarycontainer);
+}
+
+.lk-scheme--tertiary {
+  --lk-scheme-bg: var(--lk-tertiary);
+  --lk-scheme-on: var(--lk-ontertiary);
+  --lk-scheme-base: var(--lk-tertiary);
+}
+
+.lk-scheme--tertiarycontainer {
+  --lk-scheme-bg: var(--lk-tertiarycontainer);
+  --lk-scheme-on: var(--lk-ontertiarycontainer);
+  --lk-scheme-base: var(--lk-tertiarycontainer);
+}
+
+.lk-scheme--error {
+  --lk-scheme-bg: var(--lk-error);
+  --lk-scheme-on: var(--lk-onerror);
+  --lk-scheme-base: var(--lk-error);
+}
+
+.lk-scheme--errorcontainer {
+  --lk-scheme-bg: var(--lk-errorcontainer);
+  --lk-scheme-on: var(--lk-onerrorcontainer);
+  --lk-scheme-base: var(--lk-errorcontainer);
+}
+
+.lk-scheme--success {
+  --lk-scheme-bg: var(--lk-success);
+  --lk-scheme-on: var(--lk-onsuccess);
+  --lk-scheme-base: var(--lk-success);
+}
+
+.lk-scheme--successcontainer {
+  --lk-scheme-bg: var(--lk-successcontainer);
+  --lk-scheme-on: var(--lk-onsuccesscontainer);
+  --lk-scheme-base: var(--lk-successcontainer);
+}
+
+.lk-scheme--warning {
+  --lk-scheme-bg: var(--lk-warning);
+  --lk-scheme-on: var(--lk-onwarning);
+  --lk-scheme-base: var(--lk-warning);
+}
+
+.lk-scheme--warningcontainer {
+  --lk-scheme-bg: var(--lk-warningcontainer);
+  --lk-scheme-on: var(--lk-onwarningcontainer);
+  --lk-scheme-base: var(--lk-warningcontainer);
+}
+
+.lk-scheme--info {
+  --lk-scheme-bg: var(--lk-info);
+  --lk-scheme-on: var(--lk-oninfo);
+  --lk-scheme-base: var(--lk-info);
+}
+
+.lk-scheme--infocontainer {
+  --lk-scheme-bg: var(--lk-infocontainer);
+  --lk-scheme-on: var(--lk-oninfocontainer);
+  --lk-scheme-base: var(--lk-infocontainer);
+}
+
+.lk-scheme--background {
+  --lk-scheme-bg: var(--lk-background);
+  --lk-scheme-on: var(--lk-onbackground);
+  --lk-scheme-base: var(--lk-background);
+}
+
+.lk-scheme--surface {
+  --lk-scheme-bg: var(--lk-surface);
+  --lk-scheme-on: var(--lk-onsurface);
+  --lk-scheme-base: var(--lk-surface);
+}
+
+.lk-scheme--surfacevariant {
+  --lk-scheme-bg: var(--lk-surfacevariant);
+  --lk-scheme-on: var(--lk-onsurfacevariant);
+  --lk-scheme-base: var(--lk-surfacevariant);
+}
+
+.lk-scheme--surfacecontainerlowest {
+  --lk-scheme-bg: var(--lk-surfacecontainerlowest);
+  --lk-scheme-on: var(--lk-onsurfacecontainerlowest);
+  --lk-scheme-base: var(--lk-surfacecontainerlowest);
+}
+
+.lk-scheme--surfacecontainerlow {
+  --lk-scheme-bg: var(--lk-surfacecontainerlow);
+  --lk-scheme-on: var(--lk-onsurfacecontainerlow);
+  --lk-scheme-base: var(--lk-surfacecontainerlow);
+}
+
+.lk-scheme--surfacecontainer {
+  --lk-scheme-bg: var(--lk-surfacecontainer);
+  --lk-scheme-on: var(--lk-onsurfacecontainer);
+  --lk-scheme-base: var(--lk-surfacecontainer);
+}
+
+.lk-scheme--surfacecontainerhigh {
+  --lk-scheme-bg: var(--lk-surfacecontainerhigh);
+  --lk-scheme-on: var(--lk-onsurfacecontainerhigh);
+  --lk-scheme-base: var(--lk-surfacecontainerhigh);
+}
+
+.lk-scheme--surfacecontainerhighest {
+  --lk-scheme-bg: var(--lk-surfacecontainerhighest);
+  --lk-scheme-on: var(--lk-onsurfacecontainerhighest);
+  --lk-scheme-base: var(--lk-surfacecontainerhighest);
+}
+
+.lk-scheme--inversesurface {
+  --lk-scheme-bg: var(--lk-inversesurface);
+  --lk-scheme-on: var(--lk-oninversesurface);
+  --lk-scheme-base: var(--lk-inversesurface);
+}
+
+.lk-scheme--primaryfixed {
+  --lk-scheme-bg: var(--lk-primaryfixed);
+  --lk-scheme-on: var(--lk-onprimaryfixed);
+  --lk-scheme-base: var(--lk-primaryfixed);
+}
+
+.lk-scheme--secondaryfixed {
+  --lk-scheme-bg: var(--lk-secondaryfixed);
+  --lk-scheme-on: var(--lk-onsecondaryfixed);
+  --lk-scheme-base: var(--lk-secondaryfixed);
+}
+
+.lk-scheme--tertiaryfixed {
+  --lk-scheme-bg: var(--lk-tertiaryfixed);
+  --lk-scheme-on: var(--lk-ontertiaryfixed);
+  --lk-scheme-base: var(--lk-tertiaryfixed);
+}
