@@ -26,6 +26,37 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   stateLayerOverride?: LkStateLayerProps; // Optional override for state layer properties
 }
 
+const COLOR_SCHEME_CLASSES = {
+  primary: "lk-colorgroup--primary",
+  primarycontainer: "lk-colorgroup--primarycontainer",
+  secondary: "lk-colorgroup--secondary",
+  secondarycontainer: "lk-colorgroup--secondarycontainer",
+  tertiary: "lk-colorgroup--tertiary",
+  tertiarycontainer: "lk-colorgroup--tertiarycontainer",
+  error: "lk-colorgroup--error",
+  errorcontainer: "lk-colorgroup--errorcontainer",
+  success: "lk-colorgroup--success",
+  successcontainer: "lk-colorgroup--successcontainer",
+  warning: "lk-colorgroup--warning",
+  warningcontainer: "lk-colorgroup--warningcontainer",
+  info: "lk-colorgroup--info",
+  infocontainer: "lk-colorgroup--infocontainer",
+  background: "lk-colorgroup--background",
+  surface: "lk-colorgroup--surface",
+  surfacevariant: "lk-colorgroup--surfacevariant",
+  surfacecontainerlowest: "lk-colorgroup--surfacecontainerlowest",
+  surfacecontainerlow: "lk-colorgroup--surfacecontainerlow",
+  surfacecontainer: "lk-colorgroup--surfacecontainer",
+  surfacecontainerhigh: "lk-colorgroup--surfacecontainerhigh",
+  surfacecontainerhighest: "lk-colorgroup--surfacecontainerhighest",
+  inversesurface: "lk-colorgroup--inversesurface",
+  primaryfixed: "lk-colorgroup--primaryfixed",
+  secondaryfixed: "lk-colorgroup--secondaryfixed",
+  tertiaryfixed: "lk-colorgroup--tertiaryfixed",
+} as const;
+
+export type ColorScheme = keyof typeof COLOR_SCHEME_CLASSES;
+
 /**
  * A customizable button component with support for various visual styles, sizes, and icons.
  *
@@ -139,19 +170,19 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
 
 const buttonVariants = cva(["lk-btn"], {
   variants: {
-    style: {
+    variant: {
       fill: "lk-btn-style--fill",
       outline: "lk-btn-style--outline",
       text: "lk-btn-style--text",
     },
-    color: colorsWithOnTokens,
+    color: COLOR_SCHEME_CLASSES,
     fontClass: LK_FONT_CLASSES,
   },
 });
 
-function ButtonWithCVA({
+export default function Button({
   className,
-  style,
+  variant,
   color,
   fontClass,
   startIcon,
@@ -167,7 +198,7 @@ function ButtonWithCVA({
   const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
 
   return (
-    <Comp data-slot="button" className={cn(buttonVariants({ style, color, fontClass, className }))} {...rest}>
+    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, className }))} {...rest}>
       <div data-lk-button-root>
         <div data-lk-button-content-wrap="true">
           {startIcon && (
@@ -193,4 +224,4 @@ function ButtonWithCVA({
   );
 }
 
-export { ButtonWithCVA, buttonVariants };
+export { buttonVariants };

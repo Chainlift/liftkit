@@ -1,6 +1,10 @@
 .lk-btn,
 [data-lk-component="button"] {
   /* DEFAULTS */
+
+  --lk-btn-bg: var(--lk-color-token);
+  --lk-btn-fg: var(--lk-color-ontoken);
+
   --button-font-size: var(--body-font-size);
   --button-line-height: var(--lk-halfstep) !important;
   --button-padX: 1em;
@@ -11,8 +15,7 @@
 
   display: inline-flex;
   vertical-align: middle;
-  border: 1px solid rgba(0, 0, 0, 0);
-  border-radius: 100em;
+
   position: relative;
   text-decoration: none;
   white-space: pre;
@@ -23,9 +26,15 @@
   font-size: 1em;
   line-height: var(--button-line-height);
   font-family: inherit;
+  background: var(--lk-btn-bg, transparent);
+  color: var(--lk-btn-fg, inherit);
+
+  /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--lk-btn-border, transparent);
+  border-radius: 100em;
 }
-
-
 
 /* SIZE VARIANTS */
 [data-lk-button-size="sm"] {
@@ -77,12 +86,20 @@
 
 /* STYLE VARIANTS */
 
-.lk-btn-style--outline, [data-lk-button-variant="text"] {
-  background: transparent !important;
+.lk-btn-style--fill {
+  --lk-btn-bg: var(--lk-color-token);
+  --lk-btn-fg: var(--lk-color-ontoken);
+  --lk-btn-border: transparent;
 }
-.lk-btn-style--text, [data-lk-button-variant="outline"] {
+
+.lk-btn-style--outline,
+[data-lk-button-variant="text"] {
+  --lk-btn-bg: transparent;
+  --lk-btn-fg: var(--lk-color-token);
+  --lk-btn-border: var(--lk-color-token);
+}
+.lk-btn-style--text,
+[data-lk-button-variant="outline"] {
   background: transparent !important;
   border: 1px solid var(--lk-outlinevariant);
 }
-
-

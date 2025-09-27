@@ -6,7 +6,6 @@ import Heading from "@/registry/nextjs/components/heading";
 import Grid from "@/registry/nextjs/components/grid";
 import Row from "@/registry/nextjs/components/row";
 import ThemeController from "@/registry/nextjs/components/theme-controller";
-import { ButtonWithCVA } from "@/registry/nextjs/components/button";
 
 import { IconName } from "lucide-react/dynamic";
 export default function Staging() {
@@ -74,34 +73,22 @@ export default function Staging() {
               return generateButtons(colors, variants, sizes, iconConfigs, colorIndex, variantIndex, sizeIndex + 1, 0);
 
             const currentConfig = iconConfigs[iconIndex];
+
+
             const button = (
               <Button
                 key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
-                label={`Button`}
                 variant={variants[variantIndex] as "fill" | "outline" | "text"}
-                color={colors[colorIndex] as LkColorWithOnToken}
-                size={sizes[sizeIndex] as "sm" | "md" | "lg"}
-                startIcon={currentConfig.startIcon as IconName | undefined}
-                endIcon={currentConfig.endIcon as IconName | undefined}
-                opticIconShift={false}
-                style={{ alignSelf: "center", justifySelf: "center" }}
-              />
-            );
-
-            const button2 = (
-              <ButtonWithCVA
-                key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
-                style={variants[variantIndex] as "fill" | "outline" | "text"}
                 color={colors[colorIndex] as any}
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
               >
                 Button
-              </ButtonWithCVA>
+              </Button>
             );
 
             return [
-              button2,
+              button,
               ...generateButtons(
                 colors,
                 variants,

@@ -38,7 +38,6 @@
   --lk-size-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
   --lk-size-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
 
-
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
 
@@ -296,14 +295,10 @@
 
   /* shadows */
   --shadow-sm: 0 0 1px 0 var(--lk-shadow);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11),
-    0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11),
-    0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0px 0px 1px 0px var(--lk-outline),
-    0px 50px 100px 0px rgba(0, 0, 0, 0.15);
-  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1),
-    0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.11), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 11px 15px -3px rgba(0, 0, 0, 0.11), 0 2px 6px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0px 0px 1px 0px var(--lk-outline), 0px 50px 100px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.23), 0 9px 18px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
 
@@ -464,161 +459,113 @@ button span {
   text-transform: capitalize;
 }
 
-
 /* Component schemes */
 
-.lk-scheme--primary {
-  --lk-scheme-bg: var(--lk-primary);
-  --lk-scheme-on: var(--lk-onprimary);
-  --lk-scheme-base: var(--lk-primary);
+.lk-colorgroup--primary {
+  --lk-color-token: var(--lk-primary);
+  --lk-color-ontoken: var(--lk-onprimary);
+  --lk-color-tokencontainer: var(--lk-primarycontainer);
+  --lk-color-ontokencontainer: var(--lk-onprimarycontainer);
 }
 
-.lk-scheme--primarycontainer {
-  --lk-scheme-bg: var(--lk-primarycontainer);
-  --lk-scheme-on: var(--lk-onprimarycontainer);
-  --lk-scheme-base: var(--lk-primarycontainer);
+.lk-colorgroup--primary {
+  --lk-color-token: var(--lk-primary);
+  --lk-color-ontoken: var(--lk-onprimary);
+  --lk-color-tokencontainer: var(--lk-primarycontainer);
+  --lk-color-ontokencontainer: var(--lk-onprimarycontainer);
 }
 
-.lk-scheme--secondary {
-  --lk-scheme-bg: var(--lk-secondary);
-  --lk-scheme-on: var(--lk-onsecondary);
-  --lk-scheme-base: var(--lk-secondary);
+.lk-colorgroup--secondary {
+  --lk-color-token: var(--lk-secondary);
+  --lk-color-ontoken: var(--lk-onsecondary);
+  --lk-color-tokencontainer: var(--lk-secondarycontainer);
+  --lk-color-ontokencontainer: var(--lk-onsecondarycontainer);
 }
 
-.lk-scheme--secondarycontainer {
-  --lk-scheme-bg: var(--lk-secondarycontainer);
-  --lk-scheme-on: var(--lk-onsecondarycontainer);
-  --lk-scheme-base: var(--lk-secondarycontainer);
+.lk-colorgroup--tertiary {
+  --lk-color-token: var(--lk-tertiary);
+  --lk-color-ontoken: var(--lk-ontertiary);
+  --lk-color-tokencontainer: var(--lk-tertiarycontainer);
+  --lk-color-ontokencontainer: var(--lk-ontertiarycontainer);
 }
 
-.lk-scheme--tertiary {
-  --lk-scheme-bg: var(--lk-tertiary);
-  --lk-scheme-on: var(--lk-ontertiary);
-  --lk-scheme-base: var(--lk-tertiary);
+.lk-colorgroup--error {
+  --lk-color-token: var(--lk-error);
+  --lk-color-ontoken: var(--lk-onerror);
+  --lk-color-tokencontainer: var(--lk-errorcontainer);
+  --lk-color-ontokencontainer: var(--lk-onerrorcontainer);
 }
 
-.lk-scheme--tertiarycontainer {
-  --lk-scheme-bg: var(--lk-tertiarycontainer);
-  --lk-scheme-on: var(--lk-ontertiarycontainer);
-  --lk-scheme-base: var(--lk-tertiarycontainer);
+.lk-colorgroup--success {
+  --lk-color-token: var(--lk-success);
+  --lk-color-ontoken: var(--lk-onsuccess);
+  --lk-color-tokencontainer: var(--lk-successcontainer);
+  --lk-color-ontokencontainer: var(--lk-onsuccesscontainer);
 }
 
-.lk-scheme--error {
-  --lk-scheme-bg: var(--lk-error);
-  --lk-scheme-on: var(--lk-onerror);
-  --lk-scheme-base: var(--lk-error);
+.lk-colorgroup--warning {
+  --lk-color-token: var(--lk-warning);
+  --lk-color-ontoken: var(--lk-onwarning);
+  --lk-color-tokencontainer: var(--lk-warningcontainer);
+  --lk-color-ontokencontainer: var(--lk-onwarningcontainer);
 }
 
-.lk-scheme--errorcontainer {
-  --lk-scheme-bg: var(--lk-errorcontainer);
-  --lk-scheme-on: var(--lk-onerrorcontainer);
-  --lk-scheme-base: var(--lk-errorcontainer);
+.lk-colorgroup--info {
+  --lk-color-token: var(--lk-info);
+  --lk-color-ontoken: var(--lk-oninfo);
+  --lk-color-tokencontainer: var(--lk-infocontainer);
+  --lk-color-ontokencontainer: var(--lk-oninfocontainer);
 }
 
-.lk-scheme--success {
-  --lk-scheme-bg: var(--lk-success);
-  --lk-scheme-on: var(--lk-onsuccess);
-  --lk-scheme-base: var(--lk-success);
+.lk-colorgroup--background {
+  --lk-color-token: var(--lk-background);
+  --lk-color-ontoken: var(--lk-onbackground);
 }
 
-.lk-scheme--successcontainer {
-  --lk-scheme-bg: var(--lk-successcontainer);
-  --lk-scheme-on: var(--lk-onsuccesscontainer);
-  --lk-scheme-base: var(--lk-successcontainer);
+.lk-colorgroup--surface {
+  --lk-color-token: var(--lk-surface);
+  --lk-color-ontoken: var(--lk-onsurface);
 }
 
-.lk-scheme--warning {
-  --lk-scheme-bg: var(--lk-warning);
-  --lk-scheme-on: var(--lk-onwarning);
-  --lk-scheme-base: var(--lk-warning);
+.lk-colorgroup--surfacevariant {
+  --lk-color-token: var(--lk-surfacevariant);
+  --lk-color-ontoken: var(--lk-onsurfacevariant);
 }
 
-.lk-scheme--warningcontainer {
-  --lk-scheme-bg: var(--lk-warningcontainer);
-  --lk-scheme-on: var(--lk-onwarningcontainer);
-  --lk-scheme-base: var(--lk-warningcontainer);
+.lk-colorgroup--surfacecontainerlowest {
+  --lk-color-token: var(--lk-surfacecontainerlowest);
+  --lk-color-ontoken: var(--lk-onsurface);
 }
 
-.lk-scheme--info {
-  --lk-scheme-bg: var(--lk-info);
-  --lk-scheme-on: var(--lk-oninfo);
-  --lk-scheme-base: var(--lk-info);
+.lk-colorgroup--surfacedim {
+  --lk-color-token: var(--lk-surfacedim);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacebright {
+  --lk-color-token: var(--lk-surfacebright);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerlow {
+  --lk-color-token: var(--lk-surfacecontainerlow);
+  --lk-color-ontoken: var(--lk-onsurface);
 }
 
-.lk-scheme--infocontainer {
-  --lk-scheme-bg: var(--lk-infocontainer);
-  --lk-scheme-on: var(--lk-oninfocontainer);
-  --lk-scheme-base: var(--lk-infocontainer);
+.lk-colorgroup--surfacecontainer {
+  --lk-color-token: var(--lk-surfacecontainer);
+  --lk-color-ontoken: var(--lk-onsurface);
 }
 
-.lk-scheme--background {
-  --lk-scheme-bg: var(--lk-background);
-  --lk-scheme-on: var(--lk-onbackground);
-  --lk-scheme-base: var(--lk-background);
+.lk-colorgroup--surfacecontainerhigh {
+  --lk-color-token: var(--lk-surfacecontainerhigh);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerhighest {
+  --lk-color-token: var(--lk-surfacecontainerhighest);
+  --lk-color-ontoken: var(--lk-onsurface);
 }
 
-.lk-scheme--surface {
-  --lk-scheme-bg: var(--lk-surface);
-  --lk-scheme-on: var(--lk-onsurface);
-  --lk-scheme-base: var(--lk-surface);
-}
-
-.lk-scheme--surfacevariant {
-  --lk-scheme-bg: var(--lk-surfacevariant);
-  --lk-scheme-on: var(--lk-onsurfacevariant);
-  --lk-scheme-base: var(--lk-surfacevariant);
-}
-
-.lk-scheme--surfacecontainerlowest {
-  --lk-scheme-bg: var(--lk-surfacecontainerlowest);
-  --lk-scheme-on: var(--lk-onsurfacecontainerlowest);
-  --lk-scheme-base: var(--lk-surfacecontainerlowest);
-}
-
-.lk-scheme--surfacecontainerlow {
-  --lk-scheme-bg: var(--lk-surfacecontainerlow);
-  --lk-scheme-on: var(--lk-onsurfacecontainerlow);
-  --lk-scheme-base: var(--lk-surfacecontainerlow);
-}
-
-.lk-scheme--surfacecontainer {
-  --lk-scheme-bg: var(--lk-surfacecontainer);
-  --lk-scheme-on: var(--lk-onsurfacecontainer);
-  --lk-scheme-base: var(--lk-surfacecontainer);
-}
-
-.lk-scheme--surfacecontainerhigh {
-  --lk-scheme-bg: var(--lk-surfacecontainerhigh);
-  --lk-scheme-on: var(--lk-onsurfacecontainerhigh);
-  --lk-scheme-base: var(--lk-surfacecontainerhigh);
-}
-
-.lk-scheme--surfacecontainerhighest {
-  --lk-scheme-bg: var(--lk-surfacecontainerhighest);
-  --lk-scheme-on: var(--lk-onsurfacecontainerhighest);
-  --lk-scheme-base: var(--lk-surfacecontainerhighest);
-}
-
-.lk-scheme--inversesurface {
-  --lk-scheme-bg: var(--lk-inversesurface);
-  --lk-scheme-on: var(--lk-oninversesurface);
-  --lk-scheme-base: var(--lk-inversesurface);
-}
-
-.lk-scheme--primaryfixed {
-  --lk-scheme-bg: var(--lk-primaryfixed);
-  --lk-scheme-on: var(--lk-onprimaryfixed);
-  --lk-scheme-base: var(--lk-primaryfixed);
-}
-
-.lk-scheme--secondaryfixed {
-  --lk-scheme-bg: var(--lk-secondaryfixed);
-  --lk-scheme-on: var(--lk-onsecondaryfixed);
-  --lk-scheme-base: var(--lk-secondaryfixed);
-}
-
-.lk-scheme--tertiaryfixed {
-  --lk-scheme-bg: var(--lk-tertiaryfixed);
-  --lk-scheme-on: var(--lk-ontertiaryfixed);
-  --lk-scheme-base: var(--lk-tertiaryfixed);
+.lk-colorgroup--inversesurface {
+  --lk-color-token: var(--lk-inversesurface);
+  --lk-color-ontoken: var(--lk-inverseonsurface);
+  --lk-color-inverseprimary: var(--lk-inverseprimary);
 }
