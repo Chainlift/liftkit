@@ -44,12 +44,12 @@ export default function Staging() {
           Hello world!
         </Heading>
       </Section>
-      <Grid columns={4} gap="md" style={{ alignItems: "center", justifyItems: "center" }}>
+      <Grid columns={4} gap="md" style={{ alignItems: "start", justifyItems: "start" }}>
         {(() => {
           const sizes = ["sm", "md", "lg"];
           const iconConfigs = [
             { startIcon: undefined, endIcon: undefined, label: "No Icons" },
-            { startIcon: "circle", endIcon: undefined, label: "Start Icon" },
+            { startIcon: "arrow-right", endIcon: undefined, label: "Start Icon" },
             { startIcon: undefined, endIcon: "circle", label: "End Icon" },
             { startIcon: "circle", endIcon: "circle", label: "Both Icons" },
           ];
@@ -82,6 +82,8 @@ export default function Staging() {
                 color={colors[colorIndex] as any}
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
+                fontClass="body"
+ 
               >
                 Button
               </Button>

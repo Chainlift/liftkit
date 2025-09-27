@@ -7,6 +7,13 @@
   color: inherit;
 }
 
+/*TODO: Define a factor by which to multiply or divide the icon's font size such that it optically matches
+* actual glyph height of the main font family. We're getting commputed heights that are the same,
+* but icons right next to text can look like they're misaligned because the rendered shape
+* ends up larger than the text next to it.
+* Maybe set a dynamic control for component specific instances?
+*/
+
 /* Regular families */
 [data-lk-icon-font-class="display1"] {
   --lineHeightInEms: calc(1em * var(--lk-quarterstep));

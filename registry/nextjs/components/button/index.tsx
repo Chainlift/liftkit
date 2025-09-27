@@ -21,7 +21,7 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   material?: string;
   startIcon?: IconName;
   endIcon?: IconName;
-  opticIconShift?: boolean;
+  opticalCorrection?: boolean;
   modifiers?: string;
   stateLayerOverride?: LkStateLayerProps; // Optional override for state layer properties
 }
@@ -68,7 +68,7 @@ export type ColorScheme = keyof typeof COLOR_SCHEME_CLASSES;
  * @param props.startIcon - Optional icon element to display at the start of the button
  * @param props.endIcon - Optional icon element to display at the end of the button
  * @param props.restProps - Additional props to be spread to the underlying button element
- * @param props.opticIconShift - Boolean to control optical icon alignment on the y-axis. Defaults to true. Pulls icons up slightly.
+ * @param props.opticalCorrection - Boolean to control optical icon alignment on the y-axis. Defaults to true. Pulls icons up slightly.
  * @param props.modifiers - Additional class names to concatenate onto the button's default class list
  * @param props.stateLayerOverride - Optional override for state layer properties, allowing customization of the state layer's appearance
  *
@@ -93,14 +93,14 @@ export type ColorScheme = keyof typeof COLOR_SCHEME_CLASSES;
 //   size = "md",
 //   startIcon,
 //   endIcon,
-//   opticIconShift = true,
+//   opticalCorrection = true,
 //   modifiers,
 //   stateLayerOverride,
 //   ...restProps
 // }: LkButtonProps) {
 //   const lkButtonAttrs = useMemo(
-//     () => propsToDataAttrs({ variant, color, size, startIcon, endIcon, opticIconShift }, "button"),
-//     [variant, color, size, startIcon, endIcon, opticIconShift]
+//     () => propsToDataAttrs({ variant, color, size, startIcon, endIcon, opticalCorrection }, "button"),
+//     [variant, color, size, startIcon, endIcon, opticalCorrection]
 //   );
 
 //   const onColorToken = getOnToken(color) as LkColor;
@@ -177,6 +177,10 @@ const buttonVariants = cva(["lk-btn"], {
     },
     color: COLOR_SCHEME_CLASSES,
     fontClass: LK_FONT_CLASSES,
+    opticalCorrection: {
+      true: "lk-btn--optic-shift",
+      false: null,
+    },
   },
 });
 
@@ -185,6 +189,7 @@ export default function Button({
   variant,
   color,
   fontClass,
+  opticalCorrection,
   startIcon,
   endIcon,
   asChild = false,
@@ -198,22 +203,22 @@ export default function Button({
   const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
 
   return (
-    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, className }))} {...rest}>
+    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, opticalCorrection, className }))} {...rest}>
       <div data-lk-button-root>
         <div data-lk-button-content-wrap="true">
           {startIcon && (
-            <span data-lk-icon-position="start">
+            <div data-lk-icon-position="start">
               <Icon name={startIcon} data-lk-icon-position="start" aria-hidden />
-            </span>
+            </div>
           )}
 
           {/* render children exactly once */}
           <span data-lk-button-child="button-text">{children}</span>
 
           {endIcon && (
-            <span data-lk-icon-position="end">
+            <div data-lk-icon-position="end">
               <Icon name={endIcon} data-lk-icon-position="end" aria-hidden />
-            </span>
+            </div>
           )}
         </div>
 
