@@ -203,7 +203,7 @@ export default function Button({
   const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
 
   return (
-    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, opticalCorrection, className }))} {...rest}>
+    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, opticalCorrection, className }))} {...maybeType} {...rest}>
       <div data-lk-button-root>
         <div data-lk-button-content-wrap="true">
           {startIcon && (
