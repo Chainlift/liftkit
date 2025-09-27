@@ -1,0 +1,77 @@
+/* accordion.css */
+
+[data-slot="accordion-root"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="accordion-item"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="accordion-header"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="accordion-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="accordion-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}

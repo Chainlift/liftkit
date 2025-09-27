@@ -4,9 +4,10 @@ import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Sticker from "@/registry/nextjs/components/sticker";
 import { LkColors } from "@/registry/universal/lib/utils/debugUtils";
-import Tabs from "@/registry/nextjs/components/tabs";
 import Column from "@/registry/nextjs/components/column";
 import Row from "@/registry/nextjs/components/row";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/nextjs/components/tabs-radix";
+import Card from "@/registry/nextjs/components/card";
 
 export default function TabsStaging() {
   return (
@@ -14,29 +15,17 @@ export default function TabsStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold mb-md">Tabs Staging Area</h1>
-          <Tabs tabLinks={["tab1", "tab2", "tab3"]}>
-            <Grid columns={4} gap="md" style={{ alignItems: "start", justifyItems: "start" }}>
-              {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
-                  {color}
-                </Sticker>
-              ))}
-            </Grid>
-            <Column>
-              {" "}
-              {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
-                  {color}
-                </Sticker>
-              ))}
-            </Column>
-            <Row>
-              {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
-                  {color}
-                </Sticker>
-              ))}
-            </Row>
+          <Tabs defaultValue="account" className="w-[400px]" orientation="horizontal">
+            <TabsList>
+              <TabsTrigger value="account">Account</TabsTrigger>
+              <TabsTrigger value="password">Password</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+              <Card scaleFactor="title1">
+                <p>Hello world! I'm a card.</p>
+              </Card>
+            </TabsContent>
+            <TabsContent value="password">Change your password here.</TabsContent>
           </Tabs>
         </Container>
       </Section>

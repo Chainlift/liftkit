@@ -7,6 +7,7 @@ import { LkColors } from "@/registry/universal/lib/utils/debugUtils";
 import Tabs from "@/registry/nextjs/components/tabs";
 import Column from "@/registry/nextjs/components/column";
 import Row from "@/registry/nextjs/components/row";
+import Card from "@/registry/nextjs/components/card";
 
 export default function TabsStaging() {
   return (
@@ -14,7 +15,7 @@ export default function TabsStaging() {
       <Section padding="md">
         <Container>
           <h1 className="display2-bold mb-md">Tabs Staging Area</h1>
-          <Tabs tabLinks={["tab1", "tab2", "tab3"]}>
+          <Tabs tabLinks={["tab1", "tab2", "tab3"] }>
             <Grid columns={4} gap="md" style={{ alignItems: "start", justifyItems: "start" }}>
               {LkColors.map((color) => (
                 <Sticker key={color} bgColor={color}>
