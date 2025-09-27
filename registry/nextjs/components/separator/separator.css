@@ -1,0 +1,9 @@
+/* separator.css */
+
+[data-slot="separator-root"] {
+  &[data-orientation="horizontal"] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+}

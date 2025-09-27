@@ -1,0 +1,122 @@
+/* dropdown-menu.css */
+
+[data-slot="dropdown-menu-root"] {
+}
+
+[data-slot="dropdown-menu-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dropdown-menu-portal"] {
+}
+
+[data-slot="dropdown-menu-overlay"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dropdown-menu-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dropdown-menu-arrow"] {
+}
+
+[data-slot="dropdown-menu-item"] {
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-state="indeterminate"] {
+  }
+}
+
+[data-slot="dropdown-menu-group"] {
+}
+
+[data-slot="dropdown-menu-label"] {
+}
+
+[data-slot="dropdown-menu-checkbox-item"] {
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-state="indeterminate"] {
+  }
+}
+
+[data-slot="dropdown-menu-radio-group"] {
+}
+
+[data-slot="dropdown-menu-radio-item"] {
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+}
+
+[data-slot="dropdown-menu-item-indicator"] {
+}
+
+[data-slot="dropdown-menu-separator"] {
+}
+
+[data-slot="dropdown-menu-sub"] {
+}
+
+[data-slot="dropdown-menu-sub-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="dropdown-menu-sub-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}

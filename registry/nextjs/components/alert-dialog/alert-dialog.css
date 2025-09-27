@@ -1,0 +1,43 @@
+/* alert-dialog.css */
+
+[data-slot="alert-dialog-root"] {
+}
+
+[data-slot="alert-dialog-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="alert-dialog-portal"] {
+}
+
+[data-slot="alert-dialog-overlay"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="alert-dialog-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="alert-dialog-cancel"] {
+}
+
+[data-slot="alert-dialog-action"] {
+}
+
+[data-slot="alert-dialog-title"] {
+}
+
+[data-slot="alert-dialog-description"] {
+}

@@ -1,0 +1,47 @@
+/* tooltip.css */
+
+[data-slot="tooltip-provider"] {
+}
+
+[data-slot="tooltip-root"] {
+}
+
+[data-slot="tooltip-trigger"] {
+  &[data-state="closed"] {
+  }
+  &[data-state="delayed-open"] {
+  }
+  &[data-state="instant-open"] {
+  }
+}
+
+[data-slot="tooltip-portal"] {
+}
+
+[data-slot="tooltip-content"] {
+  &[data-state="closed"] {
+  }
+  &[data-state="delayed-open"] {
+  }
+  &[data-state="instant-open"] {
+  }
+
+  &[data-side="top"] {
+  }
+  &[data-side="bottom"] {
+  }
+  &[data-side="left"] {
+  }
+  &[data-side="right"] {
+  }
+
+  &[data-align="start"] {
+  }
+  &[data-align="center"] {
+  }
+  &[data-align="end"] {
+  }
+}
+
+[data-slot="tooltip-arrow"] {
+}

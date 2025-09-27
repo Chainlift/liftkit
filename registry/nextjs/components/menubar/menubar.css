@@ -1,0 +1,164 @@
+/* menubar.css */
+
+[data-slot="menubar-root"] {
+}
+
+[data-slot="menubar-menu"] {
+}
+
+[data-slot="menubar-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="menubar-portal"] {
+}
+
+[data-slot="menubar-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-side="left"] {
+  }
+
+  &[data-side="right"] {
+  }
+
+  &[data-side="bottom"] {
+  }
+
+  &[data-side="top"] {
+  }
+
+  &[data-align="start"] {
+  }
+
+  &[data-align="end"] {
+  }
+
+  &[data-align="center"] {
+  }
+}
+
+[data-slot="menubar-arrow"] {
+}
+
+[data-slot="menubar-item"] {
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="menubar-group"] {
+}
+
+[data-slot="menubar-label"] {
+}
+
+[data-slot="menubar-checkbox-item"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="menubar-radio-group"] {
+}
+
+[data-slot="menubar-radio-item"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="menubar-item-indicator"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+}
+
+[data-slot="menubar-separator"] {
+}
+
+[data-slot="menubar-sub"] {
+}
+
+[data-slot="menubar-sub-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-highlighted] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="menubar-sub-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-side="left"] {
+  }
+
+  &[data-side="right"] {
+  }
+
+  &[data-side="bottom"] {
+  }
+
+  &[data-side="top"] {
+  }
+
+  &[data-align="start"] {
+  }
+
+  &[data-align="end"] {
+  }
+
+  &[data-align="center"] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}

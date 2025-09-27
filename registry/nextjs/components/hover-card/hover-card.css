@@ -1,0 +1,47 @@
+/* hover-card.css */
+
+[data-slot="hover-card-root"] {
+}
+
+[data-slot="hover-card-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="hover-card-portal"] {
+}
+
+[data-slot="hover-card-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-side="top"] {
+  }
+
+  &[data-side="right"] {
+  }
+
+  &[data-side="bottom"] {
+  }
+
+  &[data-side="left"] {
+  }
+
+  &[data-align="start"] {
+  }
+
+  &[data-align="center"] {
+  }
+
+  &[data-align="end"] {
+  }
+}
+
+[data-slot="hover-card-arrow"] {
+}

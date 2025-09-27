@@ -4,7 +4,7 @@ import Heading from "@/registry/nextjs/components/heading";
 import Section from "@/registry/nextjs/components/section";
 import Container from "@/registry/nextjs/components/container";
 import Button from "@/registry/nextjs/components/button";
-import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select";
+import { Select, SelectTrigger, SelectMenu, SelectOption } from "@/registry/nextjs/components/select[dep]";
 import React from "react";
 
 export default function SelectStaging() {

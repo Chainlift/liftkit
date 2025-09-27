@@ -1,0 +1,18 @@
+/* avatar.css */
+
+[data-slot="avatar-root"] {
+}
+
+[data-slot="avatar-image"] {
+  &[data-state="loading"] {
+  }
+
+  &[data-state="loaded"] {
+  }
+
+  &[data-state="error"] {
+  }
+}
+
+[data-slot="avatar-fallback"] {
+}

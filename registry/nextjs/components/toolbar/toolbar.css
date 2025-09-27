@@ -1,0 +1,58 @@
+/* toolbar.css */
+
+[data-slot="toolbar-root"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="toolbar-button"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="toolbar-link"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="toolbar-toggle-group"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="toolbar-toggle-item"] {
+  &[data-state="on"] {
+  }
+
+  &[data-state="off"] {
+  }
+
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="toolbar-separator"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}

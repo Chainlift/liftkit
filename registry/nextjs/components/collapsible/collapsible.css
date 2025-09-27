@@ -1,0 +1,34 @@
+/* collapsible.css */
+
+[data-slot="collapsible-root"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="collapsible-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="collapsible-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-disabled] {
+  }
+}

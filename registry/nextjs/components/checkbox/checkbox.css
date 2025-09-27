@@ -1,0 +1,29 @@
+/* checkbox.css */
+
+[data-slot="checkbox-root"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-state="indeterminate"] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="checkbox-indicator"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-state="indeterminate"] {
+  }
+
+  &[data-disabled] {
+  }
+}

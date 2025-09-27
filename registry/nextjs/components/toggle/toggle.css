@@ -1,0 +1,12 @@
+/* toggle.css */
+
+[data-slot="toggle-root"] {
+  &[data-state="on"] {
+  }
+
+  &[data-state="off"] {
+  }
+
+  &[data-disabled] {
+  }
+}

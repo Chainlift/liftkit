@@ -1,0 +1,53 @@
+/* popover.css */
+
+[data-slot="popover-root"] {
+}
+
+[data-slot="popover-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="popover-portal"] {
+}
+
+[data-slot="popover-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+
+  &[data-side="top"] {
+  }
+
+  &[data-side="right"] {
+  }
+
+  &[data-side="bottom"] {
+  }
+
+  &[data-side="left"] {
+  }
+
+  &[data-align="start"] {
+  }
+
+  &[data-align="center"] {
+  }
+
+  &[data-align="end"] {
+  }
+}
+
+[data-slot="popover-arrow"] {
+}
+
+[data-slot="popover-anchor"] {
+}
+
+[data-slot="popover-close"] {
+}

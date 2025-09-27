@@ -1,0 +1,90 @@
+[data-lk-component="select-menu"] {
+  position: absolute;
+  z-index: 1000;
+  transform: scale(0%);
+
+  transition: transform 0.3s ease-out;
+
+  &[data-isactive="true"] {
+        transform: scale(100%);
+  }
+
+  &[data-lk-select-trigger-quadrant="top-left"] {
+    transform: translate(0%, -100%);
+    transform-origin: top left;
+
+  }
+
+  &[data-lk-select-trigger-quadrant="top-right"] {
+    transform: translate(-100%, -100%);
+    transform-origin: top right;
+  
+  }
+
+  &[data-lk-select-trigger-quadrant="bottom-right"] {
+    transform: translate(-100%, 0%);
+    transform-origin: bottom right;
+
+  }
+
+  &[data-lk-select-trigger-quadrant="bottom-left"] {
+    transform: translate(0%, 0%);
+    transform-origin: bottom left;
+
+  }
+}
+
+[data-lk-component="menu-item"] {
+  --py: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
+  --gap: calc(var(--py) / var(--lk-eighthstep));
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lk-size-sm);
+  border-radius: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
+  padding-top: var(--py);
+  padding-bottom: var(--py);
+  gap: var(--gap);
+  position: relative;
+
+  /* Required for text-overflow ellipsis */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+[data-lk-menu-item-element="content-wrap"] {
+  flex: 1 0 0;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
+
+/* Left padding with start icon */
+[data-lk-component="menu-item"]:has([data-lk-icon-position="start"]) {
+  padding-left: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
+}
+
+/* Right padding with end icon */
+[data-lk-component="menu-item"]:has([data-lk-icon-position="end"]) {
+  padding-right: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));
+}
+
+/* Default padding without icons */
+[data-lk-component="menu-item"]:not(:has([data-lk-icon-position="start"])) {
+  padding-left: var(--body-font-size);
+}
+
+[data-lk-component="menu-item"]:not(:has([data-lk-icon-position="end"])) {
+  padding-right: var(--body-font-size);
+}
+
+[data-lk-component="menu-item"] > [data-lk-component="state-layer"] {
+  border-radius: var(--lk-size-xs);
+}
+
+
+/* Force-inherit font size when nested within lk-component="dropdown-menu" */
+
+[data-lk-component="dropdown-menu"] [data-lk-component="menu-item"] {
+  font-size: inherit !important;
+}

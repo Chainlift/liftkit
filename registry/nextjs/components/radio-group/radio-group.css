@@ -1,0 +1,31 @@
+/* radio-group.css */
+
+[data-slot="radio-group-root"] {
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="radio-group-item"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+[data-slot="radio-group-indicator"] {
+  &[data-state="checked"] {
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-disabled] {
+  }
+}

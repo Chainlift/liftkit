@@ -1,0 +1,27 @@
+/* toast.css */
+
+[data-slot="toast-provider"] {
+}
+
+[data-slot="toast-root"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="toast-title"] {
+}
+
+[data-slot="toast-description"] {
+}
+
+[data-slot="toast-action"] {
+}
+
+[data-slot="toast-close"] {
+}
+
+[data-slot="toast-viewport"] {
+}

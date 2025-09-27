@@ -1,0 +1,47 @@
+/* form.css */
+
+[data-slot="form-root"] {
+}
+
+[data-slot="form-field"] {
+  &[data-invalid] {
+  }
+
+  &[data-valid] {
+  }
+}
+
+[data-slot="form-label"] {
+  &[data-invalid] {
+  }
+
+  &[data-valid] {
+  }
+}
+
+[data-slot="form-control"] {
+  &[data-invalid] {
+  }
+
+  &[data-valid] {
+  }
+}
+
+[data-slot="form-message"] {
+  &[data-invalid] {
+  }
+
+  &[data-valid] {
+  }
+}
+
+[data-slot="form-validity-state"] {
+  &[data-invalid] {
+  }
+
+  &[data-valid] {
+  }
+}
+
+[data-slot="form-submit"] {
+}

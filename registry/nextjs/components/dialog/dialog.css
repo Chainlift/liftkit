@@ -1,0 +1,45 @@
+/* dialog.css */
+
+[data-slot="dialog-root"] {
+}
+
+[data-slot="dialog-trigger"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dialog-portal"] {
+}
+
+[data-slot="dialog-overlay"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dialog-content"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}
+
+[data-slot="dialog-title"] {
+}
+
+[data-slot="dialog-description"] {
+}
+
+[data-slot="dialog-close"] {
+  &[data-state="open"] {
+  }
+
+  &[data-state="closed"] {
+  }
+}

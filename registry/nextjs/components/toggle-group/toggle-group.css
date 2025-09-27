@@ -1,0 +1,20 @@
+/* toggle-group.css */
+
+[data-slot="toggle-group-root"] {
+  &[data-orientation="horizontal"] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+}
+
+[data-slot="toggle-group-item"] {
+  &[data-state="on"] {
+  }
+
+  &[data-state="off"] {
+  }
+
+  &[data-disabled] {
+  }
+}

@@ -1,0 +1,145 @@
+// navigation-menu.tsx
+"use client"
+
+import * as React from "react"
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
+import { cn } from "@/registry/nextjs/lib/utilities"
+import "./navigation-menu.css"
+
+const NavigationMenu = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Root>
+>(function NavigationMenu({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Root
+      ref={ref}
+      data-slot="navigation-menu-root"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuSub = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Sub>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Sub>
+>(function NavigationMenuSub({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Sub
+      ref={ref}
+      data-slot="navigation-menu-sub"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuList = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.List>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.List>
+>(function NavigationMenuList({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.List
+      ref={ref}
+      data-slot="navigation-menu-list"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuItem = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Item>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Item>
+>(function NavigationMenuItem({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Item
+      ref={ref}
+      data-slot="navigation-menu-item"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuTrigger = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Trigger>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>
+>(function NavigationMenuTrigger({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Trigger
+      ref={ref}
+      data-slot="navigation-menu-trigger"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuContent = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Content>
+>(function NavigationMenuContent({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Content
+      ref={ref}
+      data-slot="navigation-menu-content"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuLink = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Link>
+>(function NavigationMenuLink({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Link
+      ref={ref}
+      data-slot="navigation-menu-link"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuIndicator = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Indicator>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>
+>(function NavigationMenuIndicator({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Indicator
+      ref={ref}
+      data-slot="navigation-menu-indicator"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+const NavigationMenuViewport = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
+  React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>
+>(function NavigationMenuViewport({ className, ...props }, ref) {
+  return (
+    <NavigationMenuPrimitive.Viewport
+      ref={ref}
+      data-slot="navigation-menu-viewport"
+      className={cn("placeholder", className)}
+      {...props}
+    />
+  )
+})
+
+export {
+  NavigationMenu,
+  NavigationMenuSub,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+}

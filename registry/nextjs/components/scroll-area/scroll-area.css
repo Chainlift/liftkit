@@ -1,0 +1,28 @@
+/* scroll-area.css */
+
+[data-slot="scroll-area-root"] {
+}
+
+[data-slot="scroll-area-viewport"] {
+}
+
+[data-slot="scroll-area-scrollbar"] {
+  &[data-state="visible"] {
+  }
+  &[data-state="hidden"] {
+  }
+  &[data-orientation="vertical"] {
+  }
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="scroll-area-thumb"] {
+  &[data-state="visible"] {
+  }
+  &[data-state="hidden"] {
+  }
+}
+
+[data-slot="scroll-area-corner"] {
+}

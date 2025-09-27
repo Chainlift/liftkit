@@ -1,0 +1,45 @@
+/* slider.css */
+
+[data-slot="slider-root"] {
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="slider-track"] {
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="slider-range"] {
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
+
+[data-slot="slider-thumb"] {
+  &[data-disabled] {
+  }
+
+  &[data-orientation="vertical"] {
+  }
+
+  &[data-orientation="horizontal"] {
+  }
+}
