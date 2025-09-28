@@ -6,7 +6,14 @@ import {
   AccordionHeader,
   AccordionTrigger,
   AccordionContent,
-} from "@/registry/nextjs/components/accordion"
+} from "@/registry/nextjs/components/accordion";
+
+import "./styles.css";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import Row from "@/registry/nextjs/components/row";
+import Icon from "@/registry/nextjs/components/icon";
+import Card from "@/registry/nextjs/components/card";
+import GoldenBox from "@/registry/nextjs/components/golden-box";
 
 export default function Page() {
   return (
@@ -14,7 +21,68 @@ export default function Page() {
       <h1>Accordion Example</h1>
 
       {/* Single-select accordion (collapsible) */}
-      <Accordion type="single" collapsible defaultValue="item-1">
+      <h2 className="title2-bold mb-md">Orientation Vertical</h2>
+      <Accordion type="single" collapsible defaultValue="item-1" orientation="vertical">
+        <AccordionItem value="item-1">
+          <AccordionHeader>
+            <AccordionTrigger>
+              <GoldenBox scaleFactor="body" opticalCorrection="y">
+                <Row justifyContent="space-between">
+                  <span className="body">Section 1</span>
+                  <Icon name="chevron-down" />
+                  <StateLayer />
+                </Row>
+              </GoldenBox>
+            </AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent>
+            <GoldenBox scaleFactor="body" opticalCorrection="y">
+              <p className="body">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque
+                sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+                Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia
+                integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per
+                conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+                Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet
+                consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+                pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla
+                lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+                hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos
+                himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
+                urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
+                lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent
+                per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+                Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+              </p>
+            </GoldenBox>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+          <AccordionHeader>
+            <AccordionTrigger>Section 2</AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent>
+            <p>Here is some placeholder content for section 2.</p>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3" disabled>
+          <AccordionHeader>
+            <AccordionTrigger>Disabled Section</AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent></AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <h2 className="title2-bold mb-md">Orientation Horizontal</h2>
+      <Accordion type="single" collapsible defaultValue="item-1" orientation="horizontal">
         <AccordionItem value="item-1">
           <AccordionHeader>
             <AccordionTrigger>Section 1</AccordionTrigger>
@@ -75,5 +143,5 @@ export default function Page() {
         </AccordionItem>
       </Accordion>
     </main>
-  )
+  );
 }

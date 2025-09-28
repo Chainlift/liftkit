@@ -7,7 +7,7 @@ import {
   TooltipPortal,
   TooltipContent,
   TooltipArrow,
-} from "@/registry/nextjs/components/tooltip"
+} from "@/registry/nextjs/components/tooltip";
 
 export default function Page() {
   return (
@@ -29,5 +29,5 @@ export default function Page() {
         </Tooltip>
       </TooltipProvider>
     </main>
-  )
+  );
 }
