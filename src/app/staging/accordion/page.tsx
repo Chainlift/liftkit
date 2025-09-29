@@ -25,7 +25,7 @@ export default function Page() {
       <Accordion type="single" collapsible defaultValue="item-1" orientation="vertical">
         <AccordionItem value="item-1">
           <AccordionHeader>
-            <AccordionTrigger>
+            <AccordionTrigger scaleFactor="title3">
               Section 1
             </AccordionTrigger>
           </AccordionHeader>

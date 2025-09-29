@@ -9,6 +9,7 @@ import Row from "@/registry/nextjs/components/row";
 import Icon from "@/registry/nextjs/components/icon";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import GoldenBox from "@/registry/nextjs/components/golden-box";
+import { IconName } from "lucide-react/dynamic";
 
 const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,
@@ -44,8 +45,16 @@ const AccordionHeader = React.forwardRef<
 
 const AccordionTrigger = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentProps<typeof AccordionPrimitive.Trigger>
->(function AccordionTrigger({ className, ...props }, ref) {
+  React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
+    scaleFactor?: LkFontClass;
+    opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
+    showIcon?: boolean;
+    iconName?: IconName;
+  }
+>(function AccordionTrigger(
+  { className, scaleFactor = "body", opticalCorrection = "y", showIcon = true, iconName = "chevron-down", ...props },
+  ref
+) {
   return (
     <AccordionPrimitive.Trigger
       ref={ref}
@@ -53,10 +62,11 @@ const AccordionTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      <GoldenBox scaleFactor="body" opticalCorrection="y">
+      <GoldenBox scaleFactor="body" opticalCorrection="y" className={scaleFactor}>
         <Row justifyContent="space-between">
-          <span className="body">{props.children}</span>
-          <Icon name="chevron-down" />
+          {props.children}
+          {showIcon && <Icon name={iconName} />}
+
           <StateLayer />
         </Row>
       </GoldenBox>
@@ -74,7 +84,11 @@ const AccordionContent = React.forwardRef<
       data-slot="accordion-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <GoldenBox scaleFactor="body" opticalCorrection="y">
+        {props.children}
+      </GoldenBox>
+    </AccordionPrimitive.Content>
   );
 });
 
