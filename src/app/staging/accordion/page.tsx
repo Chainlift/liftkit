@@ -18,10 +18,11 @@ import GoldenBox from "@/registry/nextjs/components/golden-box";
 export default function Page() {
   return (
     <main style={{ padding: 24 }}>
-      <h1>Accordion Example</h1>
+      <h1 className="capline">Accordion Example</h1>
 
       {/* Single-select accordion (collapsible) */}
-      <h2 className="title2-bold mb-md">Orientation Vertical</h2>
+      <h2 className="title1-bold mb-md mt-lg">Type: Single</h2>
+      <h3 className="title3-bold mb-md">Orientation Vertical</h3>
       <Accordion type="single" collapsible defaultValue="item-1" orientation="vertical">
         <AccordionItem value="item-1">
           <AccordionHeader>
@@ -33,9 +34,9 @@ export default function Page() {
             <p className="body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
             </p>
           </AccordionContent>
         </AccordionItem>
@@ -56,7 +57,7 @@ export default function Page() {
           <AccordionContent></AccordionContent>
         </AccordionItem>
       </Accordion>
-      <h2 className="title2-bold mb-md">Orientation Horizontal</h2>
+      <h3 className="title3-bold mb-md mt-xl">Orientation Vertical</h3>
       <Accordion type="single" collapsible defaultValue="item-1" orientation="horizontal">
         <AccordionItem value="item-1">
           <AccordionHeader>
