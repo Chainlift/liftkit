@@ -62,7 +62,7 @@ const AccordionTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      <GoldenBox scaleFactor="body" opticalCorrection="y" className={scaleFactor}>
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection} className={scaleFactor}>
         <Row justifyContent="space-between">
           {props.children}
           {showIcon && <Icon name={iconName} />}
@@ -76,8 +76,16 @@ const AccordionTrigger = React.forwardRef<
 
 const AccordionContent = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Content>,
-  React.ComponentProps<typeof AccordionPrimitive.Content>
->(function AccordionContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof AccordionPrimitive.Content> & {
+    scaleFactor?: LkFontClass;
+    opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
+    showIcon?: boolean;
+    iconName?: IconName;
+  }
+>(function AccordionContent(
+  { className, scaleFactor = "body", opticalCorrection = "y", showIcon = true, iconName = "chevron-down", ...props },
+  ref
+) {
   return (
     <AccordionPrimitive.Content
       ref={ref}
@@ -85,7 +93,7 @@ const AccordionContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      <GoldenBox scaleFactor="body" opticalCorrection="y">
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection} className={scaleFactor}>
         {props.children}
       </GoldenBox>
     </AccordionPrimitive.Content>
