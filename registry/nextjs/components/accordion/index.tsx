@@ -8,6 +8,7 @@ import "./accordion.css";
 import Row from "@/registry/nextjs/components/row";
 import Icon from "@/registry/nextjs/components/icon";
 import StateLayer from "@/registry/nextjs/components/state-layer";
+import GoldenBox from "@/registry/nextjs/components/golden-box";
 
 const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,
@@ -51,7 +52,15 @@ const AccordionTrigger = React.forwardRef<
       data-slot="accordion-trigger"
       className={cn("placeholder", className)}
       {...props}
-    ></AccordionPrimitive.Trigger>
+    >
+      <GoldenBox scaleFactor="body" opticalCorrection="y">
+        <Row justifyContent="space-between">
+          <span className="body">{props.children}</span>
+          <Icon name="chevron-down" />
+          <StateLayer />
+        </Row>
+      </GoldenBox>
+    </AccordionPrimitive.Trigger>
   );
 });
 

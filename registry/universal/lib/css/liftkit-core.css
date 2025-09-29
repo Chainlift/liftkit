@@ -453,6 +453,7 @@ button {
   font-weight: 500;
   font-size: var(--button-font-size);
   line-height: var(--button-line-height);
+  font-family: inherit;
 }
 
 button span {
