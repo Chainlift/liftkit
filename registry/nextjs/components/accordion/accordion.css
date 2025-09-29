@@ -24,6 +24,16 @@
   }
 
   &[data-disabled] {
+
+    [data-lk-component="state-layer"] {
+      display: none;
+    }
+
+    color: var(--lk-outline);
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 
   &[data-orientation="vertical"] {
@@ -32,6 +42,8 @@
   &[data-orientation="horizontal"] {
   }
 }
+
+
 
 [data-slot="accordion-header"] {
   width: 100%;

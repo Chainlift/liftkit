@@ -26,7 +26,7 @@ export default function Page() {
         <AccordionItem value="item-1">
           <AccordionHeader>
             <AccordionTrigger scaleFactor="body" opticalCorrection="y">
-              Section 1
+              <p className="body-bold">Section 1</p>
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionContent>
