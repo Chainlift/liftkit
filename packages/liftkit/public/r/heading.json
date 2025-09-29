@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heading",
+  "type": "registry:block",
+  "title": "heading Component",
+  "description": "A Simple heading Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/heading/index.tsx",
+      "content": "import { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport \"@/registry/nextjs/components/heading/heading.css\";\n\ntype LkHeadingTag = \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\";\n\ninterface LkHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {\n  tag?: LkHeadingTag;\n  fontClass?: string; // Should be LkFontClass in production\n  children?: React.ReactNode;\n  fontColor?: string;\n  // content?: string;\n  className?: string; // Optional. Specifying manually here because internal logic checks for it.\n}\n\n/**\n * A heading component you probably don't need because you can use the native HTML heading elements directly. But it's here to maximize consistency with other LiftKit instances in different environments like Figma or Webflow.\n *\n * @param tag - The HTML heading tag to render (h1, h2, h3, h4, h5, h6). Defaults to \"h2\"\n * @param fontClass - CSS class name for font styling. Defaults to \"display2-bold\"\n * @param fontColor - Color value that will be applied as \"color-{fontColor}\" CSS class\n * @param children - The content to be displayed inside the heading element\n * @param restProps - Additional props that will be converted to data attributes with \"heading\" prefix\n * @returns A semantic heading element with the specified tag and styling\n */\nexport default function Heading({\n  tag = \"h2\",\n  fontClass = \"display2-bold\",\n  fontColor,\n  // content = \"Heading\",\n  className,\n  children,\n  ...restProps\n}: LkHeadingProps) {\n  const headingAttrs = useMemo(() => propsToDataAttrs(restProps, \"heading\"), [restProps]);\n  const Tag = tag;\n\n  return (\n    <Tag data-lk-component=\"heading\" className={`${fontClass} color-${fontColor} ${className || \"\"}`} {...headingAttrs}>\n      {children}\n    </Tag>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/heading/heading.css",
+      "content": "[data-lk-component=\"heading\"] {\n  display: block;\n  margin: 0;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

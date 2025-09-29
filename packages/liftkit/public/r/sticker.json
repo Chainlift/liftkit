@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sticker",
+  "type": "registry:block",
+  "title": "sticker Component",
+  "description": "A Simple sticker Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json",
+    "https://localhost:3000/r/text.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/sticker/index.tsx",
+      "content": "import Text from \"@/registry/nextjs/components/text\";\nimport \"@/registry/nextjs/components/sticker/sticker.css\";\nimport { getOnToken } from \"@/registry/universal/lib/colorUtils\";\n\n/**\n * Props for the LkSticker component.\n * \n * @param fontClass - Optional font class styling for the sticker text\n * @param bgColor - Optional background color with on-token support for the sticker\n * @param children - Optional React nodes to render inside the sticker\n * @param className - Optional CSS class name (note: internal logic controls rendering order)\n */\ninterface LkStickerProps extends React.HTMLAttributes<HTMLDivElement> {\n  fontClass?: LkFontClass;\n  bgColor?: LkColor; // supports all LkColors instead of only those with on-token support\n  children?: React.ReactNode;\n  className?: string; // explicitly extracting because internal logic controls its rendering order\n}\n\nexport default function Sticker({\n  fontClass = \"label\",\n  bgColor = \"primarycontainer\",\n  children,\n  className,\n  ...restProps\n}: LkStickerProps) {\n  return (\n    <div data-lk-component=\"sticker\" {...restProps} className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || \"\"}`}>\n      <Text fontClass={fontClass}>{children || \"Sticker\"}</Text>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/sticker/sticker.css",
+      "content": "[data-lk-component=\"sticker\"] {\n  display: inline-block;\n  padding: var(--lk-size-xs) var(--lk-size-sm);\n  color: var(--lk-onprimary);\n  border-radius: var(--lk-size-sm);\n  font-weight: 500;\n  line-height: var(--label-line-height);\n  font-size: var(--label-font-size);\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

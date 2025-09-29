@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+node_modules
 /.pnp
+.pnp
 .pnp.*
+.pnp.js
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -12,13 +15,18 @@
 
 # testing
 /coverage
+coverage
 
 # next.js
 /.next/
+.next/
 /out/
+out/
 
 # production
 /build
+build
+dist
 
 # misc
 .DS_Store
@@ -32,6 +40,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
@@ -39,10 +52,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# turbo
+.turbo
+
+# local utilities
 .direnv
 public/r
-
-# local utilities for doc management
 /scripts
 type-usage-report.csv
 type-usage-report.txt

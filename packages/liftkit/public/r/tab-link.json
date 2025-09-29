@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tab-link",
+  "type": "registry:block",
+  "title": "tab-link Component",
+  "description": "A Simple tab-link Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json",
+    "https://localhost:3000/r/text.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/tab-link/index.tsx",
+      "content": "import { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport Text from \"@/registry/nextjs/components/text\";\nimport \"@/registry/nextjs/components/tab-link/tab-link.css\";\n\ninterface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {\n  selected?: boolean;\n  fontClass?: LkFontClass;\n  indicatorClass?: string;\n  children?: React.ReactElement<HTMLDivElement>;\n}\n\nexport default function TabLink(props: LkTabLinkProps) {\n\n\n  const {\n    selected = false,\n    fontClass = \"body\",\n    indicatorClass = \"lk-indicator\",\n    children,\n    ...restProps\n  } = props;\n\n\n  const dataAttrs = useMemo(\n    () => propsToDataAttrs({ selected, fontClass, indicatorClass }, \"tab-link\"),\n    [selected],\n  );\n\n\n\n  return (\n    <div data-lk-component=\"tab-link\" {...dataAttrs} {...restProps}>\n      <div data-lk-slot=\"child\">\n        <Text fontClass={fontClass} style={selected ? { fontWeight: 700 } : {}}>\n          {children}\n        </Text>\n      </div>\n      <div className={indicatorClass}></div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/tab-link/tab-link.css",
+      "content": "[data-lk-component=\"tab-link\"] {\n  display: inline-flex;\n  position: relative;\n  padding: var(--lk-size-md);\n}\n\n.lk-indicator {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 2px;\n  background-color: var(--lk-primary);\n  opacity: 0;\n  transition: opacity 0.2s ease-out;\n}\n\n[data-lk-tab-link-selected=\"true\"]>.lk-indicator {\n  opacity: 1;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tab-menu",
+  "type": "registry:block",
+  "title": "tab-menu Component",
+  "description": "A Simple tab-menu Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json",
+    "https://localhost:3000/r/row.json",
+    "https://localhost:3000/r/tab-link.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/tab-menu/index.tsx",
+      "content": "import { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport Row from \"@/registry/nextjs/components/row\";\nimport TabLink from \"@/registry/nextjs/components/tab-link\";\nimport \"@/registry/nextjs/components/tab-menu/tab-menu.css\";\n\ninterface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {\n  tabLinks?: string[];\n  alignItems?: \"start\" | \"center\" | \"end\" | \"stretch\";\n  justifyContent?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\n  activeTab: number;\n  setActiveTab: (index: number) => void;\n  onClick?: (index: number) => void; // Optional function to lift state\n}\n\nexport default function TabMenu(props: LkTabMenuProps) {\n  const {\n    tabLinks = [\"Tab Link 1\", \"Tab Link 2\", \"Tab Link 3\"],\n    alignItems,\n    justifyContent,\n    activeTab,\n    setActiveTab,\n    onClick,\n    ...restProps\n  } = props;\n\n/**Don't include tabLinks or setActiveTab props in the useMemo hook, because they don't affect CSS. */\n\n  const dataAttrs = useMemo(\n    () => propsToDataAttrs({ alignItems, justifyContent, activeTab }, \"tab-menu\"),\n    [alignItems, justifyContent, activeTab]\n  );\n\n  return (\n    <div data-lk-component=\"tab-menu\" {...dataAttrs} {...restProps}>\n      <Row alignItems={alignItems} justifyContent={justifyContent}>\n        {tabLinks.map((label, index) => (\n          <TabLink key={index} selected={index === activeTab} onClick={() => setActiveTab(index)}>\n            <div>{label ?? \"Tab Link\"}</div>\n          </TabLink>\n        ))}\n      </Row>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/tab-menu/tab-menu.css",
+      "content": "[data-lk-component=\"tab-menu\"] {\n  display: flex;\n  flex-direction: row;\n  align-items: stretch;\n  justify-content: flex-start;\n  width: 100%;\n  overflow-x: auto;\n  padding: 0;\n  position: relative;\n  border-bottom: 1px solid var(--lk-outlinevariant);\n  flex: 0 0 auto;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}
