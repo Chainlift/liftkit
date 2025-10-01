@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "state-layer",
+  "type": "registry:block",
+  "title": "state-layer Component",
+  "description": "A Simple state-layer Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/state-layer/index.tsx",
+      "content": "import \"@/registry/nextjs/components/state-layer/state-layer.css\";\n\nexport interface LkStateLayerProps {\n  bgColor?: LkColor | \"currentColor\";\n  forcedState?: \"hover\" | \"active\" | \"focus\"; // Used when you need a static state controlled by something higher, like a select field that keeps actively-selected options grayed out\n}\n\nexport default function StateLayer({ bgColor = \"currentColor\", forcedState }: LkStateLayerProps) {\n\n\n  return (\n    <>\n      <div\n        data-lk-component=\"state-layer\"\n        className={bgColor !== \"currentColor\" ? `bg-${bgColor}` : \"\"}\n        style={bgColor === \"currentColor\" ? { backgroundColor: \"currentColor\" } : {}}\n        {...(forcedState && { \"data-lk-forced-state\": forcedState })}\n      ></div>\n    </>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/state-layer/state-layer.css",
+      "content": "[data-lk-component=\"state-layer\"] {\n  z-index: 1;\n  opacity: 0;\n\n  pointer-events: none;\n  position: absolute;\n  top: 0%;\n  bottom: 0%;\n  left: 0%;\n  right: 0%;\n  transition: opacity 0.1s ease-out;\n}\n\n/* Only apply styles to the [data-lk-component=\"state-layer\"] when its direct parent is hovered, active, or focused */\ndiv:hover > [data-lk-component=\"state-layer\"],\na:hover > [data-lk-component=\"state-layer\"],\nbutton:hover > [data-lk-component=\"state-layer\"],\nli:hover > [data-lk-component=\"state-layer\"] {\n  opacity: 0.16 !important;\n}\n\ndiv:active > [data-lk-component=\"state-layer\"],\na:active > [data-lk-component=\"state-layer\"],\nbutton:active > [data-lk-component=\"state-layer\"],\nli:active > [data-lk-component=\"state-layer\"] {\n  opacity: 0.5 !important;\n}\n\ndiv:focus > [data-lk-component=\"state-layer\"],\na:focus > [data-lk-component=\"state-layer\"],\nbutton:focus > [data-lk-component=\"state-layer\"],\nli:focus > [data-lk-component=\"state-layer\"] {\n  opacity: 0.35 !important;\n}\n\n.is-active [data-lk-component=\"state-layer\"] {\n  opacity: 0.16 !important;\n}\n\n.list-item.active [data-lk-component=\"state-layer\"] {\n  opacity: 0.24 !important;\n}\n\n[data-lk-forced-state=\"active\"] {\n  opacity: 0.12 !important;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

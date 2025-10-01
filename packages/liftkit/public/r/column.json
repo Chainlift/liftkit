@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "column",
+  "type": "registry:block",
+  "title": "column Component",
+  "description": "A Simple column Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/column/index.tsx",
+      "content": "import { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport \"@/registry/nextjs/components/column/column.css\";\n\ninterface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {\n  alignItems?: \"start\" | \"center\" | \"end\" | \"stretch\";\n  justifyContent?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\n  gap?: LkSizeUnit | \"none\";\n  wrapChildren?: boolean;\n  defaultChildBehavior?: \"auto-grow\" | \"auto-shrink\" | \"ignoreFlexRules\" | \"ignoreIntrinsicSize\";\n  children?: React.ReactNode;\n}\n\nexport default function Column(props: LkColumnProps) {\n  const { children, alignItems=\"stretch\", justifyContent=\"start\", gap, wrapChildren, defaultChildBehavior, ...restProps } = props;\n\n  const lkColumnAttrs = useMemo(\n    () => propsToDataAttrs({ alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior }, \"column\"),\n    [alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior]\n  );\n\n  return (\n    <div {...lkColumnAttrs} {...restProps} data-lk-component=\"column\">\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/column/column.css",
+      "content": "[data-lk-component=\"column\"] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n  gap: 0;\n  flex-wrap: nowrap;\n}\n\n/* align-items variations */\n[data-lk-column-align-items=\"start\"] {\n  align-items: flex-start;\n}\n\n[data-lk-column-align-items=\"center\"] {\n  align-items: center;\n}\n\n[data-lk-column-align-items=\"end\"] {\n  align-items: flex-end;\n}\n\n[data-lk-column-align-items=\"stretch\"] {\n  align-items: stretch;\n}\n\n/* justify-content variations */\n[data-lk-column-justify-content=\"start\"] {\n  justify-content: flex-start;\n}\n\n[data-lk-column-justify-content=\"center\"] {\n  justify-content: center;\n}\n\n[data-lk-column-justify-content=\"end\"] {\n  justify-content: flex-end;\n}\n\n[data-lk-column-justify-content=\"space-between\"] {\n  justify-content: space-between;\n}\n\n[data-lk-column-justify-content=\"space-around\"] {\n  justify-content: space-around;\n}\n\n/* Gap */\n[data-lk-column-gap=\"3xs\"] {\n  gap: var(--lk-size-3xs);\n}\n\n[data-lk-column-gap=\"2xs\"] {\n  gap: var(--lk-size-2xs);\n}\n\n[data-lk-column-gap=\"xs\"] {\n  gap: var(--lk-size-xs);\n}\n\n[data-lk-column-gap=\"sm\"] {\n  gap: var(--lk-size-sm);\n}\n\n[data-lk-column-gap=\"md\"] {\n  gap: var(--lk-size-md);\n}\n\n[data-lk-column-gap=\"lg\"] {\n  gap: var(--lk-size-lg);\n}\n\n[data-lk-column-gap=\"xl\"] {\n  gap: var(--lk-size-xl);\n}\n\n[data-lk-column-gap=\"2xl\"] {\n  gap: var(--lk-size-2xl);\n}\n\n[data-lk-column-gap=\"3xl\"] {\n  gap: var(--lk-size-3xl);\n}\n\n[data-lk-column-gap=\"4xl\"] {\n  gap: var(--lk-size-4xl);\n}",
+      "type": "registry:component"
+    }
+  ]
+}

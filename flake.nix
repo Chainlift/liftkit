@@ -44,6 +44,7 @@
               nodePackages.prettier
               nodejs_22
               nixpkgs-fmt
+              pnpm
             ];
           };
         }

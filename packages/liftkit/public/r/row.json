@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "row",
+  "type": "registry:block",
+  "title": "row Component",
+  "description": "A Simple row Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/row/index.tsx",
+      "content": "import { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport \"@/registry/nextjs/components/row/row.css\";\n\n\n\ninterface LkRowProps extends React.HTMLAttributes<HTMLDivElement> {\n  alignItems?: \"start\" | \"center\" | \"end\" | \"stretch\";\n  justifyContent?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\n  gap?: LkSizeUnit;\n  wrapChildren?: boolean;\n  defaultChildBehavior?: \"auto-grow\" | \"auto-shrink\" | \"ignoreFlexRules\" | \"ignoreIntrinsicSize\";\n}\n\nexport default function Row(props: LkRowProps) {\n  const {\n    children,\n    alignItems=\"start\",\n    justifyContent=\"start\",\n    gap,\n    wrapChildren,\n    defaultChildBehavior,\n    ...restProps\n  } = props;\n\n  const lkRowAttrs = useMemo(\n    () =>\n      propsToDataAttrs(\n        { alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior },\n        \"row\"\n      ),\n    [alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior]\n  );\n\n  return (\n    <div {...lkRowAttrs} {...restProps} data-lk-component=\"row\">\n      {children}\n    </div>\n  );\n}",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/row/row.css",
+      "content": "[data-lk-component=\"row\"] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  gap: 0;\n}\n\n/* Align Items */\n[data-lk-row-align-items=\"start\"] {\n  align-items: flex-start;\n}\n\n[data-lk-row-align-items=\"center\"] {\n  align-items: center;\n}\n\n[data-lk-row-align-items=\"end\"] {\n  align-items: flex-end;\n}\n\n[data-lk-row-align-items=\"stretch\"] {\n  align-items: stretch;\n}\n\n/* Justify Content */\n[data-lk-row-justify-content=\"start\"] {\n  justify-content: flex-start;\n}\n\n[data-lk-row-justify-content=\"center\"] {\n  justify-content: center;\n}\n\n[data-lk-row-justify-content=\"end\"] {\n  justify-content: flex-end;\n}\n\n[data-lk-row-justify-content=\"space-between\"] {\n  justify-content: space-between;\n}\n\n[data-lk-row-justify-content=\"space-around\"] {\n  justify-content: space-around;\n}\n\n/* Gap */\n[data-lk-row-gap=\"3xs\"] {\n  gap: var(--lk-size-3xs);\n}\n\n[data-lk-row-gap=\"2xs\"] {\n  gap: var(--lk-size-2xs);\n}\n\n[data-lk-row-gap=\"xs\"] {\n  gap: var(--lk-size-xs);\n}\n\n[data-lk-row-gap=\"sm\"] {\n  gap: var(--lk-size-sm);\n}\n\n[data-lk-row-gap=\"md\"] {\n  gap: var(--lk-size-md);\n}\n\n[data-lk-row-gap=\"lg\"] {\n  gap: var(--lk-size-lg);\n}\n\n[data-lk-row-gap=\"xl\"] {\n  gap: var(--lk-size-xl);\n}\n\n[data-lk-row-gap=\"2xl\"] {\n  gap: var(--lk-size-2xl);\n}\n\n[data-lk-row-gap=\"3xl\"] {\n  gap: var(--lk-size-3xl);\n}\n\n[data-lk-row-gap=\"4xl\"] {\n  gap: var(--lk-size-4xl);\n}\n\n/* Wrap */\n[data-lk-row-wrap-children=\"true\"] {\n  flex-wrap: wrap;\n}\n\n[data-lk-row-wrap-children=\"false\"] {\n  flex-wrap: nowrap;\n}\n\n/* Default Child Behavior */\n[data-lk-row-default-child-behavior=\"auto-grow\"]>* {\n  flex-grow: 1;\n  flex-shrink: 0;\n  flex-basis: auto;\n}\n\n[data-lk-row-default-child-behavior=\"auto-shrink\"]>* {\n  flex-grow: 0;\n  flex-shrink: 1;\n  flex-basis: auto;\n}\n\n[data-lk-row-default-child-behavior=\"ignoreFlexRules\"]>* {\n  flex-grow: 0;\n  flex-shrink: 0;\n  flex-basis: auto;\n}\n\n[data-lk-row-default-child-behavior=\"ignoreIntrinsicSize\"]>* {\n  flex-basis: 0;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

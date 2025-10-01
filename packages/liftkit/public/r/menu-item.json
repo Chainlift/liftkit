@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu-item",
+  "type": "registry:block",
+  "title": "menu-item Component",
+  "description": "A Simple menu-item Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json",
+    "https://localhost:3000/r/state-layer.json",
+    "https://localhost:3000/r/icon.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/menu-item/index.tsx",
+      "content": "/**\n * A menu item component that displays content with optional start and end icons.\n *\n * @param props - The menu item component props\n * @param props.startIcon - Optional icon configuration to display at the start of the menu item\n * @param props.endIcon - Optional icon configuration to display at the end of the menu item\n * @param props.children - The content to display in the menu item between the icons\n * @param props.fontClass - Font class to apply to the menu item, defaults to \"body\"\n * @param props.title - Optional title attribute for the menu item element\n * @param props.className - Additional CSS classes to apply to the menu item\n * @param props.restProps - Additional HTML div attributes passed through to the component\n *\n * @returns A menu item component with icons, content, and a state layer for interactions\n *\n * @example\n * ```tsx\n * <MenuItem startIcon=\"🏠\" endIcon=\"→\">\n *   Home\n * </MenuItem>\n * ```\n */\nimport { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport \"@/registry/nextjs/components/menu-item/menu-item.css\";\nimport StateLayer from \"@/registry/nextjs/components/state-layer\";\nimport type { IconName } from \"lucide-react/dynamic\";\nimport Icon from \"@/registry/nextjs/components/icon\";\nimport { LkIconProps } from \"@/registry/nextjs/components/icon\";\n\ninterface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {\n  startIcon?: LkIconProps;\n  endIcon?: LkIconProps;\n  children?: React.ReactNode;\n  fontClass?: LkFontClass;\n  title?: string;\n  className?: string; //explicitly defining because it's used in internal component logic\n  onClick?: React.MouseEventHandler<HTMLDivElement>;\n}\n\nexport default function MenuItem({\n  startIcon,\n  endIcon,\n  fontClass = \"body\",\n  title,\n  children,\n  className,\n  onClick,\n  ...restProps\n}: LkMenuItemProps) {\n  // const dataAttrs = useMemo(() => propsToDataAttrs(restProps, \"menu-item\"), [restProps]); omitting because it is not used\n\n  return (\n    <div\n      data-lk-component=\"menu-item\"\n      title={typeof children === \"string\" ? children : \"\"}\n      className={`${className || \"\"}`}\n      onClick={onClick || undefined}\n    >\n      {startIcon && <Icon {...startIcon} data-lk-icon-position=\"start\"></Icon>}\n      <p data-lk-menu-item-element=\"content-wrap\">{children}</p>\n      {endIcon && <Icon {...endIcon} data-lk-icon-position=\"end\"></Icon>}\n\n      <StateLayer></StateLayer>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/menu-item/menu-item.css",
+      "content": "[data-lk-component=\"menu-item\"] {\n  --py: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));\n  --gap: calc(var(--py) / var(--lk-eighthstep));\n\n  display: inline-flex;\n  align-items: center;\n  gap: var(--lk-size-sm);\n  border-radius: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));\n  padding-top: var(--py);\n  padding-bottom: var(--py);\n  gap: var(--gap);\n  position: relative;\n\n  /* Required for text-overflow ellipsis */\n  overflow: hidden;\n  cursor: pointer;\n}\n\n[data-lk-menu-item-element=\"content-wrap\"] {\n  flex: 1 0 0;\n  overflow: hidden;\n  white-space: nowrap; \n  text-overflow: ellipsis;\n}\n\n/* Left padding with start icon */\n[data-lk-component=\"menu-item\"]:has([data-lk-icon-position=\"start\"]) {\n  padding-left: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));\n}\n\n/* Right padding with end icon */\n[data-lk-component=\"menu-item\"]:has([data-lk-icon-position=\"end\"]) {\n  padding-right: calc(var(--lk-size-lg) * var(--lk-halfstep-dec));\n}\n\n/* Default padding without icons */\n[data-lk-component=\"menu-item\"]:not(:has([data-lk-icon-position=\"start\"])) {\n  padding-left: var(--body-font-size);\n}\n\n[data-lk-component=\"menu-item\"]:not(:has([data-lk-icon-position=\"end\"])) {\n  padding-right: var(--body-font-size);\n}\n\n[data-lk-component=\"menu-item\"] > [data-lk-component=\"state-layer\"] {\n  border-radius: var(--lk-size-xs);\n}\n\n\n/* Force-inherit font size when nested within lk-component=\"dropdown-menu\" */\n\n[data-lk-component=\"dropdown-menu\"] [data-lk-component=\"menu-item\"] {\n  font-size: inherit !important;\n}",
+      "type": "registry:component"
+    }
+  ]
+}

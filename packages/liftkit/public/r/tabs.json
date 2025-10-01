@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:block",
+  "title": "tabs Component",
+  "description": "A Simple tabs Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json",
+    "https://localhost:3000/r/tab-menu.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/tabs/index.tsx",
+      "content": "\"use client\";\n\nimport { useMemo } from \"react\";\nimport { propsToDataAttrs } from \"@/registry/nextjs/lib/utilities\";\nimport TabMenu from \"@/registry/nextjs/components/tab-menu\";\nimport \"@/registry/nextjs/components/tabs/tabs.css\";\nimport { useState, useEffect } from \"react\";\n\ninterface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {\n  tabLinks: string[];\n  children: React.ReactNode[];\n  scrollableContent?: boolean; // Optional prop to enable scrollable content\n  onActiveTabChange?: (index: number) => void; // Optional function to lift state\n}\n\nexport default function Tabs({ tabLinks, onActiveTabChange, scrollableContent, children, ...restProps }: LkTabsProps) {\n  const [activeTab, setActiveTab] = useState(0);\n\n  const handleTabClick = (index: number) => {\n    setActiveTab(index); // Set the clicked tab as active\n\n  };\n\n  useEffect(() => {\n    if (onActiveTabChange) {\n      onActiveTabChange(activeTab);\n    } else {\n      return;\n    }\n  }, [activeTab]);\n\n  const dataAttrs = useMemo(() => propsToDataAttrs({ activeTab }, \"tabs\"), [activeTab]);\n\n  return (\n    <div data-lk-component=\"tabs\" data-lk-tabs-content-scrollable={scrollableContent} {...dataAttrs} {...restProps}>\n      <TabMenu\n        tabLinks={tabLinks}\n        justifyContent=\"start\"\n        alignItems=\"stretch\"\n        activeTab={activeTab}\n        setActiveTab={setActiveTab}\n        onClick={handleTabClick}\n      />\n      <div data-lk-tabs-el=\"tab-content\" data-lk-tabs-content-scrollable={scrollableContent}>\n        {children.map((child, index) => (\n          <div key={index} style={{ display: index === activeTab ? \"block\" : \"none\" }}>\n            {child }\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/nextjs/components/tabs/tabs.css",
+      "content": "[data-lk-component=\"tabs\"] {\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  justify-content: flex-start;\n\n  &[data-lk-tabs-content-scrollable=\"true\"] {\n    overflow: hidden;\n    flex-grow: 1;\n  }\n\n}\n\n[data-lk-tabs-el=\"tab-content\"] > * {\n  width: 100%;\n}\n\n[data-lk-tabs-el=\"tab-content\"][data-lk-tabs-content-scrollable=\"true\"] {\n  overflow: auto;\n  flex-grow: 1;\n  scrollbar-color: var(--lk-outline) transparent;\n  scrollbar-width: thin;\n}\n\n",
+      "type": "registry:component"
+    }
+  ]
+}

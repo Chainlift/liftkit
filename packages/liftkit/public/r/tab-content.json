@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tab-content",
+  "type": "registry:block",
+  "title": "tab-content Component",
+  "description": "A Simple tab-content Component",
+  "registryDependencies": [
+    "https://localhost:3000/r/base.json"
+  ],
+  "files": [
+    {
+      "path": "registry/nextjs/components/tab-content/index.tsx",
+      "content": "import type { ReactNode } from \"react\";\n\ninterface TabContentProps {\n  children: ReactNode;\n}\n\nexport default function TabContent({ children }: TabContentProps) {\n  return <div data-lk-component=\"tab-content\">{children} </div>;\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}
