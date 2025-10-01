@@ -8,6 +8,7 @@
     "registry": "node ./registry.js && shadcn build",
     "start": "next start",
     "pretty": "prettier --check .",
+    "check-types": "tsc --noEmit",
     "lint": "next lint",
     "lint:css": "stylelint registry/**/*.css src/**/*.css",
     "test": "vitest",
