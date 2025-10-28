@@ -1,27 +1,107 @@
 /* scroll-area.css */
 
-[data-slot="scroll-area-root"] {
+/* ScrollArea Root - relative */
+[data-slot="scroll-area"] {
+  position: relative;
 }
 
+/* ScrollArea Viewport - focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1 */
 [data-slot="scroll-area-viewport"] {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transition:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+    outline: 1px solid transparent;
+  }
 }
 
+.scroll-viewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transition:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.scroll-viewport:focus-visible {
+  box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+  outline: 1px solid transparent;
+}
+
+/* ScrollArea Scrollbar - flex touch-none p-px transition-colors select-none + orientation styles */
 [data-slot="scroll-area-scrollbar"] {
+  display: flex;
+  touch-action: none;
+  padding: 1px;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+
   &[data-state="visible"] {
   }
   &[data-state="hidden"] {
   }
+
+  /* orientation === "vertical" && "h-full w-2.5 border-l border-l-transparent" */
   &[data-orientation="vertical"] {
+    height: 100%;
+    width: 0.625rem;
+    border-left: 1px solid transparent;
   }
+
+  /* orientation === "horizontal" && "h-2.5 flex-col border-t border-t-transparent" */
   &[data-orientation="horizontal"] {
+    height: 0.625rem;
+    flex-direction: column;
+    border-top: 1px solid transparent;
   }
 }
 
+.scroll-bar {
+  display: flex;
+  touch-action: none;
+  padding: 1px;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.scroll-bar[data-orientation="vertical"] {
+  height: 100%;
+  width: 0.625rem;
+  border-left: 1px solid transparent;
+}
+
+.scroll-bar[data-orientation="horizontal"] {
+  height: 0.625rem;
+  flex-direction: column;
+  border-top: 1px solid transparent;
+}
+
+/* ScrollArea Thumb - bg-border relative flex-1 rounded-full */
 [data-slot="scroll-area-thumb"] {
+  background-color: var(--border);
+  position: relative;
+  flex: 1;
+  border-radius: 9999px;
+
   &[data-state="visible"] {
   }
   &[data-state="hidden"] {
   }
+}
+
+.scroll-thumb {
+  background-color: var(--border);
+  position: relative;
+  flex: 1;
+  border-radius: 9999px;
 }
 
 [data-slot="scroll-area-corner"] {

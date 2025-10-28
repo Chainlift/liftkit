@@ -1,23 +1,25 @@
-// separator.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SeparatorPrimitive from "@radix-ui/react-separator"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./separator.css"
+import * as React from "react";
+import * as SeparatorPrimitive from "@radix-ui/react-separator";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./separator.css";
 
-const Separator = React.forwardRef<
-  React.ComponentRef<typeof SeparatorPrimitive.Root>,
-  React.ComponentProps<typeof SeparatorPrimitive.Root>
->(function Separator({ className, ...props }, ref) {
+function Separator({
+  className,
+  orientation = "horizontal",
+  decorative = true,
+  ...props
+}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
   return (
     <SeparatorPrimitive.Root
-      ref={ref}
-      data-slot="separator-root"
-      className={cn("placeholder", className)}
+      data-slot="separator"
+      decorative={decorative}
+      orientation={orientation}
+      className={cn("", className)}
       {...props}
     />
-  )
-})
+  );
+}
 
-export { Separator }
+export { Separator };

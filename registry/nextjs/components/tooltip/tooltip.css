@@ -1,47 +1,189 @@
 /* tooltip.css */
 
 [data-slot="tooltip-provider"] {
+  /* No specific styles needed for provider */
+  position: relative;
 }
 
-[data-slot="tooltip-root"] {
+[data-slot="tooltip"] {
+  /* No specific styles needed for root */
+  position: relative;
 }
 
 [data-slot="tooltip-trigger"] {
+  /* Inherits styles from the element it wraps */
   &[data-state="closed"] {
+    /* Trigger closed state */
+    opacity: 1;
   }
   &[data-state="delayed-open"] {
+    /* Trigger delayed open state */
+    opacity: 1;
   }
   &[data-state="instant-open"] {
+    /* Trigger instant open state */
+    opacity: 1;
   }
 }
 
-[data-slot="tooltip-portal"] {
-}
-
+/* Tooltip Content - Complex Tailwind classes converted */
 [data-slot="tooltip-content"] {
+  /* bg-foreground text-background */
+  background-color: var(--foreground);
+  color: var(--background);
+
+  /* z-50 w-fit rounded-md px-3 py-1.5 text-xs text-balance */
+  z-index: 50;
+  width: fit-content;
+  border-radius: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-wrap: balance;
+
+  /* origin-(--radix-tooltip-content-transform-origin) */
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+
+  /* animate-in fade-in-0 zoom-in-95 */
+  animation-duration: 150ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+
   &[data-state="closed"] {
-  }
-  &[data-state="delayed-open"] {
-  }
-  &[data-state="instant-open"] {
+    /* data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 */
+    animation-name: tooltip-exit;
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: both;
   }
 
+  &[data-state="delayed-open"],
+  &[data-state="instant-open"] {
+    animation-name: tooltip-enter;
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: both;
+  }
+
+  /* Side-specific slide animations */
   &[data-side="top"] {
+    /* data-[side=top]:slide-in-from-bottom-2 */
+    &[data-state="delayed-open"],
+    &[data-state="instant-open"] {
+      animation-name: tooltip-enter, slide-in-from-bottom;
+    }
   }
+
   &[data-side="bottom"] {
+    /* data-[side=bottom]:slide-in-from-top-2 */
+    &[data-state="delayed-open"],
+    &[data-state="instant-open"] {
+      animation-name: tooltip-enter, slide-in-from-top;
+    }
   }
+
   &[data-side="left"] {
+    /* data-[side=left]:slide-in-from-right-2 */
+    &[data-state="delayed-open"],
+    &[data-state="instant-open"] {
+      animation-name: tooltip-enter, slide-in-from-right;
+    }
   }
+
   &[data-side="right"] {
+    /* data-[side=right]:slide-in-from-left-2 */
+    &[data-state="delayed-open"],
+    &[data-state="instant-open"] {
+      animation-name: tooltip-enter, slide-in-from-left;
+    }
   }
 
   &[data-align="start"] {
+    /* Align start */
+    text-align: left;
   }
   &[data-align="center"] {
+    /* Align center */
+    text-align: center;
   }
   &[data-align="end"] {
+    /* Align end */
+    text-align: right;
   }
 }
 
+/* Tooltip Arrow */
 [data-slot="tooltip-arrow"] {
+  /* bg-foreground fill-foreground z-50 size-2.5 */
+  background-color: var(--foreground);
+  fill: var(--foreground);
+  z-index: 50;
+  width: 0.625rem;
+  height: 0.625rem;
+
+  /* translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] */
+  transform: translateY(calc(-50% - 2px)) rotate(45deg);
+  border-radius: 2px;
+}
+
+/* Keyframe animations */
+@keyframes tooltip-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tooltip-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

@@ -1,4 +1,24 @@
 /* label.css */
 
-[data-slot="label-root"] {
+[data-slot="label"] {
+  /* flex items-center gap-2 text-sm leading-none font-medium select-none */
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  /* group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 */
+  /* peer-disabled:cursor-not-allowed peer-disabled:opacity-50 */
+}
+
+/* Group disabled state */
+[data-disabled="true"] [data-slot="label"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Peer disabled state - when associated input is disabled */
+:has(input:disabled) + [data-slot="label"],
+input:disabled + [data-slot="label"] {
+  cursor: not-allowed;
+  opacity: 0.5;
 }

@@ -1,22 +1,17 @@
 // hover-card.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./hover-card.css"
+import * as React from "react";
+import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./hover-card.css";
 
 const HoverCard = React.forwardRef<
   React.ComponentRef<typeof HoverCardPrimitive.Root>,
   React.ComponentProps<typeof HoverCardPrimitive.Root>
 >(function HoverCard({ ...props }, ref) {
-  return (
-    <HoverCardPrimitive.Root
-      data-slot="hover-card-root"
-      {...props}
-    />
-  )
-})
+  return <HoverCardPrimitive.Root data-slot="hover-card-root" {...props} />;
+});
 
 const HoverCardTrigger = React.forwardRef<
   React.ComponentRef<typeof HoverCardPrimitive.Trigger>,
@@ -29,32 +24,31 @@ const HoverCardTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 // No className or ref on Portal
 function HoverCardPortal(props: React.ComponentProps<typeof HoverCardPrimitive.Portal>) {
-  return (
-    <HoverCardPrimitive.Portal
-      data-slot="hover-card-portal"
-      {...props}
-    />
-  )
+  return <HoverCardPrimitive.Portal data-slot="hover-card-portal" {...props} />;
 }
 
 const HoverCardContent = React.forwardRef<
   React.ComponentRef<typeof HoverCardPrimitive.Content>,
   React.ComponentProps<typeof HoverCardPrimitive.Content>
->(function HoverCardContent({ className, ...props }, ref) {
+>(function HoverCardContent({ className, align = "center", sideOffset = 4, ...props }, ref) {
   return (
-    <HoverCardPrimitive.Content
-      ref={ref}
-      data-slot="hover-card-content"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <HoverCardPortal>
+      <HoverCardPrimitive.Content
+        ref={ref}
+        data-slot="hover-card-content"
+        align={align}
+        sideOffset={sideOffset}
+        className={cn("placeholder", className)}
+        {...props}
+      />
+    </HoverCardPortal>
+  );
+});
 
 const HoverCardArrow = React.forwardRef<
   React.ComponentRef<typeof HoverCardPrimitive.Arrow>,
@@ -67,13 +61,7 @@ const HoverCardArrow = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
-export {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardPortal,
-  HoverCardContent,
-  HoverCardArrow,
-}
+export { HoverCard, HoverCardTrigger, HoverCardPortal, HoverCardContent, HoverCardArrow };

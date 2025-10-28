@@ -1,22 +1,17 @@
 // context-menu.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as ContextMenuPrimitive from "@radix-ui/react-context-menu"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./context-menu.css"
+import * as React from "react";
+import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./context-menu.css";
 
 const ContextMenu = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Root>,
   React.ComponentProps<typeof ContextMenuPrimitive.Root>
->(function ContextMenu({  ...props }, ref) {
-  return (
-    <ContextMenuPrimitive.Root
-      data-slot="context-menu-root"
-      {...props}
-    />
-  )
-})
+>(function ContextMenu({ ...props }, ref) {
+  return <ContextMenuPrimitive.Root data-slot="context-menu-root" {...props} />;
+});
 
 const ContextMenuTrigger = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Trigger>,
@@ -29,21 +24,15 @@ const ContextMenuTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuPortal = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Portal>,
   React.ComponentProps<typeof ContextMenuPrimitive.Portal>
 >(function ContextMenuPortal({ ...props }, ref) {
-  return (
-    <ContextMenuPrimitive.Portal
-      data-slot="context-menu-portal"
-      {...props}
-    />
-  )
-})
-
+  return <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />;
+});
 
 const ContextMenuContent = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Content>,
@@ -56,8 +45,8 @@ const ContextMenuContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuGroup = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Group>,
@@ -70,8 +59,8 @@ const ContextMenuGroup = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuLabel = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Label>,
@@ -84,8 +73,8 @@ const ContextMenuLabel = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuItem = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Item>,
@@ -98,8 +87,8 @@ const ContextMenuItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuCheckboxItem = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.CheckboxItem>,
@@ -112,8 +101,8 @@ const ContextMenuCheckboxItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuRadioGroup = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.RadioGroup>,
@@ -126,8 +115,8 @@ const ContextMenuRadioGroup = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuRadioItem = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.RadioItem>,
@@ -140,8 +129,8 @@ const ContextMenuRadioItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuItemIndicator = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.ItemIndicator>,
@@ -154,8 +143,8 @@ const ContextMenuItemIndicator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuSeparator = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Separator>,
@@ -168,20 +157,15 @@ const ContextMenuSeparator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuSub = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Sub>,
   React.ComponentProps<typeof ContextMenuPrimitive.Sub>
 >(function ContextMenuSub({ ...props }, ref) {
-  return (
-    <ContextMenuPrimitive.Sub
-      data-slot="context-menu-sub"
-      {...props}
-    />
-  )
-})
+  return <ContextMenuPrimitive.Sub data-slot="context-menu-sub" {...props} />;
+});
 
 const ContextMenuSubTrigger = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.SubTrigger>,
@@ -194,8 +178,8 @@ const ContextMenuSubTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ContextMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.SubContent>,
@@ -208,8 +192,14 @@ const ContextMenuSubContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
+
+const ContextMenuShortcut = React.forwardRef<React.ComponentRef<"span">, React.ComponentProps<"span">>(
+  function ContextMenuShortcut({ className, ...props }, ref) {
+    return <span ref={ref} data-slot="context-menu-shortcut" className={cn(className)} {...props} />;
+  }
+);
 
 export {
   ContextMenu,
@@ -224,7 +214,8 @@ export {
   ContextMenuRadioItem,
   ContextMenuItemIndicator,
   ContextMenuSeparator,
+  ContextMenuShortcut,
   ContextMenuSub,
   ContextMenuSubTrigger,
   ContextMenuSubContent,
-}
+};

@@ -1,0 +1,105 @@
+/* table.css */
+
+/* Table Container - relative w-full overflow-x-auto */
+[data-slot="table-container"] {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table - w-full caption-bottom text-sm */
+[data-slot="table"] {
+  width: 100%;
+  caption-side: bottom;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Table Header - [&_tr]:border-b */
+[data-slot="table-header"] {
+  & tr {
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* Table Body - [&_tr:last-child]:border-0 */
+[data-slot="table-body"] {
+  & tr:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Table Footer - bg-muted/50 border-t font-medium [&>tr]:last:border-b-0 */
+[data-slot="table-footer"] {
+  background-color: rgb(from var(--muted) r g b / 0.5);
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+
+  & > tr:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Table Row - hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors */
+[data-slot="table-row"] {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: rgb(from var(--muted) r g b / 0.5);
+  }
+
+  &[data-state="selected"] {
+    background-color: var(--muted);
+  }
+}
+
+/* Table Head - text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] */
+[data-slot="table-head"] {
+  color: var(--foreground);
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 500;
+  white-space: nowrap;
+
+  /* Checkbox specific styles */
+  &:has([role="checkbox"]) {
+    padding-right: 0;
+  }
+
+  & > [role="checkbox"] {
+    transform: translateY(2px);
+  }
+}
+
+/* Table Cell - p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] */
+[data-slot="table-cell"] {
+  padding: 0.5rem;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  /* Checkbox specific styles */
+  &:has([role="checkbox"]) {
+    padding-right: 0;
+  }
+
+  & > [role="checkbox"] {
+    transform: translateY(2px);
+  }
+}
+
+/* Table Caption - text-muted-foreground mt-4 text-sm */
+[data-slot="table-caption"] {
+  color: var(--muted-foreground);
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

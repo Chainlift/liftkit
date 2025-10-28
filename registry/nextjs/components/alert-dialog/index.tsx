@@ -1,22 +1,18 @@
 // alert-dialog.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./alert-dialog.css"
+import * as React from "react";
+import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./alert-dialog.css";
+import GoldenBox from "@/registry/nextjs/components/golden-box";
 
 const AlertDialog = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Root>,
   React.ComponentProps<typeof AlertDialogPrimitive.Root>
->(function AlertDialog({...props }, ref) {
-  return (
-    <AlertDialogPrimitive.Root
-      data-slot="alert-dialog-root"
-      {...props}
-    />
-  )
-})
+>(function AlertDialog({ ...props }, ref) {
+  return <AlertDialogPrimitive.Root data-slot="alert-dialog-root" {...props} />;
+});
 
 const AlertDialogTrigger = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Trigger>,
@@ -28,23 +24,34 @@ const AlertDialogTrigger = React.forwardRef<
       data-slot="alert-dialog-trigger"
       className={cn("placeholder", className)}
       {...props}
-    >
-    </AlertDialogPrimitive.Trigger>
-  )
-})
+    ></AlertDialogPrimitive.Trigger>
+  );
+});
+
+const AlertDialogHeader = React.forwardRef<React.ComponentRef<"div">, React.ComponentProps<"div">>(
+  function AlertDialogHeader({ className, ...props }, ref) {
+    return <div ref={ref} data-slot="alert-dialog-header" className={cn("placeholder", className)} {...props} />;
+  }
+);
+
+const AlertDialogFooter = React.forwardRef<React.ComponentRef<"div">, React.ComponentProps<"div">>(
+  function AlertDialogFooter({ className, ...props }, ref) {
+    return <div ref={ref} data-slot="alert-dialog-footer" className={cn("placeholder", className)} {...props} />;
+  }
+);
 
 const AlertDialogPortal = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Portal>,
   React.ComponentProps<typeof AlertDialogPrimitive.Portal>
->(function AlertDialogPortal({...props }, ref) {
+>(function AlertDialogPortal({ ...props }, ref) {
   return (
     <AlertDialogPrimitive.Portal
       data-slot="alert-dialog-portal"
       /* Portal doesn’t accept className; keeping slot for consistency */
       {...props}
     />
-  )
-})
+  );
+});
 
 const AlertDialogOverlay = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Overlay>,
@@ -57,22 +64,24 @@ const AlertDialogOverlay = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const AlertDialogContent = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Content>,
-  React.ComponentProps<typeof AlertDialogPrimitive.Content>
->(function AlertDialogContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof AlertDialogPrimitive.Content> & {
+    scaleFactor?: LkFontClass;
+    opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
+  }
+>(function AlertDialogContent({ scaleFactor = "body", opticalCorrection = "y", className, ...props }, ref) {
   return (
-    <AlertDialogPrimitive.Content
-      ref={ref}
-      data-slot="alert-dialog-content"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <AlertDialogPrimitive.Content ref={ref} data-slot="alert-dialog-content" className={cn(className)} {...props}>
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
+        {props.children}
+      </GoldenBox>
+    </AlertDialogPrimitive.Content>
+  );
+});
 
 const AlertDialogCancel = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
@@ -85,8 +94,8 @@ const AlertDialogCancel = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const AlertDialogAction = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Action>,
@@ -99,8 +108,8 @@ const AlertDialogAction = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const AlertDialogTitle = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Title>,
@@ -113,8 +122,8 @@ const AlertDialogTitle = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const AlertDialogDescription = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Description>,
@@ -127,8 +136,8 @@ const AlertDialogDescription = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 export {
   AlertDialog,
@@ -140,4 +149,6 @@ export {
   AlertDialogAction,
   AlertDialogTitle,
   AlertDialogDescription,
-}
+  AlertDialogHeader,
+  AlertDialogFooter,
+};

@@ -2,63 +2,82 @@
 
 import {
   ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuPortal,
+  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuCheckboxItem,
+  ContextMenuLabel,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
   ContextMenuSeparator,
-  ContextMenuLabel,
+  ContextMenuShortcut,
   ContextMenuSub,
-  ContextMenuSubTrigger,
   ContextMenuSubContent,
-} from "@/registry/nextjs/components/context-menu"
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from "@/registry/nextjs/components/context-menu";
+
+export function ContextMenuDemo() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger
+        style={{
+          display: "flex",
+          height: "150px",
+          width: "300px",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "0.375rem",
+          border: "1px dashed var(--border)",
+          fontSize: "0.875rem",
+          cursor: "context-menu",
+        }}
+      >
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent style={{ width: "13rem" }}>
+        <ContextMenuItem data-inset="true">
+          Back
+          <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem data-inset="true" disabled>
+          Forward
+          <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem data-inset="true">
+          Reload
+          <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuSub>
+          <ContextMenuSubTrigger data-inset="true">More Tools</ContextMenuSubTrigger>
+          <ContextMenuSubContent style={{ width: "11rem" }}>
+            <ContextMenuItem>Save Page...</ContextMenuItem>
+            <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+            <ContextMenuItem>Name Window...</ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem>Developer Tools</ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem data-variant="destructive">Delete</ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+        <ContextMenuSeparator />
+        <ContextMenuCheckboxItem checked>Show Bookmarks</ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+        <ContextMenuSeparator />
+        <ContextMenuRadioGroup value="pedro">
+          <ContextMenuLabel data-inset="true">People</ContextMenuLabel>
+          <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
+          <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+        </ContextMenuRadioGroup>
+      </ContextMenuContent>
+    </ContextMenu>
+  );
+}
 
 export default function Page() {
   return (
     <main style={{ padding: 24 }}>
-      <h1>Context Menu Example</h1>
-
-      <ContextMenu>
-        <ContextMenuTrigger>
-          <div
-            style={{
-              border: "1px dashed gray",
-              padding: "40px",
-              textAlign: "center",
-              cursor: "context-menu",
-            }}
-          >
-            Right click here
-          </div>
-        </ContextMenuTrigger>
-
-        <ContextMenuPortal>
-          <ContextMenuContent>
-            <ContextMenuItem>New Tab</ContextMenuItem>
-            <ContextMenuItem>New Window</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuCheckboxItem checked>Show Bookmarks Bar</ContextMenuCheckboxItem>
-            <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-            <ContextMenuSeparator />
-            <ContextMenuLabel>People</ContextMenuLabel>
-            <ContextMenuRadioGroup value="john">
-              <ContextMenuRadioItem value="john">John</ContextMenuRadioItem>
-              <ContextMenuRadioItem value="jane">Jane</ContextMenuRadioItem>
-            </ContextMenuRadioGroup>
-            <ContextMenuSeparator />
-            <ContextMenuSub>
-              <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
-              <ContextMenuSubContent>
-                <ContextMenuItem>Developer Tools</ContextMenuItem>
-                <ContextMenuItem>Extensions</ContextMenuItem>
-              </ContextMenuSubContent>
-            </ContextMenuSub>
-          </ContextMenuContent>
-        </ContextMenuPortal>
-      </ContextMenu>
+      <h1>Context Menu Examples</h1>
+      <ContextMenuDemo />
     </main>
-  )
+  );
 }

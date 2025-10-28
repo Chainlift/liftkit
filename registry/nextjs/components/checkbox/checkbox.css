@@ -1,6 +1,84 @@
 /* checkbox.css */
 
-[data-slot="checkbox-root"] {
+[data-slot="checkbox"] {
+  /* Remove browser default checkbox styling */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* peer border-input dark:bg-input/30 size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none */
+  border: 1px solid var(--input);
+  width: calc(var(--lk-size-md) * var(--lk-halfstep));
+  height: calc(var(--lk-size-md) * var(--lk-halfstep));
+  border-radius: var(--lk-size-xs);
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] */
+  &:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+  }
+
+  /* aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive */
+  &[aria-invalid="true"] {
+    border-color: var(--destructive);
+    box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.2);
+  }
+
+  /* data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary */
+  &[data-state="checked"] {
+    background-color: var(--lk-primary);
+    color: var(--lk-onprimary);
+    border-color: var(--primary);
+  }
+
+  /* disabled:cursor-not-allowed disabled:opacity-50 */
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-state="indeterminate"] {
+  }
+
+  &[data-disabled] {
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-slot="checkbox"] {
+    /* dark:bg-input/30 dark:data-[state=checked]:bg-primary */
+    background-color: rgb(from var(--input) r g b / 0.3);
+
+    &[data-state="checked"] {
+      background-color: var(--primary);
+    }
+
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.4);
+    }
+  }
+}
+
+[data-slot="checkbox-indicator"] {
+  /* flex items-center justify-center text-current transition-none */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  transition: none;
+
   &[data-state="checked"] {
   }
 
@@ -14,16 +92,8 @@
   }
 }
 
-[data-slot="checkbox-indicator"] {
-  &[data-state="checked"] {
-  }
-
-  &[data-state="unchecked"] {
-  }
-
-  &[data-state="indeterminate"] {
-  }
-
-  &[data-disabled] {
-  }
+/* CheckIcon size-3.5 */
+[data-slot="checkbox-indicator"] svg {
+  width: var(--lk-size-md);
+  height: var(--lk-size-md);
 }

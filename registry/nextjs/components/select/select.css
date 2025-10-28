@@ -1,59 +1,218 @@
 /* select.css */
 
-[data-slot="select-root"] {
+[data-slot="select"] {
 }
 
+/* SelectTrigger - Complex Tailwind classes converted */
 [data-slot="select-trigger"] {
-  &[data-state="open"] {
+  /* border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground */
+  border: 1px solid var(--input);
+
+  /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] */
+  &:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
   }
 
-  &[data-state="closed"] {
+  /* aria-invalid:ring-destructive/20 aria-invalid:border-destructive */
+  &[aria-invalid="true"] {
+    border-color: var(--destructive);
+    box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.2);
   }
 
+  /* dark:aria-invalid:ring-destructive/40 dark:bg-input/30 dark:hover:bg-input/50 */
+  @media (prefers-color-scheme: dark) {
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.4);
+    }
+    background-color: rgb(from var(--input) r g b / 0.3);
+
+    &:hover {
+      background-color: rgb(from var(--input) r g b / 0.5);
+    }
+  }
+
+  /* flex w-fit items-center justify-between gap-2 rounded-md bg-transparent px-3 py-2 */
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  padding: 0.5rem 0.75rem;
+
+  /* text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none */
+  font-size: 0.875rem;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+
+  /* disabled:cursor-not-allowed disabled:opacity-50 */
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* data-[size=default]:h-9 data-[size=sm]:h-8 */
+  &[data-size="default"] {
+    height: 2.25rem;
+  }
+
+  &[data-size="sm"] {
+    height: 2rem;
+  }
+
+  /* data-[placeholder]:text-muted-foreground */
   &[data-placeholder] {
+    color: var(--muted-foreground);
   }
 
-  &[data-disabled] {
-  }
-}
-
-[data-slot="select-value"] {
-}
-
-[data-slot="select-icon"] {
-}
-
-[data-slot="select-portal"] {
-}
-
-[data-slot="select-content"] {
   &[data-state="open"] {
   }
 
   &[data-state="closed"] {
   }
-}
 
-[data-slot="select-scroll-up-button"] {
-}
-
-[data-slot="select-scroll-down-button"] {
-}
-
-[data-slot="select-view-port"] {
-}
-
-[data-slot="select-group"] {
-}
-
-[data-slot="select-label"] {
-}
-
-[data-slot="select-item"] {
   &[data-disabled] {
   }
+}
 
+/* SelectValue - *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 */
+[data-slot="select-value"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* SelectTrigger Icons - [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 */
+.select-chevron {
+  pointer-events: none;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.5;
+}
+
+/* SelectContent - Complex animation and positioning classes */
+[data-slot="select-content"] {
+  /* bg-popover text-popover-foreground relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] */
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  position: relative;
+  z-index: 50;
+  max-height: var(--radix-select-content-available-height);
+  min-width: 8rem;
+
+  /* origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md */
+  transform-origin: var(--radix-select-content-transform-origin);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Animation classes - data-[state=open]:animate-in etc. */
+  &[data-state="open"] {
+    animation: selectContentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &[data-state="closed"] {
+    animation: selectContentHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Positioning offsets for popper */
+  &[data-side="bottom"] {
+    transform: translateY(1px);
+  }
+
+  &[data-side="left"] {
+    transform: translateX(-1px);
+  }
+
+  &[data-side="right"] {
+    transform: translateX(1px);
+  }
+
+  &[data-side="top"] {
+    transform: translateY(-1px);
+  }
+}
+
+.select-content {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  position: relative;
+  z-index: 50;
+  max-height: var(--radix-select-content-available-height);
+  min-width: 8rem;
+  transform-origin: var(--radix-select-content-transform-origin);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* SelectViewport - p-1 + popper styles */
+.select-viewport {
+  padding: 0.25rem;
+}
+
+.select-viewport-popper {
+  height: var(--radix-select-trigger-height);
+  width: 100%;
+  min-width: var(--radix-select-trigger-width);
+}
+
+/* SelectLabel - text-muted-foreground px-2 py-1.5 text-xs */
+[data-slot="select-label"] {
+  color: var(--muted-foreground);
+  padding: 0.375rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* SelectItem - Complex focus and interaction classes */
+[data-slot="select-item"] {
+  /* focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground */
+  /* relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm */
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: default;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  padding: 0.375rem 2rem 0.375rem 0.5rem;
+  font-size: 0.875rem;
+
+  /* outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 */
+  outline: none;
+  user-select: none;
+
+  /* [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 */
+  /* *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 */
+
+  &:focus,
   &[data-highlighted] {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   &[data-state="checked"] {
@@ -63,11 +222,76 @@
   }
 }
 
-[data-slot="select-item-indicator"] {
+/* SelectItemIndicator - absolute right-2 flex size-3.5 items-center justify-center */
+.select-item-indicator {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  width: 0.875rem;
+  height: 0.875rem;
+  align-items: center;
+  justify-content: center;
 }
 
+.select-check {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* SelectSeparator - bg-border pointer-events-none -mx-1 my-1 h-px */
 [data-slot="select-separator"] {
+  background-color: var(--border);
+  pointer-events: none;
+  margin: 0.25rem -0.25rem;
+  height: 1px;
+}
+
+/* SelectScrollButtons - flex cursor-default items-center justify-center py-1 */
+.select-scroll-button {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+[data-slot="select-scroll-up-button"] {
+}
+
+[data-slot="select-scroll-down-button"] {
+}
+
+.select-chevron-up,
+.select-chevron-down {
+  width: 1rem;
+  height: 1rem;
+}
+
+[data-slot="select-group"] {
 }
 
 [data-slot="select-viewport"] {
+}
+
+/* Animation keyframes */
+@keyframes selectContentShow {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes selectContentHide {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }

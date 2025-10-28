@@ -1,22 +1,17 @@
 // dropdown-menu.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./dropdown-menu.css"
+import * as React from "react";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./dropdown-menu.css";
 
 const DropdownMenu = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Root>,
   React.ComponentProps<typeof DropdownMenuPrimitive.Root>
->(function DropdownMenu({...props }, ref) {
-  return (
-    <DropdownMenuPrimitive.Root
-      data-slot="dropdown-menu-root"
-      {...props}
-    />
-  )
-})
+>(function DropdownMenu({ ...props }, ref) {
+  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu-root" {...props} />;
+});
 
 const DropdownMenuTrigger = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Trigger>,
@@ -29,21 +24,15 @@ const DropdownMenuTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuPortal = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Portal>,
   React.ComponentProps<typeof DropdownMenuPrimitive.Portal>
->(function DropdownMenuPortal({...props }, ref) {
-  return (
-    <DropdownMenuPrimitive.Portal
-      data-slot="dropdown-menu-portal"
-      {...props}
-    />
-  )
-})
-
+>(function DropdownMenuPortal({ ...props }, ref) {
+  return <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
+});
 
 const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
@@ -56,8 +45,8 @@ const DropdownMenuContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuArrow = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Arrow>,
@@ -70,8 +59,8 @@ const DropdownMenuArrow = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuItem = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Item>,
@@ -84,8 +73,8 @@ const DropdownMenuItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuGroup = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Group>,
@@ -98,8 +87,8 @@ const DropdownMenuGroup = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuLabel = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Label>,
@@ -112,8 +101,8 @@ const DropdownMenuLabel = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.CheckboxItem>,
@@ -126,8 +115,8 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuRadioGroup = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.RadioGroup>,
@@ -139,10 +128,9 @@ const DropdownMenuRadioGroup = React.forwardRef<
       data-slot="dropdown-menu-radio-group"
       className={cn("placeholder", className)}
       {...props}
-      />
-    )
-  }
-)
+    />
+  );
+});
 
 const DropdownMenuRadioItem = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.RadioItem>,
@@ -155,8 +143,8 @@ const DropdownMenuRadioItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuItemIndicator = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.ItemIndicator>,
@@ -169,8 +157,8 @@ const DropdownMenuItemIndicator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuSeparator = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Separator>,
@@ -183,20 +171,15 @@ const DropdownMenuSeparator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuSub = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Sub>,
   React.ComponentProps<typeof DropdownMenuPrimitive.Sub>
->(function DropdownMenuSub({...props }, ref) {
-  return (
-    <DropdownMenuPrimitive.Sub
-      data-slot="dropdown-menu-sub"
-      {...props}
-    />
-  )
-})
+>(function DropdownMenuSub({ ...props }, ref) {
+  return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />;
+});
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.SubTrigger>,
@@ -209,8 +192,8 @@ const DropdownMenuSubTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -223,8 +206,14 @@ const DropdownMenuSubContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
+
+const DropdownMenuShortcut = React.forwardRef<React.ComponentRef<"span">, React.ComponentProps<"span">>(
+  function DropdownMenuShortcut({ className, ...props }, ref) {
+    return <span ref={ref} data-slot="dropdown-menu-shortcut" className={cn(className)} {...props} />;
+  }
+);
 
 export {
   DropdownMenu,
@@ -240,7 +229,8 @@ export {
   DropdownMenuRadioItem,
   DropdownMenuItemIndicator,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-}
+};

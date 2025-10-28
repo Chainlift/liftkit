@@ -1,229 +1,171 @@
-// select.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SelectPrimitive from "@radix-ui/react-select"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./select.css"
+import * as React from "react";
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./select.css";
 
-const Select = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Root>,
-  React.ComponentProps<typeof SelectPrimitive.Root>
->(function Select({...props }, ref) {
-  return (
-    <SelectPrimitive.Root
-      data-slot="select-root"
-      {...props}
-    />
-  )
-})
-
-const SelectTrigger = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentProps<typeof SelectPrimitive.Trigger>
->(function SelectTrigger({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Trigger
-      ref={ref}
-      data-slot="select-trigger"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectValue = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Value>,
-  React.ComponentProps<typeof SelectPrimitive.Value>
->(function SelectValue({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Value
-      ref={ref}
-      data-slot="select-value"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectIcon = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Icon>,
-  React.ComponentProps<typeof SelectPrimitive.Icon>
->(function SelectIcon({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Icon
-      ref={ref}
-      data-slot="select-icon"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-// No className or ref on Portal
-function SelectPortal(props: React.ComponentProps<typeof SelectPrimitive.Portal>) {
-  return (
-    <SelectPrimitive.Portal
-      data-slot="select-portal"
-      {...props}
-    />
-  )
+function Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {
+  return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
-const SelectContent = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Content>,
-  React.ComponentProps<typeof SelectPrimitive.Content>
->(function SelectContent({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Content
-      ref={ref}
-      data-slot="select-content"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+function SelectGroup({ ...props }: React.ComponentProps<typeof SelectPrimitive.Group>) {
+  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
+}
 
-const SelectScrollUpButton = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.ScrollUpButton>,
-  React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>
->(function SelectScrollUpButton({ className, ...props }, ref) {
+function SelectValue({ ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) {
+  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
+}
+
+function SelectTrigger({
+  className,
+  size = "default",
+  children,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
+  size?: "sm" | "default";
+}) {
+  return (
+    <SelectPrimitive.Trigger data-slot="select-trigger" data-size={size} className={cn("", className)} {...props}>
+      {children}
+      <SelectPrimitive.Icon asChild>
+        <svg
+          className="select-chevron"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </SelectPrimitive.Icon>
+    </SelectPrimitive.Trigger>
+  );
+}
+
+function SelectContent({
+  className,
+  children,
+  position = "popper",
+  align = "center",
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+  return (
+    <SelectPrimitive.Portal>
+      <SelectPrimitive.Content
+        data-slot="select-content"
+        className={cn("select-content", className)}
+        position={position}
+        align={align}
+        {...props}
+      >
+        <SelectScrollUpButton />
+        <SelectPrimitive.Viewport className={cn("select-viewport", position === "popper" && "select-viewport-popper")}>
+          {children}
+        </SelectPrimitive.Viewport>
+        <SelectScrollDownButton />
+      </SelectPrimitive.Content>
+    </SelectPrimitive.Portal>
+  );
+}
+
+function SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {
+  return <SelectPrimitive.Label data-slot="select-label" className={cn("", className)} {...props} />;
+}
+
+function SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {
+  return (
+    <SelectPrimitive.Item data-slot="select-item" className={cn("", className)} {...props}>
+      <span className="select-item-indicator">
+        <SelectPrimitive.ItemIndicator>
+          <svg
+            className="select-check"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        </SelectPrimitive.ItemIndicator>
+      </span>
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    </SelectPrimitive.Item>
+  );
+}
+
+function SelectSeparator({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+  return <SelectPrimitive.Separator data-slot="select-separator" className={cn("", className)} {...props} />;
+}
+
+function SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
     <SelectPrimitive.ScrollUpButton
-      ref={ref}
       data-slot="select-scroll-up-button"
-      className={cn("placeholder", className)}
+      className={cn("select-scroll-button", className)}
       {...props}
-    />
-  )
-})
+    >
+      <svg
+        className="select-chevron-up"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </SelectPrimitive.ScrollUpButton>
+  );
+}
 
-const SelectScrollDownButton = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>
->(function SelectScrollDownButton({ className, ...props }, ref) {
+function SelectScrollDownButton({
+  className,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
     <SelectPrimitive.ScrollDownButton
-      ref={ref}
       data-slot="select-scroll-down-button"
-      className={cn("placeholder", className)}
+      className={cn("select-scroll-button", className)}
       {...props}
-    />
-  )
-})
-
-const SelectViewport = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Viewport>,
-  React.ComponentProps<typeof SelectPrimitive.Viewport>
->(function SelectViewport({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Viewport
-      ref={ref}
-      data-slot="select-viewport"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectGroup = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Group>,
-  React.ComponentProps<typeof SelectPrimitive.Group>
->(function SelectGroup({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Group
-      ref={ref}
-      data-slot="select-group"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectLabel = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Label>,
-  React.ComponentProps<typeof SelectPrimitive.Label>
->(function SelectLabel({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Label
-      ref={ref}
-      data-slot="select-label"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectItem = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Item>,
-  React.ComponentProps<typeof SelectPrimitive.Item>
->(function SelectItem({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Item
-      ref={ref}
-      data-slot="select-item"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectItemIndicator = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.ItemIndicator>,
-  React.ComponentProps<typeof SelectPrimitive.ItemIndicator>
->(function SelectItemIndicator({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.ItemIndicator
-      ref={ref}
-      data-slot="select-item-indicator"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectSeparator = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Separator>,
-  React.ComponentProps<typeof SelectPrimitive.Separator>
->(function SelectSeparator({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Separator
-      ref={ref}
-      data-slot="select-separator"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-const SelectViewportContent = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.Viewport>,
-  React.ComponentProps<typeof SelectPrimitive.Viewport>
->(function SelectViewportContent({ className, ...props }, ref) {
-  return (
-    <SelectPrimitive.Viewport
-      ref={ref}
-      data-slot="select-viewport"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    >
+      <svg
+        className="select-chevron-down"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </SelectPrimitive.ScrollDownButton>
+  );
+}
 
 export {
   Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
-  SelectIcon,
-  SelectPortal,
-  SelectContent,
-  SelectScrollUpButton,
-  SelectScrollDownButton,
-  SelectViewport,
-  SelectGroup,
-  SelectLabel,
-  SelectItem,
-  SelectItemIndicator,
-  SelectSeparator,
-  SelectViewportContent,
-}
+};

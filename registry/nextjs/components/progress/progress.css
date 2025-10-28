@@ -1,7 +1,28 @@
 /* progress.css */
 
-[data-slot="progress-root"] {
+/* Progress Root - bg-primary/20 relative h-2 w-full overflow-hidden rounded-full */
+[data-slot="progress"] {
+  background-color: rgb(from var(--primary) r g b / 0.2);
+  position: relative;
+  height: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
 }
 
+/* Progress Indicator - bg-primary h-full w-full flex-1 transition-all */
 [data-slot="progress-indicator"] {
+  background-color: var(--primary);
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-indicator {
+  background-color: var(--primary);
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }

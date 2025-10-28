@@ -1,14 +1,86 @@
 /* radio-group.css */
 
-[data-slot="radio-group-root"] {
+/* RadioGroup Root - grid gap-3 */
+[data-slot="radio-group"] {
+  display: grid;
+  gap: 0.75rem;
+
   &[data-orientation="vertical"] {
+    grid-template-columns: 1fr;
   }
 
   &[data-orientation="horizontal"] {
+    grid-auto-flow: column;
+    justify-content: start;
   }
 }
 
+/* RadioGroupItem - complex Tailwind classes converted */
 [data-slot="radio-group-item"] {
+  /* border-input text-primary aspect-square size-4 shrink-0 rounded-full border shadow-xs */
+  border: 1px solid var(--border);
+  color: var(--primary);
+  aspect-ratio: 1;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  /* transition-[color,box-shadow] outline-none */
+  transition:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+
+  /* disabled:cursor-not-allowed disabled:opacity-50 */
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] */
+  &:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+  }
+
+  /* aria-invalid:ring-destructive/20 aria-invalid:border-destructive */
+  &[aria-invalid="true"] {
+    border-color: var(--destructive);
+    box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.2);
+  }
+
+  /* dark:aria-invalid:ring-destructive/40 dark:bg-input/30 */
+  @media (prefers-color-scheme: dark) {
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.4);
+    }
+    background-color: rgb(from var(--input) r g b / 0.3);
+  }
+
+  &[data-state="checked"] {
+    border-color: var(--primary);
+  }
+
+  &[data-state="unchecked"] {
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+/* RadioGroupIndicator - relative flex items-center justify-center */
+[data-slot="radio-group-indicator"] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
   &[data-state="checked"] {
   }
 
@@ -19,13 +91,23 @@
   }
 }
 
-[data-slot="radio-group-indicator"] {
-  &[data-state="checked"] {
-  }
+.radio-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 
-  &[data-state="unchecked"] {
-  }
-
-  &[data-disabled] {
-  }
+/* Radio dot - fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 */
+.radio-dot {
+  background-color: var(--primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }

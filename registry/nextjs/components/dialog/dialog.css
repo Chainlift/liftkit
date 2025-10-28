@@ -1,6 +1,6 @@
 /* dialog.css */
 
-[data-slot="dialog-root"] {
+[data-slot="dialog"] {
 }
 
 [data-slot="dialog-trigger"] {
@@ -15,31 +15,186 @@
 }
 
 [data-slot="dialog-overlay"] {
+  /* data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50 */
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgb(0 0 0 / 0.5);
+
   &[data-state="open"] {
+    animation: fadeIn 0.2s ease-out;
   }
 
   &[data-state="closed"] {
+    animation: fadeOut 0.2s ease-out;
   }
 }
 
 [data-slot="dialog-content"] {
+  /* bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg */
+  background-color: var(--background);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  display: grid;
+  width: 100%;
+  max-width: calc(100% - 2rem);
+  transform: translate(-50%, -50%);
+  gap: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition-duration: 200ms;
+
   &[data-state="open"] {
+    animation:
+      fadeIn 0.2s ease-out,
+      zoomIn 0.2s ease-out;
   }
 
   &[data-state="closed"] {
+    animation:
+      fadeOut 0.2s ease-out,
+      zoomOut 0.2s ease-out;
+  }
+
+  /* sm:max-w-lg */
+  @media (min-width: 640px) {
+    max-width: 32rem;
+  }
+}
+
+[data-slot="dialog-close"] {
+  /* ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 0.125rem;
+  opacity: 0.7;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--ring),
+      0 0 0 4px var(--ring-offset-background);
+  }
+
+  &[data-state="open"] {
+    background-color: var(--accent);
+    color: var(--muted-foreground);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  /* [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 */
+  svg {
+    pointer-events: none;
+    flex-shrink: 0;
+
+    &:not([class*="size-"]) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+[data-slot="dialog-header"] {
+  /* flex flex-col gap-2 text-center sm:text-left */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+}
+
+[data-slot="dialog-footer"] {
+  /* flex flex-col-reverse gap-2 sm:flex-row sm:justify-end */
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: flex-end;
   }
 }
 
 [data-slot="dialog-title"] {
+  /* text-lg leading-none font-semibold */
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 600;
 }
 
 [data-slot="dialog-description"] {
+  /* text-muted-foreground text-sm */
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-[data-slot="dialog-close"] {
-  &[data-state="open"] {
-  }
+/* Screen reader only class for close button */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-  &[data-state="closed"] {
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.95);
   }
 }

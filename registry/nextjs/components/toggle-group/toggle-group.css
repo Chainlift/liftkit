@@ -1,20 +1,172 @@
 /* toggle-group.css */
 
-[data-slot="toggle-group-root"] {
+/* Base Toggle Group Styles */
+[data-slot="toggle-group"] {
+  /* flex w-fit items-center rounded-md */
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 0.375rem;
+
+  /* gap-[--spacing(var(--gap))] */
+  gap: calc(var(--gap) * 0.25rem);
+
+  /* data-[spacing=default]:data-[variant=outline]:shadow-xs */
+  &[data-spacing="0"][data-variant="outline"] {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
   &[data-orientation="horizontal"] {
+    flex-direction: row;
   }
 
   &[data-orientation="vertical"] {
+    flex-direction: column;
   }
 }
 
+/* Toggle Group Item Base Styles - inherits from Toggle styles */
 [data-slot="toggle-group-item"] {
+  /* Base toggle styles from toggle.css */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+
+  /* w-auto min-w-0 shrink-0 px-3 */
+  width: auto;
+  min-width: 0;
+  flex-shrink: 0;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  /* focus:z-10 focus-visible:z-10 */
+  &:focus {
+    z-index: 10;
+  }
+
+  &:focus-visible {
+    z-index: 10;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+    outline: none;
+  }
+
+  /* hover:bg-muted hover:text-muted-foreground */
+  &:hover {
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+  }
+
+  /* disabled:pointer-events-none disabled:opacity-50 */
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* transition-[color,box-shadow] */
+  transition:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* whitespace-nowrap */
+  white-space: nowrap;
+
+  /* [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 */
+  & svg {
+    pointer-events: none;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
   &[data-state="on"] {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
   }
 
   &[data-state="off"] {
+    /* Default off state - inherits base styles */
+    background-color: transparent;
   }
 
   &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
   }
+}
+
+/* Spacing = 0 (Connected buttons) */
+[data-slot="toggle-group-item"][data-spacing="0"] {
+  /* data-[spacing=0]:rounded-none data-[spacing=0]:shadow-none */
+  border-radius: 0;
+  box-shadow: none;
+
+  /* data-[spacing=0]:first:rounded-l-md data-[spacing=0]:last:rounded-r-md */
+  &:first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  &:last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+}
+
+/* Outline variant spacing=0 border handling */
+[data-slot="toggle-group-item"][data-spacing="0"][data-variant="outline"] {
+  /* data-[spacing=0]:data-[variant=outline]:border-l-0 */
+  border-left: 0;
+
+  /* data-[spacing=0]:data-[variant=outline]:first:border-l */
+  &:first-child {
+    border-left: 1px solid var(--input);
+  }
+}
+
+/* Variant: Default */
+[data-slot="toggle-group-item"][data-variant="default"] {
+  background-color: transparent;
+}
+
+/* Variant: Outline */
+[data-slot="toggle-group-item"][data-variant="outline"] {
+  border: 1px solid var(--input);
+  background-color: transparent;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+/* Size: Default */
+[data-slot="toggle-group-item"][data-size="default"] {
+  height: 2.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-width: 2.25rem;
+}
+
+/* Size: Small */
+[data-slot="toggle-group-item"][data-size="sm"] {
+  height: 2rem;
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+  min-width: 2rem;
+}
+
+/* Size: Large */
+[data-slot="toggle-group-item"][data-size="lg"] {
+  height: 2.5rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  min-width: 2.5rem;
 }

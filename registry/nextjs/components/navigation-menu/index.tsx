@@ -1,24 +1,31 @@
 // navigation-menu.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./navigation-menu.css"
+import * as React from "react";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { ChevronDownIcon } from "lucide-react";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./navigation-menu.css";
 
 const NavigationMenu = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentProps<typeof NavigationMenuPrimitive.Root>
->(function NavigationMenu({ className, ...props }, ref) {
+  React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
+    viewport?: boolean;
+  }
+>(function NavigationMenu({ className, children, viewport = true, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Root
       ref={ref}
-      data-slot="navigation-menu-root"
+      data-slot="navigation-menu"
+      data-viewport={viewport}
       className={cn("placeholder", className)}
       {...props}
-    />
-  )
-})
+    >
+      {children}
+      {viewport && <NavigationMenuViewport />}
+    </NavigationMenuPrimitive.Root>
+  );
+});
 
 const NavigationMenuSub = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Sub>,
@@ -31,8 +38,8 @@ const NavigationMenuSub = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuList = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.List>,
@@ -45,8 +52,8 @@ const NavigationMenuList = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuItem = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Item>,
@@ -59,22 +66,24 @@ const NavigationMenuItem = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Trigger>,
   React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>
->(function NavigationMenuTrigger({ className, ...props }, ref) {
+>(function NavigationMenuTrigger({ className, children, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Trigger
       ref={ref}
       data-slot="navigation-menu-trigger"
       className={cn("placeholder", className)}
       {...props}
-    />
-  )
-})
+    >
+      {children} <ChevronDownIcon className="chevron-icon" aria-hidden="true" />
+    </NavigationMenuPrimitive.Trigger>
+  );
+});
 
 const NavigationMenuContent = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
@@ -87,8 +96,8 @@ const NavigationMenuContent = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
@@ -101,8 +110,8 @@ const NavigationMenuLink = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuIndicator = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -115,22 +124,27 @@ const NavigationMenuIndicator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const NavigationMenuViewport = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>
 >(function NavigationMenuViewport({ className, ...props }, ref) {
   return (
-    <NavigationMenuPrimitive.Viewport
-      ref={ref}
-      data-slot="navigation-menu-viewport"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <div data-slot="navigation-menu-viewport-wrapper" className="viewport-wrapper">
+      <NavigationMenuPrimitive.Viewport
+        ref={ref}
+        data-slot="navigation-menu-viewport"
+        className={cn("placeholder", className)}
+        {...props}
+      />
+    </div>
+  );
+});
+
+// Trigger style function for consistency with shadcn pattern
+const navigationMenuTriggerStyle = () => "navigation-menu-trigger-style";
 
 export {
   NavigationMenu,
@@ -142,4 +156,5 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-}
+  navigationMenuTriggerStyle,
+};

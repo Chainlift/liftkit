@@ -1,23 +1,25 @@
-// toggle.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as TogglePrimitive from "@radix-ui/react-toggle"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./toggle.css"
+import * as React from "react";
+import * as TogglePrimitive from "@radix-ui/react-toggle";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./toggle.css";
 
-const Toggle = React.forwardRef<
-  React.ComponentRef<typeof TogglePrimitive.Root>,
-  React.ComponentProps<typeof TogglePrimitive.Root>
->(function Toggle({ className, ...props }, ref) {
+interface ToggleProps extends React.ComponentProps<typeof TogglePrimitive.Root> {
+  variant?: "default" | "outline";
+  size?: "default" | "sm" | "lg";
+}
+
+function Toggle({ className, variant = "default", size = "default", ...props }: ToggleProps) {
   return (
     <TogglePrimitive.Root
-      ref={ref}
-      data-slot="toggle-root"
-      className={cn("placeholder", className)}
+      data-slot="toggle"
+      data-variant={variant}
+      data-size={size}
+      className={cn("", className)}
       {...props}
     />
-  )
-})
+  );
+}
 
-export { Toggle }
+export { Toggle };

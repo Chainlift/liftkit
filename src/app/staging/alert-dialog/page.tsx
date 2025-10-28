@@ -10,7 +10,11 @@ import {
   AlertDialogDescription,
   AlertDialogCancel,
   AlertDialogAction,
-} from "@/registry/nextjs/components/alert-dialog"
+  AlertDialogHeader,
+  AlertDialogFooter,
+} from "@/registry/nextjs/components/alert-dialog";
+
+import Button from "@/registry/nextjs/components/button";
 
 export default function Page() {
   return (
@@ -18,30 +22,37 @@ export default function Page() {
       <h1>Alert Dialog Example</h1>
 
       <AlertDialog>
-        <AlertDialogTrigger>
-          <button>Delete Account</button>
+        <AlertDialogTrigger asChild>
+          <Button variant="fill" color="primary">
+            Confirm
+          </Button>
         </AlertDialogTrigger>
 
         <AlertDialogPortal>
           <AlertDialogOverlay />
-          <AlertDialogContent>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove your
-              data from our servers.
-            </AlertDialogDescription>
-
-            <div style={{ marginTop: 16, display: "flex", gap: 8 }}>
-              <AlertDialogCancel>
-                <button>Cancel</button>
-              </AlertDialogCancel>
-              <AlertDialogAction>
-                <button>Confirm</button>
-              </AlertDialogAction>
-            </div>
+          <AlertDialogContent className="bg-surfacecontainerlowest">
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your account and remove your data from our
+                servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <div style={{ marginTop: 16, display: "flex", gap: 8 }}>
+                <AlertDialogCancel asChild>
+                  <Button variant="outline" color="error">
+                    Cancel
+                  </Button>
+                </AlertDialogCancel>
+                <AlertDialogAction asChild>
+                  <Button variant="fill">Confirm</Button>
+                </AlertDialogAction>
+              </div>
+            </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogPortal>
       </AlertDialog>
     </main>
-  )
+  );
 }

@@ -1,37 +1,25 @@
-// progress.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as ProgressPrimitive from "@radix-ui/react-progress"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./progress.css"
+import * as React from "react";
+import * as ProgressPrimitive from "@radix-ui/react-progress";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./progress.css";
 
 const Progress = React.forwardRef<
   React.ComponentRef<typeof ProgressPrimitive.Root>,
-  React.ComponentProps<typeof ProgressPrimitive.Root>
->(function Progress({ className, ...props }, ref) {
+  React.ComponentProps<typeof ProgressPrimitive.Root> & {
+    value?: number;
+  }
+>(function Progress({ className, value, ...props }, ref) {
   return (
-    <ProgressPrimitive.Root
-      ref={ref}
-      data-slot="progress-root"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <ProgressPrimitive.Root ref={ref} data-slot="progress" className={cn("", className)} {...props}>
+      <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
+        className="progress-indicator"
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+});
 
-const ProgressIndicator = React.forwardRef<
-  React.ComponentRef<typeof ProgressPrimitive.Indicator>,
-  React.ComponentProps<typeof ProgressPrimitive.Indicator>
->(function ProgressIndicator({ className, ...props }, ref) {
-  return (
-    <ProgressPrimitive.Indicator
-      ref={ref}
-      data-slot="progress-indicator"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
-
-export { Progress, ProgressIndicator }
+export { Progress };

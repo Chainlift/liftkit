@@ -1,6 +1,12 @@
 /* collapsible.css */
 
-[data-slot="collapsible-root"] {
+[data-slot="collapsible"] {
+  /* flex w-[350px] flex-col gap-2 - converted from Tailwind in demo */
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  gap: 0.5rem;
+
   &[data-state="open"] {
   }
 
