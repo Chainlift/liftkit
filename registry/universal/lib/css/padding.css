@@ -1,4 +1,4 @@
-@import "./liftkitvars.css";
+@import "./liftkit-core.css";
 
 .p-0 {
   padding: 0px !important;
@@ -40,7 +40,6 @@
   padding: var(--lk-size-4xl);
 }
 
-
 .pt-2xs {
   padding-top: var(--lk-size-2xs);
 }
@@ -76,8 +75,6 @@
 .pt-4xl {
   padding-top: var(--lk-size-4xl);
 }
-
-
 
 .pr-2xs {
   padding-right: var(--lk-size-2xs);
@@ -135,7 +132,6 @@
   padding-bottom: var(--lk-size-2xl);
 }
 
-
 .pb-3xl {
   padding-bottom: var(--lk-size-3xl);
 }
@@ -143,8 +139,6 @@
 .pb-4xl {
   padding-bottom: var(--lk-size-4xl);
 }
-
-
 
 .pl-2xs {
   padding-left: var(--lk-size-2xs);
@@ -226,10 +220,6 @@
   padding-top: var(--lk-size-4xl);
   padding-bottom: var(--lk-size-4xl);
 }
-
-
-
-
 
 .px-2xs {
   padding-right: var(--lk-size-2xs);

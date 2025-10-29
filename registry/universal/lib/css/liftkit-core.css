@@ -276,6 +276,21 @@
   --caption-line-height: var(--lk-halfstep);
   --capline-line-height: var(--lk-halfstep);
 
+  /* Font weights */
+
+  --display1-font-weight: 400
+  --display2-font-weight: 400;
+  --title1-font-weight: 400;
+  --title2-font-weight: 400;
+  --title3-font-weight: 400;
+  --heading-font-weight: 600;
+  --subheading-font-weight: 400;
+  --body-font-weight: 400
+  --callout-font-weight: 400;
+  --label-font-weight: 500;
+  --caption-font-weight: 400;
+  --capline-font-weight: 400;
+
   /* Optical Top Padding Offsets and Border Radii for Cards */
   /* Produce padding values for the insides of cards or other containers on sides that
      optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */

@@ -1,4 +1,4 @@
-@import "./liftkitvars.css";
+@import "./liftkit-core.css";
 
 /* Regular families */
 .display1 {
@@ -469,7 +469,6 @@
     font-size: 1.82285em;
   }
 }
-
 
 .weight-400 {
   font-weight: 400;

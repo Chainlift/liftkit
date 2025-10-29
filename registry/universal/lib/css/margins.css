@@ -1,4 +1,4 @@
-@import "./liftkitvars.css";
+@import "./liftkit-core.css";
 
 .mt-3xs {
   margin-top: var(--lk-size-3xs);

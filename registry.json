@@ -704,10 +704,6 @@
           "type": "registry:lib"
         },
         {
-          "path": "registry/universal/lib/css/liftkitvars.css",
-          "type": "registry:lib"
-        },
-        {
           "path": "registry/universal/lib/css/margins.css",
           "type": "registry:lib"
         },

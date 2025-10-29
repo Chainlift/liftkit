@@ -5,6 +5,8 @@ import * as React from "react";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./context-menu.css";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import Icon from "@/registry/nextjs/components/icon";
 
 const ContextMenu = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Root>,
@@ -86,7 +88,10 @@ const ContextMenuItem = React.forwardRef<
       data-slot="context-menu-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {props.children}
+      <StateLayer />
+    </ContextMenuPrimitive.Item>
   );
 });
 
@@ -100,7 +105,18 @@ const ContextMenuCheckboxItem = React.forwardRef<
       data-slot="context-menu-checkbox-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="context-menu-indicator-wrap">
+        <span>
+          <ContextMenuPrimitive.ItemIndicator>
+            <Icon name="check"></Icon>
+          </ContextMenuPrimitive.ItemIndicator>
+        </span>
+      </div>
+
+      {props.children}
+      <StateLayer />
+    </ContextMenuPrimitive.CheckboxItem>
   );
 });
 
@@ -128,7 +144,17 @@ const ContextMenuRadioItem = React.forwardRef<
       data-slot="context-menu-radio-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="context-menu-indicator-wrap">
+        <span>
+          <ContextMenuPrimitive.ItemIndicator>
+            <Icon name="circle-dot"></Icon>
+          </ContextMenuPrimitive.ItemIndicator>
+        </span>
+      </div>
+      {props.children}
+      <StateLayer />
+    </ContextMenuPrimitive.RadioItem>
   );
 });
 
@@ -142,7 +168,9 @@ const ContextMenuItemIndicator = React.forwardRef<
       data-slot="context-menu-item-indicator"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="context-menu-indicator-wrap">{props.children}</div>
+    </ContextMenuPrimitive.ItemIndicator>
   );
 });
 
@@ -177,7 +205,10 @@ const ContextMenuSubTrigger = React.forwardRef<
       data-slot="context-menu-sub-trigger"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {props.children}
+      <StateLayer />
+    </ContextMenuPrimitive.SubTrigger>
   );
 });
 

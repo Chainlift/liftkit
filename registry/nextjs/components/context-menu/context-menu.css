@@ -16,20 +16,16 @@
 
 [data-slot="context-menu-content"] {
   /* bg-popover text-popover-foreground z-50 max-h-(--radix-context-menu-content-available-height) min-w-[8rem] origin-(--radix-context-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md */
-  background-color: var(--popover);
-  color: var(--popover-foreground);
+  background-color: var(--lk-surfacecontainerlowest);
+  color: var(--lk-onsurface);
   z-index: 50;
-  max-height: var(--radix-context-menu-content-available-height);
-  min-width: 8rem;
+  max-height: calc(var(--lk-size-4xl) * var(--lk-wholestep) * var(--lk-wholestep));
+  min-width: var(--lk-size-4xl);
   transform-origin: var(--radix-context-menu-content-transform-origin);
   overflow-x: hidden;
   overflow-y: auto;
-  border-radius: 0.375rem;
-  border: 1px solid var(--border);
-  padding: 0.25rem;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: var(--lk-size-sm);
+  box-shadow: var(--shadow-md);
 
   /* Animation classes - data-[state=open]:animate-in data-[state=closed]:animate-out etc. */
   &[data-state="open"] {
@@ -79,16 +75,14 @@
 [data-slot="context-menu-label"] {
   /* text-foreground px-2 py-1.5 text-sm font-medium data-[inset]:pl-8 */
   color: var(--foreground);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
+  padding: var(--lk-size-sm) var(--lk-size-sm);
+  font-size: var(--label-font-size);
+  line-height: var(--label-line-height);
+  font-weight: var(--label-font-weight);
+
 
   &[data-inset="true"] {
-    padding-left: 2rem;
+    padding-left: var(--lk-size-xl);
   }
 }
 
@@ -100,10 +94,7 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.125rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  padding: var(--lk-size-sm) var(--lk-size-sm);
   font-size: 0.875rem;
   line-height: 1.25rem;
   outline: none;
@@ -129,7 +120,7 @@
   }
 
   &[data-inset="true"] {
-    padding-left: 2rem;
+    padding-left: var(--lk-size-xl);
   }
 
   /* SVG styling: [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 */
@@ -175,7 +166,7 @@
   }
 
   &[data-inset="true"] {
-    padding-left: 2rem;
+    padding-left: var(--lk-size-xl);
   }
 
   /* SVG styling same as menu-item */
@@ -206,12 +197,9 @@
   display: flex;
   cursor: default;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--lk-size-md);
   border-radius: 0.125rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  padding-right: 0.5rem;
-  padding-left: 2rem;
+  padding: var(--lk-size-sm) var(--lk-size-md) var(--lk-size-sm) var(--lk-size-xl);
   font-size: 0.875rem;
   line-height: 1.25rem;
   outline: none;
@@ -239,26 +227,24 @@
   }
 }
 
+[data-slot="context-menu-indicator-wrap"] {
+  width: var(--lk-size-xl);
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
 /* Indicator spans: pointer-events-none absolute left-2 flex size-3.5 items-center justify-center */
 [data-slot="context-menu-checkbox-item"] span,
 [data-slot="context-menu-radio-item"] span {
-  pointer-events: none;
-  position: absolute;
-  left: 0.5rem;
-  display: flex;
-  width: 0.875rem;
-  height: 0.875rem;
-  align-items: center;
-  justify-content: center;
 }
 
 [data-slot="context-menu-separator"] {
   /* bg-border -mx-1 my-1 h-px */
-  background-color: var(--border);
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  background-color: var(--lk-outlinevariant);
   height: 1px;
 }
 
