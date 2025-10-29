@@ -187,7 +187,7 @@ const buttonVariants = cva(["lk-btn"], {
 export default function Button({
   className,
   variant,
-  color,
+  color = "primary",
   fontClass,
   opticalCorrection,
   startIcon,

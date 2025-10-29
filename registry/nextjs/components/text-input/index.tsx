@@ -16,7 +16,7 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelPosition?: "default" | "on-input";
   helpText?: string;
   placeholder?: string;
-  name?: string;
+  displayLabelName?: string;
   endIcon?: IconName;
   labelBackgroundColor?: LkColor;
 }
@@ -25,7 +25,7 @@ export default function TextInput({
   labelPosition = "default",
   helpText,
   placeholder = "Placeholder",
-  name = "Label",
+  displayLabelName = "Label",
   endIcon = "search",
   labelBackgroundColor,
   ...restProps
@@ -40,8 +40,8 @@ export default function TextInput({
   return (
     <div data-lk-component="text-input" {...textInputProps}>
       {labelPosition === "default" && (
-        <label htmlFor={name} className="label">
-          {name}
+        <label htmlFor={restProps.id} className="label">
+          {displayLabelName}
         </label>
       )}
 
@@ -52,16 +52,16 @@ export default function TextInput({
       >
         {labelPosition === "on-input" && (
           <label
-            htmlFor={name}
+            htmlFor={restProps.id}
             className={`body ${labelBackgroundColor ? ` bg-${labelBackgroundColor}` : ""} ${inputValue ? "on-field-with-value-set" : ""}`}
           >
-            {name}
+            {displayLabelName}
           </label>
         )}
         <input
           type="text"
-          name={name}
-          id={name}
+          name={displayLabelName}
+          id={restProps.id}
           placeholder={labelPosition !== "on-input" ? placeholder : ""}
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}

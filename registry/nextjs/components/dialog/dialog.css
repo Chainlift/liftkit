@@ -42,12 +42,6 @@
   max-width: calc(100% - 2rem);
   transform: translate(-50%, -50%);
   gap: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  box-shadow:
-    0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
   transition-duration: 200ms;
 
   &[data-state="open"] {

@@ -4,6 +4,8 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
 import "./dialog.css";
 
 const Dialog = React.forwardRef<
@@ -40,10 +42,21 @@ const DialogOverlay = React.forwardRef<
 
 const DialogContent = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Content>,
-  React.ComponentProps<typeof DialogPrimitive.Content>
->(function DialogContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof DialogPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function DialogContent({ className, cardProps, ...props }, ref) {
   return (
-    <DialogPrimitive.Content ref={ref} data-slot="dialog-content" className={cn("placeholder", className)} {...props} />
+    <DialogPrimitive.Content
+      ref={ref}
+      data-slot="dialog-content"
+      className={cn("placeholder", className)}
+      {...props}
+    >
+      <Card {...cardProps} className="shadow-2xl">
+        {props.children}
+      </Card>
+    </DialogPrimitive.Content>
   );
 });
 

@@ -14,6 +14,7 @@ import {
 import TextInput from "@/registry/nextjs/components/text-input";
 import { Label } from "@/registry/nextjs/components/label";
 import Column from "@/registry/nextjs/components/column";
+import { Separator } from "radix-ui";
 
 export function DialogDemo() {
   return (
@@ -22,22 +23,22 @@ export function DialogDemo() {
         <DialogTrigger style={{ all: "unset" }}>
           <Button variant="outline">Open Dialog</Button>
         </DialogTrigger>
-        <DialogContent style={{ maxWidth: "425px" }}>
+        <DialogContent cardProps={{ scaleFactor: "title3", opticalCorrection: "top" }} style={{ maxWidth: "425px" }}>
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>Make changes to your profile here. Click save when you&apos;re done.</DialogDescription>
+            <DialogTitle className="title3-bold">Edit profile</DialogTitle>
+            <DialogDescription className="subheading color-onsurfacevariant mb-lg">
+              Make changes to your profile here. Click save when you&apos;re done.
+            </DialogDescription>
           </DialogHeader>
           <Column gap="lg">
             <Column gap="xs">
-              <Label htmlFor="name-1">Name</Label>
-              <TextInput id="name-1" name="name" defaultValue="Pedro Duarte" />
+              <TextInput id="name-1" displayLabelName="Legal Name" placeholder="Pedro Duarte" />
             </Column>
             <Column gap="xs">
-              <Label htmlFor="username-1">Username</Label>
-              <TextInput id="username-1" name="username" defaultValue="@peduarte" />
+              <TextInput id="username-1" displayLabelName="Username" placeholder="@peduarte" />
             </Column>
           </Column>
-          <DialogFooter>
+          <DialogFooter className="pt-md">
             <DialogClose style={{ all: "unset" }}>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
