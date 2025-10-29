@@ -1,29 +1,11 @@
 "use client";
 
 import React from "react";
-import {
-  User,
-  Settings,
-  Plus,
-  UserPlus,
-  Mail,
-  MessageSquare,
-  PlusCircle,
-  Github,
-  LifeBuoy,
-  Cloud,
-  Keyboard,
-  CreditCard,
-  Users,
-  UserCheck,
-  Check,
-  ChevronRight,
-  LogOut,
-} from "lucide-react";
 import Button from "@/registry/nextjs/components/button";
 import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
+import Icon from "@/registry/nextjs/components/icon";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -33,7 +15,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
+  DropdownMenuSeparator, 
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
@@ -63,26 +45,26 @@ export default function DropdownMenuDemo() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">Open</Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent style={{ width: "200px" }}>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel className="label">My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <User style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="user" />
                     <span>Profile</span>
                     <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <CreditCard style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="credit-card" />
                     <span>Billing</span>
                     <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Settings style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="settings" />
                     <span>Settings</span>
                     <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Keyboard style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="keyboard" />
                     <span>Keyboard shortcuts</span>
                     <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
                   </DropdownMenuItem>
@@ -99,25 +81,16 @@ export default function DropdownMenuDemo() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">Checkboxes</Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent style={{ width: "200px" }}>
-                  <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel className="label">Appearance</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem checked={bookmarksChecked} onCheckedChange={setBookmarksChecked}>
-                    <DropdownMenuItemIndicator>
-                      <Check style={{ width: "1rem", height: "1rem" }} />
-                    </DropdownMenuItemIndicator>
                     Status Bar
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem checked={urlsChecked} onCheckedChange={setUrlsChecked}>
-                    <DropdownMenuItemIndicator>
-                      <Check style={{ width: "1rem", height: "1rem" }} />
-                    </DropdownMenuItemIndicator>
                     Activity Bar
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem checked={false} disabled>
-                    <DropdownMenuItemIndicator>
-                      <Check style={{ width: "1rem", height: "1rem" }} />
-                    </DropdownMenuItemIndicator>
                     Panel (disabled)
                   </DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
@@ -133,49 +106,13 @@ export default function DropdownMenuDemo() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">Radio Items</Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent style={{ width: "200px" }}>
-                  <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel className="label">Panel Position</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuRadioGroup value={person} onValueChange={setPerson}>
-                    <DropdownMenuRadioItem value="pedro">
-                      <DropdownMenuItemIndicator>
-                        <div
-                          style={{
-                            width: "0.5rem",
-                            height: "0.5rem",
-                            backgroundColor: "currentColor",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      </DropdownMenuItemIndicator>
-                      Top
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="colm">
-                      <DropdownMenuItemIndicator>
-                        <div
-                          style={{
-                            width: "0.5rem",
-                            height: "0.5rem",
-                            backgroundColor: "currentColor",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      </DropdownMenuItemIndicator>
-                      Bottom
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="right">
-                      <DropdownMenuItemIndicator>
-                        <div
-                          style={{
-                            width: "0.5rem",
-                            height: "0.5rem",
-                            backgroundColor: "currentColor",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      </DropdownMenuItemIndicator>
-                      Right
-                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="pedro">Top</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="colm">Bottom</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -191,21 +128,21 @@ export default function DropdownMenuDemo() {
                   <Button variant="outline">Complex</Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent style={{ width: "240px" }}>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuLabel className="label">My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
-                      <User style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                      <Icon name="user" />
                       <span>Profile</span>
                       <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <CreditCard style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                      <Icon name="credit-card" />
                       <span>Billing</span>
                       <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Settings style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                      <Icon name="settings" />
                       <span>Settings</span>
                       <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                     </DropdownMenuItem>
@@ -213,52 +150,48 @@ export default function DropdownMenuDemo() {
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
-                      <Users style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
                       <span>Team</span>
                     </DropdownMenuItem>
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger>
-                        <UserPlus style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
                         <span>Invite users</span>
                       </DropdownMenuSubTrigger>
                       <DropdownMenuSubContent>
                         <DropdownMenuItem>
-                          <Mail style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
                           <span>Email</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                          <MessageSquare style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                          <Icon name="message-square" />
                           <span>Message</span>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <PlusCircle style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
                           <span>More...</span>
                         </DropdownMenuItem>
                       </DropdownMenuSubContent>
                     </DropdownMenuSub>
                     <DropdownMenuItem>
-                      <Plus style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                      <Icon name="plus" />
                       <span>New Team</span>
                       <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Github style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="github" />
                     <span>GitHub</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <LifeBuoy style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="life-buoy" />
                     <span>Support</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem disabled>
-                    <Cloud style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="cloud" />
                     <span>API</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <LogOut style={{ marginRight: "0.5rem", width: "1rem", height: "1rem" }} />
+                    <Icon name="log-out" />
                     <span>Log out</span>
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                   </DropdownMenuItem>
@@ -268,7 +201,7 @@ export default function DropdownMenuDemo() {
 
             {/* Destructive Item */}
             <div>
-              <Heading fontClass="title2" style={{ marginBottom: "1rem" }}>
+              <Heading >
                 With Destructive Action
               </Heading>
               <DropdownMenu>

@@ -4,6 +4,10 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import Icon from "@/registry/nextjs/components/icon";
 import "./dropdown-menu.css";
 
 const DropdownMenu = React.forwardRef<
@@ -36,15 +40,21 @@ const DropdownMenuPortal = React.forwardRef<
 
 const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
-  React.ComponentProps<typeof DropdownMenuPrimitive.Content>
->(function DropdownMenuContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof DropdownMenuPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function DropdownMenuContent({ className, cardProps, ...props }, ref) {
   return (
     <DropdownMenuPrimitive.Content
       ref={ref}
       data-slot="dropdown-menu-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card scaleFactor="caption" opticalCorrection="top"  {...cardProps}>
+        {props.children}
+      </Card>
+    </DropdownMenuPrimitive.Content>
   );
 });
 
@@ -72,7 +82,10 @@ const DropdownMenuItem = React.forwardRef<
       data-slot="dropdown-menu-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {props.children}
+      <StateLayer />
+    </DropdownMenuPrimitive.Item>
   );
 });
 
@@ -114,7 +127,17 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       data-slot="dropdown-menu-checkbox-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="dropdown-menu-indicator-wrap">
+        <span>
+          <DropdownMenuPrimitive.ItemIndicator>
+            <Icon name="check"></Icon>
+          </DropdownMenuPrimitive.ItemIndicator>
+        </span>
+      </div>
+      {props.children}
+      <StateLayer />
+    </DropdownMenuPrimitive.CheckboxItem>
   );
 });
 
@@ -142,7 +165,17 @@ const DropdownMenuRadioItem = React.forwardRef<
       data-slot="dropdown-menu-radio-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="dropdown-menu-indicator-wrap">
+        <span>
+          <DropdownMenuPrimitive.ItemIndicator>
+            <Icon name="circle"></Icon>
+          </DropdownMenuPrimitive.ItemIndicator>
+        </span>
+      </div>
+      {props.children}
+      <StateLayer />
+    </DropdownMenuPrimitive.RadioItem>
   );
 });
 
@@ -170,7 +203,9 @@ const DropdownMenuSeparator = React.forwardRef<
       data-slot="dropdown-menu-separator"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div></div>
+    </DropdownMenuPrimitive.Separator>
   );
 });
 
@@ -197,15 +232,21 @@ const DropdownMenuSubTrigger = React.forwardRef<
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.SubContent>,
-  React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>
->(function DropdownMenuSubContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof DropdownMenuPrimitive.SubContent> & {
+    cardProps?: LkCardProps;
+  }
+>(function DropdownMenuSubContent({ className, cardProps, ...props }, ref) {
   return (
     <DropdownMenuPrimitive.SubContent
       ref={ref}
       data-slot="dropdown-menu-sub-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card scaleFactor="caption" opticalCorrection="top" className="shadow-sm" {...cardProps}>
+        {props.children}
+      </Card>
+    </DropdownMenuPrimitive.SubContent>
   );
 });
 

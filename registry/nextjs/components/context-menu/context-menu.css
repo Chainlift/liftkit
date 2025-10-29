@@ -71,7 +71,7 @@
 
 [data-slot="context-menu-label"] {
   /* text-foreground px-2 py-1.5 text-sm font-medium data-[inset]:pl-8 */
-  color: var(--foreground);
+  color: var(--lk-onsurface);
   padding: var(--lk-size-sm) var(--lk-size-sm);
 
   &[data-inset="true"] {
