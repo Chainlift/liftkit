@@ -16,17 +16,9 @@
 
 [data-slot="hover-card-content"] {
   /* bg-popover text-popover-foreground z-50 w-64 origin-(--radix-hover-card-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden */
-  background-color: var(--popover);
-  color: var(--popover-foreground);
   z-index: 50;
   width: 16rem; /* w-64 */
   transform-origin: var(--radix-hover-card-content-transform-origin);
-  border-radius: 0.375rem;
-  border: 1px solid var(--border);
-  padding: 1rem;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
   outline: none;
 
   /* Animation states */

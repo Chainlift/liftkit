@@ -7,7 +7,7 @@ import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/registry/nextjs/components/hover-card";
-
+import Card from "@/registry/nextjs/components/card";
 export default function HoverCardDemo() {
   return (
     <Container>
@@ -25,54 +25,8 @@ export default function HoverCardDemo() {
                 <HoverCardTrigger asChild>
                   <Button variant="text">@nextjs</Button>
                 </HoverCardTrigger>
-                <HoverCardContent style={{ width: "20rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}>
-                    <div
-                      style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                        backgroundColor: "var(--muted)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <img
-                        src="https://github.com/vercel.png"
-                        alt="Vercel"
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                          const parent = target.parentElement;
-                          if (parent) {
-                            parent.innerHTML = `<span style="font-size: 0.875rem; font-weight: 500; color: var(--muted-foreground)">VC</span>`;
-                          }
-                        }}
-                      />
-                    </div>
-                    <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                      <h4 style={{ fontSize: "0.875rem", fontWeight: 600, margin: 0 }}>@nextjs</h4>
-                      <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)", margin: 0, lineHeight: 1.4 }}>
-                        The React Framework – created and maintained by @vercel.
-                      </p>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.25rem",
-                          color: "var(--muted-foreground)",
-                          fontSize: "0.75rem",
-                          marginTop: "0.5rem",
-                        }}
-                      >
-                        <CalendarIcon style={{ width: "0.75rem", height: "0.75rem" }} />
-                        <span>Joined December 2021</span>
-                      </div>
-                    </div>
-                  </div>
+                <HoverCardContent cardProps={{scaleFactor: "subheading"}}>
+                  <p className="subheading">Lorem ipsum dolor sit amet. Consectetur adipiscing alit.</p>
                 </HoverCardContent>
               </HoverCard>
             </div>

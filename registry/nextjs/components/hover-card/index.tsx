@@ -4,6 +4,8 @@
 import * as React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
 import "./hover-card.css";
 
 const HoverCard = React.forwardRef<
@@ -34,8 +36,10 @@ function HoverCardPortal(props: React.ComponentProps<typeof HoverCardPrimitive.P
 
 const HoverCardContent = React.forwardRef<
   React.ComponentRef<typeof HoverCardPrimitive.Content>,
-  React.ComponentProps<typeof HoverCardPrimitive.Content>
->(function HoverCardContent({ className, align = "center", sideOffset = 4, ...props }, ref) {
+  React.ComponentProps<typeof HoverCardPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function HoverCardContent({ className, cardProps, align = "center", sideOffset = 4, ...props }, ref) {
   return (
     <HoverCardPortal>
       <HoverCardPrimitive.Content
@@ -45,7 +49,9 @@ const HoverCardContent = React.forwardRef<
         sideOffset={sideOffset}
         className={cn("placeholder", className)}
         {...props}
-      />
+      >
+        <Card {...cardProps} className="shadow-md">{props.children}</Card>
+      </HoverCardPrimitive.Content>
     </HoverCardPortal>
   );
 });
