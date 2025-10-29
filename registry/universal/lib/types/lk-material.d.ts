@@ -11,7 +11,7 @@ declare global {
     tint?: LkColor; // Optional tint color for the glass material.
     tintOpacity?: number; // Optional opacity for the tint color. Defaults to 0.5.
     light?: boolean; // Optional. If true, adds a secondary layer for luminance effects.
-    lightExpression?: string; //Optional. The value to pass to the light's background prop. Should be a gradient.
+    lightExpression?: string; //Optional. The CSS value to pass to the light's background prop. Should be a gradient.
   };
 
   type LkMatProps_Flat = {

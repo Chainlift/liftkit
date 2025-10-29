@@ -3,7 +3,7 @@ import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { useMemo } from "react";
 
 /** LKMatProps is an object of any of the given types. Each material type has different unique props. */
-type LkMatProps = LkMatProps_Glass | LkMatProps_Flat;
+export type LkMatProps = LkMatProps_Glass | LkMatProps_Flat;
 
 type LkMatProps_Glass = {
   thickness?: "thick" | "normal" | "thin"; // Thickness of the glass material. Thicker material blurs more.

@@ -7,6 +7,8 @@ import { cn } from "@/registry/nextjs/lib/utilities";
 import "./context-menu.css";
 import StateLayer from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
 
 const ContextMenu = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Root>,
@@ -38,15 +40,25 @@ const ContextMenuPortal = React.forwardRef<
 
 const ContextMenuContent = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.Content>,
-  React.ComponentProps<typeof ContextMenuPrimitive.Content>
->(function ContextMenuContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof ContextMenuPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function ContextMenuContent({ className, cardProps, ...props }, ref) {
   return (
     <ContextMenuPrimitive.Content
       ref={ref}
       data-slot="context-menu-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card
+        scaleFactor="caption"
+
+        {...cardProps}
+      >
+        {props.children}
+      </Card>
+    </ContextMenuPrimitive.Content>
   );
 });
 
@@ -184,7 +196,9 @@ const ContextMenuSeparator = React.forwardRef<
       data-slot="context-menu-separator"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div></div>
+    </ContextMenuPrimitive.Separator>
   );
 });
 
@@ -206,7 +220,8 @@ const ContextMenuSubTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      {props.children}
+      <div data-slot="sub-trigger-label"> {props.children}</div>
+      <Icon name="chevron-right"></Icon>
       <StateLayer />
     </ContextMenuPrimitive.SubTrigger>
   );
@@ -214,15 +229,25 @@ const ContextMenuSubTrigger = React.forwardRef<
 
 const ContextMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof ContextMenuPrimitive.SubContent>,
-  React.ComponentProps<typeof ContextMenuPrimitive.SubContent>
->(function ContextMenuSubContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof ContextMenuPrimitive.SubContent> & {
+    cardProps?: LkCardProps;
+  }
+>(function ContextMenuSubContent({ className, cardProps, ...props }, ref) {
   return (
     <ContextMenuPrimitive.SubContent
       ref={ref}
       data-slot="context-menu-sub-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card
+        scaleFactor="caption"
+
+        {...cardProps}
+      >
+        {props.children}
+      </Card>
+    </ContextMenuPrimitive.SubContent>
   );
 });
 
