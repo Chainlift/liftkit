@@ -26,12 +26,12 @@ li:active > [data-lk-component="state-layer"] {
   opacity: 0.5 !important;
 }
 
-div:focus > [data-lk-component="state-layer"],
+/* div:focus > [data-lk-component="state-layer"],
 a:focus > [data-lk-component="state-layer"],
 button:focus > [data-lk-component="state-layer"],
 li:focus > [data-lk-component="state-layer"] {
   opacity: 0.35 !important;
-}
+} */
 
 .is-active [data-lk-component="state-layer"] {
   opacity: 0.16 !important;

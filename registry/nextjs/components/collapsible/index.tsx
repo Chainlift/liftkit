@@ -5,6 +5,8 @@ import * as React from "react";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./collapsible.css";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 
 const Collapsible = React.forwardRef<
   React.ComponentRef<typeof CollapsiblePrimitive.Root>,
@@ -18,7 +20,10 @@ const CollapsibleTrigger = React.forwardRef<
   React.ComponentProps<typeof CollapsiblePrimitive.Trigger>
 >(function CollapsibleTrigger({ className, ...props }, ref) {
   return (
-    <CollapsiblePrimitive.Trigger ref={ref} data-slot="collapsible-trigger" className={cn(className)} {...props} />
+    <CollapsiblePrimitive.Trigger ref={ref} data-slot="collapsible-trigger" className={cn(className)} {...props}>
+    {props.children}
+      <StateLayer />
+    </CollapsiblePrimitive.Trigger>
   );
 });
 

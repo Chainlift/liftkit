@@ -8,58 +8,36 @@ import Button from "@/registry/nextjs/components/button";
 import Column from "@/registry/nextjs/components/column";
 import Row from "@/registry/nextjs/components/row";
 import Heading from "@/registry/nextjs/components/heading";
+import Icon from "@/registry/nextjs/components/icon";
+import Card from "@/registry/nextjs/components/card";
 
 export function CollapsibleDemo() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen} style={{ width: "350px" }}>
-      <Row justifyContent="space-between" alignItems="center" style={{ padding: "0 1rem" }}>
+      <Row justifyContent="space-between" alignItems="center" className="mb-xs">
         <Heading fontClass="body" style={{ fontWeight: 600 }}>
           @peduarte starred 3 repositories
         </Heading>
+
         <CollapsibleTrigger>
-          <ChevronsUpDown />
+          <Icon name="chevrons-up-down" fontClass="title3"></Icon>
           <span className="sr-only">Toggle</span>
         </CollapsibleTrigger>
       </Row>
 
-      <div
-        style={{
-          borderRadius: "0.375rem",
-          border: "1px solid var(--border)",
-          padding: "1rem",
-          fontFamily: "monospace",
-          fontSize: "0.875rem",
-        }}
-      >
-        @radix-ui/primitives
-      </div>
-
       <CollapsibleContent>
         <Column gap="xs">
-          <div
-            style={{
-              borderRadius: "0.375rem",
-              border: "1px solid var(--border)",
-              padding: "1rem",
-              fontFamily: "monospace",
-              fontSize: "0.875rem",
-            }}
-          >
-            @radix-ui/colors
-          </div>
-          <div
-            style={{
-              borderRadius: "0.375rem",
-              border: "1px solid var(--border)",
-              padding: "1rem",
-              fontFamily: "monospace",
-              fontSize: "0.875rem",
-            }}
-          >
-            @stitches/react
-          </div>
+          <Card scaleFactor="body" opticalCorrection="y" className="shadow-sm" isClickable>
+            <p className="body mono">@radix-ui/primitives</p>
+          </Card>
+          <Card scaleFactor="body" opticalCorrection="y" className="shadow-sm" isClickable>
+            <p className="body mono">@radix-ui/colors</p>
+          </Card>
+          <Card scaleFactor="body" opticalCorrection="y" className="shadow-sm" isClickable>
+            <p className="body mono">@radix-ui/react</p>
+          </Card>
         </Column>
       </CollapsibleContent>
     </Collapsible>

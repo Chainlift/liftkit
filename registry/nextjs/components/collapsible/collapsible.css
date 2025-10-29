@@ -5,9 +5,9 @@
   display: flex;
   width: 350px;
   flex-direction: column;
-  gap: var(--lk-size-md);
 
   &[data-state="open"] {
+
   }
 
   &[data-state="closed"] {
@@ -24,9 +24,16 @@
   border: none;
   background-color: transparent;
   color: inherit;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100em;
+
 
   svg {
     display: block;
+    position: relative;
+    z-index: 1;
+
   }
 
   &[data-state="open"] {
@@ -42,12 +49,16 @@
 }
 
 [data-slot="collapsible-content"] {
+
   &[data-state="open"] {
+
   }
 
   &[data-state="closed"] {
+
   }
 
   &[data-disabled] {
+
   }
 }
