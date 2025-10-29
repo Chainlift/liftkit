@@ -48,6 +48,7 @@
   --largest-child-font-size: var(--display2-font-size);
   --largest-child-line-height: var(--display2-line-height);
   --opticCorrectedPadding: calc(var(--display2-font-size) / var(--display2-line-height));
+
 }
 
 [data-lk-card-scale-factor="title1"] {

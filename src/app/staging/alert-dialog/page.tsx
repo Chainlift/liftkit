@@ -30,9 +30,11 @@ export default function Page() {
 
         <AlertDialogPortal>
           <AlertDialogOverlay />
-          <AlertDialogContent className="bg-surfacecontainerlowest">
+          <AlertDialogContent scaleFactor="title3">
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogTitle asChild>
+                <h3 className="title3-bold">Are you absolutely sure?</h3>
+              </AlertDialogTitle>
               <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your account and remove your data from our
                 servers.
@@ -46,7 +48,9 @@ export default function Page() {
                   </Button>
                 </AlertDialogCancel>
                 <AlertDialogAction asChild>
-                  <Button variant="fill">Confirm</Button>
+                  <Button variant="fill" color="successcontainer">
+                    Confirm
+                  </Button>
                 </AlertDialogAction>
               </div>
             </AlertDialogFooter>

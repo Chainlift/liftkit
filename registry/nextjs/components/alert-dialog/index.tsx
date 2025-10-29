@@ -6,6 +6,7 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./alert-dialog.css";
 import GoldenBox from "@/registry/nextjs/components/golden-box";
+import Card from "@/registry/nextjs/components/card";
 
 const AlertDialog = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Root>,
@@ -76,9 +77,7 @@ const AlertDialogContent = React.forwardRef<
 >(function AlertDialogContent({ scaleFactor = "body", opticalCorrection = "y", className, ...props }, ref) {
   return (
     <AlertDialogPrimitive.Content ref={ref} data-slot="alert-dialog-content" className={cn(className)} {...props}>
-      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
-        {props.children}
-      </GoldenBox>
+      <Card scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>{props.children}</Card>
     </AlertDialogPrimitive.Content>
   );
 });

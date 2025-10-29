@@ -458,15 +458,13 @@ button span {
 .lk-colorgroup--primary {
   --lk-color-token: var(--lk-primary);
   --lk-color-ontoken: var(--lk-onprimary);
-  --lk-color-tokencontainer: var(--lk-primarycontainer);
-  --lk-color-ontokencontainer: var(--lk-onprimarycontainer);
 }
 
-.lk-colorgroup--primary {
-  --lk-color-token: var(--lk-primary);
-  --lk-color-ontoken: var(--lk-onprimary);
-  --lk-color-tokencontainer: var(--lk-primarycontainer);
-  --lk-color-ontokencontainer: var(--lk-onprimarycontainer);
+
+
+.lk-colorgroup--primarycontainer {
+  --lk-color-token: var(--lk-primarycontainer);
+  --lk-color-ontoken: var(--lk-onprimarycontainer);
 }
 
 .lk-colorgroup--secondary {
@@ -476,25 +474,36 @@ button span {
   --lk-color-ontokencontainer: var(--lk-onsecondarycontainer);
 }
 
+.lk-colorgroup--secondarycontainer {
+  --lk-color-token: var(--lk-secondarycontainer);
+  --lk-color-ontoken: var(--lk-onsecondarycontainer);
+}
+
 .lk-colorgroup--tertiary {
   --lk-color-token: var(--lk-tertiary);
   --lk-color-ontoken: var(--lk-ontertiary);
-  --lk-color-tokencontainer: var(--lk-tertiarycontainer);
-  --lk-color-ontokencontainer: var(--lk-ontertiarycontainer);
+}
+
+.lk-colorgroup--tertiarycontainer {
+  --lk-color-token: var(--lk-tertiarycontainer);
+  --lk-color-ontoken: var(--lk-ontertiarycontainer);
 }
 
 .lk-colorgroup--error {
   --lk-color-token: var(--lk-error);
   --lk-color-ontoken: var(--lk-onerror);
-  --lk-color-tokencontainer: var(--lk-errorcontainer);
-  --lk-color-ontokencontainer: var(--lk-onerrorcontainer);
 }
+
+
 
 .lk-colorgroup--success {
   --lk-color-token: var(--lk-success);
   --lk-color-ontoken: var(--lk-onsuccess);
-  --lk-color-tokencontainer: var(--lk-successcontainer);
-  --lk-color-ontokencontainer: var(--lk-onsuccesscontainer);
+}
+
+.lk-colorgroup--successcontainer {
+  --lk-color-token: var(--lk-successcontainer);
+  --lk-color-ontoken: var(--lk-onsuccesscontainer);
 }
 
 .lk-colorgroup--warning {
@@ -504,11 +513,23 @@ button span {
   --lk-color-ontokencontainer: var(--lk-onwarningcontainer);
 }
 
+.lk-colorgroup--warningcontainer {
+  --lk-color-token: var(--lk-warningcontainer);
+  --lk-color-ontoken: var(--lk-onwarningcontainer);
+}
+
+
+
 .lk-colorgroup--info {
   --lk-color-token: var(--lk-info);
   --lk-color-ontoken: var(--lk-oninfo);
   --lk-color-tokencontainer: var(--lk-infocontainer);
   --lk-color-ontokencontainer: var(--lk-oninfocontainer);
+}
+
+.lk-colorgroup--infocontainer {
+  --lk-color-token: var(--lk-infocontainer);
+  --lk-color-ontoken: var(--lk-oninfocontainer);
 }
 
 .lk-colorgroup--background {
