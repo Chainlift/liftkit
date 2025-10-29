@@ -5,7 +5,7 @@
   display: flex;
   width: 350px;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--lk-size-md);
 
   &[data-state="open"] {
   }
@@ -18,7 +18,20 @@
 }
 
 [data-slot="collapsible-trigger"] {
+  /*Remove user agent button styling*/
+
+  padding: none;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+
+  svg {
+    display: block;
+  }
+
   &[data-state="open"] {
+    background-color: var(--lk-inversesurface);
+    color: var(--lk-inverseonsurface);
   }
 
   &[data-state="closed"] {

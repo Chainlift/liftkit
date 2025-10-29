@@ -7,7 +7,7 @@
   -moz-appearance: none;
 
   /* peer border-input dark:bg-input/30 size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none */
-  border: 1px solid var(--input);
+  border: 1px solid transparent;
   width: calc(var(--lk-size-md) * var(--lk-halfstep));
   height: calc(var(--lk-size-md) * var(--lk-halfstep));
   border-radius: var(--lk-size-xs);
@@ -23,14 +23,14 @@
 
   /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] */
   &:focus-visible {
-    border-color: var(--ring);
-    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
+    outline: 3px solid var(--lk-tertiaryfixeddim);
+    box-shadow: 0 0 0 3px rgb(from var(--tertiaryfixeddim) r g b / 0.5);
   }
 
-  /* aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive */
+  /* aria-invalid:ring-lk-error/20 dark:aria-invalid:ring-lk-error/40 aria-invalid:border-lk-error */
   &[aria-invalid="true"] {
-    border-color: var(--destructive);
-    box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.2);
+    border-color: var(--lk-error);
+    box-shadow: 0 0 0 3px rgb(from var(--lk-error) r g b / 0.2);
   }
 
   /* data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary */
@@ -47,26 +47,31 @@
   }
 
   &[data-state="unchecked"] {
+    border-color: var(--lk-outline);
+    background-color: var(--lk-surfacecontainer);
+
   }
 
   &[data-state="indeterminate"] {
   }
 
   &[data-disabled] {
+
+
   }
 }
 
 @media (prefers-color-scheme: dark) {
   [data-slot="checkbox"] {
     /* dark:bg-input/30 dark:data-[state=checked]:bg-primary */
-    background-color: rgb(from var(--input) r g b / 0.3);
+    background-color: rgb(from var(--surfacecontainer) r g b / 0.3);
 
     &[data-state="checked"] {
       background-color: var(--primary);
     }
 
     &[aria-invalid="true"] {
-      box-shadow: 0 0 0 3px rgb(from var(--destructive) r g b / 0.4);
+      box-shadow: 0 0 0 3px rgb(from var(--lk-error) r g b / 0.4);
     }
   }
 }

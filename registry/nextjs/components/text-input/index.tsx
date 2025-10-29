@@ -80,7 +80,7 @@ export default function TextInput({
             color="outline"
             opticShift={true}
           />
-          <Text color="outline" fontClass="caption" className="m-left-2xs">
+          <Text color="outline" fontClass="caption" className="ml-2xs">
             Help text goes here
           </Text>
         </Row>

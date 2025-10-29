@@ -18,25 +18,9 @@ export function CollapsibleDemo() {
         <Heading fontClass="body" style={{ fontWeight: 600 }}>
           @peduarte starred 3 repositories
         </Heading>
-        <CollapsibleTrigger
-          style={{ background: "none", border: "none", padding: "0.5rem", borderRadius: "0.25rem", cursor: "pointer" }}
-        >
+        <CollapsibleTrigger>
           <ChevronsUpDown />
-          <span
-            style={{
-              position: "absolute",
-              width: "1px",
-              height: "1px",
-              padding: "0",
-              margin: "-1px",
-              overflow: "hidden",
-              clip: "rect(0, 0, 0, 0)",
-              whiteSpace: "nowrap",
-              border: "0",
-            }}
-          >
-            Toggle
-          </span>
+          <span className="sr-only">Toggle</span>
         </CollapsibleTrigger>
       </Row>
 

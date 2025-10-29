@@ -443,14 +443,28 @@ h6 {
 /* Make Buttons into Inline Elements */
 
 button {
-
   /* In division, the second value MUST be unitless */
   font-size: inherit;
   font-family: inherit;
+  color: inherit;
 }
 
 button span {
   text-transform: capitalize;
+}
+
+/* utility class for elements that should only be accessible to screen readers */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Component schemes */
@@ -459,8 +473,6 @@ button span {
   --lk-color-token: var(--lk-primary);
   --lk-color-ontoken: var(--lk-onprimary);
 }
-
-
 
 .lk-colorgroup--primarycontainer {
   --lk-color-token: var(--lk-primarycontainer);
@@ -494,8 +506,6 @@ button span {
   --lk-color-ontoken: var(--lk-onerror);
 }
 
-
-
 .lk-colorgroup--success {
   --lk-color-token: var(--lk-success);
   --lk-color-ontoken: var(--lk-onsuccess);
@@ -517,8 +527,6 @@ button span {
   --lk-color-token: var(--lk-warningcontainer);
   --lk-color-ontoken: var(--lk-onwarningcontainer);
 }
-
-
 
 .lk-colorgroup--info {
   --lk-color-token: var(--lk-info);
