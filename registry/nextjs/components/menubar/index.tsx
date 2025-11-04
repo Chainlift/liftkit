@@ -4,6 +4,11 @@
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
+import Icon from "@/registry/nextjs/components/icon";
 import "./menubar.css";
 
 const Menubar = React.forwardRef<
@@ -24,15 +29,14 @@ const MenubarMenu = React.forwardRef<
 
 const MenubarTrigger = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.Trigger>,
-  React.ComponentProps<typeof MenubarPrimitive.Trigger>
->(function MenubarTrigger({ className, ...props }, ref) {
+  React.ComponentProps<typeof MenubarPrimitive.Trigger> & {
+    stateLayerProps?: LkStateLayerProps;
+  }
+>(function MenubarTrigger({ className, stateLayerProps, ...props }, ref) {
   return (
-    <MenubarPrimitive.Trigger
-      ref={ref}
-      data-slot="menubar-trigger"
-      className={cn("placeholder", className)}
-      {...props}
-    />
+    <MenubarPrimitive.Trigger ref={ref} data-slot="menubar-trigger" className={cn("placeholder", className)} {...props}>
+      {props.children} <StateLayer />
+    </MenubarPrimitive.Trigger>
   );
 });
 
@@ -43,8 +47,10 @@ function MenubarPortal(props: React.ComponentProps<typeof MenubarPrimitive.Porta
 
 const MenubarContent = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.Content>,
-  React.ComponentProps<typeof MenubarPrimitive.Content>
->(function MenubarContent({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) {
+  React.ComponentProps<typeof MenubarPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function MenubarContent({ className, align = "start", alignOffset = -4, sideOffset = 8, cardProps, ...props }, ref) {
   return (
     <MenubarPortal>
       <MenubarPrimitive.Content
@@ -55,7 +61,9 @@ const MenubarContent = React.forwardRef<
         sideOffset={sideOffset}
         className={cn("placeholder", className)}
         {...props}
-      />
+      >
+        <Card scaleFactor="body">{props.children}</Card>
+      </MenubarPrimitive.Content>
     </MenubarPortal>
   );
 });
@@ -124,7 +132,18 @@ const MenubarCheckboxItem = React.forwardRef<
       data-slot="menubar-checkbox-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {" "}
+      <div data-slot="menubar-item-indicator-wrap">
+        <span>
+          <MenubarPrimitive.ItemIndicator>
+            <Icon name="check-square"></Icon>
+          </MenubarPrimitive.ItemIndicator>
+        </span>
+      </div>
+      {props.children}
+      <StateLayer />
+    </MenubarPrimitive.CheckboxItem>
   );
 });
 
@@ -152,7 +171,17 @@ const MenubarRadioItem = React.forwardRef<
       data-slot="menubar-radio-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <div data-slot="menubar-item-indicator-wrap">
+        <span>
+          <MenubarPrimitive.ItemIndicator>
+            <Icon name="circle-dot"></Icon>
+          </MenubarPrimitive.ItemIndicator>
+        </span>
+      </div>
+      {props.children}
+      <StateLayer />
+    </MenubarPrimitive.RadioItem>
   );
 });
 
