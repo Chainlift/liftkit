@@ -53,7 +53,7 @@ export default function MenuItem({
     <div
       data-lk-component="menu-item"
       title={typeof children === "string" ? children : ""}
-      className={`${className || ""}`}
+      className={`${fontClass} ${className || ""}`}
       onClick={onClick || undefined}
     >
       {startIcon && <Icon {...startIcon} data-lk-icon-position="start"></Icon>}

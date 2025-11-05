@@ -31,7 +31,7 @@
   list-style: none;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem; /* gap-1 */
+  gap: var(--lk-size-xs); /* gap-1 */
 
   &[data-orientation="vertical"] {
   }
@@ -43,42 +43,31 @@
 [data-slot="navigation-menu-item"] {
   /* relative */
   position: relative;
+
 }
 
 [data-slot="navigation-menu-trigger"] {
-  /* group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 */
+  /* group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium */
   display: inline-flex;
   height: 2.25rem; /* h-9 */
   width: max-content; /* w-max */
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem; /* rounded-md */
-  background-color: var(--background);
-  padding-left: 1rem; /* px-4 */
-  padding-right: 1rem;
-  padding-top: 0.5rem; /* py-2 */
-  padding-bottom: 0.5rem;
-  font-size: 0.875rem; /* text-sm */
-  line-height: 1.25rem;
+  border-radius: var(--lk-size-xs); /* rounded-md */
+  background-color: transparent;
+  border: none;
+  padding: var(--lk-size-sm) var(--lk-size-xs); /* px-4 py-2 */
+  font-size: var(--callout-font-size); /* text-sm */
+  line-height: var(--lk-halfstep);
   font-weight: 500; /* font-medium */
   outline: none;
-  transition:
-    color 0.2s,
-    box-shadow 0.2s;
-
-  &:hover {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
+  position: relative;
+  overflow: hidden;
+  user-select: none;
 
   &:focus {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
-    outline: 1px solid var(--ring);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-disabled] {
@@ -87,29 +76,37 @@
   }
 
   &[data-state="open"] {
-    background-color: rgb(from var(--accent) r g b / 0.5);
-    color: var(--accent-foreground);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
 
-    &:hover {
-      background-color: var(--accent);
-    }
-
-    &:focus {
-      background-color: var(--accent);
+    [data-lk-component="state-layer"] {
+      opacity: 0.24;
     }
   }
 
+  /* Chevron styling */
+  [data-slot="chevron-icon"] {
+    margin-left: var(--lk-size-2xs);
+    transition: transform 0.2s ease;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &[data-state="open"] [data-slot="chevron-icon"] {
+    transform: rotate(180deg);
+  }
+
   /* Chevron icon styling */
-  .chevron-icon {
+  [data-slot="chevron-icon"] {
     position: relative;
     top: 1px;
-    margin-left: 0.25rem; /* ml-1 */
+    margin-left: var(--lk-size-xs); /* ml-1 */
     width: 0.75rem; /* size-3 */
     height: 0.75rem;
     transition: transform 0.3s;
   }
 
-  &[data-state="open"] .chevron-icon {
+  &[data-state="open"] [data-slot="chevron-icon"] {
     transform: rotate(180deg);
   }
 }
@@ -119,8 +116,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem; /* p-2 */
-  padding-right: 0.625rem; /* pr-2.5 */
+  z-index: 1;
 
   /* Responsive styles for md and up */
   @media (min-width: 768px) {
@@ -199,48 +195,43 @@
 }
 
 [data-slot="navigation-menu-link"] {
-  /* data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4 */
+  /* flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none */
   display: flex;
   flex-direction: column;
-  gap: 0.25rem; /* gap-1 */
-  border-radius: 0.125rem; /* rounded-sm */
-  padding: 0.5rem; /* p-2 */
-  font-size: 0.875rem; /* text-sm */
-  line-height: 1.25rem;
-  transition: all 0.2s;
+  gap: var(--lk-size-2xs); /* gap-1 */
+  border-radius: var(--lk-size-2xs); /* rounded-sm */
+  padding: var(--lk-size-sm); /* p-2 */
+  font-size: var(--callout-font-size); /* text-sm */
+  line-height: var(--lk-halfstep);
   outline: none;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  user-select: none;
+
 
   &:hover {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
+    backdrop-filter: brightness(0.9);
   }
 
   &:focus {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
-    outline: 1px solid var(--ring);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-active="true"] {
-    background-color: rgb(from var(--accent) r g b / 0.5);
-    color: var(--accent-foreground);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
 
-    &:hover {
-      background-color: var(--accent);
-    }
-
-    &:focus {
-      background-color: var(--accent);
+    [data-lk-component="state-layer"] {
+      opacity: 0.12;
     }
   }
 
   /* SVG styling */
   svg:not([class*="text-"]) {
-    color: var(--muted-foreground);
+    color: var(--lk-onsurfacevariant);
   }
 
   svg:not([class*="size-"]) {
@@ -429,7 +420,7 @@
 
 @keyframes slideInFromLeft52 {
   from {
-    transform: translateX(-13rem); /* -52 * 0.25rem */
+    transform: translateX(-13rem); /* -52 * var(--lk-size-xs) */
   }
   to {
     transform: translateX(0);
@@ -438,7 +429,7 @@
 
 @keyframes slideInFromRight52 {
   from {
-    transform: translateX(13rem); /* 52 * 0.25rem */
+    transform: translateX(13rem); /* 52 * var(--lk-size-xs) */
   }
   to {
     transform: translateX(0);
@@ -450,7 +441,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-13rem); /* -52 * 0.25rem */
+    transform: translateX(-13rem); /* -52 * var(--lk-size-xs) */
   }
 }
 
@@ -459,6 +450,6 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(13rem); /* 52 * 0.25rem */
+    transform: translateX(13rem); /* 52 * var(--lk-size-xs) */
   }
 }

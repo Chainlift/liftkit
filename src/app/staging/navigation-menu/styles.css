@@ -1,0 +1,18 @@
+[data-slot="navigation-menu"] {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--lk-size-md);
+
+    li {
+      text-decoration: none;
+    list-style: none;
+    }
+  }
+
+  [data-slot="navigation-menu-item"] {
+    display: flex;
+    align-items: center;
+    gap: var(--lk-size-xs);
+  }
+}

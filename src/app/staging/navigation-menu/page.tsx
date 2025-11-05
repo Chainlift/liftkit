@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
+import "./styles.css";
 import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
@@ -15,6 +16,8 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/registry/nextjs/components/navigation-menu";
+import Grid from "@/registry/nextjs/components/grid";
+import Icon from "@/registry/nextjs/components/icon";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -55,48 +58,9 @@ function ListItem({ title, children, href, ...props }: React.ComponentPropsWitho
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link
-          href={href}
-          style={{
-            display: "block",
-            padding: "0.75rem",
-            borderRadius: "0.375rem",
-            textDecoration: "none",
-            transition: "background-color 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--accent)";
-            e.currentTarget.style.color = "var(--accent-foreground)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "transparent";
-            e.currentTarget.style.color = "inherit";
-          }}
-        >
-          <div
-            style={{
-              fontSize: "0.875rem",
-              lineHeight: 1,
-              fontWeight: 500,
-              marginBottom: "0.25rem",
-            }}
-          >
-            {title}
-          </div>
-          <p
-            style={{
-              color: "var(--muted-foreground)",
-              fontSize: "0.875rem",
-              lineHeight: 1.3,
-              margin: 0,
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            {children}
-          </p>
+        <Link href={href}>
+          <div>{title}</div>
+          <p>{children}</p>
         </Link>
       </NavigationMenuLink>
     </li>
@@ -107,69 +71,24 @@ export default function NavigationMenuDemo() {
   return (
     <Container>
       <Section>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        <div>
           <Heading fontClass="display2">Navigation Menu Examples</Heading>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+          <div>
             {/* Default Navigation Menu with Viewport */}
             <div>
-              <Heading fontClass="title2" style={{ marginBottom: "1.5rem" }}>
-                Standard Navigation with Viewport
-              </Heading>
+              <Heading fontClass="title2">Standard Navigation with Viewport</Heading>
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul
-                        style={{
-                          display: "grid",
-                          gap: "0.5rem",
-                          padding: 0,
-                          margin: 0,
-                          listStyle: "none",
-                          width: "400px",
-                          gridTemplateColumns: "0.75fr 1fr",
-                        }}
-                      >
-                        <li style={{ gridRow: "span 3" }}>
+                      <ul>
+                        <li>
                           <NavigationMenuLink asChild>
-                            <Link
-                              href="/"
-                              style={{
-                                display: "flex",
-                                height: "100%",
-                                width: "100%",
-                                flexDirection: "column",
-                                justifyContent: "flex-end",
-                                borderRadius: "0.375rem",
-                                background: "linear-gradient(to bottom, var(--muted), transparent)",
-                                padding: "1.5rem",
-                                textDecoration: "none",
-                                outline: "none",
-                                userSelect: "none",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  marginTop: "1rem",
-                                  marginBottom: "0.5rem",
-                                  fontSize: "1.125rem",
-                                  fontWeight: 500,
-                                }}
-                              >
-                                LiftKit
-                              </div>
-                              <p
-                                style={{
-                                  color: "var(--muted-foreground)",
-                                  fontSize: "0.875rem",
-                                  lineHeight: 1.3,
-                                  margin: 0,
-                                }}
-                              >
-                                Beautifully designed components built with Material Design 3.
-                              </p>
+                            <Link href="/">
+                              <div>LiftKit</div>
+                              <p>Beautifully designed components built with Material Design 3.</p>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -188,17 +107,7 @@ export default function NavigationMenuDemo() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Components</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul
-                        style={{
-                          display: "grid",
-                          width: "600px",
-                          gap: "0.5rem",
-                          padding: 0,
-                          margin: 0,
-                          listStyle: "none",
-                          gridTemplateColumns: "1fr 1fr",
-                        }}
-                      >
+                      <ul style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(3, 1fr)" }}>
                         {components.map((component) => (
                           <ListItem key={component.title} title={component.title} href={component.href}>
                             {component.description}
@@ -218,51 +127,34 @@ export default function NavigationMenuDemo() {
 
             {/* Navigation Menu without Viewport */}
             <div>
-              <Heading fontClass="title2" style={{ marginBottom: "1.5rem" }}>
-                Navigation without Viewport
-              </Heading>
+              <Heading fontClass="title2">Navigation without Viewport</Heading>
               <NavigationMenu viewport={false}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul
-                        style={{
-                          display: "grid",
-                          width: "300px",
-                          gap: "1rem",
-                          padding: "1rem",
-                          margin: 0,
-                          listStyle: "none",
-                        }}
-                      >
+                      <ul>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link href="#" style={{ textDecoration: "none" }}>
-                              <div style={{ fontWeight: 500, marginBottom: "0.25rem" }}>Components</div>
-                              <div style={{ color: "var(--muted-foreground)", fontSize: "0.875rem" }}>
-                                Browse all components in the library.
-                              </div>
+                            <Link href="#">
+                              <div>Components</div>
+                              <div>Browse all components in the library.</div>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link href="#" style={{ textDecoration: "none" }}>
-                              <div style={{ fontWeight: 500, marginBottom: "0.25rem" }}>Documentation</div>
-                              <div style={{ color: "var(--muted-foreground)", fontSize: "0.875rem" }}>
-                                Learn how to use the library.
-                              </div>
+                            <Link href="#">
+                              <div>Documentation</div>
+                              <div>Learn how to use the library.</div>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link href="#" style={{ textDecoration: "none" }}>
-                              <div style={{ fontWeight: 500, marginBottom: "0.25rem" }}>Blog</div>
-                              <div style={{ color: "var(--muted-foreground)", fontSize: "0.875rem" }}>
-                                Read our latest blog posts.
-                              </div>
+                            <Link href="#">
+                              <div>Blog</div>
+                              <div>Read our latest blog posts.</div>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -272,66 +164,27 @@ export default function NavigationMenuDemo() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Actions</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul
-                        style={{
-                          display: "grid",
-                          width: "200px",
-                          gap: "0.5rem",
-                          padding: "0.5rem",
-                          margin: 0,
-                          listStyle: "none",
-                        }}
-                      >
+                      <ul>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link
-                              href="#"
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "0.5rem",
-                                textDecoration: "none",
-                                padding: "0.5rem",
-                                borderRadius: "0.25rem",
-                              }}
-                            >
-                              <CircleHelpIcon style={{ width: "1rem", height: "1rem" }} />
-                              Backlog
+                            <Link href="#">
+                              <Icon name="circle-help" />
+                              <h3 className="body-bold">Backlog</h3>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link
-                              href="#"
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "0.5rem",
-                                textDecoration: "none",
-                                padding: "0.5rem",
-                                borderRadius: "0.25rem",
-                              }}
-                            >
-                              <CircleIcon style={{ width: "1rem", height: "1rem" }} />
+                            <Link href="#">
+                              <CircleIcon />
                               To Do
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <Link
-                              href="#"
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "0.5rem",
-                                textDecoration: "none",
-                                padding: "0.5rem",
-                                borderRadius: "0.25rem",
-                              }}
-                            >
-                              <CircleCheckIcon style={{ width: "1rem", height: "1rem" }} />
+                            <Link href="#">
+                              <CircleCheckIcon />
                               Done
                             </Link>
                           </NavigationMenuLink>
@@ -345,9 +198,7 @@ export default function NavigationMenuDemo() {
 
             {/* Simple Navigation */}
             <div>
-              <Heading fontClass="title2" style={{ marginBottom: "1.5rem" }}>
-                Simple Navigation
-              </Heading>
+              <Heading fontClass="title2">Simple Navigation</Heading>
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>

@@ -5,6 +5,13 @@ import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/registry/nextjs/lib/utilities";
+
+import Card from "@/registry/nextjs/components/card";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkCardProps } from "@/registry/nextjs/components/card";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
+import Icon from "@/registry/nextjs/components/icon";
+
 import "./navigation-menu.css";
 
 const NavigationMenu = React.forwardRef<
@@ -65,14 +72,18 @@ const NavigationMenuItem = React.forwardRef<
       data-slot="navigation-menu-item"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {props.children}
+    </NavigationMenuPrimitive.Item>
   );
 });
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Trigger>,
-  React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>
->(function NavigationMenuTrigger({ className, children, ...props }, ref) {
+  React.ComponentProps<typeof NavigationMenuPrimitive.Trigger> & {
+    stateLayerProps?: LkStateLayerProps;
+  }
+>(function NavigationMenuTrigger({ className, stateLayerProps, children, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Trigger
       ref={ref}
@@ -80,22 +91,29 @@ const NavigationMenuTrigger = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      {children} <ChevronDownIcon className="chevron-icon" aria-hidden="true" />
+      {children} <Icon name="chevron-down" aria-hidden="true" data-slot="chevron-icon" />
+      <StateLayer bgColor="primary" {...stateLayerProps} />
     </NavigationMenuPrimitive.Trigger>
   );
 });
 
 const NavigationMenuContent = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
-  React.ComponentProps<typeof NavigationMenuPrimitive.Content>
->(function NavigationMenuContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof NavigationMenuPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function NavigationMenuContent({ className, cardProps, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Content
       ref={ref}
       data-slot="navigation-menu-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card scaleFactor="body" material="glass" materialProps={{ thickness: "normal" }} {...cardProps}>
+        {props.children}
+      </Card>
+    </NavigationMenuPrimitive.Content>
   );
 });
 

@@ -9,6 +9,12 @@
   border-radius: var(--lk-size-2xs);
   padding: var(--lk-size-2xs); /* p-1 */
   box-shadow: var(--shadow-sm); /* shadow-xs */
+
+  /*Override material behavior if glass so that the opacity animation doesn't cause flicker */
+  [data-lk-component="material-layer"] {
+    &[data-lk-material-type="glass"] {
+    }
+  }
 }
 
 /* menubar-menu is handled by the overall menubar structure */
@@ -17,13 +23,11 @@
   /* focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex items-center rounded-sm px-2 py-1 text-sm font-medium outline-hidden select-none */
   display: flex;
   align-items: center;
-  border-radius: 0.125rem; /* rounded-sm */
-  padding-left: 0.5rem; /* px-2 */
-  padding-right: 0.5rem;
-  padding-top: 0.25rem; /* py-1 */
-  padding-bottom: 0.25rem;
-  font-size: 0.875rem; /* text-sm */
-  line-height: 1.25rem;
+  border-radius: var(--lk-size-2xs); /* rounded-sm */
+  padding: var(--lk-size-2xs) var(--lk-size-sm); /* px-2 */
+
+  font-size: var(--subheading-font-size); /* text-sm */
+  line-height: var(--lk-halfstep);
   font-weight: 500; /* font-medium */
   outline: none; /* outline-hidden */
   user-select: none; /* select-none */
@@ -32,19 +36,18 @@
   position: relative;
   overflow: hidden;
 
-
   &:focus {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-state="open"] {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
+    background-color: var(--primarycontainer);
+    color: var(--onprimarycontainer);
 
     [data-lk-component="state-layer"] {
       opacity: 0.24;
-    } 
+    }
   }
 
   &[data-disabled] {
@@ -80,6 +83,8 @@
     animation:
       fadeIn 0.2s ease-out,
       zoomIn 0.2s ease-in-out;
+ /*TODO: Find a way to animate the backdrop blur when card material is glass. opacity animation breaks the blur effect */
+
   }
 
   &[data-state="closed"] {
@@ -143,8 +148,8 @@
   user-select: none;
 
   &:focus {
-    background-color: var(--lk-tertiarycontainer);
-    color: var(--lk-ontertiarycontainer);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-variant="destructive"] {
@@ -232,8 +237,14 @@
   white-space: nowrap;
 
   &:focus {
-    background-color: var(--lk-tertiarycontainer);
-    color: var(--lk-ontertiarycontainer);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
+  }
+
+  &[data-state="checked"] {
+    & [data-lk-component="state-layer"] {
+      opacity: 0.08;
+    }
   }
 
   &[data-disabled] {
@@ -281,8 +292,8 @@
   white-space: nowrap;
 
   &:focus {
-    background-color: var(--lk-tertiarycontainer);
-    color: var(--lk-ontertiarycontainer);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-disabled] {
@@ -318,7 +329,7 @@
 
 [data-slot="menubar-separator"] {
   /* bg-border -mx-1 my-1 h-px */
-  background-color: var(--border);
+  background-color: var(--lk-outlinevariant);
   margin-left: -0.25rem; /* -mx-1 */
   margin-right: -0.25rem;
   margin-top: 0.25rem; /* my-1 */
@@ -339,8 +350,8 @@
   user-select: none;
 
   &:focus {
-    background-color: var(--lk-tertiarycontainer);
-    color: var(--lk-ontertiarycontainer);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   &[data-state="open"] {
@@ -508,3 +519,5 @@
     transform: translateX(0);
   }
 }
+
+

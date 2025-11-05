@@ -32,10 +32,10 @@ const MenubarTrigger = React.forwardRef<
   React.ComponentProps<typeof MenubarPrimitive.Trigger> & {
     stateLayerProps?: LkStateLayerProps;
   }
->(function MenubarTrigger({ className, stateLayerProps, ...props }, ref) {
+>(function MenubarTrigger({ className, stateLayerProps = {bgColor: "primary"}, ...props }, ref) {
   return (
     <MenubarPrimitive.Trigger ref={ref} data-slot="menubar-trigger" className={cn("placeholder", className)} {...props}>
-      {props.children} <StateLayer />
+      {props.children} <StateLayer {...stateLayerProps} />
     </MenubarPrimitive.Trigger>
   );
 });
@@ -62,7 +62,7 @@ const MenubarContent = React.forwardRef<
         className={cn("placeholder", className)}
         {...props}
       >
-        <Card scaleFactor="body">{props.children}</Card>
+        <Card scaleFactor="body" material="glass" materialProps={{thickness: "thin"}} {...cardProps}>{props.children}</Card>
       </MenubarPrimitive.Content>
     </MenubarPortal>
   );
@@ -82,8 +82,9 @@ const MenubarItem = React.forwardRef<
   React.ComponentProps<typeof MenubarPrimitive.Item> & {
     inset?: boolean;
     variant?: "default" | "destructive";
+    stateLayerProps?: LkStateLayerProps;
   }
->(function MenubarItem({ className, inset, variant = "default", ...props }, ref) {
+>(function MenubarItem({ className, inset, variant = "default", stateLayerProps={bgColor: "primary"}, ...props }, ref) {
   return (
     <MenubarPrimitive.Item
       ref={ref}
@@ -92,7 +93,10 @@ const MenubarItem = React.forwardRef<
       data-variant={variant}
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      {props.children}
+      <StateLayer {...stateLayerProps} />
+    </MenubarPrimitive.Item>
   );
 });
 
@@ -124,8 +128,10 @@ const MenubarLabel = React.forwardRef<
 
 const MenubarCheckboxItem = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.CheckboxItem>,
-  React.ComponentProps<typeof MenubarPrimitive.CheckboxItem>
->(function MenubarCheckboxItem({ className, ...props }, ref) {
+  React.ComponentProps<typeof MenubarPrimitive.CheckboxItem> & {
+    stateLayerProps?: LkStateLayerProps;
+  }
+>(function MenubarCheckboxItem({ className, stateLayerProps={bgColor: "primary"}, ...props }, ref) {
   return (
     <MenubarPrimitive.CheckboxItem
       ref={ref}
@@ -142,7 +148,7 @@ const MenubarCheckboxItem = React.forwardRef<
         </span>
       </div>
       {props.children}
-      <StateLayer />
+      <StateLayer {...stateLayerProps} />
     </MenubarPrimitive.CheckboxItem>
   );
 });
@@ -163,8 +169,10 @@ const MenubarRadioGroup = React.forwardRef<
 
 const MenubarRadioItem = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.RadioItem>,
-  React.ComponentProps<typeof MenubarPrimitive.RadioItem>
->(function MenubarRadioItem({ className, ...props }, ref) {
+  React.ComponentProps<typeof MenubarPrimitive.RadioItem> & {
+    stateLayerProps?: LkStateLayerProps;
+  }
+>(function MenubarRadioItem({ className, stateLayerProps={bgColor: "primary"}, ...props }, ref) {
   return (
     <MenubarPrimitive.RadioItem
       ref={ref}
@@ -180,7 +188,7 @@ const MenubarRadioItem = React.forwardRef<
         </span>
       </div>
       {props.children}
-      <StateLayer />
+      <StateLayer {...stateLayerProps} />
     </MenubarPrimitive.RadioItem>
   );
 });
@@ -224,8 +232,9 @@ const MenubarSubTrigger = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.SubTrigger>,
   React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & {
     inset?: boolean;
+    stateLayerProps?: LkStateLayerProps;
   }
->(function MenubarSubTrigger({ className, inset, children, ...props }, ref) {
+>(function MenubarSubTrigger({ className, inset, stateLayerProps={bgColor: "primary"}, children, ...props }, ref) {
   return (
     <MenubarPrimitive.SubTrigger
       ref={ref}
@@ -235,21 +244,27 @@ const MenubarSubTrigger = React.forwardRef<
       {...props}
     >
       {children}
+      <Icon name="chevron-right" />
+      <StateLayer {...stateLayerProps} />
     </MenubarPrimitive.SubTrigger>
   );
 });
 
 const MenubarSubContent = React.forwardRef<
   React.ComponentRef<typeof MenubarPrimitive.SubContent>,
-  React.ComponentProps<typeof MenubarPrimitive.SubContent>
->(function MenubarSubContent({ className, ...props }, ref) {
+  React.ComponentProps<typeof MenubarPrimitive.SubContent> & {
+    cardProps?: LkCardProps;
+  }
+>(function MenubarSubContent({ className, cardProps, ...props }, ref) {
   return (
     <MenubarPrimitive.SubContent
       ref={ref}
       data-slot="menubar-sub-content"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <Card scaleFactor="body"  material="glass" materialProps={{thickness: "thin"}} {...cardProps}>{props.children}</Card>
+    </MenubarPrimitive.SubContent>
   );
 });
 
