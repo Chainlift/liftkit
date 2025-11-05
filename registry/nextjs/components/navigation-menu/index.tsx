@@ -11,6 +11,8 @@ import StateLayer from "@/registry/nextjs/components/state-layer";
 import { LkCardProps } from "@/registry/nextjs/components/card";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import Icon from "@/registry/nextjs/components/icon";
+import GoldenBox from "@/registry/nextjs/components/golden-box";
+import { LkGoldenBoxProps } from "@/registry/nextjs/components/golden-box";
 
 import "./navigation-menu.css";
 
@@ -104,13 +106,8 @@ const NavigationMenuContent = React.forwardRef<
   }
 >(function NavigationMenuContent({ className, cardProps, ...props }, ref) {
   return (
-    <NavigationMenuPrimitive.Content
-      ref={ref}
-      data-slot="navigation-menu-content"
-      className={cn("placeholder", className)}
-      {...props}
-    >
-      <Card scaleFactor="body" material="glass" materialProps={{ thickness: "normal" }} {...cardProps}>
+    <NavigationMenuPrimitive.Content ref={ref} data-slot="navigation-menu-content" {...props}>
+      <Card scaleFactor="body" className={cn("placeholder", className)} {...cardProps}>
         {props.children}
       </Card>
     </NavigationMenuPrimitive.Content>
@@ -119,15 +116,22 @@ const NavigationMenuContent = React.forwardRef<
 
 const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
-  React.ComponentProps<typeof NavigationMenuPrimitive.Link>
->(function NavigationMenuLink({ className, ...props }, ref) {
+  React.ComponentProps<typeof NavigationMenuPrimitive.Link> & {
+    scaleFactor?: LkGoldenBoxProps["scaleFactor"];
+    opticalCorrection?: LkGoldenBoxProps["opticalCorrection"];
+  }
+>(function NavigationMenuLink({ className, scaleFactor, opticalCorrection, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Link
       ref={ref}
       data-slot="navigation-menu-link"
       className={cn("placeholder", className)}
       {...props}
-    />
+    >
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
+        {props.children}
+      </GoldenBox>
+    </NavigationMenuPrimitive.Link>
   );
 });
 

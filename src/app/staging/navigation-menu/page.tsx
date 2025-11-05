@@ -7,6 +7,8 @@ import "./styles.css";
 import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
+import Card from "@/registry/nextjs/components/card";
+
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -18,6 +20,7 @@ import {
 } from "@/registry/nextjs/components/navigation-menu";
 import Grid from "@/registry/nextjs/components/grid";
 import Icon from "@/registry/nextjs/components/icon";
+import Row from "@/registry/nextjs/components/row";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -80,38 +83,62 @@ export default function NavigationMenuDemo() {
               <Heading fontClass="title2">Standard Navigation with Viewport</Heading>
               <NavigationMenu>
                 <NavigationMenuList>
-                  <NavigationMenuItem>
+                  <NavigationMenuItem >
                     <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul>
+                    <NavigationMenuContent className="shadow-xl">
+                      <ul data-lk-component="nav-menu-list">
                         <li>
-                          <NavigationMenuLink asChild>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
                             <Link href="/">
-                              <div>LiftKit</div>
-                              <p>Beautifully designed components built with Material Design 3.</p>
+                              <div className="body-bold mb-2xs">LiftKit</div>
+                              <p className="subheading">
+                                Beautifully designed components built with Material Design 3.
+                              </p>
                             </Link>
                           </NavigationMenuLink>
                         </li>
-                        <ListItem href="/docs" title="Introduction">
-                          Re-usable components built using Radix UI and Material Design 3.
-                        </ListItem>
-                        <ListItem href="/docs/installation" title="Installation">
-                          How to install dependencies and structure your app.
-                        </ListItem>
-                        <ListItem href="/docs/primitives/typography" title="Typography">
-                          Styles for headings, paragraphs, lists...etc
-                        </ListItem>
+                        <li>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
+                            <Link href="/docs">
+                              <div className="body-bold mb-2xs">Introduction</div>
+                              <p className="subheading">
+                                Re-usable components built using Radix UI and Material Design 3.
+                              </p>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
+                            <Link href="/docs/installation">
+                              <div className="body-bold mb-2xs">Installation</div>
+                              <p className="subheading">How to install dependencies and structure your app.</p>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
+                            <Link href="/docs/primitives/typography">
+                              <div className="body-bold mb-2xs">Typography</div>
+                              <p className="subheading">Styles for headings, paragraphs, lists...etc</p>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(3, 1fr)" }}>
+                    <NavigationMenuContent className="shadow-xl">
+                      <ul data-lk-component="nav-menu-list">
                         {components.map((component) => (
-                          <ListItem key={component.title} title={component.title} href={component.href}>
-                            {component.description}
-                          </ListItem>
+                          <li key={component.title}>
+                            <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
+                              <Link href={component.href}>
+                                <div className="body-bold mb-2xs">{component.title}</div>
+                                <p className="subheading">{component.description}</p>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
                         ))}
                       </ul>
                     </NavigationMenuContent>
@@ -132,7 +159,7 @@ export default function NavigationMenuDemo() {
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                    <NavigationMenuContent>
+                    <NavigationMenuContent className="shadow-xl">
                       <ul>
                         <li>
                           <NavigationMenuLink asChild>
@@ -163,29 +190,35 @@ export default function NavigationMenuDemo() {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Actions</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul>
+                    <NavigationMenuContent className="shadow-xl">
+                      <ul style={{listStyle: "none"}}>
                         <li>
                           <NavigationMenuLink asChild>
                             <Link href="#">
-                              <Icon name="circle-help" />
-                              <h3 className="body-bold">Backlog</h3>
+                              <Row alignItems="center" gap="2xs">
+                                <Icon name="circle-help" />
+                                <h3 className="body-bold">Backlog</h3>
+                              </Row>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
                             <Link href="#">
-                              <CircleIcon />
-                              To Do
+                              <Row alignItems="center" gap="2xs">
+                                <Icon name="circle-help" />
+                                <h3 className="body-bold">To Do</h3>
+                              </Row>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
                             <Link href="#">
-                              <CircleCheckIcon />
-                              Done
+                              <Row alignItems="center" gap="2xs">
+                                <Icon name="circle-help" />
+                                <h3 className="body-bold">Done</h3>
+                              </Row>
                             </Link>
                           </NavigationMenuLink>
                         </li>

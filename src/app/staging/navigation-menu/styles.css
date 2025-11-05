@@ -1,18 +1,8 @@
-[data-slot="navigation-menu"] {
-  ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--lk-size-md);
+[data-lk-component="nav-menu-list"] {
 
-    li {
-      text-decoration: none;
-    list-style: none;
-    }
-  }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--lk-size-4xl), 1fr));
+  gap: var(--lk-size-md);
+  list-style: none;
 
-  [data-slot="navigation-menu-item"] {
-    display: flex;
-    align-items: center;
-    gap: var(--lk-size-xs);
-  }
 }
