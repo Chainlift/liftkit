@@ -19,7 +19,6 @@
 [data-lk-menu-item-element="content-wrap"] {
   flex: 1 0 0;
   overflow: hidden;
-  white-space: nowrap; 
   text-overflow: ellipsis;
 }
 

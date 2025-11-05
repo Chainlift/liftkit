@@ -27,7 +27,7 @@ import type { IconName } from "lucide-react/dynamic";
 import Icon from "@/registry/nextjs/components/icon";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 
-interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   startIcon?: LkIconProps;
   endIcon?: LkIconProps;
   children?: React.ReactNode;

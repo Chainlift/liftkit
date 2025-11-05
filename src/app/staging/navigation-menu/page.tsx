@@ -21,6 +21,7 @@ import {
 import Grid from "@/registry/nextjs/components/grid";
 import Icon from "@/registry/nextjs/components/icon";
 import Row from "@/registry/nextjs/components/row";
+import MenuItem from "@/registry/nextjs/components/menu-item";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -83,7 +84,7 @@ export default function NavigationMenuDemo() {
               <Heading fontClass="title2">Standard Navigation with Viewport</Heading>
               <NavigationMenu>
                 <NavigationMenuList>
-                  <NavigationMenuItem >
+                  <NavigationMenuItem>
                     <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                     <NavigationMenuContent className="shadow-xl">
                       <ul data-lk-component="nav-menu-list">
@@ -160,7 +161,7 @@ export default function NavigationMenuDemo() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                     <NavigationMenuContent className="shadow-xl">
-                      <ul>
+                      <ul style={{ listStyle: "none" }}>
                         <li>
                           <NavigationMenuLink asChild>
                             <Link href="#">
@@ -191,19 +192,19 @@ export default function NavigationMenuDemo() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Actions</NavigationMenuTrigger>
                     <NavigationMenuContent className="shadow-xl">
-                      <ul style={{listStyle: "none"}}>
+                      <ul style={{ listStyle: "none" }}>
                         <li>
-                          <NavigationMenuLink asChild>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
                             <Link href="#">
-                              <Row alignItems="center" gap="2xs">
+                              <Row alignItems="center" gap="xs">
                                 <Icon name="circle-help" />
-                                <h3 className="body-bold">Backlog</h3>
+                                <h3 className="body-bold">Idk something useful</h3>
                               </Row>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
-                          <NavigationMenuLink asChild>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="top" asChild>
                             <Link href="#">
                               <Row alignItems="center" gap="2xs">
                                 <Icon name="circle-help" />
@@ -213,7 +214,7 @@ export default function NavigationMenuDemo() {
                           </NavigationMenuLink>
                         </li>
                         <li>
-                          <NavigationMenuLink asChild>
+                          <NavigationMenuLink  scaleFactor="body" opticalCorrection="y" asChild>
                             <Link href="#">
                               <Row alignItems="center" gap="2xs">
                                 <Icon name="circle-help" />

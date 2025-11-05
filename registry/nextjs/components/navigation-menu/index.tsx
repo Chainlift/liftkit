@@ -15,6 +15,7 @@ import GoldenBox from "@/registry/nextjs/components/golden-box";
 import { LkGoldenBoxProps } from "@/registry/nextjs/components/golden-box";
 
 import "./navigation-menu.css";
+import MenuItem from "@/registry/nextjs/components/menu-item";
 
 const NavigationMenu = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
@@ -120,7 +121,7 @@ const NavigationMenuLink = React.forwardRef<
     scaleFactor?: LkGoldenBoxProps["scaleFactor"];
     opticalCorrection?: LkGoldenBoxProps["opticalCorrection"];
   }
->(function NavigationMenuLink({ className, scaleFactor, opticalCorrection, ...props }, ref) {
+>(function NavigationMenuLink({ className, ...props }, ref) {
   return (
     <NavigationMenuPrimitive.Link
       ref={ref}
@@ -128,9 +129,7 @@ const NavigationMenuLink = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     >
-      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
-        {props.children}
-      </GoldenBox>
+      <GoldenBox {...(props as LkGoldenBoxProps)}>{props.children}</GoldenBox>
     </NavigationMenuPrimitive.Link>
   );
 });
