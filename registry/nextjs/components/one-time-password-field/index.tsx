@@ -1,11 +1,12 @@
 // one-time-password-field.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as OTPFieldPrimitive from "@radix-ui/react-one-time-password-field"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./one-time-password-field.css"
-
+import * as React from "react";
+import * as OTPFieldPrimitive from "@radix-ui/react-one-time-password-field";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./one-time-password-field.css";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 const OneTimePasswordField = React.forwardRef<
   React.ComponentRef<typeof OTPFieldPrimitive.Root>,
   React.ComponentProps<typeof OTPFieldPrimitive.Root>
@@ -16,9 +17,11 @@ const OneTimePasswordField = React.forwardRef<
       data-slot="one-time-password-field-root"
       className={cn("placeholder", className)}
       {...props}
-    />
-  )
-})
+    >
+ 
+    </OTPFieldPrimitive.Root>
+  );
+});
 
 const OneTimePasswordFieldInput = React.forwardRef<
   React.ComponentRef<typeof OTPFieldPrimitive.Input>,
@@ -31,8 +34,8 @@ const OneTimePasswordFieldInput = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const OneTimePasswordFieldHiddenInput = React.forwardRef<
   React.ComponentRef<typeof OTPFieldPrimitive.HiddenInput>,
@@ -45,11 +48,7 @@ const OneTimePasswordFieldHiddenInput = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
-export {
-  OneTimePasswordField,
-  OneTimePasswordFieldInput,
-  OneTimePasswordFieldHiddenInput,
-}
+export { OneTimePasswordField, OneTimePasswordFieldInput, OneTimePasswordFieldHiddenInput };

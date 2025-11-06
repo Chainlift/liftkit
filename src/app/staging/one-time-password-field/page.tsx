@@ -1,10 +1,12 @@
 // app/one-time-password-field/page.tsx
-
+"use client";
+import Button from "@/registry/nextjs/components/button";
 import {
   OneTimePasswordField,
   OneTimePasswordFieldInput,
   OneTimePasswordFieldHiddenInput,
-} from "@/registry/nextjs/components/one-time-password-field"
+} from "@/registry/nextjs/components/one-time-password-field";
+import StateLayer from "@/registry/nextjs/components/state-layer";
 
 export default function Page() {
   return (
@@ -13,22 +15,22 @@ export default function Page() {
 
       <form
         onSubmit={(e) => {
-          e.preventDefault()
-          const formData = new FormData(e.currentTarget)
-          alert(`Submitted code: ${formData.get("otp")}`)
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          alert(`Submitted code: ${formData.get("otp")}`);
         }}
       >
-        <OneTimePasswordField name="otp" maxLength={6}>
+        <OneTimePasswordField name="otp" className="mb-md">
           {Array.from({ length: 6 }).map((_, i) => (
-            <OneTimePasswordFieldInput key={i} index={i} />
+            <div>
+              <OneTimePasswordFieldInput key={i} index={i} />
+            </div>
           ))}
           <OneTimePasswordFieldHiddenInput />
         </OneTimePasswordField>
 
-        <button type="submit" style={{ marginTop: 16 }}>
-          Submit
-        </button>
+        <Button type="submit">Submit</Button>
       </form>
     </main>
-  )
+  );
 }
