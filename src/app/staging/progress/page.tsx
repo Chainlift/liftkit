@@ -54,15 +54,7 @@ export default function ProgressDemo() {
               </Heading>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 <Progress value={progress} style={{ width: "60%" }} />
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--muted-foreground)",
-                    margin: 0,
-                  }}
-                >
-                  {progress}% complete
-                </p>
+                <p className="caption">{progress}% complete</p>
               </div>
             </div>
 
@@ -83,14 +75,7 @@ export default function ProgressDemo() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: "0.875rem", fontWeight: 500 }}>document.pdf</span>
-                    <span
-                      style={{
-                        fontSize: "0.75rem",
-                        color: "var(--muted-foreground)",
-                      }}
-                    >
-                      {Math.round(uploadProgress)}%
-                    </span>
+                    <span className="caption">{Math.round(uploadProgress)}%</span>
                   </div>
                   <Progress value={uploadProgress} />
                   {uploadProgress === 100 && (
@@ -116,14 +101,7 @@ export default function ProgressDemo() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: "0.875rem", fontWeight: 500 }}>Installing dependencies...</span>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "var(--muted-foreground)",
-                    }}
-                  >
-                    {downloadProgress}%
-                  </span>
+                  <span className="caption">{downloadProgress}%</span>
                 </div>
                 <Progress value={downloadProgress} />
               </div>
@@ -148,7 +126,7 @@ export default function ProgressDemo() {
                   <Progress
                     value={75}
                     style={{
-                      height: "0.25rem",
+                      height: "var(--lk-size-2xs)",
                       width: "50%",
                     }}
                   />
@@ -210,14 +188,7 @@ export default function ProgressDemo() {
                         {task.value === 100 ? "✓ " : ""}
                         {task.label}
                       </span>
-                      <span
-                        style={{
-                          fontSize: "0.75rem",
-                          color: "var(--muted-foreground)",
-                        }}
-                      >
-                        {task.value}%
-                      </span>
+                      <span className="caption">{task.value}%</span>
                     </div>
                     <Progress value={task.value} />
                   </div>

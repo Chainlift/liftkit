@@ -2,9 +2,9 @@
 
 /* Progress Root - bg-primary/20 relative h-2 w-full overflow-hidden rounded-full */
 [data-slot="progress"] {
-  background-color: rgb(from var(--primary) r g b / 0.2);
+  background-color: var(--lk-primarycontainer);
   position: relative;
-  height: 0.5rem;
+  height: var(--lk-size-sm);
   width: 100%;
   overflow: hidden;
   border-radius: 9999px;
@@ -12,7 +12,7 @@
 
 /* Progress Indicator - bg-primary h-full w-full flex-1 transition-all */
 [data-slot="progress-indicator"] {
-  background-color: var(--primary);
+  background-color: var(--lk-primary);
   height: 100%;
   width: 100%;
   flex: 1;
@@ -20,7 +20,7 @@
 }
 
 .progress-indicator {
-  background-color: var(--primary);
+  background-color: var(--lk-primary);
   height: 100%;
   width: 100%;
   flex: 1;
