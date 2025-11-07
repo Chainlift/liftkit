@@ -80,94 +80,15 @@ export default function PopoverDemo() {
                 <PopoverTrigger asChild>
                   <Button variant="text">What's this?</Button>
                 </PopoverTrigger>
-                <PopoverContent>
-                  <div style={{ textAlign: "center" }}>
-                    <h4 className="label mb-xs">LiftKit Framework</h4>
-                    <p className="caption">
-                      A UI framework that enforces high-detail design principles through golden ratio scaling and
-                      Material Design 3 color systems.
-                    </p>
-                  </div>
+                <PopoverContent cardProps={{ scaleFactor: "label", opticalCorrection: "top", bgColor: "inversesurface",  style: {color: "var(--lk-inverseonsurface"}}}>
+                  <h4 className="label mb-2xs">LiftKit Framework</h4>
+                  <p className="caption opacity-70">
+                    A UI framework that enforces high-detail design principles through golden ratio scaling and Material
+                    Design 3 color systems.
+                  </p>
                 </PopoverContent>
               </Popover>
             </div>
-
-            {/* User Profile Popover */}
-            <div>
-              <Heading fontClass="title2" style={{ marginBottom: "1rem" }}>
-                Profile Popover
-              </Heading>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant="fill">View Profile</Button>
-                </PopoverTrigger>
-                <PopoverContent>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div
-                      style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--primary)",
-                        color: "var(--primary-foreground)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                      }}
-                    >
-                      JD
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <h4
-                        style={{
-                          fontSize: "1rem",
-                          fontWeight: 600,
-                          margin: "0 0 0.25rem 0",
-                        }}
-                      >
-                        Jane Doe
-                      </h4>
-                      <p
-                        style={{
-                          fontSize: "0.875rem",
-                          color: "var(--muted-foreground)",
-                          margin: "0 0 0.75rem 0",
-                        }}
-                      >
-                        jane@example.com
-                      </p>
-                      <div style={{ display: "flex", gap: "0.5rem" }}>
-                        <Button
-                          variant="outline"
-                          style={{
-                            flex: 1,
-                            fontSize: "0.75rem",
-                            padding: "0.25rem 0.5rem",
-                          }}
-                        >
-                          Message
-                        </Button>
-                        <Button
-                          variant="fill"
-                          style={{
-                            flex: 1,
-                            fontSize: "0.75rem",
-                            padding: "0.25rem 0.5rem",
-                          }}
-                        >
-                          Follow
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </PopoverContent>
-              </Popover>
-            </div>
-
-            {/* Menu Popover */}
-  
           </div>
         </div>
       </Section>
