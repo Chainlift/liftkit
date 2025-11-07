@@ -3,6 +3,8 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import "./radio-group.css";
 
 function RadioGroup({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
@@ -15,6 +17,7 @@ function RadioGroupItem({ className, ...props }: React.ComponentProps<typeof Rad
       <RadioGroupPrimitive.Indicator data-slot="radio-group-indicator" className="radio-indicator">
         <div className="radio-dot" />
       </RadioGroupPrimitive.Indicator>
+      <StateLayer bgColor="primary" />
     </RadioGroupPrimitive.Item>
   );
 }
