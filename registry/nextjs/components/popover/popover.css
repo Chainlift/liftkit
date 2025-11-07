@@ -15,15 +15,9 @@
 }
 
 [data-slot="popover-content"] {
-  /* bg-popover text-popover-foreground z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden */
-  background-color: var(--popover);
-  color: var(--popover-foreground);
   z-index: 50;
-  width: 18rem; /* w-72 */
+  max-width: calc(var(--lk-size-4xl) * var(--lk-wholestep)); /* w-72 */
   transform-origin: var(--radix-popover-content-transform-origin);
-  border-radius: 0.375rem; /* rounded-md */
-  border: 1px solid var(--border);
-  padding: 1rem; /* p-4 */
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */

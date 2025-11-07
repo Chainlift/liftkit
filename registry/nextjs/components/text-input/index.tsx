@@ -12,6 +12,11 @@ import { useState, useEffect } from "react";
 import { truncateSync } from "node:fs";
 Text;
 
+/*todo: refactor this whole thing, it's a MESS. Issues include: 
+- no way to hide endIcon. it's always present even when no prop passed 
+- weird spacing and label placement. input text impossible to align with field label
+- limited props for controlling label placement. need to look into best practices for handling this. 
+- */
 interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelPosition?: "default" | "on-input";
   helpText?: string;
@@ -24,9 +29,9 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export default function TextInput({
   labelPosition = "default",
   helpText,
-  placeholder = "Placeholder",
-  displayLabelName = "Label",
-  endIcon = "search",
+  placeholder,
+  displayLabelName,
+  endIcon,
   labelBackgroundColor,
   ...restProps
 }: LkTextInputProps) {

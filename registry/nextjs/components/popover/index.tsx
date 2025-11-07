@@ -5,6 +5,8 @@ import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./popover.css";
+import Card from "@/registry/nextjs/components/card";
+import { LkCardProps } from "@/registry/nextjs/components/card";
 
 const Popover = React.forwardRef<
   React.ComponentRef<typeof PopoverPrimitive.Root>,
@@ -34,8 +36,10 @@ function PopoverPortal(props: React.ComponentProps<typeof PopoverPrimitive.Porta
 
 const PopoverContent = React.forwardRef<
   React.ComponentRef<typeof PopoverPrimitive.Content>,
-  React.ComponentProps<typeof PopoverPrimitive.Content>
->(function PopoverContent({ className, align = "center", sideOffset = 4, ...props }, ref) {
+  React.ComponentProps<typeof PopoverPrimitive.Content> & {
+    cardProps?: LkCardProps;
+  }
+>(function PopoverContent({ className, cardProps, align = "center", sideOffset = 4, ...props }, ref) {
   return (
     <PopoverPortal>
       <PopoverPrimitive.Content
@@ -45,7 +49,9 @@ const PopoverContent = React.forwardRef<
         sideOffset={sideOffset}
         className={cn("placeholder", className)}
         {...props}
-      />
+      >
+        <Card {...cardProps}>{props.children}</Card>
+      </PopoverPrimitive.Content>
     </PopoverPortal>
   );
 });
