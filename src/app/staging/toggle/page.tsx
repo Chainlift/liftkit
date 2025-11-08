@@ -1,7 +1,9 @@
 "use client";
 
+import IconButton from "@/registry/nextjs/components/icon-button";
 import { Toggle } from "@/registry/nextjs/components/toggle";
 import { useState } from "react";
+import Icon from "@/registry/nextjs/components/icon";
 
 export default function Page() {
   const [editorState, setEditorState] = useState({
@@ -21,19 +23,18 @@ export default function Page() {
         <p>Default toggle behavior with different states.</p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
           <Toggle aria-label="Bold">
-            <span style={{ fontWeight: "bold" }}>B</span>
+            <Icon name="bold" />
           </Toggle>
-
           <Toggle aria-label="Italic" defaultPressed>
-            <span style={{ fontStyle: "italic" }}>I</span>
+             <Icon name="italic" />
           </Toggle>
 
           <Toggle aria-label="Underline" disabled>
-            <span style={{ textDecoration: "underline" }}>U</span>
+              <Icon name="underline" />
           </Toggle>
 
           <Toggle aria-label="Strike" defaultPressed disabled>
-            <span style={{ textDecoration: "line-through" }}>S</span>
+              <Icon name="strikethrough" />
           </Toggle>
         </div>
       </section>
