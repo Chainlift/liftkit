@@ -2,7 +2,7 @@
 
 /* Separator - bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px */
 [data-slot="separator"] {
-  background-color: var(--border);
+  background-color: color(from var(--lk-onsurface) srgb r g b / 0.2);
   flex-shrink: 0;
 
   &[data-orientation="horizontal"] {
