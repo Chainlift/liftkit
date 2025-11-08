@@ -67,7 +67,7 @@ export default function ScrollAreaDemo() {
                   height: "18rem",
                   width: "20rem",
                   borderRadius: "0.375rem",
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--lk-outline)",
                 }}
               >
                 <div style={{ padding: "1rem" }}>
