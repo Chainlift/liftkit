@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/card/card.css";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
+import React from "react";
 
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
@@ -32,7 +33,7 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  * @returns A card component with configurable styling and material effects
  */
-export default function Card({
+export default React.forwardRef<HTMLDivElement, LkCardProps>(function Card({
   scaleFactor = "body",
   variant = "fill",
   material = "flat",
@@ -44,7 +45,7 @@ export default function Card({
   className,
   isScrollable = false,
   ...restProps
-}: LkCardProps) {
+}: LkCardProps, ref) {
   const lkCardAttrs = useMemo(
     () => propsToDataAttrs({ scaleFactor, variant, material, className }, "card"),
     [scaleFactor, variant, material, className]
@@ -52,6 +53,7 @@ export default function Card({
 
   return (
     <div
+      ref={ref}
       data-lk-component="card"
       className={`${isClickable ? "clickable" : ""}  ${className || ""}`}
       {...lkCardAttrs}
@@ -68,4 +70,4 @@ export default function Card({
       {/**TODO: Define outlined card behavior */}
     </div>
   );
-}
+});

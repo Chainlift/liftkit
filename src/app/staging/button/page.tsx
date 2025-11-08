@@ -74,7 +74,6 @@ export default function Staging() {
 
             const currentConfig = iconConfigs[iconIndex];
 
-
             const button = (
               <Button
                 key={`${colorIndex}-${variantIndex}-${sizeIndex}-${iconIndex}`}
@@ -83,7 +82,6 @@ export default function Staging() {
                 startIcon={currentConfig.startIcon as IconName | undefined}
                 endIcon={currentConfig.endIcon as IconName | undefined}
                 fontClass="body"
- 
               >
                 Button
               </Button>

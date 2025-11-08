@@ -56,7 +56,6 @@ export default function NavBar({
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-
   // If no navButtons or navDropdowns are provided, render placeholder blocks
   function getPlaceholderBlocks(count: number) {
     const blocks = [];
@@ -66,19 +65,18 @@ export default function NavBar({
     return blocks;
   }
 
-
   return (
     <div data-lk-component="navbar" {...dataAttrs}>
       {/* Desktop Navbar */}
       <div className="navbar-desktop">
         <Row alignItems="center" gap="sm">
           <Link href="/">
-            <Image alt="" src="/logotype.svg" height="md"/>
+            <Image alt="" src="/logotype.svg" height="md" />
           </Link>
         </Row>
         <Row>
           <Row data-lk-slot="nav-buttons">{navButtons || getPlaceholderBlocks(2)}</Row>
-          <Row data-lk-slot="nav-dropdowns">{navDropdowns || getPlaceholderBlocks(2) }</Row>
+          <Row data-lk-slot="nav-dropdowns">{navDropdowns || getPlaceholderBlocks(2)}</Row>
         </Row>
         <Row data-lk-navbar-el="nav-menu-end">
           <div data-lk-slot="nav-icon-buttons">{iconButtons || getPlaceholderBlocks(3)}</div>
@@ -103,4 +101,3 @@ export default function NavBar({
     </div>
   );
 }
-

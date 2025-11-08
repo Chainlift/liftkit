@@ -4,7 +4,7 @@ import Row from "@/registry/nextjs/components/row";
 import TabLink from "@/registry/nextjs/components/tab-link";
 import "@/registry/nextjs/components/tab-menu/tab-menu.css";
 
-interface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
+interface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onClick"> {
   tabLinks?: string[];
   alignItems?: "start" | "center" | "end" | "stretch";
   justifyContent?: "start" | "center" | "end" | "space-between" | "space-around";
@@ -24,7 +24,7 @@ export default function TabMenu(props: LkTabMenuProps) {
     ...restProps
   } = props;
 
-/**Don't include tabLinks or setActiveTab props in the useMemo hook, because they don't affect CSS. */
+  /**Don't include tabLinks or setActiveTab props in the useMemo hook, because they don't affect CSS. */
 
   const dataAttrs = useMemo(
     () => propsToDataAttrs({ alignItems, justifyContent, activeTab }, "tab-menu"),

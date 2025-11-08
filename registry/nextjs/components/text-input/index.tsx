@@ -35,10 +35,7 @@ export default function TextInput({
   labelBackgroundColor,
   ...restProps
 }: LkTextInputProps) {
-  const textInputProps = useMemo(
-    () => propsToDataAttrs({ labelPosition }, "text-input"),
-    [labelPosition],
-  );
+  const textInputProps = useMemo(() => propsToDataAttrs({ labelPosition }, "text-input"), [labelPosition]);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -79,12 +76,7 @@ export default function TextInput({
 
       {helpText && (
         <Row alignItems="center">
-          <Icon
-            name="info"
-            fontClass="capline"
-            color="outline"
-            opticShift={true}
-          />
+          <Icon name="info" fontClass="capline" color="outline" opticShift={true} />
           <Text color="outline" fontClass="caption" className="ml-2xs">
             Help text goes here
           </Text>

@@ -27,7 +27,6 @@ export default function Staging() {
     "background",
   ];
 
-
   return (
     <div>
       <Row>
@@ -37,7 +36,7 @@ export default function Staging() {
       </Row>
       <Row>
         {buttonColors.map((color) => (
-          <Badge key={color} color={color}/>
+          <Badge key={color} color={color} />
         ))}
       </Row>
     </div>

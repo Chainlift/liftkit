@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-    <ThemeController/>
+      <ThemeController />
       <NavBar
         navButtons={[
           <Button key="1" label="Home" variant="text" />,

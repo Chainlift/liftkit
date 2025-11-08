@@ -3,6 +3,10 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import StateLayer from "@/registry/nextjs/components/state-layer";
+import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
+import MaterialLayer from "@/registry/nextjs/components/material-layer";
+import Icon from "@/registry/nextjs/components/icon";
 import "./select.css";
 
 function Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {
@@ -24,25 +28,15 @@ function SelectTrigger({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
   size?: "sm" | "default";
+  stateLayerProps?: LkStateLayerProps;
 }) {
   return (
     <SelectPrimitive.Trigger data-slot="select-trigger" data-size={size} className={cn("", className)} {...props}>
       {children}
-      <SelectPrimitive.Icon asChild>
-        <svg
-          className="select-chevron"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m6 9 6 6 6-6" />
-        </svg>
+      <SelectPrimitive.Icon asChild data-slot="select-trigger-icon">
+        <Icon name="chevron-down" />
       </SelectPrimitive.Icon>
+      <StateLayer />
     </SelectPrimitive.Trigger>
   );
 }
@@ -52,12 +46,16 @@ function SelectContent({
   children,
   position = "popper",
   align = "center",
+  scaleFactor = "body",
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+}: React.ComponentProps<typeof SelectPrimitive.Content> & {
+  scaleFactor?: LkFontClass | "none";
+}) {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
         data-slot="select-content"
+        data-scale-factor={scaleFactor}
         className={cn("select-content", className)}
         position={position}
         align={align}
@@ -74,30 +72,34 @@ function SelectContent({
 }
 
 function SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {
-  return <SelectPrimitive.Label data-slot="select-label" className={cn("", className)} {...props} />;
+  return <SelectPrimitive.Label data-slot="select-label" className={cn("label", className)} {...props} />;
 }
 
-function SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {
+function SelectItem({
+  className,
+  children,
+  scaleFactor = "subheading",
+  opticalCorrection = "y",
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Item> & {
+  stateLayerProps?: LkStateLayerProps;
+  scaleFactor?: LkFontClass | "none";
+  opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
+}) {
   return (
-    <SelectPrimitive.Item data-slot="select-item" className={cn("", className)} {...props}>
+    <SelectPrimitive.Item
+      data-slot="select-item"
+      data-scale-factor={scaleFactor}
+      className={cn("", className)}
+      {...props}
+    >
       <span className="select-item-indicator">
         <SelectPrimitive.ItemIndicator>
-          <svg
-            className="select-check"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20 6 9 17l-5-5" />
-          </svg>
+          <Icon name="check" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      <StateLayer />
     </SelectPrimitive.Item>
   );
 }
@@ -113,19 +115,7 @@ function SelectScrollUpButton({ className, ...props }: React.ComponentProps<type
       className={cn("select-scroll-button", className)}
       {...props}
     >
-      <svg
-        className="select-chevron-up"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="m18 15-6-6-6 6" />
-      </svg>
+      <Icon name="chevron-up" className="select-chevron-up"/>
     </SelectPrimitive.ScrollUpButton>
   );
 }

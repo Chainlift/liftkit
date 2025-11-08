@@ -214,7 +214,7 @@ export default function NavigationMenuDemo() {
                           </NavigationMenuLink>
                         </li>
                         <li>
-                          <NavigationMenuLink  scaleFactor="body" opticalCorrection="y" asChild>
+                          <NavigationMenuLink scaleFactor="body" opticalCorrection="y" asChild>
                             <Link href="#">
                               <Row alignItems="center" gap="2xs">
                                 <Icon name="circle-help" />
@@ -259,4 +259,3 @@ export default function NavigationMenuDemo() {
     </Container>
   );
 }
-

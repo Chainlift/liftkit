@@ -34,7 +34,7 @@ export default function SelectDemo() {
                 Basic Select
               </Heading>
               <Select>
-                <SelectTrigger style={{ width: "11.25rem" }}>
+                <SelectTrigger style={{ width: "320px" }} aria-invalid="true">
                   <SelectValue placeholder="Select a fruit" />
                 </SelectTrigger>
                 <SelectContent>
