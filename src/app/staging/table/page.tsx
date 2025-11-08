@@ -15,6 +15,7 @@ import Container from "@/registry/nextjs/components/container";
 import Section from "@/registry/nextjs/components/section";
 import Heading from "@/registry/nextjs/components/heading";
 import Button from "@/registry/nextjs/components/button";
+import { Checkbox } from "@/registry/nextjs/components/checkbox";
 
 // Sample data
 const invoices = [
@@ -52,12 +53,12 @@ export default function TableDemo() {
 
   const getStatusBadge = (status: string) => {
     const statusStyles = {
-      Paid: { backgroundColor: "var(--success)", color: "white" },
-      Pending: { backgroundColor: "var(--warning)", color: "white" },
-      Unpaid: { backgroundColor: "var(--destructive)", color: "white" },
-      "In Stock": { backgroundColor: "var(--success)", color: "white" },
-      "Low Stock": { backgroundColor: "var(--warning)", color: "white" },
-      "Out of Stock": { backgroundColor: "var(--destructive)", color: "white" },
+      Paid: { backgroundColor: "var(--lk-successcontainer)", color: "var(--lk-onsuccesscontainer" },
+      Pending: { backgroundColor: "var(--lk-warningcontainer)", color: "var(--lk-onwarningcontainer" },
+      Unpaid: { backgroundColor: "var(--lk-errorcontainer)", color: "var(--lk-onerrorcontainer" },
+      "In Stock": { backgroundColor: "var(--lk-successcontainer)", color: "var(--lk-onsuccesscontainer" },
+      "Low Stock": { backgroundColor: "var(--lk-warningcontainer)", color: "var(--lk-onwarningcontainer" },
+      "Out of Stock": { backgroundColor: "var(--lk-errorcontainer)", color: "var(--lk-onerrorcontainer" },
     };
 
     return (
@@ -91,19 +92,19 @@ export default function TableDemo() {
                 <TableCaption>A list of your recent invoices.</TableCaption>
                 <TableHeader>
                   <TableRow>
-                    <TableHead style={{ width: "6.25rem" }}>Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Method</TableHead>
-                    <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
+                    <TableHead className="label py-xs">Invoice</TableHead>
+                    <TableHead className="label py-xs">Status</TableHead>
+                    <TableHead className="label py-xs">Method</TableHead>
+                    <TableHead className="label py-xs">Amount</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {invoices.slice(0, 4).map((invoice) => (
                     <TableRow key={invoice.id}>
-                      <TableCell style={{ fontWeight: 500 }}>{invoice.id}</TableCell>
+                      <TableCell>{invoice.id}</TableCell>
                       <TableCell>{getStatusBadge(invoice.status)}</TableCell>
                       <TableCell>{invoice.method}</TableCell>
-                      <TableCell style={{ textAlign: "right" }}>{invoice.amount}</TableCell>
+                      <TableCell>{invoice.amount}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -129,18 +130,19 @@ export default function TableDemo() {
                 <TableHeader>
                   <TableRow>
                     <TableHead style={{ width: "3rem" }}>
-                      <input
-                        type="checkbox"
-                        checked={selectedRows.length === invoices.length}
-                        onChange={() => {
-                          if (selectedRows.length === invoices.length) {
-                            setSelectedRows([]);
-                          } else {
-                            setSelectedRows(invoices.map((inv) => inv.id));
-                          }
-                        }}
-                        style={{ margin: 0 }}
-                      />
+                      <Checkbox defaultChecked>
+                        <input
+                          type="checkbox"
+                          checked={selectedRows.length === invoices.length}
+                          onChange={() => {
+                            if (selectedRows.length === invoices.length) {
+                              setSelectedRows([]);
+                            } else {
+                              setSelectedRows(invoices.map((inv) => inv.id));
+                            }
+                          }}
+                        />
+                      </Checkbox>
                     </TableHead>
                     <TableHead>Invoice</TableHead>
                     <TableHead>Status</TableHead>
@@ -153,12 +155,8 @@ export default function TableDemo() {
                   {invoices.map((invoice) => (
                     <TableRow key={invoice.id} data-state={selectedRows.includes(invoice.id) ? "selected" : undefined}>
                       <TableCell>
-                        <input
-                          type="checkbox"
-                          checked={selectedRows.includes(invoice.id)}
-                          onChange={() => toggleRow(invoice.id)}
-                          style={{ margin: 0 }}
-                        />
+                        <Checkbox onChange={() => toggleRow(invoice.id)} />
+            
                       </TableCell>
                       <TableCell style={{ fontWeight: 500 }}>{invoice.id}</TableCell>
                       <TableCell>{getStatusBadge(invoice.status)}</TableCell>
@@ -166,10 +164,10 @@ export default function TableDemo() {
                       <TableCell style={{ textAlign: "right" }}>{invoice.amount}</TableCell>
                       <TableCell style={{ textAlign: "right" }}>
                         <div style={{ display: "flex", gap: "0.5rem", justifyContent: "flex-end" }}>
-                          <Button variant="outline" style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem" }}>
+                          <Button variant="outline" fontClass="label">
                             View
                           </Button>
-                          <Button variant="outline" style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem" }}>
+                          <Button variant="outline" fontClass="label">
                             Edit
                           </Button>
                         </div>
@@ -259,16 +257,7 @@ export default function TableDemo() {
                     <TableRow key={index}>
                       <TableCell style={{ fontWeight: 500 }}>{product.name}</TableCell>
                       <TableCell>
-                        <span
-                          style={{
-                            padding: "0.25rem 0.5rem",
-                            backgroundColor: "var(--muted)",
-                            borderRadius: "0.25rem",
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          {product.category}
-                        </span>
+                        <span>{product.category}</span>
                       </TableCell>
                       <TableCell style={{ textAlign: "center" }}>
                         <span

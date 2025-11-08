@@ -13,7 +13,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
 }
 
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
-  return <thead data-slot="table-header" className={cn("", className)} {...props} />;
+  return <thead data-slot="table-header" className={cn("", className)} {...props}></thead>;
 }
 
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {

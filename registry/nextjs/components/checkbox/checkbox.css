@@ -10,7 +10,7 @@
   border: 1px solid transparent;
   width: calc(var(--lk-size-md) * var(--lk-halfstep));
   height: calc(var(--lk-size-md) * var(--lk-halfstep));
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lk-size-2xs);
   flex-shrink: 0;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   transition-property: box-shadow;

@@ -17,14 +17,14 @@
 [data-slot="table"] {
   width: 100%;
   caption-side: bottom;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  table-layout: auto;
+  border-collapse: collapse;
 }
 
 /* Table Header - [&_tr]:border-b */
 [data-slot="table-header"] {
   & tr {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--lk-outline);
   }
 }
 
@@ -37,8 +37,8 @@
 
 /* Table Footer - bg-muted/50 border-t font-medium [&>tr]:last:border-b-0 */
 [data-slot="table-footer"] {
-  background-color: rgb(from var(--muted) r g b / 0.5);
-  border-top: 1px solid var(--border);
+  background-color: rgb(from var(--lk-surfacecontainerhigh) r g b / 0.5);
+  border-top: 1px solid var(--lk-outline);
   font-weight: 500;
 
   & > tr:last-child {
@@ -47,26 +47,25 @@
 }
 
 /* Table Row - hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors */
-[data-slot="table-row"] {
-  border-bottom: 1px solid var(--border);
+tbody [data-slot="table-row"] {
+  border-bottom: 1px solid color(from var(--lk-onsurface) srgb r g b / 0.2);
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background-color: rgb(from var(--muted) r g b / 0.5);
+    background-color: rgb(from var(--lk-primary) r g b / 0.16);
   }
 
   &[data-state="selected"] {
-    background-color: var(--muted);
+    background-color: var(--lk-surfacecontainerhigh);
   }
 }
 
 /* Table Head - text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] */
 [data-slot="table-head"] {
-  color: var(--foreground);
-  height: 2.5rem;
-  padding: 0 0.5rem;
+  padding: var(--lk-size-sm) var(--lk-size-sm);
   text-align: left;
   vertical-align: middle;
+  font-size: 1em;
   font-weight: 500;
   white-space: nowrap;
 
@@ -80,9 +79,13 @@
   }
 }
 
+[data-slot="table-head-child"] {
+
+}
+
 /* Table Cell - p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] */
 [data-slot="table-cell"] {
-  padding: 0.5rem;
+  padding: var(--lk-size-sm) var(--lk-size-sm);
   vertical-align: middle;
   white-space: nowrap;
 
