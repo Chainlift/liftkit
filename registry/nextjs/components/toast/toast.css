@@ -5,9 +5,11 @@
 
 [data-slot="toast-root"] {
   &[data-state="open"] {
+    animation: moveIn 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
   }
 
   &[data-state="closed"] {
+    animation: moveOut 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
   }
 }
 
@@ -24,4 +26,33 @@
 }
 
 [data-slot="toast-viewport"] {
+  list-style: none;
+  width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  top: var(--lk-size-lg);
+}
+
+@keyframes moveIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }

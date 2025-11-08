@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
@@ -24,6 +25,7 @@ export interface LkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   opticalCorrection?: boolean;
   modifiers?: string;
   stateLayerOverride?: LkStateLayerProps; // Optional override for state layer properties
+  fontClass?: keyof typeof LK_FONT_CLASSES;
 }
 
 const COLOR_SCHEME_CLASSES = {
@@ -184,26 +186,38 @@ const buttonVariants = cva(["lk-btn"], {
   },
 });
 
-export default function Button({
-  className,
-  variant,
-  color = "primary",
-  fontClass,
-  opticalCorrection,
-  startIcon,
-  endIcon,
-  asChild = false,
-  children,
-  ...rest
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & { asChild?: boolean; startIcon?: IconName; endIcon?: IconName }) {
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button"> &
+    VariantProps<typeof buttonVariants> & { asChild?: boolean; startIcon?: IconName; endIcon?: IconName }
+>(function Button(
+  {
+    className,
+    variant,
+    color = "primary",
+    fontClass,
+    opticalCorrection,
+    startIcon,
+    endIcon,
+    asChild = false,
+    children,
+    ...props
+  },
+  ref
+) {
   const Comp = asChild ? Slot : "button";
 
   // Only set type on an actual <button>
-  const maybeType = asChild ? {} : { type: (rest as any).type ?? "button" };
+  const maybeType = asChild ? {} : { type: (props as any).type ?? "button" };
 
   return (
-    <Comp data-slot="button" className={cn(buttonVariants({ variant, color, fontClass, opticalCorrection, className }))} {...maybeType} {...rest}>
+    <Comp
+      ref={ref}
+      data-slot="button"
+      className={cn(buttonVariants({ variant, color, fontClass, opticalCorrection, className }))}
+      {...maybeType}
+      {...props}
+    >
       <div data-lk-button-root>
         <div data-lk-button-content-wrap="true">
           {startIcon && (
@@ -227,6 +241,8 @@ export default function Button({
       </div>
     </Comp>
   );
-}
+});
+
+export default Button;
 
 export { buttonVariants };
