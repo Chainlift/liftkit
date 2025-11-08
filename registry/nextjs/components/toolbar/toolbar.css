@@ -9,6 +9,8 @@
 }
 
 [data-slot="toolbar-button"] {
+  all: unset;
+
   &[data-orientation="vertical"] {
   }
 
@@ -17,6 +19,15 @@
 }
 
 [data-slot="toolbar-link"] {
+
+  padding: var(--lk-size-xs) var(--lk-size-md);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100em;
+  overflow: hidden;
+
   &[data-orientation="vertical"] {
   }
 
@@ -33,7 +44,37 @@
 }
 
 [data-slot="toolbar-toggle-item"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--lk-size-xs);
+  font-weight: 500;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  padding: var(--lk-size-sm);
+
+  /* hover:bg-muted hover:text-muted-foreground */
+  &:hover {
+    color: var(--lk-onsurfacevariant);
+  }
+
+  /* disabled:pointer-events-none disabled:opacity-50 */
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
   &[data-state="on"] {
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
+  }
+
+  &:focus-visible {
+    border-color: var(--lk-tertiaryfixeddim);
+    box-shadow: 0 0 0 3px rgb(from var(--lk-tertiaryfixeddim) r g b / 0.5);
+    outline: none;
   }
 
   &[data-state="off"] {

@@ -11,6 +11,7 @@
   overflow: hidden;
   position: relative;
   border: none;
+  padding: var(--lk-size-sm);
 
   /* hover:bg-muted hover:text-muted-foreground */
   &:hover {
@@ -39,7 +40,7 @@
 
   /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none */
   &:focus-visible {
-    border-color: var(--ring);
+    border-color: var(--lk-tertiaryfixeddim);
     box-shadow: 0 0 0 3px rgb(from var(--lk-tertiaryfixeddim) r g b / 0.5);
     outline: none;
   }

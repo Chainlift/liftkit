@@ -1,5 +1,6 @@
 // app/toolbar/page.tsx
 
+import Icon from "@/registry/nextjs/components/icon";
 import {
   Toolbar,
   ToolbarLink,
@@ -7,7 +8,7 @@ import {
   ToolbarToggleGroup,
   ToolbarToggleItem,
   ToolbarSeparator,
-} from "@/registry/nextjs/components/toolbar"
+} from "@/registry/nextjs/components/toolbar";
 
 export default function Page() {
   return (
@@ -32,18 +33,18 @@ export default function Page() {
         <ToolbarSeparator />
         <ToolbarToggleGroup type="multiple" defaultValue={["bold"]} aria-label="Text formatting">
           <ToolbarToggleItem value="bold" aria-label="Bold">
-            B
+            <Icon name="bold" />
           </ToolbarToggleItem>
           <ToolbarToggleItem value="italic" aria-label="Italic">
-            I
+            <Icon name="italic" />
           </ToolbarToggleItem>
           <ToolbarToggleItem value="underline" aria-label="Underline">
-            U
+            <Icon name="underline" />
           </ToolbarToggleItem>
         </ToolbarToggleGroup>
         <ToolbarSeparator />
         <ToolbarLink href="https://example.com">Visit Example</ToolbarLink>
       </Toolbar>
     </main>
-  )
+  );
 }

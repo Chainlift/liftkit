@@ -1,52 +1,44 @@
 // toolbar.tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as ToolbarPrimitive from "@radix-ui/react-toolbar"
-import { cn } from "@/registry/nextjs/lib/utilities"
-import "./toolbar.css"
+import * as React from "react";
+import * as ToolbarPrimitive from "@radix-ui/react-toolbar";
+import { cn } from "@/registry/nextjs/lib/utilities";
+import "./toolbar.css";
+import Button from "@/registry/nextjs/components/button";
+import StateLayer from "@/registry/nextjs/components/state-layer";
 
 const Toolbar = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.Root>,
   React.ComponentProps<typeof ToolbarPrimitive.Root>
 >(function Toolbar({ className, ...props }, ref) {
   return (
-    <ToolbarPrimitive.Root
-      ref={ref}
-      data-slot="toolbar-root"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <ToolbarPrimitive.Root ref={ref} data-slot="toolbar-root" className={cn("placeholder", className)} {...props} />
+  );
+});
 
 const ToolbarButton = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.Button>,
   React.ComponentProps<typeof ToolbarPrimitive.Button>
 >(function ToolbarButton({ className, ...props }, ref) {
   return (
-    <ToolbarPrimitive.Button
-      ref={ref}
-      data-slot="toolbar-button"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <ToolbarPrimitive.Button ref={ref} data-slot="toolbar-button" className={cn("placeholder", className)} {...props}>
+      <Button>{props.children}</Button>
+    </ToolbarPrimitive.Button>
+  );
+});
 
 const ToolbarLink = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.Link>,
   React.ComponentProps<typeof ToolbarPrimitive.Link>
 >(function ToolbarLink({ className, ...props }, ref) {
   return (
-    <ToolbarPrimitive.Link
-      ref={ref}
-      data-slot="toolbar-link"
-      className={cn("placeholder", className)}
-      {...props}
-    />
-  )
-})
+    <ToolbarPrimitive.Link ref={ref} data-slot="toolbar-link" className={cn("placeholder", className)} {...props}>
+      {props.children}
+      <StateLayer />
+    </ToolbarPrimitive.Link>
+  );
+});
 
 const ToolbarToggleGroup = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.ToggleGroup>,
@@ -59,8 +51,8 @@ const ToolbarToggleGroup = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
 const ToolbarToggleItem = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.ToggleItem>,
@@ -72,9 +64,12 @@ const ToolbarToggleItem = React.forwardRef<
       data-slot="toolbar-toggle-item"
       className={cn("placeholder", className)}
       {...props}
-    />
-  )
-})
+    >
+      {props.children}
+      <StateLayer />
+    </ToolbarPrimitive.ToggleItem>
+  );
+});
 
 const ToolbarSeparator = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.Separator>,
@@ -87,14 +82,7 @@ const ToolbarSeparator = React.forwardRef<
       className={cn("placeholder", className)}
       {...props}
     />
-  )
-})
+  );
+});
 
-export {
-  Toolbar,
-  ToolbarButton,
-  ToolbarLink,
-  ToolbarToggleGroup,
-  ToolbarToggleItem,
-  ToolbarSeparator,
-}
+export { Toolbar, ToolbarButton, ToolbarLink, ToolbarToggleGroup, ToolbarToggleItem, ToolbarSeparator };
