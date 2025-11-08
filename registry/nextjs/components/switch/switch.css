@@ -1,21 +1,54 @@
 /* switch.css */
 
 [data-slot="switch-root"] {
+  all: unset;
+
+  width: calc(var(--lk-size-md) * 2);
+  height: var(--lk-size-md);
+
+  background-color: var(--black-a9);
+  border-radius: 9999px;
+  position: relative;
+  box-shadow: 0 2px 10px var(--black-a7);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  padding: var(--lk-size-3xs);
+  transition: background-color 200ms ease;
+
   &[data-state="checked"] {
+    background-color: var(--lk-successcontainer);
   }
 
   &[data-state="unchecked"] {
+    background-color: var(--lk-surfacevariant);
   }
 
   &[data-disabled] {
+    background-color: gray;
   }
 }
 
 [data-slot="switch-thumb"] {
+  display: block;
+  width: var(--lk-size-md);
+  height: var(--lk-size-md);
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease;
+
+  transform: translateX(0);
+  will-change: transform;
+
   &[data-state="checked"] {
+    transform: translateX(var(--lk-size-md));
+    background-color: var(--lk-success);
   }
 
   &[data-state="unchecked"] {
+    background-color: var(--lk-surfacecontainerlowest);
   }
 
   &[data-disabled] {
