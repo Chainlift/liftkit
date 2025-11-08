@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { cn } from "@/registry/nextjs/lib/utilities";
+import StateLayer, { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import "./toggle-group.css";
 
 interface ToggleGroupContextValue {
@@ -58,7 +59,14 @@ interface ToggleGroupItemProps extends React.HTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-function ToggleGroupItem({ className, children, variant, size, ...props }: ToggleGroupItemProps) {
+function ToggleGroupItem({
+  className,
+  children,
+  variant,
+  size,
+  stateLayerProps,
+  ...props
+}: ToggleGroupItemProps & { stateLayerProps?: LkStateLayerProps }) {
   const context = React.useContext(ToggleGroupContext);
 
   return (
@@ -71,6 +79,7 @@ function ToggleGroupItem({ className, children, variant, size, ...props }: Toggl
       {...(props as any)}
     >
       {children}
+      <StateLayer {...stateLayerProps}/>
     </ToggleGroupPrimitive.Item>
   );
 }

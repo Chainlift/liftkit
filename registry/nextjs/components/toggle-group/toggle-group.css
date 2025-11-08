@@ -27,39 +27,19 @@
 
 /* Toggle Group Item Base Styles - inherits from Toggle styles */
 [data-slot="toggle-group-item"] {
-  /* Base toggle styles from toggle.css */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  border-radius: var(--lk-size-xs);
   font-weight: 500;
-
-  /* w-auto min-w-0 shrink-0 px-3 */
-  width: auto;
-  min-width: 0;
-  flex-shrink: 0;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-
-  /* focus:z-10 focus-visible:z-10 */
-  &:focus {
-    z-index: 10;
-  }
-
-  &:focus-visible {
-    z-index: 10;
-    border-color: var(--ring);
-    box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.5);
-    outline: none;
-  }
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  border: none;
 
   /* hover:bg-muted hover:text-muted-foreground */
   &:hover {
-    background-color: var(--muted);
-    color: var(--muted-foreground);
+    color: var(--lk-onsurfacevariant);
   }
 
   /* disabled:pointer-events-none disabled:opacity-50 */
@@ -68,31 +48,51 @@
     opacity: 0.5;
   }
 
+  /* data-[state=on]:bg-accent data-[state=on]:text-accent-foreground */
+  &[data-state="on"] {
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
+  }
+
+  /* [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 */
+  & svg {
+    pointer-events: none;
+    /* width: 1rem;
+    height: 1rem; */
+    flex-shrink: 0;
+  }
+
+  /* focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none */
+  &:focus-visible {
+    border-color: var(--lk-tertiaryfixeddim);
+    box-shadow: 0 0 0 3px rgb(from var(--lk-tertiaryfixeddim) r g b / 0.5);
+    outline: none;
+  }
+
   /* transition-[color,box-shadow] */
   transition:
     color 150ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  /* aria-invalid:ring-destructive/20 aria-invalid:border-destructive */
+  &[aria-invalid="true"] {
+    border-color: var(--lk-error);
+    box-shadow: 0 0 0 3px rgb(from var(--lk-error) r g b / 0.2);
+  }
+
+  /* dark:aria-invalid:ring-destructive/40 */
+  @media (prefers-color-scheme: dark) {
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 3px rgb(from var(--lk-error) r g b / 0.4);
+    }
+  }
+
   /* whitespace-nowrap */
   white-space: nowrap;
 
-  /* [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 */
-  & svg {
-    pointer-events: none;
-    width: 1rem;
-    height: 1rem;
-    flex-shrink: 0;
-  }
-
-  &[data-state="on"] {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
-
   &[data-state="off"] {
     /* Default off state - inherits base styles */
-    background-color: transparent;
   }
 
   &[data-disabled] {
@@ -126,24 +126,18 @@
 
   /* data-[spacing=0]:data-[variant=outline]:first:border-l */
   &:first-child {
-    border-left: 1px solid var(--input);
+    border-left: 1px solid var(--lk-outline);
   }
-}
-
-/* Variant: Default */
-[data-slot="toggle-group-item"][data-variant="default"] {
-  background-color: transparent;
 }
 
 /* Variant: Outline */
 [data-slot="toggle-group-item"][data-variant="outline"] {
-  border: 1px solid var(--input);
+  border: 1px solid var(--lk-outline);
   background-color: transparent;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
-  &:hover {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
+  &[data-state="on"] {
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 }
 

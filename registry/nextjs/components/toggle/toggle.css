@@ -25,8 +25,8 @@
 
   /* data-[state=on]:bg-accent data-[state=on]:text-accent-foreground */
   &[data-state="on"] {
-    background-color: var(--lk-inversesurface);
-    color: var(--lk-inverseonsurface);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 
   /* [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 */
@@ -52,7 +52,7 @@
 
   /* aria-invalid:ring-destructive/20 aria-invalid:border-destructive */
   &[aria-invalid="true"] {
-    border-color: var(--destructive);
+    border-color: var(--lk-error);
     box-shadow: 0 0 0 3px rgb(from var(--lk-error) r g b / 0.2);
   }
 
@@ -93,8 +93,8 @@
   } */
 
   &[data-state="on"] {
-    background-color: var(--lk-inversesurface);
-    color: var(--lk-inverseonsurface);
+    background-color: var(--lk-primarycontainer);
+    color: var(--lk-onprimarycontainer);
   }
 }
 
