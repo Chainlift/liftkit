@@ -29,19 +29,19 @@
 /* Tooltip Content - Complex Tailwind classes converted */
 [data-slot="tooltip-content"] {
   /* bg-foreground text-background */
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
 
   /* z-50 w-fit rounded-md px-3 py-1.5 text-xs text-balance */
   z-index: 50;
   width: fit-content;
-  border-radius: 0.375rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  border-radius: var(--lk-size-xs);
+  padding-left: var(--lk-size-sm);
+  padding-right: var(--lk-size-sm);
+  padding-top: var(--lk-size-xs);
+  padding-bottom: var(--lk-size-xs);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
   text-wrap: balance;
 
   /* origin-(--radix-tooltip-content-transform-origin) */
@@ -118,15 +118,14 @@
 /* Tooltip Arrow */
 [data-slot="tooltip-arrow"] {
   /* bg-foreground fill-foreground z-50 size-2.5 */
-  background-color: var(--foreground);
-  fill: var(--foreground);
+
+  fill: var(--lk-inversesurface);
   z-index: 50;
-  width: 0.625rem;
-  height: 0.625rem;
+  width: var(--lk-size-lg);
+  height: var(--lk-size-md);
 
   /* translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] */
-  transform: translateY(calc(-50% - 2px)) rotate(45deg);
-  border-radius: 2px;
+  transform: translateY(-50%) rotate(0deg);
 }
 
 /* Keyframe animations */

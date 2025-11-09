@@ -1,3 +1,5 @@
+'use client'
+
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/registry/nextjs/components/tooltip";
 
 export default function Page() {
