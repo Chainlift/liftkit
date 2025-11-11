@@ -9,11 +9,11 @@ import {
 } from "@/registry/nextjs/components/accordion";
 
 import "./styles.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import Row from "@/registry/nextjs/components/row";
-import Icon from "@/registry/nextjs/components/icon";
-import Card from "@/registry/nextjs/components/card";
-import GoldenBox from "@/registry/nextjs/components/golden-box";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
+import { Row } from "@/registry/nextjs/components/row";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { Card } from "@/registry/nextjs/components/card";
+import { GoldenBox } from "@/registry/nextjs/components/golden-box";
 
 export default function Page() {
   return (
@@ -119,5 +119,44 @@ export default function Page() {
         </AccordionItem>
       </Accordion>
     </main>
+  );
+}
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible defaultValue="item-1" orientation="vertical">
+      <AccordionItem value="item-1">
+        <AccordionHeader>
+          <AccordionTrigger scaleFactor="body" opticalCorrection="y">
+            <p className="body-bold">Section 1</p>
+          </AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <p className="body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionHeader>
+          <AccordionTrigger>Section 2</AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <p>Here is some placeholder content for section 2.</p>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-3" disabled>
+        <AccordionHeader>
+          <AccordionTrigger>Disabled Section</AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent></AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 }

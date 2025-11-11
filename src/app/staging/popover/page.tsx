@@ -1,15 +1,15 @@
 "use client";
 
 import React from "react";
-import Button from "@/registry/nextjs/components/button";
-import TextInput from "@/registry/nextjs/components/text-input";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
+import { Button } from "@/registry/nextjs/components/button";
+import { TextInput } from "@/registry/nextjs/components/text-input";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
 import { Popover, PopoverTrigger, PopoverContent } from "@/registry/nextjs/components/popover";
-import MenuItem from "@/registry/nextjs/components/menu-item";
+import { MenuItem } from "@/registry/nextjs/components/menu-item";
 import { DropdownMenuItem, DropdownMenuShortcut } from "@/registry/nextjs/components/dropdown-menu";
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 export default function PopoverDemo() {
   const [width, setWidth] = React.useState("100%");
   const [maxWidth, setMaxWidth] = React.useState("300px");
@@ -80,7 +80,14 @@ export default function PopoverDemo() {
                 <PopoverTrigger asChild>
                   <Button variant="text">What's this?</Button>
                 </PopoverTrigger>
-                <PopoverContent cardProps={{ scaleFactor: "label", opticalCorrection: "top", bgColor: "inversesurface",  style: {color: "var(--lk-inverseonsurface"}}}>
+                <PopoverContent
+                  cardProps={{
+                    scaleFactor: "label",
+                    opticalCorrection: "top",
+                    bgColor: "inversesurface",
+                    style: { color: "var(--lk-inverseonsurface" },
+                  }}
+                >
                   <h4 className="label mb-2xs">LiftKit Framework</h4>
                   <p className="caption opacity-70">
                     A UI framework that enforces high-detail design principles through golden ratio scaling and Material

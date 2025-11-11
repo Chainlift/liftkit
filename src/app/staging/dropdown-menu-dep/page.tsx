@@ -1,13 +1,13 @@
 "use client";
 import Column from "@/registry/nextjs/components/column";
-import Heading from "@/registry/nextjs/components/heading";
-import Row from "@/registry/nextjs/components/row";
-import Section from "@/registry/nextjs/components/section";
-import Container from "@/registry/nextjs/components/container";
-import MenuItem from "@/registry/nextjs/components/menu-item";
+import {Heading} from "@/registry/nextjs/components/heading";
+import {Row} from "@/registry/nextjs/components/row";
+import {Section} from "@/registry/nextjs/components/section";
+import {Container} from "@/registry/nextjs/components/container";
+import {MenuItem} from "@/registry/nextjs/components/menu-item";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
-import IconButton from "@/registry/nextjs/components/icon-button";
+import {Icon}Button from "@/registry/nextjs/components/icon-button";
 
 export default function DropdownMenuStaging() {
   const fontClasses: LkFontClass[] = [

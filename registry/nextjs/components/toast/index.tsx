@@ -5,7 +5,7 @@ import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./toast.css";
-import Button, { LkButtonProps } from "@/registry/nextjs/components/button";
+import { Button,  LkButtonProps } from "@/registry/nextjs/components/button";
 
 const ToastProvider = React.forwardRef<
   React.ComponentRef<typeof ToastPrimitive.Provider>,

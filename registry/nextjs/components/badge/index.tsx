@@ -1,4 +1,4 @@
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
 import "@/registry/nextjs/components/badge/badge.css";
@@ -21,7 +21,7 @@ export interface LkBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
  * @param restProps - Additional props to be spread onto the root div element.
  * @returns A JSX element representing the badge component.
  */
-export default function Badge({
+export function Badge({
   icon = "roller-coaster",
   color = "surface",
   scale = "md",

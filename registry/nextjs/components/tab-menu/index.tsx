@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Row from "@/registry/nextjs/components/row";
-import TabLink from "@/registry/nextjs/components/tab-link";
+import { Row } from "@/registry/nextjs/components/row";
+import { TabLink } from "@/registry/nextjs/components/tab-link";
 import "@/registry/nextjs/components/tab-menu/tab-menu.css";
 
 interface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onClick"> {
@@ -13,7 +13,7 @@ interface LkTabMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onC
   onClick?: (index: number) => void; // Optional function to lift state
 }
 
-export default function TabMenu(props: LkTabMenuProps) {
+export function TabMenu(props: LkTabMenuProps) {
   const {
     tabLinks = ["Tab Link 1", "Tab Link 2", "Tab Link 3"],
     alignItems,

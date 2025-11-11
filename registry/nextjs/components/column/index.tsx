@@ -11,8 +11,16 @@ interface LkColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-export default function Column(props: LkColumnProps) {
-  const { children, alignItems="stretch", justifyContent="start", gap, wrapChildren, defaultChildBehavior, ...restProps } = props;
+export function Column(props: LkColumnProps) {
+  const {
+    children,
+    alignItems = "stretch",
+    justifyContent = "start",
+    gap,
+    wrapChildren,
+    defaultChildBehavior,
+    ...restProps
+  } = props;
 
   const lkColumnAttrs = useMemo(
     () => propsToDataAttrs({ alignItems, justifyContent, gap, wrapChildren, defaultChildBehavior }, "column"),

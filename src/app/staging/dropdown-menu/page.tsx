@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Button from "@/registry/nextjs/components/button";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
-import Icon from "@/registry/nextjs/components/icon";
+import { Button } from "@/registry/nextjs/components/button";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Icon } from "@/registry/nextjs/components/icon";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -15,7 +15,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator, 
+  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
@@ -201,9 +201,7 @@ export default function DropdownMenuDemo() {
 
             {/* Destructive Item */}
             <div>
-              <Heading >
-                With Destructive Action
-              </Heading>
+              <Heading>With Destructive Action</Heading>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">Actions</Button>

@@ -4,7 +4,7 @@ import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./tabs.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 
 function Tabs({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) {

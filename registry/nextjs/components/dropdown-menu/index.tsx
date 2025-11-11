@@ -4,10 +4,10 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import Card from "@/registry/nextjs/components/card";
+import { Card } from "@/registry/nextjs/components/card";
 import { LkCardProps } from "@/registry/nextjs/components/card";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import Icon from "@/registry/nextjs/components/icon";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
+import { Icon } from "@/registry/nextjs/components/icon";
 import "./dropdown-menu.css";
 
 const DropdownMenu = React.forwardRef<

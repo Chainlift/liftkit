@@ -4,7 +4,7 @@
 import * as React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import Card from "@/registry/nextjs/components/card";
+import { Card } from "@/registry/nextjs/components/card";
 import { LkCardProps } from "@/registry/nextjs/components/card";
 import "./hover-card.css";
 

@@ -6,16 +6,15 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/registry/nextjs/lib/utilities";
 
-import Card from "@/registry/nextjs/components/card";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { Card } from "@/registry/nextjs/components/card";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkCardProps } from "@/registry/nextjs/components/card";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
-import Icon from "@/registry/nextjs/components/icon";
-import GoldenBox from "@/registry/nextjs/components/golden-box";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { GoldenBox } from "@/registry/nextjs/components/golden-box";
 import { LkGoldenBoxProps } from "@/registry/nextjs/components/golden-box";
 
 import "./navigation-menu.css";
-import MenuItem from "@/registry/nextjs/components/menu-item";
 
 const NavigationMenu = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Root>,

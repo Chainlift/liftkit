@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
 import {
   Menubar,
   MenubarMenu,

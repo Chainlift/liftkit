@@ -1,20 +1,19 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Badge from "@/registry/nextjs/components/badge";
-import Button from "@/registry/nextjs/components/button";
-import IconButton from "@/registry/nextjs/components/icon-button";
+import { Badge } from "@/registry/nextjs/components/badge";
+import { Button } from "@/registry/nextjs/components/button";
+import {IconButton} from "@/registry/nextjs/components/icon-button";
 import React from "react";
-import Text from "@/registry/nextjs/components/text";
+import { Text } from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/snackbar/snackbar.css";
-import { LkBadgeProps } from "@/registry/nextjs/components/badge";
 import { LkTextProps } from "@/registry/nextjs/components/text";
 import { LkButtonProps } from "@/registry/nextjs/components/button";
 import { LkIconButtonProps } from "@/registry/nextjs/components/icon-button";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
-import Card from "@/registry/nextjs/components/card";
-import Row from "@/registry/nextjs/components/row";
+import { Card } from "@/registry/nextjs/components/card";
+import {Row} from "@/registry/nextjs/components/row";
 import { LkCardProps } from "@/registry/nextjs/components/card";
-import Icon, { LkIconProps } from "@/registry/nextjs/components/icon";
+import {Icon, LkIconProps } from "@/registry/nextjs/components/icon";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   globalColor?: LkColorWithOnToken;
@@ -26,7 +25,7 @@ interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * A snackbar component that displays temporary notifications with optional action buttons.
  */
-export default function Snackbar(props: LkSnackbarProps) {
+export function Snackbar(props: LkSnackbarProps) {
   const { globalColor, message = "Notification text goes here.", cardProps, children, ...restProps } = props;
 
   // Declare allowed types, so if a child with the wrong type is passed, it'll throw an error

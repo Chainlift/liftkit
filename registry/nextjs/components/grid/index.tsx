@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/grid/grid.css";
-import PlaceholderBlock from "@/registry/nextjs/components/placeholder-block";
+import { PlaceholderBlock } from "@/registry/nextjs/components/placeholder-block";
 
 // The LiftkitGrid type definition
 interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,7 +26,7 @@ interface LkGridProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns A div element with grid layout styling and data attributes
  */
 
-export default function Grid({
+export function Grid({
   columns = 2,
   gap = "md",
   autoResponsive = false, // Default value

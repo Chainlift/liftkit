@@ -5,8 +5,8 @@ import * as React from "react";
 import * as ToolbarPrimitive from "@radix-ui/react-toolbar";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./toolbar.css";
-import Button from "@/registry/nextjs/components/button";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { Button } from "@/registry/nextjs/components/button";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 
 const Toolbar = React.forwardRef<
   React.ComponentRef<typeof ToolbarPrimitive.Root>,

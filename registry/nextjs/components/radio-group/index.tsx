@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import "./radio-group.css";
 

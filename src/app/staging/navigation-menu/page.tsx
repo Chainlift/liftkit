@@ -4,10 +4,10 @@ import * as React from "react";
 import Link from "next/link";
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
 import "./styles.css";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
-import Card from "@/registry/nextjs/components/card";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Card } from "@/registry/nextjs/components/card";
 
 import {
   NavigationMenu,
@@ -18,10 +18,10 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/registry/nextjs/components/navigation-menu";
-import Grid from "@/registry/nextjs/components/grid";
-import Icon from "@/registry/nextjs/components/icon";
-import Row from "@/registry/nextjs/components/row";
-import MenuItem from "@/registry/nextjs/components/menu-item";
+import { Grid } from "@/registry/nextjs/components/grid";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { Row } from "@/registry/nextjs/components/row";
+import { MenuItem } from "@/registry/nextjs/components/menu-item";
 
 const components: { title: string; href: string; description: string }[] = [
   {

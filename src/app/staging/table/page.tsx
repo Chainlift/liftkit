@@ -11,10 +11,10 @@ import {
   TableCell,
   TableCaption,
 } from "@/registry/nextjs/components/table";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
-import Button from "@/registry/nextjs/components/button";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Button } from "@/registry/nextjs/components/button";
 import { Checkbox } from "@/registry/nextjs/components/checkbox";
 
 // Sample data
@@ -156,7 +156,6 @@ export default function TableDemo() {
                     <TableRow key={invoice.id} data-state={selectedRows.includes(invoice.id) ? "selected" : undefined}>
                       <TableCell>
                         <Checkbox onChange={() => toggleRow(invoice.id)} />
-            
                       </TableCell>
                       <TableCell style={{ fontWeight: 500 }}>{invoice.id}</TableCell>
                       <TableCell>{getStatusBadge(invoice.status)}</TableCell>

@@ -1,7 +1,7 @@
 import React from "react";
-import Section from "@/registry/nextjs/components/section";
-import Row from "@/registry/nextjs/components/row";
-import Container from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Row } from "@/registry/nextjs/components/row";
+import { Container } from "@/registry/nextjs/components/container";
 import MaterialLayer from "@/registry/nextjs/components/material-layer";
 
 export default function MaterialStaging() {

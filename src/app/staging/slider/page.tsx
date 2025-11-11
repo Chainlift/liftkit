@@ -2,9 +2,9 @@
 
 import React from "react";
 import { Slider } from "@/registry/nextjs/components/slider";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
 import { Label } from "@/registry/nextjs/components/label";
 
 export default function SliderDemo() {

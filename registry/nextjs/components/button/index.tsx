@@ -6,9 +6,9 @@ import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { IconName } from "lucide-react/dynamic";
 import "@/registry/nextjs/components/button/button.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import { LK_FONT_CLASSES, colorsWithOnTokens, colorsWithOnTokensTransparent } from "@/registry/nextjs/lib/utilities";
@@ -243,6 +243,4 @@ const Button = React.forwardRef<
   );
 });
 
-export default Button;
-
-export { buttonVariants };
+export { Button, buttonVariants };

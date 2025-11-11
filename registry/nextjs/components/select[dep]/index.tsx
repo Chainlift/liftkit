@@ -1,14 +1,14 @@
 "use client";
 
 // CustomSelect.tsx
-import Card, { LkCardProps } from "@/registry/nextjs/components/card";
+import {Card}, { LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";
 import Column from "@/registry/nextjs/components/column";
-import Icon from "@/registry/nextjs/components/icon";
+import {Icon} from "@/registry/nextjs/components/icon";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import ReactDOM from "react-dom";
 import "@/registry/nextjs/components/select/select.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import {StateLayer} from "@/registry/nextjs/components/state-layer";
 
 interface Option {
   label: string;

@@ -94,7 +94,7 @@ interface ThemeContextType {
 
 export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
-export default function ThemeProvider({ children }: { children: ReactNode }) {
+function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeState>({
     light: {
       primary: "#004ee7",
@@ -203,24 +203,24 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
    *
    */
 
-const [colorMode, setColorMode] = useState<"light" | "dark">("light");
-  
-  const [palette, setPalette] = useState<PaletteState>({
-  "primary": "#035eff",
-  "secondary": "#badcff",
-  "tertiary": "#00ddfe",
-  "neutral": "#000000",
-  "neutralvariant": "#3f4f5b",
-  "error": "#dd305c",
-  "warning": "#feb600",
-  "success": "#0cfecd",
-  "info": "#175bfc"
-}
+  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
 
-  /**
-   * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
-   */
+  const [palette, setPalette] = useState<PaletteState>(
+    {
+      primary: "#035eff",
+      secondary: "#badcff",
+      tertiary: "#00ddfe",
+      neutral: "#000000",
+      neutralvariant: "#3f4f5b",
+      error: "#dd305c",
+      warning: "#feb600",
+      success: "#0cfecd",
+      info: "#175bfc",
+    }
 
+    /**
+     * END OF REPLACE BLOCK; DO NOT ALTER ANYTHING BELOW THIS COMMENT
+     */
   );
 
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -522,6 +522,8 @@ const [colorMode, setColorMode] = useState<"light" | "dark">("light");
     </ThemeContext.Provider>
   );
 }
+
+export { ThemeProvider };
 
 export const useTheme = () => {
   return useContext(ThemeContext);

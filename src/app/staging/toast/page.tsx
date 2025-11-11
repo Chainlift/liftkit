@@ -2,9 +2,9 @@
 
 "use client";
 
-import Button from "@/registry/nextjs/components/button";
-import Card from "@/registry/nextjs/components/card";
-import Row from "@/registry/nextjs/components/row";
+import { Button } from "@/registry/nextjs/components/button";
+import { Card } from "@/registry/nextjs/components/card";
+import { Row } from "@/registry/nextjs/components/row";
 import {
   ToastProvider,
   ToastViewport,

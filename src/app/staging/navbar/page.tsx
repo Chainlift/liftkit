@@ -1,10 +1,10 @@
-import NavBar from "@/registry/nextjs/components/navbar";
-import Section from "@/registry/nextjs/components/section";
-import Container from "@/registry/nextjs/components/container";
-import Button from "@/registry/nextjs/components/button";
+import {NavBar}  from "@/registry/nextjs/components/navbar";
+import {Section} from "@/registry/nextjs/components/section";
+import {Container} from "@/registry/nextjs/components/container";
+import {Button} from "@/registry/nextjs/components/button";
 import { Dropdown, DropdownTrigger, DropdownMenu } from "@/registry/nextjs/components/dropdown";
-import MenuItem from "@/registry/nextjs/components/menu-item";
-import IconButton from "@/registry/nextjs/components/icon-button";
+import {MenuItem} from "@/registry/nextjs/components/menu-item";
+import {IconButton} from "@/registry/nextjs/components/icon-button";
 
 export default function NavbarStaging() {
   return (

@@ -3,10 +3,10 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/text-input/text-input.css";
-import Icon from "@/registry/nextjs/components/icon";
-import Row from "@/registry/nextjs/components/row";
-import Text from "@/registry/nextjs/components/text";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { Row } from "@/registry/nextjs/components/row";
+import { Text } from "@/registry/nextjs/components/text";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { useState, useEffect } from "react";
 import { truncateSync } from "node:fs";
@@ -26,7 +26,7 @@ interface LkTextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelBackgroundColor?: LkColor;
 }
 
-export default function TextInput({
+export function TextInput({
   labelPosition = "default",
   helpText,
   placeholder,

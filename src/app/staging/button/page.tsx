@@ -1,11 +1,11 @@
 import React from "react";
 
-import Button from "@/registry/nextjs/components/button";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
-import Grid from "@/registry/nextjs/components/grid";
-import Row from "@/registry/nextjs/components/row";
-import ThemeController from "@/registry/nextjs/components/theme-controller";
+import { Button } from "@/registry/nextjs/components/button";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Grid } from "@/registry/nextjs/components/grid";
+import { Row } from "@/registry/nextjs/components/row";
+import { ThemeController } from "@/registry/nextjs/components/theme-controller";
 
 import { IconName } from "lucide-react/dynamic";
 export default function Staging() {

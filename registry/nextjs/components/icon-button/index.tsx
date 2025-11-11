@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/icon-button/icon-button.css";
-import Icon from "@/registry/nextjs/components/icon";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { IconName } from "lucide-react/dynamic";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
@@ -25,7 +25,7 @@ export interface LkIconButtonProps<T extends "fill" | "outline" | "text" = "fill
   color?: IconButtonColor<T>;
 }
 
-export default function IconButton<T extends "fill" | "outline" | "text" = "fill">({
+export function IconButton<T extends "fill" | "outline" | "text" = "fill">({
   icon = "roller-coaster",
   variant = "fill" as T,
   color = "primary" as IconButtonColor<T>,

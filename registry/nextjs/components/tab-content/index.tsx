@@ -4,6 +4,6 @@ interface TabContentProps {
   children: ReactNode;
 }
 
-export default function TabContent({ children }: TabContentProps) {
+export function TabContent({ children }: TabContentProps) {
   return <div data-lk-component="tab-content">{children} </div>;
 }

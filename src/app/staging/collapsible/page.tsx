@@ -4,12 +4,11 @@
 import * as React from "react";
 import { ChevronsUpDown } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/registry/nextjs/components/collapsible";
-import Button from "@/registry/nextjs/components/button";
-import Column from "@/registry/nextjs/components/column";
-import Row from "@/registry/nextjs/components/row";
-import Heading from "@/registry/nextjs/components/heading";
-import Icon from "@/registry/nextjs/components/icon";
-import Card from "@/registry/nextjs/components/card";
+import { Column } from "@/registry/nextjs/components/column";
+import { Row } from "@/registry/nextjs/components/row";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { Card } from "@/registry/nextjs/components/card";
 
 export function CollapsibleDemo() {
   const [isOpen, setIsOpen] = React.useState(false);

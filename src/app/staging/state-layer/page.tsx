@@ -1,4 +1,4 @@
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 
 export default function StateLayerStaging() {
   return (

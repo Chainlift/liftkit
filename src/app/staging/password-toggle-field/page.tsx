@@ -1,6 +1,6 @@
 // app/password-toggle-field/page.tsx
 
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import {
   PasswordToggleField,
   PasswordToggleFieldInput,
@@ -8,9 +8,9 @@ import {
   PasswordToggleFieldSlot,
   PasswordToggleFieldIcon,
 } from "@/registry/nextjs/components/password-toggle-field";
-import TextInput from "@/registry/nextjs/components/text-input";
+import { TextInput } from "@/registry/nextjs/components/text-input";
 import "./styles.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 
 export default function Page() {
   return (

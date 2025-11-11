@@ -1,11 +1,11 @@
-import Container from "@/registry/nextjs/components/container";
-import Row from "@/registry/nextjs/components/row";
+import { Container } from "@/registry/nextjs/components/container";
+import { Row } from "@/registry/nextjs/components/row";
 import Column from "@/registry/nextjs/components/column";
-import Section from "@/registry/nextjs/components/section";
-import Text from "@/registry/nextjs/components/text";
+import { Section } from "@/registry/nextjs/components/section";
+import { Text } from "@/registry/nextjs/components/text";
 import Snackbar from "@/registry/nextjs/components/snackbar";
-import Button from "@/registry/nextjs/components/button";
-import Icon from "@/registry/nextjs/components/icon";
+import { Button } from "@/registry/nextjs/components/button";
+import { Icon } from "@/registry/nextjs/components/icon";
 
 export default function SnackbarStaging() {
   const colors: LkColorWithOnToken[] = [

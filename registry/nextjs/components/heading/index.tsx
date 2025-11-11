@@ -23,7 +23,7 @@ interface LkHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
  * @param restProps - Additional props that will be converted to data attributes with "heading" prefix
  * @returns A semantic heading element with the specified tag and styling
  */
-export default function Heading({
+export function Heading({
   tag = "h2",
   fontClass = "display2-bold",
   fontColor,

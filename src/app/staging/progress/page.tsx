@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Progress } from "@/registry/nextjs/components/progress";
-import Button from "@/registry/nextjs/components/button";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
+import { Button } from "@/registry/nextjs/components/button";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
 
 export default function ProgressDemo() {
   const [progress, setProgress] = React.useState(13);

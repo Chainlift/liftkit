@@ -1,12 +1,12 @@
 // app/one-time-password-field/page.tsx
 "use client";
-import Button from "@/registry/nextjs/components/button";
+import { Button } from "@/registry/nextjs/components/button";
 import {
   OneTimePasswordField,
   OneTimePasswordFieldInput,
   OneTimePasswordFieldHiddenInput,
 } from "@/registry/nextjs/components/one-time-password-field";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 
 export default function Page() {
   return (

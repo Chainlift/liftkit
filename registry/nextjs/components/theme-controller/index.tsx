@@ -3,11 +3,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
 import { ThemeContext } from "@/registry/nextjs/components/theme";
-import Card from "@/registry/nextjs/components/card";
-import Column from "@/registry/nextjs/components/column";
-import Row from "@/registry/nextjs/components/row";
+import { Card } from "@/registry/nextjs/components/card";
+import {Column} from "@/registry/nextjs/components/column";
+import {Row} from "@/registry/nextjs/components/row";
 import { Switch } from "@/registry/nextjs/components/switch";
-import IconButton from "@/registry/nextjs/components/icon-button";
+import {IconButton} from "@/registry/nextjs/components/icon-button";
 
 type LkColorGroup =
   | "master"
@@ -21,7 +21,7 @@ type LkColorGroup =
   | "success"
   | "info";
 
-export default function ThemeController() {
+export function ThemeController() {
   const { palette, setPalette, theme, updateTheme, updateThemeFromMaster, colorMode, setColorMode } =
     useContext(ThemeContext);
 
@@ -150,7 +150,7 @@ const [palette, setPalette] = useState<PaletteState>(${JSON.stringify(palette, n
                   <h2 className="capline mb-lg color-onsurfacevariant">Mode</h2>
                   <Row alignItems="start" gap="md">
                     <Column>
-                      <Switch onClick={handleColorModeSwitch} value={colorMode === "dark" ? true : false}></Switch>
+                      <Switch onClick={handleColorModeSwitch} checked={colorMode === "dark" ? true : false}></Switch>
                     </Column>
                     <Column>
                       <label className="label mb-xs">Default to Dark Mode</label>

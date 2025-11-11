@@ -1,9 +1,9 @@
 'use client';
 
 // CustomDropdown.tsx
-import Card, { LkCardProps } from "@/registry/nextjs/components/card";
+import  {Card, LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";
-import Column from "@/registry/nextjs/components/column";
+import {Column} from "@/registry/nextjs/components/column";
 import ReactDOM from "react-dom";
 import "@/registry/nextjs/components/dropdown/dropdown.css";
 

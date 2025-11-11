@@ -1,9 +1,9 @@
 "use client";
 
-import IconButton from "@/registry/nextjs/components/icon-button";
+import { IconButton } from "@/registry/nextjs/components/icon-button";
 import { Toggle } from "@/registry/nextjs/components/toggle";
 import { useState } from "react";
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 
 export default function Page() {
   const [editorState, setEditorState] = useState({
@@ -26,15 +26,15 @@ export default function Page() {
             <Icon name="bold" />
           </Toggle>
           <Toggle aria-label="Italic" defaultPressed>
-             <Icon name="italic" />
+            <Icon name="italic" />
           </Toggle>
 
           <Toggle aria-label="Underline" disabled>
-              <Icon name="underline" />
+            <Icon name="underline" />
           </Toggle>
 
           <Toggle aria-label="Strike" defaultPressed disabled>
-              <Icon name="strikethrough" />
+            <Icon name="strikethrough" />
           </Toggle>
         </div>
       </section>

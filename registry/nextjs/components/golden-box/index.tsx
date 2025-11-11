@@ -17,7 +17,7 @@ export interface LkGoldenBoxProps extends React.HTMLAttributes<HTMLDivElement> {
  * @param children - Content to be rendered inside the box
  * @param restProps - Additional props passed through to the root div element
  */
-export default function GoldenBox({
+export function GoldenBox({
   scaleFactor = "body",
   opticalCorrection = "none",
   children,

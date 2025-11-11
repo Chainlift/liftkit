@@ -3,14 +3,14 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Image from "@/registry/nextjs/components/image";
-import IconButton from "@/registry/nextjs/components/icon-button";
-import Row from "@/registry/nextjs/components/row";
-import Column from "@/registry/nextjs/components/column";
+import { Image } from "@/registry/nextjs/components/image";
+import { IconButton } from "@/registry/nextjs/components/icon-button";
+import { Row } from "@/registry/nextjs/components/row";
+import { Column } from "@/registry/nextjs/components/column";
 import "@/registry/nextjs/components/navbar/navbar.css";
-import MaterialLayer from "@/registry/nextjs/components/material-layer";
+import { MaterialLayer } from "@/registry/nextjs/components/material-layer";
 
-import PlaceholderBlock from "@/registry/nextjs/components/placeholder-block";
+import { PlaceholderBlock } from "@/registry/nextjs/components/placeholder-block";
 
 interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   material?: LkMaterial;
@@ -43,7 +43,7 @@ interface LkNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
  * />
  * ```
  */
-export default function NavBar({
+export function NavBar({
   material = "flat",
   navButtons,
   navDropdowns,

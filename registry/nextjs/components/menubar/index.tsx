@@ -4,11 +4,11 @@
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import Card from "@/registry/nextjs/components/card";
+import { Card } from "@/registry/nextjs/components/card";
 import { LkCardProps } from "@/registry/nextjs/components/card";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import "./menubar.css";
 
 const Menubar = React.forwardRef<

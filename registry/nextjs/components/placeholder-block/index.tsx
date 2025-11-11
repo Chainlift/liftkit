@@ -1,12 +1,9 @@
 import "@/registry/nextjs/components/placeholder-block/placeholder-block.css";
 
-export default function PlaceholderBlock() {
+export function PlaceholderBlock() {
   return (
     <>
-      <div data-lk-component="placeholder-block">
-    
-      </div>
-
+      <div data-lk-component="placeholder-block"></div>
     </>
   );
 }

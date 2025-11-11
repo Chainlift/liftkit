@@ -3,10 +3,10 @@
 import React from "react";
 import { RadioGroup, RadioGroupItem } from "@/registry/nextjs/components/radio-group";
 import { Label } from "@/registry/nextjs/components/label";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
-import Button from "@/registry/nextjs/components/button";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Button } from "@/registry/nextjs/components/button";
 
 export default function RadioGroupDemo() {
   const [selectedSize, setSelectedSize] = React.useState("comfortable");

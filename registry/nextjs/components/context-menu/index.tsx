@@ -5,9 +5,9 @@ import * as React from "react";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./context-menu.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import Icon from "@/registry/nextjs/components/icon";
-import Card from "@/registry/nextjs/components/card";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { Card } from "@/registry/nextjs/components/card";
 import { LkCardProps } from "@/registry/nextjs/components/card";
 
 const ContextMenu = React.forwardRef<

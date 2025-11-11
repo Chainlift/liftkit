@@ -1,6 +1,6 @@
 // app/dialog/page.tsx
 
-import Button from "@/registry/nextjs/components/button";
+import { Button } from "@/registry/nextjs/components/button";
 import {
   Dialog,
   DialogClose,
@@ -11,10 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/nextjs/components/dialog";
-import TextInput from "@/registry/nextjs/components/text-input";
-import { Label } from "@/registry/nextjs/components/label";
-import Column from "@/registry/nextjs/components/column";
-import { Separator } from "radix-ui";
+import { TextInput } from "@/registry/nextjs/components/text-input";
+import { Column } from "@/registry/nextjs/components/column";
 
 export function DialogDemo() {
   return (

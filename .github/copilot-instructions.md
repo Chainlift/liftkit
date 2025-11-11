@@ -52,7 +52,7 @@ Components use consistent data attributes for styling:
 Components auto-import dependencies via @ paths:
 
 ```tsx
-import Button from "@/registry/nextjs/components/button";
+import { Button } from "@/registry/nextjs/components/button";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 ```
 

@@ -16,7 +16,7 @@ interface LkSectionProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
 }
 
-export default function Section(props: LkSectionProps) {
+export function Section(props: LkSectionProps) {
   /**TODO:  Give section default padding of "md" */
   const { container, children, padding, px, py, pt, pb, pl, pr, ...restProps } = props;
 

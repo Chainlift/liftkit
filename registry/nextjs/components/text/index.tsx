@@ -11,15 +11,7 @@ export interface LkTextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string; // explicitly extracting because internal logic controls its rendering order
 }
 
-export default function Text({
-  tag = "div",
-  fontClass,
-  color,
-  children,
-  style,
-  className,
-  ...restProps
-}: LkTextProps) {
+export function Text({ tag = "div", fontClass, color, children, style, className, ...restProps }: LkTextProps) {
   const Tag = tag as ElementType;
 
   /**Temporarily removing the attr spreader because it's not being used */

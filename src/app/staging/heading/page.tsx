@@ -1,7 +1,7 @@
 import Column from "@/registry/nextjs/components/column";
-import Heading from "@/registry/nextjs/components/heading";
-import Row from "@/registry/nextjs/components/row";
-import Section from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
+import { Row } from "@/registry/nextjs/components/row";
+import { Section } from "@/registry/nextjs/components/section";
 
 const lkColors: LkColor[] = [
   "primary",

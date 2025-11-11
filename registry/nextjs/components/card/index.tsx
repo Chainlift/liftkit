@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/card/card.css";
-import MaterialLayer from "@/registry/nextjs/components/material-layer";
+import {MaterialLayer} from "@/registry/nextjs/components/material-layer";
 import React from "react";
 
 export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,7 +15,6 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; //optional. explicitly listing here because we need to control how it mixes in with other styles controlled by classes
   children?: React.ReactNode;
   isScrollable?: boolean; //optional. if true, will add overflow-y: scroll to the card
-  
 }
 /**
  * A flexible card component that supports various visual styles and behaviors.
@@ -33,19 +32,22 @@ export interface LkCardProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  * @returns A card component with configurable styling and material effects
  */
-export default React.forwardRef<HTMLDivElement, LkCardProps>(function Card({
-  scaleFactor = "body",
-  variant = "fill",
-  material = "flat",
-  materialProps = {},
-  opticalCorrection = "none",
-  isClickable,
-  children,
-  bgColor,
-  className,
-  isScrollable = false,
-  ...restProps
-}: LkCardProps, ref) {
+const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
+  {
+    scaleFactor = "body",
+    variant = "fill",
+    material = "flat",
+    materialProps = {},
+    opticalCorrection = "none",
+    isClickable,
+    children,
+    bgColor,
+    className,
+    isScrollable = false,
+    ...restProps
+  }: LkCardProps,
+  ref
+) {
   const lkCardAttrs = useMemo(
     () => propsToDataAttrs({ scaleFactor, variant, material, className }, "card"),
     [scaleFactor, variant, material, className]
@@ -59,15 +61,23 @@ export default React.forwardRef<HTMLDivElement, LkCardProps>(function Card({
       {...lkCardAttrs}
       {...restProps}
     >
-      <div data-lk-card-element="padding-box" className={isScrollable ? "overflow-auto" : ""} data-lk-card-optical-correction={opticalCorrection}>
+      <div
+        data-lk-card-element="padding-box"
+        className={isScrollable ? "overflow-auto" : ""}
+        data-lk-card-optical-correction={opticalCorrection}
+      >
         <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>
         {/* todo: define types for material scrim thickness, */}
       </div>
       {material === "glass" && <MaterialLayer type="glass" materialProps={materialProps as LkMatProps_Glass} />}
-      {material === "flat" && <MaterialLayer type="flat" materialProps={{ bgColor: variant === "fill" ? bgColor : "transparent" }} />}
+      {material === "flat" && (
+        <MaterialLayer type="flat" materialProps={{ bgColor: variant === "fill" ? bgColor : "transparent" }} />
+      )}
       {/**TODO: Define outlined card behavior */}
     </div>
   );
 });
+
+export { Card };

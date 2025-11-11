@@ -2,12 +2,12 @@
 
 import React from "react";
 import { CalendarIcon } from "lucide-react";
-import Button from "@/registry/nextjs/components/button";
-import Container from "@/registry/nextjs/components/container";
-import Section from "@/registry/nextjs/components/section";
-import Heading from "@/registry/nextjs/components/heading";
+import { Button } from "@/registry/nextjs/components/button";
+import { Container } from "@/registry/nextjs/components/container";
+import { Section } from "@/registry/nextjs/components/section";
+import { Heading } from "@/registry/nextjs/components/heading";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/registry/nextjs/components/hover-card";
-import Card from "@/registry/nextjs/components/card";
+import { Card } from "@/registry/nextjs/components/card";
 export default function HoverCardDemo() {
   return (
     <Container>
@@ -25,7 +25,7 @@ export default function HoverCardDemo() {
                 <HoverCardTrigger asChild>
                   <Button variant="text">@nextjs</Button>
                 </HoverCardTrigger>
-                <HoverCardContent cardProps={{scaleFactor: "subheading"}}>
+                <HoverCardContent cardProps={{ scaleFactor: "subheading" }}>
                   <p className="subheading">Lorem ipsum dolor sit amet. Consectetur adipiscing alit.</p>
                 </HoverCardContent>
               </HoverCard>

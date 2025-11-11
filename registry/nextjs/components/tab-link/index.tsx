@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import Text from "@/registry/nextjs/components/text";
+import {Text} from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/tab-link/tab-link.css";
 
 interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,24 +10,10 @@ interface LkTabLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactElement<HTMLDivElement>;
 }
 
-export default function TabLink(props: LkTabLinkProps) {
+export function TabLink(props: LkTabLinkProps) {
+  const { selected = false, fontClass = "body", indicatorClass = "lk-indicator", children, ...restProps } = props;
 
-
-  const {
-    selected = false,
-    fontClass = "body",
-    indicatorClass = "lk-indicator",
-    children,
-    ...restProps
-  } = props;
-
-
-  const dataAttrs = useMemo(
-    () => propsToDataAttrs({ selected, fontClass, indicatorClass }, "tab-link"),
-    [selected],
-  );
-
-
+  const dataAttrs = useMemo(() => propsToDataAttrs({ selected, fontClass, indicatorClass }, "tab-link"), [selected]);
 
   return (
     <div data-lk-component="tab-link" {...dataAttrs} {...restProps}>

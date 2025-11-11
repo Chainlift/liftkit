@@ -22,9 +22,8 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import "@/registry/nextjs/components/menu-item/menu-item.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import type { IconName } from "lucide-react/dynamic";
-import Icon from "@/registry/nextjs/components/icon";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
+import { Icon } from "@/registry/nextjs/components/icon";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 
 export interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,7 +36,7 @@ export interface LkMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-export default function MenuItem({
+export function MenuItem({
   startIcon,
   endIcon,
   fontClass = "body",

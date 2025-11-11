@@ -3,10 +3,9 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
-import MaterialLayer from "@/registry/nextjs/components/material-layer";
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import "./select.css";
 
 function Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {
@@ -115,7 +114,7 @@ function SelectScrollUpButton({ className, ...props }: React.ComponentProps<type
       className={cn("select-scroll-button", className)}
       {...props}
     >
-      <Icon name="chevron-up" className="select-chevron-up"/>
+      <Icon name="chevron-up" className="select-chevron-up" />
     </SelectPrimitive.ScrollUpButton>
   );
 }

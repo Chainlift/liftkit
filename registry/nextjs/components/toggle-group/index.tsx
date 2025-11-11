@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { cn } from "@/registry/nextjs/lib/utilities";
-import StateLayer, { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
+import { StateLayer, LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 import "./toggle-group.css";
 
 interface ToggleGroupContextValue {
@@ -79,7 +79,7 @@ function ToggleGroupItem({
       {...(props as any)}
     >
       {children}
-      <StateLayer {...stateLayerProps}/>
+      <StateLayer {...stateLayerProps} />
     </ToggleGroupPrimitive.Item>
   );
 }

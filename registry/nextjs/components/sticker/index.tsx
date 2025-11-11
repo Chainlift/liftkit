@@ -1,10 +1,10 @@
-import Text from "@/registry/nextjs/components/text";
+import {Text} from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/sticker/sticker.css";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 
 /**
  * Props for the LkSticker component.
- * 
+ *
  * @param fontClass - Optional font class styling for the sticker text
  * @param bgColor - Optional background color with on-token support for the sticker
  * @param children - Optional React nodes to render inside the sticker
@@ -17,7 +17,7 @@ interface LkStickerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; // explicitly extracting because internal logic controls its rendering order
 }
 
-export default function Sticker({
+export function Sticker({
   fontClass = "label",
   bgColor = "primarycontainer",
   children,
@@ -25,7 +25,11 @@ export default function Sticker({
   ...restProps
 }: LkStickerProps) {
   return (
-    <div data-lk-component="sticker" {...restProps} className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || ""}`}>
+    <div
+      data-lk-component="sticker"
+      {...restProps}
+      className={`bg-${bgColor} color-${getOnToken(bgColor)} ${className || ""}`}
+    >
       <Text fontClass={fontClass}>{children || "Sticker"}</Text>
     </div>
   );

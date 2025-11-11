@@ -5,10 +5,10 @@ import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./accordion.css";
-import Row from "@/registry/nextjs/components/row";
-import Icon from "@/registry/nextjs/components/icon";
-import StateLayer from "@/registry/nextjs/components/state-layer";
-import GoldenBox from "@/registry/nextjs/components/golden-box";
+import { Row } from "@/registry/nextjs/components/row";
+import { Icon } from "@/registry/nextjs/components/icon";
+import { StateLayer } from "@/registry/nextjs/components/state-layer";
+import { GoldenBox } from "@/registry/nextjs/components/golden-box";
 import { IconName } from "lucide-react/dynamic";
 
 const Accordion = React.forwardRef<

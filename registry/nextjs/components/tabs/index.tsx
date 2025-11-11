@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
-import TabMenu from "@/registry/nextjs/components/tab-menu";
+import {TabMenu} from "@/registry/nextjs/components/tab-menu";
 import "@/registry/nextjs/components/tabs/tabs.css";
 import { useState, useEffect } from "react";
 
@@ -13,12 +13,11 @@ interface LkTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   onActiveTabChange?: (index: number) => void; // Optional function to lift state
 }
 
-export default function Tabs({ tabLinks, onActiveTabChange, scrollableContent, children, ...restProps }: LkTabsProps) {
+export function Tabs({ tabLinks, onActiveTabChange, scrollableContent, children, ...restProps }: LkTabsProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index: number) => {
     setActiveTab(index); // Set the clicked tab as active
-
   };
 
   useEffect(() => {
@@ -44,7 +43,7 @@ export default function Tabs({ tabLinks, onActiveTabChange, scrollableContent, c
       <div data-lk-tabs-el="tab-content" data-lk-tabs-content-scrollable={scrollableContent}>
         {children.map((child, index) => (
           <div key={index} style={{ display: index === activeTab ? "block" : "none" }}>
-            {child }
+            {child}
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 // app/toolbar/page.tsx
 
-import Icon from "@/registry/nextjs/components/icon";
+import { Icon } from "@/registry/nextjs/components/icon";
 import {
   Toolbar,
   ToolbarLink,

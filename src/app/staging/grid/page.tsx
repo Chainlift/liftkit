@@ -1,9 +1,9 @@
 "use client";
 
-import Container from "@/registry/nextjs/components/container";
-import Grid from "@/registry/nextjs/components/grid";
-import Section from "@/registry/nextjs/components/section";
-import Column from "@/registry/nextjs/components/column";
+import { Container } from "@/registry/nextjs/components/container";
+import { Grid } from "@/registry/nextjs/components/grid";
+import { Section } from "@/registry/nextjs/components/section";
+import { Column } from "@/registry/nextjs/components/column";
 
 export default function GridStaging() {
   const lkSizes = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"];

@@ -5,7 +5,7 @@ import * as React from "react";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { cn } from "@/registry/nextjs/lib/utilities";
 import "./collapsible.css";
-import StateLayer from "@/registry/nextjs/components/state-layer";
+import {StateLayer } from "@/registry/nextjs/components/state-layer";
 import { LkStateLayerProps } from "@/registry/nextjs/components/state-layer";
 
 const Collapsible = React.forwardRef<
