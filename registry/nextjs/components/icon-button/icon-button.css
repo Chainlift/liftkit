@@ -10,6 +10,7 @@
   background: none;
   overflow: hidden;
   cursor: pointer;
+  border: unset;
 }
 
 [data-lk-component="icon-button"]>[data-lk-button-content-wrap] {
