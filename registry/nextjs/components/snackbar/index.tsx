@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
 import { Badge } from "@/registry/nextjs/components/badge";
 import { Button } from "@/registry/nextjs/components/button";
-import {IconButton} from "@/registry/nextjs/components/icon-button";
+import { IconButton } from "@/registry/nextjs/components/icon-button";
 import React from "react";
 import { Text } from "@/registry/nextjs/components/text";
 import "@/registry/nextjs/components/snackbar/snackbar.css";
@@ -11,9 +11,9 @@ import { LkButtonProps } from "@/registry/nextjs/components/button";
 import { LkIconButtonProps } from "@/registry/nextjs/components/icon-button";
 import { getOnToken } from "@/registry/universal/lib/colorUtils";
 import { Card } from "@/registry/nextjs/components/card";
-import {Row} from "@/registry/nextjs/components/row";
+import { Row } from "@/registry/nextjs/components/row";
 import { LkCardProps } from "@/registry/nextjs/components/card";
-import {Icon, LkIconProps } from "@/registry/nextjs/components/icon";
+import { Icon, LkIconProps } from "@/registry/nextjs/components/icon";
 
 interface LkSnackbarProps extends React.HTMLAttributes<HTMLDivElement> {
   globalColor?: LkColorWithOnToken;

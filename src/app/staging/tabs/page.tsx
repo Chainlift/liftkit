@@ -18,7 +18,7 @@ export default function TabsStaging() {
           <Tabs tabLinks={["tab1", "tab2", "tab3"]}>
             <Grid columns={4} gap="md" style={{ alignItems: "start", justifyItems: "start" }}>
               {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
+                <Sticker key={color} color={color as any}>
                   {color}
                 </Sticker>
               ))}
@@ -26,14 +26,14 @@ export default function TabsStaging() {
             <Column>
               {" "}
               {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
+                <Sticker key={color} color={color as any}>
                   {color}
                 </Sticker>
               ))}
             </Column>
             <Row>
               {LkColors.map((color) => (
-                <Sticker key={color} bgColor={color}>
+                <Sticker key={color} color={color as any}>
                   {color}
                 </Sticker>
               ))}

@@ -1,9 +1,316 @@
+/* Base sticker styles */
+.lk-sticker,
 [data-lk-component="sticker"] {
   display: inline-block;
   padding: var(--lk-size-xs) var(--lk-size-sm);
-  color: var(--lk-onprimary);
   border-radius: var(--lk-size-sm);
   font-weight: 500;
   line-height: var(--label-line-height);
   font-size: var(--label-font-size);
+}
+
+/* Color scheme variants */
+.lk-sticker.lk-colorgroup--primary {
+  background-color: var(--lk-primary);
+  color: var(--lk-onprimary);
+}
+
+.lk-sticker.lk-colorgroup--onprimary {
+  background-color: var(--lk-onprimary);
+  color: var(--lk-primary);
+}
+
+.lk-sticker.lk-colorgroup--primarycontainer {
+  background-color: var(--lk-primarycontainer);
+  color: var(--lk-onprimarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--onprimarycontainer {
+  background-color: var(--lk-onprimarycontainer);
+  color: var(--lk-primarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--secondary {
+  background-color: var(--lk-secondary);
+  color: var(--lk-onsecondary);
+}
+
+.lk-sticker.lk-colorgroup--onsecondary {
+  background-color: var(--lk-onsecondary);
+  color: var(--lk-secondary);
+}
+
+.lk-sticker.lk-colorgroup--secondarycontainer {
+  background-color: var(--lk-secondarycontainer);
+  color: var(--lk-onsecondarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--onsecondarycontainer {
+  background-color: var(--lk-onsecondarycontainer);
+  color: var(--lk-secondarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--tertiary {
+  background-color: var(--lk-tertiary);
+  color: var(--lk-ontertiary);
+}
+
+.lk-sticker.lk-colorgroup--ontertiary {
+  background-color: var(--lk-ontertiary);
+  color: var(--lk-tertiary);
+}
+
+.lk-sticker.lk-colorgroup--tertiarycontainer {
+  background-color: var(--lk-tertiarycontainer);
+  color: var(--lk-ontertiarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--ontertiarycontainer {
+  background-color: var(--lk-ontertiarycontainer);
+  color: var(--lk-tertiarycontainer);
+}
+
+.lk-sticker.lk-colorgroup--error {
+  background-color: var(--lk-error);
+  color: var(--lk-onerror);
+}
+
+.lk-sticker.lk-colorgroup--onerror {
+  background-color: var(--lk-onerror);
+  color: var(--lk-error);
+}
+
+.lk-sticker.lk-colorgroup--errorcontainer {
+  background-color: var(--lk-errorcontainer);
+  color: var(--lk-onerrorcontainer);
+}
+
+.lk-sticker.lk-colorgroup--onerrorcontainer {
+  background-color: var(--lk-onerrorcontainer);
+  color: var(--lk-errorcontainer);
+}
+
+.lk-sticker.lk-colorgroup--success {
+  background-color: var(--lk-success);
+  color: var(--lk-onsuccess);
+}
+
+.lk-sticker.lk-colorgroup--onsuccess {
+  background-color: var(--lk-onsuccess);
+  color: var(--lk-success);
+}
+
+.lk-sticker.lk-colorgroup--successcontainer {
+  background-color: var(--lk-successcontainer);
+  color: var(--lk-onsuccesscontainer);
+}
+
+.lk-sticker.lk-colorgroup--onsuccesscontainer {
+  background-color: var(--lk-onsuccesscontainer);
+  color: var(--lk-successcontainer);
+}
+
+.lk-sticker.lk-colorgroup--warning {
+  background-color: var(--lk-warning);
+  color: var(--lk-onwarning);
+}
+
+.lk-sticker.lk-colorgroup--onwarning {
+  background-color: var(--lk-onwarning);
+  color: var(--lk-warning);
+}
+
+.lk-sticker.lk-colorgroup--warningcontainer {
+  background-color: var(--lk-warningcontainer);
+  color: var(--lk-onwarningcontainer);
+}
+
+.lk-sticker.lk-colorgroup--onwarningcontainer {
+  background-color: var(--lk-onwarningcontainer);
+  color: var(--lk-warningcontainer);
+}
+
+.lk-sticker.lk-colorgroup--info {
+  background-color: var(--lk-info);
+  color: var(--lk-oninfo);
+}
+
+.lk-sticker.lk-colorgroup--oninfo {
+  background-color: var(--lk-oninfo);
+  color: var(--lk-info);
+}
+
+.lk-sticker.lk-colorgroup--infocontainer {
+  background-color: var(--lk-infocontainer);
+  color: var(--lk-oninfocontainer);
+}
+
+.lk-sticker.lk-colorgroup--oninfocontainer {
+  background-color: var(--lk-oninfocontainer);
+  color: var(--lk-infocontainer);
+}
+
+.lk-sticker.lk-colorgroup--background {
+  background-color: var(--lk-background);
+  color: var(--lk-onbackground);
+}
+
+.lk-sticker.lk-colorgroup--onbackground {
+  background-color: var(--lk-onbackground);
+  color: var(--lk-background);
+}
+
+.lk-sticker.lk-colorgroup--surface {
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--onsurface {
+  background-color: var(--lk-onsurface);
+  color: var(--lk-surface);
+}
+
+.lk-sticker.lk-colorgroup--surfacevariant {
+  background-color: var(--lk-surfacevariant);
+  color: var(--lk-onsurfacevariant);
+}
+
+.lk-sticker.lk-colorgroup--onsurfacevariant {
+  background-color: var(--lk-onsurfacevariant);
+  color: var(--lk-surfacevariant);
+}
+
+.lk-sticker.lk-colorgroup--surfacecontainerlowest {
+  background-color: var(--lk-surfacecontainerlowest);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--surfacecontainerlow {
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--surfacecontainer {
+  background-color: var(--lk-surfacecontainer);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--surfacecontainerhigh {
+  background-color: var(--lk-surfacecontainerhigh);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--surfacecontainerhighest {
+  background-color: var(--lk-surfacecontainerhighest);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--inversesurface {
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
+}
+
+.lk-sticker.lk-colorgroup--inverseonsurface {
+  background-color: var(--lk-inverseonsurface);
+  color: var(--lk-inversesurface);
+}
+
+.lk-sticker.lk-colorgroup--inverseprimary {
+  background-color: var(--lk-inverseprimary);
+  color: var(--lk-onprimary);
+}
+
+.lk-sticker.lk-colorgroup--primaryfixed {
+  background-color: var(--lk-primaryfixed);
+  color: var(--lk-onprimaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--onprimaryfixed {
+  background-color: var(--lk-onprimaryfixed);
+  color: var(--lk-primaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--primaryfixeddim {
+  background-color: var(--lk-primaryfixeddim);
+  color: var(--lk-onprimaryfixedvariant);
+}
+
+.lk-sticker.lk-colorgroup--onprimaryfixedvariant {
+  background-color: var(--lk-onprimaryfixedvariant);
+  color: var(--lk-primaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--secondaryfixed {
+  background-color: var(--lk-secondaryfixed);
+  color: var(--lk-onsecondaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--onsecondaryfixed {
+  background-color: var(--lk-onsecondaryfixed);
+  color: var(--lk-secondaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--secondaryfixeddim {
+  background-color: var(--lk-secondaryfixeddim);
+  color: var(--lk-onsecondaryfixedvariant);
+}
+
+.lk-sticker.lk-colorgroup--onsecondaryfixedvariant {
+  background-color: var(--lk-onsecondaryfixedvariant);
+  color: var(--lk-secondaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--tertiaryfixed {
+  background-color: var(--lk-tertiaryfixed);
+  color: var(--lk-ontertiaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--ontertiaryfixed {
+  background-color: var(--lk-ontertiaryfixed);
+  color: var(--lk-tertiaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--tertiaryfixeddim {
+  background-color: var(--lk-tertiaryfixeddim);
+  color: var(--lk-ontertiaryfixedvariant);
+}
+
+.lk-sticker.lk-colorgroup--ontertiaryfixedvariant {
+  background-color: var(--lk-ontertiaryfixedvariant);
+  color: var(--lk-tertiaryfixed);
+}
+
+.lk-sticker.lk-colorgroup--surfacedim {
+  background-color: var(--lk-surfacedim);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--surfacebright {
+  background-color: var(--lk-surfacebright);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--outline {
+  background-color: var(--lk-outline);
+  color: var(--lk-surface);
+}
+
+.lk-sticker.lk-colorgroup--outlinevariant {
+  background-color: var(--lk-outlinevariant);
+  color: var(--lk-onsurface);
+}
+
+.lk-sticker.lk-colorgroup--shadow {
+  background-color: var(--lk-shadow);
+  color: var(--lk-surface);
+}
+
+.lk-sticker.lk-colorgroup--scrim {
+  background-color: var(--lk-scrim);
+  color: var(--lk-surface);
+}
+
+.lk-sticker.lk-colorgroup--transparent {
+  background-color: transparent;
+  color: var(--lk-onsurface);
 }
