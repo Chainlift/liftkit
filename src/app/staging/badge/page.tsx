@@ -1,33 +1,32 @@
 import React from "react";
 import { Row } from "@/registry/nextjs/components/row";
 import { Badge } from "@/registry/nextjs/components/badge";
+const buttonColors: LkColorWithOnToken[] = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "error",
+  "warning",
+  "info",
+  "success",
+  "primarycontainer",
+  "secondarycontainer",
+  "tertiarycontainer",
+  "errorcontainer",
+  "warningcontainer",
+  "infocontainer",
+  "successcontainer",
+  "surface",
+  "surfacecontainerlowest",
+  "surfacecontainerlow",
+  "surfacecontainerhigh",
+  "surfacecontainerhighest",
+  "surfacevariant",
+  "inversesurface",
+  "background",
+];
 
 export default function Staging() {
-  const buttonColors: LkColorWithOnToken[] = [
-    "primary",
-    "secondary",
-    "tertiary",
-    "error",
-    "warning",
-    "info",
-    "success",
-    "primarycontainer",
-    "secondarycontainer",
-    "tertiarycontainer",
-    "errorcontainer",
-    "warningcontainer",
-    "infocontainer",
-    "successcontainer",
-    "surface",
-    "surfacecontainerlowest",
-    "surfacecontainerlow",
-    "surfacecontainerhigh",
-    "surfacecontainerhighest",
-    "surfacevariant",
-    "inversesurface",
-    "background",
-  ];
-
   return (
     <div>
       <Row>
@@ -47,7 +46,6 @@ export default function Staging() {
 export function BadgeDemo() {
   return (
     <>
-
       <div>
         <Row>
           {buttonColors.map((color) => (

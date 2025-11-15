@@ -3,7 +3,7 @@
 // CustomSelect.tsx
 import {Card}, { LkCardProps } from "@/registry/nextjs/components/card";
 import React, { useContext, useState, useRef, useEffect, createContext } from "react";
-import Column from "@/registry/nextjs/components/column";
+import {Column} from "@/registry/nextjs/components/column";
 import {Icon} from "@/registry/nextjs/components/icon";
 import { LkIconProps } from "@/registry/nextjs/components/icon";
 import ReactDOM from "react-dom";

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { propsToDataAttrs } from "@/registry/nextjs/lib/utilities";
+import { Slot } from "@radix-ui/react-slot";
 
 import "./goldenbox.css";
 
@@ -7,6 +8,7 @@ export interface LkGoldenBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   children?: React.ReactNode;
+  asChild?: boolean;
 }
 
 /**
@@ -21,18 +23,21 @@ export function GoldenBox({
   scaleFactor = "body",
   opticalCorrection = "none",
   children,
+  asChild = false,
   ...restProps
 }: LkGoldenBoxProps) {
+  const Comp = asChild ? Slot : "div";
+
   const lkGoldenBoxAttrs = useMemo(() => propsToDataAttrs({ scaleFactor }, "golden-box"), [scaleFactor]);
 
   return (
-    <div
+    <Comp
       data-lk-component="golden-box"
       data-lk-golden-box-optical-correction={opticalCorrection}
       {...lkGoldenBoxAttrs}
       {...restProps}
     >
       {children}
-    </div>
+    </Comp>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { Container } from "@/registry/nextjs/components/container";
 import { Section } from "@/registry/nextjs/components/section";
-import Column from "@/registry/nextjs/components/column";
+import { Column } from "@/registry/nextjs/components/column";
 import { TextInput } from "@/registry/nextjs/components/text-input";
 
 export default function TextInputStaging() {

@@ -3,7 +3,7 @@ import React from "react";
 import { Section } from "@/registry/nextjs/components/section";
 
 import { Row } from "@/registry/nextjs/components/row";
-import Column from "@/registry/nextjs/components/column";
+import { Column } from "@/registry/nextjs/components/column";
 import { Container } from "@/registry/nextjs/components/container";
 
 import { Card } from "@/registry/nextjs/components/card";

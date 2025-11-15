@@ -1,8 +1,8 @@
 "use client";
-import Column from "@/registry/nextjs/components/column";
+import { Column } from "@/registry/nextjs/components/column";
 import { Heading } from "@/registry/nextjs/components/heading";
 import { Section } from "@/registry/nextjs/components/section";
-import Image from "@/registry/nextjs/components/image";
+import { Image } from "@/registry/nextjs/components/image";
 import { Container } from "@/registry/nextjs/components/container";
 import { Grid } from "@/registry/nextjs/components/grid";
 

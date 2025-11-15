@@ -14,15 +14,15 @@
 /* Only apply styles to the [data-lk-component="state-layer"] when its direct parent is hovered, active, or focused */
 div:hover > [data-lk-component="state-layer"],
 a:hover > [data-lk-component="state-layer"],
-button:hover > [data-lk-component="state-layer"],
+button:hover  [data-lk-component="state-layer"], /* Make an exception for buttons, who should target ANY matching child */
 li:hover > [data-lk-component="state-layer"] {
   opacity: 0.16 !important;
 }
 
-div:active > [data-lk-component="state-layer"],
-a:active > [data-lk-component="state-layer"],
-button:active > [data-lk-component="state-layer"],
-li:active > [data-lk-component="state-layer"] {
+div:is(:active, :focus-visible) > [data-lk-component="state-layer"],
+a:is(:active, :focus-visible) > [data-lk-component="state-layer"],
+button:is(:active, :focus-visible) [data-lk-component="state-layer"], /* Make an exception for buttons, who should target ANY matching child */
+li:is(:active, :focus-visible) > [data-lk-component="state-layer"] {
   opacity: 0.5 !important;
 }
 

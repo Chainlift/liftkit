@@ -18,7 +18,7 @@ export function DialogDemo() {
   return (
     <Dialog>
       <form>
-        <DialogTrigger style={{ all: "unset" }}>
+        <DialogTrigger style={{ all: "unset" }} asChild>
           <Button variant="outline">Open Dialog</Button>
         </DialogTrigger>
         <DialogContent cardProps={{ scaleFactor: "title3", opticalCorrection: "top" }} style={{ maxWidth: "425px" }}>

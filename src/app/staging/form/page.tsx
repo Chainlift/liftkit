@@ -8,7 +8,7 @@ import {
   FormMessage,
   FormValidityState,
   FormSubmit,
-} from "@/registry/nextjs/components/form"
+} from "@/registry/nextjs/components/form";
 
 export default function Page() {
   return (
@@ -23,7 +23,15 @@ export default function Page() {
           </FormControl>
           <FormMessage match="valueMissing">Email is required</FormMessage>
           <FormMessage match="typeMismatch">Please enter a valid email address</FormMessage>
-          <FormValidityState />
+          <FormValidityState>
+            {(validity) =>
+              validity && (
+                <div style={{ fontSize: "12px", color: validity.valid ? "green" : "red" }}>
+                  Status: {validity.valid ? "Valid" : "Invalid"}
+                </div>
+              )
+            }
+          </FormValidityState>
         </FormField>
 
         <FormField name="password">
@@ -33,13 +41,23 @@ export default function Page() {
           </FormControl>
           <FormMessage match="valueMissing">Password is required</FormMessage>
           <FormMessage match="tooShort">Password must be at least 6 characters</FormMessage>
-          <FormValidityState />
+          <FormValidityState>
+            {(validity) =>
+              validity && (
+                <div style={{ fontSize: "12px", color: validity.valid ? "green" : "red" }}>
+                  Status: {validity.valid ? "Valid" : "Invalid"}
+                </div>
+              )
+            }
+          </FormValidityState>
         </FormField>
 
         <FormSubmit asChild>
-          <button type="submit" style={{ marginTop: 16 }}>Submit</button>
+          <button type="submit" style={{ marginTop: 16 }}>
+            Submit
+          </button>
         </FormSubmit>
       </Form>
     </main>
-  )
+  );
 }
