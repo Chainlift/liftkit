@@ -39,7 +39,7 @@ LiftKit is a UI framework that makes you a better designer without even realizin
 
 ### This is the official repo.
 
-This is the official repository. Currently, it only has support for Next.js without Tailwind. The project is mmaintained by Chainlift, which is itself maintained entirely by part-time contributors. So while we do plan to expand support to every framework imaginable, we are currently limited by time and availability.
+This is the official repository. Currently, it only has support for Next.js without Tailwind. The project is maintained by Chainlift, which is itself maintained entirely by part-time contributors. So while we do plan to expand support to every framework imaginable, we are currently limited by time and availability.
 
 Community contributors are responsible for their own forks. However, we help out however we can by adding serious contributors to our internal Slack, where they can communicate and collaborate with everyone else working on the project.
 
