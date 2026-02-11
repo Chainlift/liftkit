@@ -1,0 +1,33 @@
+.border {
+  border: 1px solid var(--lk-outline);
+}
+
+.border-t {
+  border-top: 1px solid var(--lk-outline);
+}
+
+.border-r {
+  border-right: 1px solid var(--lk-outline);
+}
+
+.border-l {
+  border-left: 1px solid var(--lk-outline);
+}
+
+.border-b {
+  border-bottom: 1px solid var(--lk-outline);
+}
+
+.border-x {
+  border-left: 1px solid var(--lk-outline);
+  border-right: 1px solid var(--lk-outline);
+}
+
+.border-y {
+  border-top: 1px solid var(--lk-outline);
+  border-bottom: 1px solid var(--lk-outline);
+}
+
+.border-none {
+  border: 0px;
+}

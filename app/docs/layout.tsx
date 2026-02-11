@@ -21,7 +21,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         </nav>
       </aside>
       <main style={{ padding: 24 }}>{children}</main>
-      <aside style={{ padding: 16, borderLeft: "1px solid #eee" }}></aside>
+     
     </div>
   );
 }

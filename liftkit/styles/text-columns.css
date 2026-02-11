@@ -1,0 +1,4 @@
+.text-col-3 {
+  column-count: 3;
+  gap: 1em;
+}

@@ -1,0 +1,35 @@
+/*How to use
+
+the aspect-ratio property maintains the proportion of width to height. 
+For it to work, either the width or the height of the element must be set
+to a value besides "auto." It can be fixed-width or responsive, but it must be set.
+
+Either width or height must be set to auto in order for aspect-ratio to work.
+
+Template: aspect-ratio: width / height;
+
+*/
+
+.aspect-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3x2 {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-9x16 {
+  aspect-ratio: 9 / 16;
+}
+
+.aspect-1x1 {
+  aspect-ratio: 1;
+}
+
+.aspect-2x1 {
+  aspect-ratio: 2 / 1;
+}

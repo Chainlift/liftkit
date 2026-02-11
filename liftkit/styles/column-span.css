@@ -1,0 +1,47 @@
+.colspan-1 {
+  grid-column: span 1;
+}
+
+.colspan-2 {
+  grid-column: span 2;
+}
+
+.colspan-3 {
+  grid-column: span 3;
+}
+
+.colspan-4 {
+  grid-column: span 4;
+}
+
+.colspan-5 {
+  grid-column: span 5;
+}
+
+.colspan-6 {
+  grid-column: span 6;
+}
+
+.colspan-7 {
+  grid-column: span 7;
+}
+
+.colspan-8 {
+  grid-column: span 8;
+}
+
+.colspan-9 {
+  grid-column: span 9;
+}
+
+.colspan-10 {
+  grid-column: span 10;
+}
+
+.colspan-11 {
+  grid-column: span 11;
+}
+
+.colspan-12 {
+  grid-column: span 12;
+}

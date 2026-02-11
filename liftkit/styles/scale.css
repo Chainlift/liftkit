@@ -1,0 +1,23 @@
+.scaleUp-wholestep {
+  transform: scale(var(--wholestep));
+}
+
+.scaleUp-halfstep {
+  transform: scale(var(--halfstep));
+}
+
+.scaleUp-quarterstep {
+  transform: scale(var(--quarterstep));
+}
+
+.scaleDown-wholestep {
+  transform: scale(calc(1 / var(--wholestep)));
+}
+
+.scaleDown-halfstep {
+  transform: scale(calc(1 / var(--halfstep)));
+}
+
+.scaleDown-quarterstep {
+  transform: scale(calc(1 / var(--quarterstep)));
+}

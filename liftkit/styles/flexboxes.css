@@ -1,0 +1,128 @@
+/* Set display to flex */
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-h {
+  display: flex;
+}
+
+.flex-v {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+/* shorthands */
+
+.flex-h-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flex-h-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-h-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-v-start {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.flex-v-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-v-end {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* card-header */
+.flex-wrap-children {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--lk-size-sm);
+  row-gap: var(--lk-size-sm);
+}
+
+.fill-container {
+  flex: 1 0 0;
+  flex-basis: 0;
+}
+
+.hug-contents {
+  flex: 1 0 auto;
+}
+
+.scrollable-flex-child {
+  flex: 1 0 0;
+  flex-basis: 0;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.flex-basis-auto {
+  flex-basis: auto;
+}
