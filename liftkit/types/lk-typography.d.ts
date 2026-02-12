@@ -1,5 +1,3 @@
-export {};
-
 declare global {
   type LkFontClass =
     | "display1"
@@ -40,3 +38,4 @@ declare global {
     | "capline-mono";
 }
 
+export { LkFontClass };

@@ -1,11 +1,12 @@
-import { Button } from "@liftkit/ui"
-import { Demo } from "@/components/mdx/demo"
-import { PropsTable } from "@/components/mdx/props-table"
+import { Button } from "@/liftkit/ui/button";
+import { Demo } from "@/components/mdx/demo";
+import { PropsTable } from "@/components/mdx/props-table";
+import { ComponentPreview } from "@/app/docs/lib/component-preview";
 
 export const metadata = {
   title: "Button",
-  description: "Interactive trigger component built on Base UI with LiftKit styling."
-}
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Button
 
@@ -14,7 +15,10 @@ This component wraps the Base UI primitive and applies LiftKit recipes and token
 
 ---
 
+<ComponentPreview componentName="button" />
+
 ## Installation
 
 ```bash
 npm install @liftkit/ui @liftkit/styles
+```

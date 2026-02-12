@@ -1,0 +1,57 @@
+import type * as React from "react";
+import { Button } from "@/liftkit/ui/button";
+// import other components you want to preview
+
+export type Control =
+  | { kind: "boolean"; label?: string; default?: boolean }
+  | { kind: "text"; label?: string; default?: string; placeholder?: string }
+  | { kind: "select"; label?: string; default?: string; options: { label: string; value: string }[] }
+  | { kind: "number"; label?: string; default?: number; min?: number; max?: number; step?: number }
+  | { kind: "color"; label?: string; default?: string } // if you want to wire to CSS vars, etc.
+  | { kind: "slot"; label?: string; default?: string }; // convenience for children
+
+export type ComponentEntry = {
+  title: string;
+  // Component is a React component type; we keep props loosely typed in docs code
+  Component: React.ComponentType<any>;
+  // "knobs" defines a subset of props you want to expose
+  knobs: Record<string, Control>;
+  // base props always applied (can include className, etc.)
+  baseProps?: Record<string, unknown>;
+  // optional: transform the knobs into final props (e.g. map “label” → children)
+  mapKnobsToProps?: (knobs: Record<string, unknown>) => Record<string, unknown>;
+};
+
+export const componentManifest = {
+  button: {
+    title: "Button",
+    Component: Button,
+    knobs: {
+      children: { kind: "slot", label: "Label", default: "Button" },
+      variant: {
+        kind: "select",
+        label: "Variant",
+        default: "fill",
+        options: [
+          { label: "Fill", value: "fill" },
+          { label: "Outline", value: "outline" },
+          { label: "Text", value: "text" },
+        ],
+      },
+      size: {
+        kind: "select",
+        label: "Size",
+        default: "md",
+        options: [
+          { label: "Small", value: "sm" },
+          { label: "Medium", value: "md" },
+          { label: "Large", value: "lg" },
+        ],
+      },
+      disabled: { kind: "boolean", label: "Disabled", default: false },
+    },
+    mapKnobsToProps: (k) => ({ ...k, children: k.children }),
+  },
+} satisfies Record<string, ComponentEntry>;
+
+export type ComponentName = keyof typeof componentManifest;

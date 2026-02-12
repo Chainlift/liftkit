@@ -103,7 +103,7 @@ declare global {
     | "inversesurface"
     | "transparent"
     | "surfacebright"
-    | "surfacedim"
+    | "surfacedim";
 
   type LkOnColor =
     | "onprimary"
@@ -125,3 +125,34 @@ declare global {
     | "onsurfacevariant"
     | "inverseonsurface";
 }
+
+export const LkColorSchemeClassMap = {
+  primary: "lk-colorgroup--primary",
+  primarycontainer: "lk-colorgroup--primarycontainer",
+  secondary: "lk-colorgroup--secondary",
+  secondarycontainer: "lk-colorgroup--secondarycontainer",
+  tertiary: "lk-colorgroup--tertiary",
+  tertiarycontainer: "lk-colorgroup--tertiarycontainer",
+  error: "lk-colorgroup--error",
+  errorcontainer: "lk-colorgroup--errorcontainer",
+  success: "lk-colorgroup--success",
+  successcontainer: "lk-colorgroup--successcontainer",
+  warning: "lk-colorgroup--warning",
+  warningcontainer: "lk-colorgroup--warningcontainer",
+  info: "lk-colorgroup--info",
+  infocontainer: "lk-colorgroup--infocontainer",
+  background: "lk-colorgroup--background",
+  surface: "lk-colorgroup--surface",
+  surfacevariant: "lk-colorgroup--surfacevariant",
+  surfacecontainerlowest: "lk-colorgroup--surfacecontainerlowest",
+  surfacecontainerlow: "lk-colorgroup--surfacecontainerlow",
+  surfacecontainer: "lk-colorgroup--surfacecontainer",
+  surfacecontainerhigh: "lk-colorgroup--surfacecontainerhigh",
+  surfacecontainerhighest: "lk-colorgroup--surfacecontainerhighest",
+  inversesurface: "lk-colorgroup--inversesurface",
+  primaryfixed: "lk-colorgroup--primaryfixed",
+  secondaryfixed: "lk-colorgroup--secondaryfixed",
+  tertiaryfixed: "lk-colorgroup--tertiaryfixed",
+} as const;
+
+export type ColorScheme = keyof typeof COLOR_SCHEME_CLASSES;
