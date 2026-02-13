@@ -20,6 +20,8 @@
 </div>
 <!-- markdownlint-restore -->
 
+**English** | [日本語](README.ja.md)
+
 # :grey_question: What is LiftKit?
 
 LiftKit is a UI framework that makes you a better designer without even realizing it. At its core, it's a platform-agnostic system of formulas for scaling, spacing, and color that automatically enforce high-detail design principles behind the scenes. You get easy utility classes, and LiftKit applies golden ratio scaling, optical symmetry, and contrast ratio checks for you under the hood.
