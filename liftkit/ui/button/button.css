@@ -40,15 +40,6 @@
 
 }
 
-/* SIZE VARIANTS */
-[data-lk-button-size="sm"] {
-  --button-font-size: var(--subheading-font-size);
-}
-
-[data-lk-button-size="lg"] {
-  --button-font-size: var(--title3-font-size);
-}
-
 /* ICON-BASED PADDING ADJUSTMENTS */
 .lk-btn:has([data-lk-icon-position="start"]) {
   padding-left: var(--button-padX-sideWithIcon);
@@ -72,25 +63,8 @@
   gap: var(--button-gap);
 }
 
-/* TODO: Remove entirely */
-
-/* [data-lk-component="button"] div:has(> [data-lk-component="icon"]) {
-  width: calc(1em * var(--lk-halfstep));
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* ICON VERTICAL OPTICAL ALIGNMENTS */
-
-/* 
-.lk-btn--optic-icon-shift div:has(>[data-lk-component="icon"]) {
-  margin-top: calc(-1 * calc(1em * var(--lk-quarterstep-dec))); 
-  transform: translateY(calc(-1 * calc(1em * var(--lk-eighthstep-dec))));
-} */
-
-/*Optic shift: If text doesn't look centered properly, tries pulling text downward slightly. Usually happens when start icon appears bigger than the text, even when it's not. */
+/* Optic shift: If text doesn't look centered properly, tries pulling text downward slightly. 
+Usually happens when start icon appears bigger than the text, even when it's not. */
 
 .lk-btn--optic-shift [data-lk-button-child="button-text"] {
   transform: translateY(calc(1em * var(--lk-eighthstep-dec)));

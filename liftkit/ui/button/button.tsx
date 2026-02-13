@@ -4,6 +4,8 @@ import { cn } from "@/lib/cn";
 import { IconName } from "lucide-react/dynamic";
 import { LkStateLayerProps } from "@/liftkit/ui/state-layer";
 import { LkFontClass } from "@/liftkit/types/lk-typography";
+import { Icon } from "@/liftkit/ui/icon/icon";
+
 import "./button.css";
 
 //define the type
@@ -22,11 +24,8 @@ export type ButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> & {
 };
 
 //define a button class generator function
-function buttonClasses({ variant = "fill", color = "primary", size = "md", fontClass, className }: ButtonProps) {
-  return cn("lk-btn", 
-  "lk-btn-variant--" + variant, 
-  "lk-colorgroup--" + color, 
-  fontClass && fontClass);
+function buttonClasses({ variant = "fill", color = "primary", fontClass, className }: ButtonProps) {
+  return cn("lk-btn", "lk-btn-variant--" + variant, "lk-colorgroup--" + color, fontClass && fontClass);
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
@@ -41,15 +40,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
     opticalCorrection,
     modifiers,
     stateLayerOverride,
-    fontClass,
+    fontClass = "body",
     ...props
   },
   ref,
 ) {
-
-
   return (
     <BaseButton ref={ref} className={buttonClasses({ className, variant, color, fontClass })} {...props}>
+      <Icon name="arrow-right" data-lk-icon-position="start" fontClass={fontClass}/>
       {label ?? props.children ?? "Button"}
     </BaseButton>
   );
