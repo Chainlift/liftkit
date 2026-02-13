@@ -12,7 +12,6 @@ export type ButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> & {
   label?: string;
   variant?: "fill" | "outline" | "text";
   color?: LkColorWithOnToken;
-  size?: "sm" | "md" | "lg";
   material?: string;
   startIcon?: IconName;
   endIcon?: IconName;
@@ -35,7 +34,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
     className,
     variant,
     color,
-    size,
     label,
     material,
     startIcon,
