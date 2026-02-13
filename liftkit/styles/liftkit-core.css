@@ -550,6 +550,11 @@ button span {
   --lk-color-ontoken: var(--lk-onerror);
 }
 
+.lk-colorgroup--errorcontainer {
+  --lk-color-token: var(--lk-errorcontainer);
+  --lk-color-ontoken: var(--lk-onerrorcontainer);
+}
+
 .lk-colorgroup--success {
   --lk-color-token: var(--lk-success);
   --lk-color-ontoken: var(--lk-onsuccess);
