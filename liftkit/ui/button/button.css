@@ -98,19 +98,19 @@
 
 /* STYLE VARIANTS */
 
-.lk-btn-style--fill {
+.lk-btn-variant--fill {
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
   --lk-btn-border: transparent;
 }
 
-.lk-btn-style--outline {
+.lk-btn-variant--outline {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: var(--lk-color-token);
 }
 
-.lk-btn-style--text {
+.lk-btn-variant--text {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: transparent;

@@ -24,7 +24,10 @@ export type ButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> & {
 
 //define a button class generator function
 function buttonClasses({ variant = "fill", color = "primary", size = "md", fontClass, className }: ButtonProps) {
-  return cn("lk-btn", "lk-btn-style--" + variant, "lk-colorgroup--" + color, fontClass && fontClass);
+  return cn("lk-btn", 
+  "lk-btn-variant--" + variant, 
+  "lk-colorgroup--" + color, 
+  fontClass && fontClass);
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
@@ -45,8 +48,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
   },
   ref,
 ) {
+
+
   return (
-    <BaseButton ref={ref} className={buttonClasses({ className, variant, color, size })} {...props}>
+    <BaseButton ref={ref} className={buttonClasses({ className, variant, color, fontClass })} {...props}>
       {label ?? props.children ?? "Button"}
     </BaseButton>
   );
