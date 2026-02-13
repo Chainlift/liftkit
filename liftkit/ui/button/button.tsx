@@ -61,9 +61,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
 ) {
   return (
     <BaseButton ref={ref} className={buttonClasses({ className, variant, color, fontClass })} {...props}>
-      <Icon name="arrow-right" data-lk-icon-position="start" fontClass={fontClass} />
+      <Icon name="arrow-right" data-lk-icon-position="start" />
       {label ?? props.children ?? "Button"}
-      <Icon name="arrow-right" data-lk-icon-position="end" fontClass={fontClass} />
+      <Icon name="arrow-right" data-lk-icon-position="end"/>
     </BaseButton>
   );
 });
