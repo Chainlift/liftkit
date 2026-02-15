@@ -1,59 +1,50 @@
-import * as React from 'react';
-import { Accordion } from '@base-ui/react/accordion';
-import styles from './accordion.module.css';
+"use client";
 
-export default function ExampleAccordion() {
+import { cn } from "@/lib/cn";
+import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { Icon } from "@/liftkit/ui/icon/icon";
+import styles from "./accordion.module.css";
+
+function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+  return <AccordionPrimitive.Root data-slot="accordion" className={cn("", styles.Accordion, className)} {...props} />;
+}
+
+function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
   return (
-    <Accordion.Root className={styles.Accordion}>
-      <Accordion.Item className={styles.Item}>
-        <Accordion.Header className={styles.Header}>
-          <Accordion.Trigger className={styles.Trigger}>
-            What is Base UI?
-            <PlusIcon className={styles.TriggerIcon} />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className={styles.Panel}>
-          <div className={styles.Content}>
-            Base UI is a library of high-quality unstyled React components for design systems and
-            web apps.
-          </div>
-        </Accordion.Panel>
-      </Accordion.Item>
-
-      <Accordion.Item className={styles.Item}>
-        <Accordion.Header className={styles.Header}>
-          <Accordion.Trigger className={styles.Trigger}>
-            How do I get started?
-            <PlusIcon className={styles.TriggerIcon} />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className={styles.Panel}>
-          <div className={styles.Content}>
-            Head to the “Quick start” guide in the docs. If you’ve used unstyled libraries before,
-            you’ll feel at home.
-          </div>
-        </Accordion.Panel>
-      </Accordion.Item>
-
-      <Accordion.Item className={styles.Item}>
-        <Accordion.Header className={styles.Header}>
-          <Accordion.Trigger className={styles.Trigger}>
-            Can I use it for my project?
-            <PlusIcon className={styles.TriggerIcon} />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className={styles.Panel}>
-          <div className={styles.Content}>Of course! Base UI is free and open source.</div>
-        </Accordion.Panel>
-      </Accordion.Item>
-    </Accordion.Root>
+    <AccordionPrimitive.Item
+      data-slot="accordion-item"
+      className={cn("bg-surface", styles.Item, className)}
+      {...props}
+    />
   );
 }
 
-function PlusIcon(props: React.ComponentProps<'svg'>) {
+function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.Trigger.Props) {
   return (
-    <svg viewBox="0 0 12 12" fill="currentcolor" {...props}>
-      <path d="M6.75 0H5.25V5.25H0V6.75L5.25 6.75V12H6.75V6.75L12 6.75V5.25H6.75V0Z" />
-    </svg>
+    <AccordionPrimitive.Header className={styles.Header}>
+      <AccordionPrimitive.Trigger
+        data-slot="accordion-trigger"
+        className={cn("", styles.Trigger, className)}
+        {...props}
+      >
+        {children}
+        <Icon
+          name="plus"
+          data-slot="accordion-trigger-icon"
+          className={cn("", styles.TriggerIcon, className)}
+        />
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
   );
 }
+
+function AccordionContent({ className, children, ...props }: AccordionPrimitive.Panel.Props) {
+  return (
+    <AccordionPrimitive.Panel data-slot="accordion-content" {...props}>
+      <div className={cn("", styles.Content, className)}>{children}</div>
+    </AccordionPrimitive.Panel>
+  );
+}
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

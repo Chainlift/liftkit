@@ -18,17 +18,17 @@
   user-select: none;
 
   &[data-color="red"] {
-    color: var(--color-red);
+    color: var(--lk-error);
   }
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--color-gray-100);
+      background-color: var(--lk-surfacecontainer);
     }
   }
 
   &:active {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-surfacecontainer);
   }
 
   &:focus-visible {
@@ -100,7 +100,7 @@
   margin: 0 0 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: var(--color-gray-600);
+  color: var(--lk-onsurfacevariant);
 }
 
 .Actions {

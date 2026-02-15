@@ -7,7 +7,7 @@
   user-select: none;
   font-weight: 500;
   color: var(--lk-onsurface);
-  background-color: var(--color-gray-100);
+  background-color: var(--lk-surfacecontainer);
   font-size: 1rem;
   line-height: 1;
   overflow: hidden;
