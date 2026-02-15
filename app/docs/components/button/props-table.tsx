@@ -4,14 +4,14 @@ const rows = [
   {
     "name": "color",
     "type": "LkColorWithOnToken | undefined",
-    "typeLink": null,
+    "typeLink": "/docs/types/LkColorWithOnToken",
     "required": false,
     "description": "Some description",
     "default": "-"
   },
   {
     "name": "endIcon",
-    "type": "IconName",
+    "type": "IconName | undefined",
     "typeLink": "/docs/types/IconName",
     "required": false,
     "description": "Some description",
@@ -59,7 +59,7 @@ const rows = [
   },
   {
     "name": "startIcon",
-    "type": "IconName",
+    "type": "IconName | undefined",
     "typeLink": "/docs/types/IconName",
     "required": false,
     "description": "Some description",
@@ -67,7 +67,7 @@ const rows = [
   },
   {
     "name": "stateLayerOverride",
-    "type": "LkStateLayerProps",
+    "type": "LkStateLayerProps | undefined",
     "typeLink": "/docs/types/LkStateLayerProps",
     "required": false,
     "description": "Some description",

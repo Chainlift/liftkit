@@ -8,6 +8,23 @@ const typesRoot = path.join(repoRoot, "liftkit/types");
 const docsComponentsRoot = path.join(repoRoot, "app/docs/components");
 const docsTypesRoot = path.join(repoRoot, "app/docs/types");
 
+const customTypesFound = new Set();
+
+// NEW: Extract custom type names from a type string
+function extractCustomTypes(typeText) {
+  const types = [];
+  // Match PascalCase type names (avoiding built-in types)
+  const matches = typeText.matchAll(/\b([A-Z][a-zA-Z0-9]*(?:Props)?)\b/g);
+  for (const match of matches) {
+    const typeName = match[1];
+    // Skip common built-ins
+    if (!["React", "HTMLElement", "Promise", "Record", "Array"].includes(typeName)) {
+      types.push(typeName);
+    }
+  }
+  return types;
+}
+
 const project = new Project({
   tsConfigFilePath: path.join(repoRoot, "tsconfig.json"),
   skipAddingFilesFromTsConfig: false,
@@ -136,6 +153,46 @@ const extractTypeValues = (typeAlias) => {
   return [];
 };
 
+// const ensureTypePageExists = (typeName) => {
+//   const typeDir = path.join(docsTypesRoot, typeName);
+//   const pagePath = path.join(typeDir, "page.mdx");
+
+//   if (fs.existsSync(pagePath)) {
+//     return; // Already exists
+//   }
+
+//   // Find the type definition
+//   let typeAlias = null;
+//   let sourceFile = null;
+
+//   // Check liftkit/types
+//   const typesFiles = fs.readdirSync(typesRoot).filter((f) => f.endsWith(".d.ts"));
+//   for (const file of typesFiles) {
+//     const filePath = path.join(typesRoot, file);
+//     sourceFile = project.getSourceFile(filePath) ?? project.addSourceFileAtPath(filePath);
+//     typeAlias = sourceFile?.getTypeAlias(typeName);
+//     if (typeAlias) break;
+//   }
+
+//   if (!typeAlias) {
+//     console.warn(`[Type Links] Could not find type alias for: ${typeName}`);
+//     return;
+//   }
+
+//   const values = extractTypeValues(typeAlias);
+
+//   fs.mkdirSync(typeDir, { recursive: true });
+
+//   const content = `# ${typeName}
+
+// ${values.length > 0 ? `## Values\n\n${values.map((v) => `- \`${v}\``).join("\n")}` : "Type definition."}
+// `;
+
+//   fs.writeFileSync(pagePath, content, "utf8");
+//   createdTypePages.add(typeName);
+//   console.log(`[Type Links] Created type page: ${typeName}`);
+// };
+
 const ensureTypePageExists = (typeName) => {
   const typeDir = path.join(docsTypesRoot, typeName);
   const pagePath = path.join(typeDir, "page.mdx");
@@ -144,11 +201,14 @@ const ensureTypePageExists = (typeName) => {
     return; // Already exists
   }
 
-  // Find the type definition
+  // Always create the directory
+  fs.mkdirSync(typeDir, { recursive: true });
+
+  // Try to find the type definition
   let typeAlias = null;
   let sourceFile = null;
 
-  // Check liftkit/types
+  // Check liftkit/types for type aliases
   const typesFiles = fs.readdirSync(typesRoot).filter((f) => f.endsWith(".d.ts"));
   for (const file of typesFiles) {
     const filePath = path.join(typesRoot, file);
@@ -159,12 +219,20 @@ const ensureTypePageExists = (typeName) => {
 
   if (!typeAlias) {
     console.warn(`[Type Links] Could not find type alias for: ${typeName}`);
+    // Still create a placeholder page
+    const content = `# ${typeName}
+
+Type definition placeholder.
+
+*Documentation needed - type alias not found during generation.*
+`;
+    fs.writeFileSync(pagePath, content, "utf8");
+    createdTypePages.add(typeName);
     return;
   }
 
+  // Found the type - extract values
   const values = extractTypeValues(typeAlias);
-
-  fs.mkdirSync(typeDir, { recursive: true });
 
   const content = `# ${typeName}
 
@@ -176,84 +244,85 @@ ${values.length > 0 ? `## Values\n\n${values.map((v) => `- \`${v}\``).join("\n")
   console.log(`[Type Links] Created type page: ${typeName}`);
 };
 
-const processTypeString = (typeString, componentName, currentSourceFile) => {
-  // Check if this is a linkable type (not an inline union)
-  const isInlineUnion = typeString.includes("|") && typeString.includes('"');
-  if (isInlineUnion) {
-    return { type: typeString, link: null };
-  }
-
-  // Extract base type name (handle generics, React. prefix, etc.)
-  const baseTypeName = typeString.split("<")[0].split(".").pop().trim();
-
-  if (!shouldLinkType(baseTypeName)) {
-    return { type: typeString, link: null };
-  }
-
-  // Handle React types
-  if (isReactType(typeString)) {
-    return {
-      type: baseTypeName,
-      link: getReactTypeUrl(typeString),
-    };
-  }
-
-  // Handle custom types
-  const sourceFile = findTypeSourceFile(baseTypeName, currentSourceFile);
-  if (!sourceFile) {
-    if (!skippedTypes.has(componentName)) {
-      skippedTypes.set(componentName, []);
-    }
-    skippedTypes.get(componentName).push(baseTypeName);
-    return { type: typeString, link: null };
-  }
-
-  // Ensure type page exists
-  ensureTypePageExists(baseTypeName);
-
-  return {
-    type: baseTypeName,
-    link: `/docs/types/${baseTypeName}`,
-  };
-};
-
 const getPropTypeTextFromMember = (member, componentName, sourceFile) => {
   const typeNode = member.getTypeNode();
-
-  // Check if this is a direct type reference (e.g., IconName, LkColor)
-  if (typeNode && Node.isTypeReference(typeNode)) {
-    const typeName = typeNode.getText();
+  
+  if (!typeNode) {
+    const t = member.getType();
+    const typeString = t.getText(member, ts.TypeFormatFlags.NoTruncation);
+    extractCustomTypes(typeString).forEach((t) => customTypesFound.add(t));
+    return { type: typeString, link: null };
+  }
+  
+  let baseTypeNode = typeNode;
+  let isOptional = member.hasQuestionToken();
+  
+  // Strategy 1: Direct type reference (e.g., IconName, LkColorWithOnToken)
+  if (Node.isTypeReference(baseTypeNode)) {
+    const typeName = baseTypeNode.getText();
     const baseTypeName = typeName.split("<")[0].trim();
-
+    
+    extractCustomTypes(typeName).forEach((t) => customTypesFound.add(t));
+    
     if (shouldLinkType(baseTypeName)) {
       // Handle React types
       if (isReactType(baseTypeName)) {
+        const displayType = isOptional 
+          ? `${baseTypeName.replace(/^React\./, "")} | undefined`
+          : baseTypeName.replace(/^React\./, "");
         return {
-          type: baseTypeName.replace(/^React\./, ""),
+          type: displayType,
           link: getReactTypeUrl(baseTypeName),
         };
       }
-
+      
       // Handle custom types
       const typeSourceFile = findTypeSourceFile(baseTypeName, sourceFile);
-      if (typeSourceFile) {
+      
+      // ✅ FIX: Create link even if source file not found (for global types)
+      ensureTypePageExists(baseTypeName);
+      const displayType = isOptional ? `${baseTypeName} | undefined` : baseTypeName;
+      return {
+        type: displayType,
+        link: `/docs/types/${baseTypeName}`,
+      };
+    }
+  }
+  
+  // Strategy 2: Union type (e.g., "fill" | "outline" | undefined)
+  if (Node.isUnionTypeNode(baseTypeNode)) {
+    const typeNodes = baseTypeNode.getTypeNodes();
+    const nonUndefinedTypes = typeNodes.filter(t => t.getText() !== "undefined");
+    
+    if (nonUndefinedTypes.length === 1 && Node.isTypeReference(nonUndefinedTypes[0])) {
+      const typeName = nonUndefinedTypes[0].getText();
+      const baseTypeName = typeName.split("<")[0].trim();
+      
+      extractCustomTypes(typeName).forEach((t) => customTypesFound.add(t));
+      
+      if (shouldLinkType(baseTypeName)) {
+        if (isReactType(baseTypeName)) {
+          return {
+            type: `${baseTypeName.replace(/^React\./, "")} | undefined`,
+            link: getReactTypeUrl(baseTypeName),
+          };
+        }
+        
+        // ✅ FIX: Create link even if source file not found (for global types)
         ensureTypePageExists(baseTypeName);
         return {
-          type: baseTypeName,
+          type: `${baseTypeName} | undefined`,
           link: `/docs/types/${baseTypeName}`,
         };
-      } else {
-        if (!skippedTypes.has(componentName)) {
-          skippedTypes.set(componentName, []);
-        }
-        skippedTypes.get(componentName).push(baseTypeName);
       }
     }
   }
-
+  
   // Fallback: get expanded type string for inline types
   const t = member.getType();
   const typeString = t.getText(member, ts.TypeFormatFlags.NoTruncation);
+  extractCustomTypes(typeString).forEach((t) => customTypesFound.add(t));
+  
   return { type: typeString, link: null };
 };
 
@@ -396,6 +465,23 @@ for (const componentDir of componentDirs) {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   writePropsTableComponent(componentName, rows);
+}
+
+// NEW: Generate type documentation pages for all found custom types
+console.log("\n" + "=".repeat(60));
+console.log("\n[Type Pages] Generating documentation for custom types...");
+
+for (const typeName of customTypesFound) {
+  // Skip if already linked (would have been created by ensureTypePageExists)
+  if (createdTypePages.has(typeName)) continue;
+  
+  // Skip React types
+  if (isReactType(typeName)) continue;
+  
+  // Only process Lk-prefixed types and those in LINKABLE_TYPE_NAMES
+  if (!typeName.startsWith("Lk") && !LINKABLE_TYPE_NAMES.has(typeName)) continue;
+  
+  ensureTypePageExists(typeName);
 }
 
 // Console output summary

@@ -43,7 +43,7 @@ const rows = [
   },
   {
     "name": "name",
-    "type": "IconName",
+    "type": "IconName | undefined",
     "typeLink": "/docs/types/IconName",
     "required": false,
     "description": "-",
