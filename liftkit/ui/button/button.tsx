@@ -11,15 +11,26 @@ import "./button.css";
 //define the type
 
 export type ButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> & {
+  /** Text content for the button. Falls back to children. */
   label?: string;
+  /** Visual style variant. */
   variant?: "fill" | "outline" | "text";
+  /** Some description */
   color?: LkColorWithOnToken;
+  /** Some description */
   material?: string;
+  /** Some description */
   startIcon?: IconName;
+  /** Some description */
   endIcon?: IconName;
+  /** Some description */
   opticalCorrection?: boolean;
+  /** Some description */
   modifiers?: string;
+  /** Some description */
   stateLayerOverride?: LkStateLayerProps; // Optional override for state layer properties
+  /** Some description
+   * @default "body" */
   fontClass?: Extract<
     LkFontClass,
     | "display1"

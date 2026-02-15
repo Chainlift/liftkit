@@ -1,34 +1,53 @@
-import fs from "node:fs";
-import path from "node:path";
+import "./props-table.css";
 
-export function PropsTable({ name }: { name: string }) {
-  const file = path.join(process.cwd(), "src", "generated", "props", `${name}.json`);
-  const json = JSON.parse(fs.readFileSync(file, "utf8"));
+/** The generic props table component  */
+export interface PropRow {
+  name: string;
+  type: string;
+  required: boolean;
+  description: string;
+  default: string;
+}
 
-  const rows = Object.entries(json.props ?? {}).map(([propName, p]: any) => ({
-    propName,
-    type: p.type?.name ?? "",
-    required: !!p.required,
-    description: p.description ?? "",
-    defaultValue: p.defaultValue?.value ?? "",
-  }));
+export interface PropsTableProps {
+  rows: PropRow[];
+}
+
+export function PropsTable({ rows }: PropsTableProps) {
+  if (rows.length === 0) {
+    return <p className="lk-props-table-empty">No props documented.</p>;
+  }
 
   return (
-    <div style={{ overflowX: "auto" }}>
-      <table>
+    <div className="lk-props-table-wrapper">
+      <table className="lk-props-table">
         <thead>
           <tr>
-            <th>Prop</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th>
+            <th>Prop</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Default</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((r) => (
-            <tr key={r.propName}>
-              <td><code>{r.propName}</code></td>
-              <td><code>{r.type}</code></td>
-              <td>{r.required ? "yes" : "no"}</td>
-              <td><code>{r.defaultValue}</code></td>
-              <td>{r.description}</td>
+          {rows.map((row) => (
+            <tr key={row.name}>
+              <td>
+                <code className="lk-props-table-prop-name">{row.name}</code>
+              </td>
+              <td>
+                <code className="lk-props-table-type">{row.type}</code>
+              </td>
+              <td className="lk-props-table-required">
+                {row.required ? "Yes" : "No"}
+              </td>
+              <td>
+                <code className="lk-props-table-default">
+                  {row.default || "-"}
+                </code>
+              </td>
+              <td className="lk-props-table-description">{row.description}</td>
             </tr>
           ))}
         </tbody>
