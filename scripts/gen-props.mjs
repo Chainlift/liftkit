@@ -4,12 +4,39 @@ import { Project, ts, Node } from "ts-morph";
 
 const repoRoot = process.cwd();
 const uiRoot = path.join(repoRoot, "liftkit/ui");
+const typesRoot = path.join(repoRoot, "liftkit/types");
 const docsComponentsRoot = path.join(repoRoot, "app/docs/components");
+const docsTypesRoot = path.join(repoRoot, "app/docs/types");
 
 const project = new Project({
   tsConfigFilePath: path.join(repoRoot, "tsconfig.json"),
   skipAddingFilesFromTsConfig: false,
 });
+
+// Types that should be linked (in addition to Lk-prefixed types)
+const LINKABLE_TYPE_NAMES = new Set(["IconName"]);
+
+// Known React types with their doc URLs
+const REACT_TYPE_DOCS = {
+  ReactNode: "https://react.dev/reference/react/ReactNode",
+  ReactElement: "https://react.dev/reference/react/createElement",
+  ComponentPropsWithoutRef: "https://react.dev/reference/react/ComponentPropsWithoutRef",
+  ComponentPropsWithRef: "https://react.dev/reference/react/ComponentPropsWithRef",
+  HTMLAttributes: "https://react.dev/reference/react-dom/components/common",
+  CSSProperties: "https://react.dev/reference/react-dom/components/common",
+  MouseEvent: "https://react.dev/reference/react-dom/components/common",
+  ChangeEvent: "https://react.dev/reference/react-dom/components/common",
+  FormEvent: "https://react.dev/reference/react-dom/components/common",
+  KeyboardEvent: "https://react.dev/reference/react-dom/components/common",
+  FocusEvent: "https://react.dev/reference/react-dom/components/common",
+};
+
+const REACT_FALLBACK_URL = "https://react.dev";
+
+// Tracking for console output
+const createdTypePages = new Set();
+const reactTypesWithoutDocs = new Set();
+const skippedTypes = new Map(); // component -> type[]
 
 const toPascalCase = (name) =>
   name
@@ -38,9 +65,196 @@ const getDescriptionFromJsDocNode = (member) => {
   return safeText(text);
 };
 
-const getPropTypeTextFromMember = (member) => {
+const shouldLinkType = (typeName) => {
+  // Remove React. prefix for checking
+  const cleanName = typeName.replace(/^React\./, "");
+  return (
+    LINKABLE_TYPE_NAMES.has(cleanName) ||
+    cleanName.startsWith("Lk") ||
+    cleanName in REACT_TYPE_DOCS
+  );
+};
+
+const isReactType = (typeName) => {
+  const cleanName = typeName.replace(/^React\./, "");
+  return cleanName in REACT_TYPE_DOCS;
+};
+
+const getReactTypeUrl = (typeName) => {
+  const cleanName = typeName.replace(/^React\./, "");
+  if (cleanName in REACT_TYPE_DOCS) {
+    return REACT_TYPE_DOCS[cleanName];
+  }
+  reactTypesWithoutDocs.add(typeName);
+  return REACT_FALLBACK_URL;
+};
+
+const findTypeSourceFile = (typeName, currentSourceFile) => {
+  // First check if it's imported in the current file
+  const imports = currentSourceFile.getImportDeclarations();
+  for (const imp of imports) {
+    const namedImports = imp.getNamedImports();
+    const hasType = namedImports.some(
+      (ni) => ni.getName() === typeName || ni.getAliasNode()?.getText() === typeName
+    );
+    if (hasType) {
+      const moduleSpecifier = imp.getModuleSpecifierValue();
+      // Resolve relative imports
+      if (moduleSpecifier.startsWith(".")) {
+        const currentDir = path.dirname(currentSourceFile.getFilePath());
+        return path.resolve(currentDir, moduleSpecifier);
+      }
+      return moduleSpecifier;
+    }
+  }
+
+  // Check liftkit/types for global declarations
+  const typesFiles = fs.readdirSync(typesRoot).filter((f) => f.endsWith(".d.ts"));
+  for (const file of typesFiles) {
+    const filePath = path.join(typesRoot, file);
+    const typeSource = project.getSourceFile(filePath) ?? project.addSourceFileAtPath(filePath);
+    const typeAlias = typeSource?.getTypeAlias(typeName);
+    if (typeAlias) {
+      return filePath;
+    }
+  }
+
+  return null;
+};
+
+const extractTypeValues = (typeAlias) => {
+  const typeNode = typeAlias.getTypeNode();
+  if (!typeNode) return [];
+
+  if (Node.isUnionTypeNode(typeNode)) {
+    return typeNode
+      .getTypeNodes()
+      .map((t) => t.getText().replace(/['"]/g, ""))
+      .filter(Boolean);
+  }
+
+  return [];
+};
+
+const ensureTypePageExists = (typeName) => {
+  const typeDir = path.join(docsTypesRoot, typeName);
+  const pagePath = path.join(typeDir, "page.mdx");
+
+  if (fs.existsSync(pagePath)) {
+    return; // Already exists
+  }
+
+  // Find the type definition
+  let typeAlias = null;
+  let sourceFile = null;
+
+  // Check liftkit/types
+  const typesFiles = fs.readdirSync(typesRoot).filter((f) => f.endsWith(".d.ts"));
+  for (const file of typesFiles) {
+    const filePath = path.join(typesRoot, file);
+    sourceFile = project.getSourceFile(filePath) ?? project.addSourceFileAtPath(filePath);
+    typeAlias = sourceFile?.getTypeAlias(typeName);
+    if (typeAlias) break;
+  }
+
+  if (!typeAlias) {
+    console.warn(`[Type Links] Could not find type alias for: ${typeName}`);
+    return;
+  }
+
+  const values = extractTypeValues(typeAlias);
+
+  fs.mkdirSync(typeDir, { recursive: true });
+
+  const content = `# ${typeName}
+
+${values.length > 0 ? `## Values\n\n${values.map((v) => `- \`${v}\``).join("\n")}` : "Type definition."}
+`;
+
+  fs.writeFileSync(pagePath, content, "utf8");
+  createdTypePages.add(typeName);
+  console.log(`[Type Links] Created type page: ${typeName}`);
+};
+
+const processTypeString = (typeString, componentName, currentSourceFile) => {
+  // Check if this is a linkable type (not an inline union)
+  const isInlineUnion = typeString.includes("|") && typeString.includes('"');
+  if (isInlineUnion) {
+    return { type: typeString, link: null };
+  }
+
+  // Extract base type name (handle generics, React. prefix, etc.)
+  const baseTypeName = typeString.split("<")[0].split(".").pop().trim();
+
+  if (!shouldLinkType(baseTypeName)) {
+    return { type: typeString, link: null };
+  }
+
+  // Handle React types
+  if (isReactType(typeString)) {
+    return {
+      type: baseTypeName,
+      link: getReactTypeUrl(typeString),
+    };
+  }
+
+  // Handle custom types
+  const sourceFile = findTypeSourceFile(baseTypeName, currentSourceFile);
+  if (!sourceFile) {
+    if (!skippedTypes.has(componentName)) {
+      skippedTypes.set(componentName, []);
+    }
+    skippedTypes.get(componentName).push(baseTypeName);
+    return { type: typeString, link: null };
+  }
+
+  // Ensure type page exists
+  ensureTypePageExists(baseTypeName);
+
+  return {
+    type: baseTypeName,
+    link: `/docs/types/${baseTypeName}`,
+  };
+};
+
+const getPropTypeTextFromMember = (member, componentName, sourceFile) => {
+  const typeNode = member.getTypeNode();
+
+  // Check if this is a direct type reference (e.g., IconName, LkColor)
+  if (typeNode && Node.isTypeReference(typeNode)) {
+    const typeName = typeNode.getText();
+    const baseTypeName = typeName.split("<")[0].trim();
+
+    if (shouldLinkType(baseTypeName)) {
+      // Handle React types
+      if (isReactType(baseTypeName)) {
+        return {
+          type: baseTypeName.replace(/^React\./, ""),
+          link: getReactTypeUrl(baseTypeName),
+        };
+      }
+
+      // Handle custom types
+      const typeSourceFile = findTypeSourceFile(baseTypeName, sourceFile);
+      if (typeSourceFile) {
+        ensureTypePageExists(baseTypeName);
+        return {
+          type: baseTypeName,
+          link: `/docs/types/${baseTypeName}`,
+        };
+      } else {
+        if (!skippedTypes.has(componentName)) {
+          skippedTypes.set(componentName, []);
+        }
+        skippedTypes.get(componentName).push(baseTypeName);
+      }
+    }
+  }
+
+  // Fallback: get expanded type string for inline types
   const t = member.getType();
-  return t.getText(member, ts.TypeFormatFlags.NoTruncation);
+  const typeString = t.getText(member, ts.TypeFormatFlags.NoTruncation);
+  return { type: typeString, link: null };
 };
 
 const getPropsTypeNode = (sourceFile, componentName) => {
@@ -111,7 +325,6 @@ const getComponentSourceFile = (componentDir) => {
 
   if (tsxFiles.length === 0) return null;
 
-  // Prefer {component}.tsx if present
   const baseName = path.basename(componentDir);
   const preferred = tsxFiles.find((f) => f === `${baseName}.tsx`);
   const fileName = preferred ?? tsxFiles[0];
@@ -166,14 +379,15 @@ for (const componentDir of componentDirs) {
   const rows = members
     .map((member) => {
       const name = member.getName();
-      const type = getPropTypeTextFromMember(member);
+      const typeInfo = getPropTypeTextFromMember(member, componentName, sourceFile);
       const required = !member.hasQuestionToken();
       const description = getDescriptionFromJsDocNode(member);
       const defaultValue = getDefaultFromJsDocNode(member);
 
       return {
         name,
-        type,
+        type: typeInfo.type,
+        typeLink: typeInfo.link,
         required,
         description,
         default: defaultValue,
@@ -184,4 +398,24 @@ for (const componentDir of componentDirs) {
   writePropsTableComponent(componentName, rows);
 }
 
-console.log("Done.");
+// Console output summary
+console.log("\n" + "=".repeat(60));
+if (createdTypePages.size > 0) {
+  console.log("\n[Type Links] Created new type pages:");
+  createdTypePages.forEach((type) => console.log(`  - ${type}`));
+}
+
+if (reactTypesWithoutDocs.size > 0) {
+  console.log("\n[Type Links] React types without specific doc links:");
+  reactTypesWithoutDocs.forEach((type) => console.log(`  - ${type} (fallback: ${REACT_FALLBACK_URL})`));
+}
+
+if (skippedTypes.size > 0) {
+  console.log("\n[Type Links] Skipped (no type alias found):");
+  skippedTypes.forEach((types, component) => {
+    console.log(`  ${component}:`);
+    types.forEach((type) => console.log(`    - ${type}`));
+  });
+}
+
+console.log("\nDone.");

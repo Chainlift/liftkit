@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { CodeBlock } from "@/components/mdx/code-block";
-import { PropsTable } from "@/components/mdx/props-table";
+import { PropsTable } from "@/components/mdx/PropsTable";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

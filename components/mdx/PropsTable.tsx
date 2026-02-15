@@ -1,9 +1,10 @@
+import Link from "next/link";
 import "./props-table.css";
 
-/** The generic props table component  */
 export interface PropRow {
   name: string;
   type: string;
+  typeLink?: string | null;
   required: boolean;
   description: string;
   default: string;
@@ -37,7 +38,18 @@ export function PropsTable({ rows }: PropsTableProps) {
                 <code className="lk-props-table-prop-name">{row.name}</code>
               </td>
               <td>
-                <code className="lk-props-table-type">{row.type}</code>
+                {row.typeLink ? (
+                  <Link
+                    href={row.typeLink}
+                    className="lk-props-table-type-link"
+                    target={row.typeLink.startsWith("http") ? "_blank" : undefined}
+                    rel={row.typeLink.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    <code className="lk-props-table-type">{row.type}</code>
+                  </Link>
+                ) : (
+                  <code className="lk-props-table-type">{row.type}</code>
+                )}
               </td>
               <td className="lk-props-table-required">
                 {row.required ? "Yes" : "No"}
