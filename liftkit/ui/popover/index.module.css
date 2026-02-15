@@ -8,10 +8,10 @@
   padding: 0;
   margin: 0;
   outline: 0;
-  border: 1px solid var(--color-gray-200);
+  border: 1px solid var(--lk-outlinevariant);
   border-radius: 0.375rem;
-  background-color: var(--color-gray-50);
-  color: var(--color-gray-900);
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurface);
   user-select: none;
 
   @media (hover: hover) {
@@ -29,7 +29,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--lk-info);
     outline-offset: -1px;
   }
 }
@@ -49,8 +49,8 @@
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
-  background-color: canvas;
-  color: var(--color-gray-900);
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
   transition:
     transform 150ms,
@@ -67,14 +67,14 @@
   }
 
   @media (prefers-color-scheme: light) {
-    outline: 1px solid var(--color-gray-200);
+    outline: 1px solid var(--lk-outlinevariant);
     box-shadow:
-      0 10px 15px -3px var(--color-gray-200),
-      0 4px 6px -4px var(--color-gray-200);
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
   }
 
   @media (prefers-color-scheme: dark) {
-    outline: 1px solid var(--color-gray-300);
+    outline: 1px solid var(--lk-outlinevariant);
     outline-offset: -1px;
   }
 }
@@ -82,22 +82,22 @@
 .Arrow {
   display: flex;
 
-  &[data-side='top'] {
+  &[data-side="top"] {
     bottom: -8px;
     rotate: 180deg;
   }
 
-  &[data-side='bottom'] {
+  &[data-side="bottom"] {
     top: -8px;
     rotate: 0deg;
   }
 
-  &[data-side='left'] {
+  &[data-side="left"] {
     right: -13px;
     rotate: 90deg;
   }
 
-  &[data-side='right'] {
+  &[data-side="right"] {
     left: -13px;
     rotate: -90deg;
   }
@@ -109,13 +109,13 @@
 
 .ArrowOuterStroke {
   @media (prefers-color-scheme: light) {
-    fill: var(--color-gray-200);
+    fill: var(--lk-outlinevariant);
   }
 }
 
 .ArrowInnerStroke {
   @media (prefers-color-scheme: dark) {
-    fill: var(--color-gray-300);
+    fill: var(--lk-outlinevariant);
   }
 }
 
@@ -150,14 +150,14 @@
   padding: 0 0.875rem;
   margin: 0;
   outline: 0;
-  border: 1px solid var(--color-gray-200);
+  border: 1px solid var(--lk-outlinevariant);
   border-radius: 0.375rem;
-  background-color: var(--color-gray-50);
+  background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
-  color: var(--color-gray-900);
+  color: var(--lk-onsurface);
   user-select: none;
 
   @media (hover: hover) {
@@ -171,7 +171,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--lk-info);
     outline-offset: -1px;
   }
 }

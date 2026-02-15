@@ -6,7 +6,7 @@
   border-radius: 100%;
   user-select: none;
   font-weight: 500;
-  color: var(--color-gray-900);
+  color: var(--lk-onsurface);
   background-color: var(--color-gray-100);
   font-size: 1rem;
   line-height: 1;

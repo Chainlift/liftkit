@@ -6,13 +6,13 @@
 
 .Separator {
   width: 1px;
-  background-color: var(--color-gray-300);
+  background-color: var(--lk-outlinevariant);
 }
 
 .Link {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: var(--color-gray-900);
+  color: var(--lk-onsurface);
   text-decoration-color: var(--color-gray-400);
   text-decoration-thickness: 1px;
   text-decoration-line: none;
@@ -26,7 +26,7 @@
 
   &:focus-visible {
     border-radius: 0.125rem;
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--lk-info);
     text-decoration-line: none;
   }
 }

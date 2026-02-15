@@ -1,7 +1,7 @@
 .Panel {
   display: flex;
-  border: 1px solid var(--color-gray-200);
-  background-color: var(--color-gray-50);
+  border: 1px solid var(--lk-outlinevariant);
+  background-color: var(--lk-surfacecontainerlow);
   border-radius: 0.375rem;
   padding: 0.125rem;
 }
@@ -19,7 +19,7 @@
   border: 0;
   border-radius: 0.25rem;
   background-color: transparent;
-  color: var(--color-gray-900);
+  color: var(--lk-onsurface);
   user-select: none;
 
   &[data-popup-open] {
@@ -28,7 +28,7 @@
 
   &:focus-visible {
     background-color: transparent;
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--lk-info);
     outline-offset: -1px;
   }
 
@@ -39,7 +39,7 @@
   }
 
   &:active {
-    background-color: var(--color-gray-200);
+    background-color: var(--lk-outlinevariant);
   }
 }
 
@@ -56,7 +56,7 @@
   flex-direction: column;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: canvas;
+  background-color: var(--lk-surface);
   transform-origin: var(--transform-origin);
   transition:
     transform 150ms,
@@ -73,14 +73,14 @@
   }
 
   @media (prefers-color-scheme: light) {
-    outline: 1px solid var(--color-gray-200);
+    outline: 1px solid var(--lk-outlinevariant);
     box-shadow:
-      0 10px 15px -3px var(--color-gray-200),
-      0 4px 6px -4px var(--color-gray-200);
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
   }
 
   @media (prefers-color-scheme: dark) {
-    outline: 1px solid var(--color-gray-300);
+    outline: 1px solid var(--lk-outlinevariant);
     outline-offset: -1px;
   }
 }
@@ -88,22 +88,22 @@
 .Arrow {
   display: flex;
 
-  &[data-side='top'] {
+  &[data-side="top"] {
     bottom: -8px;
     rotate: 180deg;
   }
 
-  &[data-side='bottom'] {
+  &[data-side="bottom"] {
     top: -8px;
     rotate: 0deg;
   }
 
-  &[data-side='left'] {
+  &[data-side="left"] {
     right: -13px;
     rotate: 90deg;
   }
 
-  &[data-side='right'] {
+  &[data-side="right"] {
     left: -13px;
     rotate: -90deg;
   }
@@ -115,12 +115,12 @@
 
 .ArrowOuterStroke {
   @media (prefers-color-scheme: light) {
-    fill: var(--color-gray-200);
+    fill: var(--lk-outlinevariant);
   }
 }
 
 .ArrowInnerStroke {
   @media (prefers-color-scheme: dark) {
-    fill: var(--color-gray-300);
+    fill: var(--lk-outlinevariant);
   }
 }

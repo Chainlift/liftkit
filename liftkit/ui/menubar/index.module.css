@@ -1,7 +1,7 @@
 .Menubar {
   display: flex;
-  background-color: var(--color-gray-50);
-  border: 1px solid var(--color-gray-200);
+  background-color: var(--lk-surfacecontainerlow);
+  border: 1px solid var(--lk-outlinevariant);
   border-radius: 0.375rem;
   padding: 0.125rem;
 }
@@ -40,8 +40,8 @@
   box-sizing: border-box;
   padding-block: 0.25rem;
   border-radius: 0.375rem;
-  background-color: canvas;
-  color: var(--color-gray-900);
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
 
   &[data-ending-style] {
@@ -54,14 +54,14 @@
   }
 
   @media (prefers-color-scheme: light) {
-    outline: 1px solid var(--color-gray-200);
+    outline: 1px solid var(--lk-outlinevariant);
     box-shadow:
-      0 10px 15px -3px var(--color-gray-200),
-      0 4px 6px -4px var(--color-gray-200);
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
   }
 
   @media (prefers-color-scheme: dark) {
-    outline: 1px solid var(--color-gray-300);
+    outline: 1px solid var(--lk-outlinevariant);
     outline-offset: -1px;
   }
 }
@@ -84,7 +84,7 @@
   }
 
   &[data-popup-open]::before {
-    content: '';
+    content: "";
     z-index: -1;
     position: absolute;
     inset-block: 0;
@@ -96,22 +96,22 @@
   &[data-highlighted] {
     z-index: 0;
     position: relative;
-    color: var(--color-gray-50);
+    color: var(--lk-surfacecontainerlow);
   }
 
   &[data-highlighted]::before {
-    content: '';
+    content: "";
     z-index: -1;
     position: absolute;
     inset-block: 0;
     inset-inline: 0.25rem;
     border-radius: 0.25rem;
-    background-color: var(--color-gray-900);
+    background-color: var(--lk-onsurface);
   }
 }
 
 .MenuSeparator {
   margin: 0.375rem 1rem;
   height: 1px;
-  background-color: var(--color-gray-200);
+  background-color: var(--lk-outlinevariant);
 }
