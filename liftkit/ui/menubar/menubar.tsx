@@ -1,4 +1,11 @@
-import React from "react";
-import { Menubar as BaseMenubar } from "@base-ui/react";
+"use client";
+
 import { cn } from "@/lib/cn";
-import "./index.module.css";
+import { Menubar as MenubarPrimitive } from "@base-ui/react/menubar";
+import styles from "./index.module.css";
+
+function Menubar({ className, ...props }: MenubarPrimitive.Props) {
+  return <MenubarPrimitive data-slot="menubar" className={cn("", styles.Menubar, className)} {...props} />;
+}
+
+export { Menubar };
