@@ -1,15 +1,29 @@
 import * as React from "react";
-import { Checkbox } from "@base-ui/react/checkbox";
+import { Checkbox as BaseCheckbox } from "@base-ui/react/checkbox";
+import { Checkbox, CheckboxIndicator } from "./checkbox";
 import styles from "./checkbox.module.css";
 
 export default function ExampleCheckbox() {
   return (
     <label className={styles.Label}>
-      <Checkbox.Root defaultChecked className={styles.Checkbox}>
-        <Checkbox.Indicator className={styles.Indicator}>
+      <BaseCheckbox.Root defaultChecked className={styles.Checkbox}>
+        <BaseCheckbox.Indicator className={styles.Indicator}>
           <CheckIcon className={styles.Icon} />
-        </Checkbox.Indicator>
-      </Checkbox.Root>
+        </BaseCheckbox.Indicator>
+      </BaseCheckbox.Root>
+      Enable notifications
+    </label>
+  );
+}
+
+export function ExampleCheckbox2() {
+  return (
+    <label>
+      <Checkbox defaultChecked>
+        <CheckboxIndicator>
+          <CheckIcon />
+        </CheckboxIndicator>
+      </Checkbox>
       Enable notifications
     </label>
   );

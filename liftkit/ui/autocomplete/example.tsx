@@ -1,30 +1,65 @@
 "use client";
-import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete";
+import {
+  Autocomplete,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteEmpty,
+  AutocompleteList,
+  AutocompleteItem,
+  AutocompleteInput,
+} from "@/liftkit/ui/autocomplete/autocomplete";
 import styles from "./autocomplete.module.css";
 
 export default function ExampleAutocomplete() {
   return (
-    <Autocomplete.Root items={tags}>
+    <BaseAutocomplete.Root items={tags}>
       <label className={styles.Label}>
         Search tags
-        <Autocomplete.Input placeholder="e.g. feature" className={styles.Input} />
+        <BaseAutocomplete.Input placeholder="e.g. feature" className={styles.Input} />
       </label>
 
-      <Autocomplete.Portal>
-        <Autocomplete.Positioner className={styles.Positioner} sideOffset={4}>
-          <Autocomplete.Popup className={styles.Popup}>
-            <Autocomplete.Empty className={styles.Empty}>No tags found.</Autocomplete.Empty>
-            <Autocomplete.List className={styles.List}>
+      <BaseAutocomplete.Portal>
+        <BaseAutocomplete.Positioner className={styles.Positioner} sideOffset={4}>
+          <BaseAutocomplete.Popup className={styles.Popup}>
+            <BaseAutocomplete.Empty className={styles.Empty}>No tags found.</BaseAutocomplete.Empty>
+            <BaseAutocomplete.List className={styles.List}>
               {(tag: Tag) => (
-                <Autocomplete.Item key={tag.id} className={styles.Item} value={tag}>
+                <BaseAutocomplete.Item key={tag.id} className={styles.Item} value={tag}>
                   {tag.value}
-                </Autocomplete.Item>
+                </BaseAutocomplete.Item>
               )}
-            </Autocomplete.List>
-          </Autocomplete.Popup>
-        </Autocomplete.Positioner>
-      </Autocomplete.Portal>
-    </Autocomplete.Root>
+            </BaseAutocomplete.List>
+          </BaseAutocomplete.Popup>
+        </BaseAutocomplete.Positioner>
+      </BaseAutocomplete.Portal>
+    </BaseAutocomplete.Root>
+  );
+}
+
+export function ExampleAutocomplete2() {
+  return (
+    <Autocomplete>
+      <label >
+        Don't Search Tags
+        <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />
+      </label>
+      <AutocompletePortal>
+        <AutocompletePositioner>
+          <AutocompletePopup>
+            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+            <AutocompleteList>
+              {(tag: Tag) => (
+                <AutocompleteItem key={tag.id} className={styles.Item} value={tag}>
+                  {tag.value}
+                </AutocompleteItem>
+              )}
+            </AutocompleteList>
+          </AutocompletePopup>
+        </AutocompletePositioner>
+      </AutocompletePortal>
+    </Autocomplete>
   );
 }
 
