@@ -1,5 +1,5 @@
-import { Field } from '@base-ui/react/field';
-import styles from './index.module.css';
+import { Field } from "@base-ui/react/field";
+import styles from "./field.module.css";
 
 export default function ExampleField() {
   return (

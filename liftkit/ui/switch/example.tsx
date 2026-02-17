@@ -1,5 +1,5 @@
-import { Switch } from '@base-ui/react/switch';
-import styles from './index.module.css';
+import { Switch } from "@base-ui/react/switch";
+import styles from "./switch.module.css";
 
 export default function ExampleSwitch() {
   return (

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Toggle } from '@base-ui/react/toggle';
-import { ToggleGroup } from '@base-ui/react/toggle-group';
-import styles from './index.module.css';
+import * as React from "react";
+import { Toggle } from "@base-ui/react/toggle";
+import { ToggleGroup } from "@base-ui/react/toggle-group";
+import styles from "./toggle-group.module.css";
 
 export default function ExampleToggleGroup() {
   return (
-    <ToggleGroup defaultValue={['left']} className={styles.Panel}>
+    <ToggleGroup defaultValue={["left"]} className={styles.Panel}>
       <Toggle aria-label="Align left" value="left" className={styles.Button}>
         <AlignLeftIcon className={styles.Icon} />
       </Toggle>
@@ -19,16 +19,9 @@ export default function ExampleToggleGroup() {
   );
 }
 
-function AlignLeftIcon(props: React.ComponentProps<'svg'>) {
+function AlignLeftIcon(props: React.ComponentProps<"svg">) {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      stroke="currentcolor"
-      strokeLinecap="round"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentcolor" strokeLinecap="round" {...props}>
       <path d="M2.5 3.5H13.5" />
       <path d="M2.5 9.5H13.5" />
       <path d="M2.5 6.5H10.5" />
@@ -37,16 +30,9 @@ function AlignLeftIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-function AlignCenterIcon(props: React.ComponentProps<'svg'>) {
+function AlignCenterIcon(props: React.ComponentProps<"svg">) {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      stroke="currentcolor"
-      strokeLinecap="round"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentcolor" strokeLinecap="round" {...props}>
       <path d="M3 3.5H14" />
       <path d="M3 9.5H14" />
       <path d="M4.5 6.5H12.5" />
@@ -55,16 +41,9 @@ function AlignCenterIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-function AlignRightIcon(props: React.ComponentProps<'svg'>) {
+function AlignRightIcon(props: React.ComponentProps<"svg">) {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      stroke="currentcolor"
-      strokeLinecap="round"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentcolor" strokeLinecap="round" {...props}>
       <path d="M2.5 3.5H13.5" />
       <path d="M2.5 9.5H13.5" />
       <path d="M5.5 6.5H13.5" />

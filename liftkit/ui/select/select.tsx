@@ -2,22 +2,22 @@
 
 import { cn } from "@/lib/cn";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
-import styles from "./index.module.css";
+import "./select.css";
 
 function Select<Value, Multiple extends boolean = false>({ ...props }: SelectPrimitive.Root.Props<Value, Multiple>) {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
 function SelectTrigger({ className, ...props }: SelectPrimitive.Trigger.Props) {
-  return <SelectPrimitive.Trigger data-slot="select-trigger" className={cn("", styles.Select, className)} {...props} />;
+  return <SelectPrimitive.Trigger data-slot="select-trigger" className={cn("", "Select", className)} {...props} />;
 }
 
 function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
-  return <SelectPrimitive.Value data-slot="select-value" className={cn("", styles.Value, className)} {...props} />;
+  return <SelectPrimitive.Value data-slot="select-value" className={cn("", "Value", className)} {...props} />;
 }
 
 function SelectIcon({ className, ...props }: SelectPrimitive.Icon.Props) {
-  return <SelectPrimitive.Icon data-slot="select-icon" className={cn("", styles.SelectIcon, className)} {...props} />;
+  return <SelectPrimitive.Icon data-slot="select-icon" className={cn("", "SelectIcon", className)} {...props} />;
 }
 
 function SelectPortal({ ...props }: SelectPrimitive.Portal.Props) {
@@ -26,23 +26,19 @@ function SelectPortal({ ...props }: SelectPrimitive.Portal.Props) {
 
 function SelectPositioner({ className, ...props }: SelectPrimitive.Positioner.Props) {
   return (
-    <SelectPrimitive.Positioner
-      data-slot="select-positioner"
-      className={cn("", styles.Positioner, className)}
-      {...props}
-    />
+    <SelectPrimitive.Positioner data-slot="select-positioner" className={cn("", "Positioner", className)} {...props} />
   );
 }
 
 function SelectPopup({ className, ...props }: SelectPrimitive.Popup.Props) {
-  return <SelectPrimitive.Popup data-slot="select-popup" className={cn("", styles.Popup, className)} {...props} />;
+  return <SelectPrimitive.Popup data-slot="select-popup" className={cn("", "Popup", className)} {...props} />;
 }
 
 function SelectScrollUpArrow({ className, ...props }: SelectPrimitive.ScrollUpArrow.Props) {
   return (
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-up-arrow"
-      className={cn("", styles.ScrollArrow, className)}
+      className={cn("", "ScrollArrow", className)}
       {...props}
     />
   );
@@ -52,34 +48,32 @@ function SelectScrollDownArrow({ className, ...props }: SelectPrimitive.ScrollDo
   return (
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-arrow"
-      className={cn("", styles.ScrollArrow, className)}
+      className={cn("", "ScrollArrow", className)}
       {...props}
     />
   );
 }
 
 function SelectList({ className, ...props }: SelectPrimitive.List.Props) {
-  return <SelectPrimitive.List data-slot="select-list" className={cn("", styles.List, className)} {...props} />;
+  return <SelectPrimitive.List data-slot="select-list" className={cn("", "List", className)} {...props} />;
 }
 
 function SelectItem({ className, ...props }: SelectPrimitive.Item.Props) {
-  return <SelectPrimitive.Item data-slot="select-item" className={cn("", styles.Item, className)} {...props} />;
+  return <SelectPrimitive.Item data-slot="select-item" className={cn("", "Item", className)} {...props} />;
 }
 
 function SelectItemIndicator({ className, ...props }: SelectPrimitive.ItemIndicator.Props) {
   return (
     <SelectPrimitive.ItemIndicator
       data-slot="select-item-indicator"
-      className={cn("", styles.ItemIndicator, className)}
+      className={cn("", "ItemIndicator", className)}
       {...props}
     />
   );
 }
 
 function SelectItemText({ className, ...props }: SelectPrimitive.ItemText.Props) {
-  return (
-    <SelectPrimitive.ItemText data-slot="select-item-text" className={cn("", styles.ItemText, className)} {...props} />
-  );
+  return <SelectPrimitive.ItemText data-slot="select-item-text" className={cn("", "ItemText", className)} {...props} />;
 }
 
 export {

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
-import styles from "./index.module.css";
+import "./popover.css";
 
 function Popover({ ...props }: PopoverPrimitive.Root.Props) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
@@ -20,29 +20,29 @@ function PopoverPositioner({ className, ...props }: PopoverPrimitive.Positioner.
   return (
     <PopoverPrimitive.Positioner
       data-slot="popover-positioner"
-      className={cn("", styles.Positioner, className)}
+      className={cn("", "Positioner", className)}
       {...props}
     />
   );
 }
 
 function PopoverPopup({ className, ...props }: PopoverPrimitive.Popup.Props) {
-  return <PopoverPrimitive.Popup data-slot="popover-popup" className={cn("", styles.Popup, className)} {...props} />;
+  return <PopoverPrimitive.Popup data-slot="popover-popup" className={cn("", "Popup", className)} {...props} />;
 }
 
 function PopoverArrow({ className, ...props }: PopoverPrimitive.Arrow.Props) {
-  return <PopoverPrimitive.Arrow data-slot="popover-arrow" className={cn("", styles.Arrow, className)} {...props} />;
+  return <PopoverPrimitive.Arrow data-slot="popover-arrow" className={cn("", "Arrow", className)} {...props} />;
 }
 
 function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
-  return <PopoverPrimitive.Title data-slot="popover-title" className={cn("", styles.Title, className)} {...props} />;
+  return <PopoverPrimitive.Title data-slot="popover-title" className={cn("", "Title", className)} {...props} />;
 }
 
 function PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {
   return (
     <PopoverPrimitive.Description
       data-slot="popover-description"
-      className={cn("", styles.Description, className)}
+      className={cn("", "Description", className)}
       {...props}
     />
   );

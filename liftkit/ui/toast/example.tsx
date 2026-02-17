@@ -1,7 +1,7 @@
-'use client';
-import * as React from 'react';
-import { Toast } from '@base-ui/react/toast';
-import styles from './index.module.css';
+"use client";
+import * as React from "react";
+import { Toast } from "@base-ui/react/toast";
+import styles from "./toast.module.css";
 
 export default function ExampleToast() {
   return (
@@ -24,7 +24,7 @@ function ToastButton() {
     setCount((prev) => prev + 1);
     toastManager.add({
       title: `Toast ${count + 1} created`,
-      description: 'This is a toast notification.',
+      description: "This is a toast notification.",
     });
   }
 
@@ -50,7 +50,7 @@ function ToastList() {
   ));
 }
 
-function XIcon(props: React.ComponentProps<'svg'>) {
+function XIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

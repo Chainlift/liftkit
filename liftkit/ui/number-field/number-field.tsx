@@ -2,17 +2,17 @@
 
 import { cn } from "@/lib/cn";
 import { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";
-import styles from "./index.module.css";
+import "./number-field.css";
 
 function NumberField({ className, ...props }: NumberFieldPrimitive.Root.Props) {
-  return <NumberFieldPrimitive.Root data-slot="number-field" className={cn("", styles.Field, className)} {...props} />;
+  return <NumberFieldPrimitive.Root data-slot="number-field" className={cn("", "Field", className)} {...props} />;
 }
 
 function NumberFieldScrubArea({ className, ...props }: NumberFieldPrimitive.ScrubArea.Props) {
   return (
     <NumberFieldPrimitive.ScrubArea
       data-slot="number-field-scrub-area"
-      className={cn("", styles.ScrubArea, className)}
+      className={cn("", "ScrubArea", className)}
       {...props}
     />
   );
@@ -22,7 +22,7 @@ function NumberFieldScrubAreaCursor({ className, ...props }: NumberFieldPrimitiv
   return (
     <NumberFieldPrimitive.ScrubAreaCursor
       data-slot="number-field-scrub-area-cursor"
-      className={cn("", styles.ScrubAreaCursor, className)}
+      className={cn("", "ScrubAreaCursor", className)}
       {...props}
     />
   );
@@ -30,13 +30,13 @@ function NumberFieldScrubAreaCursor({ className, ...props }: NumberFieldPrimitiv
 
 function NumberFieldGroup({ className, ...props }: NumberFieldPrimitive.Group.Props) {
   return (
-    <NumberFieldPrimitive.Group data-slot="number-field-group" className={cn("", styles.Group, className)} {...props} />
+    <NumberFieldPrimitive.Group data-slot="number-field-group" className={cn("", "Group", className)} {...props} />
   );
 }
 
 function NumberFieldInput({ className, ...props }: NumberFieldPrimitive.Input.Props) {
   return (
-    <NumberFieldPrimitive.Input data-slot="number-field-input" className={cn("", styles.Input, className)} {...props} />
+    <NumberFieldPrimitive.Input data-slot="number-field-input" className={cn("", "Input", className)} {...props} />
   );
 }
 
@@ -44,7 +44,7 @@ function NumberFieldIncrement({ className, ...props }: NumberFieldPrimitive.Incr
   return (
     <NumberFieldPrimitive.Increment
       data-slot="number-field-increment"
-      className={cn("", styles.Increment, className)}
+      className={cn("", "Increment", className)}
       {...props}
     />
   );
@@ -54,7 +54,7 @@ function NumberFieldDecrement({ className, ...props }: NumberFieldPrimitive.Decr
   return (
     <NumberFieldPrimitive.Decrement
       data-slot="number-field-decrement"
-      className={cn("", styles.Decrement, className)}
+      className={cn("", "Decrement", className)}
       {...props}
     />
   );

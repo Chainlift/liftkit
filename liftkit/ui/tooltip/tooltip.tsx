@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
-import styles from "./index.module.css";
+import "./tooltip.css";
 
 function TooltipProvider({ ...props }: TooltipPrimitive.Provider.Props) {
   return <TooltipPrimitive.Provider {...props} />;
@@ -25,11 +25,11 @@ function TooltipPositioner({ className, ...props }: TooltipPrimitive.Positioner.
 }
 
 function TooltipPopup({ className, ...props }: TooltipPrimitive.Popup.Props) {
-  return <TooltipPrimitive.Popup data-slot="tooltip-popup" className={cn("", styles.Popup, className)} {...props} />;
+  return <TooltipPrimitive.Popup data-slot="tooltip-popup" className={cn("", "Popup", className)} {...props} />;
 }
 
 function TooltipArrow({ className, ...props }: TooltipPrimitive.Arrow.Props) {
-  return <TooltipPrimitive.Arrow data-slot="tooltip-arrow" className={cn("", styles.Arrow, className)} {...props} />;
+  return <TooltipPrimitive.Arrow data-slot="tooltip-arrow" className={cn("", "Arrow", className)} {...props} />;
 }
 
 export { TooltipProvider, Tooltip, TooltipTrigger, TooltipPortal, TooltipPositioner, TooltipPopup, TooltipArrow };

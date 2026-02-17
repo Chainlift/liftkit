@@ -1,18 +1,15 @@
-import * as React from 'react';
-import { PreviewCard } from '@base-ui/react/preview-card';
-import styles from './demos.module.css';
+import * as React from "react";
+import { PreviewCard } from "@base-ui/react/preview-card";
+import styles from "./preview-card.module.css";
 
 export default function ExamplePreviewCard() {
   return (
     <PreviewCard.Root>
       <p className={styles.Paragraph}>
-        The principles of good{' '}
-        <PreviewCard.Trigger
-          className={styles.Link}
-          href="https://en.wikipedia.org/wiki/Typography"
-        >
+        The principles of good{" "}
+        <PreviewCard.Trigger className={styles.Link} href="https://en.wikipedia.org/wiki/Typography">
           typography
-        </PreviewCard.Trigger>{' '}
+        </PreviewCard.Trigger>{" "}
         remain in the digital age.
       </p>
 
@@ -31,8 +28,8 @@ export default function ExamplePreviewCard() {
                 alt="Station Hofplein signage in Rotterdam, Netherlands"
               />
               <p className={styles.Summary}>
-                <strong>Typography</strong> is the art and science of arranging type to make written
-                language clear, visually appealing, and effective in communication.
+                <strong>Typography</strong> is the art and science of arranging type to make written language clear,
+                visually appealing, and effective in communication.
               </p>
             </div>
           </PreviewCard.Popup>
@@ -42,7 +39,7 @@ export default function ExamplePreviewCard() {
   );
 }
 
-function ArrowSvg(props: React.ComponentProps<'svg'>) {
+function ArrowSvg(props: React.ComponentProps<"svg">) {
   return (
     <svg width="20" height="10" viewBox="0 0 20 10" fill="none" {...props}>
       <path

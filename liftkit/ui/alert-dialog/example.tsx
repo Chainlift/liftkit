@@ -1,5 +1,5 @@
-import { AlertDialog } from '@base-ui/react/alert-dialog';
-import styles from './index.module.css';
+import { AlertDialog } from "@base-ui/react/alert-dialog";
+import styles from "./alert-dialog.module.css";
 
 export default function ExampleAlertDialog() {
   return (
@@ -11,9 +11,7 @@ export default function ExampleAlertDialog() {
         <AlertDialog.Backdrop className={styles.Backdrop} />
         <AlertDialog.Popup className={styles.Popup}>
           <AlertDialog.Title className={styles.Title}>Discard draft?</AlertDialog.Title>
-          <AlertDialog.Description className={styles.Description}>
-            You can't undo this action.
-          </AlertDialog.Description>
+          <AlertDialog.Description className={styles.Description}>You can't undo this action.</AlertDialog.Description>
           <div className={styles.Actions}>
             <AlertDialog.Close className={styles.Button}>Cancel</AlertDialog.Close>
             <AlertDialog.Close data-color="red" className={styles.Button}>

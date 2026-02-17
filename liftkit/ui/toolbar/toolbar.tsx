@@ -2,27 +2,23 @@
 
 import { cn } from "@/lib/cn";
 import { Toolbar as ToolbarPrimitive } from "@base-ui/react/toolbar";
-import styles from "./index.module.css";
+import "./toolbar.css";
 
 function Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {
-  return <ToolbarPrimitive.Root data-slot="toolbar" className={cn("", styles.Toolbar, className)} {...props} />;
+  return <ToolbarPrimitive.Root data-slot="toolbar" className={cn("", "Toolbar", className)} {...props} />;
 }
 
 function ToolbarButton({ className, ...props }: ToolbarPrimitive.Button.Props) {
-  return <ToolbarPrimitive.Button data-slot="toolbar-button" className={cn("", styles.Button, className)} {...props} />;
+  return <ToolbarPrimitive.Button data-slot="toolbar-button" className={cn("", "Button", className)} {...props} />;
 }
 
 function ToolbarGroup({ className, ...props }: ToolbarPrimitive.Group.Props) {
-  return <ToolbarPrimitive.Group data-slot="toolbar-group" className={cn("", styles.Group, className)} {...props} />;
+  return <ToolbarPrimitive.Group data-slot="toolbar-group" className={cn("", "Group", className)} {...props} />;
 }
 
 function ToolbarSeparator({ className, ...props }: ToolbarPrimitive.Separator.Props) {
   return (
-    <ToolbarPrimitive.Separator
-      data-slot="toolbar-separator"
-      className={cn("", styles.Separator, className)}
-      {...props}
-    />
+    <ToolbarPrimitive.Separator data-slot="toolbar-separator" className={cn("", "Separator", className)} {...props} />
   );
 }
 

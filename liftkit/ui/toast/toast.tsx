@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Toast as ToastPrimitive } from "@base-ui/react/toast";
-import styles from "./index.module.css";
+import "./toast.css";
 
 function ToastProvider({ ...props }: ToastPrimitive.Provider.Props) {
   return <ToastPrimitive.Provider {...props} />;
@@ -13,23 +13,25 @@ function ToastPortal({ ...props }: ToastPrimitive.Portal.Props) {
 }
 
 function ToastViewport({ className, ...props }: ToastPrimitive.Viewport.Props) {
-  return <ToastPrimitive.Viewport data-slot="toast-viewport" className={cn("", styles.Viewport, className)} {...props} />;
+  return <ToastPrimitive.Viewport data-slot="toast-viewport" className={cn("", "Viewport", className)} {...props} />;
 }
 
 function Toast({ className, ...props }: ToastPrimitive.Root.Props) {
-  return <ToastPrimitive.Root data-slot="toast" className={cn("", styles.Toast, className)} {...props} />;
+  return <ToastPrimitive.Root data-slot="toast" className={cn("", "Toast", className)} {...props} />;
 }
 
 function ToastContent({ className, ...props }: ToastPrimitive.Content.Props) {
-  return <ToastPrimitive.Content data-slot="toast-content" className={cn("", styles.Content, className)} {...props} />;
+  return <ToastPrimitive.Content data-slot="toast-content" className={cn("", "Content", className)} {...props} />;
 }
 
 function ToastTitle({ className, ...props }: ToastPrimitive.Title.Props) {
-  return <ToastPrimitive.Title data-slot="toast-title" className={cn("", styles.Title, className)} {...props} />;
+  return <ToastPrimitive.Title data-slot="toast-title" className={cn("", "Title", className)} {...props} />;
 }
 
 function ToastDescription({ className, ...props }: ToastPrimitive.Description.Props) {
-  return <ToastPrimitive.Description data-slot="toast-description" className={cn("", styles.Description, className)} {...props} />;
+  return (
+    <ToastPrimitive.Description data-slot="toast-description" className={cn("", "Description", className)} {...props} />
+  );
 }
 
 function ToastClose({ className, ...props }: ToastPrimitive.Close.Props) {
@@ -38,4 +40,14 @@ function ToastClose({ className, ...props }: ToastPrimitive.Close.Props) {
 
 const useToastManager = ToastPrimitive.useToastManager;
 
-export { ToastProvider, ToastPortal, ToastViewport, Toast, ToastContent, ToastTitle, ToastDescription, ToastClose, useToastManager };
+export {
+  ToastProvider,
+  ToastPortal,
+  ToastViewport,
+  Toast,
+  ToastContent,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  useToastManager,
+};

@@ -1,8 +1,8 @@
-'use client';
-import * as React from 'react';
-import { Menubar } from '@base-ui/react/menubar';
-import { Menu } from '@base-ui/react/menu';
-import styles from './index.module.css';
+"use client";
+import * as React from "react";
+import { Menubar } from "@base-ui/react/menubar";
+import { Menu } from "@base-ui/react/menu";
+import styles from "./menubar.module.css";
 
 export default function ExampleMenubar() {
   return (
@@ -127,16 +127,10 @@ function handleClick(event: React.MouseEvent<HTMLElement>) {
   console.log(`${event.currentTarget.textContent} clicked`);
 }
 
-function ChevronRightIcon(props: React.ComponentProps<'svg'>) {
+function ChevronRightIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" {...props}>
-      <path
-        d="M6 12L10 8L6 4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/cn";
 import { Form as FormPrimitive } from "@base-ui/react/form";
-import styles from "./index.module.css";
+import "./form.css";
 
 function Form({ className, ...props }: FormPrimitive.Props) {
-  return <FormPrimitive data-slot="form" className={cn("", styles.Form, className)} {...props} />;
+  return <FormPrimitive data-slot="form" className={cn("", "Form", className)} {...props} />;
 }
 
 export { Form };

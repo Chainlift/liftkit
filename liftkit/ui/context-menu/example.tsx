@@ -1,5 +1,5 @@
-import { ContextMenu } from '@base-ui/react/context-menu';
-import styles from './index.module.css';
+import { ContextMenu } from "@base-ui/react/context-menu";
+import styles from "./context-menu.module.css";
 
 export default function ExampleMenu() {
   return (

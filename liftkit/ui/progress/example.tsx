@@ -1,7 +1,7 @@
-'use client';
-import * as React from 'react';
-import { Progress } from '@base-ui/react/progress';
-import styles from './index.module.css';
+"use client";
+import * as React from "react";
+import { Progress } from "@base-ui/react/progress";
+import styles from "./progress.module.css";
 
 export default function ExampleProgress() {
   const [value, setValue] = React.useState(20);

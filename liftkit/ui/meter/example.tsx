@@ -1,5 +1,5 @@
-import { Meter } from '@base-ui/react/meter';
-import styles from './index.module.css';
+import { Meter } from "@base-ui/react/meter";
+import styles from "./meter.module.css";
 
 export default function ExampleMeter() {
   return (

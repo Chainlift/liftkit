@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
-import styles from "./index.module.css";
+import "./menu.css";
 
 function Menu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="menu" {...props} />;
@@ -18,26 +18,24 @@ function MenuPortal({ ...props }: MenuPrimitive.Portal.Props) {
 
 function MenuPositioner({ className, ...props }: MenuPrimitive.Positioner.Props) {
   return (
-    <MenuPrimitive.Positioner data-slot="menu-positioner" className={cn("", styles.Positioner, className)} {...props} />
+    <MenuPrimitive.Positioner data-slot="menu-positioner" className={cn("", "Positioner", className)} {...props} />
   );
 }
 
 function MenuPopup({ className, ...props }: MenuPrimitive.Popup.Props) {
-  return <MenuPrimitive.Popup data-slot="menu-popup" className={cn("", styles.Popup, className)} {...props} />;
+  return <MenuPrimitive.Popup data-slot="menu-popup" className={cn("", "Popup", className)} {...props} />;
 }
 
 function MenuArrow({ className, ...props }: MenuPrimitive.Arrow.Props) {
-  return <MenuPrimitive.Arrow data-slot="menu-arrow" className={cn("", styles.Arrow, className)} {...props} />;
+  return <MenuPrimitive.Arrow data-slot="menu-arrow" className={cn("", "Arrow", className)} {...props} />;
 }
 
 function MenuItem({ className, ...props }: MenuPrimitive.Item.Props) {
-  return <MenuPrimitive.Item data-slot="menu-item" className={cn("", styles.Item, className)} {...props} />;
+  return <MenuPrimitive.Item data-slot="menu-item" className={cn("", "Item", className)} {...props} />;
 }
 
 function MenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
-  return (
-    <MenuPrimitive.Separator data-slot="menu-separator" className={cn("", styles.Separator, className)} {...props} />
-  );
+  return <MenuPrimitive.Separator data-slot="menu-separator" className={cn("", "Separator", className)} {...props} />;
 }
 
 function MenuSubmenuRoot({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
@@ -46,11 +44,7 @@ function MenuSubmenuRoot({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
 
 function MenuSubmenuTrigger({ className, ...props }: MenuPrimitive.SubmenuTrigger.Props) {
   return (
-    <MenuPrimitive.SubmenuTrigger
-      data-slot="menu-submenu-trigger"
-      className={cn("", styles.Item, className)}
-      {...props}
-    />
+    <MenuPrimitive.SubmenuTrigger data-slot="menu-submenu-trigger" className={cn("", "Item", className)} {...props} />
   );
 }
 

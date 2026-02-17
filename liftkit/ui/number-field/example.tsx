@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { NumberField } from '@base-ui/react/number-field';
-import styles from './index.module.css';
+import * as React from "react";
+import { NumberField } from "@base-ui/react/number-field";
+import styles from "./number-field.module.css";
 
 export default function ExampleNumberField() {
   const id = React.useId();
@@ -28,7 +28,7 @@ export default function ExampleNumberField() {
   );
 }
 
-function CursorGrowIcon(props: React.ComponentProps<'svg'>) {
+function CursorGrowIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
       width="26"
@@ -44,7 +44,7 @@ function CursorGrowIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-function PlusIcon(props: React.ComponentProps<'svg'>) {
+function PlusIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
       width="10"
@@ -61,7 +61,7 @@ function PlusIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-function MinusIcon(props: React.ComponentProps<'svg'>) {
+function MinusIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
       width="10"

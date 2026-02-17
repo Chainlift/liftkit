@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Menu } from '@base-ui/react/menu';
-import styles from './index.module.css';
+import * as React from "react";
+import { Menu } from "@base-ui/react/menu";
+import styles from "./menu.module.css";
 
 export default function ExampleMenu() {
   return (
@@ -29,7 +29,7 @@ export default function ExampleMenu() {
   );
 }
 
-function ArrowSvg(props: React.ComponentProps<'svg'>) {
+function ArrowSvg(props: React.ComponentProps<"svg">) {
   return (
     <svg width="20" height="10" viewBox="0 0 20 10" fill="none" {...props}>
       <path
@@ -48,7 +48,7 @@ function ArrowSvg(props: React.ComponentProps<'svg'>) {
   );
 }
 
-function ChevronDownIcon(props: React.ComponentProps<'svg'>) {
+function ChevronDownIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" {...props}>
       <path d="M1 3.5L5 7.5L9 3.5" stroke="currentcolor" strokeWidth="1.5" />

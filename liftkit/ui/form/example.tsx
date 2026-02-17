@@ -1,9 +1,9 @@
-'use client';
-import * as React from 'react';
-import { Field } from '@base-ui/react/field';
-import { Form } from '@base-ui/react/form';
-import { Button } from '@base-ui/react/button';
-import styles from './index.module.css';
+"use client";
+import * as React from "react";
+import { Field } from "@base-ui/react/field";
+import { Form } from "@base-ui/react/form";
+import { Button } from "@base-ui/react/button";
+import styles from "./form.module.css";
 
 export default function ExampleForm() {
   const [errors, setErrors] = React.useState({});
@@ -16,7 +16,7 @@ export default function ExampleForm() {
       onSubmit={async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const value = formData.get('url') as string;
+        const value = formData.get("url") as string;
 
         setLoading(true);
         const response = await submitForm(value);
@@ -56,11 +56,11 @@ async function submitForm(value: string) {
   try {
     const url = new URL(value);
 
-    if (url.hostname.endsWith('example.com')) {
-      return { error: 'The example domain is not allowed' };
+    if (url.hostname.endsWith("example.com")) {
+      return { error: "The example domain is not allowed" };
     }
   } catch {
-    return { error: 'This is not a valid URL' };
+    return { error: "This is not a valid URL" };
   }
 
   return { success: true };

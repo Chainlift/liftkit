@@ -2,28 +2,26 @@
 
 import { cn } from "@/lib/cn";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
-import styles from "./index.module.css";
+import "./tabs.css";
 
 function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
-  return <TabsPrimitive.Root data-slot="tabs" className={cn("", styles.Tabs, className)} {...props} />;
+  return <TabsPrimitive.Root data-slot="tabs" className={cn("", "Tabs", className)} {...props} />;
 }
 
 function TabsList({ className, ...props }: TabsPrimitive.List.Props) {
-  return <TabsPrimitive.List data-slot="tabs-list" className={cn("", styles.List, className)} {...props} />;
+  return <TabsPrimitive.List data-slot="tabs-list" className={cn("", "List", className)} {...props} />;
 }
 
 function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
-  return <TabsPrimitive.Tab data-slot="tabs-tab" className={cn("", styles.Tab, className)} {...props} />;
+  return <TabsPrimitive.Tab data-slot="tabs-tab" className={cn("", "Tab", className)} {...props} />;
 }
 
 function TabsIndicator({ className, ...props }: TabsPrimitive.Indicator.Props) {
-  return (
-    <TabsPrimitive.Indicator data-slot="tabs-indicator" className={cn("", styles.Indicator, className)} {...props} />
-  );
+  return <TabsPrimitive.Indicator data-slot="tabs-indicator" className={cn("", "Indicator", className)} {...props} />;
 }
 
 function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
-  return <TabsPrimitive.Panel data-slot="tabs-panel" className={cn("", styles.Panel, className)} {...props} />;
+  return <TabsPrimitive.Panel data-slot="tabs-panel" className={cn("", "Panel", className)} {...props} />;
 }
 
 export { Tabs, TabsList, TabsTab, TabsIndicator, TabsPanel };

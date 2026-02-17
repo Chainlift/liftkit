@@ -1,6 +1,6 @@
-import { Field } from '@base-ui/react/field';
-import { Fieldset } from '@base-ui/react/fieldset';
-import styles from './index.module.css';
+import { Field } from "@base-ui/react/field";
+import { Fieldset } from "@base-ui/react/fieldset";
+import styles from "./fieldset.module.css";
 
 export default function ExampleField() {
   return (
