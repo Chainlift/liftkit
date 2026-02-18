@@ -1,6 +1,22 @@
 import * as React from "react";
-import { Select } from "@base-ui/react/select";
-import { Field } from "@base-ui/react/field";
+import { Select as BaseSelect } from "@base-ui/react/select";
+import { Field as BaseField } from "@base-ui/react/field";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectScrollUpArrow,
+  SelectScrollDownArrow,
+  SelectList,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+} from "./select";
+import { Field, FieldLabel } from "@/liftkit/ui/field/field";
 import styles from "./select.module.css";
 
 const apples = [
@@ -13,37 +29,73 @@ const apples = [
 
 export default function ExampleSelect() {
   return (
-    <Field.Root className={styles.Field}>
-      <Field.Label className={styles.Label} nativeLabel={false} render={<div />}>
+    <BaseField.Root className={styles.Field}>
+      <BaseField.Label className={styles.Label} nativeLabel={false} render={<div />}>
         Apple
-      </Field.Label>
-      <Select.Root items={apples}>
-        <Select.Trigger className={styles.Select}>
-          <Select.Value className={styles.Value} placeholder="Select apple" />
-          <Select.Icon className={styles.SelectIcon}>
+      </BaseField.Label>
+      <BaseSelect.Root items={apples}>
+        <BaseSelect.Trigger className={styles.Select}>
+          <BaseSelect.Value className={styles.Value} placeholder="Select apple" />
+          <BaseSelect.Icon className={styles.SelectIcon}>
             <ChevronUpDownIcon />
-          </Select.Icon>
-        </Select.Trigger>
-        <Select.Portal>
-          <Select.Positioner className={styles.Positioner} sideOffset={8}>
-            <Select.Popup className={styles.Popup}>
-              <Select.ScrollUpArrow className={styles.ScrollArrow} />
-              <Select.List className={styles.List}>
+          </BaseSelect.Icon>
+        </BaseSelect.Trigger>
+        <BaseSelect.Portal>
+          <BaseSelect.Positioner className={styles.Positioner} sideOffset={8}>
+            <BaseSelect.Popup className={styles.Popup}>
+              <BaseSelect.ScrollUpArrow className={styles.ScrollArrow} />
+              <BaseSelect.List className={styles.List}>
                 {apples.map(({ label, value }) => (
-                  <Select.Item key={label} value={value} className={styles.Item}>
-                    <Select.ItemIndicator className={styles.ItemIndicator}>
+                  <BaseSelect.Item key={label} value={value} className={styles.Item}>
+                    <BaseSelect.ItemIndicator className={styles.ItemIndicator}>
                       <CheckIcon className={styles.ItemIndicatorIcon} />
-                    </Select.ItemIndicator>
-                    <Select.ItemText className={styles.ItemText}>{label}</Select.ItemText>
-                  </Select.Item>
+                    </BaseSelect.ItemIndicator>
+                    <BaseSelect.ItemText className={styles.ItemText}>{label}</BaseSelect.ItemText>
+                  </BaseSelect.Item>
                 ))}
-              </Select.List>
-              <Select.ScrollDownArrow className={styles.ScrollArrow} />
-            </Select.Popup>
-          </Select.Positioner>
-        </Select.Portal>
-      </Select.Root>
-    </Field.Root>
+              </BaseSelect.List>
+              <BaseSelect.ScrollDownArrow className={styles.ScrollArrow} />
+            </BaseSelect.Popup>
+          </BaseSelect.Positioner>
+        </BaseSelect.Portal>
+      </BaseSelect.Root>
+    </BaseField.Root>
+  );
+}
+
+export function ExampleSelect2() {
+  return (
+    <Field>
+      <FieldLabel nativeLabel={false} render={<div />}>
+        Apple
+      </FieldLabel>
+      <Select items={apples}>
+        <SelectTrigger>
+          <SelectValue placeholder="Select apple" />
+          <SelectIcon>
+            <ChevronUpDownIcon />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner sideOffset={8}>
+            <SelectPopup>
+              <SelectScrollUpArrow />
+              <SelectList>
+                {apples.map(({ label, value }) => (
+                  <SelectItem key={label} value={value}>
+                    <SelectItemIndicator>
+                      <CheckIcon />
+                    </SelectItemIndicator>
+                    <SelectItemText>{label}</SelectItemText>
+                  </SelectItem>
+                ))}
+              </SelectList>
+              <SelectScrollDownArrow />
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </Select>
+    </Field>
   );
 }
 

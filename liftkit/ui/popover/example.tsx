@@ -1,25 +1,58 @@
 import * as React from "react";
-import { Popover } from "@base-ui/react/popover";
+import { Popover as BasePopover } from "@base-ui/react/popover";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverPortal,
+  PopoverPositioner,
+  PopoverPopup,
+  PopoverArrow,
+  PopoverTitle,
+  PopoverDescription,
+} from "./popover";
 import styles from "./popover.module.css";
 
 export default function ExamplePopover() {
   return (
-    <Popover.Root>
-      <Popover.Trigger className={styles.IconButton}>
+    <BasePopover.Root>
+      <BasePopover.Trigger className={styles.IconButton}>
         <BellIcon aria-label="Notifications" className={styles.Icon} />
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Positioner sideOffset={8}>
-          <Popover.Popup className={styles.Popup}>
-            <Popover.Arrow className={styles.Arrow}>
+      </BasePopover.Trigger>
+      <BasePopover.Portal>
+        <BasePopover.Positioner sideOffset={8}>
+          <BasePopover.Popup className={styles.Popup}>
+            <BasePopover.Arrow className={styles.Arrow}>
               <ArrowSvg />
-            </Popover.Arrow>
-            <Popover.Title className={styles.Title}>Notifications</Popover.Title>
-            <Popover.Description className={styles.Description}>You are all caught up. Good job!</Popover.Description>
-          </Popover.Popup>
-        </Popover.Positioner>
-      </Popover.Portal>
-    </Popover.Root>
+            </BasePopover.Arrow>
+            <BasePopover.Title className={styles.Title}>Notifications</BasePopover.Title>
+            <BasePopover.Description className={styles.Description}>
+              You are all caught up. Good job!
+            </BasePopover.Description>
+          </BasePopover.Popup>
+        </BasePopover.Positioner>
+      </BasePopover.Portal>
+    </BasePopover.Root>
+  );
+}
+
+export function ExamplePopover2() {
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <BellIcon aria-label="Notifications" />
+      </PopoverTrigger>
+      <PopoverPortal>
+        <PopoverPositioner sideOffset={8}>
+          <PopoverPopup>
+            <PopoverArrow>
+              <ArrowSvg />
+            </PopoverArrow>
+            <PopoverTitle>Notifications</PopoverTitle>
+            <PopoverDescription>You are all caught up. Good job!</PopoverDescription>
+          </PopoverPopup>
+        </PopoverPositioner>
+      </PopoverPortal>
+    </Popover>
   );
 }
 

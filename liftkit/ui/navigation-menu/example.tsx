@@ -1,19 +1,29 @@
 import * as React from "react";
-import { NavigationMenu } from "@base-ui/react/navigation-menu";
+import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu";
 import styles from "./navigation-menu.module.css";
+import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuPositioner,
+  NavigationMenuLink,
+} from "./navigation-menu";
 
 export default function ExampleNavigationMenu() {
   return (
-    <NavigationMenu.Root className={styles.Root}>
-      <NavigationMenu.List className={styles.List}>
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={styles.Trigger}>
+    <BaseNavigationMenu.Root className={styles.Root}>
+      <BaseNavigationMenu.List className={styles.List}>
+        <BaseNavigationMenu.Item>
+          <BaseNavigationMenu.Trigger className={styles.Trigger}>
             Overview
-            <NavigationMenu.Icon className={styles.Icon}>
+            <BaseNavigationMenu.Icon className={styles.Icon}>
               <ChevronDownIcon />
-            </NavigationMenu.Icon>
-          </NavigationMenu.Trigger>
-          <NavigationMenu.Content className={styles.Content}>
+            </BaseNavigationMenu.Icon>
+          </BaseNavigationMenu.Trigger>
+          <BaseNavigationMenu.Content className={styles.Content}>
             <ul className={styles.GridLinkList}>
               {overviewLinks.map((item) => (
                 <li key={item.href}>
@@ -24,17 +34,17 @@ export default function ExampleNavigationMenu() {
                 </li>
               ))}
             </ul>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
+          </BaseNavigationMenu.Content>
+        </BaseNavigationMenu.Item>
 
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={styles.Trigger}>
+        <BaseNavigationMenu.Item>
+          <BaseNavigationMenu.Trigger className={styles.Trigger}>
             Handbook
-            <NavigationMenu.Icon className={styles.Icon}>
+            <BaseNavigationMenu.Icon className={styles.Icon}>
               <ChevronDownIcon />
-            </NavigationMenu.Icon>
-          </NavigationMenu.Trigger>
-          <NavigationMenu.Content className={styles.Content}>
+            </BaseNavigationMenu.Icon>
+          </BaseNavigationMenu.Trigger>
+          <BaseNavigationMenu.Content className={styles.Content}>
             <ul className={styles.FlexLinkList}>
               {handbookLinks.map((item) => (
                 <li key={item.href}>
@@ -45,38 +55,163 @@ export default function ExampleNavigationMenu() {
                 </li>
               ))}
             </ul>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
+          </BaseNavigationMenu.Content>
+        </BaseNavigationMenu.Item>
 
-        <NavigationMenu.Item>
+        <BaseNavigationMenu.Item>
           <Link className={styles.Trigger} href="https://github.com/mui/base-ui">
             GitHub
           </Link>
-        </NavigationMenu.Item>
-      </NavigationMenu.List>
+        </BaseNavigationMenu.Item>
+      </BaseNavigationMenu.List>
 
-      <NavigationMenu.Portal>
-        <NavigationMenu.Positioner
+      <BaseNavigationMenu.Portal>
+        <BaseNavigationMenu.Positioner
           className={styles.Positioner}
           sideOffset={10}
           collisionPadding={{ top: 5, bottom: 5, left: 20, right: 20 }}
           collisionAvoidance={{ side: "none" }}
         >
-          <NavigationMenu.Popup className={styles.Popup}>
-            <NavigationMenu.Arrow className={styles.Arrow}>
+          <BaseNavigationMenu.Popup className={styles.Popup}>
+            <BaseNavigationMenu.Arrow className={styles.Arrow}>
               <ArrowSvg />
-            </NavigationMenu.Arrow>
-            <NavigationMenu.Viewport className={styles.Viewport} />
-          </NavigationMenu.Popup>
-        </NavigationMenu.Positioner>
-      </NavigationMenu.Portal>
-    </NavigationMenu.Root>
+            </BaseNavigationMenu.Arrow>
+            <BaseNavigationMenu.Viewport className={styles.Viewport} />
+          </BaseNavigationMenu.Popup>
+        </BaseNavigationMenu.Positioner>
+      </BaseNavigationMenu.Portal>
+    </BaseNavigationMenu.Root>
   );
 }
 
-function Link(props: NavigationMenu.Link.Props) {
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Alert Dialog",
+    href: "/docs/primitives/alert-dialog",
+    description: "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Hover Card",
+    href: "/docs/primitives/hover-card",
+    description: "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description: "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+];
+
+export function ExampleNavigationMenu2() {
   return (
-    <NavigationMenu.Link
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-96">
+              <ListItem href="/docs" title="Introduction">
+                Re-usable components built with Tailwind CSS.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Installation">
+                How to install dependencies and structure your app.
+              </ListItem>
+              <ListItem href="/docs/primitives/typography" title="Typography">
+                Styles for headings, paragraphs, lists...etc
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="hidden md:flex">
+          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {components.map((component) => (
+                <ListItem key={component.title} title={component.title} href={component.href}>
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[200px]">
+              <li>
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <CircleAlertIcon />
+                      Backlog
+                    </Link>
+                  }
+                />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <CircleDashedIcon />
+                      To Do
+                    </Link>
+                  }
+                />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <CircleCheckIcon />
+                      Done
+                    </Link>
+                  }
+                />
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink render={<Link href="/docs">Docs</Link>} />
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
+
+function ListItem({ title, children, href, ...props }: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+  return (
+    <li {...props}>
+      <NavigationMenuLink
+        render={
+          <Link href={href}>
+            <div className="flex flex-col gap-1 text-sm">
+              <div className="leading-none font-medium">{title}</div>
+              <div className="text-muted-foreground line-clamp-2">{children}</div>
+            </div>
+          </Link>
+        }
+      />
+    </li>
+  );
+}
+
+function Link(props: BaseNavigationMenu.Link.Props) {
+  return (
+    <BaseNavigationMenu.Link
       render={
         // Use the `render` prop to render your framework's Link component
         // for client-side routing.

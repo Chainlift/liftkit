@@ -35,7 +35,7 @@ function ToastDescription({ className, ...props }: ToastPrimitive.Description.Pr
 }
 
 function ToastClose({ className, ...props }: ToastPrimitive.Close.Props) {
-  return <ToastPrimitive.Close data-slot="toast-close" className={cn("", styles.Close, className)} {...props} />;
+  return <ToastPrimitive.Close data-slot="toast-close" className={cn("", "Close", className)} {...props} />;
 }
 
 const useToastManager = ToastPrimitive.useToastManager;

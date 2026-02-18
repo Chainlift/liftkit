@@ -1,22 +1,41 @@
 import * as React from "react";
-import { Collapsible } from "@base-ui/react/collapsible";
+import { Collapsible as BaseCollapsible } from "@base-ui/react/collapsible";
+import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "./collapsible";
 import styles from "./collapsible.module.css";
 
 export default function ExampleCollapsible() {
   return (
-    <Collapsible.Root className={styles.Collapsible}>
-      <Collapsible.Trigger className={styles.Trigger}>
+    <BaseCollapsible.Root className={styles.Collapsible}>
+      <BaseCollapsible.Trigger className={styles.Trigger}>
         <ChevronIcon className={styles.Icon} />
         Recovery keys
-      </Collapsible.Trigger>
-      <Collapsible.Panel className={styles.Panel}>
+      </BaseCollapsible.Trigger>
+      <BaseCollapsible.Panel className={styles.Panel}>
         <div className={styles.Content}>
           <div>alien-bean-pasta</div>
           <div>wild-irish-burrito</div>
           <div>horse-battery-staple</div>
         </div>
-      </Collapsible.Panel>
-    </Collapsible.Root>
+      </BaseCollapsible.Panel>
+    </BaseCollapsible.Root>
+  );
+}
+
+export function ExampleCollapsible2() {
+  return (
+    <Collapsible>
+      <CollapsibleTrigger>
+        <ChevronIcon />
+        Recovery keys
+      </CollapsibleTrigger>
+      <CollapsiblePanel>
+        <div>
+          <div>alien-bean-pasta</div>
+          <div>wild-irish-burrito</div>
+          <div>horse-battery-staple</div>
+        </div>
+      </CollapsiblePanel>
+    </Collapsible>
   );
 }
 

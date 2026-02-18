@@ -1,31 +1,59 @@
 import * as React from "react";
-import { Menu } from "@base-ui/react/menu";
+import { Menu as BaseMenu } from "@base-ui/react/menu";
+import { Menu, MenuTrigger, MenuPortal, MenuPositioner, MenuPopup, MenuArrow, MenuItem, MenuSeparator } from "./menu";
 import styles from "./menu.module.css";
 
 export default function ExampleMenu() {
   return (
-    <Menu.Root>
-      <Menu.Trigger className={styles.Button}>
+    <BaseMenu.Root>
+      <BaseMenu.Trigger className={styles.Button}>
         Song <ChevronDownIcon className={styles.ButtonIcon} />
-      </Menu.Trigger>
-      <Menu.Portal>
-        <Menu.Positioner className={styles.Positioner} sideOffset={8}>
-          <Menu.Popup className={styles.Popup}>
-            <Menu.Arrow className={styles.Arrow}>
+      </BaseMenu.Trigger>
+      <BaseMenu.Portal>
+        <BaseMenu.Positioner className={styles.Positioner} sideOffset={8}>
+          <BaseMenu.Popup className={styles.Popup}>
+            <BaseMenu.Arrow className={styles.Arrow}>
               <ArrowSvg />
-            </Menu.Arrow>
-            <Menu.Item className={styles.Item}>Add to Library</Menu.Item>
-            <Menu.Item className={styles.Item}>Add to Playlist</Menu.Item>
-            <Menu.Separator className={styles.Separator} />
-            <Menu.Item className={styles.Item}>Play Next</Menu.Item>
-            <Menu.Item className={styles.Item}>Play Last</Menu.Item>
-            <Menu.Separator className={styles.Separator} />
-            <Menu.Item className={styles.Item}>Favorite</Menu.Item>
-            <Menu.Item className={styles.Item}>Share</Menu.Item>
-          </Menu.Popup>
-        </Menu.Positioner>
-      </Menu.Portal>
-    </Menu.Root>
+            </BaseMenu.Arrow>
+            <BaseMenu.Item className={styles.Item}>Add to Library</BaseMenu.Item>
+            <BaseMenu.Item className={styles.Item}>Add to Playlist</BaseMenu.Item>
+            <BaseMenu.Separator className={styles.Separator} />
+            <BaseMenu.Item className={styles.Item}>Play Next</BaseMenu.Item>
+            <BaseMenu.Item className={styles.Item}>Play Last</BaseMenu.Item>
+            <BaseMenu.Separator className={styles.Separator} />
+            <BaseMenu.Item className={styles.Item}>Favorite</BaseMenu.Item>
+            <BaseMenu.Item className={styles.Item}>Share</BaseMenu.Item>
+          </BaseMenu.Popup>
+        </BaseMenu.Positioner>
+      </BaseMenu.Portal>
+    </BaseMenu.Root>
+  );
+}
+
+export function ExampleMenu2() {
+  return (
+    <Menu>
+      <MenuTrigger>
+        Song <ChevronDownIcon />
+      </MenuTrigger>
+      <MenuPortal>
+        <MenuPositioner sideOffset={8}>
+          <MenuPopup>
+            <MenuArrow>
+              <ArrowSvg />
+            </MenuArrow>
+            <MenuItem>Add to Library</MenuItem>
+            <MenuItem>Add to Playlist</MenuItem>
+            <MenuSeparator />
+            <MenuItem>Play Next</MenuItem>
+            <MenuItem>Play Last</MenuItem>
+            <MenuSeparator />
+            <MenuItem>Favorite</MenuItem>
+            <MenuItem>Share</MenuItem>
+          </MenuPopup>
+        </MenuPositioner>
+      </MenuPortal>
+    </Menu>
   );
 }
 

@@ -1,45 +1,98 @@
 "use client";
 import * as React from "react";
-import { Combobox } from "@base-ui/react/combobox";
+import { Combobox as BaseCombobox } from "@base-ui/react/combobox";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxClear,
+  ComboboxTrigger,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxPopup,
+  ComboboxEmpty,
+  ComboboxList,
+  ComboboxItem,
+  ComboboxItemIndicator,
+} from "./combobox";
 import styles from "./combobox.module.css";
 
 export default function ExampleCombobox() {
   const id = React.useId();
   return (
-    <Combobox.Root items={fruits}>
+    <BaseCombobox.Root items={fruits}>
       <div className={styles.Label}>
         <label htmlFor={id}>Choose a fruit</label>
         <div className={styles.InputWrapper}>
-          <Combobox.Input placeholder="e.g. Apple" id={id} className={styles.Input} />
+          <BaseCombobox.Input placeholder="e.g. Apple" id={id} className={styles.Input} />
           <div className={styles.ActionButtons}>
-            <Combobox.Clear className={styles.Clear} aria-label="Clear selection">
+            <BaseCombobox.Clear className={styles.Clear} aria-label="Clear selection">
               <ClearIcon className={styles.ClearIcon} />
-            </Combobox.Clear>
-            <Combobox.Trigger className={styles.Trigger} aria-label="Open popup">
+            </BaseCombobox.Clear>
+            <BaseCombobox.Trigger className={styles.Trigger} aria-label="Open popup">
               <ChevronDownIcon className={styles.TriggerIcon} />
-            </Combobox.Trigger>
+            </BaseCombobox.Trigger>
           </div>
         </div>
       </div>
 
-      <Combobox.Portal>
-        <Combobox.Positioner className={styles.Positioner} sideOffset={4}>
-          <Combobox.Popup className={styles.Popup}>
-            <Combobox.Empty className={styles.Empty}>No fruits found.</Combobox.Empty>
-            <Combobox.List className={styles.List}>
+      <BaseCombobox.Portal>
+        <BaseCombobox.Positioner className={styles.Positioner} sideOffset={4}>
+          <BaseCombobox.Popup className={styles.Popup}>
+            <BaseCombobox.Empty className={styles.Empty}>No fruits found.</BaseCombobox.Empty>
+            <BaseCombobox.List className={styles.List}>
               {(item: Fruit) => (
-                <Combobox.Item key={item.value} value={item} className={styles.Item}>
-                  <Combobox.ItemIndicator className={styles.ItemIndicator}>
+                <BaseCombobox.Item key={item.value} value={item} className={styles.Item}>
+                  <BaseCombobox.ItemIndicator className={styles.ItemIndicator}>
                     <CheckIcon className={styles.ItemIndicatorIcon} />
-                  </Combobox.ItemIndicator>
+                  </BaseCombobox.ItemIndicator>
                   <div className={styles.ItemText}>{item.label}</div>
-                </Combobox.Item>
+                </BaseCombobox.Item>
               )}
-            </Combobox.List>
-          </Combobox.Popup>
-        </Combobox.Positioner>
-      </Combobox.Portal>
-    </Combobox.Root>
+            </BaseCombobox.List>
+          </BaseCombobox.Popup>
+        </BaseCombobox.Positioner>
+      </BaseCombobox.Portal>
+    </BaseCombobox.Root>
+  );
+}
+
+export function ExampleCombobox2() {
+  const id = React.useId();
+  return (
+    <Combobox items={fruits}>
+      <div>
+        <label htmlFor={id}>Choose a fruit</label>
+        <div>
+          <ComboboxInput placeholder="e.g. Apple" id={id} />
+          <div>
+            <ComboboxClear aria-label="Clear selection">
+              <ClearIcon />
+            </ComboboxClear>
+            <ComboboxTrigger aria-label="Open popup">
+              <ChevronDownIcon />
+            </ComboboxTrigger>
+          </div>
+        </div>
+      </div>
+
+      <ComboboxPortal>
+        <ComboboxPositioner sideOffset={4}>
+          <ComboboxPopup>
+            <ComboboxEmpty>No fruits found.</ComboboxEmpty>
+            <ComboboxList>
+              {(item: Fruit) => (
+                <ComboboxItem key={item.value} value={item}>
+                  <ComboboxItemIndicator>
+                    <CheckIcon />
+                  </ComboboxItemIndicator>
+                  <div>{item.label}</div>
+                </ComboboxItem>
+              )}
+            </ComboboxList>
+          </ComboboxPopup>
+        </ComboboxPositioner>
+      </ComboboxPortal>
+    </Combobox>
   );
 }
 

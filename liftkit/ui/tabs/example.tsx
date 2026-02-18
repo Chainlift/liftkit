@@ -1,32 +1,55 @@
 import * as React from "react";
-import { Tabs } from "@base-ui/react/tabs";
+import { Tabs as BaseTabs } from "@base-ui/react/tabs";
+import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "./tabs";
 import styles from "./tabs.module.css";
 
 export default function ExampleTabs() {
   return (
-    <Tabs.Root className={styles.Tabs} defaultValue="overview">
-      <Tabs.List className={styles.List}>
-        <Tabs.Tab className={styles.Tab} value="overview">
+    <BaseTabs.Root className={styles.Tabs} defaultValue="overview">
+      <BaseTabs.List className={styles.List}>
+        <BaseTabs.Tab className={styles.Tab} value="overview">
           Overview
-        </Tabs.Tab>
-        <Tabs.Tab className={styles.Tab} value="projects">
+        </BaseTabs.Tab>
+        <BaseTabs.Tab className={styles.Tab} value="projects">
           Projects
-        </Tabs.Tab>
-        <Tabs.Tab className={styles.Tab} value="account">
+        </BaseTabs.Tab>
+        <BaseTabs.Tab className={styles.Tab} value="account">
           Account
-        </Tabs.Tab>
-        <Tabs.Indicator className={styles.Indicator} />
-      </Tabs.List>
-      <Tabs.Panel className={styles.Panel} value="overview">
+        </BaseTabs.Tab>
+        <BaseTabs.Indicator className={styles.Indicator} />
+      </BaseTabs.List>
+      <BaseTabs.Panel className={styles.Panel} value="overview">
         <OverviewIcon className={styles.Icon} />
-      </Tabs.Panel>
-      <Tabs.Panel className={styles.Panel} value="projects">
+      </BaseTabs.Panel>
+      <BaseTabs.Panel className={styles.Panel} value="projects">
         <ProjectIcon className={styles.Icon} />
-      </Tabs.Panel>
-      <Tabs.Panel className={styles.Panel} value="account">
+      </BaseTabs.Panel>
+      <BaseTabs.Panel className={styles.Panel} value="account">
         <PersonIcon className={styles.Icon} />
-      </Tabs.Panel>
-    </Tabs.Root>
+      </BaseTabs.Panel>
+    </BaseTabs.Root>
+  );
+}
+
+export function ExampleTabs2() {
+  return (
+    <Tabs defaultValue="overview">
+      <TabsList>
+        <TabsTab value="overview">Overview</TabsTab>
+        <TabsTab value="projects">Projects</TabsTab>
+        <TabsTab value="account">Account</TabsTab>
+        <TabsIndicator />
+      </TabsList>
+      <TabsPanel value="overview">
+        <OverviewIcon />
+      </TabsPanel>
+      <TabsPanel value="projects">
+        <ProjectIcon />
+      </TabsPanel>
+      <TabsPanel value="account">
+        <PersonIcon />
+      </TabsPanel>
+    </Tabs>
   );
 }
 

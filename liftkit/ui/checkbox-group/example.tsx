@@ -1,41 +1,79 @@
 "use client";
 import * as React from "react";
-import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckboxGroup } from "@base-ui/react/checkbox-group";
+import { Checkbox as BaseCheckbox } from "@base-ui/react/checkbox";
+import { CheckboxGroup as BaseCheckboxGroup } from "@base-ui/react/checkbox-group";
+import { CheckboxGroup } from "./checkbox-group";
+import { Checkbox, CheckboxIndicator } from "@/liftkit/ui/checkbox/checkbox";
 import styles from "./checkbox-group.module.css";
 
 export default function ExampleCheckboxGroup() {
   const id = React.useId();
   return (
-    <CheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]} className={styles.CheckboxGroup}>
+    <BaseCheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]} className={styles.CheckboxGroup}>
       <div className={styles.Caption} id={id}>
         Apples
       </div>
 
       <label className={styles.Item}>
-        <Checkbox.Root name="apple" value="fuji-apple" className={styles.Checkbox}>
-          <Checkbox.Indicator className={styles.Indicator}>
+        <BaseCheckbox.Root name="apple" value="fuji-apple" className={styles.Checkbox}>
+          <BaseCheckbox.Indicator className={styles.Indicator}>
             <CheckIcon className={styles.Icon} />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
+          </BaseCheckbox.Indicator>
+        </BaseCheckbox.Root>
         Fuji
       </label>
 
       <label className={styles.Item}>
-        <Checkbox.Root name="apple" value="gala-apple" className={styles.Checkbox}>
-          <Checkbox.Indicator className={styles.Indicator}>
+        <BaseCheckbox.Root name="apple" value="gala-apple" className={styles.Checkbox}>
+          <BaseCheckbox.Indicator className={styles.Indicator}>
             <CheckIcon className={styles.Icon} />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
+          </BaseCheckbox.Indicator>
+        </BaseCheckbox.Root>
         Gala
       </label>
 
       <label className={styles.Item}>
-        <Checkbox.Root name="apple" value="granny-smith-apple" className={styles.Checkbox}>
-          <Checkbox.Indicator className={styles.Indicator}>
+        <BaseCheckbox.Root name="apple" value="granny-smith-apple" className={styles.Checkbox}>
+          <BaseCheckbox.Indicator className={styles.Indicator}>
             <CheckIcon className={styles.Icon} />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
+          </BaseCheckbox.Indicator>
+        </BaseCheckbox.Root>
+        Granny Smith
+      </label>
+    </BaseCheckboxGroup>
+  );
+}
+
+export function ExampleCheckboxGroup2() {
+  const id = React.useId();
+  return (
+    <CheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]}>
+      <div id={id}>Apples</div>
+
+      <label>
+        <Checkbox name="apple" value="fuji-apple">
+          <CheckboxIndicator>
+            <CheckIcon />
+          </CheckboxIndicator>
+        </Checkbox>
+        Fuji
+      </label>
+
+      <label>
+        <Checkbox name="apple" value="gala-apple">
+          <CheckboxIndicator>
+            <CheckIcon />
+          </CheckboxIndicator>
+        </Checkbox>
+        Gala
+      </label>
+
+      <label>
+        <Checkbox name="apple" value="granny-smith-apple">
+          <CheckboxIndicator>
+            <CheckIcon />
+          </CheckboxIndicator>
+        </Checkbox>
         Granny Smith
       </label>
     </CheckboxGroup>

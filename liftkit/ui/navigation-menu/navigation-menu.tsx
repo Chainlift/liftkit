@@ -1,101 +1,102 @@
-"use client";
-
-import React from "react";
 import { cn } from "@/lib/cn";
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
+import { ChevronDownIcon } from "lucide-react";
 import "./navigation-menu.css";
 
-const NavigationMenu = React.forwardRef<HTMLDivElement, NavigationMenuPrimitive.Root.Props>(function NavigationMenu(
-  { className, ...props },
-  ref,
-) {
+function NavigationMenu({
+  align = "start",
+  className,
+  children,
+  ...props
+}: NavigationMenuPrimitive.Root.Props & Pick<NavigationMenuPrimitive.Positioner.Props, "align">) {
   return (
-    <NavigationMenuPrimitive.Root
-      ref={ref}
-      data-slot="navigation-menu"
-      className={cn("", "Root", className)}
+    <NavigationMenuPrimitive.Root data-slot="navigation-menu" className={cn("Root", className)} {...props}>
+      {children}
+      <NavigationMenuPositioner align={align} />
+    </NavigationMenuPrimitive.Root>
+  );
+}
+
+function NavigationMenuList({ className, ...props }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>) {
+  return <NavigationMenuPrimitive.List data-slot="navigation-menu-list" className={cn("List", className)} {...props} />;
+}
+
+function NavigationMenuItem({ className, ...props }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>) {
+  return (
+    <NavigationMenuPrimitive.Item data-slot="navigation-menu-item" className={cn("relative", className)} {...props} />
+  );
+}
+
+function NavigationMenuTrigger({ className, children, ...props }: NavigationMenuPrimitive.Trigger.Props) {
+  return (
+    <NavigationMenuPrimitive.Trigger
+      data-slot="navigation-menu-trigger"
+      className={cn("Trigger", className)}
+      {...props}
+    >
+      {children} <ChevronDownIcon className="Icon" aria-hidden="true" />
+    </NavigationMenuPrimitive.Trigger>
+  );
+}
+
+function NavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.Content.Props) {
+  return (
+    <NavigationMenuPrimitive.Content
+      data-slot="navigation-menu-content"
+      className={cn("Content", className)}
       {...props}
     />
   );
-});
+}
 
-const NavigationMenuList = React.forwardRef<HTMLUListElement, NavigationMenuPrimitive.List.Props>(
-  function NavigationMenuList({ className, ...props }, ref) {
-    return (
-      <NavigationMenuPrimitive.List
-        ref={ref}
-        data-slot="navigation-menu-list"
-        className={cn("", "List", className)}
+function NavigationMenuPositioner({
+  className,
+  side = "bottom",
+  sideOffset = 8,
+  align = "start",
+  alignOffset = 0,
+  ...props
+}: NavigationMenuPrimitive.Positioner.Props) {
+  return (
+    <NavigationMenuPrimitive.Portal>
+      <NavigationMenuPrimitive.Positioner
+        side={side}
+        sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset}
+        className={cn("Positioner", className)}
         {...props}
-      />
-    );
-  },
-);
+      >
+        <NavigationMenuPrimitive.Popup className="Popup">
+          <NavigationMenuPrimitive.Viewport className="Viewport" />
+        </NavigationMenuPrimitive.Popup>
+      </NavigationMenuPrimitive.Positioner>
+    </NavigationMenuPrimitive.Portal>
+  );
+}
 
-const NavigationMenuItem = React.forwardRef<HTMLLIElement, NavigationMenuPrimitive.Item.Props>(
-  function NavigationMenuItem(props, ref) {
-    return <NavigationMenuPrimitive.Item ref={ref} data-slot="navigation-menu-item" {...props} />;
-  },
-);
+function NavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Link.Props) {
+  return <NavigationMenuPrimitive.Link data-slot="navigation-menu-link" className={cn("Link", className)} {...props} />;
+}
 
-const NavigationMenuTrigger = React.forwardRef<HTMLButtonElement, NavigationMenuPrimitive.Trigger.Props>(
-  function NavigationMenuTrigger({ className, ...props }, ref) {
-    return (
-      <NavigationMenuPrimitive.Trigger
-        ref={ref}
-        data-slot="navigation-menu-trigger"
-        className={cn("", "Trigger", className)}
-        {...props}
-      />
-    );
-  },
-);
-
-const NavigationMenuIcon = React.forwardRef<HTMLDivElement, NavigationMenuPrimitive.Icon.Props>(
-  function NavigationMenuIcon({ className, ...props }, ref) {
-    return (
-      <NavigationMenuPrimitive.Icon
-        ref={ref}
-        data-slot="navigation-menu-icon"
-        className={cn("", "Icon", className)}
-        {...props}
-      />
-    );
-  },
-);
-
-const NavigationMenuContent = React.forwardRef<HTMLDivElement, NavigationMenuPrimitive.Content.Props>(
-  function NavigationMenuContent({ className, ...props }, ref) {
-    return (
-      <NavigationMenuPrimitive.Content
-        ref={ref}
-        data-slot="navigation-menu-content"
-        className={cn("", "Content", className)}
-        {...props}
-      />
-    );
-  },
-);
-
-const NavigationMenuIndicator = React.forwardRef<HTMLDivElement, NavigationMenuPrimitive.Indicator.Props>(
-  function NavigationMenuIndicator({ className, ...props }, ref) {
-    return (
-      <NavigationMenuPrimitive.Indicator
-        ref={ref}
-        data-slot="navigation-menu-indicator"
-        className={cn("", "Indicator", className)}
-        {...props}
-      />
-    );
-  },
-);
+function NavigationMenuIndicator({
+  className,
+  ...props
+}: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>) {
+  return (
+    <NavigationMenuPrimitive.Icon data-slot="navigation-menu-indicator" className={cn("Icon", className)} {...props}>
+      <div className="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
+    </NavigationMenuPrimitive.Icon>
+  );
+}
 
 export {
   NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuIcon,
   NavigationMenuContent,
   NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuPositioner,
 };

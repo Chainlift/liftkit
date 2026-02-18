@@ -18,7 +18,7 @@ export default function ExampleCheckbox() {
 
 export function ExampleCheckbox2() {
   return (
-    <label>
+    <label className="flex items-center gap-2xs">
       <Checkbox defaultChecked>
         <CheckboxIndicator>
           <CheckIcon />

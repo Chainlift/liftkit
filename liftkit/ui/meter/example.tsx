@@ -1,14 +1,27 @@
-import { Meter } from "@base-ui/react/meter";
+import { Meter as BaseMeter } from "@base-ui/react/meter";
+import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "./meter";
 import styles from "./meter.module.css";
 
 export default function ExampleMeter() {
   return (
-    <Meter.Root className={styles.Meter} value={24}>
-      <Meter.Label className={styles.Label}>Storage Used</Meter.Label>
-      <Meter.Value className={styles.Value} />
-      <Meter.Track className={styles.Track}>
-        <Meter.Indicator className={styles.Indicator} />
-      </Meter.Track>
-    </Meter.Root>
+    <BaseMeter.Root className={styles.Meter} value={24}>
+      <BaseMeter.Label className={styles.Label}>Storage Used</BaseMeter.Label>
+      <BaseMeter.Value className={styles.Value} />
+      <BaseMeter.Track className={styles.Track}>
+        <BaseMeter.Indicator className={styles.Indicator} />
+      </BaseMeter.Track>
+    </BaseMeter.Root>
+  );
+}
+
+export function ExampleMeter2() {
+  return (
+    <Meter value={24}>
+      <MeterLabel>Storage Used</MeterLabel>
+      <MeterValue />
+      <MeterTrack>
+        <MeterIndicator />
+      </MeterTrack>
+    </Meter>
   );
 }

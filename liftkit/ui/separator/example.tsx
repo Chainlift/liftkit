@@ -1,4 +1,5 @@
-import { Separator } from "@base-ui/react/separator";
+import { Separator as BaseSeparator } from "@base-ui/react/separator";
+import { Separator } from "./separator";
 import styles from "./separator.module.css";
 
 export default function ExampleSeparator() {
@@ -17,7 +18,7 @@ export default function ExampleSeparator() {
         Support
       </a>
 
-      <Separator orientation="vertical" className={styles.Separator} />
+      <BaseSeparator orientation="vertical" className={styles.Separator} />
 
       <a href="#" className={styles.Link}>
         Log in
@@ -25,6 +26,22 @@ export default function ExampleSeparator() {
       <a href="#" className={styles.Link}>
         Sign up
       </a>
+    </div>
+  );
+}
+
+export function ExampleSeparator2() {
+  return (
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">Support</a>
+
+      <Separator orientation="vertical" />
+
+      <a href="#">Log in</a>
+      <a href="#">Sign up</a>
     </div>
   );
 }

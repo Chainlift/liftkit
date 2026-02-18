@@ -1,123 +1,214 @@
 "use client";
 import * as React from "react";
-import { Menubar } from "@base-ui/react/menubar";
-import { Menu } from "@base-ui/react/menu";
+import { Menubar as BaseMenubar } from "@base-ui/react/menubar";
+import { Menu as BaseMenu } from "@base-ui/react/menu";
+import { Menubar } from "./menubar";
+import {
+  Menu,
+  MenuTrigger,
+  MenuPortal,
+  MenuPositioner,
+  MenuPopup,
+  MenuItem,
+  MenuSeparator,
+  MenuSubmenuRoot,
+  MenuSubmenuTrigger,
+} from "@/liftkit/ui/menu/menu";
 import styles from "./menubar.module.css";
 
 export default function ExampleMenubar() {
   return (
-    <Menubar className={styles.Menubar}>
-      <Menu.Root>
-        <Menu.Trigger className={styles.MenuTrigger}>File</Menu.Trigger>
-        <Menu.Portal>
-          <Menu.Positioner className={styles.MenuPositioner} sideOffset={6} alignOffset={-2}>
-            <Menu.Popup className={styles.MenuPopup}>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+    <BaseMenubar className={styles.Menubar}>
+      <BaseMenu.Root>
+        <BaseMenu.Trigger className={styles.MenuTrigger}>File</BaseMenu.Trigger>
+        <BaseMenu.Portal>
+          <BaseMenu.Positioner className={styles.MenuPositioner} sideOffset={6} alignOffset={-2}>
+            <BaseMenu.Popup className={styles.MenuPopup}>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 New
-              </Menu.Item>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              </BaseMenu.Item>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Open
-              </Menu.Item>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              </BaseMenu.Item>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Save
-              </Menu.Item>
+              </BaseMenu.Item>
 
-              <Menu.SubmenuRoot>
-                <Menu.SubmenuTrigger className={styles.MenuItem}>
+              <BaseMenu.SubmenuRoot>
+                <BaseMenu.SubmenuTrigger className={styles.MenuItem}>
                   Export
                   <ChevronRightIcon />
-                </Menu.SubmenuTrigger>
-                <Menu.Portal>
-                  <Menu.Positioner alignOffset={-4}>
-                    <Menu.Popup className={styles.MenuPopup}>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                </BaseMenu.SubmenuTrigger>
+                <BaseMenu.Portal>
+                  <BaseMenu.Positioner alignOffset={-4}>
+                    <BaseMenu.Popup className={styles.MenuPopup}>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         PDF
-                      </Menu.Item>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                      </BaseMenu.Item>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         PNG
-                      </Menu.Item>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                      </BaseMenu.Item>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         SVG
-                      </Menu.Item>
-                    </Menu.Popup>
-                  </Menu.Positioner>
-                </Menu.Portal>
-              </Menu.SubmenuRoot>
+                      </BaseMenu.Item>
+                    </BaseMenu.Popup>
+                  </BaseMenu.Positioner>
+                </BaseMenu.Portal>
+              </BaseMenu.SubmenuRoot>
 
-              <Menu.Separator className={styles.MenuSeparator} />
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              <BaseMenu.Separator className={styles.MenuSeparator} />
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Print
-              </Menu.Item>
-            </Menu.Popup>
-          </Menu.Positioner>
-        </Menu.Portal>
-      </Menu.Root>
+              </BaseMenu.Item>
+            </BaseMenu.Popup>
+          </BaseMenu.Positioner>
+        </BaseMenu.Portal>
+      </BaseMenu.Root>
 
-      <Menu.Root>
-        <Menu.Trigger className={styles.MenuTrigger}>Edit</Menu.Trigger>
-        <Menu.Portal>
-          <Menu.Positioner className={styles.MenuPositioner} sideOffset={6}>
-            <Menu.Popup className={styles.MenuPopup}>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+      <BaseMenu.Root>
+        <BaseMenu.Trigger className={styles.MenuTrigger}>Edit</BaseMenu.Trigger>
+        <BaseMenu.Portal>
+          <BaseMenu.Positioner className={styles.MenuPositioner} sideOffset={6}>
+            <BaseMenu.Popup className={styles.MenuPopup}>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Cut
-              </Menu.Item>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              </BaseMenu.Item>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Copy
-              </Menu.Item>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              </BaseMenu.Item>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Paste
-              </Menu.Item>
-            </Menu.Popup>
-          </Menu.Positioner>
-        </Menu.Portal>
-      </Menu.Root>
+              </BaseMenu.Item>
+            </BaseMenu.Popup>
+          </BaseMenu.Positioner>
+        </BaseMenu.Portal>
+      </BaseMenu.Root>
 
-      <Menu.Root>
-        <Menu.Trigger className={styles.MenuTrigger}>View</Menu.Trigger>
-        <Menu.Portal>
-          <Menu.Positioner className={styles.MenuPositioner} sideOffset={6}>
-            <Menu.Popup className={styles.MenuPopup}>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+      <BaseMenu.Root>
+        <BaseMenu.Trigger className={styles.MenuTrigger}>View</BaseMenu.Trigger>
+        <BaseMenu.Portal>
+          <BaseMenu.Positioner className={styles.MenuPositioner} sideOffset={6}>
+            <BaseMenu.Popup className={styles.MenuPopup}>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Zoom In
-              </Menu.Item>
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              </BaseMenu.Item>
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Zoom Out
-              </Menu.Item>
+              </BaseMenu.Item>
 
-              <Menu.SubmenuRoot>
-                <Menu.SubmenuTrigger className={styles.MenuItem}>
+              <BaseMenu.SubmenuRoot>
+                <BaseMenu.SubmenuTrigger className={styles.MenuItem}>
                   Layout
                   <ChevronRightIcon />
-                </Menu.SubmenuTrigger>
-                <Menu.Portal>
-                  <Menu.Positioner alignOffset={-4}>
-                    <Menu.Popup className={styles.MenuPopup}>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                </BaseMenu.SubmenuTrigger>
+                <BaseMenu.Portal>
+                  <BaseMenu.Positioner alignOffset={-4}>
+                    <BaseMenu.Popup className={styles.MenuPopup}>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         Single Page
-                      </Menu.Item>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                      </BaseMenu.Item>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         Two Pages
-                      </Menu.Item>
-                      <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+                      </BaseMenu.Item>
+                      <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                         Continuous
-                      </Menu.Item>
-                    </Menu.Popup>
-                  </Menu.Positioner>
-                </Menu.Portal>
-              </Menu.SubmenuRoot>
+                      </BaseMenu.Item>
+                    </BaseMenu.Popup>
+                  </BaseMenu.Positioner>
+                </BaseMenu.Portal>
+              </BaseMenu.SubmenuRoot>
 
-              <Menu.Separator className={styles.MenuSeparator} />
-              <Menu.Item className={styles.MenuItem} onClick={handleClick}>
+              <BaseMenu.Separator className={styles.MenuSeparator} />
+              <BaseMenu.Item className={styles.MenuItem} onClick={handleClick}>
                 Full Screen
-              </Menu.Item>
-            </Menu.Popup>
-          </Menu.Positioner>
-        </Menu.Portal>
-      </Menu.Root>
+              </BaseMenu.Item>
+            </BaseMenu.Popup>
+          </BaseMenu.Positioner>
+        </BaseMenu.Portal>
+      </BaseMenu.Root>
 
-      <Menu.Root disabled>
-        <Menu.Trigger className={styles.MenuTrigger}>Help</Menu.Trigger>
-      </Menu.Root>
+      <BaseMenu.Root disabled>
+        <BaseMenu.Trigger className={styles.MenuTrigger}>Help</BaseMenu.Trigger>
+      </BaseMenu.Root>
+    </BaseMenubar>
+  );
+}
+
+export function ExampleMenubar2() {
+  return (
+    <Menubar>
+      <Menu>
+        <MenuTrigger>File</MenuTrigger>
+        <MenuPortal>
+          <MenuPositioner sideOffset={6} alignOffset={-2}>
+            <MenuPopup>
+              <MenuItem onClick={handleClick}>New</MenuItem>
+              <MenuItem onClick={handleClick}>Open</MenuItem>
+              <MenuItem onClick={handleClick}>Save</MenuItem>
+              <MenuSubmenuRoot>
+                <MenuSubmenuTrigger>
+                  Export
+                  <ChevronRightIcon />
+                </MenuSubmenuTrigger>
+                <MenuPortal>
+                  <MenuPositioner alignOffset={-4}>
+                    <MenuPopup>
+                      <MenuItem onClick={handleClick}>PDF</MenuItem>
+                      <MenuItem onClick={handleClick}>PNG</MenuItem>
+                      <MenuItem onClick={handleClick}>SVG</MenuItem>
+                    </MenuPopup>
+                  </MenuPositioner>
+                </MenuPortal>
+              </MenuSubmenuRoot>
+              <MenuSeparator />
+              <MenuItem onClick={handleClick}>Print</MenuItem>
+            </MenuPopup>
+          </MenuPositioner>
+        </MenuPortal>
+      </Menu>
+      <Menu>
+        <MenuTrigger>Edit</MenuTrigger>
+        <MenuPortal>
+          <MenuPositioner sideOffset={6}>
+            <MenuPopup>
+              <MenuItem onClick={handleClick}>Cut</MenuItem>
+              <MenuItem onClick={handleClick}>Copy</MenuItem>
+              <MenuItem onClick={handleClick}>Paste</MenuItem>
+            </MenuPopup>
+          </MenuPositioner>
+        </MenuPortal>
+      </Menu>
+      <Menu>
+        <MenuTrigger>View</MenuTrigger>
+        <MenuPortal>
+          <MenuPositioner sideOffset={6}>
+            <MenuPopup>
+              <MenuItem onClick={handleClick}>Zoom In</MenuItem>
+              <MenuItem onClick={handleClick}>Zoom Out</MenuItem>
+              <MenuSubmenuRoot>
+                <MenuSubmenuTrigger>
+                  Layout
+                  <ChevronRightIcon />
+                </MenuSubmenuTrigger>
+                <MenuPortal>
+                  <MenuPositioner alignOffset={-4}>
+                    <MenuPopup>
+                      <MenuItem onClick={handleClick}>Single Page</MenuItem>
+                      <MenuItem onClick={handleClick}>Two Pages</MenuItem>
+                      <MenuItem onClick={handleClick}>Continuous</MenuItem>
+                    </MenuPopup>
+                  </MenuPositioner>
+                </MenuPortal>
+              </MenuSubmenuRoot>
+              <MenuSeparator />
+              <MenuItem onClick={handleClick}>Full Screen</MenuItem>
+            </MenuPopup>
+          </MenuPositioner>
+        </MenuPortal>
+      </Menu>
+      <Menu disabled>
+        <MenuTrigger>Help</MenuTrigger>
+      </Menu>
     </Menubar>
   );
 }

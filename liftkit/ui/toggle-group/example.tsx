@@ -1,19 +1,37 @@
 import * as React from "react";
-import { Toggle } from "@base-ui/react/toggle";
-import { ToggleGroup } from "@base-ui/react/toggle-group";
+import { Toggle as BaseToggle } from "@base-ui/react/toggle";
+import { ToggleGroup as BaseToggleGroup } from "@base-ui/react/toggle-group";
+import { Toggle } from "@/liftkit/ui/toggle/toggle";
+import { ToggleGroup } from "./toggle-group";
 import styles from "./toggle-group.module.css";
 
 export default function ExampleToggleGroup() {
   return (
-    <ToggleGroup defaultValue={["left"]} className={styles.Panel}>
-      <Toggle aria-label="Align left" value="left" className={styles.Button}>
+    <BaseToggleGroup defaultValue={["left"]} className={styles.Panel}>
+      <BaseToggle aria-label="Align left" value="left" className={styles.Button}>
         <AlignLeftIcon className={styles.Icon} />
-      </Toggle>
-      <Toggle aria-label="Align center" value="center" className={styles.Button}>
+      </BaseToggle>
+      <BaseToggle aria-label="Align center" value="center" className={styles.Button}>
         <AlignCenterIcon className={styles.Icon} />
-      </Toggle>
-      <Toggle aria-label="Align right" value="right" className={styles.Button}>
+      </BaseToggle>
+      <BaseToggle aria-label="Align right" value="right" className={styles.Button}>
         <AlignRightIcon className={styles.Icon} />
+      </BaseToggle>
+    </BaseToggleGroup>
+  );
+}
+
+export function ExampleToggleGroup2() {
+  return (
+    <ToggleGroup defaultValue={["left"]}>
+      <Toggle aria-label="Align left" value="left">
+        <AlignLeftIcon />
+      </Toggle>
+      <Toggle aria-label="Align center" value="center">
+        <AlignCenterIcon />
+      </Toggle>
+      <Toggle aria-label="Align right" value="right">
+        <AlignRightIcon />
       </Toggle>
     </ToggleGroup>
   );

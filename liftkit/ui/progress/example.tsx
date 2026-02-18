@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
-import { Progress } from "@base-ui/react/progress";
+import { Progress as BaseProgress } from "@base-ui/react/progress";
+import { Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator } from "./progress";
 import styles from "./progress.module.css";
 
 export default function ExampleProgress() {
@@ -15,12 +16,34 @@ export default function ExampleProgress() {
   }, []);
 
   return (
-    <Progress.Root className={styles.Progress} value={value}>
-      <Progress.Label className={styles.Label}>Export data</Progress.Label>
-      <Progress.Value className={styles.Value} />
-      <Progress.Track className={styles.Track}>
-        <Progress.Indicator className={styles.Indicator} />
-      </Progress.Track>
-    </Progress.Root>
+    <BaseProgress.Root className={styles.Progress} value={value}>
+      <BaseProgress.Label className={styles.Label}>Export data</BaseProgress.Label>
+      <BaseProgress.Value className={styles.Value} />
+      <BaseProgress.Track className={styles.Track}>
+        <BaseProgress.Indicator className={styles.Indicator} />
+      </BaseProgress.Track>
+    </BaseProgress.Root>
+  );
+}
+
+export function ExampleProgress2() {
+  const [value, setValue] = React.useState(20);
+
+  // Simulate changes
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((current) => Math.min(100, Math.round(current + Math.random() * 25)));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Progress value={value}>
+      <ProgressLabel>Export data</ProgressLabel>
+      <ProgressValue />
+      <ProgressTrack>
+        <ProgressIndicator />
+      </ProgressTrack>
+    </Progress>
   );
 }

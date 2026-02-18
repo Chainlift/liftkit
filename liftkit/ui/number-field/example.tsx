@@ -1,30 +1,63 @@
 import * as React from "react";
-import { NumberField } from "@base-ui/react/number-field";
+import { NumberField as BaseNumberField } from "@base-ui/react/number-field";
+import {
+  NumberField,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldIncrement,
+  NumberFieldDecrement,
+} from "./number-field";
 import styles from "./number-field.module.css";
 
 export default function ExampleNumberField() {
   const id = React.useId();
   return (
-    <NumberField.Root id={id} defaultValue={100} className={styles.Field}>
-      <NumberField.ScrubArea className={styles.ScrubArea}>
+    <BaseNumberField.Root id={id} defaultValue={100} className={styles.Field}>
+      <BaseNumberField.ScrubArea className={styles.ScrubArea}>
         <label htmlFor={id} className={styles.Label}>
           Amount
         </label>
-        <NumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
+        <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
           <CursorGrowIcon />
-        </NumberField.ScrubAreaCursor>
-      </NumberField.ScrubArea>
+        </BaseNumberField.ScrubAreaCursor>
+      </BaseNumberField.ScrubArea>
 
-      <NumberField.Group className={styles.Group}>
-        <NumberField.Decrement className={styles.Decrement}>
+      <BaseNumberField.Group className={styles.Group}>
+        <BaseNumberField.Decrement className={styles.Decrement}>
           <MinusIcon />
-        </NumberField.Decrement>
-        <NumberField.Input className={styles.Input} />
-        <NumberField.Increment className={styles.Increment}>
+        </BaseNumberField.Decrement>
+        <BaseNumberField.Input className={styles.Input} />
+        <BaseNumberField.Increment className={styles.Increment}>
           <PlusIcon />
-        </NumberField.Increment>
-      </NumberField.Group>
-    </NumberField.Root>
+        </BaseNumberField.Increment>
+      </BaseNumberField.Group>
+    </BaseNumberField.Root>
+  );
+}
+
+export function ExampleNumberField2() {
+  const id = React.useId();
+  return (
+    <NumberField id={id} defaultValue={100}>
+      <NumberFieldScrubArea>
+        <label htmlFor={id}>Amount</label>
+        <NumberFieldScrubAreaCursor>
+          <CursorGrowIcon />
+        </NumberFieldScrubAreaCursor>
+      </NumberFieldScrubArea>
+
+      <NumberFieldGroup>
+        <NumberFieldDecrement>
+          <MinusIcon />
+        </NumberFieldDecrement>
+        <NumberFieldInput />
+        <NumberFieldIncrement>
+          <PlusIcon />
+        </NumberFieldIncrement>
+      </NumberFieldGroup>
+    </NumberField>
   );
 }
 
