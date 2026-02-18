@@ -1,7 +1,16 @@
+import { LocalCodeSample } from "./example.tsx";
 import { Button } from "@liftkit/ui";
 import { Demo } from "@/components/mdx/demo";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@/liftkit/ui/tabs/tabs";
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaContent,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@/liftkit/ui/scroll-area/scroll-area";
 
 export const metadata = {
   title: "Button",
@@ -14,6 +23,31 @@ Buttons trigger actions and initiate workflows.
 This component wraps the Base UI primitive and applies LiftKit recipes and tokens.
 
 <ExampleAccordion />
+
+<Tabs defaultValue="overview">
+  <TabsList>
+    <TabsTab value="overview">Overview</TabsTab>
+    <TabsTab value="projects">Projects</TabsTab>
+    <TabsTab value="account">Account</TabsTab>
+    <TabsIndicator />
+  </TabsList>
+  <TabsPanel value="overview" className="h-4xl">
+    <ScrollArea >
+      <ScrollAreaViewport>
+        <ScrollAreaContent>
+          <LocalCodeSample />
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+ 
+    </ScrollArea>
+  </TabsPanel>
+  <TabsPanel value="projects">Person</TabsPanel>
+  <TabsPanel value="account">Account</TabsPanel>
+</Tabs>
+
 <SubComponentDocs componentName="accordion" subComponentName="Root" />
 
 ## Installation

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "docs:gen-props": "node apps/docs/scripts/gen-props.mjs"
+    "docs:gen-props": "node apps/docs/scripts/gen-props.mjs",
+    "docs:gen-examples": "node scripts/generate-local-code-samples.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",

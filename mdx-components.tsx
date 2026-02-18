@@ -4,8 +4,8 @@ import { PropsTable } from "@/components/mdx/PropsTable";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    pre: CodeBlock,      // custom code renderer (optional)
-    PropsTable,          // your prop table component
+    pre: CodeBlock, // custom code renderer (optional)
+    PropsTable, // your prop table component
     ...components,
   };
 }

@@ -43,7 +43,7 @@
 }
 
 .h-4xl {
-  height: 27.2%;
+  height: var(--lk-size-4xl);
 }
 
 .max-h-4xl {

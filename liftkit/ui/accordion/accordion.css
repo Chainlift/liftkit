@@ -1,4 +1,4 @@
-.Accordion {
+[data-slot="accordion"] {
   box-sizing: border-box;
   display: flex;
   width: 24rem;
@@ -20,7 +20,7 @@
   }
 }
 
-.Item {
+[data-slot="accordion-item"] {
   border-bottom: 1px solid var(--lk-outlinevariant);
 
   &[data-open] {
@@ -36,7 +36,7 @@
   }
 }
 
-.Header {
+[data-slot="accordion-header"] {
   margin: 0;
 
   &[data-open] {
@@ -52,7 +52,7 @@
   }
 }
 
-.Trigger {
+[data-slot="accordion-trigger"] {
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -92,7 +92,7 @@
   }
 }
 
-.TriggerIcon {
+[data-slot="accordion-trigger-icon"] {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 0.75rem;

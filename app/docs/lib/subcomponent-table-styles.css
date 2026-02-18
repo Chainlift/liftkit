@@ -24,5 +24,7 @@ div[data-instance="lk-docs-table"] {
 
   td {
     padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
+    letter-spacing: var(--lk-body-letter-spacing);
+    line-height: var(--lk-body-line-height);
   }
 }

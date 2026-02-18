@@ -193,7 +193,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div className="mb-6">
-        <h3 className="title3-bold mb-sm">{subComponentName}</h3>
+        <h3 className="title2-bold mb-sm">{subComponentName}</h3>
         {subComponent.description && <p className="text-gray-600 mb-2">{subComponent.description}</p>}
         {subComponent.renders && (
           <p className="text-sm text-gray-500">
@@ -205,7 +205,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
       {/* Props */}
       {subComponent.props && subComponent.props.length > 0 && (
         <div className="mb-6">
-          <h4 className="text-xl font-semibold mb-3">Props</h4>
+          <h4 className="heading font-semibold mb-3">Props</h4>
           <SubComponentPropsTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
@@ -213,7 +213,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
         <div className="mb-6">
-          <h4 className="text-xl font-semibold mb-3">Data Attributes</h4>
+          <h4 className="heading font-semibold mb-3">Data Attributes</h4>
           <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
@@ -221,7 +221,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
       {/* CSS Variables */}
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
         <div className="mb-6">
-          <h4 className="text-xl font-semibold mb-3">CSS Variables</h4>
+          <h4 className="heading font-semibold mb-3">CSS Variables</h4>
           <SubComponentCSSVariablesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
