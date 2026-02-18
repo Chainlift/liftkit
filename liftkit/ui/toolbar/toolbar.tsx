@@ -8,6 +8,14 @@ function Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {
   return <ToolbarPrimitive.Root data-slot="toolbar" className={cn("", "Toolbar", className)} {...props} />;
 }
 
+function ToolbarInput({ className, ...props }: ToolbarPrimitive.Input.Props) {
+  return <ToolbarPrimitive.Input data-slot="toolbar-input" className={cn("", "Input", className)} {...props} />;
+}
+
+function ToolbarLink({ className, ...props }: ToolbarPrimitive.Link.Props) {
+  return <ToolbarPrimitive.Link data-slot="toolbar-link" className={cn("", "Link", className)} {...props} />;
+}
+
 function ToolbarButton({ className, ...props }: ToolbarPrimitive.Button.Props) {
   return <ToolbarPrimitive.Button data-slot="toolbar-button" className={cn("", "Button", className)} {...props} />;
 }
@@ -22,4 +30,4 @@ function ToolbarSeparator({ className, ...props }: ToolbarPrimitive.Separator.Pr
   );
 }
 
-export { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator };
+export { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarInput, ToolbarLink };

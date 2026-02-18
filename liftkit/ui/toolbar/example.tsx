@@ -1,62 +1,138 @@
 import * as React from "react";
-import { Toolbar } from "@base-ui/react/toolbar";
-import { ToggleGroup } from "@base-ui/react/toggle-group";
-import { Toggle } from "@base-ui/react/toggle";
-import { Select } from "@base-ui/react/select";
+import { Toolbar as BaseToolbar } from "@base-ui/react/toolbar";
+import { ToggleGroup as BaseToggleGroup } from "@base-ui/react/toggle-group";
+import { Toggle as BaseToggle } from "@base-ui/react/toggle";
+import { Select as BaseSelect } from "@base-ui/react/select";
 import styles from "./toolbar.module.css";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+} from "@/liftkit/ui/select/select";
+import { Toggle } from "@/liftkit/ui/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/ui/toggle-group/toggle-group";
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "./toolbar";
 
-export default function ExampleToolbar() {
+export default function ExampleBaseToolbar() {
   return (
-    <Toolbar.Root className={styles.Toolbar}>
-      <ToggleGroup className={styles.Group} aria-label="Alignment">
-        <Toolbar.Button render={<Toggle />} aria-label="Align left" value="align-left" className={styles.Button}>
+    <BaseToolbar.Root className={styles.BaseToolbar}>
+      <BaseToggleGroup className={styles.Group} aria-label="Alignment">
+        <BaseToolbar.Button
+          render={<BaseToggle />}
+          aria-label="Align left"
+          value="align-left"
+          className={styles.Button}
+        >
           Align Left
-        </Toolbar.Button>
-        <Toolbar.Button render={<Toggle />} aria-label="Align right" value="align-right" className={styles.Button}>
+        </BaseToolbar.Button>
+        <BaseToolbar.Button
+          render={<BaseToggle />}
+          aria-label="Align right"
+          value="align-right"
+          className={styles.Button}
+        >
           Align Right
-        </Toolbar.Button>
-      </ToggleGroup>
-      <Toolbar.Separator className={styles.Separator} />
-      <Toolbar.Group className={styles.Group} aria-label="Numerical format">
-        <Toolbar.Button className={styles.Button} aria-label="Format as currency">
+        </BaseToolbar.Button>
+      </BaseToggleGroup>
+      <BaseToolbar.Separator className={styles.Separator} />
+      <BaseToolbar.Group className={styles.Group} aria-label="Numerical format">
+        <BaseToolbar.Button className={styles.Button} aria-label="Format as currency">
           $
-        </Toolbar.Button>
-        <Toolbar.Button className={styles.Button} aria-label="Format as percent">
+        </BaseToolbar.Button>
+        <BaseToolbar.Button className={styles.Button} aria-label="Format as percent">
           %
-        </Toolbar.Button>
-      </Toolbar.Group>
-      <Toolbar.Separator className={styles.Separator} />
-      <Select.Root defaultValue="Helvetica">
-        <Toolbar.Button render={<Select.Trigger />} className={styles.Button}>
-          <Select.Value />
-          <Select.Icon className={styles.SelectIcon}>
+        </BaseToolbar.Button>
+      </BaseToolbar.Group>
+      <BaseToolbar.Separator className={styles.Separator} />
+      <BaseSelect.Root defaultValue="Helvetica">
+        <BaseToolbar.Button render={<BaseSelect.Trigger />} className={styles.Button}>
+          <BaseSelect.Value />
+          <BaseSelect.Icon className={styles.BaseSelectIcon}>
             <ChevronUpDownIcon />
-          </Select.Icon>
-        </Toolbar.Button>
-        <Select.Portal>
-          <Select.Positioner className={styles.Positioner} sideOffset={8}>
-            <Select.Popup className={styles.Popup}>
-              <Select.Item className={styles.Item} value="Helvetica">
-                <Select.ItemIndicator className={styles.ItemIndicator}>
+          </BaseSelect.Icon>
+        </BaseToolbar.Button>
+        <BaseSelect.Portal>
+          <BaseSelect.Positioner className={styles.Positioner} sideOffset={8}>
+            <BaseSelect.Popup className={styles.Popup}>
+              <BaseSelect.Item className={styles.Item} value="Helvetica">
+                <BaseSelect.ItemIndicator className={styles.ItemIndicator}>
                   <CheckIcon className={styles.ItemIndicatorIcon} />
-                </Select.ItemIndicator>
-                <Select.ItemText className={styles.ItemText}>Helvetica</Select.ItemText>
-              </Select.Item>
-              <Select.Item className={styles.Item} value="Arial">
-                <Select.ItemIndicator className={styles.ItemIndicator}>
+                </BaseSelect.ItemIndicator>
+                <BaseSelect.ItemText className={styles.ItemText}>Helvetica</BaseSelect.ItemText>
+              </BaseSelect.Item>
+              <BaseSelect.Item className={styles.Item} value="Arial">
+                <BaseSelect.ItemIndicator className={styles.ItemIndicator}>
                   <CheckIcon className={styles.ItemIndicatorIcon} />
-                </Select.ItemIndicator>
-                <Select.ItemText className={styles.ItemText}>Arial</Select.ItemText>
-              </Select.Item>
-            </Select.Popup>
-          </Select.Positioner>
-        </Select.Portal>
-      </Select.Root>
-      <Toolbar.Separator className={styles.Separator} />
-      <Toolbar.Link className={styles.Link} href="#">
+                </BaseSelect.ItemIndicator>
+                <BaseSelect.ItemText className={styles.ItemText}>Arial</BaseSelect.ItemText>
+              </BaseSelect.Item>
+            </BaseSelect.Popup>
+          </BaseSelect.Positioner>
+        </BaseSelect.Portal>
+      </BaseSelect.Root>
+      <BaseToolbar.Separator className={styles.Separator} />
+      <BaseToolbar.Link className={styles.Link} href="#">
         Edited 51m ago
-      </Toolbar.Link>
-    </Toolbar.Root>
+      </BaseToolbar.Link>
+    </BaseToolbar.Root>
+  );
+}
+
+export function ExampleToolbar2() {
+  return (
+    <>
+      <Toolbar>
+        <ToggleGroup aria-label="Alignment">
+          <ToolbarButton render={<Toggle />} aria-label="Align left" value="align-left">
+            Align Left
+          </ToolbarButton>
+          <ToolbarButton render={<Toggle />} aria-label="Align right" value="align-right">
+            Align Right
+          </ToolbarButton>
+        </ToggleGroup>
+        <ToolbarSeparator />
+        <ToolbarGroup aria-label="Numerical format">
+          <ToolbarButton aria-label="Format as currency">$</ToolbarButton>
+          <ToolbarButton aria-label="Format as percent">%</ToolbarButton>
+        </ToolbarGroup>
+        <ToolbarSeparator />
+        <Select defaultValue="Helvetica">
+          <ToolbarButton render={<SelectTrigger />}>
+            <SelectValue />
+            <SelectIcon>
+              <ChevronUpDownIcon />
+            </SelectIcon>
+          </ToolbarButton>
+          <SelectPortal>
+            <SelectPositioner sideOffset={8}>
+              <SelectPopup>
+                <SelectItem value="Helvetica">
+                  <SelectItemIndicator>
+                    <CheckIcon />
+                  </SelectItemIndicator>
+                  <SelectItemText>Helvetica</SelectItemText>
+                </SelectItem>
+                <SelectItem value="Arial">
+                  <SelectItemIndicator>
+                    <CheckIcon />
+                  </SelectItemIndicator>
+                  <SelectItemText>Arial</SelectItemText>
+                </SelectItem>
+              </SelectPopup>
+            </SelectPositioner>
+          </SelectPortal>
+        </Select>
+        <ToolbarSeparator />
+        <ToolbarLink href="#">Edited 51m ago</ToolbarLink>
+      </Toolbar>
+    </>
   );
 }
 

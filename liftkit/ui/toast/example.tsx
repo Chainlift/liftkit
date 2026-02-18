@@ -2,6 +2,17 @@
 import * as React from "react";
 import { Toast } from "@base-ui/react/toast";
 import styles from "./toast.module.css";
+import {
+  ToastProvider,
+  ToastPortal,
+  ToastViewport,
+  Toast as LkToast,
+  ToastContent,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  useToastManager,
+} from "./toast";
 
 export default function ExampleToast() {
   return (
@@ -32,6 +43,19 @@ function ToastButton() {
     <button type="button" className={styles.Button} onClick={createToast}>
       Create toast
     </button>
+  );
+}
+
+export function ExampleToast2() {
+  return (
+    <ToastProvider>
+      <ToastButton />
+      <ToastPortal>
+        <ToastViewport>
+          <ToastList />
+        </ToastViewport>
+      </ToastPortal>
+    </ToastProvider>
   );
 }
 
