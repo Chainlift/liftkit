@@ -35,6 +35,14 @@
     outline: 2px solid var(--lk-info);
     outline-offset: -1px;
   }
+
+  &[data-popup-open] {
+    /* Popup open state (for Trigger) */
+  }
+
+  &[data-disabled] {
+    /* Disabled state (for Trigger/Close) */
+  }
 }
 
 .Backdrop {
@@ -57,6 +65,40 @@
   &[data-starting-style],
   &[data-ending-style] {
     opacity: 0;
+  }
+
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-closed] {
+    /* Closed state styles */
+  }
+}
+
+.Viewport {
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-closed] {
+    /* Closed state styles */
+  }
+
+  &[data-nested] {
+    /* Nested dialog styles */
+  }
+
+  &[data-nested-dialog-open] {
+    /* Has nested dialogs open */
+  }
+
+  &[data-starting-style] {
+    /* Animating in */
+  }
+
+  &[data-ending-style] {
+    /* Animating out */
   }
 }
 
@@ -84,6 +126,22 @@
   &[data-ending-style] {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-closed] {
+    /* Closed state styles */
+  }
+
+  &[data-nested] {
+    /* Nested dialog styles */
+  }
+
+  &[data-nested-dialog-open] {
+    /* Has nested dialogs open */
   }
 }
 

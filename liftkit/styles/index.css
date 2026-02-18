@@ -32,4 +32,5 @@
 @import "./border-color.css";
 @import "./border-style.css";
 @import "./border-width.css";
+@import "./border-collapse.css";
 @import "@csstools/normalize.css";

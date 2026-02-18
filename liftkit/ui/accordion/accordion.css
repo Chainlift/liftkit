@@ -6,14 +6,50 @@
   flex-direction: column;
   justify-content: center;
   color: var(--lk-onsurface);
+
+  &[data-orientation="vertical"] {
+    /* Vertical orientation styles */
+  }
+
+  &[data-orientation="horizontal"] {
+    /* Horizontal orientation styles */
+  }
+
+  &[data-disabled] {
+    /* Disabled state styles */
+  }
 }
 
 .Item {
   border-bottom: 1px solid var(--lk-outlinevariant);
+
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-disabled] {
+    /* Disabled state styles */
+  }
+
+  &[data-index] {
+    /* Index-based styles */
+  }
 }
 
 .Header {
   margin: 0;
+
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-disabled] {
+    /* Disabled state styles */
+  }
+
+  &[data-index] {
+    /* Index-based styles */
+  }
 }
 
 .Trigger {
@@ -46,6 +82,14 @@
     outline: 2px solid var(--lk-info);
     z-index: 1;
   }
+
+  &[data-panel-open] {
+    /* Panel open state styles */
+  }
+
+  &[data-disabled] {
+    /* Disabled state styles */
+  }
 }
 
 .TriggerIcon {
@@ -73,6 +117,26 @@
   &[data-starting-style],
   &[data-ending-style] {
     height: 0;
+  }
+
+  &[data-open] {
+    /* Open state styles */
+  }
+
+  &[data-orientation="vertical"] {
+    /* Vertical orientation styles */
+  }
+
+  &[data-orientation="horizontal"] {
+    /* Horizontal orientation styles */
+  }
+
+  &[data-disabled] {
+    /* Disabled state styles */
+  }
+
+  &[data-index] {
+    /* Index-based styles */
   }
 }
 

@@ -1,5 +1,6 @@
 import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
+import { Accordion } from "@/liftkit/ui/accordion/accordion";
 // import other components you want to preview
 
 export type Control =
@@ -10,6 +11,40 @@ export type Control =
   | { kind: "color"; label?: string; default?: string } // if you want to wire to CSS vars, etc.
   | { kind: "slot"; label?: string; default?: string }; // convenience for children
 
+/**
+ * Metadata for a sub-component (e.g., Accordion.Root, Accordion.Item)
+ * Used to generate props tables and documentation without affecting ComponentPreview
+ */
+export type SubComponentEntry = {
+  /** The actual React component (for potential future use) */
+  Component?: React.ComponentType<any>;
+  /** Description of what this sub-component does */
+  description?: string;
+  /** HTML element it renders (e.g., "<div>", "<button>", "<h3>") */
+  renders?: string;
+  /** Props information for generating props tables */
+  props?: Array<{
+    name: string;
+    type: string;
+    defaultValue?: string;
+    description?: string;
+    required?: boolean;
+  }>;
+  /** Data attributes from the API reference */
+  dataAttributes?: Array<{
+    name: string;
+    type?: string;
+    description?: string;
+  }>;
+  /** CSS Variables from the API reference */
+  cssVariables?: Array<{
+    name: string;
+    type?: string;
+    defaultValue?: string;
+    description?: string;
+  }>;
+};
+
 export type ComponentEntry = {
   title: string;
   // Component is a React component type; we keep props loosely typed in docs code
@@ -18,11 +53,14 @@ export type ComponentEntry = {
   knobs: Record<string, Control>;
   // base props always applied (can include className, etc.)
   baseProps?: Record<string, unknown>;
-  // optional: transform the knobs into final props (e.g. map “label” → children)
+  // optional: transform the knobs into final props (e.g. map "label" → children)
   mapKnobsToProps?: (knobs: Record<string, unknown>) => Record<string, unknown>;
+  // NEW: sub-components for compound components (e.g., Accordion.Root, Accordion.Item)
+  // This is used for documentation/props tables and does NOT affect ComponentPreview
+  subComponents?: Record<string, SubComponentEntry>;
 };
 
-export const componentManifest = {
+export const componentManifest: Record<string, ComponentEntry> = {
   button: {
     title: "Button",
     Component: Button,
@@ -145,6 +183,146 @@ export const componentManifest = {
       endIcon: k.endIcon || undefined,
     }),
   },
-} satisfies Record<string, ComponentEntry>;
+  accordion: {
+    title: "Accordion",
+    Component: Accordion, // A wrapper for the preview
+    knobs: {
+      multiple: { kind: "boolean", label: "Multiple", default: false },
+      disabled: { kind: "boolean", label: "Disabled", default: false },
+    },
+    // NEW: Add sub-components here
+    subComponents: {
+      Root: {
+        description: "Groups all parts of the accordion.",
+        renders: "<div>",
+        props: [
+          {
+            name: "defaultValue",
+            type: "any[]",
+            description: "The uncontrolled value of the item(s) that should be initially expanded.",
+            required: false,
+          },
+          {
+            name: "multiple",
+            type: "boolean",
+            defaultValue: "false",
+            description: "Whether multiple items can be open at the same time.",
+            required: false,
+          },
+        ],
+        dataAttributes: [
+          {
+            name: "data-orientation",
+            description: "Indicates the orientation of the accordion.",
+          },
+          {
+            name: "data-disabled",
+            description: "Present when the accordion is disabled.",
+          },
+        ],
+      },
+      Item: {
+        description: "Groups an accordion header with the corresponding panel.",
+        renders: "<div>",
+        props: [
+          {
+            name: "value",
+            type: "any",
+            description: "A unique value that identifies this accordion item.",
+            required: false,
+          },
+        ],
+        dataAttributes: [
+          {
+            name: "data-open",
+            description: "Present when the accordion item is open.",
+          },
+        ],
+      },
+      // Add more sub-components as needed
+    },
+  },
+};
 
 export type ComponentName = keyof typeof componentManifest;
+
+/* 
+  EXAMPLE: How to add a compound component with sub-components
+  
+  accordion: {
+    title: "Accordion",
+    Component: AccordionWrapper, // A wrapper component for the preview
+    knobs: {
+      multiple: { kind: "boolean", label: "Multiple", default: false },
+      disabled: { kind: "boolean", label: "Disabled", default: false },
+    },
+    subComponents: {
+      Root: {
+        description: "Groups all parts of the accordion. Renders a <div> element.",
+        renders: "<div>",
+        props: [
+          {
+            name: "defaultValue",
+            type: "any[]",
+            description: "The uncontrolled value of the item(s) that should be initially expanded.",
+            required: false,
+          },
+          {
+            name: "multiple",
+            type: "boolean",
+            defaultValue: "false",
+            description: "Whether multiple items can be open at the same time.",
+            required: false,
+          },
+          // ... more props
+        ],
+        dataAttributes: [
+          {
+            name: "data-orientation",
+            description: "Indicates the orientation of the accordion.",
+          },
+          {
+            name: "data-disabled",
+            description: "Present when the accordion is disabled.",
+          },
+        ],
+      },
+      Item: {
+        description: "Groups an accordion header with the corresponding panel. Renders a <div> element.",
+        renders: "<div>",
+        props: [
+          {
+            name: "value",
+            type: "any",
+            description: "A unique value that identifies this accordion item.",
+            required: false,
+          },
+          {
+            name: "disabled",
+            type: "boolean",
+            defaultValue: "false",
+            description: "Whether the component should ignore user interaction.",
+            required: false,
+          },
+          // ... more props
+        ],
+        dataAttributes: [
+          {
+            name: "data-open",
+            description: "Present when the accordion item is open.",
+          },
+          {
+            name: "data-disabled",
+            description: "Present when the accordion item is disabled.",
+          },
+          {
+            name: "data-index",
+            type: "number",
+            description: "Indicates the index of the accordion item.",
+          },
+        ],
+      },
+      // Header, Trigger, Panel, etc...
+    },
+  },
+*/

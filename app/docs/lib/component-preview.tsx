@@ -104,7 +104,6 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
   const finalProps = manifest.mapKnobsToProps ? manifest.mapKnobsToProps(knobValues) : knobValues;
 
   // Merge with baseProps if defined and cast to any for dynamic component rendering
-  //@ts-expect-error - it's saying baseProps isn't defined but we already defined it as optional in the type def in component-manifest.ts
   const componentProps = { ...(manifest.baseProps || {}), ...finalProps } as any;
 
   const Component = manifest.Component;
