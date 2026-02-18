@@ -1,0 +1,28 @@
+div[data-instance="lk-docs-table"] {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+  }
+
+  thead {
+    tr {
+      border-bottom: 1px solid var(--lk-outline);
+    }
+  }
+
+  tbody {
+    tr {
+    }
+  }
+
+  th {
+    padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
+    font-weight: 500;
+    font-size: var(--lk-)
+  }
+
+  td {
+    padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
+  }
+}

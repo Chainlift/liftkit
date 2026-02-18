@@ -260,64 +260,79 @@
    * In division, the right side must be unitless.
   */
 
-  --display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
-  --display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
-  --title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
-  --title2-font-size: calc(1em * var(--lk-wholestep));
-  --title3-font-size: calc(1em * var(--lk-halfstep));
-  --heading-font-size: calc(1em * var(--lk-quarterstep));
-  --subheading-font-size: calc(1em / var(--lk-quarterstep));
-  --body-font-size: 1em;
-  --callout-font-size: calc(1em / var(--lk-eighthstep));
-  --label-font-size: calc((1em / var(--lk-quarterstep)) / var(--lk-eighthstep));
-  --caption-font-size: calc(1em / var(--lk-halfstep));
-  --caption2-font-size: calc(var(--caption-font-size) / var(--lk-eighthstep));
-  --capline-font-size: calc(1em / var(--lk-halfstep));
+  --lk-display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
+  --lk-display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
+  --lk-title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
+  --lk-title2-font-size: calc(1em * var(--lk-wholestep));
+  --lk-title3-font-size: calc(1em * var(--lk-halfstep));
+  --lk-heading-font-size: calc(1em * var(--lk-quarterstep));
+  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep));
+  --lk-body-font-size: 1em;
+  --lk-callout-font-size: calc(1em / var(--lk-eighthstep));
+  --lk-label-font-size: calc((1em / var(--lk-quarterstep)) / var(--lk-eighthstep));
+  --lk-caption-font-size: calc(1em / var(--lk-halfstep));
+  --lk-caption2-font-size: calc(var(--lk-caption-font-size) / var(--lk-eighthstep));
+  --lk-capline-font-size: calc(1em / var(--lk-halfstep));
 
   /* Font Line Height Vars (UNITLESS!) */
 
-  --display1-line-height: var(--lk-quarterstep);
-  --display2-line-height: var(--lk-halfstep);
-  --title1-line-height: var(--lk-halfstep);
-  --title2-line-height: var(--lk-halfstep);
-  --title3-line-height: var(--lk-halfstep);
-  --heading-line-height: var(--lk-halfstep);
-  --subheading-line-height: var(--lk-halfstep);
-  --body-line-height: var(--lk-wholestep);
-  --callout-line-height: var(--lk-halfstep);
-  --label-line-height: var(--lk-halfstep);
-  --caption-line-height: var(--lk-halfstep);
-  --capline-line-height: var(--lk-halfstep);
+  --lk-display1-line-height: var(--lk-quarterstep);
+  --lk-display2-line-height: var(--lk-halfstep);
+  --lk-title1-line-height: var(--lk-halfstep);
+  --lk-title2-line-height: var(--lk-halfstep);
+  --lk-title3-line-height: var(--lk-halfstep);
+  --lk-heading-line-height: var(--lk-halfstep);
+  --lk-subheading-line-height: var(--lk-halfstep);
+  --lk-body-line-height: var(--lk-wholestep);
+  --lk-callout-line-height: var(--lk-halfstep);
+  --lk-label-line-height: var(--lk-halfstep);
+  --lk-caption-line-height: var(--lk-halfstep);
+  --lk-capline-line-height: var(--lk-halfstep);
 
   /* Font weights */
 
-  --display1-font-weight: 400 --display2-font-weight: 400;
-  --title1-font-weight: 400;
-  --title2-font-weight: 400;
-  --title3-font-weight: 400;
-  --heading-font-weight: 600;
-  --subheading-font-weight: 400;
-  --body-font-weight: 400 --callout-font-weight: 400;
-  --label-font-weight: 500;
-  --caption-font-weight: 400;
-  --capline-font-weight: 400;
+  --lk-display1-font-weight: 400 --lk-display2-font-weight: 400;
+  --lk-title1-font-weight: 400;
+  --lk-title2-font-weight: 400;
+  --lk-title3-font-weight: 400;
+  --lk-heading-font-weight: 600;
+  --lk-subheading-font-weight: 400;
+  --lk-body-font-weight: 400 --lk-callout-font-weight: 400;
+  --lk-label-font-weight: 500;
+  --lk-caption-font-weight: 400;
+  --lk-capline-font-weight: 400;
 
   /* Optical Top Padding Offsets and Border Radii for Cards */
   /* Produce padding values for the insides of cards or other containers on sides that
      optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
 
-  --display1-offset: calc(var(--display1-font-size) * calc(var(--display1-line-height) / var(--lk-wholestep)));
-  --display2-offset: calc(var(--display2-font-size) * calc(var(--display2-line-height) / var(--lk-wholestep)));
-  --title1-offset: calc(var(--title1-font-size) * calc(var(--title1-line-height) / var(--lk-wholestep)));
-  --title2-offset: calc(var(--title2-font-size) * calc(var(--title2-line-height) / var(--lk-wholestep)));
-  --title3-offset: calc(var(--title3-font-size) * calc(var(--title3-line-height) / var(--lk-wholestep)));
-  --heading-offset: calc(var(--heading-font-size) * calc(var(--heading-line-height) / var(--lk-wholestep)));
-  --subheading-offset: calc(var(--subheading-font-size) * calc(var(--subheading-line-height) / var(--lk-wholestep)));
-  --body-offset: calc(var(--body-font-size) / var(--lk-wholestep));
-  --callout-offset: calc(var(--callout-font-size) * calc(var(--callout-line-height) / var(--lk-wholestep)));
-  --label-offset: calc(var(--label-font-size) * calc(var(--label-line-height) / var(--lk-wholestep)));
-  --caption-offset: calc(var(--caption-font-size) * calc(var(--caption-line-height) / var(--lk-wholestep)));
-  --capline-offset: calc(var(--capline-font-size) * calc(var(--capline-line-height) / var(--lk-wholestep)));
+  --lk-display1-offset: calc(var(--lk-display1-font-size) * calc(var(--lk-display1-line-height) / var(--lk-wholestep)));
+  --lk-display2-offset: calc(var(--lk-display2-font-size) * calc(var(--lk-display2-line-height) / var(--lk-wholestep)));
+  --lk-title1-offset: calc(var(--lk-title1-font-size) * calc(var(--lk-title1-line-height) / var(--lk-wholestep)));
+  --lk-title2-offset: calc(var(--lk-title2-font-size) * calc(var(--lk-title2-line-height) / var(--lk-wholestep)));
+  --lk-title3-offset: calc(var(--lk-title3-font-size) * calc(var(--lk-title3-line-height) / var(--lk-wholestep)));
+  --lk-heading-offset: calc(var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep)));
+  --lk-subheading-offset: calc(
+    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep))
+  );
+  --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep));
+  --lk-callout-offset: calc(var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep)));
+  --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep)));
+  --lk-caption-offset: calc(var(--lk-caption-font-size) * calc(var(--lk-caption-line-height) / var(--lk-wholestep)));
+  --lk-capline-offset: calc(var(--lk-capline-font-size) * calc(var(--lk-capline-line-height) / var(--lk-wholestep)));
+
+  --lk-display1-letter-spacing: -0.022em;
+  --lk-display2-letter-spacing: -0.022em;
+  --lk-title1-letter-spacing: -0.022em;
+  --lk-title2-letter-spacing: -0.02em;
+  --lk-title3-letter-spacing: -0.017em;
+  --lk-heading-letter-spacing: -0.014em;
+  --lk-subheading-letter-spacing: -0.007em;
+  --lk-body-letter-spacing: -0.011em;
+  --lk-callout-letter-spacing: -0.009em;
+  --lk-label-letter-spacing: -0.004em;
+  --lk-caption-letter-spacing: -0.007em;
+  --lk-capline-letter-spacing: 0.0618em;
 
   /* shadows */
   --lk-shadow-2xs: 0 0 1px 0 var(--lk-shadow);
@@ -346,18 +361,18 @@
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
 
-  --display1BoxHeight: calc(var(--display1-font-size) * var(--display1-line-height));
-  --display2BoxHeight: calc(var(--display2-font-size) * var(--display2-line-height));
-  --title1BoxHeight: calc(var(--title1-font-size) * var(--title1-line-height));
-  --title2BoxHeight: calc(var(--title2-font-size) * var(--title2-line-height));
-  --title3BoxHeight: calc(var(--title3-font-size) * var(--title3-line-height));
-  --headingBoxHeight: calc(var(--heading-font-size) * var(--heading-line-height));
-  --subheadingBoxHeight: calc(var(--subheading-font-size) * var(--subheading-line-height));
-  --bodyBoxHeight: calc(var(--body-font-size) * var(--body-line-height));
-  --calloutBoxHeight: calc(var(--callout-font-size) * var(--callout-line-height));
-  --labelBoxHeight: calc(var(--label-font-size) * var(--label-line-height));
-  --captionBoxHeight: calc(var(--caption-font-size) * var(--caption-line-height));
-  --caplineBoxHeight: calc(var(--capline-font-size) * var(--capline-line-height));
+  --lk-display1BoxHeight: calc(var(--lk-display1-font-size) * var(--lk-display1-line-height));
+  --lk-display2BoxHeight: calc(var(--lk-display2-font-size) * var(--lk-display2-line-height));
+  --lk-title1BoxHeight: calc(var(--lk-title1-font-size) * var(--lk-title1-line-height));
+  --lk-title2BoxHeight: calc(var(--lk-title2-font-size) * var(--lk-title2-line-height));
+  --lk-title3BoxHeight: calc(var(--lk-title3-font-size) * var(--lk-title3-line-height));
+  --lk-headingBoxHeight: calc(var(--lk-heading-font-size) * var(--lk-heading-line-height));
+  --lk-subheadingBoxHeight: calc(var(--lk-subheading-font-size) * var(--lk-subheading-line-height));
+  --lk-bodyBoxHeight: calc(var(--lk-body-font-size) * var(--lk-body-line-height));
+  --lk-calloutBoxHeight: calc(var(--lk-callout-font-size) * var(--lk-callout-line-height));
+  --lk-labelBoxHeight: calc(var(--lk-label-font-size) * var(--lk-label-line-height));
+  --lk-captionBoxHeight: calc(var(--lk-caption-font-size) * var(--lk-caption-line-height));
+  --lk-caplineBoxHeight: calc(var(--lk-capline-font-size) * var(--lk-capline-line-height));
 }
 
 @media (prefers-color-scheme: dark) {

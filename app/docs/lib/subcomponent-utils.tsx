@@ -1,3 +1,5 @@
+import "./subcomponent-table-styles.css";
+
 /**
  * Utilities for working with sub-components from the component manifest
  * These helpers make it easy to render props tables and documentation for compound components
@@ -53,26 +55,26 @@ export function SubComponentPropsTable({ componentName, subComponentName, classN
   }
 
   return (
-    <div className={className}>
-      <table className="w-full border-collapse">
+    <div data-instance="lk-docs-table">
+      <table>
         <thead>
-          <tr className="border-b">
-            <th className="">Prop</th>
-            <th className="">Type</th>
-            <th className="">Default</th>
-            <th className="">Description</th>
+          <tr>
+            <th>Prop</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           {subComponent.props.map((prop) => (
-            <tr key={prop.name} className="border-b">
-              <td className="py-2 px-4 font-mono text-sm">
+            <tr key={prop.name}>
+              <td>
                 {prop.name}
-                {prop.required && <span className="text-red-500 ml-1">*</span>}
+                {prop.required && <span>*</span>}
               </td>
-              <td className="py-2 px-4 font-mono text-sm text-gray-600">{prop.type}</td>
-              <td className="py-2 px-4 font-mono text-sm text-gray-600">{prop.defaultValue || "-"}</td>
-              <td className="py-2 px-4 text-sm">{prop.description}</td>
+              <td>{prop.type}</td>
+              <td>{prop.defaultValue || "-"}</td>
+              <td>{prop.description}</td>
             </tr>
           ))}
         </tbody>
@@ -103,20 +105,20 @@ export function SubComponentDataAttributesTable({
 
   return (
     <div className={className}>
-      <table className="w-full border-collapse">
+      <table>
         <thead>
-          <tr className="border-b">
-            <th className="text-left py-2 px-4">Attribute</th>
-            <th className="text-left py-2 px-4">Type</th>
-            <th className="text-left py-2 px-4">Description</th>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           {subComponent.dataAttributes.map((attr) => (
-            <tr key={attr.name} className="border-b">
-              <td className="py-2 px-4 font-mono text-sm">{attr.name}</td>
-              <td className="py-2 px-4 font-mono text-sm text-gray-600">{attr.type || "-"}</td>
-              <td className="py-2 px-4 text-sm">{attr.description}</td>
+            <tr key={attr.name}>
+              <td>{attr.name}</td>
+              <td>{attr.type || "-"}</td>
+              <td>{attr.description}</td>
             </tr>
           ))}
         </tbody>
@@ -147,22 +149,22 @@ export function SubComponentCSSVariablesTable({
 
   return (
     <div className={className}>
-      <table className="w-full border-collapse">
+      <table>
         <thead>
-          <tr className="border-b">
-            <th className="text-left py-2 px-4">Variable</th>
-            <th className="text-left py-2 px-4">Type</th>
-            <th className="text-left py-2 px-4">Default</th>
-            <th className="text-left py-2 px-4">Description</th>
+          <tr>
+            <th>Variable</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           {subComponent.cssVariables.map((cssVar) => (
-            <tr key={cssVar.name} className="border-b">
-              <td className="py-2 px-4 font-mono text-sm">{cssVar.name}</td>
-              <td className="py-2 px-4 font-mono text-sm text-gray-600">{cssVar.type || "-"}</td>
-              <td className="py-2 px-4 font-mono text-sm text-gray-600">{cssVar.defaultValue || "-"}</td>
-              <td className="py-2 px-4 text-sm">{cssVar.description}</td>
+            <tr key={cssVar.name}>
+              <td>{cssVar.name}</td>
+              <td>{cssVar.type || "-"}</td>
+              <td>{cssVar.defaultValue || "-"}</td>
+              <td>{cssVar.description}</td>
             </tr>
           ))}
         </tbody>
@@ -188,7 +190,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
   }
 
   return (
-    <div className={className}>
+    <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div className="mb-6">
         <h3 className="title3-bold mb-sm">{subComponentName}</h3>
