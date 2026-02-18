@@ -1,12 +1,14 @@
 import { getDocsNav } from "@/lib/docs-nav";
 import Link from "next/link";
+import { TableOfContents } from "@/components/mdx/table-of-contents";
+import { Table } from "lucide-react";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const nav = getDocsNav();
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "280px 1fr 280px" }}>
-      <aside style={{ padding: 16, borderRight: "1px solid #eee" }}>
+    <div className="flex justify-center">
+      <aside style={{ padding: 16, borderRight: "1px solid #eee" }} className="w-5xl">
         <nav>
           {nav.map((item) => (
             <div key={item.href}>
@@ -20,8 +22,12 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           ))}
         </nav>
       </aside>
-      <main style={{ padding: 24 }}>{children}</main>
-     
+      <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1" }}>
+        {children}
+      </main>
+      <aside className="w-5xl">
+        <TableOfContents />
+      </aside>
     </div>
   );
 }

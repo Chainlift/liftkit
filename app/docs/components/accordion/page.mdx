@@ -10,6 +10,7 @@ import {
   ScrollAreaContent,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
+  ScrollAreaCorner,
 } from "@/liftkit/ui/scroll-area/scroll-area";
 
 export const metadata = {
@@ -31,17 +32,22 @@ This component wraps the Base UI primitive and applies LiftKit recipes and token
     <TabsTab value="account">Account</TabsTab>
     <TabsIndicator />
   </TabsList>
-  <TabsPanel value="overview" className="h-4xl">
-    <ScrollArea >
+  <TabsPanel value="overview">
+    <ScrollArea style={{ width: "100%", height: "500px" }}>
       <ScrollAreaViewport>
         <ScrollAreaContent>
-          <LocalCodeSample />
+          <div>
+            <LocalCodeSample />
+          </div>
         </ScrollAreaContent>
       </ScrollAreaViewport>
       <ScrollAreaScrollbar>
         <ScrollAreaThumb />
       </ScrollAreaScrollbar>
- 
+      <ScrollAreaScrollbar orientation="horizontal">
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaCorner />
     </ScrollArea>
   </TabsPanel>
   <TabsPanel value="projects">Person</TabsPanel>

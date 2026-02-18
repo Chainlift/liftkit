@@ -38,4 +38,10 @@ function ScrollAreaThumb({ className, ...props }: ScrollAreaPrimitive.Thumb.Prop
   return <ScrollAreaPrimitive.Thumb data-slot="scroll-area-thumb" className={cn("", "Thumb", className)} {...props} />;
 }
 
-export { ScrollArea, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb };
+function ScrollAreaCorner({ className, ...props }: ScrollAreaPrimitive.Corner.Props) {
+  return (
+    <ScrollAreaPrimitive.Corner data-slot="scroll-area-corner" className={cn("", "Corner", className)} {...props} />
+  );
+}
+
+export { ScrollArea, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb, ScrollAreaCorner };
