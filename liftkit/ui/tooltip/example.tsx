@@ -1,60 +1,82 @@
 import * as React from "react";
-import { Tooltip } from "@base-ui/react/tooltip";
+import { Tooltip as BaseTooltip } from "@base-ui/react/tooltip";
 import styles from "./tooltip.module.css";
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from "./tooltip";
+import { Icon } from "@/liftkit/ui/icon/icon";
 
-export default function ExampleTooltip() {
+export default function ExampleBaseTooltip() {
   return (
-    <Tooltip.Provider>
+    <BaseTooltip.Provider>
       <div className={styles.Panel}>
-        <Tooltip.Root>
-          <Tooltip.Trigger className={styles.Button}>
+        <BaseTooltip.Root>
+          <BaseTooltip.Trigger className={styles.Button}>
             <BoldIcon className={styles.Icon} aria-label="Bold" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className={styles.Popup}>
-                <Tooltip.Arrow className={styles.Arrow}>
+          </BaseTooltip.Trigger>
+          <BaseTooltip.Portal>
+            <BaseTooltip.Positioner sideOffset={10}>
+              <BaseTooltip.Popup className={styles.Popup}>
+                <BaseTooltip.Arrow className={styles.Arrow}>
                   <ArrowSvg />
-                </Tooltip.Arrow>
+                </BaseTooltip.Arrow>
                 Bold
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
+              </BaseTooltip.Popup>
+            </BaseTooltip.Positioner>
+          </BaseTooltip.Portal>
+        </BaseTooltip.Root>
 
-        <Tooltip.Root>
-          <Tooltip.Trigger className={styles.Button}>
+        <BaseTooltip.Root>
+          <BaseTooltip.Trigger className={styles.Button}>
             <ItalicIcon className={styles.Icon} aria-label="Italic" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className={styles.Popup}>
-                <Tooltip.Arrow className={styles.Arrow}>
+          </BaseTooltip.Trigger>
+          <BaseTooltip.Portal>
+            <BaseTooltip.Positioner sideOffset={10}>
+              <BaseTooltip.Popup className={styles.Popup}>
+                <BaseTooltip.Arrow className={styles.Arrow}>
                   <ArrowSvg />
-                </Tooltip.Arrow>
+                </BaseTooltip.Arrow>
                 Italic
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
+              </BaseTooltip.Popup>
+            </BaseTooltip.Positioner>
+          </BaseTooltip.Portal>
+        </BaseTooltip.Root>
 
-        <Tooltip.Root>
-          <Tooltip.Trigger className={styles.Button}>
+        <BaseTooltip.Root>
+          <BaseTooltip.Trigger className={styles.Button}>
             <UnderlineIcon className={styles.Icon} aria-label="Underline" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className={styles.Popup}>
-                <Tooltip.Arrow className={styles.Arrow}>
+          </BaseTooltip.Trigger>
+          <BaseTooltip.Portal>
+            <BaseTooltip.Positioner sideOffset={10}>
+              <BaseTooltip.Popup className={styles.Popup}>
+                <BaseTooltip.Arrow className={styles.Arrow}>
                   <ArrowSvg />
-                </Tooltip.Arrow>
+                </BaseTooltip.Arrow>
                 Underline
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
+              </BaseTooltip.Popup>
+            </BaseTooltip.Positioner>
+          </BaseTooltip.Portal>
+        </BaseTooltip.Root>
       </div>
-    </Tooltip.Provider>
+    </BaseTooltip.Provider>
+  );
+}
+
+export function ExampleTooltip2() {
+  return (
+    <>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>
+            <Icon name="bold" />
+          </TooltipTrigger>
+          <TooltipContent>Bold</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </>
   );
 }
 
