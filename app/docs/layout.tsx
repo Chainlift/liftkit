@@ -8,7 +8,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex justify-center">
-      <aside style={{ padding: 16, borderRight: "1px solid #eee" }} className="w-5xl">
+      <aside style={{ padding: 16, borderRight: "1px solid #eee", width: "240px" }}>
         <nav>
           {nav.map((item) => (
             <div key={item.href}>
@@ -22,9 +22,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           ))}
         </nav>
       </aside>
-      <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1" }}>
-        {children}
-      </main>
+      <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1", width: "240px" }}>{children}</main>
       <aside className="w-5xl">
         <TableOfContents />
       </aside>
