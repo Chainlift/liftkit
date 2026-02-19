@@ -26,12 +26,12 @@ export function GoldenBox({
   asChild = false,
   ...restProps
 }: LkGoldenBoxProps) {
-  const Comp = asChild ? Slot : "div";
+
 
   const lkGoldenBoxAttrs = useMemo(() => propsToDataAttrs({ scaleFactor }, "golden-box"), [scaleFactor]);
 
   return (
-    <Comp
+    <div
       data-lk-component="golden-box"
       data-lk-golden-box-optical-correction={opticalCorrection}
       data-lk-golden-box-no-padding={noPadding}
@@ -39,7 +39,7 @@ export function GoldenBox({
       {...restProps}
     >
       {children}
-    </Comp>
+    </div>
   );
 }
 

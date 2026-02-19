@@ -6,8 +6,8 @@
   --local-offset-factor: calc(
     var(--largest-child-font-size) / var(--largest-child-line-height)
   ); /* The line height of the largest child */
-  --largest-child-font-size: var(--body-font-size);
-  --largest-child-line-height: var(--body-line-height);
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
 
   /* Modifies direct child text elements of the children slot (that way nested components like buttons
        don't inherit color blending props */
@@ -23,75 +23,75 @@
 }
 
 [data-lk-golden-box-scale-factor="display1"] {
-  --largest-child-font-size: var(--display1-font-size);
-  --largest-child-line-height: var(--display1-line-height);
-  --opticCorrectedPadding: calc(var(--display1-font-size) / var(--display1-line-height));
+  --largest-child-font-size: var(--lk-display1-font-size);
+  --largest-child-line-height: var(--lk-display1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display1-font-size) / var(--lk-display1-line-height));
 }
 
 [data-lk-golden-box-scale-factor="display2"] {
-  --largest-child-font-size: var(--display2-font-size);
-  --largest-child-line-height: var(--display2-line-height);
-  --opticCorrectedPadding: calc(var(--display2-font-size) / var(--display2-line-height));
+  --largest-child-font-size: var(--lk-display2-font-size);
+  --largest-child-line-height: var(--lk-display2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display2-font-size) / var(--lk-display2-line-height));
 }
 
 [data-lk-golden-box-scale-factor="title1"] {
-  --largest-child-font-size: var(--title1-font-size);
-  --largest-child-line-height: var(--title1-line-height);
-  --opticCorrectedPadding: calc(var(--title1-font-size) / var(--title1-line-height));
+  --largest-child-font-size: var(--lk-title1-font-size);
+  --largest-child-line-height: var(--lk-title1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title1-font-size) / var(--lk-title1-line-height));
 }
 
 [data-lk-golden-box-scale-factor="title2"] {
-  --largest-child-font-size: var(--title2-font-size);
-  --largest-child-line-height: var(--title2-line-height);
-  --opticCorrectedPadding: calc(var(--title2-font-size) / var(--title2-line-height));
+  --largest-child-font-size: var(--lk-title2-font-size);
+  --largest-child-line-height: var(--lk-title2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title2-font-size) / var(--lk-title2-line-height));
 }
 
 [data-lk-golden-box-scale-factor="title3"] {
-  --largest-child-font-size: var(--title3-font-size);
-  --largest-child-line-height: var(--title3-line-height);
-  --opticCorrectedPadding: calc(var(--title3-font-size) / var(--title3-line-height));
+  --largest-child-font-size: var(--lk-title3-font-size);
+  --largest-child-line-height: var(--lk-title3-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title3-font-size) / var(--lk-title3-line-height));
 }
 
 [data-lk-golden-box-scale-factor="heading"] {
-  --largest-child-font-size: var(--heading-font-size);
-  --largest-child-line-height: var(--heading-line-height);
-  --opticCorrectedPadding: calc(var(--heading-font-size) / var(--heading-line-height));
+  --largest-child-font-size: var(--lk-heading-font-size);
+  --largest-child-line-height: var(--lk-heading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-heading-font-size) / var(--lk-heading-line-height));
 }
 
 [data-lk-golden-box-scale-factor="subheading"] {
-  --largest-child-font-size: var(--subheading-font-size);
-  --largest-child-line-height: var(--subheading-line-height);
-  --opticCorrectedPadding: calc(var(--subheading-font-size) / var(--subheading-line-height));
+  --largest-child-font-size: var(--lk-subheading-font-size);
+  --largest-child-line-height: var(--lk-subheading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-subheading-font-size) / var(--lk-subheading-line-height));
 }
 
 [data-lk-golden-box-scale-factor="body"] {
-  --largest-child-font-size: var(--body-font-size);
-  --largest-child-line-height: var(--body-line-height);
-  --opticCorrectedPadding: calc(var(--body-font-size) / var(--body-line-height));
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
+  --opticCorrectedPadding: calc(var(--lk-body-font-size) / var(--lk-body-line-height));
 }
 
 [data-lk-golden-box-scale-factor="callout"] {
-  --largest-child-font-size: var(--callout-font-size);
-  --largest-child-line-height: var(--callout-line-height);
-  --opticCorrectedPadding: calc(var(--callout-font-size) / var(--callout-line-height));
+  --largest-child-font-size: var(--lk-callout-font-size);
+  --largest-child-line-height: var(--lk-callout-line-height);
+  --opticCorrectedPadding: calc(var(--lk-callout-font-size) / var(--lk-callout-line-height));
 }
 
 [data-lk-golden-box-scale-factor="label"] {
-  --largest-child-font-size: var(--label-font-size);
-  --largest-child-line-height: var(--label-line-height);
-  --opticCorrectedPadding: calc(var(--label-font-size) / var(--label-line-height));
+  --largest-child-font-size: var(--lk-label-font-size);
+  --largest-child-line-height: var(--lk-label-line-height);
+  --opticCorrectedPadding: calc(var(--lk-label-font-size) / var(--lk-label-line-height));
 }
 
 [data-lk-golden-box-scale-factor="caption"] {
-  --largest-child-font-size: var(--caption-font-size);
-  --largest-child-line-height: var(--caption-line-height);
-  --opticCorrectedPadding: calc(var(--caption-font-size) / var(--caption-line-height));
+  --largest-child-font-size: var(--lk-caption-font-size);
+  --largest-child-line-height: var(--lk-caption-line-height);
+  --opticCorrectedPadding: calc(var(--lk-caption-font-size) / var(--lk-caption-line-height));
 }
 
 [data-lk-golden-box-scale-factor="capline"] {
-  --largest-child-font-size: var(--capline-font-size);
-  --largest-child-line-height: var(--capline-line-height);
-  --opticCorrectedPadding: calc(var(--capline-font-size) / var(--capline-line-height));
+  --largest-child-font-size: var(--lk-capline-font-size);
+  --largest-child-line-height: var(--lk-capline-line-height);
+  --opticCorrectedPadding: calc(var(--lk-capline-font-size) / var(--lk-capline-line-height));
 }
 
 [data-lk-golden-box-material="flat"] {
