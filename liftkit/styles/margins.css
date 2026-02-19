@@ -1,5 +1,35 @@
 @import "./liftkit-core.css";
 
+.mt-none {
+  margin-top: 0px;
+}
+
+.mr-none {
+  margin-right: 0px;
+}
+
+.mb-none {
+  margin-bottom: 0px;
+}
+
+.ml-none {
+  margin-left: 0px;
+}
+
+.my-none {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.mx-none {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.margin-none {
+  margin: 0px;
+}
+
 .mt-3xs {
   margin-top: var(--lk-size-3xs);
 }
@@ -159,7 +189,6 @@
 .m-left-4xl {
   margin-left: var(--lk-size-4xl);
 }
-
 
 .ml-3xs {
   margin-left: var(--lk-size-3xs);
