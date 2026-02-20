@@ -49,8 +49,8 @@
 
   @media (prefers-color-scheme: dark) {
     box-shadow: rgb(0 0 0 / 75%) 0 1.5px 2px inset;
-    outline-color: rgb(255 255 255 / 15%);
-    background-image: linear-gradient(to right, var(--lk-surfacecontainerlow) 35%, var(--lk-outlinevariant) 65%);
+    outline-color: var(--lk-outline);
+    background-image: linear-gradient(to right, var(--lk-successcontainer) 35%, var(--lk-outlinevariant) 65%);
 
     &[data-checked] {
       box-shadow: none;
@@ -73,7 +73,7 @@
   aspect-ratio: 1 / 1;
   height: 100%;
   border-radius: 100%;
-  background-color: white;
+  background-color: var(--lk-surfacecontainerlowest);
   transition: transform 150ms ease;
 
   &[data-checked] {
