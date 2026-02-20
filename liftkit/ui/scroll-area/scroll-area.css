@@ -85,7 +85,7 @@
   }
 }
 
-.Thumb {
+[data-slot="scroll-area-thumb"] {
   width: 100%;
   border-radius: inherit;
   background-color: var(--lk-surfacecontainerlow0);

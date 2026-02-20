@@ -7,21 +7,21 @@
   color: var(--lk-onsurface);
 }
 
-.Switch {
+[data-slot="switch"] {
   box-sizing: border-box;
   position: relative;
   display: flex;
   appearance: none;
-  border: 0;
+
   margin: 0;
   padding: 1px;
-  width: 2.5rem;
-  height: 1.5rem;
+  width: var(--lk-size-xl);
+  height: var(--lk-size-lg);
   border-radius: 1.5rem;
   outline: 1px solid;
   outline-offset: -1px;
   background-color: transparent;
-  background-image: linear-gradient(to right, var(--color-gray-700) 35%, var(--lk-outlinevariant) 65%);
+  background-image: linear-gradient(to right, var(--lk-successcontainer) 35%, var(--lk-outlinevariant) 65%);
   background-size: 6.5rem 100%;
   background-position-x: 100%;
   background-repeat: no-repeat;
@@ -30,26 +30,27 @@
   transition-duration: 125ms;
 
   &:active {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-error);
   }
 
   &[data-checked] {
     background-position-x: 0%;
+
   }
 
   &[data-checked]:active {
-    background-color: var(--lk-surfacecontainerlow0);
+    background-color: var(--lk-successcontainer);
   }
 
   @media (prefers-color-scheme: light) {
-    box-shadow: var(--lk-outlinevariant) 0 1.5px 2px inset;
-    outline-color: var(--lk-outlinevariant);
+    box-shadow: var(--lk-outline) 0 1.5px 2px inset;
+    outline-color: var(--lk-outline);
   }
 
   @media (prefers-color-scheme: dark) {
     box-shadow: rgb(0 0 0 / 75%) 0 1.5px 2px inset;
     outline-color: rgb(255 255 255 / 15%);
-    background-image: linear-gradient(to right, var(--lk-surfacecontainerlow0) 35%, var(--lk-outlinevariant) 65%);
+    background-image: linear-gradient(to right, var(--lk-surfacecontainerlow) 35%, var(--lk-outlinevariant) 65%);
 
     &[data-checked] {
       box-shadow: none;
@@ -68,15 +69,17 @@
   }
 }
 
-.Thumb {
+[data-slot="switch-thumb"] {
   aspect-ratio: 1 / 1;
   height: 100%;
   border-radius: 100%;
   background-color: white;
-  transition: translate 150ms ease;
+  transition: transform 150ms ease;
 
   &[data-checked] {
-    translate: 1rem 0;
+    transform: translateX(
+      var(--lk-size-md)
+    ); /* move it by 1 step down from the height. so if switch height is lg, move by md. */
   }
 
   @media (prefers-color-scheme: light) {
