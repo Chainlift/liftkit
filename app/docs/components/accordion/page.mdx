@@ -1,5 +1,7 @@
 import { LocalCodeSample } from "./example.tsx";
+import { LocalCssSample } from "./example-css.tsx";
 import { Button } from "@liftkit/ui";
+import { ComponentPreview } from "@/app/docs/lib/component-preview";
 import { Demo } from "@/components/mdx/demo";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
@@ -14,7 +16,7 @@ import {
 } from "@/liftkit/ui/scroll-area/scroll-area";
 
 export const metadata = {
-  title: "Button",
+  title: "Accordion",
   description: "Interactive trigger component built on Base UI with LiftKit styling.",
 };
 
@@ -23,18 +25,18 @@ export const metadata = {
 Buttons trigger actions and initiate workflows.  
 This component wraps the Base UI primitive and applies LiftKit recipes and tokens.
 
-<div className="w-full flex items-center justify-center py-2xl bg-surfacecontainerlow">
-  <ExampleAccordion />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+  <ComponentPreview componentName="accordion" />
+
 </div>
 
-<Tabs defaultValue="overview">
+<Tabs defaultValue="typescript">
   <TabsList>
-    <TabsTab value="overview">Overview</TabsTab>
-    <TabsTab value="projects">Projects</TabsTab>
-    <TabsTab value="account">Account</TabsTab>
+    <TabsTab value="typescript">Typescript</TabsTab>
+    <TabsTab value="css">CSS</TabsTab>
     <TabsIndicator />
   </TabsList>
-  <TabsPanel value="overview">
+  <TabsPanel value="typescript">
     <ScrollArea style={{ width: "100%", height: "500px" }}>
       <ScrollAreaViewport>
         <ScrollAreaContent>
@@ -52,13 +54,32 @@ This component wraps the Base UI primitive and applies LiftKit recipes and token
       <ScrollAreaCorner />
     </ScrollArea>
   </TabsPanel>
-  <TabsPanel value="projects">Person</TabsPanel>
+  <TabsPanel value="css">
+    <ScrollArea style={{ width: "100%", height: "500px" }}>
+      <ScrollAreaViewport>
+        <ScrollAreaContent>
+          <div>
+            <LocalCssSample />
+          </div>
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaScrollbar orientation="horizontal">
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaCorner />
+    </ScrollArea>
+  </TabsPanel>
   <TabsPanel value="account">Account</TabsPanel>
 </Tabs>
 
 ## Subcomponents
 
 <SubComponentDocs componentName="accordion" subComponentName="Root" />
+
+<SubComponentDocs componentName="accordion" subComponentName="Item" />
 
 ## Installation
 

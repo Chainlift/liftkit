@@ -1,6 +1,7 @@
 import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
 import { Accordion } from "@/liftkit/ui/accordion/accordion";
+import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 // import other components you want to preview
 
 export type Control =
@@ -183,9 +184,22 @@ export const componentManifest: Record<string, ComponentEntry> = {
       endIcon: k.endIcon || undefined,
     }),
   },
+  accordionExample: {
+    title: "Accordion Example",
+    Component: ExampleAccordion,
+    knobs: {
+      multiple: { kind: "boolean", label: "Multiple", default: false },
+    },
+    mapKnobsToProps: (k) => ({
+      ...k,
+      children: k.children,
+      startIcon: k.startIcon || undefined,
+      endIcon: k.endIcon || undefined,
+    }),
+  },
   accordion: {
     title: "Accordion",
-    Component: Accordion, // A wrapper for the preview
+    Component: ExampleAccordion, // A wrapper for the preview
     knobs: {
       multiple: { kind: "boolean", label: "Multiple", default: false },
       disabled: { kind: "boolean", label: "Disabled", default: false },

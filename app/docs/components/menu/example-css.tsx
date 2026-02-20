@@ -1,0 +1,166 @@
+export function LocalCssSample() {
+  return (
+    <pre style={{
+      overflowX: "auto",
+      padding: 16,
+      borderRadius: 12,
+      border: "1px solid var(--lk-outline)",
+      backgroundColor: "var(--lk-surface-container-low)",
+      fontSize: "0.875rem",
+      lineHeight: 1.5,
+    }}>
+      <code>{`.Button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2.5rem;
+  padding: 0 0.875rem;
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: 0.375rem;
+  background-color: var(--lk-surfacecontainerlow);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: var(--lk-onsurface);
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-gray-100);
+  }
+
+  &[data-popup-open] {
+    background-color: var(--color-gray-100);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+.ButtonIcon {
+  margin-right: -0.25rem;
+}
+
+.Positioner {
+  outline: 0;
+}
+
+.Popup {
+  box-sizing: border-box;
+  padding-block: 0.25rem;
+  border-radius: 0.375rem;
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+  transform-origin: var(--transform-origin);
+  transition:
+    transform 150ms,
+    opacity 150ms;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+.Arrow {
+  display: flex;
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+.ArrowFill {
+  fill: canvas;
+}
+
+.ArrowOuterStroke {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+.ArrowInnerStroke {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+.Item {
+  outline: 0;
+  cursor: default;
+  user-select: none;
+  padding-block: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1rem;
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--lk-surfacecontainerlow);
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: var(--lk-onsurface);
+  }
+}
+
+.Separator {
+  margin: 0.375rem 1rem;
+  height: 1px;
+  background-color: var(--lk-outlinevariant);
+}
+`}</code>
+    </pre>
+  );
+}

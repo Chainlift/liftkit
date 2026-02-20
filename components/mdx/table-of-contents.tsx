@@ -31,22 +31,61 @@ export function TableOfContents({ containerSelector, className }: TableOfContent
   const [headings, setHeadings] = React.useState<TocItem[]>([]);
   const [activeId, setActiveId] = React.useState<string>("");
 
-  // Extract headings from the DOM
+  // Extract headings from the DOM and watch for changes
   React.useEffect(() => {
     const container = containerSelector ? document.querySelector(containerSelector) : document.body;
 
     if (!container) return;
 
-    const elements = container.querySelectorAll("h2, h3");
-    const items: TocItem[] = Array.from(elements)
-      .map((element) => ({
-        id: element.id,
-        text: element.textContent || "",
-        level: parseInt(element.tagName[1]) as 2 | 3,
-      }))
-      .filter((item) => item.id); // Only include headings with IDs
+    let timeoutId: NodeJS.Timeout | null = null;
 
-    setHeadings(items);
+    // Function to scan for headings
+    const scanHeadings = () => {
+      const elements = container.querySelectorAll("h2, h3");
+      const items: TocItem[] = Array.from(elements)
+        .map((element) => ({
+          id: element.id,
+          text: element.textContent || "",
+          level: parseInt(element.tagName[1]) as 2 | 3,
+        }))
+        .filter((item) => item.id); // Only include headings with IDs
+
+      setHeadings((prev) => {
+        // Only update if headings actually changed
+        if (JSON.stringify(prev) !== JSON.stringify(items)) {
+          return items;
+        }
+        return prev;
+      });
+    };
+
+    // Delayed initial scan to allow for React hydration
+    const initialTimeout = setTimeout(scanHeadings, 100);
+
+    // Additional scans to catch late-loading content
+    const scan2 = setTimeout(scanHeadings, 500);
+    const scan3 = setTimeout(scanHeadings, 1000);
+
+    // Set up MutationObserver to watch for DOM changes
+    const observer = new MutationObserver(() => {
+      // Debounce to avoid excessive re-renders
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(scanHeadings, 100);
+    });
+
+    // Observe changes to the container and its descendants
+    observer.observe(container, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(initialTimeout);
+      clearTimeout(scan2);
+      clearTimeout(scan3);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [containerSelector]);
 
   // Track active section with IntersectionObserver

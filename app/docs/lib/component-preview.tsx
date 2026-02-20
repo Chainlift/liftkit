@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
+import { GoldenBox } from "@/liftkit/ui/goldenbox";
+import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -44,12 +46,9 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
       case "boolean":
         return (
-          <input
-            type="checkbox"
-            checked={currentValue}
-            onChange={(e) => updateKnob(key, e.target.checked)}
-            className="w-4 h-4"
-          />
+          <Switch checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
+            <SwitchThumb></SwitchThumb>
+          </Switch>
         );
 
       case "text":
@@ -109,22 +108,23 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
   const Component = manifest.Component;
 
   return (
-    <div className="border rounded-lg overflow-hidden">
-      {/* Live Preview */}
-      <div className="preview p-8 bg-gray-50 flex items-center justify-center min-h-[200px]">
-        <Component {...componentProps} />
-      </div>
-
+    <div className="w-full flex ">
       {/* Controls Panel */}
-      <div className="controls p-4 bg-white border-t">
-        <div className="grid gap-4">
-          {Object.entries(manifest.knobs).map(([key, control]) => (
-            <div key={key} className="flex items-center gap-3">
-              <label className="text-sm font-medium min-w-[100px]">{control.label || key}</label>
-              <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
-            </div>
-          ))}
-        </div>
+      <div className="bg-surface border-r">
+        <GoldenBox opticalCorrection="top">
+          <div className="flex flex-col gap-md">
+            {Object.entries(manifest.knobs).map(([key, control]) => (
+              <div key={key} className="flex items-center gap-3">
+                <label className="text-sm font-medium min-w-[100px]">{control.label || key}</label>
+                <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
+              </div>
+            ))}
+          </div>
+        </GoldenBox>
+      </div>
+      {/* Live Preview */}
+      <div className="flex flex-grow py-2xl items-center justify-center bg-surfacecontainer">
+        <Component {...componentProps} />
       </div>
     </div>
   );

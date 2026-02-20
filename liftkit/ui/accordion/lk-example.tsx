@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
-export default function ExampleAccordion() {
+export default function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
   return (
-    <Accordion>
+    <Accordion multiple={multiple}>
       <AccordionItem>
         <AccordionTrigger>What is Base UI?</AccordionTrigger>
         <AccordionContent>

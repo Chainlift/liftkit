@@ -1,0 +1,105 @@
+export function LocalCssSample() {
+  return (
+    <pre style={{
+      overflowX: "auto",
+      padding: 16,
+      borderRadius: 12,
+      border: "1px solid var(--lk-outline)",
+      backgroundColor: "var(--lk-surface-container-low)",
+      fontSize: "0.875rem",
+      lineHeight: 1.5,
+    }}>
+      <code>{`.lk-btn,
+[data-lk-component="button"] {
+  /* DEFAULTS */
+
+  --lk-btn-bg: var(--lk-color-token);
+  --lk-btn-fg: var(--lk-color-ontoken);
+
+  --button-line-height: var(--lk-halfstep) !important;
+  --button-padX: 1em;
+  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  cursor: pointer;
+
+  display: inline-flex;
+  vertical-align: middle;
+
+  position: relative;
+  text-decoration: none;
+  white-space: pre;
+  word-break: keep-all;
+  overflow: hidden;
+  padding: var(--button-padY) 1em;
+  font-weight: 500;
+  line-height: var(--button-line-height);
+  font-family: inherit;
+  background: var(--lk-btn-bg, transparent);
+  color: var(--lk-btn-fg, inherit);
+  gap: var(--button-gap);
+
+  /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
+  border-width: var(--lk-size-5xs);
+  border-style: solid;
+  border-color: var(--lk-btn-border, transparent);
+  border-radius: 100em;
+}
+
+[data-lk-button-root] {
+  width: 100%;
+}
+
+/* ICON-BASED PADDING ADJUSTMENTS */
+.lk-btn:has([data-lk-icon-position="start"]) {
+  padding-left: var(--button-padX-sideWithIcon);
+  padding-right: var(--button-padX);
+}
+
+.lk-btn:has([data-lk-icon-position="end"]) {
+  padding-left: 1em;
+  padding-right: var(--button-padX-sideWithIcon);
+}
+
+.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
+  padding-left: var(--button-padX-sideWithIcon);
+  padding-right: var(--button-padX-sideWithIcon);
+}
+
+/* CONTENT WRAPPER */
+[data-lk-button-content-wrap="true"] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-gap);
+}
+
+/* Optic shift: If text doesn't look centered properly, tries pulling text downward slightly. 
+Usually happens when start icon appears bigger than the text, even when it's not. */
+
+.lk-btn--optic-shift [data-lk-button-child="button-text"] {
+  transform: translateY(calc(1em * var(--lk-eighthstep-dec)));
+}
+
+/* STYLE VARIANTS */
+
+.lk-btn-variant--fill {
+  --lk-btn-bg: var(--lk-color-token);
+  --lk-btn-fg: var(--lk-color-ontoken);
+  --lk-btn-border: transparent;
+}
+
+.lk-btn-variant--outline {
+  --lk-btn-bg: transparent;
+  --lk-btn-fg: var(--lk-color-token);
+  --lk-btn-border: var(--lk-color-token);
+}
+
+.lk-btn-variant--text {
+  --lk-btn-bg: transparent;
+  --lk-btn-fg: var(--lk-color-token);
+  --lk-btn-border: transparent;
+}
+`}</code>
+    </pre>
+  );
+}
