@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui/react/checkbox-group";
-import "./checkbox-group.css";
+import "./lk-checkbox-group.css";
 
 function CheckboxGroup({ className, ...props }: React.ComponentPropsWithoutRef<typeof CheckboxGroupPrimitive>) {
   return (

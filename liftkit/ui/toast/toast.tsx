@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Toast as ToastPrimitive } from "@base-ui/react/toast";
-import "./toast.css";
+import "./lk-toast.css";
 
 function ToastProvider({ ...props }: ToastPrimitive.Provider.Props) {
   return <ToastPrimitive.Provider {...props} />;

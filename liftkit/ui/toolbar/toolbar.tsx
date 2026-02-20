@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Toolbar as ToolbarPrimitive } from "@base-ui/react/toolbar";
-import "./toolbar.css";
+import "./lk-toolbar.css";
 
 function Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {
   return <ToolbarPrimitive.Root data-slot="toolbar" className={cn("", "Toolbar", className)} {...props} />;

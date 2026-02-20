@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
-import "./tabs.css";
+import "./lk-tabs.css";
 
 function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
   return <TabsPrimitive.Root data-slot="tabs" className={cn("", "Tabs", className)} {...props} />;

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
-import "./checkbox.css";
+import "./lk-checkbox.css";
 
 function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
   return <CheckboxPrimitive.Root data-slot="checkbox" className={cn("", "Checkbox", className)} {...props} />;

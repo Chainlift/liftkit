@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
-import "./navigation-menu.css";
+import "./lk-navigation-menu.css";
 
 function NavigationMenu({
   align = "start",

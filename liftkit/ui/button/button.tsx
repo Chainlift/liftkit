@@ -6,7 +6,7 @@ import { LkStateLayerProps } from "@/liftkit/ui/state-layer";
 import { LkFontClass } from "@/liftkit/types/lk-typography";
 import { Icon } from "@/liftkit/ui/icon/icon";
 
-import "./button.css";
+import "./lk-button.css";
 
 //define the type
 

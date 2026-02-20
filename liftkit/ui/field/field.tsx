@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Field as FieldPrimitive } from "@base-ui/react/field";
-import "./field.css";
+import "./lk-field.css";
 
 function Field({ className, ...props }: FieldPrimitive.Root.Props) {
   return <FieldPrimitive.Root data-slot="field" className={cn("", "Field", className)} {...props} />;

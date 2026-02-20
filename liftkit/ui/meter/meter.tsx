@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Meter as MeterPrimitive } from "@base-ui/react/meter";
-import "./meter.css";
+import "./lk-meter.css";
 
 function Meter({ className, ...props }: MeterPrimitive.Root.Props) {
   return <MeterPrimitive.Root data-slot="meter" className={cn("", "Meter", className)} {...props} />;

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
-import "./menu.css";
+import "./lk-menu.css";
 
 function Menu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="menu" {...props} />;

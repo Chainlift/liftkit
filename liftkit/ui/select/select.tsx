@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
-import "./select.css";
+import "./lk-select.css";
 
 function Select<Value, Multiple extends boolean = false>({ ...props }: SelectPrimitive.Root.Props<Value, Multiple>) {
   return <SelectPrimitive.Root data-slot="select" {...props} />;

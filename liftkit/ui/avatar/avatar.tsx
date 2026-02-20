@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
-import "./avatar.css";
+import "./lk-avatar.css";
 
 function Avatar({ className, ...props }: AvatarPrimitive.Root.Props) {
   return <AvatarPrimitive.Root data-slot="avatar" className={cn("", "Root", className)} {...props} />;

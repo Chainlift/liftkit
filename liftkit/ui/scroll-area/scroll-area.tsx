@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
-import "./scroll-area.css";
+import "./lk-scroll-area.css";
 
 function ScrollArea({ className, ...props }: ScrollAreaPrimitive.Root.Props) {
   return <ScrollAreaPrimitive.Root data-slot="scroll-area" className={cn("", "ScrollArea", className)} {...props} />;

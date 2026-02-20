@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/cn";
 import { Button } from "@/liftkit/ui/button/button";
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
-import "./alert-dialog.css";
+import "./lk-alert-dialog.css";
 
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
