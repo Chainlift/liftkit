@@ -1,4 +1,5 @@
-.Button {
+[data-slot="alert-dialog-trigger"],
+[data-slot="alert-dialog-close"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -45,7 +46,7 @@
   }
 }
 
-.Backdrop {
+[data-slot="alert-dialog-overlay"] {
   position: fixed;
   min-height: 100dvh;
   inset: 0;
@@ -76,7 +77,7 @@
   }
 }
 
-.Viewport {
+[data-slot="alert-dialog-viewport"] {
   &[data-open] {
     /* Open state styles */
   }
@@ -102,9 +103,10 @@
   }
 }
 
-.Popup {
+[data-slot="alert-dialog-content"] {
   box-sizing: border-box;
   position: fixed;
+  z-index: 99;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -114,7 +116,7 @@
   padding: 1.5rem;
   border-radius: 0.5rem;
   outline: 1px solid var(--lk-outlinevariant);
-  background-color: var(--lk-surfacecontainerlow);
+  background-color: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   transition: all 150ms;
 
@@ -145,7 +147,7 @@
   }
 }
 
-.Title {
+[data-slot="alert-dialog-title"] {
   margin-top: -0.375rem;
   margin-bottom: 0.25rem;
   font-size: 1.125rem;
@@ -154,14 +156,14 @@
   font-weight: 500;
 }
 
-.Description {
+[data-slot="alert-dialog-description"] {
   margin: 0 0 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
   color: var(--lk-onsurfacevariant);
 }
 
-.Actions {
+[data-slot="alert-dialog-action"] {
   display: flex;
   justify-content: end;
   gap: 1rem;
