@@ -2,6 +2,8 @@ import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
 import { Accordion } from "@/liftkit/ui/accordion/accordion";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
+import { AlertDialog } from "@/liftkit/ui/alert-dialog/alert-dialog";
+import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
 // import other components you want to preview
 
 export type Control =
@@ -51,7 +53,7 @@ export type ComponentEntry = {
   // Component is a React component type; we keep props loosely typed in docs code
   Component: React.ComponentType<any>;
   // "knobs" defines a subset of props you want to expose
-  knobs: Record<string, Control>;
+  knobs?: Record<string, Control>;
   // base props always applied (can include className, etc.)
   baseProps?: Record<string, unknown>;
   // optional: transform the knobs into final props (e.g. map "label" → children)
@@ -256,87 +258,135 @@ export const componentManifest: Record<string, ComponentEntry> = {
       // Add more sub-components as needed
     },
   },
+  alertDialog: {
+    title: "Alert Dialog",
+    Component: ExampleAlertDialog,
+    knobs: {},
+    subComponents: {
+      Dialog: {
+        description: "The root provider component for the alert dialog. Manages open/close state.",
+        renders: "<div>",
+        props: [
+          {
+            name: "open",
+            type: "boolean",
+            description: "Controlled open state of the dialog.",
+            required: false,
+          },
+          {
+            name: "defaultOpen",
+            type: "boolean",
+            defaultValue: "false",
+            description: "The uncontrolled open state of the dialog.",
+            required: false,
+          },
+          {
+            name: "onOpenChange",
+            type: "(open: boolean) => void",
+            description: "Callback fired when the open state changes.",
+            required: false,
+          },
+        ],
+        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
+      },
+      AlertDialogTrigger: {
+        description: "The button that opens the alert dialog.",
+        renders: "<button>",
+        props: [],
+        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
+      },
+      AlertDialogPortal: {
+        description: "Portals the backdrop and popup out of the DOM hierarchy.",
+        props: [
+          {
+            name: "container",
+            type: "HTMLElement | null",
+            description: "The DOM element to portal into. Defaults to document.body.",
+            required: false,
+          },
+          {
+            name: "keepMounted",
+            type: "boolean",
+            defaultValue: "false",
+            description: "Whether to keep the portal mounted in the DOM when closed.",
+            required: false,
+          },
+        ],
+      },
+      AlertDialogBackdrop: {
+        description: "The semi-transparent overlay rendered behind the popup.",
+        renders: "<div>",
+        props: [],
+        dataAttributes: [
+          { name: "data-open", description: "Present when the dialog is open." },
+          { name: "data-starting-style", description: "Applied when the dialog is opening." },
+          { name: "data-ending-style", description: "Applied when the dialog is closing." },
+        ],
+      },
+      AlertDialogContent: {
+        description: "The popup panel. Automatically wraps AlertDialogPortal and AlertDialogBackdrop.",
+        renders: "<div>",
+        props: [
+          {
+            name: "size",
+            type: '"default" | "sm"',
+            defaultValue: '"default"',
+            description: "Controls the width of the popup.",
+            required: false,
+          },
+        ],
+        dataAttributes: [
+          { name: "data-open", description: "Present when the dialog is open." },
+          { name: "data-starting-style", description: "Applied when the dialog is opening." },
+          { name: "data-ending-style", description: "Applied when the dialog is closing." },
+        ],
+      },
+      AlertDialogHeader: {
+        description: "Layout wrapper for the dialog title and description.",
+        renders: "<div>",
+        props: [],
+      },
+      AlertDialogFooter: {
+        description: "Layout wrapper for the dialog action buttons.",
+        renders: "<div>",
+        props: [],
+      },
+      AlertDialogMedia: {
+        description: "Optional layout wrapper for media content within the dialog.",
+        renders: "<div>",
+        props: [],
+      },
+      AlertDialogTitle: {
+        description: "Accessible title for the alert dialog.",
+        renders: "<h2>",
+        props: [],
+      },
+      AlertDialogDescription: {
+        description: "Accessible description for the alert dialog.",
+        renders: "<p>",
+        props: [],
+      },
+      AlertDialogAction: {
+        description: "The confirm/destructive action button. Rendered as a LiftKit Button.",
+        renders: "<button>",
+        props: [],
+      },
+      AlertDialogClose: {
+        description: "The cancel/close button. Closes the dialog when clicked.",
+        renders: "<button>",
+        props: [
+          {
+            name: "variant",
+            type: '"fill" | "outline" | "text"',
+            defaultValue: '"outline"',
+            description: "Visual style variant passed to the underlying Button.",
+            required: false,
+          },
+        ],
+        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
+      },
+    },
+  },
 };
 
 export type ComponentName = keyof typeof componentManifest;
-
-/* 
-  EXAMPLE: How to add a compound component with sub-components
-  
-  accordion: {
-    title: "Accordion",
-    Component: AccordionWrapper, // A wrapper component for the preview
-    knobs: {
-      multiple: { kind: "boolean", label: "Multiple", default: false },
-      disabled: { kind: "boolean", label: "Disabled", default: false },
-    },
-    subComponents: {
-      Root: {
-        description: "Groups all parts of the accordion. Renders a <div> element.",
-        renders: "<div>",
-        props: [
-          {
-            name: "defaultValue",
-            type: "any[]",
-            description: "The uncontrolled value of the item(s) that should be initially expanded.",
-            required: false,
-          },
-          {
-            name: "multiple",
-            type: "boolean",
-            defaultValue: "false",
-            description: "Whether multiple items can be open at the same time.",
-            required: false,
-          },
-          // ... more props
-        ],
-        dataAttributes: [
-          {
-            name: "data-orientation",
-            description: "Indicates the orientation of the accordion.",
-          },
-          {
-            name: "data-disabled",
-            description: "Present when the accordion is disabled.",
-          },
-        ],
-      },
-      Item: {
-        description: "Groups an accordion header with the corresponding panel. Renders a <div> element.",
-        renders: "<div>",
-        props: [
-          {
-            name: "value",
-            type: "any",
-            description: "A unique value that identifies this accordion item.",
-            required: false,
-          },
-          {
-            name: "disabled",
-            type: "boolean",
-            defaultValue: "false",
-            description: "Whether the component should ignore user interaction.",
-            required: false,
-          },
-          // ... more props
-        ],
-        dataAttributes: [
-          {
-            name: "data-open",
-            description: "Present when the accordion item is open.",
-          },
-          {
-            name: "data-disabled",
-            description: "Present when the accordion item is disabled.",
-          },
-          {
-            name: "data-index",
-            type: "number",
-            description: "Indicates the index of the accordion item.",
-          },
-        ],
-      },
-      // Header, Trigger, Panel, etc...
-    },
-  },
-*/

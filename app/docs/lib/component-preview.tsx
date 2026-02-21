@@ -15,8 +15,10 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
   // Initialize state from defaults
   const [knobValues, setKnobValues] = useState<Record<string, any>>(() => {
     const initial: Record<string, any> = {};
-    for (const [key, control] of Object.entries(manifest.knobs)) {
-      initial[key] = control.default;
+    if (manifest.knobs) {
+      for (const [key, control] of Object.entries(manifest.knobs)) {
+        initial[key] = control.default;
+      }
     }
     return initial;
   });
@@ -112,14 +114,16 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
       {/* Controls Panel */}
       <div className="bg-surface border-r">
         <GoldenBox opticalCorrection="top">
-          <div className="flex flex-col gap-md">
-            {Object.entries(manifest.knobs).map(([key, control]) => (
-              <div key={key} className="flex items-center gap-3">
-                <label className="text-sm font-medium min-w-[100px]">{control.label || key}</label>
-                <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
-              </div>
-            ))}
-          </div>
+          {manifest.knobs && (
+            <div className="flex flex-col gap-md">
+              {Object.entries(manifest.knobs).map(([key, control]) => (
+                <div key={key} className="flex items-center gap-3">
+                  <label className="text-sm font-medium min-w-[100px]">{control.label || key}</label>
+                  <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </GoldenBox>
       </div>
       {/* Live Preview */}
