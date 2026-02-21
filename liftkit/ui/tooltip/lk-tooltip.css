@@ -48,7 +48,7 @@
   height: 1rem;
 }
 
-.Popup {
+[data-slot="tooltip-content"] {
   box-sizing: border-box;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -85,7 +85,7 @@
   }
 }
 
-.Arrow {
+[data-slot="tooltip-arrow"] {
   display: flex;
 
   &[data-side="top"] {

@@ -1,4 +1,4 @@
-.Root {
+[data-slot="navigation-menu"] {
   background-color: var(--lk-surfacecontainerlow);
   border-radius: 0.5rem;
   padding: 0.25rem;
@@ -6,7 +6,7 @@
   min-width: max-content;
 }
 
-.List {
+[data-slot="navigation-menu-list"] {
   display: flex;
   position: relative;
   list-style: none;
@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-.Trigger {
+[data-slot="navigation-menu-trigger"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@
   }
 }
 
-.Icon {
+[data-slot="navigation-menu-indicator"] {
   transition: transform 0.2s ease;
 
   &[data-popup-open] {
@@ -65,7 +65,7 @@
   }
 }
 
-.Positioner {
+[data-slot="navigation-menu-positioner"] {
   --easing: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 0.35s;
   box-sizing: border-box;
@@ -114,7 +114,7 @@
   }
 }
 
-.Popup {
+[data-slot="navigation-menu-popup"] {
   position: relative;
   box-sizing: border-box;
   border-radius: 0.5rem;
@@ -155,7 +155,7 @@
   }
 }
 
-.Content {
+[data-slot="navigation-menu-content"] {
   box-sizing: border-box;
   transition:
     opacity calc(var(--duration) * 0.5) ease,
@@ -193,7 +193,7 @@
   }
 }
 
-.Viewport {
+[data-slot="navigation-menu-viewport"] {
   position: relative;
   overflow: hidden;
   width: 100%;

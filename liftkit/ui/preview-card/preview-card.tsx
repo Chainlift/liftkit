@@ -17,25 +17,15 @@ function PreviewCardPortal({ ...props }: PreviewCardPrimitive.Portal.Props) {
 }
 
 function PreviewCardPositioner({ className, ...props }: PreviewCardPrimitive.Positioner.Props) {
-  return (
-    <PreviewCardPrimitive.Positioner
-      data-slot="preview-card-positioner"
-      className={cn("", "Positioner", className)}
-      {...props}
-    />
-  );
+  return <PreviewCardPrimitive.Positioner data-slot="preview-card-positioner" className={cn(className)} {...props} />;
 }
 
 function PreviewCardPopup({ className, ...props }: PreviewCardPrimitive.Popup.Props) {
-  return (
-    <PreviewCardPrimitive.Popup data-slot="preview-card-popup" className={cn("", "Popup", className)} {...props} />
-  );
+  return <PreviewCardPrimitive.Popup data-slot="preview-card-popup" className={cn(className)} {...props} />;
 }
 
 function PreviewCardArrow({ className, ...props }: PreviewCardPrimitive.Arrow.Props) {
-  return (
-    <PreviewCardPrimitive.Arrow data-slot="preview-card-arrow" className={cn("", "Arrow", className)} {...props} />
-  );
+  return <PreviewCardPrimitive.Arrow data-slot="preview-card-arrow" className={cn(className)} {...props} />;
 }
 
 export {

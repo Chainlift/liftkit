@@ -5,7 +5,7 @@ import { Input as InputPrimitive } from "@base-ui/react/input";
 import "./lk-input.css";
 
 function Input({ className, ...props }: InputPrimitive.Props) {
-  return <InputPrimitive data-slot="input" className={cn("", "Input", className)} {...props} />;
+  return <InputPrimitive data-slot="input" className={cn(className)} {...props} />;
 }
 
 export { Input };

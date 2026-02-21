@@ -1,10 +1,10 @@
-.Positioner {
+[data-slot="preview-card-positioner"] {
   height: var(--positioner-height);
   width: var(--positioner-width);
   max-width: var(--available-width);
 }
 
-.Popup {
+[data-slot="preview-card-popup"] {
   box-sizing: border-box;
   width: var(--popup-width, auto);
   height: var(--popup-height, auto);
@@ -34,7 +34,7 @@
   }
 }
 
-.Arrow {
+[data-slot="preview-card-arrow"] {
   display: flex;
 
   &[data-side="top"] {

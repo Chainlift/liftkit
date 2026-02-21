@@ -39,13 +39,13 @@
   height: 1.25rem;
 }
 
-.Positioner {
+[data-slot="popover-positioner"] {
   width: var(--positioner-width);
   height: var(--positioner-height);
   max-width: var(--available-width);
 }
 
-.Popup {
+[data-slot="popover-popup"] {
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
@@ -79,7 +79,7 @@
   }
 }
 
-.Arrow {
+[data-slot="popover-arrow"] {
   display: flex;
 
   &[data-side="top"] {
@@ -119,14 +119,14 @@
   }
 }
 
-.Title {
+[data-slot="popover-title"] {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 500;
 }
 
-.Description {
+[data-slot="popover-description"] {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;

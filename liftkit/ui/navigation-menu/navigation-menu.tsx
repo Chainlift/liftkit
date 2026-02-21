@@ -10,7 +10,7 @@ function NavigationMenu({
   ...props
 }: NavigationMenuPrimitive.Root.Props & Pick<NavigationMenuPrimitive.Positioner.Props, "align">) {
   return (
-    <NavigationMenuPrimitive.Root data-slot="navigation-menu" className={cn("Root", className)} {...props}>
+    <NavigationMenuPrimitive.Root data-slot="navigation-menu" className={cn(className)} {...props}>
       {children}
       <NavigationMenuPositioner align={align} />
     </NavigationMenuPrimitive.Root>
@@ -18,35 +18,23 @@ function NavigationMenu({
 }
 
 function NavigationMenuList({ className, ...props }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>) {
-  return <NavigationMenuPrimitive.List data-slot="navigation-menu-list" className={cn("List", className)} {...props} />;
+  return <NavigationMenuPrimitive.List data-slot="navigation-menu-list" className={cn(className)} {...props} />;
 }
 
 function NavigationMenuItem({ className, ...props }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>) {
-  return (
-    <NavigationMenuPrimitive.Item data-slot="navigation-menu-item" className={cn("relative", className)} {...props} />
-  );
+  return <NavigationMenuPrimitive.Item data-slot="navigation-menu-item" className={cn(className)} {...props} />;
 }
 
 function NavigationMenuTrigger({ className, children, ...props }: NavigationMenuPrimitive.Trigger.Props) {
   return (
-    <NavigationMenuPrimitive.Trigger
-      data-slot="navigation-menu-trigger"
-      className={cn("Trigger", className)}
-      {...props}
-    >
+    <NavigationMenuPrimitive.Trigger data-slot="navigation-menu-trigger" className={cn(className)} {...props}>
       {children} <ChevronDownIcon className="Icon" aria-hidden="true" />
     </NavigationMenuPrimitive.Trigger>
   );
 }
 
 function NavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.Content.Props) {
-  return (
-    <NavigationMenuPrimitive.Content
-      data-slot="navigation-menu-content"
-      className={cn("Content", className)}
-      {...props}
-    />
-  );
+  return <NavigationMenuPrimitive.Content data-slot="navigation-menu-content" className={cn(className)} {...props} />;
 }
 
 function NavigationMenuPositioner({
@@ -60,15 +48,16 @@ function NavigationMenuPositioner({
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Positioner
+        data-slot="navigation-menu-positioner"
         side={side}
         sideOffset={sideOffset}
         align={align}
         alignOffset={alignOffset}
-        className={cn("Positioner", className)}
+        className={cn(className)}
         {...props}
       >
-        <NavigationMenuPrimitive.Popup className="Popup">
-          <NavigationMenuPrimitive.Viewport className="Viewport" />
+        <NavigationMenuPrimitive.Popup data-slot="navigation-menu-popup">
+          <NavigationMenuPrimitive.Viewport data-slot="navigation-menu-viewport" />
         </NavigationMenuPrimitive.Popup>
       </NavigationMenuPrimitive.Positioner>
     </NavigationMenuPrimitive.Portal>
@@ -76,7 +65,7 @@ function NavigationMenuPositioner({
 }
 
 function NavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Link.Props) {
-  return <NavigationMenuPrimitive.Link data-slot="navigation-menu-link" className={cn("Link", className)} {...props} />;
+  return <NavigationMenuPrimitive.Link data-slot="navigation-menu-link" className={cn(className)} {...props} />;
 }
 
 function NavigationMenuIndicator({
@@ -84,7 +73,7 @@ function NavigationMenuIndicator({
   ...props
 }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>) {
   return (
-    <NavigationMenuPrimitive.Icon data-slot="navigation-menu-indicator" className={cn("Icon", className)} {...props}>
+    <NavigationMenuPrimitive.Icon data-slot="navigation-menu-indicator" className={cn(className)} {...props}>
       <div className="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
     </NavigationMenuPrimitive.Icon>
   );

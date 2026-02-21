@@ -5,9 +5,7 @@ import { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui/react/checkbox
 import "./lk-checkbox-group.css";
 
 function CheckboxGroup({ className, ...props }: React.ComponentPropsWithoutRef<typeof CheckboxGroupPrimitive>) {
-  return (
-    <CheckboxGroupPrimitive data-slot="checkbox-group" className={cn("", "CheckboxGroup", className)} {...props} />
-  );
+  return <CheckboxGroupPrimitive data-slot="checkbox-group" className={cn(className)} {...props} />;
 }
 
 export { CheckboxGroup };

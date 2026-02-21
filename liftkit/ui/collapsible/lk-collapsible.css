@@ -1,4 +1,4 @@
-.Collapsible {
+[data-slot="collapsible"] {
   display: flex;
   width: 14rem;
   min-height: 9rem;
@@ -13,7 +13,7 @@
   transition: transform 150ms ease-out;
 }
 
-.Trigger {
+[data-slot="collapsible-trigger"] {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -48,7 +48,7 @@
   }
 }
 
-.Panel {
+[data-slot="collapsible-panel"] {
   display: flex;
   height: var(--collapsible-panel-height);
   flex-direction: column;

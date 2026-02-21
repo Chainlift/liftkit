@@ -1,4 +1,4 @@
-.Toolbar {
+[data-slot="toolbar"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -10,12 +10,12 @@
   width: 37.5rem;
 }
 
-.Group {
+[data-slot="toolbar-group"] {
   display: flex;
   gap: 0.25rem;
 }
 
-.Button {
+[data-slot="toolbar-button"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -66,14 +66,14 @@
   }
 }
 
-.Separator {
+[data-slot="toolbar-separator"] {
   width: 1px;
   height: 16px;
   margin: 0.25rem;
   background-color: var(--lk-outlinevariant);
 }
 
-.Link {
+[data-slot="toolbar-link"] {
   color: var(--lk-surfacecontainerlow0);
   font-family: inherit;
   font-size: 0.875rem;

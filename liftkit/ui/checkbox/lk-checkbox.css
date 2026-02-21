@@ -7,7 +7,7 @@
   color: var(--lk-onsurface);
 }
 
-.Checkbox {
+[data-slot="checkbox"] {
   box-sizing: border-box;
   display: flex;
   width: 1.25rem;
@@ -35,7 +35,7 @@
   }
 }
 
-.Indicator {
+[data-slot="checkbox-indicator"] {
   display: flex;
   color: var(--lk-surfacecontainerlow);
 

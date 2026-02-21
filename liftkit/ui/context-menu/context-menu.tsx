@@ -9,13 +9,7 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 
 function ContextMenuTrigger({ className, ...props }: ContextMenuPrimitive.Trigger.Props) {
-  return (
-    <ContextMenuPrimitive.Trigger
-      data-slot="context-menu-trigger"
-      className={cn("", "Trigger", className)}
-      {...props}
-    />
-  );
+  return <ContextMenuPrimitive.Trigger data-slot="context-menu-trigger" className={cn(className)} {...props} />;
 }
 
 function ContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {
@@ -23,33 +17,19 @@ function ContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {
 }
 
 function ContextMenuPositioner({ className, ...props }: ContextMenuPrimitive.Positioner.Props) {
-  return (
-    <ContextMenuPrimitive.Positioner
-      data-slot="context-menu-positioner"
-      className={cn("", "Positioner", className)}
-      {...props}
-    />
-  );
+  return <ContextMenuPrimitive.Positioner data-slot="context-menu-positioner" className={cn(className)} {...props} />;
 }
 
 function ContextMenuPopup({ className, ...props }: ContextMenuPrimitive.Popup.Props) {
-  return (
-    <ContextMenuPrimitive.Popup data-slot="context-menu-popup" className={cn("", "Popup", className)} {...props} />
-  );
+  return <ContextMenuPrimitive.Popup data-slot="context-menu-popup" className={cn(className)} {...props} />;
 }
 
 function ContextMenuItem({ className, ...props }: ContextMenuPrimitive.Item.Props) {
-  return <ContextMenuPrimitive.Item data-slot="context-menu-item" className={cn("", "Item", className)} {...props} />;
+  return <ContextMenuPrimitive.Item data-slot="context-menu-item" className={cn(className)} {...props} />;
 }
 
 function ContextMenuSeparator({ className, ...props }: ContextMenuPrimitive.Separator.Props) {
-  return (
-    <ContextMenuPrimitive.Separator
-      data-slot="context-menu-separator"
-      className={cn("", "Separator", className)}
-      {...props}
-    />
-  );
+  return <ContextMenuPrimitive.Separator data-slot="context-menu-separator" className={cn(className)} {...props} />;
 }
 
 export {

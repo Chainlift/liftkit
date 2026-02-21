@@ -1,17 +1,17 @@
-.Field {
+[data-slot="number-field"] {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.25rem;
 }
 
-.ScrubArea {
+[data-slot="number-field-scrub-area"] {
   cursor: ew-resize;
   font-weight: bold;
   user-select: none;
 }
 
-.ScrubAreaCursor {
+[data-slot="number-field-scrub-area-cursor"] {
   filter: drop-shadow(0 1px 1px #0008);
 }
 
@@ -23,11 +23,11 @@
   color: var(--lk-onsurface);
 }
 
-.Group {
+[data-slot="number-field-group"] {
   display: flex;
 }
 
-.Input {
+[data-slot="number-field-input"] {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -54,8 +54,8 @@
   }
 }
 
-.Decrement,
-.Increment {
+[data-slot="number-field-decrement"],
+[data-slot="number-field-increment"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -83,12 +83,12 @@
   }
 }
 
-.Decrement {
+[data-slot="number-field-decrement"] {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.Increment {
+[data-slot="number-field-increment"] {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

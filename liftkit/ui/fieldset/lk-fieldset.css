@@ -1,4 +1,4 @@
-.Fieldset {
+[data-slot="fieldset"] {
   border: 0;
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@
   max-width: 16rem;
 }
 
-.Legend {
+[data-slot="fieldset-legend"] {
   border-bottom: 1px solid var(--lk-outlinevariant);
   padding-bottom: 0.75rem;
   font-weight: 500;
@@ -19,12 +19,7 @@
   color: var(--lk-onsurface);
 }
 
-.Field {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 0.25rem;
-}
+
 
 .Label {
   font-size: 0.875rem;

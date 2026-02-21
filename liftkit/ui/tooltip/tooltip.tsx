@@ -13,11 +13,11 @@ function Tooltip({ ...props }: TooltipPrimitive.Root.Props) {
 }
 
 function TooltipTrigger({ className, ...props }: TooltipPrimitive.Trigger.Props) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" className={cn("", className)} {...props} />;
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" className={cn(className)} {...props} />;
 }
 
 function TooltipArrow({ className, ...props }: TooltipPrimitive.Arrow.Props) {
-  return <TooltipPrimitive.Arrow data-slot="tooltip-arrow" className={cn("", "Arrow", className)} {...props} />;
+  return <TooltipPrimitive.Arrow data-slot="tooltip-arrow" className={cn(className)} {...props} />;
 }
 
 function TooltipContent({
@@ -39,8 +39,10 @@ function TooltipContent({
         sideOffset={sideOffset}
         className="isolate z-50"
       >
-        <TooltipPrimitive.Popup data-slot="tooltip-content" className={cn("Popup", className)} {...props}>
-          <TooltipPrimitive.Arrow className="Arrow"><ArrowSvg/></TooltipPrimitive.Arrow>
+        <TooltipPrimitive.Popup data-slot="tooltip-content" className={cn(className)} {...props}>
+          <TooltipPrimitive.Arrow data-slot="tooltip-arrow" className="Arrow">
+            <ArrowSvg />
+          </TooltipPrimitive.Arrow>
           {children}
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>

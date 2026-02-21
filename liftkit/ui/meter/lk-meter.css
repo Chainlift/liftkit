@@ -1,4 +1,4 @@
-.Meter {
+[data-slot="meter"] {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,14 +6,14 @@
   width: 12rem;
 }
 
-.Label {
+[data-slot="meter-label"] {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   color: var(--lk-onsurface);
 }
 
-.Value {
+[data-slot="meter-value"] {
   grid-column-start: 2;
   margin: 0;
   font-size: 0.875rem;
@@ -22,7 +22,7 @@
   text-align: right;
 }
 
-.Track {
+[data-slot="meter-track"] {
   grid-column: 1 / 3;
   overflow: hidden;
   background-color: var(--color-gray-100);
@@ -30,7 +30,7 @@
   height: 0.5rem;
 }
 
-.Indicator {
+[data-slot="meter-indicator"] {
   background-color: var(--lk-surfacecontainerlow0);
   transition: width 500ms;
 }

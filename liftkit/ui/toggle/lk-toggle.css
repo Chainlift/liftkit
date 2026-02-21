@@ -7,7 +7,7 @@
   padding: 0.125rem;
 }
 
-.Button {
+[data-slot="toggle"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;

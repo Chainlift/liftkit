@@ -1,4 +1,4 @@
-.Input {
+[data-slot="combobox-input"] {
   box-sizing: border-box;
   padding-left: 0.875rem;
   padding-right: calc(0.5rem + 1.5rem);
@@ -32,7 +32,7 @@
 .InputWrapper {
   position: relative;
 
-  &:has(.Clear) .Input {
+  &:has([data-slot="combobox-clear"]) [data-slot="combobox-input"] {
     padding-right: calc(0.5rem + 1.5rem * 2);
   }
 }
@@ -52,8 +52,8 @@
   padding: 0;
 }
 
-.Trigger,
-.Clear {
+[data-slot="combobox-trigger"],
+[data-slot="combobox-clear"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -73,11 +73,11 @@
   height: 1rem;
 }
 
-.Positioner {
+[data-slot="combobox-positioner"] {
   outline: 0;
 }
 
-.Popup {
+[data-slot="combobox-popup"] {
   box-sizing: border-box;
   border-radius: 0.375rem;
   background-color: var(--lk-surface);
@@ -109,7 +109,7 @@
   }
 }
 
-.List {
+[data-slot="combobox-list"] {
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -123,7 +123,7 @@
   }
 }
 
-.Item {
+[data-slot="combobox-item"] {
   box-sizing: border-box;
   outline: 0;
   cursor: default;
@@ -159,7 +159,7 @@
   grid-column-start: 2;
 }
 
-.ItemIndicator {
+[data-slot="combobox-item-indicator"] {
   grid-column-start: 1;
 }
 
@@ -169,7 +169,7 @@
   height: 0.75rem;
 }
 
-.Empty:not(:empty) {
+[data-slot="combobox-empty"]:not(:empty) {
   font-size: 0.925rem;
   line-height: 1rem;
   color: var(--color-gray-600);

@@ -9,7 +9,7 @@ function Dialog({ ...props }: DialogPrimitive.Root.Props) {
 }
 
 function DialogTrigger({ className, ...props }: DialogPrimitive.Trigger.Props) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" className={cn("", className)} {...props} />;
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" className={cn(className)} {...props} />;
 }
 
 function DialogPortal({ ...props }: DialogPrimitive.Portal.Props) {
@@ -17,29 +17,23 @@ function DialogPortal({ ...props }: DialogPrimitive.Portal.Props) {
 }
 
 function DialogBackdrop({ className, ...props }: DialogPrimitive.Backdrop.Props) {
-  return <DialogPrimitive.Backdrop data-slot="dialog-backdrop" className={cn("", "Backdrop", className)} {...props} />;
+  return <DialogPrimitive.Backdrop data-slot="dialog-backdrop" className={cn(className)} {...props} />;
 }
 
 function DialogPopup({ className, ...props }: DialogPrimitive.Popup.Props) {
-  return <DialogPrimitive.Popup data-slot="dialog-popup" className={cn("", "Popup", className)} {...props} />;
+  return <DialogPrimitive.Popup data-slot="dialog-popup" className={cn(className)} {...props} />;
 }
 
 function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {
-  return <DialogPrimitive.Title data-slot="dialog-title" className={cn("", "Title", className)} {...props} />;
+  return <DialogPrimitive.Title data-slot="dialog-title" className={cn(className)} {...props} />;
 }
 
 function DialogDescription({ className, ...props }: DialogPrimitive.Description.Props) {
-  return (
-    <DialogPrimitive.Description
-      data-slot="dialog-description"
-      className={cn("", "Description", className)}
-      {...props}
-    />
-  );
+  return <DialogPrimitive.Description data-slot="dialog-description" className={cn(className)} {...props} />;
 }
 
 function DialogClose({ className, ...props }: DialogPrimitive.Close.Props) {
-  return <DialogPrimitive.Close data-slot="dialog-close" className={cn("", className)} {...props} />;
+  return <DialogPrimitive.Close data-slot="dialog-close" className={cn(className)} {...props} />;
 }
 
 export {

@@ -9,7 +9,7 @@
   color: var(--lk-onsurface);
 }
 
-.Input {
+[data-slot="input"] {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;

@@ -1,4 +1,4 @@
-.Field {
+[data-slot="field"] {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -7,14 +7,14 @@
   max-width: 16rem;
 }
 
-.Label {
+[data-slot="field-label"] {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   color: var(--lk-onsurface);
 }
 
-.Input {
+[data-slot="field-input"] {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;
@@ -33,13 +33,13 @@
   }
 }
 
-.Error {
+[data-slot="field-error"] {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--color-red-800);
 }
 
-.Description {
+[data-slot="field-description"] {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;

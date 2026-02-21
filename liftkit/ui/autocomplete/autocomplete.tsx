@@ -9,9 +9,7 @@ function Autocomplete({ ...props }: React.ComponentPropsWithoutRef<typeof Autoco
 }
 
 function AutocompleteInput({ className, ...props }: AutocompletePrimitive.Input.Props) {
-  return (
-    <AutocompletePrimitive.Input data-slot="autocomplete-input" className={cn("", "Input", className)} {...props} />
-  );
+  return <AutocompletePrimitive.Input data-slot="autocomplete-input" className={cn(className)} {...props} />;
 }
 
 function AutocompletePortal({ ...props }: AutocompletePrimitive.Portal.Props) {
@@ -19,33 +17,23 @@ function AutocompletePortal({ ...props }: AutocompletePrimitive.Portal.Props) {
 }
 
 function AutocompletePositioner({ className, ...props }: AutocompletePrimitive.Positioner.Props) {
-  return (
-    <AutocompletePrimitive.Positioner
-      data-slot="autocomplete-positioner"
-      className={cn("", "Positioner", className)}
-      {...props}
-    />
-  );
+  return <AutocompletePrimitive.Positioner data-slot="autocomplete-positioner" className={cn(className)} {...props} />;
 }
 
 function AutocompletePopup({ className, ...props }: AutocompletePrimitive.Popup.Props) {
-  return (
-    <AutocompletePrimitive.Popup data-slot="autocomplete-popup" className={cn("", "Popup", className)} {...props} />
-  );
+  return <AutocompletePrimitive.Popup data-slot="autocomplete-popup" className={cn(className)} {...props} />;
 }
 
 function AutocompleteEmpty({ className, ...props }: AutocompletePrimitive.Empty.Props) {
-  return (
-    <AutocompletePrimitive.Empty data-slot="autocomplete-empty" className={cn("", "Empty", className)} {...props} />
-  );
+  return <AutocompletePrimitive.Empty data-slot="autocomplete-empty" className={cn(className)} {...props} />;
 }
 
 function AutocompleteList({ className, ...props }: AutocompletePrimitive.List.Props) {
-  return <AutocompletePrimitive.List data-slot="autocomplete-list" className={cn("", "List", className)} {...props} />;
+  return <AutocompletePrimitive.List data-slot="autocomplete-list" className={cn(className)} {...props} />;
 }
 
 function AutocompleteItem({ className, ...props }: AutocompletePrimitive.Item.Props) {
-  return <AutocompletePrimitive.Item data-slot="autocomplete-item" className={cn("", "Item", className)} {...props} />;
+  return <AutocompletePrimitive.Item data-slot="autocomplete-item" className={cn(className)} {...props} />;
 }
 
 export {

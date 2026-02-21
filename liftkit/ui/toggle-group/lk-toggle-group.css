@@ -1,4 +1,4 @@
-.Panel {
+[data-slot="toggle-group"] {
   display: flex;
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);

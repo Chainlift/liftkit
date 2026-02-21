@@ -1,4 +1,4 @@
-.Menubar {
+[data-slot="menubar"] {
   display: flex;
   background-color: var(--lk-surfacecontainerlow);
   border: 1px solid var(--lk-outlinevariant);
