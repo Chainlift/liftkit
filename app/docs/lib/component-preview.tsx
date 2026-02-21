@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
-import { GoldenBox } from "@/liftkit/ui/goldenbox";
+import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
 import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
 
 interface ComponentPreviewProps {

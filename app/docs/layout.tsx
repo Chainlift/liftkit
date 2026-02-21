@@ -2,7 +2,7 @@ import { getDocsNav } from "@/lib/docs-nav";
 import Link from "next/link";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { Table } from "lucide-react";
-import { GoldenBox } from "@/liftkit/ui/goldenbox";
+import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
 import NavigationMenuDemo from "@/liftkit/ui/navigation-menu/lk-example";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {

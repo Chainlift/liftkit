@@ -5,6 +5,7 @@ import { ComponentPreview } from "@/app/docs/lib/component-preview";
 import { Demo } from "@/components/mdx/demo";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@/liftkit/ui/tabs/tabs";
 import {
   ScrollArea,
@@ -24,6 +25,15 @@ export const metadata = {
 
 Buttons trigger actions and initiate workflows.  
 This component wraps the Base UI primitive and applies LiftKit recipes and tokens.
+
+<RichCodeBlock>
+```tsx
+export default function HelloWorld() {
+  return <div>Hello, World!</div>;
+}
+```
+
+</RichCodeBlock>
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
   <ComponentPreview componentName="accordion" />

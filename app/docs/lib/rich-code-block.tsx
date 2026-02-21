@@ -8,10 +8,12 @@ import {
   ScrollAreaThumb,
   ScrollAreaViewport,
 } from "@/liftkit/ui/scroll-area/scroll-area";
+import { Icon } from "@/liftkit/ui";
 
 export function RichCodeBlock({ children }: { children: React.ReactNode }) {
   return (
     <>
+    <div className="flex"><Icon name="copy"/></div>
       <ScrollArea style={{ width: "100%", height: "500px" }}>
         <ScrollAreaViewport>
           <ScrollAreaContent>
