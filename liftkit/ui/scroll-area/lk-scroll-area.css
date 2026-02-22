@@ -1,22 +1,19 @@
-.ScrollArea {
+[data-slot="scroll-area"] {
   box-sizing: border-box;
   width: 24rem;
   height: 8.5rem;
   max-width: calc(100vw - 8rem);
 }
 
-.Viewport {
+[data-slot="scroll-area-viewport"] {
   height: 100%;
-  border-radius: 0.375rem;
-  outline: 1px solid var(--lk-outlinevariant);
-  outline-offset: -1px;
 
   &:focus-visible {
     outline: 2px solid var(--lk-info);
   }
 }
 
-.Content {
+[data-slot="scroll-area-content"] {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -32,10 +29,11 @@
   color: var(--lk-onsurface);
 }
 
-.Scrollbar {
+[data-slot="scroll-area-scrollbar"] {
   display: flex;
   justify-content: center;
-  background-color: var(--lk-outlinevariant);
+  background-color: var(--lk-surfacecontainerhighest);
+  position: relative;
 
   border-radius: 0.375rem;
   margin: 0.5rem;
@@ -74,6 +72,7 @@
   &[data-orientation="horizontal"] {
     height: 0.25rem;
     margin: 0.5rem;
+    justify-content: start;
 
     &::before {
       width: 100%;
@@ -88,5 +87,7 @@
 [data-slot="scroll-area-thumb"] {
   width: 100%;
   border-radius: inherit;
-  background-color: var(--lk-surfacecontainerlow0);
+  background-color: var(--lk-outline);
 }
+
+
