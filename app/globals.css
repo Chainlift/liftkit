@@ -6,6 +6,7 @@
 
 [data-rehype-pretty-code-figure] {
 width: 100%;
+height: 100%;
 font-size: var(--lk-subheading-font-size);
 line-height: var(--lk-body-line-height);
 }

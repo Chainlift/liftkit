@@ -23,21 +23,18 @@ export const metadata = {
 
 # Accordion
 
-Buttons trigger actions and initiate workflows.  
-This component wraps the Base UI primitive and applies LiftKit recipes and tokens.
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
   <ComponentPreview componentName="accordion" />
-
 </div>
 
-<Tabs defaultValue="typescript">
+<Tabs defaultValue="typescript" className="mt-lg">
   <TabsList>
     <TabsTab value="typescript">Typescript</TabsTab>
     <TabsTab value="css">CSS</TabsTab>
     <TabsIndicator />
   </TabsList>
-  <TabsPanel value="typescript">
+  <TabsPanel value="typescript" style={{ height: "500px"}}>
 ```tsx
 import { 
 Accordion, 
@@ -73,8 +70,9 @@ export default function ExampleAccordion({ multiple = false }: { multiple?: bool
 ```
 
   </TabsPanel>
-  <TabsPanel value="css">
-      ```css
+  <TabsPanel value="css" style={{ height: "500px"}}>
+
+  ```css
     [data-slot="accordion"] {
       box-sizing: border-box;
       display: flex;
@@ -216,16 +214,26 @@ export default function ExampleAccordion({ multiple = false }: { multiple?: bool
         /* Index-based styles */
       }
     }
-
     .Content {
       padding: 0.75rem;
     }
-
     ```
 
+    
   </TabsPanel>
   <TabsPanel value="account">Account</TabsPanel>
 </Tabs>
+
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+</div>
 
 ## Subcomponents
 

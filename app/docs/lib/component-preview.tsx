@@ -48,7 +48,7 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
       case "boolean":
         return (
-          <Switch checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
+          <Switch  checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
             <SwitchThumb></SwitchThumb>
           </Switch>
         );
@@ -110,8 +110,13 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
   const Component = manifest.Component;
 
   return (
-    <div className="w-full flex ">
+    <div className="w-full ">
       {/* Controls Panel */}
+
+      {/* Live Preview */}
+      <div className="flex flex-grow py-2xl items-center justify-center bg-surfacecontainer">
+        <Component {...componentProps} />
+      </div>
       <div className="bg-surface border-r">
         <GoldenBox opticalCorrection="top">
           {manifest.knobs && (
@@ -125,10 +130,6 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
             </div>
           )}
         </GoldenBox>
-      </div>
-      {/* Live Preview */}
-      <div className="flex flex-grow py-2xl items-center justify-center bg-surfacecontainer">
-        <Component {...componentProps} />
       </div>
     </div>
   );

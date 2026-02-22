@@ -26,17 +26,16 @@ export function RichCodeBlock({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="w-full relative">
-      <div className="absolute top-md right-md z-1">
+    <div className="w-full relative h-full">
+      <div className="absolute top-sm right-sm z-1">
         <IconButton
           iconName={copied ? "check" : "copy"}
-          variant="fill"
-          color="background"
-          className="shadow-sm"
+          variant="text"
+
           onClick={handleCopy}
         />
       </div>
-      <ScrollArea style={{ width: "100%", height: "500px" }} className="px-md">
+      <ScrollArea style={{ width: "100%", height: "100%"}}>
         <ScrollAreaViewport>
           <ScrollAreaContent>
             <pre ref={preRef}>{children}</pre>

@@ -19,6 +19,9 @@
   top: 0;
 }
 
+.top-0 {
+  top: 0;
+}
 
 .top-5xs {
   top: var(--lk-size-3xs);
@@ -32,14 +35,12 @@
   top: var(--lk-size-3xs);
 }
 
-
 .top-2xs {
-top: var(--lk-size-2xs);
+  top: var(--lk-size-2xs);
 }
 
-
 .top-xs {
-top: var(--lk-size-xs);
+  top: var(--lk-size-xs);
 }
 
 .top-sm {
@@ -70,8 +71,9 @@ top: var(--lk-size-xs);
   top: var(--lk-size-4xl);
 }
 
-
-
+.right-0 {
+  right: 0;
+}
 
 .right-5xs {
   right: var(--lk-size-3xs);
@@ -85,14 +87,12 @@ top: var(--lk-size-xs);
   right: var(--lk-size-3xs);
 }
 
-
 .right-2xs {
-right: var(--lk-size-2xs);
+  right: var(--lk-size-2xs);
 }
 
-
 .right-xs {
-right: var(--lk-size-xs);
+  right: var(--lk-size-xs);
 }
 
 .right-sm {
@@ -123,6 +123,9 @@ right: var(--lk-size-xs);
   right: var(--lk-size-4xl);
 }
 
+.bottom-0 {
+  bottom: 0;
+}
 
 .bottom-5xs {
   bottom: var(--lk-size-3xs);
@@ -136,14 +139,12 @@ right: var(--lk-size-xs);
   bottom: var(--lk-size-3xs);
 }
 
-
 .bottom-2xs {
-bottom: var(--lk-size-2xs);
+  bottom: var(--lk-size-2xs);
 }
 
-
 .bottom-xs {
-bottom: var(--lk-size-xs);
+  bottom: var(--lk-size-xs);
 }
 
 .bottom-sm {
@@ -174,6 +175,9 @@ bottom: var(--lk-size-xs);
   bottom: var(--lk-size-4xl);
 }
 
+.left-0 {
+  left: 0;
+}
 
 .left-5xs {
   left: var(--lk-size-3xs);
@@ -187,14 +191,12 @@ bottom: var(--lk-size-xs);
   left: var(--lk-size-3xs);
 }
 
-
 .left-2xs {
-left: var(--lk-size-2xs);
+  left: var(--lk-size-2xs);
 }
 
-
 .left-xs {
-left: var(--lk-size-xs);
+  left: var(--lk-size-xs);
 }
 
 .left-sm {
