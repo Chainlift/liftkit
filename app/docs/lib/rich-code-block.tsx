@@ -9,6 +9,7 @@ import {
   ScrollAreaViewport,
 } from "@/liftkit/ui/scroll-area/scroll-area";
 import { Icon } from "@/liftkit/ui";
+import styles from "./syntax-highlight.module.css"
 
 export function RichCodeBlock({ children }: { children: React.ReactNode }) {
   return (
