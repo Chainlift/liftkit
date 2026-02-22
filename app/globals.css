@@ -4,6 +4,10 @@
   font-family: "Inter", sans-serif;
 }
 
+[data-rehype-pretty-code-figure] {
+width: 100%;
+}
+
 code[data-theme*=" "],
 code[data-theme*=" "] span {
   color: var(--shiki-light);
