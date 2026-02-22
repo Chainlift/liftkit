@@ -9,13 +9,14 @@ import {
   ScrollAreaViewport,
 } from "@/liftkit/ui/scroll-area/scroll-area";
 import { Icon } from "@/liftkit/ui";
-import styles from "./syntax-highlight.module.css";
+import "./syntax-highlight.css";
+import { IconButton } from "@/liftkit/ui/icon-button/icon-button";
 
 export function RichCodeBlock({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-full">
-      <div className="flex">
-        <Icon name="copy" />
+    <div className="w-full relative">
+      <div className="absolute top-md right-md z-1">
+        <IconButton iconName="copy" variant="fill" color="background" className="shadow-sm"/>
       </div>
       <ScrollArea style={{ width: "100%", height: "500px" }}>
         <ScrollAreaViewport>
