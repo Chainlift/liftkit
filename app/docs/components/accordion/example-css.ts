@@ -1,13 +1,5 @@
 export function LocalCssSample() {
-  return (
-    <pre style={{
-      overflowX: "auto",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-      maxWidth: "100%",
-    }}>
-      <code>{`[data-slot="accordion"] {
+  return `[data-slot="accordion"] {
   box-sizing: border-box;
   display: flex;
   width: 24rem;
@@ -152,7 +144,5 @@ export function LocalCssSample() {
 .Content {
   padding: 0.75rem;
 }
-`}</code>
-    </pre>
-  );
+`;
 }

@@ -13,7 +13,7 @@ import { Icon } from "@/liftkit/ui";
 import "./syntax-highlight.css";
 import { IconButton } from "@/liftkit/ui/icon-button/icon-button";
 
-export function RichCodeBlock({ children }: { children: React.ReactNode }) {
+export function RichCodeBlock({ children, html }: { children?: React.ReactNode; html?: string }) {
   const preRef = useRef<HTMLPreElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -28,17 +28,12 @@ export function RichCodeBlock({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full relative h-full">
       <div className="absolute top-sm right-sm z-1">
-        <IconButton
-          iconName={copied ? "check" : "copy"}
-          variant="text"
-
-          onClick={handleCopy}
-        />
+        <IconButton iconName={copied ? "check" : "copy"} variant="text" onClick={handleCopy} />
       </div>
-      <ScrollArea style={{ width: "100%", height: "100%"}}>
+      <ScrollArea style={{ width: "100%", height: "100%" }}>
         <ScrollAreaViewport>
           <ScrollAreaContent>
-            <pre ref={preRef}>{children}</pre>
+            <pre ref={preRef}>{html ? <code dangerouslySetInnerHTML={{ __html: html }} /> : children}</pre>
           </ScrollAreaContent>
         </ScrollAreaViewport>
         <ScrollAreaScrollbar>
@@ -52,5 +47,3 @@ export function RichCodeBlock({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
-

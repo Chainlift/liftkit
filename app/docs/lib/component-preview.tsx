@@ -4,12 +4,17 @@ import { useState } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
 import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
 import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
+import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
+import "./subcomponent-table-styles.css";
+import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
+  tsSample?: string | null;
+  cssSample?: string | null;
 }
 
-export function ComponentPreview({ componentName }: ComponentPreviewProps) {
+export function ComponentPreview({ componentName, tsSample, cssSample }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
   // Initialize state from defaults
@@ -109,31 +114,54 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
   const Component = manifest.Component;
 
-
   return (
-    <div className="w-full ">
+    <div className="w-full rounded-xs shadow-2xs overflow-hidden bg-surfacecontainer">
       {/* Controls Panel */}
 
       {/* Live Preview */}
-      <div className="flex flex-grow py-2xl items-center justify-center bg-surfacecontainer">
+      <div className="flex flex-grow py-2xl items-center justify-center">
         <Component {...componentProps} />
       </div>
-      <div className="bg-surface border-r">
+      <div className="bg-surfacecontainerlowest flex">
         <GoldenBox opticalCorrection="top">
+          <h2 className="capline mb-md">Preview Props</h2>
           {manifest.knobs && (
-            <div className="flex flex-col gap-md">
-              {Object.entries(manifest.knobs).map(([key, control]) => (
-                <div key={key} className="flex items-center gap-3">
-                  <div className="min-w-[100px]">
-                    <label className="body font-500">{control.label || key}</label>
-                    {control.description && <p className="subheading color-onsurface">{control.description}</p>}
-                  </div>
-                  <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
-                </div>
-              ))}
+            <div data-instance="lk-docs-table">
+              <table>
+                <tbody>
+                  {Object.entries(manifest.knobs).map(([key, control]) => (
+                    <tr key={key} className="">
+                      <td className="min-w-[100px]">
+                        <div>
+                          <p className="body mb-2xs">{control.label || key}</p>
+                          <p className="subheading color-onsurfacelow">{control.description}</p>
+                        </div>
+                      </td>
+                      {control.description && <td></td>}
+                      <td>
+                        <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </GoldenBox>
+        <Tabs defaultValue="typescript" className="flex-grow" style={{ minWidth: "0" }}>
+          <TabsList>
+            <TabsTab value="typescript">Typescript</TabsTab>
+            <TabsTab value="css">CSS</TabsTab>
+            <TabsIndicator />
+          </TabsList>
+          <TabsPanel value="typescript" style={{ height: "500px" }}>
+            <RichCodeBlock html={tsSample ?? undefined} />
+          </TabsPanel>
+          <TabsPanel value="css" style={{ height: "500px" }}>
+            <RichCodeBlock html={cssSample ?? undefined} />
+          </TabsPanel>
+          <TabsPanel value="account">Account</TabsPanel>
+        </Tabs>
       </div>
     </div>
   );

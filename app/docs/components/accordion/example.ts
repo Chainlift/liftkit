@@ -1,13 +1,5 @@
 export function LocalCodeSample() {
-  return (
-    <pre style={{
-      overflowX: "auto",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-      maxWidth: "100%",
-    }}>
-      <code>{`import * as React from "react";
+  return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
 export default function ExampleAccordion() {
@@ -34,7 +26,5 @@ export default function ExampleAccordion() {
     </Accordion>
   );
 }
-`}</code>
-    </pre>
-  );
+`;
 }

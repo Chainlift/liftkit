@@ -19,12 +19,13 @@ div[data-instance="lk-docs-table"] {
   th {
     padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
     font-weight: 500;
-    font-size: var(--lk-)
+    font-size: var(--lk-subheading-font-size);
   }
 
   td {
     padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
     letter-spacing: var(--lk-body-letter-spacing);
     line-height: var(--lk-body-line-height);
+
   }
 }
