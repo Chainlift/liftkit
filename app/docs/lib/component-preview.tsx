@@ -48,7 +48,7 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
       case "boolean":
         return (
-          <Switch  checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
+          <Switch checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
             <SwitchThumb></SwitchThumb>
           </Switch>
         );
@@ -109,6 +109,7 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
   const Component = manifest.Component;
 
+
   return (
     <div className="w-full ">
       {/* Controls Panel */}
@@ -123,7 +124,10 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
             <div className="flex flex-col gap-md">
               {Object.entries(manifest.knobs).map(([key, control]) => (
                 <div key={key} className="flex items-center gap-3">
-                  <label className="text-sm font-medium min-w-[100px]">{control.label || key}</label>
+                  <div className="min-w-[100px]">
+                    <label className="body medium">{control.label || key}</label>
+                    {control.description && <p className="text-sm text-secondary mt-1">{control.description}</p>}
+                  </div>
                   <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
                 </div>
               ))}

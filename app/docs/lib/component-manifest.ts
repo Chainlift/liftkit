@@ -7,12 +7,26 @@ import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
 // import other components you want to preview
 
 export type Control =
-  | { kind: "boolean"; label?: string; default?: boolean }
-  | { kind: "text"; label?: string; default?: string; placeholder?: string }
-  | { kind: "select"; label?: string; default?: string; options: { label: string; value: string }[] }
-  | { kind: "number"; label?: string; default?: number; min?: number; max?: number; step?: number }
-  | { kind: "color"; label?: string; default?: string } // if you want to wire to CSS vars, etc.
-  | { kind: "slot"; label?: string; default?: string }; // convenience for children
+  | { kind: "boolean"; label?: string; description?: string; default?: boolean }
+  | { kind: "text"; label?: string; description?: string; default?: string; placeholder?: string }
+  | {
+      kind: "select";
+      label?: string;
+      description?: string;
+      default?: string;
+      options: { label: string; value: string }[];
+    }
+  | {
+      kind: "number";
+      label?: string;
+      description?: string;
+      default?: number;
+      min?: number;
+      max?: number;
+      step?: number;
+    }
+  | { kind: "color"; label?: string; description?: string; default?: string } // if you want to wire to CSS vars, etc.
+  | { kind: "slot"; label?: string; description?: string; default?: string }; // convenience for children
 
 /**
  * Metadata for a sub-component (e.g., Accordion.Root, Accordion.Item)
@@ -190,7 +204,7 @@ export const componentManifest: Record<string, ComponentEntry> = {
     title: "Accordion Example",
     Component: ExampleAccordion,
     knobs: {
-      multiple: { kind: "boolean", label: "Multiple", default: false },
+      multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
     },
     mapKnobsToProps: (k) => ({
       ...k,
@@ -203,7 +217,7 @@ export const componentManifest: Record<string, ComponentEntry> = {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
     knobs: {
-      multiple: { kind: "boolean", label: "Multiple", default: false },
+      multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
       disabled: { kind: "boolean", label: "Disabled", default: false },
     },
     // NEW: Add sub-components here
