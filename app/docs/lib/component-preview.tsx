@@ -48,7 +48,7 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
 
       case "boolean":
         return (
-          <Switch checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
+          <Switch className="subheading" checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
             <SwitchThumb></SwitchThumb>
           </Switch>
         );
@@ -125,8 +125,8 @@ export function ComponentPreview({ componentName }: ComponentPreviewProps) {
               {Object.entries(manifest.knobs).map(([key, control]) => (
                 <div key={key} className="flex items-center gap-3">
                   <div className="min-w-[100px]">
-                    <label className="body medium">{control.label || key}</label>
-                    {control.description && <p className="text-sm text-secondary mt-1">{control.description}</p>}
+                    <label className="body font-500">{control.label || key}</label>
+                    {control.description && <p className="subheading color-onsurface">{control.description}</p>}
                   </div>
                   <div className="flex-1">{renderControl(key, control, knobValues[key])}</div>
                 </div>

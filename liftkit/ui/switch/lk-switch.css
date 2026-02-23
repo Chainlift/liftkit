@@ -8,6 +8,7 @@
 }
 
 [data-slot="switch"] {
+
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -15,8 +16,9 @@
 
   margin: 0;
   padding: 1px;
-  width: var(--lk-size-xl);
-  height: var(--lk-size-lg);
+
+  width: var(--lk-size-lg);
+  height: var(--lk-size-md);
   border-radius: 1.5rem;
   outline: 1px solid;
   outline-offset: -1px;
@@ -35,7 +37,6 @@
 
   &[data-checked] {
     background-position-x: 0%;
-
   }
 
   &[data-checked]:active {
@@ -78,7 +79,7 @@
 
   &[data-checked] {
     transform: translateX(
-      var(--lk-size-md)
+      var(--lk-size-sm)
     ); /* move it by 1 step down from the height. so if switch height is lg, move by md. */
   }
 
