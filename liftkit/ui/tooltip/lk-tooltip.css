@@ -1,18 +1,10 @@
-.Panel {
-  display: flex;
-  border: 1px solid var(--lk-outlinevariant);
-  background-color: var(--lk-surfacecontainerlow);
-  border-radius: 0.375rem;
-  padding: 0.125rem;
-}
 
-.Button {
+
+[data-slot="tooltip-trigger"] {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
   padding: 0;
   margin: 0;
   outline: 0;
@@ -23,7 +15,7 @@
   user-select: none;
 
   &[data-popup-open] {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-inversesurface);
   }
 
   &:focus-visible {
@@ -56,7 +48,8 @@
   flex-direction: column;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: var(--lk-surface);
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
   transform-origin: var(--transform-origin);
   transition:
     transform 150ms,
@@ -110,17 +103,17 @@
 }
 
 .ArrowFill {
-  fill: canvas;
+  fill: var(--lk-inversesurface);
 }
 
 .ArrowOuterStroke {
   @media (prefers-color-scheme: light) {
-    fill: var(--lk-outlinevariant);
+    fill: var(--lk-inversesurface);
   }
 }
 
 .ArrowInnerStroke {
   @media (prefers-color-scheme: dark) {
-    fill: var(--lk-outlinevariant);
+    fill: var(--lk-inversesurface);
   }
 }

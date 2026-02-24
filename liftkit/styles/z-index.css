@@ -20,6 +20,11 @@
 .z-5 {
   z-index: 5;
 }
+
+.z-50 {
+  z-index: 50;
+} /*added because it seems baked into how the BaseUI portal assigns z-index */
+
 .z-99 {
   z-index: 99;
 }

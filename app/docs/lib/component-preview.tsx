@@ -7,7 +7,8 @@ import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import "./subcomponent-table-styles.css";
 import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/ui";
-import { Tooltip } from "@/liftkit/ui";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/ui";
+import { Icon } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -56,7 +57,18 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
         return (
           <GoldenBox opticalCorrection="y" className="w-full" noPadding="x">
             <div className="flex items-center justify-between w-full">
-              <label>{control.label}</label>
+              <div className="flex items-center gap-2xs">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Icon name="info" color="outline"/>
+                    </TooltipTrigger>
+                    <TooltipContent>{control.description}</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                <label>{control.label}</label>
+              </div>
+
               <Switch
                 className="subheading"
                 checked={currentValue}
