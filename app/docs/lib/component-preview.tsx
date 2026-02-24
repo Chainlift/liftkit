@@ -7,6 +7,7 @@ import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import "./subcomponent-table-styles.css";
 import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/ui";
+import { Tooltip } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -53,9 +54,18 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
 
       case "boolean":
         return (
-          <Switch className="subheading" checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
-            <SwitchThumb></SwitchThumb>
-          </Switch>
+          <GoldenBox opticalCorrection="y" className="w-full" noPadding="x">
+            <div className="flex items-center justify-between w-full">
+              <label>{control.label}</label>
+              <Switch
+                className="subheading"
+                checked={currentValue}
+                onCheckedChange={(checked) => updateKnob(key, checked)}
+              >
+                <SwitchThumb></SwitchThumb>
+              </Switch>
+            </div>
+          </GoldenBox>
         );
 
       case "text":
@@ -123,35 +133,30 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
         <Component {...componentProps} />
       </div>
       <div className="bg-surfacecontainerlowest flex">
-        <GoldenBox opticalCorrection="top">
-          <h2 className="capline mb-md">Preview Props</h2>
+        <GoldenBox opticalCorrection="top" style={{ width: "240px" }} scaleFactor="subheading">
+          <h2 className="subheading font-500 mb-md">Preview Props</h2>
           {manifest.knobs && (
             <div data-instance="lk-docs-table">
-              <table>
-                <tbody>
-                  {Object.entries(manifest.knobs).map(([key, control]) => (
-                    <tr key={key} className="">
-                      <td className="min-w-[100px]">
-                        <div>
-                          <p className="body mb-2xs">{control.label || key}</p>
-                          <p className="subheading color-onsurfacelow">{control.description}</p>
-                        </div>
-                      </td>
-                      {control.description && <td></td>}
-                      <td>
-                        <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {Object.entries(manifest.knobs).map(([key, control]) => (
+                <div key={key}>
+                  <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
+                </div>
+              ))}
             </div>
           )}
         </GoldenBox>
-        <Tabs defaultValue="typescript" className="flex-grow" style={{ minWidth: "0" }}>
-          <TabsList>
-            <TabsTab value="typescript">Typescript</TabsTab>
-            <TabsTab value="css">CSS</TabsTab>
+        <Tabs
+          defaultValue="typescript"
+          className="fill-container border-l border-color-outlinevariant"
+          style={{ minWidth: "0" }}
+        >
+          <TabsList className="border-b border-color-outlinevariant">
+            <TabsTab value="typescript">
+              <span className="subheading font-500">Typescript</span>
+            </TabsTab>
+            <TabsTab value="css">
+              <span className="subheading font-500">CSS</span>
+            </TabsTab>
             <TabsIndicator />
           </TabsList>
           <TabsPanel value="typescript" style={{ height: "500px" }}>

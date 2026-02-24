@@ -17,6 +17,8 @@ export async function ComponentPreviewWrapper({ componentName, tsSample, cssSamp
   const highlightedCss = cssSample ? await highlightCode(cssSample, "css") : null;
   const highlightedTs = tsSample ? await highlightCode(tsSample, "ts") : null;
 
+  console.log(highlightedTs);
+
   return (
     <ComponentPreview componentName={componentName} cssSample={highlightedCss} tsSample={highlightedTs} />
   );

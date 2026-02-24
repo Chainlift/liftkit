@@ -1,0 +1,5 @@
+@media screen and (max-width: 1280px) {
+  [data-slot="right-sidebar"] {
+    display: none;
+  }
+}

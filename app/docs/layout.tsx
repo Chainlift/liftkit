@@ -4,6 +4,7 @@ import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { Table } from "lucide-react";
 import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
 import NavigationMenuDemo from "@/liftkit/ui/navigation-menu/lk-example";
+import "./docsPage.css";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const nav = getDocsNav();
@@ -28,12 +29,12 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </GoldenBox>
         </aside>
-        <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1", width: "240px" }}>
+        <main style={{ minWidth: "0px", maxWidth: "110ch", flex: "1"}}>
           <GoldenBox scaleFactor="title1" opticalCorrection="top">
             {children}
           </GoldenBox>
         </main>
-        <aside className="border-l" style={{ width: "240px" }}>
+        <aside data-slot="right-sidebar" className="border-l" style={{ width: "240px" }}>
           <GoldenBox scaleFactor="body">
             <TableOfContents />
           </GoldenBox>
