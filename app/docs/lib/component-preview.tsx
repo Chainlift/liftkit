@@ -33,6 +33,7 @@ import {
   ScrollAreaThumb,
   ScrollAreaViewport,
 } from "@/liftkit/ui/scroll-area/scroll-area";
+import { Input } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -138,7 +139,7 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
       case "text":
       case "slot":
         return (
-          <input
+          <Input
             type="text"
             value={currentValue}
             onChange={(e) => updateKnob(key, e.target.value)}
