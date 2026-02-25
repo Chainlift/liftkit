@@ -1,10 +1,10 @@
-export function LocalCodeSample() {
+export function LocalCodeSample(someProp?: string) {
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
 export default function ExampleAccordion() {
   return (
-    <Accordion>
+    <Accordion someProp={${someProp ? `"${someProp}"` : "undefined"}}>
       <AccordionItem>
         <AccordionTrigger>What is Base UI?</AccordionTrigger>
         <AccordionContent>

@@ -13,7 +13,15 @@ import { Icon } from "@/liftkit/ui";
 import "./syntax-highlight.css";
 import { IconButton } from "@/liftkit/ui/icon-button/icon-button";
 
-export function RichCodeBlock({ children, html }: { children?: React.ReactNode; html?: string }) {
+export function RichCodeBlock({
+  children,
+  html,
+  knobValues,
+}: {
+  children?: React.ReactNode;
+  html?: string;
+  knobValues?: Record<string, any>;
+}) {
   const preRef = useRef<HTMLPreElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -24,6 +32,8 @@ export function RichCodeBlock({ children, html }: { children?: React.ReactNode; 
       setTimeout(() => setCopied(false), 3000);
     });
   }
+  
+  console.log(knobValues);
 
   return (
     <div className="w-full relative h-full">
