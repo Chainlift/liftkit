@@ -9,6 +9,30 @@ import "./subcomponent-table-styles.css";
 import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/ui";
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/ui";
 import { Icon } from "@/liftkit/ui";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectScrollUpArrow,
+  SelectScrollDownArrow,
+  SelectList,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+} from "@/liftkit/ui";
+import { Field, FieldLabel } from "@/liftkit/ui/field/field";
+import {
+  ScrollArea,
+  ScrollAreaContent,
+  ScrollAreaCorner,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from "@/liftkit/ui/scroll-area/scroll-area";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -40,17 +64,48 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
     switch (control.kind) {
       case "select":
         return (
-          <select
-            value={currentValue}
-            onChange={(e) => updateKnob(key, e.target.value)}
-            className="border rounded px-2 py-1"
-          >
-            {control.options.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+          // <select
+          //   value={currentValue}
+          //   onChange={(e) => updateKnob(key, e.target.value)}
+          //   className="border rounded px-2 py-1"
+          // >
+          //   {control.options.map((opt) => (
+          //     <option key={opt.value} value={opt.value}>
+          //       {opt.label}
+          //     </option>
+          //   ))}
+          // </select>
+          <Field>
+            <FieldLabel nativeLabel={false} render={<div />}>
+              {control.label}
+            </FieldLabel>
+            <Select items={control.options} onValueChange={(value) => updateKnob(key, value)}>
+              <SelectTrigger>
+                <SelectValue />
+                <SelectIcon>
+                  <Icon name="chevron-up" />
+                </SelectIcon>
+              </SelectTrigger>
+              <SelectPortal>
+                <SelectPositioner sideOffset={8}>
+                  <SelectPopup>
+                    <SelectScrollUpArrow />
+                    <SelectList>
+                      {control.options.map((opt) => (
+                        <SelectItem key={opt.value} value={opt.value}>
+                          <SelectItemIndicator>
+                            <Icon name="check" />
+                          </SelectItemIndicator>
+                          <SelectItemText>{opt.label}</SelectItemText>
+                        </SelectItem>
+                      ))}
+                    </SelectList>
+                    <SelectScrollDownArrow />
+                  </SelectPopup>
+                </SelectPositioner>
+              </SelectPortal>
+            </Select>
+          </Field>
         );
 
       case "boolean":
@@ -61,7 +116,7 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      <Icon name="info" color="outline"/>
+                      <Icon name="info" color="outline" />
                     </TooltipTrigger>
                     <TooltipContent>{control.description}</TooltipContent>
                   </Tooltip>
@@ -145,21 +200,35 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
         <Component {...componentProps} />
       </div>
       <div className="bg-surfacecontainerlowest flex">
-        <GoldenBox opticalCorrection="top" style={{ width: "240px" }} scaleFactor="subheading">
-          <h2 className="subheading font-500 mb-md">Preview Props</h2>
-          {manifest.knobs && (
-            <div data-instance="lk-docs-table">
-              {Object.entries(manifest.knobs).map(([key, control]) => (
-                <div key={key}>
-                  <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
-                </div>
-              ))}
-            </div>
-          )}
-        </GoldenBox>
+        <ScrollArea style={{ width: "240px", height: "100%" }} className="p-0">
+          <ScrollAreaViewport>
+            <ScrollAreaContent>
+              <GoldenBox opticalCorrection="top" scaleFactor="subheading">
+                <h2 className="subheading font-500 mb-md">Preview Props</h2>
+                {manifest.knobs && (
+                  <div data-instance="lk-docs-table">
+                    {Object.entries(manifest.knobs).map(([key, control]) => (
+                      <div key={key}>
+                        <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </GoldenBox>
+            </ScrollAreaContent>
+          </ScrollAreaViewport>
+          <ScrollAreaScrollbar>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
+          <ScrollAreaScrollbar>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
+          <ScrollAreaCorner />
+        </ScrollArea>
+
         <Tabs
           defaultValue="typescript"
-          className="fill-container border-l border-color-outlinevariant"
+          className="fill-container border-l border-color-outlinevariant bg-surface"
           style={{ minWidth: "0" }}
         >
           <TabsList className="border-b border-color-outlinevariant">

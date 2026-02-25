@@ -5,14 +5,14 @@ import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 import "./lk-scroll-area.css";
 
 function ScrollArea({ className, ...props }: ScrollAreaPrimitive.Root.Props) {
-  return <ScrollAreaPrimitive.Root data-slot="scroll-area" className={cn("", "ScrollArea", className)} {...props} />;
+  return <ScrollAreaPrimitive.Root data-slot="scroll-area" className={cn("", className)} {...props} />;
 }
 
 function ScrollAreaViewport({ className, ...props }: ScrollAreaPrimitive.Viewport.Props) {
   return (
     <ScrollAreaPrimitive.Viewport
       data-slot="scroll-area-viewport"
-      className={cn("", "Viewport", className)}
+      className={cn("",  className)}
       {...props}
     />
   );
@@ -20,7 +20,7 @@ function ScrollAreaViewport({ className, ...props }: ScrollAreaPrimitive.Viewpor
 
 function ScrollAreaContent({ className, ...props }: ScrollAreaPrimitive.Content.Props) {
   return (
-    <ScrollAreaPrimitive.Content data-slot="scroll-area-content" className={cn("", "Content", className)} {...props} />
+    <ScrollAreaPrimitive.Content data-slot="scroll-area-content" className={cn("", className)} {...props} />
   );
 }
 
@@ -35,12 +35,12 @@ function ScrollAreaScrollbar({ className, ...props }: ScrollAreaPrimitive.Scroll
 }
 
 function ScrollAreaThumb({ className, ...props }: ScrollAreaPrimitive.Thumb.Props) {
-  return <ScrollAreaPrimitive.Thumb data-slot="scroll-area-thumb" className={cn("", "Thumb", className)} {...props} />;
+  return <ScrollAreaPrimitive.Thumb data-slot="scroll-area-thumb" className={cn("", className)} {...props} />;
 }
 
 function ScrollAreaCorner({ className, ...props }: ScrollAreaPrimitive.Corner.Props) {
   return (
-    <ScrollAreaPrimitive.Corner data-slot="scroll-area-corner" className={cn("", "Corner", className)} {...props} />
+    <ScrollAreaPrimitive.Corner data-slot="scroll-area-corner" className={cn("", className)} {...props} />
   );
 }
 
