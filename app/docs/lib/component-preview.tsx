@@ -76,11 +76,11 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
           //   ))}
           // </select>
           <Field>
-            <FieldLabel nativeLabel={false} render={<div />}>
+            <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
               {control.label}
             </FieldLabel>
-            <Select items={control.options} onValueChange={(value) => updateKnob(key, value)}>
-              <SelectTrigger>
+            <Select items={control.options} onValueChange={(value) => updateKnob(key, value)} value={knobValues[key]}>
+              <SelectTrigger className="w-full">
                 <SelectValue />
                 <SelectIcon>
                   <Icon name="chevron-up" />
@@ -200,13 +200,13 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
         <Component {...componentProps} />
       </div>
       <div className="bg-surfacecontainerlowest flex">
-        <ScrollArea style={{ width: "240px", height: "100%" }} className="p-0">
+        <ScrollArea style={{ width: "240px", height: "100%" }}>
           <ScrollAreaViewport>
-            <ScrollAreaContent>
+            <ScrollAreaContent className="p-0">
               <GoldenBox opticalCorrection="top" scaleFactor="subheading">
                 <h2 className="subheading font-500 mb-md">Preview Props</h2>
                 {manifest.knobs && (
-                  <div data-instance="lk-docs-table">
+                  <div className="flex flex-col gap-md">
                     {Object.entries(manifest.knobs).map(([key, control]) => (
                       <div key={key}>
                         <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
