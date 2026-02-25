@@ -200,8 +200,8 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
       <div className="flex flex-grow py-2xl items-center justify-center">
         <Component {...componentProps} />
       </div>
-      <div className="bg-surfacecontainerlowest flex">
-        <ScrollArea style={{ width: "240px", height: "100%" }}>
+      <div className="bg-surfacecontainerlowest flex" >
+        <ScrollArea style={{ width: "240px", height: "533px" }}>
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <GoldenBox opticalCorrection="top" scaleFactor="subheading">
