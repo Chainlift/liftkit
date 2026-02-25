@@ -18,6 +18,7 @@ import {
 
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 
+
 export const metadata = {
   title: "Accordion",
   description: "Interactive trigger component built on Base UI with LiftKit styling.",
@@ -27,9 +28,10 @@ export const metadata = {
 
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
-<ComponentPreviewWrapper componentName="accordion" tsSample={LocalCodeSample()} cssSample={LocalCssSample()} />
+{/* <ComponentPreviewWrapper componentName="accordion" /> */}
 
- 
+ <ComponentPreview
+  componentName="accordion"/>
 </div>
 
 

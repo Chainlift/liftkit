@@ -39,9 +39,17 @@ interface ComponentPreviewProps {
   componentName: ComponentName;
   tsSample?: string | null;
   cssSample?: string | null;
+  tsExampleFn?: (knobs: Record<string, unknown>) => string;
+  cssExampleFn?: (knobs: Record<string, unknown>) => string;
 }
 
-export function ComponentPreview({ componentName, tsSample, cssSample }: ComponentPreviewProps) {
+export function ComponentPreview({
+  componentName,
+  tsSample,
+  cssSample,
+  tsExampleFn,
+  cssExampleFn,
+}: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
   // Initialize state from defaults
@@ -54,6 +62,11 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
     }
     return initial;
   });
+
+  // Generate reactive code strings from knob values
+
+  const liveTs = manifest.tsExampleFn ? manifest.tsExampleFn(knobValues) : null;
+  const liveCss = manifest.cssExampleFn ? manifest.cssExampleFn(knobValues) : null;
 
   // Update a single knob
   const updateKnob = (key: string, value: any) => {
@@ -242,10 +255,15 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
             <TabsIndicator />
           </TabsList>
           <TabsPanel value="typescript" style={{ height: "500px" }}>
-            <RichCodeBlock html={tsSample ?? undefined} knobValues={knobValues} />
+            {/* <RichCodeBlock html={tsSample ?? undefined} knobValues={knobValues} /> */}
+            <RichCodeBlock html={!liveTs ? (tsSample ?? undefined) : undefined} knobValues={knobValues}>
+              {liveTs ? <code>{liveTs}</code> : undefined}
+            </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="css" style={{ height: "500px" }}>
-            <RichCodeBlock html={cssSample ?? undefined} knobValues={knobValues} />
+            <RichCodeBlock html={!liveCss ? (cssSample ?? undefined) : undefined} knobValues={knobValues}>
+              {liveCss ? <code>{liveCss}</code> : undefined}
+            </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="account">Account</TabsPanel>
         </Tabs>
@@ -253,3 +271,4 @@ export function ComponentPreview({ componentName, tsSample, cssSample }: Compone
     </div>
   );
 }
+

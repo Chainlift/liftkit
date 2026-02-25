@@ -1,3 +1,4 @@
+
 import { highlightCode } from "./highlighted-code";
 import { componentManifest } from "./component-manifest";
 import { ComponentPreview } from "./component-preview";
@@ -7,19 +8,29 @@ interface ComponentPreviewWrapperProps {
   componentName: ComponentName;
   tsSample?: string;
   cssSample?: string;
+  codeSampleFn?: (knobValues: Record<string, unknown>) => string;
+  cssSampleFn?: (knobValues: Record<string, unknown>) => string;
 }
 
-export async function ComponentPreviewWrapper({ componentName, tsSample, cssSample }: ComponentPreviewWrapperProps) {
+export async function ComponentPreviewWrapper({
+  componentName,
+  tsSample,
+  cssSample,
+  codeSampleFn,
+  cssSampleFn,
+}: ComponentPreviewWrapperProps) {
   const manifest = componentManifest[componentName];
-
-  console.log(cssSample);
 
   const highlightedCss = cssSample ? await highlightCode(cssSample, "css") : null;
   const highlightedTs = tsSample ? await highlightCode(tsSample, "ts") : null;
 
-  console.log(highlightedTs);
-
   return (
-    <ComponentPreview componentName={componentName} cssSample={highlightedCss} tsSample={highlightedTs} />
+    <ComponentPreview
+      componentName={componentName}
+      cssSample={highlightedCss}
+      tsSample={highlightedTs}
+      tsExampleFn={codeSampleFn}
+      cssSampleFn={cssSampleFn}
+    />
   );
 }

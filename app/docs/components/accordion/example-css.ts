@@ -1,4 +1,15 @@
-export function LocalCssSample() {
+export function AccordionCssExample(knobValues: Record<string, any> = {}) {
+  const propsString = Object.entries(knobValues)
+    .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
+    .map(([key, value]) => {
+      if (typeof value === "string") return `${key}="${value}"`;
+      if (typeof value === "boolean") return key; // boolean true → just the prop name
+      return `${key}={${JSON.stringify(value)}}`;
+    })
+    .join(" ");
+
+  const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
+
   return `[data-slot="accordion"] {
   box-sizing: border-box;
   display: flex;

@@ -4,6 +4,8 @@ import { Accordion } from "@/liftkit/ui/accordion/accordion";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { AlertDialog } from "@/liftkit/ui/alert-dialog/alert-dialog";
 import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
+import {AccordionTsExample} from "@/app/docs/components/accordion/example";
+import { AccordionCssExample } from "@/app/docs/components/accordion/example-css";
 // import other components you want to preview
 
 export type Control =
@@ -66,6 +68,11 @@ export type ComponentEntry = {
   title: string;
   // Component is a React component type; we keep props loosely typed in docs code
   Component: React.ComponentType<any>;
+  // tsExampleFn generates the TypeScript code string for the example based on current knob values
+  tsExampleFn?: (knobs: Record<string, unknown>) => string;
+  // cssExampleFn
+  cssExampleFn?: (knobs: Record<string, unknown>) => string;
+
   // "knobs" defines a subset of props you want to expose
   knobs?: Record<string, Control>;
   // base props always applied (can include className, etc.)
@@ -200,22 +207,12 @@ export const componentManifest: Record<string, ComponentEntry> = {
       endIcon: k.endIcon || undefined,
     }),
   },
-  accordionExample: {
-    title: "Accordion Example",
-    Component: ExampleAccordion,
-    knobs: {
-      multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
-    },
-    mapKnobsToProps: (k) => ({
-      ...k,
-      children: k.children,
-      startIcon: k.startIcon || undefined,
-      endIcon: k.endIcon || undefined,
-    }),
-  },
+
   accordion: {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
+    tsExampleFn: (knobs) => AccordionTsExample(knobs), //fn that generates code string for example based on current knob config
+    cssExampleFn: (knobs) => AccordionCssExample(knobs),
     knobs: {
       multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
       disabled: { kind: "boolean", label: "Disabled", default: false },

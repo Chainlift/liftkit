@@ -1,10 +1,23 @@
-export function LocalCodeSample(someProp?: string) {
+export function AccordionTsExample(knobValues: Record<string, any> = {}) {
+  const propsString = Object.entries(knobValues)
+    .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
+    .map(([key, value]) => {
+      if (typeof value === "string") return `${key}="${value}"`;
+      if (typeof value === "boolean") return key; // boolean true → just the prop name
+      return `${key}={${JSON.stringify(value)}}`;
+    })
+    .join(" ");
+
+  const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
+
+
+
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
 export default function ExampleAccordion() {
   return (
-    <Accordion someProp={${someProp ? `"${someProp}"` : "undefined"}}>
+    ${openTag}
       <AccordionItem>
         <AccordionTrigger>What is Base UI?</AccordionTrigger>
         <AccordionContent>
