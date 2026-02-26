@@ -37,19 +37,11 @@ import { Input } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
-  tsSample?: string | null;
-  cssSample?: string | null;
-  tsExampleFn?: (knobs: Record<string, unknown>) => string;
-  cssExampleFn?: (knobs: Record<string, unknown>) => string;
+  staticTSSample?: string | null;
+  staticCSSSample?: string | null;
 }
 
-export function ComponentPreview({
-  componentName,
-  tsSample,
-  cssSample,
-  tsExampleFn,
-  cssExampleFn,
-}: ComponentPreviewProps) {
+export function ComponentPreview({ componentName, staticTSSample, staticCSSSample }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
   // Initialize state from defaults
@@ -65,8 +57,11 @@ export function ComponentPreview({
 
   // Generate reactive code strings from knob values
 
-  const liveTs = manifest.tsExampleFn ? manifest.tsExampleFn(knobValues) : null;
-  const liveCss = manifest.cssExampleFn ? manifest.cssExampleFn(knobValues) : null;
+  // retrieve the server-generated code by default
+  const dynamicGeneratedTS = manifest.tsExampleFn ? manifest.tsExampleFn(knobValues) : null;
+  const serverGeneratedCSS = manifest.cssExampleFn ? manifest.cssExampleFn(knobValues) : null;
+
+  console.log(dynamicGeneratedTS);
 
   // Update a single knob
   const updateKnob = (key: string, value: any) => {
@@ -255,14 +250,22 @@ export function ComponentPreview({
             <TabsIndicator />
           </TabsList>
           <TabsPanel value="typescript" style={{ height: "500px" }}>
-            {/* <RichCodeBlock html={tsSample ?? undefined} knobValues={knobValues} /> */}
-            <RichCodeBlock html={!liveTs ? (tsSample ?? undefined) : undefined} knobValues={knobValues}>
-              {liveTs ? <code>{liveTs}</code> : undefined}
+            {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}
+            <RichCodeBlock
+              preHighlightedCode={staticTSSample ?? undefined}
+              codeForClientHighlighting={dynamicGeneratedTS ?? undefined}
+              lang="tsx"
+            >
+              {/* {dynamicGeneratedTS ? <code>{dynamicGeneratedTS}</code> : undefined} */}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="css" style={{ height: "500px" }}>
-            <RichCodeBlock html={!liveCss ? (cssSample ?? undefined) : undefined} knobValues={knobValues}>
-              {liveCss ? <code>{liveCss}</code> : undefined}
+            <RichCodeBlock
+              preHighlightedCode={serverGeneratedCSS ?? undefined}
+              codeForClientHighlighting={serverGeneratedCSS ?? undefined}
+              lang="css"
+            >
+              {serverGeneratedCSS ? <code>{serverGeneratedCSS}</code> : undefined}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="account">Account</TabsPanel>
@@ -271,4 +274,3 @@ export function ComponentPreview({
     </div>
   );
 }
-

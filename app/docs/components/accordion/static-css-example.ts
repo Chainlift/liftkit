@@ -1,4 +1,4 @@
-export function AccordionCssExample(knobValues: Record<string, any> = {}) {
+export function StaticAccordionCssExample(knobValues: Record<string, any> = {}) {
   const propsString = Object.entries(knobValues)
     .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
     .map(([key, value]) => {

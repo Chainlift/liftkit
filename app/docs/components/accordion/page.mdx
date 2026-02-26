@@ -1,6 +1,7 @@
-import { LocalCodeSample } from "./example.ts";
-import { LocalCssSample } from "./example-css.ts";
+import { StaticAccordionTsExample } from "./static-ts-example.ts";
+import { StaticAccordionCssExample } from "./static-css-example.ts";
 import { Button } from "@liftkit/ui";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { ComponentPreview } from "@/app/docs/lib/component-preview";
 import { Demo } from "@/components/mdx/demo";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
@@ -16,7 +17,7 @@ import {
   ScrollAreaCorner,
 } from "@/liftkit/ui/scroll-area/scroll-area";
 
-import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+
 
 
 export const metadata = {
@@ -29,9 +30,9 @@ export const metadata = {
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 {/* <ComponentPreviewWrapper componentName="accordion" /> */}
-
- <ComponentPreview
-  componentName="accordion"/>
+<ComponentPreviewWrapper componentName="accordion" staticTSSample={StaticAccordionTsExample()}/>
+ {/* <ComponentPreview
+  componentName="accordion"/> */}
 </div>
 
 

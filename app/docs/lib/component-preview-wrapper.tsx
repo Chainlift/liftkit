@@ -1,12 +1,11 @@
-
-import { highlightCode } from "./highlighted-code";
+import { highlightCode } from "./highlighted-code-server";
 import { componentManifest } from "./component-manifest";
 import { ComponentPreview } from "./component-preview";
 import type { ComponentName } from "./component-manifest";
 
 interface ComponentPreviewWrapperProps {
   componentName: ComponentName;
-  tsSample?: string;
+  staticTSSample?: string;
   cssSample?: string;
   codeSampleFn?: (knobValues: Record<string, unknown>) => string;
   cssSampleFn?: (knobValues: Record<string, unknown>) => string;
@@ -14,23 +13,18 @@ interface ComponentPreviewWrapperProps {
 
 export async function ComponentPreviewWrapper({
   componentName,
-  tsSample,
+  staticTSSample,
   cssSample,
   codeSampleFn,
   cssSampleFn,
 }: ComponentPreviewWrapperProps) {
-  const manifest = componentManifest[componentName];
+  
+  console.log(staticTSSample);
 
-  const highlightedCss = cssSample ? await highlightCode(cssSample, "css") : null;
-  const highlightedTs = tsSample ? await highlightCode(tsSample, "ts") : null;
+  const preHighlightedCSS = cssSample ? await highlightCode(cssSample, "css") : null;
+  const preHighlightedTS = staticTSSample ? await highlightCode(staticTSSample, "ts") : null;
 
   return (
-    <ComponentPreview
-      componentName={componentName}
-      cssSample={highlightedCss}
-      tsSample={highlightedTs}
-      tsExampleFn={codeSampleFn}
-      cssSampleFn={cssSampleFn}
-    />
+    <ComponentPreview componentName={componentName} staticCSSSample={preHighlightedCSS} staticTSSample={preHighlightedTS} />
   );
 }

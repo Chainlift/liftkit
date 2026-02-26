@@ -4,8 +4,8 @@ import { Accordion } from "@/liftkit/ui/accordion/accordion";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { AlertDialog } from "@/liftkit/ui/alert-dialog/alert-dialog";
 import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
-import {AccordionTsExample} from "@/app/docs/components/accordion/example";
-import { AccordionCssExample } from "@/app/docs/components/accordion/example-css";
+import { DynamicAccordionTsExample } from "@/app/docs/components/accordion/dynamic-ts-example";
+import { DynamicAccordionCssExample } from "@/app/docs/components/accordion/dynamic-css-example";
 // import other components you want to preview
 
 export type Control =
@@ -211,12 +211,13 @@ export const componentManifest: Record<string, ComponentEntry> = {
   accordion: {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
-    tsExampleFn: (knobs) => AccordionTsExample(knobs), //fn that generates code string for example based on current knob config
-    cssExampleFn: (knobs) => AccordionCssExample(knobs),
+    //TODO: write a separate function for fetching the correct example code based on the component name
+    tsExampleFn: (knobs) => DynamicAccordionTsExample(knobs), //fn that generates code string for example based on current knob config
+    cssExampleFn: (knobs) => DynamicAccordionCssExample(knobs),
     knobs: {
       multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
       disabled: { kind: "boolean", label: "Disabled", default: false },
-      sample: {kind: "select", label: "Sample select", default: "option1", options: []}
+      sample: { kind: "select", label: "Sample select", default: "option1", options: [] },
     },
     // NEW: Add sub-components here
     subComponents: {

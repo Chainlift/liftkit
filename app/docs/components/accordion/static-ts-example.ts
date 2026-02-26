@@ -1,4 +1,4 @@
-export function AccordionTsExample(knobValues: Record<string, any> = {}) {
+export function StaticAccordionTsExample(knobValues: Record<string, any> = {}) {
   const propsString = Object.entries(knobValues)
     .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
     .map(([key, value]) => {
@@ -15,6 +15,7 @@ export function AccordionTsExample(knobValues: Record<string, any> = {}) {
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
+/* THIS IS THE SERVER-SIDE CODE */
 export default function ExampleAccordion() {
   return (
     ${openTag}
