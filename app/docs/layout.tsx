@@ -29,7 +29,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </GoldenBox>
         </aside>
-        <main style={{ minWidth: "0px", maxWidth: "110ch", flex: "1"}}>
+        <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1"}}>
           <GoldenBox scaleFactor="title1" opticalCorrection="top">
             {children}
           </GoldenBox>

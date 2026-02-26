@@ -15,7 +15,6 @@ export function DynamicAccordionTsExample(knobValues: Record<string, any> = {}) 
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
-/* THIS IS THE CLIENT-SIDE CODE */
 export default function ExampleAccordion() {
   return (
     ${openTag}

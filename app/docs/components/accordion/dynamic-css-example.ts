@@ -11,8 +11,6 @@ export function DynamicAccordionCssExample(knobValues: Record<string, any> = {})
   const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
 
   return `[data-slot="accordion"] {
-/* THIS IS THE CLIENT-SIDE CODE */
-
   box-sizing: border-box;
   display: flex;
   width: 24rem;
