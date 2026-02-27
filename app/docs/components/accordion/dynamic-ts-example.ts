@@ -13,7 +13,6 @@ export function Accordion_Example_TS_Dynamic(knobValues: Record<string, any> = {
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
-
 /* DYNAMIC CLIENT */
 export default function ExampleAccordion() {
   return (

@@ -1,5 +1,26 @@
-export function Accordion_Example_TS_Static(knobValues: Record<string, any> = {}) {
-  const propsString = Object.entries(knobValues)
+import { componentManifest } from "@/app/docs/lib/component-manifest";
+
+function getInitialKnobs(componentName: string) {
+  const manifest = componentManifest[componentName.toLowerCase() as keyof typeof componentManifest];
+
+  console.log(componentName);
+  const initialKnobVals: Record<string, any> = {};
+
+
+  if (manifest.knobs) {
+    for (const [key, control] of Object.entries(manifest.knobs)) {
+      initialKnobVals[key] = control.default;
+    }
+  }
+
+  return initialKnobVals;
+}
+
+export function Accordion_Example_TS_Static() {
+
+  const initialKnobValues = getInitialKnobs("Accordion");
+
+  const propsString = Object.entries(initialKnobValues)
     .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
     .map(([key, value]) => {
       if (typeof value === "string") return `${key}="${value}"`;
@@ -9,7 +30,6 @@ export function Accordion_Example_TS_Static(knobValues: Record<string, any> = {}
     .join(" ");
 
   const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
-  console.log("open tag", openTag);
 
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";

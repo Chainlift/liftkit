@@ -5,19 +5,30 @@ import type { ComponentName } from "./component-manifest";
 
 interface ComponentPreviewWrapperProps {
   componentName: ComponentName;
-  tsExampleStatic?: string;
-  cssExampleStatic?: string;
+  Example_TS_Static_String?: string;
+  Example_CSS_Static_String?: string;
 }
 
 export async function ComponentPreviewWrapper({
   componentName,
-  tsExampleStatic,
-  cssExampleStatic,
+  Example_TS_Static_String,
+  Example_CSS_Static_String,
 }: ComponentPreviewWrapperProps) {
+  const manifest = componentManifest[componentName];
 
+  const initialKnobVals: Record<string, any> = {};
+  if (manifest.knobs) {
+    for (const [key, control] of Object.entries(manifest.knobs)) {
+      initialKnobVals[key] = control.default;
+    }
+  }
 
-  const preHighlightedCSS = cssExampleStatic ? await highlightCode(cssExampleStatic, "css") : null;
-  const preHighlightedTS = tsExampleStatic ? await highlightCode(tsExampleStatic, "tsx") : null;
+  console.log(Example_CSS_Static_String);
+  
+  const preHighlightedCSS = Example_CSS_Static_String ? await highlightCode(Example_CSS_Static_String, "css") : null;
+  const preHighlightedTS = Example_TS_Static_String ? await highlightCode(Example_TS_Static_String, "tsx") : null;
+
+  console.log(Example_TS_Static_String);
 
   return (
     <ComponentPreview

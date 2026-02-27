@@ -58,8 +58,9 @@ export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS
   // Generate reactive code strings from knob values
 
   // retrieve the server-generated code by default
-  const EXAMPLE_TS_DYNAMIC = manifest.EXAMPLE_TS_DYNAMIC ? manifest.EXAMPLE_TS_DYNAMIC(knobValues) : null;
-  const EXAMPLE_CSS_DYNAMIC = manifest.EXAMPLE_CSS_DYNAMIC ? manifest.EXAMPLE_CSS_DYNAMIC(knobValues) : null;
+  const Example_TS_Dynamic = manifest.Example_TS_Dynamic ? manifest.Example_TS_Dynamic(knobValues) : null;
+  const Example_CSS_Dynamic = manifest.Example_CSS_Dynamic ? manifest.Example_CSS_Dynamic(knobValues) : null;
+  
 
   useEffect(() => {
     console.log(knobValues);
@@ -255,19 +256,19 @@ export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS
             {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}
             <RichCodeBlock
               preHighlightedCode={Example_TS_Static ?? undefined}
-              codeForClientHighlighting={EXAMPLE_TS_DYNAMIC ?? undefined}
+              codeForClientHighlighting={Example_TS_Dynamic ?? undefined}
               lang="tsx"
             >
-              {/* {EXAMPLE_TS_DYNAMIC ? <code>{EXAMPLE_TS_DYNAMIC}</code> : undefined} */}
+              {/* {Example_TS_Dynamic ? <code>{Example_TS_Dynamic}</code> : undefined} */}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="css" style={{ height: "500px" }}>
             <RichCodeBlock
-              preHighlightedCode={EXAMPLE_CSS_DYNAMIC ?? undefined}
-              codeForClientHighlighting={EXAMPLE_CSS_DYNAMIC ?? undefined}
+              preHighlightedCode={Example_CSS_Dynamic ?? undefined}
+              codeForClientHighlighting={Example_CSS_Dynamic ?? undefined}
               lang="css"
             >
-              {EXAMPLE_CSS_DYNAMIC ? <code>{EXAMPLE_CSS_DYNAMIC}</code> : undefined}
+              {Example_CSS_Dynamic ? <code>{Example_CSS_Dynamic}</code> : undefined}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="account">Account</TabsPanel>

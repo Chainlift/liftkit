@@ -5,6 +5,7 @@ import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { AlertDialog } from "@/liftkit/ui/alert-dialog/alert-dialog";
 import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
 import { Accordion_Example_TS_Dynamic } from "@/app/docs/components/accordion/dynamic-ts-example";
+import { Accordion_Example_TS_Static } from "@/app/docs/components/accordion/static-ts-example";
 import { Accordion_Example_CSS_Dynamic } from "@/app/docs/components/accordion/dynamic-css-example";
 // import other components you want to preview
 
@@ -69,9 +70,10 @@ export type ComponentEntry = {
   // Component is a React component type; we keep props loosely typed in docs code
   Component: React.ComponentType<any>;
   // tsExample generates the TypeScript code string for the example based on current knob values
-  EXAMPLE_TS_DYNAMIC?: (knobs: Record<string, unknown>) => string;
-  // EXAMPLE_CSS_DYNAMIC
-  EXAMPLE_CSS_DYNAMIC?: (knobs: Record<string, unknown>) => string;
+  Example_TS_Static?: (knobs: Record<string, unknown>) => string;
+  Example_TS_Dynamic?: (knobs: Record<string, unknown>) => string;
+  // Example_CSS_Dynamic
+  Example_CSS_Dynamic?: (knobs: Record<string, unknown>) => string;
 
   // "knobs" defines a subset of props you want to expose
   knobs?: Record<string, Control>;
@@ -212,8 +214,10 @@ export const componentManifest: Record<string, ComponentEntry> = {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
     //TODO: write a separate function for fetching the correct example code based on the component name
-    EXAMPLE_TS_DYNAMIC: (knobs) => Accordion_Example_TS_Dynamic(knobs), //fn that generates code string for example based on current knob config
-    EXAMPLE_CSS_DYNAMIC: (knobs) => Accordion_Example_CSS_Dynamic(knobs),
+    Example_TS_Static: (knobs) => Accordion_Example_TS_Static(), //fn that generates code string for example based on current knob config
+    Example_TS_Dynamic: (knobs) => Accordion_Example_TS_Dynamic(knobs), //fn that generates code string for example based on current knob config
+    Example_CSS_Dynamic: (knobs) => Accordion_Example_CSS_Dynamic(knobs),
+
     knobs: {
       multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
       disabled: { kind: "boolean", label: "Disabled", default: false },

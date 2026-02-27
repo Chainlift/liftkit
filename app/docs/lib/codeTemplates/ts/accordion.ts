@@ -1,4 +1,4 @@
-export function AlertDialogTS({ openTag }: { openTag: any }) {
+export function Accordion_Example_TS({ openTag }: { openTag: any }) {
   return `
 import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
