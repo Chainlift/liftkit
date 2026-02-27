@@ -3,8 +3,7 @@ import { Button } from "@/liftkit/ui/button";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
 
-import { Accordion_Example_TS } from "@/app/docs/components/accordion/accordion-example-ts";
-import { Accordion_Example_CSS } from "@/app/docs/components/accordion/accordion-example-css";
+import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
 // import other components you want to preview
 
 export type Control =
@@ -212,7 +211,6 @@ export const componentManifest: Record<string, ComponentEntry> = {
   accordion: {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
-
     example_TS: (knobs) => Accordion_Example_TS(knobs),
     example_CSS: (knobs) => Accordion_Example_CSS(knobs),
     knobs: {

@@ -1,16 +1,17 @@
-export function Accordion_Example_CSS_Dynamic(knobValues: Record<string, any> = {}) {
-  const propsString = Object.entries(knobValues)
-    .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
-    .map(([key, value]) => {
-      if (typeof value === "string") return `${key}="${value}"`;
-      if (typeof value === "boolean") return key; // boolean true → just the prop name
-      return `${key}={${JSON.stringify(value)}}`;
-    })
-    .join(" ");
+import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
+import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
 
-  const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
+export function Accordion_Example_CSS(updatedKnobVals: Record<string, any> = {}) {
+  const componentName = "Accordion";
 
-  return `[data-slot="accordion"] {
+  const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
+  const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
+  const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
+
+  const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
+
+  return `
+  [data-slot="accordion"] {
   box-sizing: border-box;
   display: flex;
   width: 24rem;

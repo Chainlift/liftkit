@@ -1,0 +1,2 @@
+export { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
+export { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "@/app/docs/components/alert-dialog/codeTemplates";

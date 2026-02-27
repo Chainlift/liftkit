@@ -13,3 +13,16 @@ export function getInitialKnobs(componentName: string) {
 
   return initialKnobVals;
 }
+
+export function getPropsString(knobs: Record<string, any> = {}) {
+  const propsString = Object.entries(knobs) //load default knobs by default, replace with dynamic
+    .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
+    .map(([key, value]) => {
+      if (typeof value === "string") return `${key}="${value}"`;
+      if (typeof value === "boolean") return key; // boolean true → just the prop name
+      return `${key}={${JSON.stringify(value)}}`;
+    })
+    .join(" ");
+
+  return propsString;
+}

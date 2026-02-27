@@ -1,22 +1,40 @@
-import { Button } from "@liftkit/ui";
-import { Demo } from "@/components/mdx/demo";
-import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/example";
-import { LocalCodeSample } from "./example.tsx";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "./codeTemplates";
 
 export const metadata = {
-  title: "Button",
+  title: "AlertDialog",
   description: "Interactive trigger component built on Base UI with LiftKit styling.",
 };
 
-# Alert Dialog
+# AlertDialog
 
-Buttons trigger actions and initiate workflows.  
-This component wraps the Base UI primitive and applies LiftKit recipes and tokens.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ExampleAlertDialog />
+<ComponentPreviewWrapper componentName="accordion" initial_TS={AlertDialog_Example_TS()} initial_CSS={AlertDialog_Example_CSS()}/>
 
-<SubComponentDocs componentName="alertDialog" subComponentName="Dialog" />
+</div>
+
+
+
+
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="accordion" subComponentName="Root" />
+
+<SubComponentDocs componentName="accordion" subComponentName="Item" />
 
 ## Installation
 

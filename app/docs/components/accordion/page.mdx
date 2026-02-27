@@ -1,24 +1,7 @@
-import { Accordion_Example_TS_Static } from "./static-ts-example.ts";
-import { Accordion_Example_CSS_Static } from "./static-css-example.ts";
-import { Button } from "@liftkit/ui";
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
-import { ComponentPreview } from "@/app/docs/lib/component-preview";
-import { Demo } from "@/components/mdx/demo";
-import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
-import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
-import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@/liftkit/ui/tabs/tabs";
-import { Accordion_Example_TS } from "./accordion-example-ts.ts";
-import { Accordion_Example_CSS } from "./accordion-example-css.ts";
-
-import {
-  ScrollArea,
-  ScrollAreaViewport,
-  ScrollAreaContent,
-  ScrollAreaScrollbar,
-  ScrollAreaThumb,
-  ScrollAreaCorner,
-} from "@/liftkit/ui/scroll-area/scroll-area";
+import { Accordion_Example_TS } from "./codeTemplates/accordion-example-ts.ts";
+import { Accordion_Example_CSS } from "./codeTemplates/accordion-example-css.ts";
 
 export const metadata = {
   title: "Accordion",
@@ -27,12 +10,10 @@ export const metadata = {
 
 # Accordion
 
-
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
-{/* <ComponentPreviewWrapper componentName="accordion" /> */}
+
 <ComponentPreviewWrapper componentName="accordion" initial_TS={Accordion_Example_TS()} initial_CSS={Accordion_Example_CSS()}/>
- {/* <ComponentPreview
-  componentName="accordion"/> */}
+
 </div>
 
 
