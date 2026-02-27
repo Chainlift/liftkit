@@ -37,11 +37,11 @@ import { Input } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
-  Example_TS_Static?: string | null;
-  Example_CSS_Static?: string | null;
+  initial_TS?: string | null;
+  initial_CSS?: string | null;
 }
 
-export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS_Static }: ComponentPreviewProps) {
+export function ComponentPreview({ componentName, initial_TS, initial_CSS }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
   // Initialize state from defaults
@@ -58,9 +58,9 @@ export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS
   // Generate reactive code strings from knob values
 
   // retrieve the server-generated code by default
-  const Example_TS_Dynamic = manifest.Example_TS_Dynamic ? manifest.Example_TS_Dynamic(knobValues) : null;
+  const dynamic_TS = manifest.example_TS ? manifest.example_TS(knobValues) : null;
+  const dynamic_CSS = manifest.example_CSS ? manifest.example_CSS(knobValues) : null;
   const Example_CSS_Dynamic = manifest.Example_CSS_Dynamic ? manifest.Example_CSS_Dynamic(knobValues) : null;
-  
 
   useEffect(() => {
     console.log(knobValues);
@@ -76,17 +76,6 @@ export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS
     switch (control.kind) {
       case "select":
         return (
-          // <select
-          //   value={currentValue}
-          //   onChange={(e) => updateKnob(key, e.target.value)}
-          //   className="border rounded px-2 py-1"
-          // >
-          //   {control.options.map((opt) => (
-          //     <option key={opt.value} value={opt.value}>
-          //       {opt.label}
-          //     </option>
-          //   ))}
-          // </select>
           <Field>
             <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
               {control.label}
@@ -255,21 +244,19 @@ export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS
           <TabsPanel value="typescript" style={{ height: "500px" }}>
             {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}
             <RichCodeBlock
-              preHighlightedCode={Example_TS_Static ?? undefined}
-              codeForClientHighlighting={Example_TS_Dynamic ?? undefined}
+              preHighlightedCode={initial_TS ?? undefined}
+              codeForClientHighlighting={dynamic_TS ?? undefined}
               lang="tsx"
             >
-              {/* {Example_TS_Dynamic ? <code>{Example_TS_Dynamic}</code> : undefined} */}
+              {/* {dynamic_TS ? <code>{dynamic_TS}</code> : undefined} */}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="css" style={{ height: "500px" }}>
             <RichCodeBlock
-              preHighlightedCode={Example_CSS_Dynamic ?? undefined}
-              codeForClientHighlighting={Example_CSS_Dynamic ?? undefined}
+              preHighlightedCode={initial_CSS ?? undefined}
+              codeForClientHighlighting={dynamic_CSS ?? undefined}
               lang="css"
-            >
-              {Example_CSS_Dynamic ? <code>{Example_CSS_Dynamic}</code> : undefined}
-            </RichCodeBlock>
+            ></RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="account">Account</TabsPanel>
         </Tabs>

@@ -5,14 +5,14 @@ import type { ComponentName } from "./component-manifest";
 
 interface ComponentPreviewWrapperProps {
   componentName: ComponentName;
-  Example_TS_Static_String?: string;
-  Example_CSS_Static_String?: string;
+  initial_TS?: string;
+  initial_CSS?: string;
 }
 
 export async function ComponentPreviewWrapper({
   componentName,
-  Example_TS_Static_String,
-  Example_CSS_Static_String,
+  initial_TS,
+  initial_CSS,
 }: ComponentPreviewWrapperProps) {
   const manifest = componentManifest[componentName];
 
@@ -22,17 +22,11 @@ export async function ComponentPreviewWrapper({
       initialKnobVals[key] = control.default;
     }
   }
-  
-  const preHighlightedCSS = Example_CSS_Static_String ? await highlightCode(Example_CSS_Static_String, "css") : null;
-  const preHighlightedTS = Example_TS_Static_String ? await highlightCode(Example_TS_Static_String, "tsx") : null;
 
-  console.log(Example_TS_Static_String);
+  const preHighlightedTS = initial_TS ? await highlightCode(initial_TS, "tsx") : null;
+  const preHighlightedCSS = initial_CSS ? await highlightCode(initial_CSS, "css") : null;
 
   return (
-    <ComponentPreview
-      componentName={componentName}
-      Example_CSS_Static={preHighlightedCSS}
-      Example_TS_Static={preHighlightedTS}
-    />
+    <ComponentPreview componentName={componentName} initial_TS={preHighlightedTS} initial_CSS={preHighlightedCSS} />
   );
 }

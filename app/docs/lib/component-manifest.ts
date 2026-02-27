@@ -1,12 +1,10 @@
 import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
-import { Accordion } from "@/liftkit/ui/accordion/accordion";
 import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
-import { AlertDialog } from "@/liftkit/ui/alert-dialog/alert-dialog";
 import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
-import { Accordion_Example_TS_Dynamic } from "@/app/docs/components/accordion/dynamic-ts-example";
-import { Accordion_Example_TS_Static } from "@/app/docs/components/accordion/static-ts-example";
-import { Accordion_Example_CSS_Dynamic } from "@/app/docs/components/accordion/dynamic-css-example";
+
+import { Accordion_Example_TS } from "@/app/docs/components/accordion/accordion-example-ts";
+import { Accordion_Example_CSS } from "@/app/docs/components/accordion/accordion-example-css";
 // import other components you want to preview
 
 export type Control =
@@ -74,7 +72,6 @@ export type ComponentEntry = {
   Example_TS_Dynamic?: (knobs: Record<string, unknown>) => string;
   // Example_CSS_Dynamic
   Example_CSS_Dynamic?: (knobs: Record<string, unknown>) => string;
-
   // "knobs" defines a subset of props you want to expose
   knobs?: Record<string, Control>;
   // base props always applied (can include className, etc.)
@@ -84,6 +81,8 @@ export type ComponentEntry = {
   // NEW: sub-components for compound components (e.g., Accordion.Root, Accordion.Item)
   // This is used for documentation/props tables and does NOT affect ComponentPreview
   subComponents?: Record<string, SubComponentEntry>;
+  example_TS?: (knobs: Record<string, unknown>) => string;
+  example_CSS?: (knobs: Record<string, unknown>) => string;
 };
 
 export const componentManifest: Record<string, ComponentEntry> = {
@@ -213,11 +212,9 @@ export const componentManifest: Record<string, ComponentEntry> = {
   accordion: {
     title: "Accordion",
     Component: ExampleAccordion, // A wrapper for the preview
-    //TODO: write a separate function for fetching the correct example code based on the component name
-    Example_TS_Static: (knobs) => Accordion_Example_TS_Static(), //fn that generates code string for example based on current knob config
-    Example_TS_Dynamic: (knobs) => Accordion_Example_TS_Dynamic(knobs), //fn that generates code string for example based on current knob config
-    Example_CSS_Dynamic: (knobs) => Accordion_Example_CSS_Dynamic(knobs),
 
+    example_TS: (knobs) => Accordion_Example_TS(knobs),
+    example_CSS: (knobs) => Accordion_Example_CSS(knobs),
     knobs: {
       multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
       disabled: { kind: "boolean", label: "Disabled", default: false },

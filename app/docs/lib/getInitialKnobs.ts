@@ -1,5 +1,6 @@
 import { componentManifest } from "@/app/docs/lib/component-manifest";
-function getInitialKnobs(componentName: string) {
+
+export function getInitialKnobs(componentName: string) {
   const manifest = componentManifest[componentName.toLowerCase() as keyof typeof componentManifest];
 
   const initialKnobVals: Record<string, any> = {};
