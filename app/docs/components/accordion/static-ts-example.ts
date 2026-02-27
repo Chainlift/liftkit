@@ -3,9 +3,7 @@ import { componentManifest } from "@/app/docs/lib/component-manifest";
 function getInitialKnobs(componentName: string) {
   const manifest = componentManifest[componentName.toLowerCase() as keyof typeof componentManifest];
 
-  console.log(componentName);
   const initialKnobVals: Record<string, any> = {};
-
 
   if (manifest.knobs) {
     for (const [key, control] of Object.entries(manifest.knobs)) {
@@ -17,7 +15,6 @@ function getInitialKnobs(componentName: string) {
 }
 
 export function Accordion_Example_TS_Static() {
-
   const initialKnobValues = getInitialKnobs("Accordion");
 
   const propsString = Object.entries(initialKnobValues)

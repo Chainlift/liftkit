@@ -22,8 +22,6 @@ export async function ComponentPreviewWrapper({
       initialKnobVals[key] = control.default;
     }
   }
-
-  console.log(Example_CSS_Static_String);
   
   const preHighlightedCSS = Example_CSS_Static_String ? await highlightCode(Example_CSS_Static_String, "css") : null;
   const preHighlightedTS = Example_TS_Static_String ? await highlightCode(Example_TS_Static_String, "tsx") : null;
