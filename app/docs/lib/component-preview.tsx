@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
 import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
 import { Switch, SwitchThumb } from "@/liftkit/ui/switch/switch";
@@ -37,11 +37,11 @@ import { Input } from "@/liftkit/ui";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
-  staticTSSample?: string | null;
-  staticCSSSample?: string | null;
+  Example_TS_Static?: string | null;
+  Example_CSS_Static?: string | null;
 }
 
-export function ComponentPreview({ componentName, staticTSSample, staticCSSSample }: ComponentPreviewProps) {
+export function ComponentPreview({ componentName, Example_TS_Static, Example_CSS_Static }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
   // Initialize state from defaults
@@ -58,10 +58,12 @@ export function ComponentPreview({ componentName, staticTSSample, staticCSSSampl
   // Generate reactive code strings from knob values
 
   // retrieve the server-generated code by default
-  const dynamicGeneratedTS = manifest.tsExampleFn ? manifest.tsExampleFn(knobValues) : null;
-  const serverGeneratedCSS = manifest.cssExampleFn ? manifest.cssExampleFn(knobValues) : null;
+  const EXAMPLE_TS_DYNAMIC = manifest.EXAMPLE_TS_DYNAMIC ? manifest.EXAMPLE_TS_DYNAMIC(knobValues) : null;
+  const EXAMPLE_CSS_DYNAMIC = manifest.EXAMPLE_CSS_DYNAMIC ? manifest.EXAMPLE_CSS_DYNAMIC(knobValues) : null;
 
-  console.log(dynamicGeneratedTS);
+  useEffect(() => {
+    console.log(knobValues);
+  }, [knobValues]);
 
   // Update a single knob
   const updateKnob = (key: string, value: any) => {
@@ -252,20 +254,20 @@ export function ComponentPreview({ componentName, staticTSSample, staticCSSSampl
           <TabsPanel value="typescript" style={{ height: "500px" }}>
             {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}
             <RichCodeBlock
-              preHighlightedCode={staticTSSample ?? undefined}
-              codeForClientHighlighting={dynamicGeneratedTS ?? undefined}
+              preHighlightedCode={Example_TS_Static ?? undefined}
+              codeForClientHighlighting={EXAMPLE_TS_DYNAMIC ?? undefined}
               lang="tsx"
             >
-              {/* {dynamicGeneratedTS ? <code>{dynamicGeneratedTS}</code> : undefined} */}
+              {/* {EXAMPLE_TS_DYNAMIC ? <code>{EXAMPLE_TS_DYNAMIC}</code> : undefined} */}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="css" style={{ height: "500px" }}>
             <RichCodeBlock
-              preHighlightedCode={serverGeneratedCSS ?? undefined}
-              codeForClientHighlighting={serverGeneratedCSS ?? undefined}
+              preHighlightedCode={EXAMPLE_CSS_DYNAMIC ?? undefined}
+              codeForClientHighlighting={EXAMPLE_CSS_DYNAMIC ?? undefined}
               lang="css"
             >
-              {serverGeneratedCSS ? <code>{serverGeneratedCSS}</code> : undefined}
+              {EXAMPLE_CSS_DYNAMIC ? <code>{EXAMPLE_CSS_DYNAMIC}</code> : undefined}
             </RichCodeBlock>
           </TabsPanel>
           <TabsPanel value="account">Account</TabsPanel>

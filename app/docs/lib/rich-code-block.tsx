@@ -31,9 +31,8 @@ export function RichCodeBlock({
 
   // Only run client-side highlighting when codeForClientHighlighting is provided
   const clientHtml = useHighlightedCode(codeForClientHighlighting ?? null, lang);
-  const displayHtml = preHighlightedCode ?? clientHtml;
 
-  console.log(clientHtml);
+
 
   function handleCopy() {
     const text = preRef.current?.textContent ?? "";

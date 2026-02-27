@@ -89,13 +89,13 @@ Two parallel highlighting paths — both use `shiki` directly:
 
 End-to-end flow for interactive component playgrounds:
 
-1. **MDX page** uses `<ComponentPreviewWrapper componentName="accordion" staticTSSample={...} />`
+1. **MDX page** uses `<ComponentPreviewWrapper componentName="accordion" tsExampleStatic={...} />`
 2. **`ComponentPreviewWrapper`** (async Server Component) pre-highlights static code via server shiki → passes HTML to client
 3. **`ComponentPreview`** (Client Component) owns knob state, renders:
    - Live component preview (top)
    - Knob controls (left panel) — Select, Switch, Input, etc.
    - Code tabs (right panel) — TypeScript/CSS via `RichCodeBlock`
-4. On knob change → `manifest.tsExampleFn(knobValues)` generates raw code → `RichCodeBlock` → client shiki highlights
+4. On knob change → `manifest.tsExample(knobValues)` generates raw code → `RichCodeBlock` → client shiki highlights
 
 ### Component Manifest (`app/docs/lib/component-manifest.ts`)
 
@@ -106,8 +106,8 @@ accordion: {
   title: "Accordion",
   Component: ExampleAccordion,           // Live preview component (from lk-example.tsx)
   knobs: { multiple: { kind: "boolean", default: false } },
-  tsExampleFn: (knobs) => string,        // Dynamic TS code generation
-  cssExampleFn: (knobs) => string,       // Dynamic CSS code generation
+  tsExample: (knobs) => string,        // Dynamic TS code generation
+  cssExample: (knobs) => string,       // Dynamic CSS code generation
   mapKnobsToProps?: (knobs) => props,    // Transform knobs before rendering
   baseProps?: { ... },                   // Always-applied props
   subComponents?: { ... },              // Compound component docs (props, data attributes, CSS vars)
@@ -148,7 +148,7 @@ Control types: `select`, `boolean`, `text`, `slot` (children), `number`, `color`
 1. Create `liftkit/ui/{component}/` with `{component}.tsx`, `lk-{component}.css`, `index.ts`
 2. Wrap Base UI primitive — destructure custom props, use `data-slot`, apply `cn()` for classes
 3. Create `lk-example.tsx` — live preview component accepting knob-mapped props
-4. Add entry to `app/docs/lib/component-manifest.ts` with knobs, `tsExampleFn`, `cssExampleFn`
+4. Add entry to `app/docs/lib/component-manifest.ts` with knobs, `tsExample`, `cssExample`
 5. Create `app/docs/components/{component}/page.mdx`
 6. Run `npm run docs:gen-props` to generate props documentation
 

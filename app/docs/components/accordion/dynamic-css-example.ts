@@ -1,4 +1,4 @@
-export function DynamicAccordionCssExample(knobValues: Record<string, any> = {}) {
+export function Accordion_Example_CSS_Dynamic(knobValues: Record<string, any> = {}) {
   const propsString = Object.entries(knobValues)
     .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
     .map(([key, value]) => {

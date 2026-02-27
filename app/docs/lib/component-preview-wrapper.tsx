@@ -5,26 +5,25 @@ import type { ComponentName } from "./component-manifest";
 
 interface ComponentPreviewWrapperProps {
   componentName: ComponentName;
-  staticTSSample?: string;
-  cssSample?: string;
-  codeSampleFn?: (knobValues: Record<string, unknown>) => string;
-  cssSampleFn?: (knobValues: Record<string, unknown>) => string;
+  tsExampleStatic?: string;
+  cssExampleStatic?: string;
 }
 
 export async function ComponentPreviewWrapper({
   componentName,
-  staticTSSample,
-  cssSample,
-  codeSampleFn,
-  cssSampleFn,
+  tsExampleStatic,
+  cssExampleStatic,
 }: ComponentPreviewWrapperProps) {
-  
-  console.log(staticTSSample);
 
-  const preHighlightedCSS = cssSample ? await highlightCode(cssSample, "css") : null;
-  const preHighlightedTS = staticTSSample ? await highlightCode(staticTSSample, "ts") : null;
+
+  const preHighlightedCSS = cssExampleStatic ? await highlightCode(cssExampleStatic, "css") : null;
+  const preHighlightedTS = tsExampleStatic ? await highlightCode(tsExampleStatic, "tsx") : null;
 
   return (
-    <ComponentPreview componentName={componentName} staticCSSSample={preHighlightedCSS} staticTSSample={preHighlightedTS} />
+    <ComponentPreview
+      componentName={componentName}
+      Example_CSS_Static={preHighlightedCSS}
+      Example_TS_Static={preHighlightedTS}
+    />
   );
 }

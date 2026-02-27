@@ -1,4 +1,4 @@
-export function DynamicAccordionTsExample(knobValues: Record<string, any> = {}) {
+export function Accordion_Example_TS_Dynamic(knobValues: Record<string, any> = {}) {
   const propsString = Object.entries(knobValues)
     .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
     .map(([key, value]) => {
@@ -10,11 +10,11 @@ export function DynamicAccordionTsExample(knobValues: Record<string, any> = {}) 
 
   const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
 
-
-
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
+
+/* DYNAMIC CLIENT */
 export default function ExampleAccordion() {
   return (
     ${openTag}
