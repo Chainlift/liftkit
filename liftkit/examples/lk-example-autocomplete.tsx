@@ -9,14 +9,14 @@ import {
   AutocompleteItem,
   AutocompleteInput,
 } from "@/liftkit/ui";
-import styles from "./autocomplete.module.css";
+
 
 export function ExampleAutocomplete() {
   return (
     <Autocomplete>
       <label>
         Don't Search Tags
-        <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />
+        <AutocompleteInput placeholder="e.g. feature"  />
       </label>
       <AutocompletePortal>
         <AutocompletePositioner>
@@ -24,7 +24,7 @@ export function ExampleAutocomplete() {
             <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
             <AutocompleteList>
               {(tag: Tag) => (
-                <AutocompleteItem key={tag.id} className={styles.Item} value={tag}>
+                <AutocompleteItem key={tag.id}  value={tag}>
                   {tag.value}
                 </AutocompleteItem>
               )}
