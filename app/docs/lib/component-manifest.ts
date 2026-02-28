@@ -1,11 +1,9 @@
 import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
 
-import ExampleAccordion from "@/liftkit/ui/accordion/lk-accordion-example";
-import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-alert-dialog-example";
-
 import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
 import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "@/app/docs/components/alert-dialog/codeTemplates";
+import { ExampleAccordion, ExampleAlertDialog, ExampleAutocomplete, ExampleAvatar } from "@/liftkit/examples";
 // import other components you want to preview
 
 export type Control =
@@ -409,8 +407,7 @@ export const componentManifest: Record<string, ComponentEntry> = {
         dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
       },
     },
-  }
-
+  },
 };
 
 export type ComponentName = keyof typeof componentManifest;
