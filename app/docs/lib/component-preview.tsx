@@ -44,6 +44,8 @@ interface ComponentPreviewProps {
 export function ComponentPreview({ componentName, initial_TS, initial_CSS }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
 
+  console.log(componentName);
+
   // Initialize state from defaults
   const [knobValues, setKnobValues] = useState<Record<string, any>>(() => {
     const initial: Record<string, any> = {};

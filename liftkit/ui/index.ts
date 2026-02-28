@@ -14,6 +14,7 @@ export * from "./fieldset/fieldset";
 export * from "./form/form";
 export * from "./goldenbox/goldenbox";
 export * from "./icon/icon";
+export * from "./icon-button/icon-button";
 export * from "./input/input";
 export * from "./menu/menu";
 export * from "./menubar/menubar";

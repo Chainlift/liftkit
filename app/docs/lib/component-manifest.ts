@@ -1,9 +1,11 @@
 import type * as React from "react";
 import { Button } from "@/liftkit/ui/button";
-import ExampleAccordion from "@/liftkit/ui/accordion/lk-example";
-import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-example";
+
+import ExampleAccordion from "@/liftkit/ui/accordion/lk-accordion-example";
+import ExampleAlertDialog from "@/liftkit/ui/alert-dialog/lk-alert-dialog-example";
 
 import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
+import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "@/app/docs/components/alert-dialog/codeTemplates";
 // import other components you want to preview
 
 export type Control =
@@ -273,7 +275,16 @@ export const componentManifest: Record<string, ComponentEntry> = {
   alertDialog: {
     title: "Alert Dialog",
     Component: ExampleAlertDialog,
-    knobs: {},
+    example_TS: (knobs) => AlertDialog_Example_TS(knobs),
+    example_CSS: (knobs) => AlertDialog_Example_CSS(knobs),
+    knobs: {
+      defaultOpen: {
+        kind: "boolean",
+        label: "Default Open",
+        default: false,
+        description: "Whether or not the dialog should be open by default.",
+      },
+    },
     subComponents: {
       Dialog: {
         description: "The root provider component for the alert dialog. Manages open/close state.",
@@ -398,7 +409,8 @@ export const componentManifest: Record<string, ComponentEntry> = {
         dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
       },
     },
-  },
+  }
+
 };
 
 export type ComponentName = keyof typeof componentManifest;

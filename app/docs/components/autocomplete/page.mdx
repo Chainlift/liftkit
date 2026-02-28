@@ -1,10 +1,43 @@
-import { LocalCodeSample } from "./example.tsx";
-import ExampleAutocomplete from "@/liftkit/ui/autocomplete/example";
-import AutocompleteDemo from "@/liftkit/ui/autocomplete/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Autocomplete_Example_TS, Autocomplete_Example_CSS } from "./codeTemplates";
+
+export const metadata = {
+  title: "Autocomplete",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Autocomplete
 
-Documentation for the Autocomplete component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="autoComplete" initial_TS={Autocomplete_Example_TS()} initial_CSS={Autocomplete_Example_CSS()}/>
+
+</div>
 
 
-<AutocompleteDemo />
+
+
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="accordion" subComponentName="Root" />
+
+<SubComponentDocs componentName="accordion" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

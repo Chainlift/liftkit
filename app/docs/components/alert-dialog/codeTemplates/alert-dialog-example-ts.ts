@@ -10,33 +10,35 @@ export function AlertDialog_Example_TS(updatedKnobVals: Record<string, any> = {}
 
   const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
-  return `import * as React from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
+  return `import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogClose,
+  AlertDialogAction,
+} from "@/liftkit/ui/alert-dialog/alert-dialog";
 
-/* STATIC SERVER */
-export default function ExampleAccordion() {
+export default function ExampleAlertDialog() {
   return (
     ${openTag}
-      <AccordionItem>
-        <AccordionTrigger>What is Base UI?</AccordionTrigger>
-        <AccordionContent>
-          Base UI is a library of high-quality unstyled React components for design systems and web apps.
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem>
-        <AccordionTrigger>How do I get started?</AccordionTrigger>
-        <AccordionContent>
-          Head to the "Quick start" guide in the docs. If you've used unstyled libraries before, you'll feel at home.
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem>
-        <AccordionTrigger>Can I use it for my project?</AccordionTrigger>
-        <AccordionContent>Of course! Base UI is free and open source.</AccordionContent>
-      </AccordionItem>
-    </Accordion>
+      <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Discard draft?</AlertDialogTitle>
+          <AlertDialogDescription>You can't undo this action.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogClose>Cancel</AlertDialogClose>
+          <AlertDialogAction>Discard</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
+
 `;
 }

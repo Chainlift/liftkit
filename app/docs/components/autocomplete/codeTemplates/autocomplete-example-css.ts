@@ -1,15 +1,9 @@
-export function LocalCssSample() {
-  return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
-      <code>{`.Input {
+import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
+import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
+
+export function Autocomplete_Example_CSS(updatedKnobVals: Record<string, any> = {}) {
+  return `
+  .Input {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;
@@ -125,7 +119,5 @@ export function LocalCssSample() {
   line-height: 1rem;
   color: var(--lk-onsurfacevariant);
 }
-`}</code>
-    </pre>
-  );
+`;
 }

@@ -1,15 +1,4 @@
-export function LocalCodeSample() {
-  return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
-      <code>{`"use client";
+"use client";
 import {
   Autocomplete,
   AutocompletePopup,
@@ -19,13 +8,13 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/ui/autocomplete/autocomplete";
+} from "@/liftkit/ui";
 import styles from "./autocomplete.module.css";
 
-export default function AutocompleteDemo() {
+export function ExampleAutocomplete() {
   return (
     <Autocomplete>
-      <label >
+      <label>
         Don't Search Tags
         <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />
       </label>
@@ -95,7 +84,3 @@ const tags: Tag[] = [
   { id: "c-toolbar", value: "component: toolbar" },
   { id: "c-tooltip", value: "component: tooltip" },
 ];
-`}</code>
-    </pre>
-  );
-}

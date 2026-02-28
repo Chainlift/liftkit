@@ -1,11 +1,13 @@
 import { componentManifest } from "@/app/docs/lib/component-manifest";
 
 export function getInitialKnobs(componentName: string) {
-  const manifest = componentManifest[componentName.toLowerCase() as keyof typeof componentManifest];
+  const manifestName = componentName.slice(0, 1).toLowerCase() + componentName.slice(1);
+
+  const manifest = componentManifest[manifestName as keyof typeof componentManifest];
 
   const initialKnobVals: Record<string, any> = {};
 
-  if (manifest.knobs) {
+  if (manifest && manifest.knobs) {
     for (const [key, control] of Object.entries(manifest.knobs)) {
       initialKnobVals[key] = control.default;
     }

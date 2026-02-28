@@ -14,14 +14,15 @@ export async function ComponentPreviewWrapper({
   initial_TS,
   initial_CSS,
 }: ComponentPreviewWrapperProps) {
-  const manifest = componentManifest[componentName];
 
-  const initialKnobVals: Record<string, any> = {};
-  if (manifest.knobs) {
-    for (const [key, control] of Object.entries(manifest.knobs)) {
-      initialKnobVals[key] = control.default;
-    }
-  }
+  // const manifest = componentManifest[componentName];
+
+  // const initialKnobVals: Record<string, any> = {};
+  // if (manifest.knobs) {
+  //   for (const [key, control] of Object.entries(manifest.knobs)) {
+  //     initialKnobVals[key] = control.default;
+  //   }
+  // }
 
   const preHighlightedTS = initial_TS ? await highlightCode(initial_TS, "tsx") : null;
   const preHighlightedCSS = initial_CSS ? await highlightCode(initial_CSS, "css") : null;
