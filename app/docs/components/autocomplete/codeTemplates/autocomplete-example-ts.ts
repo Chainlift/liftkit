@@ -10,8 +10,7 @@ export function Autocomplete_Example_TS(updatedKnobVals: Record<string, any> = {
 
   const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
-  return `
-  "use client";
+  return `"use client";
 import {
   Autocomplete,
   AutocompletePopup,
@@ -21,15 +20,15 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/ui/autocomplete/autocomplete";
-import styles from "./autocomplete.module.css";
+} from "@/liftkit/ui";
 
-export default function AutocompleteDemo() {
+
+export function ExampleAutocomplete() {
   return (
     <Autocomplete>
-      <label >
+      <label>
         Don't Search Tags
-        <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />
+        <AutocompleteInput placeholder="e.g. feature"  />
       </label>
       <AutocompletePortal>
         <AutocompletePositioner>
@@ -37,7 +36,7 @@ export default function AutocompleteDemo() {
             <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
             <AutocompleteList>
               {(tag: Tag) => (
-                <AutocompleteItem key={tag.id} className={styles.Item} value={tag}>
+                <AutocompleteItem key={tag.id}  value={tag}>
                   {tag.value}
                 </AutocompleteItem>
               )}

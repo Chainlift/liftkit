@@ -9,5 +9,15 @@ export function Button_Example_TS(updatedKnobVals: Record<string, any> = {}) {
 
   const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
-  return ``;
+  return `import { Button } from "@/liftkit/ui";
+
+export function ExampleButton() {
+  return (
+    <>
+    ${openTag}</Button>
+
+    </>
+  );
+}
+`;
 }

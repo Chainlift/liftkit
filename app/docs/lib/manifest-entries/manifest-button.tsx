@@ -1,9 +1,11 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
 import { ExampleButton } from "@/liftkit/examples";
+import { Button_Example_TS } from "@/app/docs/components/button/codeTemplates";
 
 const button: ComponentEntry = {
   title: "Button",
   Component: ExampleButton,
+  example_TS: (knobs) => Button_Example_TS(knobs),
   knobs: {
     children: { kind: "slot", label: "Label", default: "Button" },
     variant: {
