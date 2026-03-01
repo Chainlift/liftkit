@@ -1,20 +1,14 @@
 import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
+import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
 
-export function Accordion_Example_TS(knobs: Record<string, any> = {}) {
-  const initialKnobValues = getInitialKnobs("Accordion"); //knob defaults loaded statically from manifest
+export function Accordion_Example_TS(updatedKnobVals: Record<string, any> = {}) {
+  const componentName = "Accordion"; //should be the same case as the component tag
 
-  const dynamicKnobsLength = Object.entries(knobs).length;
+  const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
+  const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
+  const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
 
-  const propsString = Object.entries(dynamicKnobsLength > 0 ? knobs : initialKnobValues) //load default knobs by default, replace with dynamic
-    .filter(([_, v]) => v !== undefined && v !== "" && v !== false)
-    .map(([key, value]) => {
-      if (typeof value === "string") return `${key}="${value}"`;
-      if (typeof value === "boolean") return key; // boolean true → just the prop name
-      return `${key}={${JSON.stringify(value)}}`;
-    })
-    .join(" ");
-
-  const openTag = propsString ? `<Accordion ${propsString}>` : `<Accordion>`;
+  const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";

@@ -1,10 +1,44 @@
 import type * as React from "react";
-import { Button } from "@/liftkit/ui/button";
 
-import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
-import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "@/app/docs/components/alert-dialog/codeTemplates";
-import { ExampleAccordion, ExampleAlertDialog, ExampleAutocomplete, ExampleAvatar } from "@/liftkit/examples";
-// import other components you want to preview
+import { Accordion_Example_CSS, Accordion_Example_TS } from "@/app/docs/components";
+
+import { accordion } from "@/app/docs/lib/manifest-entries/manifest-accordion";
+import { alertDialog } from "@/app/docs/lib/manifest-entries/manifest-alert-dialog";
+import { autocomplete } from "@/app/docs/lib/manifest-entries/manifest-autocomplete";
+import { avatar } from "@/app/docs/lib/manifest-entries/manifest-avatar";
+import { button } from "@/app/docs/lib/manifest-entries/manifest-button";
+import { checkbox } from "@/app/docs/lib/manifest-entries/manifest-checkbox";
+import { checkboxGroup } from "@/app/docs/lib/manifest-entries/manifest-checkbox-group";
+import { collapsible } from "@/app/docs/lib/manifest-entries/manifest-collapsible";
+import { combobox } from "@/app/docs/lib/manifest-entries/manifest-combobox";
+import { contextMenu } from "@/app/docs/lib/manifest-entries/manifest-context-menu";
+import { dialog } from "@/app/docs/lib/manifest-entries/manifest-dialog";
+import { field } from "@/app/docs/lib/manifest-entries/manifest-field";
+import { fieldset } from "@/app/docs/lib/manifest-entries/manifest-fieldset";
+import { form } from "@/app/docs/lib/manifest-entries/manifest-form";
+import { icon } from "@/app/docs/lib/manifest-entries/manifest-icon";
+import { iconButton } from "@/app/docs/lib/manifest-entries/manifest-icon-button";
+import { input } from "@/app/docs/lib/manifest-entries/manifest-input";
+import { menu } from "@/app/docs/lib/manifest-entries/manifest-menu";
+import { menuBar } from "@/app/docs/lib/manifest-entries/manifest-menubar";
+import { meter } from "@/app/docs/lib/manifest-entries/manifest-meter";
+import { navigationMenu } from "@/app/docs/lib/manifest-entries/manifest-navigation-menu";
+import { numberField } from "@/app/docs/lib/manifest-entries/manifest-number-field";
+import { popover } from "@/app/docs/lib/manifest-entries/manifest-popover";
+import { previewCard } from "@/app/docs/lib/manifest-entries/manifest-preview-card";
+import { progress } from "@/app/docs/lib/manifest-entries/manifest-progress";
+import { radio } from "@/app/docs/lib/manifest-entries/manifest-radio";
+import { scrollArea } from "@/app/docs/lib/manifest-entries/manifest-scroll-area";
+import { select } from "@/app/docs/lib/manifest-entries/manifest-select";
+import { separator } from "@/app/docs/lib/manifest-entries/manifest-separator";
+import { slider } from "@/app/docs/lib/manifest-entries/manifest-slider";
+import { switchInput } from "@/app/docs/lib/manifest-entries/manifest-switch";
+import { tabs } from "@/app/docs/lib/manifest-entries/manifest-tabs";
+import { toast } from "@/app/docs/lib/manifest-entries/manifest-toast";
+import { toggle } from "@/app/docs/lib/manifest-entries/manifest-toggle";
+import { toggleGroup } from "@/app/docs/lib/manifest-entries/manifest-toggle-group";
+import { toolbar } from "@/app/docs/lib/manifest-entries/manifest-toolbar";
+import { tooltip } from "@/app/docs/lib/manifest-entries/manifest-tooltip";
 
 export type Control =
   | { kind: "boolean"; label?: string; description?: string; default?: boolean }
@@ -85,329 +119,43 @@ export type ComponentEntry = {
 };
 
 export const componentManifest: Record<string, ComponentEntry> = {
-  button: {
-    title: "Button",
-    Component: Button,
-    knobs: {
-      children: { kind: "slot", label: "Label", default: "Button" },
-      variant: {
-        kind: "select",
-        label: "Variant",
-        default: "fill",
-        options: [
-          { label: "Fill", value: "fill" },
-          { label: "Outline", value: "outline" },
-          { label: "Text", value: "text" },
-        ],
-      },
-      color: {
-        kind: "select",
-        label: "Color",
-        default: "primary",
-        options: [
-          { label: "Primary", value: "primary" },
-          { label: "Primary Container", value: "primarycontainer" },
-          { label: "Secondary", value: "secondary" },
-          { label: "Secondary Container", value: "secondarycontainer" },
-          { label: "Tertiary", value: "tertiary" },
-          { label: "Tertiary Container", value: "tertiarycontainer" },
-          { label: "Error", value: "error" },
-          { label: "Error Container", value: "errorcontainer" },
-          { label: "Success", value: "success" },
-          { label: "Success Container", value: "successcontainer" },
-          { label: "Warning", value: "warning" },
-          { label: "Warning Container", value: "warningcontainer" },
-          { label: "Info", value: "info" },
-          { label: "Info Container", value: "infocontainer" },
-          { label: "Background", value: "background" },
-          { label: "Surface", value: "surface" },
-          { label: "Surface Variant", value: "surfacevariant" },
-          { label: "Surface Container Lowest", value: "surfacecontainerlowest" },
-          { label: "Surface Container Low", value: "surfacecontainerlow" },
-          { label: "Surface Container", value: "surfacecontainer" },
-          { label: "Surface Container High", value: "surfacecontainerhigh" },
-          { label: "Surface Container Highest", value: "surfacecontainerhighest" },
-          { label: "Inverse Surface", value: "inversesurface" },
-          { label: "Transparent", value: "transparent" },
-          { label: "Surface Bright", value: "surfacebright" },
-          { label: "Surface Dim", value: "surfacedim" },
-        ],
-      },
-      fontClass: {
-        kind: "select",
-        label: "Font Class",
-        default: "body",
-        options: [
-          { label: "Display 1", value: "display1" },
-          { label: "Display 2", value: "display2" },
-          { label: "Title 1", value: "title1" },
-          { label: "Title 2", value: "title2" },
-          { label: "Title 3", value: "title3" },
-          { label: "Heading", value: "heading" },
-          { label: "Subheading", value: "subheading" },
-          { label: "Body", value: "body" },
-          { label: "Callout", value: "callout" },
-          { label: "Label", value: "label" },
-          { label: "Caption", value: "caption" },
-          { label: "Capline", value: "capline" },
-        ],
-      },
-      startIcon: {
-        kind: "select",
-        label: "Start Icon",
-        default: "",
-        options: [
-          { label: "None", value: "" },
-          { label: "Arrow Right", value: "arrow-right" },
-          { label: "Arrow Left", value: "arrow-left" },
-          { label: "Check", value: "check" },
-          { label: "X", value: "x" },
-          { label: "Plus", value: "plus" },
-          { label: "Minus", value: "minus" },
-          { label: "Search", value: "search" },
-          { label: "Settings", value: "settings" },
-          { label: "Download", value: "download" },
-          { label: "Upload", value: "upload" },
-          { label: "Heart", value: "heart" },
-          { label: "Star", value: "star" },
-          { label: "Trash", value: "trash" },
-          { label: "Edit", value: "edit" },
-          { label: "Save", value: "save" },
-        ],
-      },
-      endIcon: {
-        kind: "select",
-        label: "End Icon",
-        default: "",
-        options: [
-          { label: "None", value: "" },
-          { label: "Arrow Right", value: "arrow-right" },
-          { label: "Arrow Left", value: "arrow-left" },
-          { label: "Check", value: "check" },
-          { label: "X", value: "x" },
-          { label: "Plus", value: "plus" },
-          { label: "Minus", value: "minus" },
-          { label: "Search", value: "search" },
-          { label: "Settings", value: "settings" },
-          { label: "Download", value: "download" },
-          { label: "Upload", value: "upload" },
-          { label: "Heart", value: "heart" },
-          { label: "Star", value: "star" },
-          { label: "Trash", value: "trash" },
-          { label: "Edit", value: "edit" },
-          { label: "Save", value: "save" },
-        ],
-      },
-      disabled: { kind: "boolean", label: "Disabled", default: false },
-    },
-    mapKnobsToProps: (k) => ({
-      ...k,
-      children: k.children,
-      startIcon: k.startIcon || undefined,
-      endIcon: k.endIcon || undefined,
-    }),
-  },
-
-  accordion: {
-    title: "Accordion",
-    Component: ExampleAccordion, // A wrapper for the preview
-    example_TS: (knobs) => Accordion_Example_TS(knobs),
-    example_CSS: (knobs) => Accordion_Example_CSS(knobs),
-    knobs: {
-      multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
-      disabled: { kind: "boolean", label: "Disabled", default: false },
-      sample: { kind: "select", label: "Sample select", default: "option1", options: [] },
-    },
-    // NEW: Add sub-components here
-    subComponents: {
-      Root: {
-        description: "Groups all parts of the accordion.",
-        renders: "<div>",
-        props: [
-          {
-            name: "defaultValue",
-            type: "any[]",
-            description: "The uncontrolled value of the item(s) that should be initially expanded.",
-            required: false,
-          },
-          {
-            name: "multiple",
-            type: "boolean",
-            defaultValue: "false",
-            description: "Whether multiple items can be open at the same time.",
-            required: false,
-          },
-        ],
-        dataAttributes: [
-          {
-            name: "data-orientation",
-            description: "Indicates the orientation of the accordion.",
-          },
-          {
-            name: "data-disabled",
-            description: "Present when the accordion is disabled.",
-          },
-        ],
-      },
-      Item: {
-        description: "Groups an accordion header with the corresponding panel.",
-        renders: "<div>",
-        props: [
-          {
-            name: "value",
-            type: "any",
-            description: "A unique value that identifies this accordion item.",
-            required: false,
-          },
-        ],
-        dataAttributes: [
-          {
-            name: "data-open",
-            description: "Present when the accordion item is open.",
-          },
-        ],
-      },
-      // Add more sub-components as needed
-    },
-  },
-  alertDialog: {
-    title: "Alert Dialog",
-    Component: ExampleAlertDialog,
-    example_TS: (knobs) => AlertDialog_Example_TS(knobs),
-    example_CSS: (knobs) => AlertDialog_Example_CSS(knobs),
-    knobs: {
-      defaultOpen: {
-        kind: "boolean",
-        label: "Default Open",
-        default: false,
-        description: "Whether or not the dialog should be open by default.",
-      },
-    },
-    subComponents: {
-      Dialog: {
-        description: "The root provider component for the alert dialog. Manages open/close state.",
-        renders: "<div>",
-        props: [
-          {
-            name: "open",
-            type: "boolean",
-            description: "Controlled open state of the dialog.",
-            required: false,
-          },
-          {
-            name: "defaultOpen",
-            type: "boolean",
-            defaultValue: "false",
-            description: "The uncontrolled open state of the dialog.",
-            required: false,
-          },
-          {
-            name: "onOpenChange",
-            type: "(open: boolean) => void",
-            description: "Callback fired when the open state changes.",
-            required: false,
-          },
-        ],
-        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
-      },
-      AlertDialogTrigger: {
-        description: "The button that opens the alert dialog.",
-        renders: "<button>",
-        props: [],
-        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
-      },
-      AlertDialogPortal: {
-        description: "Portals the backdrop and popup out of the DOM hierarchy.",
-        props: [
-          {
-            name: "container",
-            type: "HTMLElement | null",
-            description: "The DOM element to portal into. Defaults to document.body.",
-            required: false,
-          },
-          {
-            name: "keepMounted",
-            type: "boolean",
-            defaultValue: "false",
-            description: "Whether to keep the portal mounted in the DOM when closed.",
-            required: false,
-          },
-        ],
-      },
-      AlertDialogBackdrop: {
-        description: "The semi-transparent overlay rendered behind the popup.",
-        renders: "<div>",
-        props: [],
-        dataAttributes: [
-          { name: "data-open", description: "Present when the dialog is open." },
-          { name: "data-starting-style", description: "Applied when the dialog is opening." },
-          { name: "data-ending-style", description: "Applied when the dialog is closing." },
-        ],
-      },
-      AlertDialogContent: {
-        description: "The popup panel. Automatically wraps AlertDialogPortal and AlertDialogBackdrop.",
-        renders: "<div>",
-        props: [
-          {
-            name: "size",
-            type: '"default" | "sm"',
-            defaultValue: '"default"',
-            description: "Controls the width of the popup.",
-            required: false,
-          },
-        ],
-        dataAttributes: [
-          { name: "data-open", description: "Present when the dialog is open." },
-          { name: "data-starting-style", description: "Applied when the dialog is opening." },
-          { name: "data-ending-style", description: "Applied when the dialog is closing." },
-        ],
-      },
-      AlertDialogHeader: {
-        description: "Layout wrapper for the dialog title and description.",
-        renders: "<div>",
-        props: [],
-      },
-      AlertDialogFooter: {
-        description: "Layout wrapper for the dialog action buttons.",
-        renders: "<div>",
-        props: [],
-      },
-      AlertDialogMedia: {
-        description: "Optional layout wrapper for media content within the dialog.",
-        renders: "<div>",
-        props: [],
-      },
-      AlertDialogTitle: {
-        description: "Accessible title for the alert dialog.",
-        renders: "<h2>",
-        props: [],
-      },
-      AlertDialogDescription: {
-        description: "Accessible description for the alert dialog.",
-        renders: "<p>",
-        props: [],
-      },
-      AlertDialogAction: {
-        description: "The confirm/destructive action button. Rendered as a LiftKit Button.",
-        renders: "<button>",
-        props: [],
-      },
-      AlertDialogClose: {
-        description: "The cancel/close button. Closes the dialog when clicked.",
-        renders: "<button>",
-        props: [
-          {
-            name: "variant",
-            type: '"fill" | "outline" | "text"',
-            defaultValue: '"outline"',
-            description: "Visual style variant passed to the underlying Button.",
-            required: false,
-          },
-        ],
-        dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
-      },
-    },
-  },
+  accordion: accordion,
+  alertDialog: alertDialog,
+  autocomplete: autocomplete,
+  avatar: avatar,
+  button: button,
+  checkboxGroup: checkboxGroup,
+  checkbox: checkbox,
+  collapsible: collapsible,
+  combobox: combobox,
+  contextMenu: contextMenu,
+  dialog: dialog,
+  field: field,
+  fieldset: fieldset,
+  form: form,
+  icon: icon,
+  iconButton: iconButton,
+  input: input,
+  menu: menu,
+  menuBar: menuBar,
+  meter: meter,
+  navigationMenu: navigationMenu,
+  numberField: numberField,
+  popover: popover,
+  previewCard: previewCard,
+  progress: progress,
+  radio: radio,
+  scrollArea: scrollArea,
+  select: select,
+  separator: separator,
+  slider: slider,
+  switch: switchInput,
+  tabs: tabs,
+  toast: toast,
+  toggle: toggle,
+  toggleGroup: toggleGroup,
+  toolbar: toolbar,
+  tooltip: tooltip,
 };
 
 export type ComponentName = keyof typeof componentManifest;

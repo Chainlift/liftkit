@@ -26,7 +26,7 @@ import styles from "./autocomplete.module.css";
 
 export default function AutocompleteDemo() {
   return (
-       ${openTag}
+    <Autocomplete>
       <label >
         Don't Search Tags
         <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />

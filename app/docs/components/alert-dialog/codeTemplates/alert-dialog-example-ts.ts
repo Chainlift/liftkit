@@ -2,7 +2,7 @@ import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
 import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
 
 export function AlertDialog_Example_TS(updatedKnobVals: Record<string, any> = {}) {
-  const componentName="AlertDialog" //should be the same case as the component tag
+  const componentName = "AlertDialog"; //should be the same case as the component tag
 
   const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
   const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
