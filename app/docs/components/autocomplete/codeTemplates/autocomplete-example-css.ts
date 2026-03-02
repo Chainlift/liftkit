@@ -1,5 +1,4 @@
-import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
-import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
+import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 
 export function Autocomplete_Example_CSS(updatedKnobVals: Record<string, any> = {}) {
   return `

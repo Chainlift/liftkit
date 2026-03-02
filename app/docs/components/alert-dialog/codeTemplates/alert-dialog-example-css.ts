@@ -1,14 +1,8 @@
-import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
-import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
+import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 
 export function AlertDialog_Example_CSS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "AlertDialog";
-
-  const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
-  const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
-  const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
-
-  const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
+  const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
   [data-slot="alert-dialog-trigger"],

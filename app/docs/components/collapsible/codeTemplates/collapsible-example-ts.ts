@@ -1,13 +1,35 @@
-import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
-import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
+import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 export function Collapsible_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "Collapsible"; //should be the same case as the component tag
+  const openTag = getOpenTag(componentName, updatedKnobVals);
 
-  const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
-  const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
-  const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
+  return `import * as React from "react";
+import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "./collapsible";
 
-  const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
+export default function CollapsibleDemo() {
+  return (
+    ${openTag}
+      <CollapsibleTrigger>
+        <ChevronIcon />
+        Recovery keys
+      </CollapsibleTrigger>
+      <CollapsiblePanel>
+        <div>
+          <div>alien-bean-pasta</div>
+          <div>wild-irish-burrito</div>
+          <div>horse-battery-staple</div>
+        </div>
+      </CollapsiblePanel>
+    </Collapsible>
+  );
+}
 
-  return ``;
+export function ChevronIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" {...props}>
+      <path d="M3.5 9L7.5 5L3.5 1" stroke="currentcolor" />
+    </svg>
+  );
+}
+`;
 }

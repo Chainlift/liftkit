@@ -1,13 +1,9 @@
-import { getInitialKnobs } from "@/app/docs/lib/getInitialKnobs";
-import { getPropsString } from "@/app/docs/lib/getInitialKnobs";
+import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 export function CheckboxGroup_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "CheckboxGroup"; //should be the same case as the component tag
+  const openTag = getOpenTag(componentName, updatedKnobVals);
 
-  const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
-  const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
-  const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
 
-  const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
   return `"use client";
 import * as React from "react";
@@ -17,7 +13,7 @@ import { Checkbox, CheckboxIndicator } from "@/liftkit/ui";
 export function ExampleCheckboxGroup() {
   const id = React.useId();
   return (
-    <CheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]}>
+    ${openTag}
       <div id={id}>Apples</div>
 
       <label>
