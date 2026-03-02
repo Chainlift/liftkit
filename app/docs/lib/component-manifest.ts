@@ -96,6 +96,19 @@ export type SubComponentEntry = {
   }>;
 };
 
+
+/*
+
+    mapKnobsToProps: (k) => ({
+      ...k,
+      children: k.children,
+      startIcon: k.startIcon || undefined,
+      endIcon: k.endIcon || undefined,
+    }),
+
+
+ */
+
 export type ComponentEntry = {
   title: string;
   // Component is a React component type; we keep props loosely typed in docs code

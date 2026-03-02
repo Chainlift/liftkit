@@ -1,9 +1,24 @@
-import { Button } from "@/liftkit/ui";
+import { Button, type ButtonProps } from "@/liftkit/ui";
 
-export function ExampleButton() {
+type ExampleButtonProps = Pick<ButtonProps, "children" | "variant" | "color" | "fontClass" | "startIcon" | "endIcon">;
+
+export function ExampleButton({
+  children = "Button",
+  variant = "fill",
+  color = "primary",
+  fontClass = "body",
+  startIcon,
+  endIcon,
+}: ExampleButtonProps) {
   return (
-    <>
-      <Button label="Button" />
-    </>
+    <Button
+      variant={variant}
+      color={color}
+      fontClass={fontClass}
+      startIcon={startIcon || undefined}
+      endIcon={endIcon || undefined}
+    >
+      {children}
+    </Button>
   );
 }

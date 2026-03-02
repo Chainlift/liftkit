@@ -11,7 +11,7 @@ export function Accordion_Example_TS(updatedKnobVals: Record<string, any> = {}) 
 
   // const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
 
-   const openTag = getOpenTag(componentName, updatedKnobVals)
+   const openTag = getOpenTag(componentName, updatedKnobVals, {}, "    ")
 
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
