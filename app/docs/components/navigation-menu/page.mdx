@@ -1,23 +1,20 @@
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
-import { NavigationMenu_Example_CSS, NavigationMenu_Example_TS } from "./codeTemplates";
+import { NavigationMenu_Example_TS } from "./codeTemplates/navigationMenu-example-ts.ts";
+import { NavigationMenu_Example_CSS } from "./codeTemplates/navigationMenu-example-css.ts";
 
 export const metadata = {
-    title: "Autocomplete",
-    description: "Interactive trigger component built on Base UI with LiftKit styling.",
+  title: "NavigationMenu",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
 };
 
-# Autocomplete
+# NavigationMenu
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ComponentPreviewWrapper componentName="autoComplete" initial_TS={NavigationMenu_Example_TS()} initial_CSS={Navigation_Menu_Example_CSS()}/>
+<ComponentPreviewWrapper componentName="navigationMenu" initial_TS={NavigationMenu_Example_TS()} initial_CSS={NavigationMenu_Example_CSS()}/>
 
 </div>
-
-
-
-
 
 
 ## Installation
@@ -32,9 +29,9 @@ npm install some-instructions-here-idk
 
 ## Subcomponents
 
-<SubComponentDocs componentName="accordion" subComponentName="Root" />
+<SubComponentDocs componentName="navigationMenu" subComponentName="Root" />
 
-<SubComponentDocs componentName="accordion" subComponentName="Item" />
+<SubComponentDocs componentName="navigationMenu" subComponentName="Item" />
 
 ## Installation
 

@@ -3,5 +3,12 @@ export function Icon_Example_TS(updatedKnobVals: Record<string, unknown> = {}) {
   const componentName = "Icon"; //should be the same case as the component tag
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
-  return ``;
+  return `
+  import { Icon } from "@/liftkit/ui/icon/icon";
+  
+  export function ExampleIcon() {
+    return ${openTag}</Icon>;
+  }
+  
+  `;
 }

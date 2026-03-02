@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ComboboxDemo from "@/liftkit/ui/combobox/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Combobox_Example_TS } from "./codeTemplates/combobox-example-ts.ts";
+import { Combobox_Example_CSS } from "./codeTemplates/combobox-example-css.ts";
+
+export const metadata = {
+  title: "Combobox",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Combobox
 
-Documentation for the Combobox component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ComboboxDemo />
+<ComponentPreviewWrapper componentName="combobox" initial_TS={Combobox_Example_TS()} initial_CSS={Combobox_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="combobox" subComponentName="Root" />
+
+<SubComponentDocs componentName="combobox" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import MenuDemo from "@/liftkit/ui/menu/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Menu_Example_TS } from "./codeTemplates/menu-example-ts.ts";
+import { Menu_Example_CSS } from "./codeTemplates/menu-example-css.ts";
+
+export const metadata = {
+  title: "Menu",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Menu
 
-Documentation for the Menu component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<MenuDemo />
+<ComponentPreviewWrapper componentName="menu" initial_TS={Menu_Example_TS()} initial_CSS={Menu_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="menu" subComponentName="Root" />
+
+<SubComponentDocs componentName="menu" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

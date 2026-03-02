@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import PopoverDemo from "@/liftkit/ui/popover/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Popover_Example_TS } from "./codeTemplates/popover-example-ts.ts";
+import { Popover_Example_CSS } from "./codeTemplates/popover-example-css.ts";
+
+export const metadata = {
+  title: "Popover",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Popover
 
-Documentation for the Popover component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<PopoverDemo />
+<ComponentPreviewWrapper componentName="popover" initial_TS={Popover_Example_TS()} initial_CSS={Popover_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="popover" subComponentName="Root" />
+
+<SubComponentDocs componentName="popover" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

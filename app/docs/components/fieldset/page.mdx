@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import FieldsetDemo from "@/liftkit/ui/fieldset/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Fieldset_Example_TS } from "./codeTemplates/fieldset-example-ts.ts";
+import { Fieldset_Example_CSS } from "./codeTemplates/fieldset-example-css.ts";
+
+export const metadata = {
+  title: "Fieldset",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Fieldset
 
-Documentation for the Fieldset component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<FieldsetDemo />
+<ComponentPreviewWrapper componentName="fieldset" initial_TS={Fieldset_Example_TS()} initial_CSS={Fieldset_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="fieldset" subComponentName="Root" />
+
+<SubComponentDocs componentName="fieldset" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

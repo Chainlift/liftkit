@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ToggleDemo from "@/liftkit/ui/toggle/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Toggle_Example_TS } from "./codeTemplates/toggle-example-ts.ts";
+import { Toggle_Example_CSS } from "./codeTemplates/toggle-example-css.ts";
+
+export const metadata = {
+  title: "Toggle",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Toggle
 
-Documentation for the Toggle component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ToggleDemo />
+<ComponentPreviewWrapper componentName="toggle" initial_TS={Toggle_Example_TS()} initial_CSS={Toggle_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="toggle" subComponentName="Root" />
+
+<SubComponentDocs componentName="toggle" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

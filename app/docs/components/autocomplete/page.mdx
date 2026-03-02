@@ -1,6 +1,7 @@
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
-import { Autocomplete_Example_TS, Autocomplete_Example_CSS } from "./codeTemplates";
+import { Autocomplete_Example_TS } from "./codeTemplates/autocomplete-example-ts.ts";
+import { Autocomplete_Example_CSS } from "./codeTemplates/autocomplete-example-css.ts";
 
 export const metadata = {
   title: "Autocomplete",
@@ -11,13 +12,9 @@ export const metadata = {
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ComponentPreviewWrapper componentName="autoComplete" initial_TS={Autocomplete_Example_TS()} initial_CSS={Autocomplete_Example_CSS()}/>
+<ComponentPreviewWrapper componentName="autocomplete" initial_TS={Autocomplete_Example_TS()} initial_CSS={Autocomplete_Example_CSS()}/>
 
 </div>
-
-
-
-
 
 
 ## Installation
@@ -32,9 +29,9 @@ npm install some-instructions-here-idk
 
 ## Subcomponents
 
-<SubComponentDocs componentName="accordion" subComponentName="Root" />
+<SubComponentDocs componentName="autocomplete" subComponentName="Root" />
 
-<SubComponentDocs componentName="accordion" subComponentName="Item" />
+<SubComponentDocs componentName="autocomplete" subComponentName="Item" />
 
 ## Installation
 

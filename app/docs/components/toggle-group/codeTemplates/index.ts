@@ -1,2 +1,2 @@
-export { ToggleGroup_Example_CSS } from "./toggle-group-example-css";
-export { ToggleGroup_Example_TS } from "./toggle-group-example-ts";
+export { ToggleGroup_Example_CSS } from "./toggleGroup-example-css";
+export { ToggleGroup_Example_TS } from "./toggleGroup-example-ts";

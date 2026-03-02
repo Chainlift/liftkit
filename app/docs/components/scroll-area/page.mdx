@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ScrollAreaDemo from "@/liftkit/ui/scroll-area/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { ScrollArea_Example_TS } from "./codeTemplates/scrollArea-example-ts.ts";
+import { ScrollArea_Example_CSS } from "./codeTemplates/scrollArea-example-css.ts";
 
-# Scroll Area
+export const metadata = {
+  title: "ScrollArea",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Scroll Area component.
+# ScrollArea
 
-<ScrollAreaDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="scrollArea" initial_TS={ScrollArea_Example_TS()} initial_CSS={ScrollArea_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="scrollArea" subComponentName="Root" />
+
+<SubComponentDocs componentName="scrollArea" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

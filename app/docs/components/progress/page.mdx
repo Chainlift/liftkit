@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ProgressDemo from "@/liftkit/ui/progress/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Progress_Example_TS } from "./codeTemplates/progress-example-ts.ts";
+import { Progress_Example_CSS } from "./codeTemplates/progress-example-css.ts";
+
+export const metadata = {
+  title: "Progress",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Progress
 
-Documentation for the Progress component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ProgressDemo />
+<ComponentPreviewWrapper componentName="progress" initial_TS={Progress_Example_TS()} initial_CSS={Progress_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="progress" subComponentName="Root" />
+
+<SubComponentDocs componentName="progress" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

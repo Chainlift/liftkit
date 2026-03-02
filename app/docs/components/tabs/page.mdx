@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import TabsDemo from "@/liftkit/ui/tabs/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Tabs_Example_TS } from "./codeTemplates/tabs-example-ts.ts";
+import { Tabs_Example_CSS } from "./codeTemplates/tabs-example-css.ts";
+
+export const metadata = {
+  title: "Tabs",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Tabs
 
-Documentation for the Tabs component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<TabsDemo />
+<ComponentPreviewWrapper componentName="tabs" initial_TS={Tabs_Example_TS()} initial_CSS={Tabs_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="tabs" subComponentName="Root" />
+
+<SubComponentDocs componentName="tabs" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import CheckboxDemo from "@/liftkit/ui/checkbox/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Checkbox_Example_TS } from "./codeTemplates/checkbox-example-ts.ts";
+import { Checkbox_Example_CSS } from "./codeTemplates/checkbox-example-css.ts";
+
+export const metadata = {
+  title: "Checkbox",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Checkbox
 
-Documentation for the Checkbox component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<CheckboxDemo />
+<ComponentPreviewWrapper componentName="checkbox" initial_TS={Checkbox_Example_TS()} initial_CSS={Checkbox_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="checkbox" subComponentName="Root" />
+
+<SubComponentDocs componentName="checkbox" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

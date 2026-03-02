@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import SelectDemo from "@/liftkit/ui/select/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Select_Example_TS } from "./codeTemplates/select-example-ts.ts";
+import { Select_Example_CSS } from "./codeTemplates/select-example-css.ts";
+
+export const metadata = {
+  title: "Select",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Select
 
-Documentation for the Select component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<SelectDemo />
+<ComponentPreviewWrapper componentName="select" initial_TS={Select_Example_TS()} initial_CSS={Select_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="select" subComponentName="Root" />
+
+<SubComponentDocs componentName="select" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

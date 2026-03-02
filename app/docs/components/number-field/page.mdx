@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import NumberFieldDemo from "@/liftkit/ui/number-field/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { NumberField_Example_TS } from "./codeTemplates/numberField-example-ts.ts";
+import { NumberField_Example_CSS } from "./codeTemplates/numberField-example-css.ts";
 
-# Number Field
+export const metadata = {
+  title: "NumberField",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Number Field component.
+# NumberField
 
-<NumberFieldDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="numberField" initial_TS={NumberField_Example_TS()} initial_CSS={NumberField_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="numberField" subComponentName="Root" />
+
+<SubComponentDocs componentName="numberField" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ExampleAvatar from "@/liftkit/ui/avatar/example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Avatar_Example_TS } from "./codeTemplates/avatar-example-ts.ts";
+import { Avatar_Example_CSS } from "./codeTemplates/avatar-example-css.ts";
+
+export const metadata = {
+  title: "Avatar",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Avatar
 
-Documentation for the Avatar component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ExampleAvatar />
+<ComponentPreviewWrapper componentName="avatar" initial_TS={Avatar_Example_TS()} initial_CSS={Avatar_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="avatar" subComponentName="Root" />
+
+<SubComponentDocs componentName="avatar" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

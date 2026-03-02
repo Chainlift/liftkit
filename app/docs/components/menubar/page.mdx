@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import MenubarDemo from "@/liftkit/ui/menubar/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Menubar_Example_TS } from "./codeTemplates/menubar-example-ts.ts";
+import { Menubar_Example_CSS } from "./codeTemplates/menubar-example-css.ts";
+
+export const metadata = {
+  title: "Menubar",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Menubar
 
-Documentation for the Menubar component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<MenubarDemo />
+<ComponentPreviewWrapper componentName="menubar" initial_TS={Menubar_Example_TS()} initial_CSS={Menubar_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="menubar" subComponentName="Root" />
+
+<SubComponentDocs componentName="menubar" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

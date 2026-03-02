@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import PreviewCardDemo from "@/liftkit/ui/preview-card/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { PreviewCard_Example_TS } from "./codeTemplates/previewCard-example-ts.ts";
+import { PreviewCard_Example_CSS } from "./codeTemplates/previewCard-example-css.ts";
 
-# Preview Card
+export const metadata = {
+  title: "PreviewCard",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Preview Card component.
+# PreviewCard
 
-<PreviewCardDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="previewCard" initial_TS={PreviewCard_Example_TS()} initial_CSS={PreviewCard_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="previewCard" subComponentName="Root" />
+
+<SubComponentDocs componentName="previewCard" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

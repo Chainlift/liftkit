@@ -1,2 +1,2 @@
-export { ContextMenu_Example_CSS } from "./context-menu-example-css";
-export { ContextMenu_Example_TS } from "./context-menu-example-ts";
+export { ContextMenu_Example_CSS } from "./contextMenu-example-css";
+export { ContextMenu_Example_TS } from "./contextMenu-example-ts";

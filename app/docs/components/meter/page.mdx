@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import MeterDemo from "@/liftkit/ui/meter/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Accordion_Example_TS } from "./codeTemplates/meter-example-ts.ts";
+import { Accordion_Example_CSS } from "./codeTemplates/meter-example-css.ts";
 
-# Meter
+export const metadata = {
+  title: "Accordion",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Meter component.
+# Accordion
 
-<MeterDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="meter" initial_TS={Accordion_Example_TS()} initial_CSS={Accordion_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="meter" subComponentName="Root" />
+
+<SubComponentDocs componentName="meter" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

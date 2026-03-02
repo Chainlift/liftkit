@@ -1,9 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ExampleToast from "@/liftkit/ui/toast/example";
-import ToastDemo from "@/liftkit/ui/toast/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Toast_Example_TS } from "./codeTemplates/toast-example-ts.ts";
+import { Toast_Example_CSS } from "./codeTemplates/toast-example-css.ts";
+
+export const metadata = {
+  title: "Toast",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Toast
 
-Documentation for the Toast component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ToastDemo />
+<ComponentPreviewWrapper componentName="toast" initial_TS={Toast_Example_TS()} initial_CSS={Toast_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="toast" subComponentName="Root" />
+
+<SubComponentDocs componentName="toast" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

@@ -1,6 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import DialogDemo from "@/liftkit/ui/dialog/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Dialog_Example_TS } from "./codeTemplates/dialog-example-ts.ts";
+import { Dialog_Example_CSS } from "./codeTemplates/dialog-example-css.ts";
+
+export const metadata = {
+  title: "Dialog",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Dialog
 
-<DialogDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="dialog" initial_TS={Dialog_Example_TS()} initial_CSS={Dialog_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="dialog" subComponentName="Root" />
+
+<SubComponentDocs componentName="dialog" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

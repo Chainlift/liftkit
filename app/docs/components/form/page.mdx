@@ -1,8 +1,40 @@
-import { Form_Example_TS } from "./codeTemplates"
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Form_Example_TS } from "./codeTemplates/form-example-ts.ts";
+import { Form_Example_CSS } from "./codeTemplates/form-example-css.ts";
+
+export const metadata = {
+  title: "Form",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Form
 
-Documentation for the Form component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ComponentPreviewWrapper componentName="form" initial_TS={Form_Example_TS()} />
+<ComponentPreviewWrapper componentName="form" initial_TS={Form_Example_TS()} initial_CSS={Form_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="form" subComponentName="Root" />
+
+<SubComponentDocs componentName="form" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

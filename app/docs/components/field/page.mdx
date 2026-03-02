@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import FieldDemo from "@/liftkit/ui/field/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Field_Example_TS } from "./codeTemplates/field-example-ts.ts";
+import { Field_Example_CSS } from "./codeTemplates/field-example-css.ts";
+
+export const metadata = {
+  title: "Field",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Field
 
-Documentation for the Field component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<FieldDemo />
+<ComponentPreviewWrapper componentName="field" initial_TS={Field_Example_TS()} initial_CSS={Field_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="field" subComponentName="Root" />
+
+<SubComponentDocs componentName="field" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

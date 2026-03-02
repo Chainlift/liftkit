@@ -1,9 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ExampleToolbar from "@/liftkit/ui/toolbar/example";
-import ToolbarDemo from "@/liftkit/ui/toolbar/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Toolbar_Example_TS } from "./codeTemplates/toolbar-example-ts.ts";
+import { Toolbar_Example_CSS } from "./codeTemplates/toolbar-example-css.ts";
+
+export const metadata = {
+  title: "Toolbar",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Toolbar
 
-Documentation for the Toolbar component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ToolbarDemo />
+<ComponentPreviewWrapper componentName="toolbar" initial_TS={Toolbar_Example_TS()} initial_CSS={Toolbar_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="toolbar" subComponentName="Root" />
+
+<SubComponentDocs componentName="toolbar" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

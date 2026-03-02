@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ContextMenuDemo from "@/liftkit/ui/context-menu/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { ContextMenu_Example_TS } from "./codeTemplates/contextMenu-example-ts.ts";
+import { ContextMenu_Example_CSS } from "./codeTemplates/contextMenu-example-css.ts";
 
-# Context Menu
+export const metadata = {
+  title: "ContextMenu",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Context Menu component.
+# ContextMenu
 
-<ContextMenuDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="contextMenu" initial_TS={ContextMenu_Example_TS()} initial_CSS={ContextMenu_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="contextMenu" subComponentName="Root" />
+
+<SubComponentDocs componentName="contextMenu" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

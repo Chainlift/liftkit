@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import SeparatorDemo from "@/liftkit/ui/separator/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Separator_Example_TS } from "./codeTemplates/separator-example-ts.ts";
+import { Separator_Example_CSS } from "./codeTemplates/separator-example-css.ts";
+
+export const metadata = {
+  title: "Separator",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Separator
 
-Documentation for the Separator component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<SeparatorDemo />
+<ComponentPreviewWrapper componentName="separator" initial_TS={Separator_Example_TS()} initial_CSS={Separator_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="separator" subComponentName="Root" />
+
+<SubComponentDocs componentName="separator" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

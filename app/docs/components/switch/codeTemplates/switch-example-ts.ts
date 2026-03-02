@@ -3,5 +3,19 @@ export function Switch_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "Switch"; //should be the same case as the component tag
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
-  return ``;
+  return `
+  import { Switch, SwitchThumb } from "@/liftkit/ui";
+
+export function ExampleSwitch() {
+  return (
+    <label>
+      ${openTag}
+        <SwitchThumb />
+      </Switch>
+      Notifications
+    </label>
+  );
+}
+
+  `;
 }

@@ -1,9 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import ExampleTooltip from "@/liftkit/ui/tooltip/example";
-import TooltipDemo from "@/liftkit/ui/tooltip/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Tooltip_Example_TS } from "./codeTemplates/tooltip-example-ts.ts";
+import { Tooltip_Example_CSS } from "./codeTemplates/tooltip-example-css.ts";
+
+export const metadata = {
+  title: "Tooltip",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Tooltip
 
-Documentation for the Tooltip component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<TooltipDemo />
+<ComponentPreviewWrapper componentName="tooltip" initial_TS={Tooltip_Example_TS()} initial_CSS={Tooltip_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="tooltip" subComponentName="Root" />
+
+<SubComponentDocs componentName="tooltip" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import CheckboxGroupDemo from "@/liftkit/ui/checkbox-group/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { CheckboxGroup_Example_TS } from "./codeTemplates/checkboxGroup-example-ts.ts";
+import { CheckboxGroup_Example_CSS } from "./codeTemplates/checkboxGroup-example-css.ts";
 
-# Checkbox Group
+export const metadata = {
+  title: "CheckboxGroup",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
-Documentation for the Checkbox Group component.
+# CheckboxGroup
 
-<CheckboxGroupDemo />
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
+
+<ComponentPreviewWrapper componentName="checkboxGroup" initial_TS={CheckboxGroup_Example_TS()} initial_CSS={CheckboxGroup_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="checkboxGroup" subComponentName="Root" />
+
+<SubComponentDocs componentName="checkboxGroup" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

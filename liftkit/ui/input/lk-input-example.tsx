@@ -4,7 +4,7 @@ export default function InputDemo() {
   return (
     <label>
       Name
-      <Input placeholder="Enter your name" />
+      <Input placeholder="Enter your name"></Input>
     </label>
   );
 }

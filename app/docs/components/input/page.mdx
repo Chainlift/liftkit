@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import InputDemo from "@/liftkit/ui/input/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Input_Example_TS } from "./codeTemplates/input-example-ts.ts";
+import { Input_Example_CSS } from "./codeTemplates/input-example-css.ts";
+
+export const metadata = {
+  title: "Input",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Input
 
-Documentation for the Input component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<InputDemo />
+<ComponentPreviewWrapper componentName="input" initial_TS={Input_Example_TS()} initial_CSS={Input_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="input" subComponentName="Root" />
+
+<SubComponentDocs componentName="input" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

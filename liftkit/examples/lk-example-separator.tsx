@@ -8,7 +8,7 @@ export function ExampleSeparator() {
       <a href="#">Blog</a>
       <a href="#">Support</a>
 
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical"></Separator>
 
       <a href="#">Log in</a>
       <a href="#">Sign up</a>

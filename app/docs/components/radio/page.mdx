@@ -1,9 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import RadioDemo from "@/liftkit/ui/radio/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Radio_Example_TS } from "./codeTemplates/radio-example-ts.ts";
+import { Radio_Example_CSS } from "./codeTemplates/radio-example-css.ts";
+
+export const metadata = {
+  title: "Radio",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Radio
 
-Documentation for the Radio component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ExampleRadioGroup />
-<RadioDemo />
+<ComponentPreviewWrapper componentName="radio" initial_TS={Radio_Example_TS()} initial_CSS={Radio_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="radio" subComponentName="Root" />
+
+<SubComponentDocs componentName="radio" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```

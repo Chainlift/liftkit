@@ -1,6 +1,7 @@
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
-import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "./codeTemplates";
+import { AlertDialog_Example_TS } from "./codeTemplates/alertDialog-example-ts.ts";
+import { AlertDialog_Example_CSS } from "./codeTemplates/alertDialog-example-css.ts";
 
 export const metadata = {
   title: "AlertDialog",
@@ -16,10 +17,6 @@ export const metadata = {
 </div>
 
 
-
-
-
-
 ## Installation
 
 <div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
@@ -32,9 +29,9 @@ npm install some-instructions-here-idk
 
 ## Subcomponents
 
-<SubComponentDocs componentName="accordion" subComponentName="Root" />
+<SubComponentDocs componentName="alertDialog" subComponentName="Root" />
 
-<SubComponentDocs componentName="accordion" subComponentName="Item" />
+<SubComponentDocs componentName="alertDialog" subComponentName="Item" />
 
 ## Installation
 

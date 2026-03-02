@@ -1,8 +1,40 @@
-import { LocalCodeSample } from "./example.tsx";
-import CollapsibleDemo from "@/liftkit/ui/collapsible/lk-example";
+import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
+import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { Collapsible_Example_TS } from "./codeTemplates/collapsible-example-ts.ts";
+import { Collapsible_Example_CSS } from "./codeTemplates/collapsible-example-css.ts";
+
+export const metadata = {
+  title: "Collapsible",
+  description: "Interactive trigger component built on Base UI with LiftKit styling.",
+};
 
 # Collapsible
 
-Documentation for the Collapsible component.
+<div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<CollapsibleDemo />
+<ComponentPreviewWrapper componentName="collapsible" initial_TS={Collapsible_Example_TS()} initial_CSS={Collapsible_Example_CSS()}/>
+
+</div>
+
+
+## Installation
+
+<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+
+```bash
+npm install some-instructions-here-idk
+```
+
+</div>
+
+## Subcomponents
+
+<SubComponentDocs componentName="collapsible" subComponentName="Root" />
+
+<SubComponentDocs componentName="collapsible" subComponentName="Item" />
+
+## Installation
+
+```bash
+npm install @liftkit/ui @liftkit/styles
+```
