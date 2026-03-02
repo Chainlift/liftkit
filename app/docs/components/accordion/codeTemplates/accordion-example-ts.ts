@@ -5,8 +5,13 @@ import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 export function Accordion_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "Accordion"; //should be the same case as the component tag
 
+  // const initialKnobValues = getInitialKnobs(componentName); //knob defaults loaded statically from manifest
+  // const updatedKnobValsLength = Object.entries(updatedKnobVals).length;
+  // const propsString = getPropsString(updatedKnobValsLength > 0 ? updatedKnobVals : initialKnobValues);
 
-  const openTag = getOpenTag(componentName, updatedKnobVals);
+  // const openTag = propsString ? `<${componentName} ${propsString}>` : `<${componentName}>`;
+
+   const openTag = getOpenTag(componentName, updatedKnobVals)
 
   return `import * as React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";

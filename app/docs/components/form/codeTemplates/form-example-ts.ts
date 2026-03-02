@@ -5,21 +5,9 @@ import { getOpenTag } from "@/app/docs/lib/codeTemplateUtils";
 export function Form_Example_TS(knobValsFromClient: Record<string, unknown> = {}) {
   const componentName = "Form"; //should be the same case as the component tag
 
-  const openTag = getOpenTag(componentName, knobValsFromClient);
-  return `"use client";
-import * as React from "react";
-import { Form } from "./form";
-import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/ui/field/field";
-import { Button } from "@/liftkit/ui/button/button";
-
-export default function FormDemo() {
-  const [errors, setErrors] = React.useState({});
-  const [loading, setLoading] = React.useState(false);
-
-  return (
-    <Form
-      errors={errors}
-      onSubmit={async (event) => {
+  const staticProps = {
+    errors: "{errors}",
+    onSubmit: `onSubmit={async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
         const value = formData.get("url") as string;
@@ -32,8 +20,22 @@ export default function FormDemo() {
 
         setErrors(serverErrors);
         setLoading(false);
-      }}
-    >
+      }}`,
+  };
+
+  const openTag = getOpenTag(componentName, knobValsFromClient, staticProps);
+  return `"use client";
+import * as React from "react";
+import { Form } from "./form";
+import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/ui/field/field";
+import { Button } from "@/liftkit/ui/button/button";
+
+export default function FormDemo() {
+  const [errors, setErrors] = React.useState({});
+  const [loading, setLoading] = React.useState(false);
+
+  return (
+  ${openTag}
       <Field name="url">
         <FieldLabel>Homepage</FieldLabel>
         <FieldControl

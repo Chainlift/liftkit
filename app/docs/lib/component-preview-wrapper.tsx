@@ -24,6 +24,7 @@ export async function ComponentPreviewWrapper({
   //   }
   // }
 
+
   const preHighlightedTS = initial_TS ? await highlightCode(initial_TS, "tsx") : null;
   const preHighlightedCSS = initial_CSS ? await highlightCode(initial_CSS, "css") : null;
 
