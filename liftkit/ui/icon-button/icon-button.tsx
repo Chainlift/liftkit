@@ -5,7 +5,7 @@ import { Icon } from "@/liftkit/ui/icon/icon";
 import { StateLayer } from "@/liftkit/ui/state-layer/state-layer";
 import { LkStateLayerProps } from "@/liftkit/ui/state-layer";
 import { IconName } from "lucide-react/dynamic";
-import "./lk-icon-button.css";
+import "@/liftkit/component-css/lk-icon-button.css";
 
 // declare global {
 //   type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";

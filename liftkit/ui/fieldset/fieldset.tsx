@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Fieldset as FieldsetPrimitive } from "@base-ui/react/fieldset";
-import "./lk-fieldset.css";
+import "@/liftkit/component-css/lk-fieldset.css";
 
 function Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {
   return <FieldsetPrimitive.Root data-slot="fieldset" className={cn(className)} {...props} />;

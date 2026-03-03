@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
-import "./lk-progress.css";
+import "@/liftkit/component-css/lk-progress.css";
 
 function Progress({ className, ...props }: ProgressPrimitive.Root.Props) {
   return <ProgressPrimitive.Root data-slot="progress" className={cn(className)} {...props} />;

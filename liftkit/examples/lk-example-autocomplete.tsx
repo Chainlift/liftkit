@@ -13,7 +13,7 @@ import {
 
 export function ExampleAutocomplete() {
   return (
-    <Autocomplete>
+    <Autocomplete items={tags}>
       <label>
         Don't Search Tags
         <AutocompleteInput placeholder="e.g. feature"  />

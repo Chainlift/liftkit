@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
-import "./lk-tooltip.css";
+import "@/liftkit/component-css/lk-tooltip.css";
 
 function TooltipProvider({ ...props }: TooltipPrimitive.Provider.Props) {
   return <TooltipPrimitive.Provider {...props} />;

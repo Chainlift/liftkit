@@ -1,4 +1,4 @@
-import "./lk-state-layer.css";
+import "@/liftkit/component-css/lk-state-layer.css";
 
 export interface LkStateLayerProps {
   bgColor?: LkColor | "currentColor";

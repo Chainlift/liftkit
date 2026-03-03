@@ -38,30 +38,7 @@ export default function ExampleAutocomplete() {
   );
 }
 
-export function ExampleAutocomplete2() {
-  return (
-    <Autocomplete>
-      <label >
-        Don't Search Tags
-        <AutocompleteInput placeholder="e.g. feature" className={styles.Input} />
-      </label>
-      <AutocompletePortal>
-        <AutocompletePositioner>
-          <AutocompletePopup>
-            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-            <AutocompleteList>
-              {(tag: Tag) => (
-                <AutocompleteItem key={tag.id} className={styles.Item} value={tag}>
-                  {tag.value}
-                </AutocompleteItem>
-              )}
-            </AutocompleteList>
-          </AutocompletePopup>
-        </AutocompletePositioner>
-      </AutocompletePortal>
-    </Autocomplete>
-  );
-}
+
 
 interface Tag {
   id: string;

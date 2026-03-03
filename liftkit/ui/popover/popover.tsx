@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
-import "./lk-popover.css";
+import "@/liftkit/component-css/lk-popover.css";
 
 function Popover({ ...props }: PopoverPrimitive.Root.Props) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";
-import "./lk-number-field.css";
+import "@/liftkit/component-css/lk-number-field.css";
 
 function NumberField({ className, ...props }: NumberFieldPrimitive.Root.Props) {
   return <NumberFieldPrimitive.Root data-slot="number-field" className={cn(className)} {...props} />;

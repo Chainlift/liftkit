@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "./lk-goldenbox.css";
+import "@/liftkit/component-css/lk-goldenbox.css";
 
 export interface LkGoldenBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";
@@ -26,8 +26,6 @@ export function GoldenBox({
   asChild = false,
   ...restProps
 }: LkGoldenBoxProps) {
-
-
   const lkGoldenBoxAttrs = useMemo(() => propsToDataAttrs({ scaleFactor }, "golden-box"), [scaleFactor]);
 
   return (

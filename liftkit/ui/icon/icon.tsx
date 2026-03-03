@@ -1,6 +1,6 @@
 import { DynamicIcon } from "lucide-react/dynamic";
 import type { IconName } from "lucide-react/dynamic";
-import "./lk-icon.css";
+import "@/liftkit/component-css/lk-icon.css";
 
 export interface LkIconProps extends React.HTMLAttributes<HTMLElement> {
   name?: IconName;

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/cn";
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
-import "./lk-slider.css";
+import "@/liftkit/component-css/lk-slider.css";
 
 function Slider({ ...props }: SliderPrimitive.Root.Props) {
   return <SliderPrimitive.Root data-slot="slider" {...props} />;
