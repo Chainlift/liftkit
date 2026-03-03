@@ -16,7 +16,7 @@ export function ExampleAutocomplete() {
     <Autocomplete items={tags}>
       <label>
         Don't Search Tags
-        <AutocompleteInput placeholder="e.g. feature"  />
+        <AutocompleteInput placeholder="e.g. feature"/>
       </label>
       <AutocompletePortal>
         <AutocompletePositioner>
