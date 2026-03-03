@@ -53,14 +53,14 @@ function AccordionTrigger({ className, ...props }: Accordion.Trigger.Props) {
 
 Use `Extract<Type, ...>` to narrow union types (NOT `Pick<>` — that's for objects only).
 
-### CSS Architecture (`liftkit/styles/`)
+### CSS Architecture (`liftkit/utility-classes/`)
 
 - **Golden ratio scale**: `--lk-scalefactor: 1.618` in `liftkit-core.css`
 - Size tokens: `--lk-size-{5xs..4xl}` calculated as powers of scale factor
 - **Typography classes redefine `--lk-size-md`** relative to their line height, making child spacing proportional to text size
 - Material Design 3 color palette with light/dark CSS variables (`--light__*_lkv`, `--dark__*_lkv`)
 - 35+ utility CSS files imported via `index.css`, classes: `bg-{color}`, `mb-{size}`, `flex`, etc.
-- Entry point: `app/globals.css` → `@import "../liftkit/styles/index.css"`
+- Entry point: `app/globals.css` → `@import "../liftkit/utility-classes/index.css"`
 
 ### Dual Shiki Syntax Highlighting
 
