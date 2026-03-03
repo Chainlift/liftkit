@@ -7,6 +7,7 @@ import { LkFontClass } from "@/liftkit/types/lk-typography";
 import { Icon } from "@/liftkit/component-definitions/icon/icon";
 
 import "@/liftkit/component-css/lk-button.css";
+import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
 
 //define the type
 
@@ -75,6 +76,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       {startIcon && <Icon strokeWidth={2.5} name={startIcon} data-lk-icon-position="start" />}
       {label ?? props.children ?? "Button"}
       {endIcon && <Icon strokeWidth={2.5} name={endIcon} data-lk-icon-position="end" />}
+      <StateLayer {...stateLayerOverride}></StateLayer>
     </BaseButton>
   );
 });
