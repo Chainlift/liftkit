@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { Table } from "lucide-react";
 import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
-import NavigationMenuDemo from "@/liftkit/component-definitions/navigation-menu/lk-navigation-menu-example";
+import {ExampleNavigationMenu} from "@/liftkit/examples";
 import "./docsPage.css";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
@@ -11,7 +11,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div>
-      <NavigationMenuDemo />
+      <ExampleNavigationMenu />
       <div className="flex justify-center bg-background">
         <aside className="border-r" style={{ width: "240px" }}>
           <GoldenBox>
