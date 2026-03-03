@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Accordion } from '@base-ui/react/accordion';
-import styles from './accordion.module.css';
+import styles from './base-accordion.module.css';
 
 export default function ExampleAccordion() {
   return (
