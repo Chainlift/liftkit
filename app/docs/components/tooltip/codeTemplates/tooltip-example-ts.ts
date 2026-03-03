@@ -6,8 +6,8 @@ export function Tooltip_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   return `
 import * as React from "react";
 
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/ui";
-import { Icon } from "@/liftkit/ui";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/definitions";
+import { Icon } from "@/liftkit/definitions";
 
 export function ExampleTooltip() {
   return (

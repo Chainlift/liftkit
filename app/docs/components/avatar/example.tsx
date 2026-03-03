@@ -1,17 +1,19 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
 import styles from "./avatar.module.css";
-import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/ui/avatar/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/definitions/avatar/avatar";
 
 export default function ExampleAvatar() {
   return (

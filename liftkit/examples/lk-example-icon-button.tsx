@@ -1,4 +1,4 @@
-import { IconButton } from "@/liftkit/ui";
+import { IconButton } from "@/liftkit/definitions";
 
 export function ExampleIconButton() {
   return (

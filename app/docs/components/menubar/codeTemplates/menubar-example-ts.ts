@@ -17,7 +17,7 @@ import {
   MenuSeparator,
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
-} from "@/liftkit/ui/menu/menu";
+} from "@/liftkit/definitions/menu/menu";
 
 export default function MenubarDemo() {
   return (

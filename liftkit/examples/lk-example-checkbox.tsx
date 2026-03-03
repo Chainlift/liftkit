@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Checkbox, CheckboxIndicator } from "@/liftkit/ui";
+import { Checkbox, CheckboxIndicator } from "@/liftkit/definitions";
 
 export function ExampleCheckbox() {
   return (

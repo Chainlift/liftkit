@@ -8,15 +8,14 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/ui";
-
+} from "@/liftkit/definitions";
 
 export function ExampleAutocomplete() {
   return (
     <Autocomplete items={tags}>
       <label>
         Don't Search Tags
-        <AutocompleteInput placeholder="e.g. feature"/>
+        <AutocompleteInput placeholder="e.g. feature" />
       </label>
       <AutocompletePortal>
         <AutocompletePositioner>
@@ -24,7 +23,7 @@ export function ExampleAutocomplete() {
             <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
             <AutocompleteList>
               {(tag: Tag) => (
-                <AutocompleteItem key={tag.id}  value={tag}>
+                <AutocompleteItem key={tag.id} value={tag}>
                   {tag.value}
                 </AutocompleteItem>
               )}

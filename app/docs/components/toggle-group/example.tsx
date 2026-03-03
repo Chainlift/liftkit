@@ -1,16 +1,18 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`import * as React from "react";
-import { Toggle } from "@/liftkit/ui/toggle/toggle";
+import { Toggle } from "@/liftkit/definitions/toggle/toggle";
 import { ToggleGroup } from "./toggle-group";
 
 export default function ToggleGroupDemo() {

@@ -5,8 +5,8 @@ export function ToggleGroup_Example_TS(updatedKnobVals: Record<string, any> = {}
 
   return `
 import * as React from "react";
-import { Toggle } from "@/liftkit/ui/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/ui";
+import { Toggle } from "@/liftkit/definitions/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/definitions";
 
 export function ExampleToggleGroup() {
   return (

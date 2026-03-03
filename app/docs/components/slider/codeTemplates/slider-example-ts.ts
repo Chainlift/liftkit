@@ -4,7 +4,7 @@ export function Slider_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
-import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "@/liftkit/ui";
+import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "@/liftkit/definitions";
 
 export function ExampleSlider() {
   return (

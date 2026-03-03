@@ -2,8 +2,8 @@ import { getDocsNav } from "@/lib/docs-nav";
 import Link from "next/link";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { Table } from "lucide-react";
-import { GoldenBox } from "@/liftkit/ui/goldenbox/goldenbox";
-import NavigationMenuDemo from "@/liftkit/ui/navigation-menu/lk-navigation-menu-example";
+import { GoldenBox } from "@/liftkit/definitions/goldenbox/goldenbox";
+import NavigationMenuDemo from "@/liftkit/definitions/navigation-menu/lk-navigation-menu-example";
 import "./docsPage.css";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
@@ -29,7 +29,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </GoldenBox>
         </aside>
-        <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1"}}>
+        <main style={{ minWidth: "0px", maxWidth: "80ch", flex: "1" }}>
           <GoldenBox scaleFactor="title1" opticalCorrection="top">
             {children}
           </GoldenBox>

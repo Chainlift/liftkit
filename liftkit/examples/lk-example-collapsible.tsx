@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "@/liftkit/ui";
+import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "@/liftkit/definitions";
 
 export function ExampleCollapsible() {
   return (

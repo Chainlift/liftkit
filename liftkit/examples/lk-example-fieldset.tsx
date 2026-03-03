@@ -1,5 +1,5 @@
-import { Fieldset, FieldsetLegend } from "@/liftkit/ui";
-import { Field, FieldLabel, FieldControl } from "@/liftkit/ui/field/field";
+import { Fieldset, FieldsetLegend } from "@/liftkit/definitions";
+import { Field, FieldLabel, FieldControl } from "@/liftkit/definitions/field/field";
 
 export function ExampleFieldset() {
   return (

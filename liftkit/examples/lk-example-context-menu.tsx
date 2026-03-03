@@ -6,7 +6,7 @@ import {
   ContextMenuPopup,
   ContextMenuItem,
   ContextMenuSeparator,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 export function ExampleContextMenu() {
   return (

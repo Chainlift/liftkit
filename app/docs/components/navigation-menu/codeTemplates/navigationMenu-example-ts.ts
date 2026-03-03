@@ -15,7 +15,7 @@ import {
   NavigationMenuContent,
   NavigationMenuPositioner,
   NavigationMenuLink,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 const components: { title: string; href: string; description: string }[] = [
   {

@@ -1,18 +1,20 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`"use client";
 import * as React from "react";
 import { CheckboxGroup } from "./checkbox-group";
-import { Checkbox, CheckboxIndicator } from "@/liftkit/ui/checkbox/checkbox";
+import { Checkbox, CheckboxIndicator } from "@/liftkit/definitions/checkbox/checkbox";
 
 export default function CheckboxGroupDemo() {
   const id = React.useId();

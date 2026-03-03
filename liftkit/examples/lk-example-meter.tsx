@@ -1,4 +1,4 @@
-import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "@/liftkit/ui";
+import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "@/liftkit/definitions";
 
 export function ExampleMeter() {
   return (

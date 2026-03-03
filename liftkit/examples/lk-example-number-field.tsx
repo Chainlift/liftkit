@@ -7,7 +7,7 @@ import {
   NumberFieldInput,
   NumberFieldIncrement,
   NumberFieldDecrement,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 export function ExampleNumberField() {
   const id = React.useId();
   return (

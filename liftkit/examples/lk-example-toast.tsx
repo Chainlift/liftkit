@@ -11,7 +11,7 @@ import {
   ToastDescription,
   ToastClose,
   useToastManager,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 function ToastButton() {
   const toastManager = Toast.useToastManager();
@@ -25,11 +25,7 @@ function ToastButton() {
     });
   }
 
-  return (
-    <button type="button" >
-      Create toast
-    </button>
-  );
+  return <button type="button">Create toast</button>;
 }
 
 export function ExampleToast() {
@@ -48,12 +44,12 @@ export function ExampleToast() {
 function ToastList() {
   const { toasts } = Toast.useToastManager();
   return toasts.map((toast) => (
-    <Toast.Root key={toast.id} toast={toast} >
-      <Toast.Content >
-        <Toast.Title  />
-        <Toast.Description  />
-        <Toast.Close  aria-label="Close">
-          <XIcon  />
+    <Toast.Root key={toast.id} toast={toast}>
+      <Toast.Content>
+        <Toast.Title />
+        <Toast.Description />
+        <Toast.Close aria-label="Close">
+          <XIcon />
         </Toast.Close>
       </Toast.Content>
     </Toast.Root>

@@ -12,7 +12,7 @@ import {
   PreviewCardPositioner,
   PreviewCardPopup,
   PreviewCardArrow,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 export function ExamplePreviewCard() {
   return (

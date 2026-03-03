@@ -14,7 +14,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 
 export function ExampleAutocomplete() {

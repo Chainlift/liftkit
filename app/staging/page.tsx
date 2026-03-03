@@ -9,34 +9,34 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/ui/autocomplete/autocomplete";
+} from "@/liftkit/definitions/autocomplete/autocomplete";
 import styles from "./autocomplete.module.css";
 
 export default function StagingPage() {
   /** Used for ad hoc testing */
-  return <BaseAutocomplete.Root items={tags}>
-    <label className={styles.Label}>
-      Search tags
-      <BaseAutocomplete.Input placeholder="e.g. feature" className={styles.Input} />
-    </label>
+  return (
+    <BaseAutocomplete.Root items={tags}>
+      <label className={styles.Label}>
+        Search tags
+        <BaseAutocomplete.Input placeholder="e.g. feature" className={styles.Input} />
+      </label>
 
-    <BaseAutocomplete.Portal>
-      <BaseAutocomplete.Positioner className={styles.Positioner} sideOffset={4}>
-        <BaseAutocomplete.Popup className={styles.Popup}>
-          <BaseAutocomplete.Empty className={styles.Empty}>No tags found.</BaseAutocomplete.Empty>
-          <BaseAutocomplete.List className={styles.List}>
-            {(tag: Tag) => (
-              <BaseAutocomplete.Item key={tag.id} className={styles.Item} value={tag}>
-                {tag.value}
-              </BaseAutocomplete.Item>
-            )}
-          </BaseAutocomplete.List>
-        </BaseAutocomplete.Popup>
-      </BaseAutocomplete.Positioner>
-    </BaseAutocomplete.Portal>
-
-    
-  </BaseAutocomplete.Root>;
+      <BaseAutocomplete.Portal>
+        <BaseAutocomplete.Positioner className={styles.Positioner} sideOffset={4}>
+          <BaseAutocomplete.Popup className={styles.Popup}>
+            <BaseAutocomplete.Empty className={styles.Empty}>No tags found.</BaseAutocomplete.Empty>
+            <BaseAutocomplete.List className={styles.List}>
+              {(tag: Tag) => (
+                <BaseAutocomplete.Item key={tag.id} className={styles.Item} value={tag}>
+                  {tag.value}
+                </BaseAutocomplete.Item>
+              )}
+            </BaseAutocomplete.List>
+          </BaseAutocomplete.Popup>
+        </BaseAutocomplete.Positioner>
+      </BaseAutocomplete.Portal>
+    </BaseAutocomplete.Root>
+  );
 }
 
 interface Tag {

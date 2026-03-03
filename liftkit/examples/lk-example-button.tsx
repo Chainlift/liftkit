@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from "@/liftkit/ui";
+import { Button, type ButtonProps } from "@/liftkit/definitions";
 
 type ExampleButtonProps = Pick<ButtonProps, "children" | "variant" | "color" | "fontClass" | "startIcon" | "endIcon">;
 

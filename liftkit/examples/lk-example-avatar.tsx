@@ -1,5 +1,5 @@
 import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
-import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/ui";
+import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/definitions";
 
 export function ExampleAvatar() {
   return (

@@ -1,4 +1,4 @@
-import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "@/liftkit/ui";
+import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "@/liftkit/definitions";
 
 export function ExampleSlider() {
   return (

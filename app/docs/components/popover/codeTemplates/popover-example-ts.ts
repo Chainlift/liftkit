@@ -13,7 +13,7 @@ import {
   PopoverArrow,
   PopoverTitle,
   PopoverDescription,
-} from "@/liftkit/ui";
+} from "@/liftkit/definitions";
 
 export function ExamplePopover() {
   return (

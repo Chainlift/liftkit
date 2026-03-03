@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/liftkit/ui";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/liftkit/definitions";
 
 export function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
   return (

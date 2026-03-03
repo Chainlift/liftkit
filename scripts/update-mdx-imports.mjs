@@ -36,29 +36,29 @@ for (const componentName of componentDirs) {
 
     const newDemoName = `${pascalName}Demo`;
 
-    // Pattern 1: import ExampleXxx, { ExampleXxx2 } from "@/liftkit/ui/xxx/example";
+    // Pattern 1: import ExampleXxx, { ExampleXxx2 } from "@/liftkit/definitions/xxx/example";
     const importPattern1 = new RegExp(
-        `import\\s+Example\\w+,\\s*\\{\\s*Example\\w+2\\s*\\}\\s*from\\s*["']@/liftkit/ui/${componentName}/example["'];?`,
+        `import\\s+Example\\w+,\\s*\\{\\s*Example\\w+2\\s*\\}\\s*from\\s*["']@/liftkit/definitions/${componentName}/example["'];?`,
         'g'
     );
 
     if (importPattern1.test(content)) {
         content = content.replace(
             importPattern1,
-            `import ${newDemoName} from "@/liftkit/ui/${componentName}/lk-example";`
+            `import ${newDemoName} from "@/liftkit/definitions/${componentName}/lk-example";`
         );
     }
 
-    // Pattern 2: import { ExampleXxx2 } from "@/liftkit/ui/xxx/example";
+    // Pattern 2: import { ExampleXxx2 } from "@/liftkit/definitions/xxx/example";
     const importPattern2 = new RegExp(
-        `import\\s*\\{\\s*Example\\w+2\\s*\\}\\s*from\\s*["']@/liftkit/ui/${componentName}/example["'];?`,
+        `import\\s*\\{\\s*Example\\w+2\\s*\\}\\s*from\\s*["']@/liftkit/definitions/${componentName}/example["'];?`,
         'g'
     );
 
     if (importPattern2.test(content)) {
         content = content.replace(
             importPattern2,
-            `import ${newDemoName} from "@/liftkit/ui/${componentName}/lk-example";`
+            `import ${newDemoName} from "@/liftkit/definitions/${componentName}/lk-example";`
         );
     }
 

@@ -1,4 +1,4 @@
-import { Input } from "@/liftkit/ui";
+import { Input } from "@/liftkit/definitions";
 
 export function ExampleInput() {
   return (

@@ -1,14 +1,16 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`import * as React from "react";
 import styles from "./tooltip.module.css";
 import {
@@ -17,7 +19,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "./tooltip";
-import { Icon } from "@/liftkit/ui/icon/icon";
+import { Icon } from "@/liftkit/definitions/icon/icon";
 
 export default function TooltipDemo() {
   return (

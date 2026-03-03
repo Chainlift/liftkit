@@ -1,4 +1,10 @@
-import { ScrollArea, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb } from "@/liftkit/ui";
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaContent,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@/liftkit/definitions";
 
 export function ExampleScrollArea() {
   return (

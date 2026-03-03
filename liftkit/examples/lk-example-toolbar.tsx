@@ -10,10 +10,17 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/ui/select/select";
-import { Toggle } from "@/liftkit/ui/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/ui/toggle-group/toggle-group";
-import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "@/liftkit/ui";
+} from "@/liftkit/definitions/select/select";
+import { Toggle } from "@/liftkit/definitions/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/definitions/toggle-group/toggle-group";
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarGroup,
+  ToolbarSeparator,
+  ToolbarLink,
+  ToolbarInput,
+} from "@/liftkit/definitions";
 
 export function ExampleToolbar() {
   return (

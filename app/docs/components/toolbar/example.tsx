@@ -1,14 +1,16 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`import * as React from "react";
 import {
   Select,
@@ -21,9 +23,9 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/ui/select/select";
-import { Toggle } from "@/liftkit/ui/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/ui/toggle-group/toggle-group";
+} from "@/liftkit/definitions/select/select";
+import { Toggle } from "@/liftkit/definitions/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/definitions/toggle-group/toggle-group";
 import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "./toolbar";
 
 export default function ToolbarDemo() {

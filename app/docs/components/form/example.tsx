@@ -1,19 +1,21 @@
 export function LocalCodeSample() {
   return (
-    <pre style={{
-      overflowX: "auto",
-      padding: 16,
-      borderRadius: 12,
-      border: "1px solid var(--lk-outline)",
-      backgroundColor: "var(--lk-surface-container-low)",
-      fontSize: "0.875rem",
-      lineHeight: 1.5,
-    }}>
+    <pre
+      style={{
+        overflowX: "auto",
+        padding: 16,
+        borderRadius: 12,
+        border: "1px solid var(--lk-outline)",
+        backgroundColor: "var(--lk-surface-container-low)",
+        fontSize: "0.875rem",
+        lineHeight: 1.5,
+      }}
+    >
       <code>{`"use client";
 import * as React from "react";
 import { Form } from "./form";
-import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/ui/field/field";
-import { Button } from "@/liftkit/ui/button/button";
+import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/definitions/field/field";
+import { Button } from "@/liftkit/definitions/button/button";
 
 export default function FormDemo() {
   const [errors, setErrors] = React.useState({});
