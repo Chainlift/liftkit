@@ -12,7 +12,7 @@ export function LocalCodeSample() {
       }}
     >
       <code>{`import { Fieldset, FieldsetLegend } from "./fieldset";
-import { Field, FieldLabel, FieldControl } from "@/liftkit/definitions/field/field";
+import { Field, FieldLabel, FieldControl } from "@/liftkit/component-definitions/field/field";
 
 export default function FieldsetDemo() {
   return (

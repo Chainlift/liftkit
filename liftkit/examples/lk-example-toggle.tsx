@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Toggle } from "@/liftkit/definitions";
+import { Toggle } from "@/liftkit/component-definitions";
 
 export function ExampleToggle() {
   return (

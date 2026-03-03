@@ -13,8 +13,8 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/definitions";
-import { Field, FieldLabel } from "@/liftkit/definitions/field/field";
+} from "@/liftkit/component-definitions";
+import { Field, FieldLabel } from "@/liftkit/component-definitions/field/field";
 
 const apples = [
   { label: "Gala", value: "gala" },

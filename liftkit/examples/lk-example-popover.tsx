@@ -8,7 +8,7 @@ import {
   PopoverArrow,
   PopoverTitle,
   PopoverDescription,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExamplePopover() {
   return (

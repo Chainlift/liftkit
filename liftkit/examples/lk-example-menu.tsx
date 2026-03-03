@@ -8,7 +8,7 @@ import {
   MenuArrow,
   MenuItem,
   MenuSeparator,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExampleMenu() {
   return (

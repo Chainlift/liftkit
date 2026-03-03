@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 
-import { Field, FieldLabel, FieldControl, FieldError, Form, Button } from "@/liftkit/definitions";
+import { Field, FieldLabel, FieldControl, FieldError, Form, Button } from "@/liftkit/component-definitions";
 
 export function ExampleForm() {
   const [errors, setErrors] = React.useState({});

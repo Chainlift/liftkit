@@ -16,10 +16,10 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/definitions/select/select";
-import { Toggle } from "@/liftkit/definitions/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/definitions/toggle-group/toggle-group";
-import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions/select/select";
+import { Toggle } from "@/liftkit/component-definitions/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/component-definitions/toggle-group/toggle-group";
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "@/liftkit/component-definitions";
 
 export function ExampleToolbar() {
   return (

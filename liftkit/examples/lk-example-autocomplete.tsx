@@ -8,7 +8,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExampleAutocomplete() {
   return (

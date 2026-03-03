@@ -6,7 +6,7 @@ import {
   PreviewCardPositioner,
   PreviewCardPopup,
   PreviewCardArrow,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExamplePreviewCard() {
   return (

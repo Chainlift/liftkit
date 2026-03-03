@@ -8,7 +8,7 @@ import {
   AlertDialogFooter,
   AlertDialogClose,
   AlertDialogAction,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExampleAlertDialog() {
   return (

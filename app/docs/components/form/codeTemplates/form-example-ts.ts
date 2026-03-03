@@ -27,8 +27,8 @@ export function Form_Example_TS(knobValsFromClient: Record<string, unknown> = {}
   return `"use client";
 import * as React from "react";
 import { Form } from "./form";
-import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/definitions/field/field";
-import { Button } from "@/liftkit/definitions/button/button";
+import { Field, FieldLabel, FieldControl, FieldError } from "@/liftkit/component-definitions/field/field";
+import { Button } from "@/liftkit/component-definitions/button/button";
 
 export default function FormDemo() {
   const [errors, setErrors] = React.useState({});

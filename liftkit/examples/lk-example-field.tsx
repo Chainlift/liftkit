@@ -1,4 +1,4 @@
-import { Field, FieldLabel, FieldControl, FieldError, FieldDescription } from "@/liftkit/definitions";
+import { Field, FieldLabel, FieldControl, FieldError, FieldDescription } from "@/liftkit/component-definitions";
 
 export function ExampleField() {
   return (

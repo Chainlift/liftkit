@@ -4,7 +4,7 @@ export function Switch_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
-  import { Switch, SwitchThumb } from "@/liftkit/definitions";
+  import { Switch, SwitchThumb } from "@/liftkit/component-definitions";
 
 export function ExampleSwitch() {
   return (

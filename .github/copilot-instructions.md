@@ -124,7 +124,7 @@ Control types: `select`, `boolean`, `text`, `slot` (children), `number`, `color`
 
 ## Key Conventions
 
-- **Path alias**: `@/*` → project root (e.g., `@/liftkit/definitions/button`)
+- **Path alias**: `@/*` → project root (e.g., `@/liftkit/component-definitions/button`)
 - **Class names**: `cn()` from `@/lib/cn` (wraps `clsx`)
 - **Component naming**: `import { Button as BaseButton }` → `export const Button`
 - **CSS classes**: `lk-{component}`, `lk-{component}-variant--{value}`, `lk-colorgroup--{color}`

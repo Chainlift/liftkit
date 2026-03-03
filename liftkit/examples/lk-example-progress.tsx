@@ -1,6 +1,12 @@
 "use client";
 import * as React from "react";
-import { Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator } from "@/liftkit/definitions";
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+  ProgressTrack,
+  ProgressIndicator,
+} from "@/liftkit/component-definitions";
 
 export function ExampleProgress() {
   const [value, setValue] = React.useState(20);

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Toggle } from "@/liftkit/definitions/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/definitions";
+import { Toggle } from "@/liftkit/component-definitions/toggle/toggle";
+import { ToggleGroup } from "@/liftkit/component-definitions";
 
 export function ExampleToggleGroup() {
   return (

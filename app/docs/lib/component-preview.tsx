@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
-import { GoldenBox } from "@/liftkit/definitions/goldenbox/goldenbox";
-import { Switch, SwitchThumb } from "@/liftkit/definitions/switch/switch";
+import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
+import { Switch, SwitchThumb } from "@/liftkit/component-definitions/switch/switch";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import "./subcomponent-table-styles.css";
-import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/definitions";
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/definitions";
-import { Icon } from "@/liftkit/definitions";
+import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/component-definitions";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/component-definitions";
+import { Icon } from "@/liftkit/component-definitions";
 import {
   Select,
   SelectTrigger,
@@ -23,8 +23,8 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/definitions";
-import { Field, FieldLabel } from "@/liftkit/definitions/field/field";
+} from "@/liftkit/component-definitions";
+import { Field, FieldLabel } from "@/liftkit/component-definitions/field/field";
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -32,8 +32,8 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/liftkit/definitions/scroll-area/scroll-area";
-import { Input } from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions/scroll-area/scroll-area";
+import { Input } from "@/liftkit/component-definitions";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;

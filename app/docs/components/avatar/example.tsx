@@ -13,7 +13,7 @@ export function LocalCodeSample() {
     >
       <code>{`import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
 import styles from "./avatar.module.css";
-import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/definitions/avatar/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/component-definitions/avatar/avatar";
 
 export default function ExampleAvatar() {
   return (

@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExampleDialog() {
   return (

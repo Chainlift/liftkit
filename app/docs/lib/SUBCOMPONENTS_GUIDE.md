@@ -15,7 +15,7 @@ Some components are **compound components** with multiple sub-parts (e.g., `Acco
 Add your component to `component-manifest.ts` with the optional `subComponents` field:
 
 ```typescript
-import { Accordion } from "@/liftkit/definitions/accordion";
+import { Accordion } from "@/liftkit/component-definitions/accordion";
 
 export const componentManifest = {
   // ... other components

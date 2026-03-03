@@ -1,4 +1,4 @@
-import { IconButton } from "@/liftkit/definitions";
+import { IconButton } from "@/liftkit/component-definitions";
 
 export function ExampleIconButton() {
   return (

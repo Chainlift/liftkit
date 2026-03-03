@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Radio, RadioIndicator, RadioGroup } from "@/liftkit/definitions";
+import { Radio, RadioIndicator, RadioGroup } from "@/liftkit/component-definitions";
 
 export function ExampleRadio() {
   const id = React.useId();

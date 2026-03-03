@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
-import { CheckboxGroup } from "@/liftkit/definitions";
-import { Checkbox, CheckboxIndicator } from "@/liftkit/definitions";
+import { CheckboxGroup } from "@/liftkit/component-definitions";
+import { Checkbox, CheckboxIndicator } from "@/liftkit/component-definitions";
 
 export function ExampleCheckboxGroup() {
   const id = React.useId();

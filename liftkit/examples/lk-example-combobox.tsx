@@ -12,7 +12,7 @@ import {
   ComboboxList,
   ComboboxItem,
   ComboboxItemIndicator,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 export function ExampleCombobox() {
   const id = React.useId();

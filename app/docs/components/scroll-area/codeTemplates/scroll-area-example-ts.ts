@@ -4,7 +4,7 @@ export function ScrollArea_Example_TS(updatedKnobVals: Record<string, any> = {})
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
-import { ScrollArea, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb } from "@/liftkit/definitions";
+import { ScrollArea, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb } from "@/liftkit/component-definitions";
 
 export function ExampleScrollArea() {
   return (

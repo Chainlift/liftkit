@@ -11,7 +11,7 @@ import {
   ToastDescription,
   ToastClose,
   useToastManager,
-} from "@/liftkit/definitions";
+} from "@/liftkit/component-definitions";
 
 function ToastButton() {
   const toastManager = Toast.useToastManager();
