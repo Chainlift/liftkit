@@ -26,12 +26,7 @@ li:is(:active, :focus-visible) > [data-lk-component="state-layer"] {
   opacity: 0.5 ;
 }
 
-/* div:focus > [data-lk-component="state-layer"],
-a:focus > [data-lk-component="state-layer"],
-button:focus > [data-lk-component="state-layer"],
-li:focus > [data-lk-component="state-layer"] {
-  opacity: 0.35 !important;
-} */
+
 
 .is-active [data-lk-component="state-layer"] {
   opacity: 0.16 ;

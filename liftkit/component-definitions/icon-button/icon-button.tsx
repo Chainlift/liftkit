@@ -48,49 +48,6 @@ export type IconButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> 
   color?: LkColorWithOnToken;
 };
 
-// export function IconButtonDep<T extends "fill" | "outline" | "text" = "fill">({
-//   icon = "roller-coaster",
-//   variant = "fill" as T,
-//   color = "primary" as IconButtonColor<T>,
-//   size = "md",
-//   fontClass = "body",
-//   className,
-//   ...restProps
-// }: LkIconButtonProps<T>) {
-//   /** Dynamically set stroke width based on font class */
-//   let iconStrokeWidth: number = getIconStrokeWidth(fontClass);
-
-//   function getIconStrokeWidth(fontClass: LkFontClass) {
-//     switch (fontClass) {
-//       case "display1":
-//       case "display2":
-//       case "title1":
-//         return 1.5;
-//       case "subheading":
-//       case "label":
-//       case "caption":
-//       case "capline":
-//         return 2;
-//       default:
-//         return 1.75;
-//     }
-//   }
-
-//   function buttonClasses({ variant = "fill", color = "primary", fontClass, className }: LkIconButtonProps) {
-//     return cn("lk-btn", "lk-icon-btn-variant--" + variant, "lk-colorgroup--" + color, fontClass && fontClass);
-//   }
-
-//   return (
-//     <BaseButton ref={ref} className={cn(fontClass, "", className)}>
-//       <button data-slot="icon-button" type="button" className={cn(fontClass, "", className)} {...restProps}>
-//         <div>
-//           <Icon name={icon} color={getIconColor(variant)} strokeWidth={iconStrokeWidth}></Icon>
-//         </div>
-//         <StateLayer bgColor={getIconColor(variant)}></StateLayer>
-//       </button>
-//     </BaseButton>
-//   );
-// }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   { className, variant, color, iconName, fontClass = "body", stateLayerOverride, ...props },
