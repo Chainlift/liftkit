@@ -43,7 +43,7 @@ export function RichCodeBlock({
   return (
     <div className="w-full relative h-full">
       <div className="absolute top-sm right-sm z-1">
-        <IconButton iconName={copied ? "check" : "copy"} variant="text" onClick={handleCopy} />
+        <IconButton iconName={copied ? "check" : "copy"} variant="fill" onClick={handleCopy} color="surfacecontainerhighest" />
       </div>
       <ScrollArea style={{ width: "100%", height: "100%" }}>
         <ScrollAreaViewport>
