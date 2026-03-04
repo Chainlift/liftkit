@@ -114,7 +114,6 @@
   width: 24rem;
   max-width: calc(100vw - 3rem);
   margin-top: -2rem;
-  padding: 1.5rem;
   border-radius: 0.5rem;
   outline: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlowest);

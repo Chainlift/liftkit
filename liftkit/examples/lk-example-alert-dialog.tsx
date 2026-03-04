@@ -15,15 +15,17 @@ export function ExampleAlertDialog() {
   return (
     <AlertDialog>
       <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
-      <AlertDialogContent render={<Card color="primary" />}>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Discard draft?</AlertDialogTitle>
-          <AlertDialogDescription>You can't undo this action.</AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogClose>Cancel</AlertDialogClose>
-          <AlertDialogAction>Discard</AlertDialogAction>
-        </AlertDialogFooter>
+      <AlertDialogContent>
+        <Card scaleFactor="heading">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="heading">Discard draft?</AlertDialogTitle>
+            <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogClose>Cancel</AlertDialogClose>
+            <AlertDialogAction>Discard</AlertDialogAction>
+          </AlertDialogFooter>
+        </Card>
       </AlertDialogContent>
     </AlertDialog>
   );
