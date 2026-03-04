@@ -48,6 +48,7 @@
 
 [data-slot="alert-dialog-overlay"] {
   position: fixed;
+  z-index: 98;
   min-height: 100dvh;
   inset: 0;
   background-color: black;
