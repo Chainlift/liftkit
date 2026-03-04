@@ -9,12 +9,13 @@ import {
   AlertDialogClose,
   AlertDialogAction,
 } from "@/liftkit/component-definitions";
+import { Card } from "@/liftkit/component-definitions/card/card";
 
 export function ExampleAlertDialog() {
   return (
     <AlertDialog>
       <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent render={<Card color="primary" />}>
         <AlertDialogHeader>
           <AlertDialogTitle>Discard draft?</AlertDialogTitle>
           <AlertDialogDescription>You can't undo this action.</AlertDialogDescription>
