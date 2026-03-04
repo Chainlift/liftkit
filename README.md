@@ -2,9 +2,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/chainlift/liftkit">
-    <img src="https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68748d8bdb8b734290a3db92_h-lockup-transparent.svg" height="100em" alt="chainlift-liftkit">
+    <img src="https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68748d8bdb8b734290a3db92_h-lockup-transparent.svg" width="240px" alt="chainlift-liftkit">
   </a>
-  <p>🎢</p>
   <p>
     <strong>
       The UI Framework for Perfectionists
@@ -17,12 +16,22 @@
 [![GPL2 License][license-shield]][license-url]
 [![Issues][issues-shield]][issues-url]
 
+
+> [!WARNING]
+> **NOT RECOMMENDED FOR PRODUCTION USE** 
+> 
+> **The current version of LiftKit was developed by a designer without consulting professional developers, and you can tell.** Thanks to community feedback, the project is currently being rewritten to satisfy modern best practices. The new components will wrap around Base UI primitives. The updated docs will include live component demos, copy-pastable code samples, and more. As of March 4, 2026, this initiative is about 50% complete.
+> 
+> Thank you for your patience. To receive an email when new versions come out, visit **[chainlift.io/liftkit](https://www.chainlift.io/liftkit)** and input your email underneath "Get Notified About Updates" in the hero section.
+
 </div>
 <!-- markdownlint-restore -->
 
+&nbsp;
+
 # :grey_question: What is LiftKit?
 
-LiftKit is a UI framework that makes you a better designer without even realizing it. At its core, it's a platform-agnostic system of formulas for scaling, spacing, and color that automatically enforce high-detail design principles behind the scenes. You get easy utility classes, and LiftKit applies golden ratio scaling, optical symmetry, and contrast ratio checks for you under the hood.
+LiftKit is a UI framework that makes you a better designer without even realizing it. At its core, it's a platform-agnostic system of formulas for scaling, spacing, and color that automatically enforce design best practices such as optical symmetry, balanced proportions, and smooth color ramps.
 
 ## Overview
 
