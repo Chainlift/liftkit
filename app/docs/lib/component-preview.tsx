@@ -199,7 +199,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
       {/* Controls Panel */}
 
       {/* Live Preview */}
-      <div className="flex flex-grow py-2xl items-center justify-center">
+      <div className="flex flex-grow py-2xl items-center justify-center" style={{height: "400px"}}>
         <Component {...componentProps} />
       </div>
       <div className="bg-surfacecontainerlowest flex">

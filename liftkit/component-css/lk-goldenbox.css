@@ -103,10 +103,10 @@
 
 /* Default padding behavior: equal on all sides */
 [data-lk-component="golden-box"] {
-  position: relative;
+  /* position: relative; */
   /* z-index: 1; */
   padding: var(--largest-child-font-size);
-  height: 100%;
+  /* height: 100%; */
 }
 
 [data-lk-golden-box-optical-correction="left"] {
