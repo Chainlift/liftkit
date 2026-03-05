@@ -1,7 +1,7 @@
 [data-lk-component="card"] {
   display: block;
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
 
 
   --local-offset-factor: calc(

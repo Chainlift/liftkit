@@ -16,19 +16,17 @@ export function ExampleAlertDialog() {
   return (
     <AlertDialog>
       <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
-      <AlertDialogContent>
-        <Card scaleFactor="heading">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="heading">Discard draft?</AlertDialogTitle>
-            <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <div className="flex justify-end">
-              <AlertDialogClose render={<Button label="cancel" />}>Cancel</AlertDialogClose>
-              <AlertDialogAction>Discard</AlertDialogAction>
-            </div>
-          </AlertDialogFooter>
-        </Card>
+      <AlertDialogContent render={<Card scaleFactor="heading"/>}>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="heading">Discard draft?</AlertDialogTitle>
+          <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <div className="flex justify-end">
+            <AlertDialogClose render={<Button label="cancel" />}>Cancel</AlertDialogClose>
+            <AlertDialogAction>Discard</AlertDialogAction>
+          </div>
+        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );

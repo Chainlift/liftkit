@@ -54,7 +54,7 @@ const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
     variant,
     opticalCorrection,
     children,
-    color,
+    color="surface",
     className,
     showStateLayer = false,
     ...props
