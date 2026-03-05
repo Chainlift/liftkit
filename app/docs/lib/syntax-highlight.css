@@ -1,5 +1,11 @@
-[data-instance="copy-button"] {
+[data-instance="code-block-copy-button"] {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: var(--lk-size-sm);
+    right: var(--lk-size-sm);
+
+    &[data-vert-center-button="true"] {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
+

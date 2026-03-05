@@ -15,6 +15,7 @@ export async function SimpleCodeBlock({ codeString, lang }: SimpleCodeBlockProps
         preHighlightedCode={highlightedCode}
         codeForClientHighlighting={codeString || ""}
         lang={lang || "tsx"}
+        vertCenterButton={true}
       />
     );
   }
