@@ -105,7 +105,7 @@
   }
 }
 
-.Panel {
+[data-slot="accordion-content"] {
   box-sizing: border-box;
   height: var(--accordion-panel-height);
   overflow: hidden;
