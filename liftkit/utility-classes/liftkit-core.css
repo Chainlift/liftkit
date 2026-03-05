@@ -475,8 +475,8 @@ body {
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
 }
 
 a {
@@ -497,6 +497,7 @@ h4,
 h5,
 h6 {
   font-size: inherit;
+  margin: 0;
 }
 
 /* Make Buttons into Inline Elements */

@@ -1,3 +1,4 @@
+@import "@csstools/normalize.css";
 @import "./liftkit-core.css";
 @import "./align-items.css";
 @import "./align-self.css";
@@ -34,4 +35,3 @@
 @import "./border-width.css";
 @import "./border-collapse.css";
 @import "./font-weight.css";
-@import "@csstools/normalize.css";

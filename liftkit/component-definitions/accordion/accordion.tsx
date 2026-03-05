@@ -6,6 +6,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { Icon } from "@/liftkit/component-definitions/icon/icon";
 import "@/liftkit/component-css/lk-accordion.css";
 
+
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return <AccordionPrimitive.Root data-slot="accordion" className={cn(className)} {...props} />;
 }
@@ -27,8 +28,8 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
 
 function AccordionContent({ className, children, ...props }: AccordionPrimitive.Panel.Props) {
   return (
-    <AccordionPrimitive.Panel data-slot="accordion-content" {...props}>
-      <div className={cn(className)}>{children}</div>
+    <AccordionPrimitive.Panel data-slot="accordion-content" className={cn(className)} {...props}>
+      <div>{children}</div>
     </AccordionPrimitive.Panel>
   );
 }
