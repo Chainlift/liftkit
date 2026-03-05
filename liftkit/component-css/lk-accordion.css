@@ -1,4 +1,4 @@
-[data-slot="accordion"] {
+:where([data-slot="accordion"]) {
   box-sizing: border-box;
   display: flex;
   width: 24rem;
@@ -20,7 +20,7 @@
   }
 }
 
-[data-slot="accordion-item"] {
+:where([data-slot="accordion-item"]) {
   border-bottom: 1px solid var(--lk-outlinevariant);
 
   &[data-open] {
@@ -36,7 +36,7 @@
   }
 }
 
-[data-slot="accordion-header"] {
+:where([data-slot="accordion-header"]) {
   margin: 0;
 
   &[data-open] {
@@ -52,7 +52,7 @@
   }
 }
 
-[data-slot="accordion-trigger"] {
+:where([data-slot="accordion-trigger"]) {
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -92,7 +92,7 @@
   }
 }
 
-[data-slot="accordion-trigger-icon"] {
+:where([data-slot="accordion-trigger-icon"]) {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 0.75rem;
@@ -113,9 +113,8 @@
   font-size: 1rem;
   line-height: 1.5rem;
   transition: height 150ms ease-out;
-  background-color: var(--lk-error);
   padding: 1.5rem;
-  
+
   &[data-starting-style],
   &[data-ending-style] {
     height: 0;
@@ -142,6 +141,6 @@
   }
 }
 
-.Content {
+:where(.Content) {
   padding: 0.75rem;
 }

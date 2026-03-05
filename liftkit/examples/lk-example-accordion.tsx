@@ -7,7 +7,7 @@ export function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
     <Accordion multiple={multiple}>
       <AccordionItem>
         <AccordionTrigger>What is Base UI?</AccordionTrigger>
-        <AccordionContent className="bg-primary p-0">
+        <AccordionContent className="p-0">
           <GoldenBox scaleFactor="body">
             Base UI is a library of high-quality unstyled React components for design systems and web apps.
           </GoldenBox>
@@ -16,7 +16,7 @@ export function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
 
       <AccordionItem>
         <AccordionTrigger>How do I get started?</AccordionTrigger>
-        <AccordionContent className="bg-primary p-0">
+        <AccordionContent className=" p-0">
           <GoldenBox scaleFactor="body">
             Head to the "Quick start" guide in the docs. If you've used unstyled libraries before, you'll feel at home.
           </GoldenBox>
@@ -25,7 +25,7 @@ export function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
 
       <AccordionItem>
         <AccordionTrigger>Can I use it for my project?</AccordionTrigger>
-        <AccordionContent className="bg-primary p-0">
+        <AccordionContent className="p-0">
           <GoldenBox scaleFactor="body">Of course! Base UI is free and open source.</GoldenBox>
         </AccordionContent>
       </AccordionItem>
