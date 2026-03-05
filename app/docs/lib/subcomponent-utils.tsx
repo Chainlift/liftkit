@@ -56,10 +56,16 @@ export function SubComponentPropsTable({ componentName, subComponentName, classN
 
   return (
     <div data-instance="lk-docs-table">
-      <table>
+      <table >
+        <colgroup>
+          <col width="16.6%" />
+          <col width="16.6%" />
+          <col width="16.6%" />
+          <col />
+        </colgroup>
         <thead>
           <tr>
-            <th>Prop</th>
+            <th>Name</th>
             <th>Type</th>
             <th>Default</th>
             <th>Description</th>
@@ -106,10 +112,10 @@ export function SubComponentDataAttributesTable({
   return (
     <div className={className}>
       <table>
+
         <thead>
           <tr>
             <th>Attribute</th>
-            <th>Type</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -117,7 +123,6 @@ export function SubComponentDataAttributesTable({
           {subComponent.dataAttributes.map((attr) => (
             <tr key={attr.name}>
               <td>{attr.name}</td>
-              <td>{attr.type || "-"}</td>
               <td>{attr.description}</td>
             </tr>
           ))}
@@ -193,35 +198,38 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div className="mb-6">
-        <h3 className="title2-bold mb-sm">{subComponentName}</h3>
-        {subComponent.description && <p className="text-gray-600 mb-2">{subComponent.description}</p>}
-        {subComponent.renders && (
-          <p className="text-sm text-gray-500">
-            Renders a <code className="bg-gray-100 px-1 py-0.5 rounded">{subComponent.renders}</code> element.
+        <h3 className="title1-bold font-700 mb-xs" data-instance="component-name">
+          {subComponentName}
+        </h3>
+        {subComponent.description && (
+          <p className="title3 mb-lg color-onsurfacelow">
+            {subComponent.description} Renders a{" "}
+            <code className="bg-gray-100 px-1 py-0.5 rounded">{subComponent.renders}</code> element.
           </p>
         )}
+        {subComponent.renders && <p className="text-sm text-gray-500"></p>}
       </div>
 
       {/* Props */}
       {subComponent.props && subComponent.props.length > 0 && (
         <div className="mb-6">
-          <h4 className="heading font-semibold mb-3">Props</h4>
+          <h4 className="title3-bold mb-sm">Props</h4>
           <SubComponentPropsTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
 
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
-        <div className="mb-6">
-          <h4 className="heading font-semibold mb-3">Data Attributes</h4>
+        <div>
+          <h4 className="title3-bold mt-lg mb-sm">Data Attributes</h4>
           <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
 
       {/* CSS Variables */}
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
-        <div className="mb-6">
-          <h4 className="heading font-semibold mb-3">CSS Variables</h4>
+        <div>
+          <h4 className="heading mt-lg mb-sm">CSS Variables</h4>
           <SubComponentCSSVariablesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}

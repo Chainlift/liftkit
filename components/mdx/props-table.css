@@ -13,7 +13,10 @@
 
 .lk-props-table thead {
   background-color: var(--lk-color-surface-container);
-  border-bottom: 2px solid var(--lk-color-outline);
+
+  tr {
+    border-bottom: 2px solid var(--lk-color-outline);
+  }
 }
 
 .lk-props-table th {

@@ -1,11 +1,15 @@
 [data-instance="code-block-copy-button"] {
-    position: absolute;
-    top: var(--lk-size-sm);
-    right: var(--lk-size-sm);
+  position: absolute;
+  top: var(--lk-size-sm);
+  right: var(--lk-size-sm);
+  z-index: 1;
 
-    &[data-vert-center-button="true"] {
-        top: 50%;
-        transform: translateY(-50%);
-    }
+  button {
+    cursor: pointer;
+  }
+
+  &[data-vert-center-button="true"] {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
-

@@ -3,29 +3,53 @@ div[data-instance="lk-docs-table"] {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
+    table-layout: fixed;
+    font-size: var(--lk-callout-font-size);
+    letter-spacing: var(--lk-callout-letter-spacing);
+    /* background: var(--lk-surfacecontainerlowest);
+    box-shadow: var(--lk-shadow-2xs);
+    border-radius: var(--lk-size-2xs);
+    overflow: hidden; */
   }
 
   thead {
     tr {
       border-bottom: 1px solid var(--lk-outline);
+      /* background-color: var(--lk-surfacecontainerlow); */
     }
   }
 
   tbody {
     tr {
+      border-bottom: 1px solid var(--lk-outlinevariant);
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 
   th {
     padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
     font-weight: 500;
-    font-size: var(--lk-subheading-font-size);
+    color: var(--lk-onsurfacevariant);
+
+    /* &:first-child {
+      padding-left: var(--lk-size-xs);
+    } */
   }
 
   td {
     padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
-    letter-spacing: var(--lk-body-letter-spacing);
     line-height: var(--lk-body-line-height);
+    color: var(--lk-onsurfacelow);
 
+    /* &:first-child {
+      padding-left: var(--lk-size-xs);
+    } */
   }
+}
+
+div[data-instance="lk-docs-table"]:not(:first-child) h3 {
+  margin-top: var(--lk-size-lg);
 }
