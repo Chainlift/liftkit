@@ -1,5 +1,4 @@
 import { highlightCode } from "./highlighted-code-server";
-import { componentManifest } from "./component-manifest";
 import { ComponentPreview } from "./component-preview";
 import type { ComponentName } from "./component-manifest";
 

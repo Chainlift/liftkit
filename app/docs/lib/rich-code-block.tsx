@@ -49,7 +49,10 @@ export function RichCodeBlock({
         <ScrollAreaViewport>
           <ScrollAreaContent>
             {clientHtml ? (
-              <div ref={preRef as any} dangerouslySetInnerHTML={{ __html: clientHtml }} />
+              // <div ref={preRef as any} dangerouslySetInnerHTML={{ __html: clientHtml }} />
+                    <pre ref={preRef}>
+                <code dangerouslySetInnerHTML={{ __html: preHighlightedCode ?? "" }}></code>
+              </pre>
             ) : (
               <pre ref={preRef}>
                 <code dangerouslySetInnerHTML={{ __html: preHighlightedCode ?? "" }}></code>

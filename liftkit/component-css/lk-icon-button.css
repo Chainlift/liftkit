@@ -2,6 +2,8 @@
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
+  /* these are the defaults that may be overridden */
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,12 +16,16 @@
   overflow: hidden;
   cursor: pointer;
   border: unset;
-  color: var(--lk-btn-fg, inherit);
-  background: var(--lk-btn-bg, transparent);
 
   &.rounded-sm {
     border-radius: var(--lk-size-sm);
   }
+}
+
+/* these, however, should not be overwritten. */
+[data-slot="icon-button"] {
+  color: var(--lk-btn-fg, inherit);
+  background: var(--lk-btn-bg, transparent);
 }
 
 :where([data-lk-component="icon-button"] > [data-lk-button-content-wrap]) {

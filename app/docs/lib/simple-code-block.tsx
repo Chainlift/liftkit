@@ -1,8 +1,5 @@
 import { highlightCode } from "./highlighted-code-server";
-import { componentManifest } from "./component-manifest";
-import { ComponentPreview } from "./component-preview";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
-import type { ComponentName } from "./component-manifest";
 
 interface SimpleCodeBlockProps {
   codeString?: string;
