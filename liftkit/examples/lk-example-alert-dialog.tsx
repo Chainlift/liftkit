@@ -10,6 +10,7 @@ import {
   AlertDialogAction,
 } from "@/liftkit/component-definitions";
 import { Card } from "@/liftkit/component-definitions/card/card";
+import { Button } from "@/liftkit/component-definitions";
 
 export function ExampleAlertDialog() {
   return (
@@ -22,8 +23,10 @@ export function ExampleAlertDialog() {
             <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogClose>Cancel</AlertDialogClose>
-            <AlertDialogAction>Discard</AlertDialogAction>
+            <div className="flex justify-end">
+              <AlertDialogClose render={<Button label="cancel" />}>Cancel</AlertDialogClose>
+              <AlertDialogAction>Discard</AlertDialogAction>
+            </div>
           </AlertDialogFooter>
         </Card>
       </AlertDialogContent>
