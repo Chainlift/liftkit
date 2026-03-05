@@ -1,4 +1,4 @@
-[data-slot="navigation-menu"] {
+:where([data-slot="navigation-menu"]) {
   background-color: var(--lk-surfacecontainerlow);
   border-radius: 0.5rem;
   padding: 0.25rem;
@@ -6,7 +6,7 @@
   min-width: max-content;
 }
 
-[data-slot="navigation-menu-list"] {
+:where([data-slot="navigation-menu-list"]) {
   display: flex;
   position: relative;
   list-style: none;
@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-[data-slot="navigation-menu-trigger"] {
+:where([data-slot="navigation-menu-trigger"]) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@
   }
 }
 
-[data-slot="navigation-menu-indicator"] {
+:where([data-slot="navigation-menu-indicator"]) {
   transition: transform 0.2s ease;
 
   &[data-popup-open] {
@@ -65,7 +65,7 @@
   }
 }
 
-[data-slot="navigation-menu-positioner"] {
+:where([data-slot="navigation-menu-positioner"]) {
   --easing: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 0.35s;
   box-sizing: border-box;
@@ -114,7 +114,7 @@
   }
 }
 
-[data-slot="navigation-menu-popup"] {
+:where([data-slot="navigation-menu-popup"]) {
   position: relative;
   box-sizing: border-box;
   border-radius: 0.5rem;
@@ -140,7 +140,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .Popup {
+  :where(.Popup) {
     outline: 1px solid var(--lk-outlinevariant);
     box-shadow:
       0 10px 15px -3px var(--lk-outlinevariant),

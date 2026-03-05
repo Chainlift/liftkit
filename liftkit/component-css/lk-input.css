@@ -1,4 +1,4 @@
-.Label {
+:where(.Label) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,7 +9,7 @@
   color: var(--lk-onsurface);
 }
 
-[data-slot="input"] {
+:where([data-slot="input"]) {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;

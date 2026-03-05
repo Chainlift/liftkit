@@ -1,4 +1,4 @@
-.Panel {
+:where(.Panel) {
   display: flex;
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);
@@ -7,7 +7,7 @@
   padding: 0.125rem;
 }
 
-[data-slot="toggle"] {
+:where([data-slot="toggle"]) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
   }
 }
 
-.Icon {
+:where(.Icon) {
   width: 1.25rem;
   height: 1.25rem;
 }

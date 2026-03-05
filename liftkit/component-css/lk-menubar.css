@@ -1,4 +1,4 @@
-[data-slot="menubar"] {
+:where([data-slot="menubar"]) {
   display: flex;
   background-color: var(--lk-surfacecontainerlow);
   border: 1px solid var(--lk-outlinevariant);
@@ -6,7 +6,7 @@
   padding: 0.125rem;
 }
 
-.MenuTrigger {
+:where(.MenuTrigger) {
   box-sizing: border-box;
   background: none;
   padding: 0 0.75rem;
@@ -32,11 +32,11 @@
   }
 }
 
-.MenuPositioner {
+:where(.MenuPositioner) {
   outline: 0;
 }
 
-.MenuPopup {
+:where(.MenuPopup) {
   box-sizing: border-box;
   padding-block: 0.25rem;
   border-radius: 0.375rem;
@@ -66,7 +66,7 @@
   }
 }
 
-.MenuItem {
+:where(.MenuItem) {
   outline: 0;
   cursor: default;
   user-select: none;
@@ -110,7 +110,7 @@
   }
 }
 
-.MenuSeparator {
+:where(.MenuSeparator) {
   margin: 0.375rem 1rem;
   height: 1px;
   background-color: var(--lk-outlinevariant);

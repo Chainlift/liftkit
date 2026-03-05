@@ -1,8 +1,7 @@
-[data-slot="tabs"] {
-
+:where([data-slot="tabs"]) {
 }
 
-[data-slot="tabs-list"] {
+:where([data-slot="tabs-list"]) {
   display: flex;
   position: relative;
   z-index: 0;
@@ -10,7 +9,7 @@
   gap: 0.25rem;
 }
 
-[data-slot="tabs-tab"] {
+:where([data-slot="tabs-tab"]) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +53,7 @@
   }
 }
 
-[data-slot="tabs-indicator"] {
+:where([data-slot="tabs-indicator"]) {
   position: absolute;
   z-index: -1;
   left: 0;
@@ -69,7 +68,7 @@
   transition-timing-function: ease-in-out;
 }
 
-[data-slot="tabs-panel"] {
+:where([data-slot="tabs-panel"]) {
   position: relative;
   display: flex;
   align-items: center;
@@ -87,7 +86,7 @@
   }
 }
 
-.Icon {
+:where(.Icon) {
   width: 2.5rem;
   height: 2.5rem;
   color: var(--lk-outlinevariant);

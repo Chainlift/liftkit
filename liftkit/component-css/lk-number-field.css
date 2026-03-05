@@ -1,21 +1,21 @@
-[data-slot="number-field"] {
+:where([data-slot="number-field"]) {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.25rem;
 }
 
-[data-slot="number-field-scrub-area"] {
+:where([data-slot="number-field-scrub-area"]) {
   cursor: ew-resize;
   font-weight: bold;
   user-select: none;
 }
 
-[data-slot="number-field-scrub-area-cursor"] {
+:where([data-slot="number-field-scrub-area-cursor"]) {
   filter: drop-shadow(0 1px 1px #0008);
 }
 
-.Label {
+:where(.Label) {
   cursor: ew-resize;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -23,11 +23,11 @@
   color: var(--lk-onsurface);
 }
 
-[data-slot="number-field-group"] {
+:where([data-slot="number-field-group"]) {
   display: flex;
 }
 
-[data-slot="number-field-input"] {
+:where([data-slot="number-field-input"]) {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -54,8 +54,8 @@
   }
 }
 
-[data-slot="number-field-decrement"],
-[data-slot="number-field-increment"] {
+:where([data-slot="number-field-decrement"]),
+:where([data-slot="number-field-increment"]) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -83,12 +83,12 @@
   }
 }
 
-[data-slot="number-field-decrement"] {
+:where([data-slot="number-field-decrement"]) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-[data-slot="number-field-increment"] {
+:where([data-slot="number-field-increment"]) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

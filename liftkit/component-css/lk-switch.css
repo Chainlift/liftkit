@@ -1,4 +1,4 @@
-.Label {
+:where(.Label) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -7,8 +7,7 @@
   color: var(--lk-onsurface);
 }
 
-[data-slot="switch"] {
-
+:where([data-slot="switch"]) {
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -70,7 +69,7 @@
   }
 }
 
-[data-slot="switch-thumb"] {
+:where([data-slot="switch-thumb"]) {
   aspect-ratio: 1 / 1;
   height: 100%;
   border-radius: 100%;

@@ -1,4 +1,4 @@
-.IconButton {
+:where(.IconButton) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -34,18 +34,18 @@
   }
 }
 
-.Icon {
+:where(.Icon) {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-[data-slot="popover-positioner"] {
+:where([data-slot="popover-positioner"]) {
   width: var(--positioner-width);
   height: var(--positioner-height);
   max-width: var(--available-width);
 }
 
-[data-slot="popover-popup"] {
+:where([data-slot="popover-popup"]) {
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
@@ -79,7 +79,7 @@
   }
 }
 
-[data-slot="popover-arrow"] {
+:where([data-slot="popover-arrow"]) {
   display: flex;
 
   &[data-side="top"] {
@@ -103,44 +103,44 @@
   }
 }
 
-.ArrowFill {
+:where(.ArrowFill) {
   fill: canvas;
 }
 
-.ArrowOuterStroke {
+:where(.ArrowOuterStroke) {
   @media (prefers-color-scheme: light) {
     fill: var(--lk-outlinevariant);
   }
 }
 
-.ArrowInnerStroke {
+:where(.ArrowInnerStroke) {
   @media (prefers-color-scheme: dark) {
     fill: var(--lk-outlinevariant);
   }
 }
 
-[data-slot="popover-title"] {
+:where([data-slot="popover-title"]) {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 500;
 }
 
-[data-slot="popover-description"] {
+:where([data-slot="popover-description"]) {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
   color: var(--color-gray-600);
 }
 
-.Container {
+:where(.Container) {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.Button {
+:where(.Button) {
   box-sizing: border-box;
   display: flex;
   align-items: center;

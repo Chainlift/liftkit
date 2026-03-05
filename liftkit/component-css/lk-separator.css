@@ -1,15 +1,15 @@
-.Container {
+:where(.Container) {
   display: flex;
   gap: 1rem;
   text-wrap: nowrap;
 }
 
-[data-slot="separator"] {
+:where([data-slot="separator"]) {
   width: 1px;
   background-color: var(--lk-outlinevariant);
 }
 
-.Link {
+:where(.Link) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--lk-onsurface);

@@ -2,7 +2,8 @@ import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrappe
 import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
 import { Accordion_Example_TS } from "./codeTemplates/accordion-example-ts.ts";
 import { Accordion_Example_CSS } from "./codeTemplates/accordion-example-css.ts";
-import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
+import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
+
 
 export const metadata = {
   title: "Accordion",
@@ -21,22 +22,13 @@ export const metadata = {
 ## Installation
 
 <div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
-  <RichCodeBlock
-      preHighlightedCode={"npm install @liftkit/something"}
-      codeForClientHighlighting={"npm install @liftkit/something"}
+  <SimpleCodeBlock
+      codeString="npm install @liftkit/something"
       lang="bash"
-    >
-      {/* {dynamic_TS ? <code>{dynamic_TS}</code> : undefined} */}
-    </RichCodeBlock>
+    />
 </div>
 
-<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
 
-```bash
-npm install some-instructions-here-idk
-```
-
-</div>
 
 ## Subcomponents
 

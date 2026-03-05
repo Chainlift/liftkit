@@ -1,10 +1,10 @@
-[data-slot="preview-card-positioner"] {
+:where([data-slot="preview-card-positioner"]) {
   height: var(--positioner-height);
   width: var(--positioner-width);
   max-width: var(--available-width);
 }
 
-[data-slot="preview-card-popup"] {
+:where([data-slot="preview-card-popup"]) {
   box-sizing: border-box;
   width: var(--popup-width, auto);
   height: var(--popup-height, auto);
@@ -34,7 +34,7 @@
   }
 }
 
-[data-slot="preview-card-arrow"] {
+:where([data-slot="preview-card-arrow"]) {
   display: flex;
 
   &[data-side="top"] {
@@ -58,23 +58,23 @@
   }
 }
 
-.ArrowFill {
+:where(.ArrowFill) {
   fill: canvas;
 }
 
-.ArrowOuterStroke {
+:where(.ArrowOuterStroke) {
   @media (prefers-color-scheme: light) {
     fill: var(--lk-outlinevariant);
   }
 }
 
-.ArrowInnerStroke {
+:where(.ArrowInnerStroke) {
   @media (prefers-color-scheme: dark) {
     fill: var(--lk-outlinevariant);
   }
 }
 
-.PopupContent {
+:where(.PopupContent) {
   width: min-content;
   display: flex;
   flex-direction: column;
@@ -83,13 +83,13 @@
   box-sizing: border-box;
 }
 
-.Image {
+:where(.Image) {
   display: block;
   border-radius: 0.25rem;
   max-width: none;
 }
 
-.Summary {
+:where(.Summary) {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -97,7 +97,7 @@
   text-wrap: pretty;
 }
 
-.Container {
+:where(.Container) {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
@@ -105,7 +105,7 @@
   align-items: baseline;
 }
 
-.Paragraph {
+:where(.Paragraph) {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -113,7 +113,7 @@
   text-wrap: balance;
 }
 
-.Link {
+:where(.Link) {
   outline: 0;
   color: var(--lk-info);
   text-decoration-line: none;
@@ -138,14 +138,14 @@
   }
 }
 
-.LinkGroup {
+:where(.LinkGroup) {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
   align-items: baseline;
 }
 
-.Button {
+:where(.Button) {
   box-sizing: border-box;
   display: flex;
   align-items: center;

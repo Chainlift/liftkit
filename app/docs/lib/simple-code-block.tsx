@@ -1,70 +1,24 @@
-"use client";
+import { highlightCode } from "./highlighted-code-server";
+import { componentManifest } from "./component-manifest";
+import { ComponentPreview } from "./component-preview";
+import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
+import type { ComponentName } from "./component-manifest";
 
-import { useRef, useState, useEffect } from "react";
-import {
-  ScrollArea,
-  ScrollAreaContent,
-  ScrollAreaCorner,
-  ScrollAreaScrollbar,
-  ScrollAreaThumb,
-  ScrollAreaViewport,
-} from "@/liftkit/component-definitions/scroll-area/scroll-area";
-import { Icon } from "@/liftkit/component-definitions";
-import "./syntax-highlight.css";
-import { IconButton } from "@/liftkit/component-definitions/icon-button/icon-button";
-import { useHighlightedCode } from "@/app/docs/lib/highlighted-code-client";
-
-export function RichCodeBlock({
-  children,
-  preHighlightedCode,
-  codeForClientHighlighting,
-  lang,
-}: {
-  children?: React.ReactNode;
-  preHighlightedCode?: string;
-  codeForClientHighlighting?: string;
+interface SimpleCodeBlockProps {
+  codeString?: string;
   lang?: string;
-}) {
-  const preRef = useRef<HTMLPreElement>(null);
-  const [copied, setCopied] = useState(false);
-  const [counter, setCounter] = useState(0);
+}
 
-  // Only run client-side highlighting when codeForClientHighlighting is provided
-  const clientHtml = useHighlightedCode(codeForClientHighlighting ?? null, lang);
+export async function SimpleCodeBlock({ codeString, lang }: SimpleCodeBlockProps) {
+  const highlightedCode = codeString ? await highlightCode(codeString, lang) : null;
 
-  function handleCopy() {
-    const text = preRef.current?.textContent ?? "";
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
+  if (highlightedCode) {
+    return (
+      <RichCodeBlock
+        preHighlightedCode={highlightedCode}
+        codeForClientHighlighting={codeString || ""}
+        lang={lang || "tsx"}
+      />
+    );
   }
-
-  return (
-    <div className="w-full relative h-full">
-      <div className="absolute top-sm right-sm z-1">
-        <IconButton iconName={copied ? "check" : "copy"} variant="fill" onClick={handleCopy} color="inversesurface" />
-      </div>
-      <ScrollArea style={{ width: "100%", height: "100%" }}>
-        <ScrollAreaViewport>
-          <ScrollAreaContent>
-            {clientHtml ? (
-              <div ref={preRef as any} dangerouslySetInnerHTML={{ __html: clientHtml }} />
-            ) : (
-              <pre ref={preRef}>
-                <code dangerouslySetInnerHTML={{ __html: preHighlightedCode ?? "" }}></code>
-              </pre>
-            )}
-          </ScrollAreaContent>
-        </ScrollAreaViewport>
-        <ScrollAreaScrollbar>
-          <ScrollAreaThumb />
-        </ScrollAreaScrollbar>
-        <ScrollAreaScrollbar orientation="horizontal">
-          <ScrollAreaThumb />
-        </ScrollAreaScrollbar>
-        <ScrollAreaCorner />
-      </ScrollArea>
-    </div>
-  );
 }

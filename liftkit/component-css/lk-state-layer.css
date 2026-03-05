@@ -1,4 +1,4 @@
-[data-lk-component="state-layer"] {
+:where([data-lk-component="state-layer"]) {
   z-index: 1;
   opacity: 0;
 
@@ -12,30 +12,32 @@
 }
 
 /* Only apply styles to the [data-lk-component="state-layer"] when its direct parent is hovered, active, or focused */
-div:hover > [data-lk-component="state-layer"],
-a:hover > [data-lk-component="state-layer"],
-button:hover  [data-lk-component="state-layer"], /* Make an exception for buttons, who should target ANY matching child */
-li:hover > [data-lk-component="state-layer"] {
-  opacity: 0.16 ;
+:where(
+  div:hover > [data-lk-component="state-layer"],
+  a:hover > [data-lk-component="state-layer"],
+  button:hover [data-lk-component="state-layer"],
+  li:hover > [data-lk-component="state-layer"]
+) {
+  opacity: 0.16;
 }
 
-div:is(:active, :focus-visible) > [data-lk-component="state-layer"],
-a:is(:active, :focus-visible) > [data-lk-component="state-layer"],
-button:is(:active, :focus-visible) [data-lk-component="state-layer"], /* Make an exception for buttons, who should target ANY matching child */
-li:is(:active, :focus-visible) > [data-lk-component="state-layer"] {
-  opacity: 0.5 ;
+:where(
+  div:is(:active, :focus-visible) > [data-lk-component="state-layer"],
+  a:is(:active, :focus-visible) > [data-lk-component="state-layer"],
+  button:is(:active, :focus-visible) [data-lk-component="state-layer"],
+  li:is(:active, :focus-visible) > [data-lk-component="state-layer"]
+) {
+  opacity: 0.5;
 }
 
-
-
-.is-active [data-lk-component="state-layer"] {
-  opacity: 0.16 ;
+:where(.is-active [data-lk-component="state-layer"]) {
+  opacity: 0.16;
 }
 
-.list-item.active [data-lk-component="state-layer"] {
-  opacity: 0.24 ;
+:where(.list-item.active [data-lk-component="state-layer"]) {
+  opacity: 0.24;
 }
 
-[data-lk-forced-state="active"] {
+:where([data-lk-forced-state="active"]) {
   opacity: 0.12;
 }
