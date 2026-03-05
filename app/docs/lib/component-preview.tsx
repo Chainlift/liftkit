@@ -195,11 +195,11 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
   const Component = manifest.Component;
 
   return (
-    <div className="w-full rounded-xs shadow-2xs overflow-hidden bg-surfacecontainer">
+    <div className="w-full rounded-xs shadow-2xs overflow-hidden bg-surface">
       {/* Controls Panel */}
 
       {/* Live Preview */}
-      <div className="flex flex-grow py-2xl items-center justify-center" style={{height: "400px"}}>
+      <div className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant" style={{height: "400px"}}>
         <Component {...componentProps} />
       </div>
       <div className="bg-surfacecontainerlowest flex">
