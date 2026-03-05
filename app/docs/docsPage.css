@@ -1,5 +1,22 @@
+.docs-page-layout {
+  display: grid;
+  margin: auto;
+  max-width: 1600px;
+  grid-template-columns: auto minmax(45ch, 90ch) auto;
+
+  gap: 0;
+  [data-slot="scroll-area"] {
+    width: 100%;
+    height: 100vh;
+  }
+
+}
+
 @media screen and (max-width: 1280px) {
   [data-slot="right-sidebar"] {
     display: none;
+  }
+  .docs-page-layout {
+    grid-template-columns: auto minmax(45ch, 90ch);
   }
 }
