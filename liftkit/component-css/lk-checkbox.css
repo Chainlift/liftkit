@@ -1,4 +1,4 @@
-.Label {
+:where(.Label) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -7,7 +7,7 @@
   color: var(--lk-onsurface);
 }
 
-[data-slot="checkbox"] {
+:where([data-slot="checkbox"]) {
   box-sizing: border-box;
   display: flex;
   width: 1.25rem;
@@ -35,7 +35,7 @@
   }
 }
 
-[data-slot="checkbox-indicator"] {
+:where([data-slot="checkbox-indicator"]) {
   display: flex;
   color: var(--lk-surfacecontainerlow);
 
@@ -44,7 +44,7 @@
   }
 }
 
-.Icon {
+:where(.Icon) {
   width: 0.75rem;
   height: 0.75rem;
 }

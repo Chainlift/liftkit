@@ -1,4 +1,4 @@
-[data-slot="icon-button"] {
+:where([data-slot="icon-button"]) {
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
@@ -22,7 +22,7 @@
   }
 }
 
-[data-lk-component="icon-button"] > [data-lk-button-content-wrap] {
+:where([data-lk-component="icon-button"] > [data-lk-button-content-wrap]) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,31 +181,31 @@
   color: var(--lk-oninversesurface);
 } */
 
-.lk-icon-btn-variant--fill {
+:where(.lk-icon-btn-variant--fill) {
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
   --lk-btn-border: transparent;
 }
 
-.lk-icon-btn-variant--outline {
+:where(.lk-icon-btn-variant--outline) {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: var(--lk-color-token);
 }
 
-.lk-icon-btn-variant--text {
+:where(.lk-icon-btn-variant--text) {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: transparent;
 }
 
 /* VARIANT OUTLINE */
-[data-lk-icon-button-variant="outline"] {
+:where([data-lk-icon-button-variant="outline"]) {
   border: solid 1px var(--lk-outlinevariant);
   background-color: transparent;
 }
 
 /* VARIANT TEXT */
-[data-lk-icon-button-variant="text"] {
+:where([data-lk-icon-button-variant="text"]) {
   background-color: transparent;
 }

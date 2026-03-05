@@ -1,5 +1,5 @@
-.lk-btn,
-[data-lk-component="button"] {
+:where(.lk-btn),
+:where([data-lk-component="button"]) {
   /* DEFAULTS */
 
   --lk-btn-bg: var(--lk-color-token);
@@ -35,28 +35,28 @@
   border-radius: 100em;
 }
 
-[data-lk-button-root] {
+:where([data-lk-button-root]) {
   width: 100%;
 }
 
 /* ICON-BASED PADDING ADJUSTMENTS */
-.lk-btn:has([data-lk-icon-position="start"]) {
+:where(.lk-btn:has([data-lk-icon-position="start"])) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX);
 }
 
-.lk-btn:has([data-lk-icon-position="end"]) {
+:where(.lk-btn:has([data-lk-icon-position="end"])) {
   padding-left: 1em;
   padding-right: var(--button-padX-sideWithIcon);
 }
 
-.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
+:where(.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"])) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX-sideWithIcon);
 }
 
 /* CONTENT WRAPPER */
-[data-lk-button-content-wrap="true"] {
+:where([data-lk-button-content-wrap="true"]) {
   display: inline-flex;
   align-items: center;
   gap: var(--button-gap);
@@ -65,25 +65,25 @@
 /* Optic shift: If text doesn't look centered properly, tries pulling text downward slightly. 
 Usually happens when start icon appears bigger than the text, even when it's not. */
 
-.lk-btn--optic-shift [data-lk-button-child="button-text"] {
+:where(.lk-btn--optic-shift [data-lk-button-child="button-text"]) {
   transform: translateY(calc(1em * var(--lk-eighthstep-dec)));
 }
 
 /* STYLE VARIANTS */
 
-.lk-btn-variant--fill {
+:where(.lk-btn-variant--fill) {
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
   --lk-btn-border: transparent;
 }
 
-.lk-btn-variant--outline {
+:where(.lk-btn-variant--outline) {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: var(--lk-color-token);
 }
 
-.lk-btn-variant--text {
+:where(.lk-btn-variant--text) {
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-color-token);
   --lk-btn-border: transparent;

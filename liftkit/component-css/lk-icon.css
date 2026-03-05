@@ -15,7 +15,7 @@
 */
 
 /* Regular families */
-[data-lk-icon-font-class="display1"] {
+:where([data-lk-icon-font-class="display1"]) {
   --lineHeightInEms: calc(1em * var(--lk-quarterstep));
   --md: var(--lineHeightInEms);
 
@@ -34,7 +34,7 @@
   line-height: var(--lk-quarterstep);
 }
 
-[data-lk-icon-font-class="display2"] {
+:where([data-lk-icon-font-class="display2"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -52,7 +52,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="title1"] {
+:where([data-lk-icon-font-class="title1"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -70,7 +70,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="title2"] {
+:where([data-lk-icon-font-class="title2"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -88,7 +88,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="title3"] {
+:where([data-lk-icon-font-class="title3"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -106,7 +106,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="heading"] {
+:where([data-lk-icon-font-class="heading"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -124,7 +124,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="subheading"] {
+:where([data-lk-icon-font-class="subheading"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -142,7 +142,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="body"] {
+:where([data-lk-icon-font-class="body"]) {
   --lineHeightInEms: var(--lk-title2-font-size);
   --md: 1em;
   --sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
@@ -160,7 +160,7 @@
   line-height: var(--lk-wholestep);
 }
 
-[data-lk-icon-font-class="callout"] {
+:where([data-lk-icon-font-class="callout"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -178,7 +178,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="label"] {
+:where([data-lk-icon-font-class="label"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -197,7 +197,7 @@
   position: static;
 }
 
-[data-lk-icon-font-class="caption"] {
+:where([data-lk-icon-font-class="caption"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -215,7 +215,7 @@
   line-height: var(--lk-halfstep);
 }
 
-[data-lk-icon-font-class="capline"] {
+:where([data-lk-icon-font-class="capline"]) {
   --lineHeightInEms: calc(1em * var(--lk-halfstep));
   --md: var(--lineHeightInEms);
 
@@ -236,11 +236,11 @@
 
 /* Ignore the width and aspect ratio rules when inside an icon-button component */
 
-[data-lk-component="icon-button"] [data-lk-component="icon"] {
+:where([data-lk-component="icon-button"] [data-lk-component="icon"]) {
   width: unset;
   aspect-ratio: unset;
 }
 
-[data-lk-icon-offset="true"] {
+:where([data-lk-icon-offset="true"]) {
   margin-top: calc(-1 * calc(1em * var(--lk-quarterstep-dec)));
 }

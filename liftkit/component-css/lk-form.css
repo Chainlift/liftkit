@@ -1,4 +1,4 @@
-.Form {
+:where(.Form) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -6,21 +6,21 @@
   max-width: 16rem;
 }
 
-.Field {
+:where(.Field) {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.25rem;
 }
 
-.Label {
+:where(.Label) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   color: var(--lk-onsurface);
 }
 
-.Input {
+:where(.Input) {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;
@@ -39,13 +39,13 @@
   }
 }
 
-.Error {
+:where(.Error) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--color-red-800);
 }
 
-.Button {
+:where(.Button) {
   box-sizing: border-box;
   display: flex;
   align-items: center;

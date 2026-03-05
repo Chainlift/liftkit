@@ -1,4 +1,4 @@
-[data-slot="avatar-root"] {
+:where([data-slot="avatar-root"]) {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -15,13 +15,13 @@
   width: 3rem;
 }
 
-[data-slot="avatar-image"] {
+:where([data-slot="avatar-image"]) {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
-[data-slot="avatar-fallback"] {
+:where([data-slot="avatar-fallback"]) {
   align-items: center;
   display: flex;
   justify-content: center;

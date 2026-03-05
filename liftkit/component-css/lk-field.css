@@ -1,4 +1,4 @@
-[data-slot="field"] {
+:where([data-slot="field"]) {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -7,14 +7,14 @@
   max-width: 16rem;
 }
 
-[data-slot="field-label"] {
+:where([data-slot="field-label"]) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   color: var(--lk-onsurface);
 }
 
-[data-slot="field-input"] {
+:where([data-slot="field-input"]) {
   box-sizing: border-box;
   padding-left: 0.875rem;
   margin: 0;
@@ -33,13 +33,13 @@
   }
 }
 
-[data-slot="field-error"] {
+:where([data-slot="field-error"]) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--color-red-800);
 }
 
-[data-slot="field-description"] {
+:where([data-slot="field-description"]) {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
