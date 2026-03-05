@@ -22,10 +22,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     <div>
       <ExampleNavigationMenu />
       <div className="docs-page-layout">
-        <ScrollArea>
+        <ScrollArea className="left-sidebar">
           <ScrollAreaViewport>
             <ScrollAreaContent>
-              <aside>
+              <aside >
                 <GoldenBox>
                   <nav className="sidebar pb-2xl">
                     {nav.map((item) => (
@@ -79,7 +79,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <ScrollArea>
           <ScrollAreaViewport>
             <ScrollAreaContent>
-              <aside data-slot="right-sidebar" className="border-l">
+              <aside data-slot="right-sidebar">
                 <GoldenBox scaleFactor="body">
                   <TableOfContents />
                 </GoldenBox>
@@ -89,9 +89,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           <ScrollAreaScrollbar>
             <ScrollAreaThumb />
           </ScrollAreaScrollbar>
-          <ScrollAreaScrollbar orientation="horizontal">
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
+
           <ScrollAreaCorner />
         </ScrollArea>
       </div>

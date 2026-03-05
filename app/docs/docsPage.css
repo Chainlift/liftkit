@@ -10,6 +10,12 @@
     height: 100vh;
   }
 
+  .left-sidebar {
+    justify-items: end;
+  }
+  .right-sidebar {
+    justify-items: start;
+  }
 }
 
 @media screen and (max-width: 1280px) {
