@@ -32,7 +32,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                       {nav.map((item) => (
                         <div key={item.href}>
                           <Link href={item.href}>
-                            <div className="px-sm py-2xs relative overflow-hidden rounded-xs">
+                            <div className="px-sm relative overflow-hidden rounded-xs">
                               <h2 className="heading my-xs">{item.title}</h2>
                               <StateLayer />
                             </div>
@@ -68,10 +68,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             {children}
           </GoldenBox>
         </main>
-        <div className="left-sidebar">
+        <div className="right-sidebar">
           <ScrollArea>
             <ScrollAreaViewport>
-              <ScrollAreaContent>
+              <ScrollAreaContent className="pl-0">
                 <aside>
                   <GoldenBox scaleFactor="body">
                     <TableOfContents />

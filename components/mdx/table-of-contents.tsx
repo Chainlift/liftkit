@@ -1,186 +1,97 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@/lib/cn";
+import { useEffect, useRef, useState } from "react";
+import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
 
 interface TocItem {
   id: string;
   text: string;
-  level: 2 | 3;
+  level: number;
 }
 
-interface TableOfContentsProps {
-  /** Optional container selector to scan for headings (defaults to main article) */
-  containerSelector?: string;
-  /** Optional class name */
-  className?: string;
+function getHeadings(): TocItem[] {
+  const main = document.querySelector("main");
+  if (!main) return [];
+  return Array.from(main.querySelectorAll("h2, h3"))
+    .map((el) => ({
+      id: el.id,
+      text: el.textContent?.replace(/^#/, "").trim() ?? "",
+      level: el.tagName === "H2" ? 2 : 3,
+    }))
+    .filter((h) => h.id);
 }
 
-/**
- * Dynamically generates a table of contents from h2 and h3 elements on the page.
- * Highlights the currently active section based on scroll position.
- *
- * Requires headings to have IDs (automatically added by rehype-slug).
- *
- * @example
- * ```tsx
- * <TableOfContents />
- * ```
- */
-export function TableOfContents({ containerSelector, className }: TableOfContentsProps) {
-  const [headings, setHeadings] = React.useState<TocItem[]>([]);
-  const [activeId, setActiveId] = React.useState<string>("");
+export function TableOfContents() {
+  const [items, setItems] = useState<TocItem[]>([]);
+  const [activeId, setActiveId] = useState<string>("");
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Extract headings from the DOM and watch for changes
-  React.useEffect(() => {
-    const container = containerSelector ? document.querySelector(containerSelector) : document.body;
+  useEffect(() => {
+    setItems(getHeadings());
+  }, []);
 
-    if (!container) return;
+  useEffect(() => {
+    if (items.length === 0) return;
 
-    let timeoutId: NodeJS.Timeout | null = null;
+    observerRef.current?.disconnect();
 
-    // Function to scan for headings
-    const scanHeadings = () => {
-      const elements = container.querySelectorAll("h2, h3");
-      const items: TocItem[] = Array.from(elements)
-        .map((element) => ({
-          id: element.id,
-          text: element.textContent || "",
-          level: parseInt(element.tagName[1]) as 2 | 3,
-        }))
-        .filter((item) => item.id); // Only include headings with IDs
+    const headingEls = items.map((h) => document.getElementById(h.id)).filter(Boolean) as HTMLElement[];
 
-      setHeadings((prev) => {
-        // Only update if headings actually changed
-        if (JSON.stringify(prev) !== JSON.stringify(items)) {
-          return items;
-        }
-        return prev;
-      });
-    };
+    // Track which headings are visible; pick the topmost one
+    const visible = new Set<string>();
 
-    // Delayed initial scan to allow for React hydration
-    const initialTimeout = setTimeout(scanHeadings, 100);
-
-    // Additional scans to catch late-loading content
-    const scan2 = setTimeout(scanHeadings, 500);
-    const scan3 = setTimeout(scanHeadings, 1000);
-
-    // Set up MutationObserver to watch for DOM changes
-    const observer = new MutationObserver(() => {
-      // Debounce to avoid excessive re-renders
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(scanHeadings, 100);
-    });
-
-    // Observe changes to the container and its descendants
-    observer.observe(container, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(initialTimeout);
-      clearTimeout(scan2);
-      clearTimeout(scan3);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [containerSelector]);
-
-  // Track active section with IntersectionObserver
-  React.useEffect(() => {
-    if (headings.length === 0) return;
-
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            visible.add(entry.target.id);
+          } else {
+            visible.delete(entry.target.id);
           }
-        });
+        }
+        // Find topmost visible heading in document order
+        const topmost = headingEls.find((el) => visible.has(el.id));
+        if (topmost) setActiveId(topmost.id);
       },
-      {
-        rootMargin: "-80px 0px -80% 0px", // Trigger when heading is near top
-        threshold: 1.0,
-      },
+      { rootMargin: "0px 0px -80% 0px" },
     );
 
-    headings.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    for (const el of headingEls) {
+      observerRef.current.observe(el);
+    }
 
-    return () => observer.disconnect();
-  }, [headings]);
+    return () => observerRef.current?.disconnect();
+  }, [items]);
 
-  if (headings.length === 0) {
-    return null;
-  }
+  if (items.length === 0) return null;
 
   return (
-    <nav className={cn("lk-toc", className)}>
-      <h4
-        style={{
-          fontSize: "var(--lk-typescale-label-large-size)",
-          fontWeight: "var(--lk-typescale-label-large-weight)",
-          marginBottom: "var(--lk-size-sm)",
-          color: "var(--lk-on-surface-variant)",
-        }}
-      >
+    <nav data-slot="table-of-contents" aria-label="On this page">
+      <p className="label" style={{ color: "var(--lk-onsurfacevariant)", marginBottom: "var(--lk-size-xs)" }}>
         On this page
-      </h4>
-      <ul
-        style={{
-          listStyle: "none",
-          padding: 0,
-          margin: 0,
-          display: "flex",
-          flexDirection: "column",
-          gap: "var(--lk-size-2xs)",
-        }}
-      >
-        {headings.map((heading) => (
-          <li
-            key={heading.id}
-            style={{
-              paddingLeft: heading.level === 3 ? "var(--lk-size-sm)" : 0,
-            }}
-          >
+      </p>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        {items.map((item) => (
+          <li key={item.id}>
             <a
-              href={`#${heading.id}`}
+              href={`#${item.id}`}
+              data-active={activeId === item.id || undefined}
+              className={`pl-${item.level === 2 ? "sm" : "lg"} pr-sm py-2xs relative overflow-hidden rounded-2xs`}
               style={{
                 display: "block",
-                fontSize: "var(--lk-typescale-body-small-size)",
-                color: activeId === heading.id ? "var(--lk-primary)" : "var(--lk-on-surface-variant)",
-                textDecoration: "none",
-                padding: "var(--lk-size-3xs) var(--lk-size-2xs)",
-                borderRadius: "var(--lk-border-radius-sm)",
-                transition: "color 0.2s ease, background-color 0.2s ease",
-                fontWeight: activeId === heading.id ? 500 : 400,
-              }}
-              onMouseEnter={(e) => {
-                if (activeId !== heading.id) {
-                  e.currentTarget.style.backgroundColor = "var(--lk-surface-container-highest)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (activeId !== heading.id) {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }
               }}
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.getElementById(heading.id);
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth", block: "start" });
-                  window.history.pushState(null, "", `#${heading.id}`);
-                }
+                document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              {heading.text}
+              <span
+                className="callout"
+              >
+                {item.text}
+              </span>
+
+              <StateLayer />
             </a>
           </li>
         ))}

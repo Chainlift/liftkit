@@ -32,7 +32,7 @@
 }
 
 @media screen and (max-width: 1280px) {
-  [data-slot="right-sidebar"] {
+  .right-sidebar {
     display: none;
   }
   .docs-page-layout {
