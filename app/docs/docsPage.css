@@ -3,6 +3,7 @@
   margin: auto;
   max-width: 1600px;
   grid-template-columns: auto minmax(45ch, 90ch) auto;
+  position: relative;
 
   gap: 0;
   [data-slot="scroll-area"] {
@@ -11,10 +12,22 @@
   }
 
   .left-sidebar {
-    justify-items: end;
+    align-self: start;
+    position: sticky;
+    top: 0px;
+
+    [data-slot="scroll-area"] {
+      justify-items: end;
+    }
   }
   .right-sidebar {
-    justify-items: start;
+    align-self: start;
+    position: sticky;
+    top: 0px;
+
+    [data-slot="scroll-area"] {
+      justify-items: start;
+    }
   }
 }
 

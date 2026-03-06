@@ -22,76 +22,69 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     <div>
       <ExampleNavigationMenu />
       <div className="docs-page-layout">
-        <ScrollArea className="left-sidebar">
-          <ScrollAreaViewport>
-            <ScrollAreaContent>
-              <aside >
-                <GoldenBox>
-                  <nav className="sidebar pb-2xl">
-                    {nav.map((item) => (
-                      <div key={item.href}>
-                        <Link href={item.href}>
-                          <div className="px-sm py-2xs relative overflow-hidden rounded-xs">
-                            <h2 className="heading my-xs">{item.title}</h2>
-                            <StateLayer />
-                          </div>
-                        </Link>
-                        {item.children?.map((c) => (
-                          <Link key={c.href} href={c.href}>
-                            <div className="px-sm py-2xs relative overflow-hidden rounded-2xs">
-                              <span className="callout ">{c.title}</span>
-
+        <div className="left-sidebar">
+          <ScrollArea>
+            <ScrollAreaViewport>
+              <ScrollAreaContent>
+                <aside>
+                  <GoldenBox>
+                    <nav className="sidebar pb-2xl">
+                      {nav.map((item) => (
+                        <div key={item.href}>
+                          <Link href={item.href}>
+                            <div className="px-sm py-2xs relative overflow-hidden rounded-xs">
+                              <h2 className="heading my-xs">{item.title}</h2>
                               <StateLayer />
                             </div>
                           </Link>
-                        ))}
-                      </div>
-                    ))}
-                  </nav>
-                </GoldenBox>
-              </aside>
-            </ScrollAreaContent>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-          <ScrollAreaScrollbar orientation="horizontal">
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-          <ScrollAreaCorner />
-        </ScrollArea>
-        <ScrollArea>
-          <ScrollAreaViewport>
-            <ScrollAreaContent style={{ minWidth: "0px" }}>
-              <main style={{ width: "100%" }}>
-                <GoldenBox scaleFactor="title1" opticalCorrection="top" className="w-full">
-                  {children}
-                </GoldenBox>
-              </main>
-            </ScrollAreaContent>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
+                          {item.children?.map((c) => (
+                            <Link key={c.href} href={c.href}>
+                              <div className="px-sm py-2xs relative overflow-hidden rounded-2xs">
+                                <span className="callout ">{c.title}</span>
 
-          <ScrollAreaCorner />
-        </ScrollArea>
-        <ScrollArea>
-          <ScrollAreaViewport>
-            <ScrollAreaContent>
-              <aside data-slot="right-sidebar">
-                <GoldenBox scaleFactor="body">
-                  <TableOfContents />
-                </GoldenBox>
-              </aside>
-            </ScrollAreaContent>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
+                                <StateLayer />
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </nav>
+                  </GoldenBox>
+                </aside>
+              </ScrollAreaContent>
+            </ScrollAreaViewport>
+            <ScrollAreaScrollbar>
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
+            <ScrollAreaScrollbar orientation="horizontal">
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
+            <ScrollAreaCorner />
+          </ScrollArea>
+        </div>
 
-          <ScrollAreaCorner />
-        </ScrollArea>
+        <main style={{ width: "100%" }}>
+          <GoldenBox scaleFactor="title1" opticalCorrection="top" className="w-full">
+            {children}
+          </GoldenBox>
+        </main>
+        <div className="left-sidebar">
+          <ScrollArea>
+            <ScrollAreaViewport>
+              <ScrollAreaContent>
+                <aside>
+                  <GoldenBox scaleFactor="body">
+                    <TableOfContents />
+                  </GoldenBox>
+                </aside>
+              </ScrollAreaContent>
+            </ScrollAreaViewport>
+            <ScrollAreaScrollbar>
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
+            <ScrollAreaCorner />
+          </ScrollArea>
+        </div>
       </div>
     </div>
   );

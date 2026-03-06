@@ -55,4 +55,3 @@
 .w-6xl {
   width: calc(var(--lk-size-5xl) * var(--lk-wholestep));
 }
-
