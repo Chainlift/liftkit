@@ -1,21 +1,25 @@
 div[data-instance="lk-docs-table"] {
+  div:not(:last-child) {
+    margin-bottom: var(--lk-size-lg);
+  }
+
   table {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
     table-layout: fixed;
-    font-size: var(--lk-callout-font-size);
+    font-size: var(--lk-subheading-font-size);
     letter-spacing: var(--lk-callout-letter-spacing);
-    /* background: var(--lk-surfacecontainerlowest);
+    background: var(--lk-surfacecontainerlowest);
     box-shadow: var(--lk-shadow-2xs);
     border-radius: var(--lk-size-2xs);
-    overflow: hidden; */
+    overflow: hidden;
   }
 
   thead {
     tr {
-      border-bottom: 1px solid var(--lk-outline);
-      /* background-color: var(--lk-surfacecontainerlow); */
+      border-bottom: 1px solid var(--lk-outlinevariant);
+      background-color: var(--lk-surface);
     }
   }
 
@@ -34,9 +38,9 @@ div[data-instance="lk-docs-table"] {
     font-weight: 500;
     color: var(--lk-onsurfacevariant);
 
-    /* &:first-child {
+    &:first-child {
       padding-left: var(--lk-size-xs);
-    } */
+    }
   }
 
   td {
@@ -44,12 +48,12 @@ div[data-instance="lk-docs-table"] {
     line-height: var(--lk-body-line-height);
     color: var(--lk-onsurfacelow);
 
-    /* &:first-child {
+    &:first-child {
       padding-left: var(--lk-size-xs);
-    } */
+    }
   }
 }
 
-div[data-instance="lk-docs-table"]:not(:first-child) h3 {
+div[data-instance="lk-docs-table"] ~ h3 {
   margin-top: var(--lk-size-lg);
 }

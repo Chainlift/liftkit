@@ -65,7 +65,7 @@ export function SubComponentPropsTable({ componentName, subComponentName, classN
         </colgroup>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Prop</th>
             <th>Type</th>
             <th>Default</th>
             <th>Description</th>
@@ -115,7 +115,7 @@ export function SubComponentDataAttributesTable({
 
         <thead>
           <tr>
-            <th>Attribute</th>
+            <th>Data Attribute</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -198,11 +198,11 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div className="mb-6">
-        <h3 className="title1-bold font-700 mb-xs" data-instance="component-name">
+        {/* <h3 className="title2-bold mb-xs" data-instance="component-name">
           {subComponentName}
-        </h3>
+        </h3> */}
         {subComponent.description && (
-          <p className="title3 mb-lg color-onsurfacelow">
+          <p className="body mb-lg color-onsurfacelow">
             {subComponent.description} Renders a{" "}
             <code className="bg-gray-100 px-1 py-0.5 rounded">{subComponent.renders}</code> element.
           </p>
@@ -213,7 +213,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
       {/* Props */}
       {subComponent.props && subComponent.props.length > 0 && (
         <div className="mb-6">
-          <h4 className="title3-bold mb-sm">Props</h4>
+          <h4 className="body-bold mb-sm">Props</h4>
           <SubComponentPropsTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
@@ -221,7 +221,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
         <div>
-          <h4 className="title3-bold mt-lg mb-sm">Data Attributes</h4>
+          <h4 className="body-bold mt-lg mb-sm">Data Attributes</h4>
           <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
