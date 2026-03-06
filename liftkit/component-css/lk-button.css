@@ -31,6 +31,24 @@
 
   border-radius: 100em;
   font-weight: 500;
+
+  &.lk-btn-variant--fill {
+    --lk-btn-bg: var(--lk-color-token);
+    --lk-btn-fg: var(--lk-color-ontoken);
+    --lk-btn-border: transparent;
+  }
+
+  &.lk-btn-variant--outline {
+    --lk-btn-bg: transparent;
+    --lk-btn-fg: var(--lk-color-token);
+    --lk-btn-border: var(--lk-color-token);
+  }
+
+  &.lk-btn-variant--text {
+    --lk-btn-bg: transparent;
+    --lk-btn-fg: var(--lk-color-token);
+    --lk-btn-border: transparent;
+  }
 }
 
 :where(.lk-btn),
@@ -42,9 +60,7 @@
   word-break: keep-all;
   overflow: hidden;
   font-family: inherit;
-
 }
-
 
 :where([data-lk-button-root]) {
   width: 100%;
@@ -81,21 +97,3 @@ Usually happens when start icon appears bigger than the text, even when it's not
 }
 
 /* STYLE VARIANTS */
-
-:where(.lk-btn-variant--fill) {
-  --lk-btn-bg: var(--lk-color-token);
-  --lk-btn-fg: var(--lk-color-ontoken);
-  --lk-btn-border: transparent;
-}
-
-:where(.lk-btn-variant--outline) {
-  --lk-btn-bg: transparent;
-  --lk-btn-fg: var(--lk-color-token);
-  --lk-btn-border: var(--lk-color-token);
-}
-
-:where(.lk-btn-variant--text) {
-  --lk-btn-bg: transparent;
-  --lk-btn-fg: var(--lk-color-token);
-  --lk-btn-border: transparent;
-}
