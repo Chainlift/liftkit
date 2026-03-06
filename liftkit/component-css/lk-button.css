@@ -1,7 +1,10 @@
-:where(.lk-btn),
-:where([data-lk-component="button"]) {
-  /* DEFAULTS */
+/** These rules have specificity of 1 so they don't get overridden by other component styles.
+  * Buttons are extremely opinionated for optical alignment purposes, 
+  * so this is a higher number of requirements than usual. 
+  */
 
+.lk-btn,
+[data-lk-component="button"] {
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
@@ -14,26 +17,34 @@
 
   display: inline-flex;
   vertical-align: middle;
-
-  position: relative;
-  text-decoration: none;
-  white-space: pre;
-  word-break: keep-all;
-  overflow: hidden;
-  padding: var(--button-padY) 1em;
-  font-weight: 500;
-  line-height: var(--button-line-height);
-  font-family: inherit;
   background: var(--lk-btn-bg, transparent);
   color: var(--lk-btn-fg, inherit);
   gap: var(--button-gap);
+  position: relative;
+  padding: var(--button-padY) 1em;
+  line-height: var(--button-line-height);
 
   /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
   border-width: var(--lk-size-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
+
   border-radius: 100em;
+  font-weight: 500;
 }
+
+:where(.lk-btn),
+:where([data-lk-component="button"]) {
+  /* These can be overridden */
+
+  text-decoration: none;
+  white-space: pre;
+  word-break: keep-all;
+  overflow: hidden;
+  font-family: inherit;
+
+}
+
 
 :where([data-lk-button-root]) {
   width: 100%;

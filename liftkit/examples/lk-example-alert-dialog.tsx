@@ -22,8 +22,8 @@ export function ExampleAlertDialog() {
           <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <div className="flex justify-end">
-            <AlertDialogClose render={<Button label="cancel" />}>Cancel</AlertDialogClose>
+          <div className="flex items-center justify-end">
+            <AlertDialogClose render={<Button label="cancel" color="error" variant="outline"/>}>Cancel</AlertDialogClose>
             <AlertDialogAction>Discard</AlertDialogAction>
           </div>
         </AlertDialogFooter>
