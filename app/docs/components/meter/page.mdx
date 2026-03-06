@@ -1,19 +1,19 @@
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
 import { SubComponentSection } from "@/app/docs/lib/subcomponent-section";
-import { Accordion_Example_TS } from "./codeTemplates/meter-example-ts.ts";
-import { Accordion_Example_CSS } from "./codeTemplates/meter-example-css.ts";
+import { Meter_Example_TS } from "./codeTemplates/meter-example-ts.ts";
+import { Meter_Example_CSS } from "./codeTemplates/meter-example-css.ts";
 
 export const metadata = {
-  title: "Accordion",
+  title: "Meter",
   description: "Interactive trigger component built on Base UI with LiftKit styling.",
 };
 
-# Accordion
+# Meter
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 
-<ComponentPreviewWrapper componentName="meter" initial_TS={Accordion_Example_TS()} initial_CSS={Accordion_Example_CSS()}/>
+<ComponentPreviewWrapper componentName="meter" initial_TS={Meter_Example_TS()} initial_CSS={Meter_Example_CSS()}/>
 
 </div>
 
@@ -30,6 +30,6 @@ export const metadata = {
 ## API Reference
 
 > **This section only covers LiftKit-specific API features.** 
-> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
+> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/Meter#root).
 
 <SubComponentSection componentName="meter" />
