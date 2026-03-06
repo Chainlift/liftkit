@@ -1,5 +1,6 @@
 div[data-instance="lk-docs-table"] {
-  div:not(:last-child) {
+
+  [data-slot="table-block"] {
     margin-bottom: var(--lk-size-lg);
   }
 

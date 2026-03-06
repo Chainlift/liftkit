@@ -12,6 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: (props) => <h2 className="title1-bold mb-md mt-lg" {...props} />,
     h3: (props) => <h3 className="title2-bold mb-xs" {...props} />,
     p: (props) => <p className="body mb-md" {...props} />,
+    blockquote: (props) => <blockquote className="ml-0 border-l border-color-info" {...props} />,
     ...components,
   };
 }

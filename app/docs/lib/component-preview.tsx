@@ -199,10 +199,13 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
       {/* Controls Panel */}
 
       {/* Live Preview */}
-      <div className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surfacecontainerlowest" style={{height: "400px"}}>
+      <div
+        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surfacecontainerlowest"
+        style={{ height: "400px" }}
+      >
         <Component {...componentProps} />
       </div>
-      <div className="bg-surface flex">
+      <div className="bg-background flex">
         <ScrollArea style={{ width: "240px", height: "533px" }}>
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">

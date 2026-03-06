@@ -6,6 +6,8 @@ import "./subcomponent-table-styles.css";
  */
 
 import { componentManifest, type ComponentName, type SubComponentEntry } from "./component-manifest";
+import { link } from "fs";
+import { Button, Icon } from "@/liftkit/component-definitions";
 
 /**
  * Get all sub-components for a given component
@@ -56,7 +58,7 @@ export function SubComponentPropsTable({ componentName, subComponentName, classN
 
   return (
     <div data-instance="lk-docs-table">
-      <table >
+      <table>
         <colgroup>
           <col width="16.6%" />
           <col width="16.6%" />
@@ -112,7 +114,6 @@ export function SubComponentDataAttributesTable({
   return (
     <div className={className}>
       <table>
-
         <thead>
           <tr>
             <th>Data Attribute</th>
@@ -184,10 +185,11 @@ export function SubComponentCSSVariablesTable({
 interface SubComponentDocsProps {
   componentName: ComponentName;
   subComponentName: string;
+  linkToSource?: string;
   className?: string;
 }
 
-export function SubComponentDocs({ componentName, subComponentName, className }: SubComponentDocsProps) {
+export function SubComponentDocs({ componentName, subComponentName, linkToSource, className }: SubComponentDocsProps) {
   const subComponent = getSubComponent(componentName, subComponentName);
 
   if (!subComponent) {
@@ -197,7 +199,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
   return (
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
-      <div className="mb-6">
+      <div data-slot="table-block">
         {/* <h3 className="title2-bold mb-xs" data-instance="component-name">
           {subComponentName}
         </h3> */}
@@ -212,15 +214,27 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
 
       {/* Props */}
       {subComponent.props && subComponent.props.length > 0 && (
-        <div className="mb-6">
-          <h4 className="body-bold mb-sm">Props</h4>
+        <div data-slot="table-block">
+          <div className="flex items-baseline justify-start">
+            <h4 className="body-bold mb-sm">Props</h4>
+            {linkToSource && (
+              <a
+                href={linkToSource}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body color-primary flex items-center"
+              >
+                <Button fontClass="subheading" variant="text" label="Full API Reference" className="font-500" />
+              </a>
+            )}
+          </div>
           <SubComponentPropsTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
 
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
-        <div>
+        <div data-slot="table-block">
           <h4 className="body-bold mt-lg mb-sm">Data Attributes</h4>
           <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
@@ -228,7 +242,7 @@ export function SubComponentDocs({ componentName, subComponentName, className }:
 
       {/* CSS Variables */}
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
-        <div>
+        <div data-slot="table-block">
           <h4 className="heading mt-lg mb-sm">CSS Variables</h4>
           <SubComponentCSSVariablesTable componentName={componentName} subComponentName={subComponentName} />
         </div>

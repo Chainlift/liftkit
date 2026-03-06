@@ -506,10 +506,9 @@ pre {
 /* Make Buttons into Inline Elements */
 
 button {
-  /* In division, the second value MUST be unitless */
   font-size: inherit;
   font-family: inherit;
-  color: inherit;
+  /* color: inherit; */
 }
 
 button span {
