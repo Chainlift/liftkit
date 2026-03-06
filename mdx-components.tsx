@@ -11,8 +11,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: (props) => <h1 className="display2-bold mb-md mt-none" {...props} />, // example of custom heading
     h2: (props) => <h2 className="title1-bold mb-md mt-lg" {...props} />,
     h3: (props) => <h3 className="title2-bold mb-xs" {...props} />,
-    p: (props) => <p className="body mb-md" {...props} />,
-    blockquote: (props) => <blockquote className="ml-0 border-l border-color-info" {...props} />,
+    p: (props) => <p className="body" {...props} />,
     ...components,
   };
 }

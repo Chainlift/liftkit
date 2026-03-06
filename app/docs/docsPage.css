@@ -29,6 +29,18 @@
       justify-items: start;
     }
   }
+
+  blockquote{
+    margin: 0px 0px var(--lk-size-xl) 0px;
+    border-left: 4px solid var(--lk-warning);
+    padding-left: var(--lk-size-md);
+  }
+
+  p>a {
+    color: var(--lk-primary);
+    font-weight: 500;
+    text-decoration: underline;
+  }
 }
 
 @media screen and (max-width: 1280px) {
