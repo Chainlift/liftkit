@@ -42,13 +42,13 @@ const alertDialog: ComponentEntry = {
       ],
       dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
     },
-    AlertDialogTrigger: {
+    Trigger: {
       description: "The button that opens the alert dialog.",
       renders: "<button>",
       props: [],
       dataAttributes: [{ name: "data-open", description: "Present when the dialog is open." }],
     },
-    AlertDialogPortal: {
+    Portal: {
       description: "Portals the backdrop and popup out of the DOM hierarchy.",
       props: [
         {
@@ -66,7 +66,7 @@ const alertDialog: ComponentEntry = {
         },
       ],
     },
-    AlertDialogBackdrop: {
+    Backdrop: {
       description: "The semi-transparent overlay rendered behind the popup.",
       renders: "<div>",
       props: [],
@@ -76,7 +76,7 @@ const alertDialog: ComponentEntry = {
         { name: "data-ending-style", description: "Applied when the dialog is closing." },
       ],
     },
-    AlertDialogContent: {
+    Content: {
       description: "The popup panel. Automatically wraps AlertDialogPortal and AlertDialogBackdrop.",
       renders: "<div>",
       props: [
@@ -94,37 +94,37 @@ const alertDialog: ComponentEntry = {
         { name: "data-ending-style", description: "Applied when the dialog is closing." },
       ],
     },
-    AlertDialogHeader: {
+    Header: {
       description: "Layout wrapper for the dialog title and description.",
       renders: "<div>",
       props: [],
     },
-    AlertDialogFooter: {
+    Footer: {
       description: "Layout wrapper for the dialog action buttons.",
       renders: "<div>",
       props: [],
     },
-    AlertDialogMedia: {
+    Media: {
       description: "Optional layout wrapper for media content within the dialog.",
       renders: "<div>",
       props: [],
     },
-    AlertDialogTitle: {
+    Title: {
       description: "Accessible title for the alert dialog.",
       renders: "<h2>",
       props: [],
     },
-    AlertDialogDescription: {
+    Description: {
       description: "Accessible description for the alert dialog.",
       renders: "<p>",
       props: [],
     },
-    AlertDialogAction: {
+    Action: {
       description: "The confirm/destructive action button. Rendered as a LiftKit Button.",
       renders: "<button>",
       props: [],
     },
-    AlertDialogClose: {
+    Close: {
       description: "The cancel/close button. Closes the dialog when clicked.",
       renders: "<button>",
       props: [

@@ -11,6 +11,13 @@ const form: ComponentEntry = {
     disabled: { kind: "boolean", label: "Disabled", default: false },
     sample: { kind: "select", label: "Sample select", default: "option1", options: [] },
   },
+  subComponents: {
+    Root: {
+      description: "The form element with built-in validation support.",
+      renders: "<form>",
+      props: [],
+    },
+  },
 };
 
 export { form };

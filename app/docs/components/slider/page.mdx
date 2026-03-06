@@ -1,6 +1,6 @@
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
-import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { SubComponentSection } from "@/app/docs/lib/subcomponent-section";
 import { Slider_Example_TS } from "./codeTemplates/slider-example-ts.ts";
 import { Slider_Example_CSS } from "./codeTemplates/slider-example-css.ts";
 
@@ -20,22 +20,16 @@ export const metadata = {
 
 ## Installation
 
-<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
-
-```bash
-npm install some-instructions-here-idk
-```
-
+<div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
+  <SimpleCodeBlock
+      codeString="npm install @liftkit/something"
+      lang="bash"
+    />
 </div>
 
-## Subcomponents
+## API Reference
 
-<SubComponentDocs componentName="slider" subComponentName="Root" />
+> **This section only covers LiftKit-specific API features.** 
+> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
 
-<SubComponentDocs componentName="slider" subComponentName="Item" />
-
-## Installation
-
-```bash
-npm install @liftkit/ui @liftkit/utility-classes
-```
+<SubComponentSection componentName="slider" />

@@ -1,6 +1,6 @@
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
 import { ComponentPreviewWrapper } from "@/app/docs/lib/component-preview-wrapper";
-import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
+import { SubComponentSection } from "@/app/docs/lib/subcomponent-section";
 import { Autocomplete_Example_TS } from "./codeTemplates/autocomplete-example-ts.ts";
 import { Autocomplete_Example_CSS } from "./codeTemplates/autocomplete-example-css.ts";
 
@@ -18,24 +18,10 @@ export const metadata = {
 </div>
 
 
-## Installation
+## API Reference
 
-<div className=" border border-color-outlinevariant rounded-2xs bg-surfacecontainerlow ">
+> **This section only covers LiftKit-specific API features.** 
+> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
 
-```bash
-npm install some-instructions-here-idk
-```
 
-</div>
-
-## Subcomponents
-
-<SubComponentDocs componentName="autocomplete" subComponentName="Root" />
-
-<SubComponentDocs componentName="autocomplete" subComponentName="Item" />
-
-## Installation
-
-```bash
-npm install @liftkit/ui @liftkit/utility-classes
-```
+<SubComponentSection componentName="autocomplete" />

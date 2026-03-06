@@ -118,6 +118,13 @@ const button: ComponentEntry = {
     },
     disabled: { kind: "boolean", label: "Disabled", default: false },
   },
+  subComponents: {
+    Root: {
+      description: "A styled button with support for variants, colors, icons, and a state layer.",
+      renders: "<button>",
+      props: [],
+    },
+  },
 };
 
 export { button };

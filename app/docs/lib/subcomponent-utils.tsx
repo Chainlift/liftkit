@@ -200,7 +200,11 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div data-slot="table-block">
-        <h3 className="title2-bold mb-xs" data-instance="component-name">
+        <h3
+          className="title2-bold mb-xs"
+          data-instance="component-name"
+          id={subComponentName.toLowerCase().replace(/\s+/g, "-")}
+        >
           {subComponentName}
         </h3>
         {subComponent.description && (

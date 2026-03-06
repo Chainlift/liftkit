@@ -61,7 +61,16 @@ const accordion: ComponentEntry = {
         },
       ],
     },
-    // Add more sub-components as needed
+    Trigger: {
+      description: "The button that toggles an accordion item open and closed. Includes a header wrapper and icon.",
+      renders: "<button>",
+      props: [],
+    },
+    Content: {
+      description: "The collapsible content panel for an accordion item.",
+      renders: "<div>",
+      props: [],
+    },
   },
 };
 
