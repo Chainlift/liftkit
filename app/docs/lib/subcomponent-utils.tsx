@@ -200,9 +200,9 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
     <div className={className} data-instance="lk-docs-table">
       {/* Header */}
       <div data-slot="table-block">
-        {/* <h3 className="title2-bold mb-xs" data-instance="component-name">
+        <h3 className="title2-bold mb-xs" data-instance="component-name">
           {subComponentName}
-        </h3> */}
+        </h3>
         {subComponent.description && (
           <p className="body mb-lg color-onsurfacelow">
             {subComponent.description} Renders a{" "}

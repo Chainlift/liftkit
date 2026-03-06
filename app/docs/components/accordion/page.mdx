@@ -3,7 +3,7 @@ import { SubComponentDocs } from "@/app/docs/lib/subcomponent-utils";
 import { Accordion_Example_TS } from "./codeTemplates/accordion-example-ts.ts";
 import { Accordion_Example_CSS } from "./codeTemplates/accordion-example-css.ts";
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
-
+import { SubComponentSection } from "@/app/docs/lib/subcomponent-section";
 
 export const metadata = {
   title: "Accordion",
@@ -36,13 +36,9 @@ export const metadata = {
 > **This section only covers LiftKit-specific API features.** 
 > It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
 
-<div>
-### Root
-<SubComponentDocs componentName="accordion" subComponentName="Root"/>
 
-### Item
-<SubComponentDocs componentName="accordion" subComponentName="Item" />
-</div>
+<SubComponentSection componentName="accordion" />
+
 
 
 ## Tips

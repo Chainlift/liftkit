@@ -55,6 +55,6 @@ div[data-instance="lk-docs-table"] {
   }
 }
 
-div[data-instance="lk-docs-table"] ~ h3 {
+div[data-instance="lk-docs-table"]:not(:first-child)  h3 {
   margin-top: var(--lk-size-lg);
 }
