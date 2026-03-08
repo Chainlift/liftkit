@@ -135,6 +135,7 @@ export type ComponentEntry = {
   subComponents?: Record<string, SubComponentEntry>;
   example_TS?: (knobs: Record<string, unknown>) => string;
   example_CSS?: (knobs: Record<string, unknown>) => string;
+  docsLink?: string; //link to base UI documentation for this component
 };
 
 export const componentManifest: Record<string, ComponentEntry> = {

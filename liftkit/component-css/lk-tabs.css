@@ -5,8 +5,8 @@
   display: flex;
   position: relative;
   z-index: 0;
-  /* padding-inline: 0.25rem; */
-  /* gap: 0.25rem; */
+  padding: 0px var(--lk-size-2xs);
+  gap: var(--lk-size-xs);
 }
 
 :where([data-slot="tabs-tab"]) {
@@ -25,10 +25,8 @@
   user-select: none;
   white-space: nowrap;
   word-break: keep-all;
-  /* padding-inline: 0.5rem;
-  padding-block: 0; 
-    height: 2rem;
-  */
+  padding: var(--lk-size-xs) var(--lk-size-2xs);
+  height: 2rem;
 
   /* ^^ turned off padding and height from Base UI */
 
@@ -60,12 +58,13 @@
   position: absolute;
   z-index: -1;
   left: 0;
-  bottom: 0;
-  translate: var(--active-tab-left) 0%;
+  top: 50%;
+  translate: var(--active-tab-left) -50%;
+
   width: var(--active-tab-width);
   /* height: 1.5rem; */
-  height: var(--lk-size-4xs);
-  /* border-radius: 0.25rem; */
+  height: var(--lk-size-lg);
+  border-radius: var(--lk-size-2xs);
   background-color: var(--lk-inversesurface);
   transition-property: translate, width;
   transition-duration: 200ms;

@@ -123,13 +123,15 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                 <p className="label color-onsurfacelow">{control.description ?? "Description missing."}</p>
               </div>
 
-              <Switch
-                className="subheading"
-                checked={currentValue}
-                onCheckedChange={(checked) => updateKnob(key, checked)}
-              >
-                <SwitchThumb></SwitchThumb>
-              </Switch>
+              <div>
+                <Switch
+                  className="subheading"
+                  checked={currentValue}
+                  onCheckedChange={(checked) => updateKnob(key, checked)}
+                >
+                  <SwitchThumb></SwitchThumb>
+                </Switch>
+              </div>
             </div>
           </GoldenBox>
         );
@@ -228,7 +230,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
       {/* Live Preview */}
       <div
-        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surface"
+        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surfacecontainerlowest"
         style={{ height: "400px" }}
       >
         <Component {...componentProps} />
@@ -240,8 +242,16 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <div>
-                <GoldenBox opticalCorrection="y" scaleFactor="callout" className="">
-                  <h2 className="subheading  color-onsurfacelow">Preview Props</h2>
+                <GoldenBox
+                  opticalCorrection="y"
+                  scaleFactor="callout"
+                  className=""
+                  noPadding="top"
+                >
+                  <h2 className="heading mt-sm mb-2xs font-600 color-onsurface">Common Props</h2>
+                  <p className="body font-500 ">
+                    See <a href={manifest.docsLink}>Base UI</a> for full list.
+                  </p>
                 </GoldenBox>
                 {manifest.knobs && (
                   <div className="flex flex-col">
@@ -266,21 +276,17 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
         <Tabs
           defaultValue="typescript"
-          className="fill-container border-l border-color-outlinevariant bg-surface"
+          className="fill-container border-l border-color-outlinevariant bg-background"
           style={{ minWidth: "0" }}
         >
-          <TabsList className="border-b border-color-outlinevariant bg-surfacecontainerlowest">
-            <TabsTab
-              value="typescript"
-              nativeButton={false}
-              render={<GoldenBox opticalCorrection="y" scaleFactor="subheading" />}
-            >
+          <TabsList className="border-b border-color-outlinevariant bg-surfacecontainerhigh">
+            <TabsTab value="typescript">
               <span className="subheading font-500">Typescript</span>
             </TabsTab>
-            <TabsTab value="css">
+            <TabsTab value="css" >
               <span className="subheading font-500">CSS</span>
             </TabsTab>
-            <TabsIndicator />
+            <TabsIndicator className="bg-surfacecontainerlowest" />
           </TabsList>
           <TabsPanel value="typescript" style={{ height: "500px" }}>
             {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}

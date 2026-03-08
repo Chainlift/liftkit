@@ -11,13 +11,15 @@
   }
 
   &[data-orientation="horizontal"] {
-
-  flex-direction: row;
+    flex-direction: row;
+    align-items: stretch;
     /* Horizontal orientation styles */
   }
 
   &[data-disabled] {
     /* Disabled state styles */
+    opacity: 50%;
+    cursor: not-allowed;
   }
 }
 
@@ -69,6 +71,7 @@
   border: none;
   outline: none;
   text-align: left;
+  cursor: pointer;
 
   /* @media (hover: hover) {
     &:hover {
@@ -87,6 +90,7 @@
 
   &[data-disabled] {
     /* Disabled state styles */
+    pointer-events: none;
   }
 }
 
@@ -138,4 +142,3 @@
     /* Index-based styles */
   }
 }
-

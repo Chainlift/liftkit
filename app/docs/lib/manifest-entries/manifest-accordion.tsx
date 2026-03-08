@@ -5,6 +5,7 @@ import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/componen
 const accordion: ComponentEntry = {
   title: "Accordion",
   Component: ExampleAccordion,
+  docsLink: "https://base-ui.com/react/components/accordion",
   example_TS: (knobs) => Accordion_Example_TS(knobs),
   example_CSS: (knobs) => Accordion_Example_CSS(knobs),
   knobs: {
@@ -18,6 +19,13 @@ const accordion: ComponentEntry = {
         { label: "Vertical", value: "vertical" },
         { label: "Horizontal", value: "horizontal" },
       ],
+    },
+    loopFocus: {
+      kind: "boolean",
+      label: "Loop Focus",
+      default: true,
+      description:
+        "Whether to loop keyboard focus back to the first item when the end of the list is reached while using the arrow keys.",
     },
   },
   // NEW: Add sub-components here

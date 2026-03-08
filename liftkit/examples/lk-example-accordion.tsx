@@ -6,12 +6,13 @@ import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-la
 export function ExampleAccordion({
   multiple = false,
   orientation = "vertical",
+  ...props
 }: {
   multiple?: boolean;
   orientation?: "vertical" | "horizontal";
 }) {
   return (
-    <Accordion multiple={multiple} orientation={orientation} className="w-6xl">
+    <Accordion multiple={multiple} orientation={orientation} {...props} className="w-6xl">
       <AccordionItem>
         <AccordionTrigger>
           <GoldenBox scaleFactor="body" opticalCorrection="all">
