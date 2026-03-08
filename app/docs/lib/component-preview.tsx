@@ -295,6 +295,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                 <div className="capline ">TS</div>
               </GoldenBox>
             </TabsTab>
+
             <TabsTab value="css" className="p-0">
               <GoldenBox scaleFactor="caption" opticalCorrection="y">
                 <div className="capline ">CSS</div>

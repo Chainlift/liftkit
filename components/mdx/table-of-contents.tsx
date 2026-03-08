@@ -67,16 +67,14 @@ export function TableOfContents() {
 
   return (
     <nav data-slot="table-of-contents" aria-label="On this page">
-      <p className="label" style={{ color: "var(--lk-onsurfacevariant)", marginBottom: "var(--lk-size-xs)" }}>
-        On this page
-      </p>
+      <p className="capline mb-lg color-onsurfacelow">On this page</p>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
               data-active={activeId === item.id || undefined}
-              className={`pl-${item.level === 2 ? "sm" : "lg"} pr-sm py-2xs relative overflow-hidden rounded-2xs`}
+              className={`${item.level === 2 ? "pl-sm" : "pl-lg"} pr-sm py-2xs relative overflow-hidden rounded-2xs `}
               style={{
                 display: "block",
               }}
@@ -85,11 +83,7 @@ export function TableOfContents() {
                 document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <span
-                className="callout"
-              >
-                {item.text}
-              </span>
+              <span className={`${item.level === 3 ? "subheading" : "callout font-500"}`}>{item.text}</span>
 
               <StateLayer />
             </a>

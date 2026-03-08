@@ -2,19 +2,26 @@
   display: grid;
   margin: auto;
   max-width: 1600px;
-  grid-template-columns: auto minmax(45ch, 90ch) auto;
+  grid-template-columns: 320px minmax(40ch, 90ch) 320px;
   position: relative;
 
+
   gap: 0;
+
   [data-slot="scroll-area"] {
     width: 100%;
     height: 100vh;
+  }
+
+  main {
+    padding-bottom: var(--lk-size-4xl);
   }
 
   .left-sidebar {
     align-self: start;
     position: sticky;
     top: 0px;
+
 
     [data-slot="scroll-area"] {
       justify-items: end;
@@ -24,9 +31,17 @@
     align-self: start;
     position: sticky;
     top: 0px;
+    width: 100%;
+    
 
     [data-slot="scroll-area"] {
       justify-items: start;
+    }
+
+    h3 {
+      font-size: var(--lk-label-font-size);
+      line-height: var(--lk-label-line-height);
+      letter-spacing: var(--lk-label-letter-spacing);
     }
   }
 
@@ -38,7 +53,7 @@
 
   p>a {
     color: var(--lk-primary);
-    font-weight: 500;
+    font-weight: 500, inherit;
     text-decoration: underline;
   }
 }

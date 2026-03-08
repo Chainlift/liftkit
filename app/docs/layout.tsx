@@ -1,11 +1,9 @@
 import { getDocsNav } from "@/lib/docs-nav";
-import Link from "next/link";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
-import { Table } from "lucide-react";
 import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
 import { ExampleNavigationMenu } from "@/liftkit/examples";
 import "./docsPage.css";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { NavSidebar } from "@/app/docs/lib/nav-sidebar";
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -27,29 +25,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             <ScrollAreaViewport>
               <ScrollAreaContent>
                 <aside>
-                  <GoldenBox>
-                    <nav className="sidebar pb-2xl">
-                      {nav.map((item) => (
-                        <div key={item.href}>
-                          <Link href={item.href}>
-                            <div className="px-sm relative overflow-hidden rounded-xs">
-                              <h2 className="heading my-xs">{item.title}</h2>
-                              <StateLayer />
-                            </div>
-                          </Link>
-                          {item.children?.map((c) => (
-                            <Link key={c.href} href={c.href}>
-                              <div className="px-sm py-2xs relative overflow-hidden rounded-2xs">
-                                <span className="callout ">{c.title}</span>
-
-                                <StateLayer />
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </nav>
-                  </GoldenBox>
+                  <NavSidebar nav={nav} />
                 </aside>
               </ScrollAreaContent>
             </ScrollAreaViewport>
