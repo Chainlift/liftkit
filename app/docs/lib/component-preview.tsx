@@ -112,18 +112,15 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       case "boolean":
         return (
-          <GoldenBox opticalCorrection="y" className="w-full" noPadding="x">
+          <GoldenBox
+            opticalCorrection="y"
+            scaleFactor="callout"
+            className="w-full border-b border-color-outlinevariant"
+          >
             <div className="flex items-center justify-between w-full">
-              <div className="flex items-center gap-2xs">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Icon name="info" color="outline" />
-                    </TooltipTrigger>
-                    <TooltipContent>{control.description}</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <label>{control.label}</label>
+              <div className="">
+                <label className="display-block callout font-500 mb-xs">{control.label}</label>
+                <p className="label color-onsurfacelow">{control.description ?? "Description missing."}</p>
               </div>
 
               <Switch
@@ -182,23 +179,36 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       case "radio":
         return (
-          <Field>
-            {control.label && (
-              <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
-                {control.label}
-              </FieldLabel>
-            )}
-            <RadioGroup value={currentValue} onValueChange={(value) => updateKnob(key, value)} className="flex gap-sm">
-              {control.options.map((opt) => (
-                <label key={opt.value} className="flex items-center gap-2xs" style={{ cursor: "pointer" }}>
-                  <Radio value={opt.value}>
-                    <RadioIndicator />
-                  </Radio>
-                  <span className="subheading">{opt.label}</span>
-                </label>
-              ))}
-            </RadioGroup>
-          </Field>
+          <GoldenBox
+            opticalCorrection="top"
+            scaleFactor="callout"
+            className="w-full border-b border-color-outlinevariant"
+          >
+            <Field>
+              {control.label && (
+                <div>
+                  <FieldLabel nativeLabel={false} render={<div className="callout font-500 mb-xs" />}>
+                    {control.label}
+                  </FieldLabel>
+                  <p className="label mb-md color-onsurfacelow">{control.description ?? "Description missing."}</p>
+                </div>
+              )}
+              <RadioGroup
+                value={currentValue}
+                onValueChange={(value) => updateKnob(key, value)}
+                className="flex gap-sm"
+              >
+                {control.options.map((opt) => (
+                  <label key={opt.value} className="flex items-center gap-2xs" style={{ cursor: "pointer" }}>
+                    <Radio value={opt.value}>
+                      <RadioIndicator />
+                    </Radio>
+                    <span className="subheading">{opt.label}</span>
+                  </label>
+                ))}
+              </RadioGroup>
+            </Field>
+          </GoldenBox>
         );
 
       default:
@@ -216,23 +226,25 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
-      {/* Controls Panel */}
-
       {/* Live Preview */}
       <div
-        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surfacecontainerlowest"
+        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surface"
         style={{ height: "400px" }}
       >
         <Component {...componentProps} />
       </div>
-      <div className="bg-background flex">
+
+      {/* Controls Panel */}
+      <div className="flex bg-surfacecontainerlowest">
         <ScrollArea style={{ width: "240px", height: "533px" }}>
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
-              <GoldenBox opticalCorrection="top" scaleFactor="subheading">
-                <h2 className="subheading font-500 mb-md">Preview Props</h2>
+              <div>
+                <GoldenBox opticalCorrection="y" scaleFactor="callout" className="">
+                  <h2 className="subheading  color-onsurfacelow">Preview Props</h2>
+                </GoldenBox>
                 {manifest.knobs && (
-                  <div className="flex flex-col gap-md">
+                  <div className="flex flex-col">
                     {Object.entries(manifest.knobs).map(([key, control]) => (
                       <div key={key}>
                         <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
@@ -240,7 +252,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                     ))}
                   </div>
                 )}
-              </GoldenBox>
+              </div>
             </ScrollAreaContent>
           </ScrollAreaViewport>
           <ScrollAreaScrollbar>
@@ -257,8 +269,12 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           className="fill-container border-l border-color-outlinevariant bg-surface"
           style={{ minWidth: "0" }}
         >
-          <TabsList className="border-b border-color-outlinevariant">
-            <TabsTab value="typescript">
+          <TabsList className="border-b border-color-outlinevariant bg-surfacecontainerlowest">
+            <TabsTab
+              value="typescript"
+              nativeButton={false}
+              render={<GoldenBox opticalCorrection="y" scaleFactor="subheading" />}
+            >
               <span className="subheading font-500">Typescript</span>
             </TabsTab>
             <TabsTab value="css">
