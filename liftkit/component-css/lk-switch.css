@@ -16,8 +16,8 @@
   margin: 0;
   padding: 1px;
 
-  width: var(--lk-size-lg);
-  height: var(--lk-size-md);
+  width: calc(var(--lk-size-lg) * var(--lk-halfstep));
+  height: calc(var(--lk-size-md) * var(--lk-halfstep));
   border-radius: 1.5rem;
   outline: 1px solid;
   outline-offset: -1px;
@@ -78,7 +78,7 @@
 
   &[data-checked] {
     transform: translateX(
-      var(--lk-size-sm)
+      calc(var(--lk-size-sm) * var(--lk-halfstep))
     ); /* move it by 1 step down from the height. so if switch height is lg, move by md. */
   }
 

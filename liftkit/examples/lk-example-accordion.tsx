@@ -3,9 +3,15 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { GoldenBox } from "@/liftkit/component-definitions";
 import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
 
-export function ExampleAccordion({ multiple = false }: { multiple?: boolean }) {
+export function ExampleAccordion({
+  multiple = false,
+  orientation = "vertical",
+}: {
+  multiple?: boolean;
+  orientation?: "vertical" | "horizontal";
+}) {
   return (
-    <Accordion multiple={multiple} className="w-6xl">
+    <Accordion multiple={multiple} orientation={orientation} className="w-6xl">
       <AccordionItem>
         <AccordionTrigger>
           <GoldenBox scaleFactor="body" opticalCorrection="all">

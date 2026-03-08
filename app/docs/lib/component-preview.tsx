@@ -34,6 +34,7 @@ import {
   ScrollAreaViewport,
 } from "@/liftkit/component-definitions/scroll-area/scroll-area";
 import { Input } from "@/liftkit/component-definitions";
+import { RadioGroup, Radio, RadioIndicator } from "@/liftkit/component-definitions/radio/radio";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -43,8 +44,6 @@ interface ComponentPreviewProps {
 
 export function ComponentPreview({ componentName, initial_TS, initial_CSS }: ComponentPreviewProps) {
   const manifest = componentManifest[componentName];
-
-
 
   // Initialize state from defaults
   const [knobValues, setKnobValues] = useState<Record<string, any>>(() => {
@@ -179,6 +178,27 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
               className="border rounded px-2 py-1 flex-1"
             />
           </div>
+        );
+
+      case "radio":
+        return (
+          <Field>
+            {control.label && (
+              <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
+                {control.label}
+              </FieldLabel>
+            )}
+            <RadioGroup value={currentValue} onValueChange={(value) => updateKnob(key, value)} className="flex gap-sm">
+              {control.options.map((opt) => (
+                <label key={opt.value} className="flex items-center gap-2xs" style={{ cursor: "pointer" }}>
+                  <Radio value={opt.value}>
+                    <RadioIndicator />
+                  </Radio>
+                  <span className="subheading">{opt.label}</span>
+                </label>
+              ))}
+            </RadioGroup>
+          </Field>
         );
 
       default:

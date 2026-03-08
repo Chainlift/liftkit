@@ -10,7 +10,15 @@ const accordion: ComponentEntry = {
   knobs: {
     multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
     disabled: { kind: "boolean", label: "Disabled", default: false },
-    sample: { kind: "select", label: "Sample select", default: "option1", options: [] },
+    orientation: {
+      kind: "radio",
+      label: "Orientation",
+      default: "vertical",
+      options: [
+        { label: "Vertical", value: "vertical" },
+        { label: "Horizontal", value: "horizontal" },
+      ],
+    },
   },
   // NEW: Add sub-components here
   subComponents: {

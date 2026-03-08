@@ -60,7 +60,14 @@ export type Control =
       step?: number;
     }
   | { kind: "color"; label?: string; description?: string; default?: string } // if you want to wire to CSS vars, etc.
-  | { kind: "slot"; label?: string; description?: string; default?: string }; // convenience for children
+  | { kind: "slot"; label?: string; description?: string; default?: string } // convenience for children
+  | {
+      kind: "radio";
+      label?: string;
+      description?: string;
+      default?: string;
+      options: { label: string; value: string }[];
+    };
 
 /**
  * Metadata for a sub-component (e.g., Accordion.Root, Accordion.Item)
@@ -95,7 +102,6 @@ export type SubComponentEntry = {
     description?: string;
   }>;
 };
-
 
 /*
 
@@ -170,7 +176,5 @@ export const componentManifest: Record<string, ComponentEntry> = {
   toolbar: toolbar,
   tooltip: tooltip,
 };
-
-
 
 export type ComponentName = keyof typeof componentManifest;

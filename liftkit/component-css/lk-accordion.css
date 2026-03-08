@@ -11,6 +11,8 @@
   }
 
   &[data-orientation="horizontal"] {
+
+  flex-direction: row;
     /* Horizontal orientation styles */
   }
 
