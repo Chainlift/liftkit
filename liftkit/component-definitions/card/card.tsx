@@ -69,7 +69,7 @@ const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
       className={cardClasses({ scaleFactor, variant, color, className })}
       {...props}
     >
-      <GoldenBox>
+      <GoldenBox opticalCorrection={opticalCorrection}>
         <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>

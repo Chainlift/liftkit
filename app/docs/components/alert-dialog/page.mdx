@@ -3,6 +3,8 @@ import { SubComponentSection } from "@/app/docs/lib/subcomponent-section";
 import { AlertDialog_Example_TS } from "./codeTemplates/alertDialog-example-ts.ts";
 import { AlertDialog_Example_CSS } from "./codeTemplates/alertDialog-example-css.ts";
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
+import { BaseUICallout } from "@/app/docs/lib/base-ui-callout";
+import { InstallationSection } from "@/app/docs/lib/installation-section";
 
 
 export const metadata = {
@@ -11,6 +13,10 @@ export const metadata = {
 };
 
 # AlertDialog
+<p className="title3 mb-lg">A dialog that requires a user response to proceed.</p>
+
+<BaseUICallout href="https://base-ui.com/react/components/alert-dialog" />
+
 
 <div className="w-full flex items-center justify-center bg-surfacecontainerlow">
 <ComponentPreviewWrapper componentName="alertDialog" initial_TS={AlertDialog_Example_TS()} initial_CSS={AlertDialog_Example_CSS()}/>
@@ -18,24 +24,10 @@ export const metadata = {
 
 ## Installation
 
-<div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
-  <SimpleCodeBlock
-      codeString="npm install @liftkit/something"
-      lang="bash"
-    />
-</div>
+<InstallationSection baseUIDep="@base-ui/react" />
 
-## API Reference
+## Examples
 
-> **This section only covers LiftKit-specific API features.** 
-> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
+&nbsp;
 
-<SubComponentSection componentName="alertDialog" />
-
-## Changes from Base UI
-
-- Trigger, Close, and Action component definitions use LiftKit's button instead of their own unique styles.
-
-```bash
-npm install @liftkit/ui @liftkit/utility-classes
-```
+## FAQ

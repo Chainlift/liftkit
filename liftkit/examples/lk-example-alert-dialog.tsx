@@ -16,13 +16,13 @@ export function ExampleAlertDialog() {
   return (
     <AlertDialog>
       <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
-      <AlertDialogContent render={<Card scaleFactor="heading"/>}>
+      <AlertDialogContent render={<Card scaleFactor="heading" opticalCorrection="top"/>}>
         <AlertDialogHeader>
-          <AlertDialogTitle className="heading">Discard draft?</AlertDialogTitle>
-          <AlertDialogDescription className="body">You can't undo this action.</AlertDialogDescription>
+          <AlertDialogTitle className="heading mb-xs">Discard draft?</AlertDialogTitle>
+          <AlertDialogDescription className="body mb-sm">You can't undo this action.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end gap-sm">
             <AlertDialogClose render={<Button label="cancel" color="error" variant="outline"/>}>Cancel</AlertDialogClose>
             <AlertDialogAction>Discard</AlertDialogAction>
           </div>

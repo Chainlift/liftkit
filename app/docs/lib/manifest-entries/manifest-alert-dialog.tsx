@@ -7,14 +7,7 @@ const alertDialog: ComponentEntry = {
   Component: ExampleAlertDialog,
   example_TS: (knobs: Record<string, unknown>) => AlertDialog_Example_TS(knobs),
   example_CSS: (knobs: Record<string, unknown>) => AlertDialog_Example_CSS(knobs),
-  knobs: {
-    defaultOpen: {
-      kind: "boolean",
-      label: "Default Open",
-      default: false,
-      description: "Whether or not the dialog should be open by default.",
-    },
-  },
+  knobs: {},
   subComponents: {
     Dialog: {
       description: "The root provider component for the alert dialog. Manages open/close state.",

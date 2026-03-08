@@ -10,9 +10,9 @@ import {
   AutocompleteInput,
 } from "@/liftkit/component-definitions";
 
-export function ExampleAutocomplete() {
+export function ExampleAutocomplete({ ...props }) {
   return (
-    <Autocomplete items={tags}>
+    <Autocomplete items={tags} {...props}>
       <label>
         Don't Search Tags
         <AutocompleteInput placeholder="e.g. feature" />

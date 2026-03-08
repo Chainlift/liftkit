@@ -4,6 +4,7 @@ import { Accordion_Example_TS } from "./codeTemplates/accordion-example-ts.ts";
 import { Accordion_Example_CSS } from "./codeTemplates/accordion-example-css.ts";
 import { SimpleCodeBlock } from "@/app/docs/lib/simple-code-block";
 import { SimpleComponentPreview } from "@/app/docs/lib/simple-component-preview";
+import { InstallationSection } from "@/app/docs/lib/installation-section";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, GoldenBox } from "@/liftkit/component-definitions";
 import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
 import { BaseUICallout } from "@/app/docs/lib/base-ui-callout";
@@ -28,25 +29,7 @@ export const metadata = {
 
 ## Installation
 
-<p className="body mb-md">First, install these dependencies:</p>
-
-<div className="bg-surfacecontainerlow rounded-sm shadow-2xs overflow-hidden">
-  <SimpleCodeBlock
-      codeString="npm install @base-ui/react"
-      lang="bash"
-    />
-</div>
-
-<p className="body mt-lg mb-md">Then, you can copy and paste the demo code above into new file(s) in your project.</p>
-
-<p className="body mt-lg mb-md"><strong>Alternatively,</strong> install with NPM.</p>
-
-<div className="bg-surfacecontainerlow rounded-sm shadow-2xs overflow-hidden">
-  <SimpleCodeBlock
-      codeString="npm install @liftkit/something"
-      lang="bash"
-    />
-</div>
+<InstallationSection baseUIDep="@base-ui/react" />
 
 
 

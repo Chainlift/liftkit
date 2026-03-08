@@ -230,6 +230,8 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
   const Component = manifest.Component;
 
+  console.log(manifest.knobs);
+
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
       {/* Live Preview */}
@@ -247,87 +249,71 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
         <Component {...componentProps} />
       </div>
 
-      <div className="flex">
-        {/* <GoldenBox
-          opticalCorrection="y"
-          scaleFactor="caption"
-          className="bg-surface border-b border-color-outlinevariant"
-          style={{ width: "240px" }}
-        >
-          <h2 className="capline color-onsurface">Props</h2>
-        </GoldenBox> */}
-        {/* <GoldenBox
-          opticalCorrection="y"
-          scaleFactor="caption"
-          className="bg-surface fill-container border-l border-color-outlinevariant
-          "
-        >
-          <h2 className="capline color-onsurface">Code</h2>
-        </GoldenBox> */}
-      </div>
-
       {/* Controls Panel */}
       <div className="flex bg-background">
-        <ScrollArea style={{ width: "27.2%", height: "533px" }}>
-          <ScrollAreaViewport>
-            <ScrollAreaContent className="p-0">
-              <div>
-                <GoldenBox
-                  opticalCorrection="y"
-                  scaleFactor="caption"
-                  className="bg-surface border-b border-color-outlinevariant relative"
-                >
-                  <div className="">
-                    <h2 className="capline color-onsurface">Demo Props</h2>
-                    <Popover>
-                      <PopoverTrigger className="absolute top-0 right-0 h-full border-none aspect-1x1 flex items-center justify-center bg-transparent">
-                        <Icon aria-label="Notifications" fontClass="body" name="circle-question-mark" />
-                        <StateLayer />
-                      </PopoverTrigger>
-                      <PopoverPortal>
-                        <PopoverPositioner sideOffset={8}>
-                          <PopoverPopup>
-                            <PopoverArrow></PopoverArrow>
-                            <PopoverTitle>Demo Props</PopoverTitle>
-                            <PopoverDescription>
-                              Some commonly used props to give you an idea of what the component can do. For all props,
-                              see&nbsp;<a
-                                className="font-600 underline"
-                                href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
-                              >
-                                Base UI Docs.
-                              </a>
-                            </PopoverDescription>
-                          </PopoverPopup>
-                        </PopoverPositioner>
-                      </PopoverPortal>
-                    </Popover>
-                  </div>
-                </GoldenBox>
-                {manifest.knobs && (
-                  <div className="flex flex-col">
-                    {Object.entries(manifest.knobs).map(([key, control]) => (
-                      <div key={key} className="">
-                        <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </ScrollAreaContent>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-          <ScrollAreaCorner />
-        </ScrollArea>
+        {manifest.knobs && Object.keys(manifest.knobs).length > 0 && (
+          <ScrollArea style={{ width: "27.2%", height: "533px" }} className="border-r border-color-outlinevariant">
+            <ScrollAreaViewport>
+              <ScrollAreaContent className="p-0">
+                <div>
+                  <GoldenBox
+                    opticalCorrection="y"
+                    scaleFactor="caption"
+                    className="bg-surface border-b border-color-outlinevariant relative"
+                  >
+                    <div className="">
+                      <h2 className="capline color-onsurface">Demo Props</h2>
+                      <Popover>
+                        <PopoverTrigger className="absolute top-0 right-0 h-full border-none aspect-1x1 flex items-center justify-center bg-transparent">
+                          <Icon aria-label="Notifications" fontClass="body" name="circle-question-mark" />
+                          <StateLayer />
+                        </PopoverTrigger>
+                        <PopoverPortal>
+                          <PopoverPositioner sideOffset={8}>
+                            <PopoverPopup>
+                              <PopoverArrow></PopoverArrow>
+                              <PopoverTitle>Demo Props</PopoverTitle>
+                              <PopoverDescription>
+                                Some commonly used props to give you an idea of what the component can do. For all
+                                props, see&nbsp;
+                                <a
+                                  className="font-600 underline"
+                                  href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
+                                >
+                                  Base UI Docs.
+                                </a>
+                              </PopoverDescription>
+                            </PopoverPopup>
+                          </PopoverPositioner>
+                        </PopoverPortal>
+                      </Popover>
+                    </div>
+                  </GoldenBox>
+                  {manifest.knobs && (
+                    <div className="flex flex-col">
+                      {Object.entries(manifest.knobs).map(([key, control]) => (
+                        <div key={key} className="">
+                          <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </ScrollAreaContent>
+            </ScrollAreaViewport>
+            <ScrollAreaScrollbar>
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
+            <ScrollAreaScrollbar>
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
+            <ScrollAreaCorner />
+          </ScrollArea>
+        )}
 
         <Tabs
           defaultValue="typescript"
-          className="fill-container border-l border-color-outlinevariant bg-background overflow-hidden"
+          className="fill-container  bg-background overflow-hidden"
           style={{ minWidth: "0" }}
         >
           <TabsList className="bg-surface shadow-2xs z-1">
