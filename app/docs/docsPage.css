@@ -48,6 +48,8 @@
     display: none;
   }
   .docs-page-layout {
-    grid-template-columns: auto minmax(45ch, 90ch);
+    grid-template-columns: max-content minmax(45ch, 90ch);
+    max-width: none;
+    margin: 0px;
   }
 }

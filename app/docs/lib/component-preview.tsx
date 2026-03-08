@@ -217,8 +217,12 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
       {/* Live Preview */}
-      <GoldenBox opticalCorrection="y" scaleFactor="caption" className="bg-surface fill-container border-b border-color-outlinevariant">
-        <h2 className="callout color-onsurface">Demo</h2>
+      <GoldenBox
+        opticalCorrection="y"
+        scaleFactor="caption"
+        className="bg-surface fill-container border-b border-color-outlinevariant"
+      >
+        <h2 className="capline color-onsurface">Demo</h2>
       </GoldenBox>
       <div
         className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-background"
@@ -228,25 +232,22 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
       </div>
 
       <div className="flex">
-        <GoldenBox
+        {/* <GoldenBox
           opticalCorrection="y"
           scaleFactor="caption"
           className="bg-surface border-b border-color-outlinevariant"
           style={{ width: "240px" }}
         >
           <h2 className="capline color-onsurface">Props</h2>
-        </GoldenBox>
-        <GoldenBox
+        </GoldenBox> */}
+        {/* <GoldenBox
           opticalCorrection="y"
           scaleFactor="caption"
           className="bg-surface fill-container border-l border-color-outlinevariant
           "
         >
           <h2 className="capline color-onsurface">Code</h2>
-          {/* <p className="caption">
-                    More on <a href={manifest.docsLink}>Base UI docs</a>.
-                  </p> */}
-        </GoldenBox>
+        </GoldenBox> */}
       </div>
 
       {/* Controls Panel */}
@@ -255,6 +256,14 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <div>
+                <GoldenBox
+                  opticalCorrection="y"
+                  scaleFactor="caption"
+                  className="bg-surface border-b border-color-outlinevariant"
+                  style={{ width: "240px" }}
+                >
+                  <h2 className="capline color-onsurface">Props</h2>
+                </GoldenBox>
                 {manifest.knobs && (
                   <div className="flex flex-col">
                     {Object.entries(manifest.knobs).map(([key, control]) => (
@@ -276,13 +285,21 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <ScrollAreaCorner />
         </ScrollArea>
 
-        <Tabs defaultValue="typescript" className="fill-container border-l border-color-outlinevariant bg-background" style={{ minWidth: "0" }}>
-          <TabsList className="bg-surface border-b border-color-outlinevariant">
-            <TabsTab value="typescript">
-              <span className="label font-500">Typescript</span>
+        <Tabs
+          defaultValue="typescript"
+          className="fill-container border-l border-color-outlinevariant bg-background overflow-hidden"
+          style={{ minWidth: "0" }}
+        >
+          <TabsList className="bg-surface shadow-2xs z-1">
+            <TabsTab value="typescript" className="p-0 ">
+              <GoldenBox scaleFactor="caption" opticalCorrection="y">
+                <div className="capline ">TS</div>
+              </GoldenBox>
             </TabsTab>
-            <TabsTab value="css">
-              <span className="label font-500">CSS</span>
+            <TabsTab value="css" className="p-0">
+              <GoldenBox scaleFactor="caption" opticalCorrection="y">
+                <div className="capline ">CSS</div>
+              </GoldenBox>
             </TabsTab>
             <TabsIndicator />
           </TabsList>

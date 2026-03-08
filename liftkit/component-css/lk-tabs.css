@@ -5,7 +5,7 @@
   display: flex;
   position: relative;
   z-index: 0;
-  padding: 0px var(--lk-size-2xs);
+  /* padding: 0px var(--lk-size-2xs); */
   gap: var(--lk-size-xs);
 }
 
@@ -20,13 +20,14 @@
   appearance: none;
   color: var(--color-gray-600);
   font-family: inherit;
+
   /* line-height: 1.25rem; */
   font-weight: 500;
   user-select: none;
   white-space: nowrap;
   word-break: keep-all;
   padding: var(--lk-size-xs) var(--lk-size-2xs);
-  height: 2rem;
+  /* height: 2rem; */
 
   /* ^^ turned off padding and height from Base UI */
 
