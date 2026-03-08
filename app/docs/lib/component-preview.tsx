@@ -115,7 +115,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <GoldenBox
             opticalCorrection="y"
             scaleFactor="callout"
-            className="w-full border-b border-color-outlinevariant"
+            className="w-full "
           >
             <div className="flex items-center justify-between w-full">
               <div className="">
@@ -184,7 +184,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <GoldenBox
             opticalCorrection="top"
             scaleFactor="callout"
-            className="w-full border-b border-color-outlinevariant"
+            className="w-full border-color-outlinevariant"
           >
             <Field>
               {control.label && (
@@ -242,21 +242,16 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <div>
-                <GoldenBox
-                  opticalCorrection="y"
-                  scaleFactor="callout"
-                  className=""
-                  noPadding="top"
-                >
-                  <h2 className="heading mt-sm mb-2xs font-600 color-onsurface">Common Props</h2>
-                  <p className="body font-500 ">
-                    See <a href={manifest.docsLink}>Base UI</a> for full list.
+                <GoldenBox opticalCorrection="y" scaleFactor="callout" className="" noPadding="top" >
+                  <h2 className="heading mt-sm mb-2xs font-600 color-onsurface">Live Props</h2>
+                  <p className="body ">
+                    Not all props shown. See <a href={manifest.docsLink}>Base UI docs</a> for full list.
                   </p>
                 </GoldenBox>
                 {manifest.knobs && (
-                  <div className="flex flex-col">
+                  <div className="flex flex-col" >
                     {Object.entries(manifest.knobs).map(([key, control]) => (
-                      <div key={key}>
+                      <div key={key} className="border-b border-color-outlinevariant">
                         <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
                       </div>
                     ))}
@@ -283,7 +278,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
             <TabsTab value="typescript">
               <span className="subheading font-500">Typescript</span>
             </TabsTab>
-            <TabsTab value="css" >
+            <TabsTab value="css">
               <span className="subheading font-500">CSS</span>
             </TabsTab>
             <TabsIndicator className="bg-surfacecontainerlowest" />

@@ -9,7 +9,7 @@ const accordion: ComponentEntry = {
   example_TS: (knobs) => Accordion_Example_TS(knobs),
   example_CSS: (knobs) => Accordion_Example_CSS(knobs),
   knobs: {
-    multiple: { kind: "boolean", label: "Multiple", default: false, description: "This is a test description." },
+    multiple: { kind: "boolean", label: "Multiple", default: false, description: "Allows multiple items to be open at once." },
     disabled: { kind: "boolean", label: "Disabled", default: false },
     orientation: {
       kind: "radio",
@@ -19,13 +19,14 @@ const accordion: ComponentEntry = {
         { label: "Vertical", value: "vertical" },
         { label: "Horizontal", value: "horizontal" },
       ],
+      description: "Controls flex direction."
     },
     loopFocus: {
       kind: "boolean",
       label: "Loop Focus",
       default: true,
       description:
-        "Whether to loop keyboard focus back to the first item when the end of the list is reached while using the arrow keys.",
+        "Whether to loop focus when navigating with arrow keys.",
     },
   },
   // NEW: Add sub-components here

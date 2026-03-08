@@ -23,6 +23,17 @@ export const metadata = {
 
 ## Installation
 
+Install these dependencies: 
+
+<div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
+  <SimpleCodeBlock
+      codeString="npm install @base-ui/react"
+      lang="bash"
+    />
+</div>
+
+Install the component via LiftKit CLI:
+
 <div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
   <SimpleCodeBlock
       codeString="npm install @liftkit/something"
@@ -31,10 +42,10 @@ export const metadata = {
 </div>
 
 
-## API Reference
+## Anatomy
 
-> **This section only covers LiftKit-specific API features.** 
-> It also has access to all props, attributes, etc from the Base UI primitive. For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
+> **This section is only covers general descriptions and LiftKit-specific features.** It's meant to give a high-level overview of the component structure and props you'll likely use most often. 
+> For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).
 
 
 <SubComponentSection componentName="accordion" />
@@ -43,3 +54,6 @@ export const metadata = {
 
 ## Tips
 - If both `<AccordionContent>` and one of its children have padding, the open/close animation will stutter. Only assign padding to one or the other.
+
+## API Reference 
+For full API reference, see [Base UI docs](https://base-ui.com/react/components/accordion#root).

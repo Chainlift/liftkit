@@ -220,7 +220,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
       {subComponent.props && subComponent.props.length > 0 && (
         <div data-slot="table-block">
           <div className="flex items-baseline justify-start">
-            <h4 className="body-bold mb-sm">Props</h4>
+            <h4 className="body-bold color-onsurfacelow mb-sm">Props</h4>
             {linkToSource && (
               <a
                 href={linkToSource}
@@ -239,7 +239,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
         <div data-slot="table-block">
-          <h4 className="body-bold mt-lg mb-sm">Data Attributes</h4>
+          <h4 className="body-bold mt-lg mb-sm color-onsurfacelow">Data Attributes</h4>
           <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
@@ -247,7 +247,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
       {/* CSS Variables */}
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
         <div data-slot="table-block">
-          <h4 className="heading mt-lg mb-sm">CSS Variables</h4>
+          <h4 className="heading mt-lg mb-sm color-onsurfacelow">CSS Variables</h4>
           <SubComponentCSSVariablesTable componentName={componentName} subComponentName={subComponentName} />
         </div>
       )}
