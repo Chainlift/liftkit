@@ -252,7 +252,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       {/* Controls Panel */}
       <div className="flex bg-background">
-        <ScrollArea style={{ width: "240px", height: "533px" }}>
+        <ScrollArea style={{ width: "27.2%", height: "533px" }}>
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <div>
@@ -260,7 +260,6 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                   opticalCorrection="y"
                   scaleFactor="caption"
                   className="bg-surface border-b border-color-outlinevariant"
-                  style={{ width: "240px" }}
                 >
                   <h2 className="capline color-onsurface">Props</h2>
                 </GoldenBox>

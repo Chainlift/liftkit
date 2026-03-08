@@ -66,9 +66,9 @@
   height: var(--lk-size-lg); */
 
   bottom: 0;
-  translate: var(--active-tab-left) 0;
+  translate: var(--active-tab-left) calc(0px + var(--lk-size-5xs));
   width: var(--active-tab-width);
-  height: var(--lk-size-5xs);
+  height: var(--lk-size-4xs);
 
   border-radius: var(--lk-size-2xs);
   background-color: var(--lk-inversesurface);
