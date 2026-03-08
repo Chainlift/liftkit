@@ -19,6 +19,63 @@
   bottom: 0;
 }
 
+
+.top-0 {
+  top: 0;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.top-5xs {
+  top: var(--lk-size-3xs);
+}
+
+.top-4xs {
+  top: var(--lk-size-3xs);
+}
+
+.top-3xs {
+  top: var(--lk-size-3xs);
+}
+
+.top-2xs {
+  top: var(--lk-size-2xs);
+}
+
+.top-xs {
+  top: var(--lk-size-xs);
+}
+
+.top-sm {
+  top: var(--lk-size-sm);
+}
+
+.top-md {
+  top: var(--lk-size-md);
+}
+
+.top-lg {
+  top: var(--lk-size-lg);
+}
+
+.top-xl {
+  top: var(--lk-size-xl);
+}
+
+.top-2xl {
+  top: var(--lk-size-2xl);
+}
+
+.top-3xl {
+  top: var(--lk-size-3xl);
+}
+
+.top-4xl {
+  top: var(--lk-size-4xl);
+}
+
 .bottom-0 {
   bottom: 0;
 }

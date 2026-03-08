@@ -6,7 +6,21 @@ import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
 import { Switch, SwitchThumb } from "@/liftkit/component-definitions/switch/switch";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import "./subcomponent-table-styles.css";
-import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/component-definitions";
+import {
+  Tabs,
+  TabsPanel,
+  TabsTab,
+  TabsList,
+  TabsIndicator,
+  Popover,
+  PopoverTrigger,
+  PopoverPortal,
+  PopoverPositioner,
+  PopoverPopup,
+  PopoverArrow,
+  PopoverTitle,
+  PopoverDescription,
+} from "@/liftkit/component-definitions";
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/component-definitions";
 import { Icon } from "@/liftkit/component-definitions";
 import {
@@ -35,6 +49,8 @@ import {
 } from "@/liftkit/component-definitions/scroll-area/scroll-area";
 import { Input } from "@/liftkit/component-definitions";
 import { RadioGroup, Radio, RadioIndicator } from "@/liftkit/component-definitions/radio/radio";
+import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { Link } from "lucide-react";
 
 interface ComponentPreviewProps {
   componentName: ComponentName;
@@ -259,9 +275,34 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                 <GoldenBox
                   opticalCorrection="y"
                   scaleFactor="caption"
-                  className="bg-surface border-b border-color-outlinevariant"
+                  className="bg-surface border-b border-color-outlinevariant relative"
                 >
-                  <h2 className="capline color-onsurface">Props</h2>
+                  <div className="">
+                    <h2 className="capline color-onsurface">Demo Props</h2>
+                    <Popover>
+                      <PopoverTrigger className="absolute top-0 right-0 h-full border-none aspect-1x1 flex items-center justify-center bg-transparent">
+                        <Icon aria-label="Notifications" fontClass="body" name="circle-question-mark" />
+                        <StateLayer />
+                      </PopoverTrigger>
+                      <PopoverPortal>
+                        <PopoverPositioner sideOffset={8}>
+                          <PopoverPopup>
+                            <PopoverArrow></PopoverArrow>
+                            <PopoverTitle>Demo Props</PopoverTitle>
+                            <PopoverDescription>
+                              Some commonly used props to give you an idea of what the component can do. For all props,
+                              see&nbsp;<a
+                                className="font-600 underline"
+                                href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
+                              >
+                                Base UI Docs.
+                              </a>
+                            </PopoverDescription>
+                          </PopoverPopup>
+                        </PopoverPositioner>
+                      </PopoverPortal>
+                    </Popover>
+                  </div>
                 </GoldenBox>
                 {manifest.knobs && (
                   <div className="flex flex-col">

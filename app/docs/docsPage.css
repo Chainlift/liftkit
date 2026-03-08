@@ -17,6 +17,11 @@
     padding-bottom: var(--lk-size-4xl);
   }
 
+  p > code {
+    background-color: var(--lk-surfacecontainerhigh);
+    padding: 0px var(--lk-size-2xs);
+  }
+
   .left-sidebar {
     align-self: start;
     position: sticky;
