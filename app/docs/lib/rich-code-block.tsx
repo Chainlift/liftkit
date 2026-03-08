@@ -54,7 +54,7 @@ export function RichCodeBlock({
   return (
     <div className="w-full relative h-full bg-surfacecontainerlowest">
       <div data-instance="code-block-copy-button" data-vert-center-button={vertCenterButton} >
-        <IconButton iconName={copied ? "check" : "copy"} variant="fill" onClick={handleCopy} color="inversesurface" />
+        <IconButton iconName={copied ? "check" : "copy"} variant="fill" onClick={handleCopy} color="surfacecontainerlowest" />
       </div>
       <ScrollArea style={{ width: "100%", height: "100%" }}>
         <ScrollAreaViewport>
