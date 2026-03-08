@@ -58,12 +58,17 @@
   position: absolute;
   z-index: -1;
   left: 0;
-  top: 50%;
-  translate: var(--active-tab-left) -50%;
 
+  /* top: 50%;
+  translate: var(--active-tab-left) -50%;
   width: var(--active-tab-width);
-  /* height: 1.5rem; */
-  height: var(--lk-size-lg);
+  height: var(--lk-size-lg); */
+
+  bottom: 0;
+  translate: var(--active-tab-left) 0;
+  width: var(--active-tab-width);
+  height: var(--lk-size-5xs);
+
   border-radius: var(--lk-size-2xs);
   background-color: var(--lk-inversesurface);
   transition-property: translate, width;

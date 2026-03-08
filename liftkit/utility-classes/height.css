@@ -6,6 +6,10 @@
   height: 100%;
 }
 
+.h-4xs {
+  height: var(--lk-size-4xs);
+}
+
 .h-3xs {
   height: var(--lk-size-3xs);
 }

@@ -52,7 +52,7 @@ export function RichCodeBlock({
   }
 
   return (
-    <div className="w-full relative h-full">
+    <div className="w-full relative h-full bg-surfacecontainerlowest">
       <div data-instance="code-block-copy-button" data-vert-center-button={vertCenterButton} >
         <IconButton iconName={copied ? "check" : "copy"} variant="fill" onClick={handleCopy} color="inversesurface" />
       </div>

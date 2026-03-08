@@ -112,23 +112,15 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       case "boolean":
         return (
-          <GoldenBox
-            opticalCorrection="y"
-            scaleFactor="callout"
-            className="w-full "
-          >
+          <GoldenBox opticalCorrection="y" scaleFactor="capline" className="w-full">
             <div className="flex items-center justify-between w-full">
               <div className="">
-                <label className="display-block callout font-500 mb-xs">{control.label}</label>
-                <p className="label color-onsurfacelow">{control.description ?? "Description missing."}</p>
+                <label className="display-block subheading font-500">{control.label}</label>
+                {/* <p className="caption color-onsurfacelow">{control.description ?? "Description missing."}</p> */}
               </div>
 
               <div>
-                <Switch
-                  className="subheading"
-                  checked={currentValue}
-                  onCheckedChange={(checked) => updateKnob(key, checked)}
-                >
+                <Switch checked={currentValue} onCheckedChange={(checked) => updateKnob(key, checked)}>
                   <SwitchThumb></SwitchThumb>
                 </Switch>
               </div>
@@ -181,11 +173,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       case "radio":
         return (
-          <GoldenBox
-            opticalCorrection="top"
-            scaleFactor="callout"
-            className="w-full border-color-outlinevariant"
-          >
+          <GoldenBox opticalCorrection="top" scaleFactor="capline" className="w-full border-color-outlinevariant">
             <Field>
               {control.label && (
                 <div>
@@ -229,29 +217,48 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
       {/* Live Preview */}
+      <GoldenBox opticalCorrection="y" scaleFactor="caption" className="bg-surface fill-container border-b border-color-outlinevariant">
+        <h2 className="callout color-onsurface">Demo</h2>
+      </GoldenBox>
       <div
-        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-surfacecontainerlowest"
+        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-background"
         style={{ height: "400px" }}
       >
         <Component {...componentProps} />
       </div>
 
+      <div className="flex">
+        <GoldenBox
+          opticalCorrection="y"
+          scaleFactor="caption"
+          className="bg-surface border-b border-color-outlinevariant"
+          style={{ width: "240px" }}
+        >
+          <h2 className="capline color-onsurface">Props</h2>
+        </GoldenBox>
+        <GoldenBox
+          opticalCorrection="y"
+          scaleFactor="caption"
+          className="bg-surface fill-container border-l border-color-outlinevariant
+          "
+        >
+          <h2 className="capline color-onsurface">Code</h2>
+          {/* <p className="caption">
+                    More on <a href={manifest.docsLink}>Base UI docs</a>.
+                  </p> */}
+        </GoldenBox>
+      </div>
+
       {/* Controls Panel */}
-      <div className="flex bg-surfacecontainerlowest">
+      <div className="flex bg-background">
         <ScrollArea style={{ width: "240px", height: "533px" }}>
           <ScrollAreaViewport>
             <ScrollAreaContent className="p-0">
               <div>
-                <GoldenBox opticalCorrection="y" scaleFactor="callout" className="" noPadding="top" >
-                  <h2 className="heading mt-sm mb-2xs font-600 color-onsurface">Live Props</h2>
-                  <p className="body ">
-                    Not all props shown. See <a href={manifest.docsLink}>Base UI docs</a> for full list.
-                  </p>
-                </GoldenBox>
                 {manifest.knobs && (
-                  <div className="flex flex-col" >
+                  <div className="flex flex-col">
                     {Object.entries(manifest.knobs).map(([key, control]) => (
-                      <div key={key} className="border-b border-color-outlinevariant">
+                      <div key={key} className="">
                         <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
                       </div>
                     ))}
@@ -269,19 +276,15 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
           <ScrollAreaCorner />
         </ScrollArea>
 
-        <Tabs
-          defaultValue="typescript"
-          className="fill-container border-l border-color-outlinevariant bg-background"
-          style={{ minWidth: "0" }}
-        >
-          <TabsList className="border-b border-color-outlinevariant bg-surfacecontainerhigh">
+        <Tabs defaultValue="typescript" className="fill-container border-l border-color-outlinevariant bg-background" style={{ minWidth: "0" }}>
+          <TabsList className="bg-surface border-b border-color-outlinevariant">
             <TabsTab value="typescript">
-              <span className="subheading font-500">Typescript</span>
+              <span className="label font-500">Typescript</span>
             </TabsTab>
             <TabsTab value="css">
-              <span className="subheading font-500">CSS</span>
+              <span className="label font-500">CSS</span>
             </TabsTab>
-            <TabsIndicator className="bg-surfacecontainerlowest" />
+            <TabsIndicator />
           </TabsList>
           <TabsPanel value="typescript" style={{ height: "500px" }}>
             {/* <RichCodeBlock preHighlightedCode={tsSample ?? undefined} knobValues={knobValues} /> */}
