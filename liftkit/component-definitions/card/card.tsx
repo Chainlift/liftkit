@@ -45,16 +45,21 @@ export type LkCardProps = React.HTMLAttributes<HTMLDivElement> & {
  */
 
 function cardClasses({ scaleFactor = "body", variant = "fill", opticalCorrection, color, className }: LkCardProps) {
-  return cn("lk-card", "lk-card-variant--" + variant, "lk-colorgroup--" + color, scaleFactor && scaleFactor);
+  return cn(
+    "lk-card",
+    "lk-card-variant--" + variant,
+    "lk-colorgroup--" + color,
+    scaleFactor && "-lk-card-scaleFactor--" + scaleFactor,
+  );
 }
 
 const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
   {
-    scaleFactor="body",
+    scaleFactor = "body",
     variant,
     opticalCorrection,
     children,
-    color="surface",
+    color = "surface",
     className,
     showStateLayer = false,
     ...props
@@ -69,7 +74,7 @@ const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
       className={cardClasses({ scaleFactor, variant, color, className })}
       {...props}
     >
-      <GoldenBox opticalCorrection={opticalCorrection}>
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
         <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>
