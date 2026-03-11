@@ -1,8 +1,13 @@
+:where([data-slot="checkbox-group" ]) {
+
+}
+
+
 :where(.CheckboxGroup) {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 0.25rem;
+  gap: var(--lk-size-xs);
   color: var(--lk-onsurface);
 }
 
@@ -13,10 +18,16 @@
 :where(.Item) {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--lk-size-sm);
 }
 
-:where([data-slot="checkbox"]) {
+:where(label:has([data-slot="checkbox"])) {
+  display: flex;
+  align-items: center;
+  gap: var(--lk-size-sm);
+}
+
+/* :where([data-slot="checkbox"]) {
   box-sizing: border-box;
   display: flex;
   width: 1.25rem;
@@ -42,7 +53,7 @@
     outline: 2px solid var(--lk-info);
     outline-offset: 2px;
   }
-}
+} */
 
 :where([data-slot="checkbox-indicator"]) {
   display: flex;
