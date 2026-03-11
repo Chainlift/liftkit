@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { usePathname } from "next/navigation";
 
 interface TocItem {
   id: string;
@@ -25,10 +26,24 @@ export function TableOfContents() {
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     setItems(getHeadings());
-  }, []);
+    setActiveId("");
+  }, [pathname]);
+
+  // useEffect(() => {
+  //   setItems(getHeadings());
+  // }, []);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setItems(getHeadings());
+      setActiveId("");
+    }, 0);
+    return () => clearTimeout(id);
+  }, [pathname]);
 
   useEffect(() => {
     if (items.length === 0) return;

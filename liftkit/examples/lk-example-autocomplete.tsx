@@ -9,6 +9,7 @@ import {
   AutocompleteItem,
   AutocompleteInput,
 } from "@/liftkit/component-definitions";
+import { GoldenBox } from "@/liftkit/component-definitions";
 
 export function ExampleAutocomplete({ ...props }) {
   return (
@@ -18,12 +19,17 @@ export function ExampleAutocomplete({ ...props }) {
         <AutocompleteInput placeholder="e.g. feature" />
       </label>
       <AutocompletePortal>
-        <AutocompletePositioner>
-          <AutocompletePopup>
+        <AutocompletePositioner className="z-1">
+          <AutocompletePopup render={<GoldenBox scaleFactor="callout" opticalCorrection="y" />}>
             <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
             <AutocompleteList>
               {(tag: Tag) => (
-                <AutocompleteItem key={tag.id} value={tag}>
+                <AutocompleteItem
+                  key={tag.id}
+                  value={tag}
+                  className="callout"
+                  render={<GoldenBox scaleFactor="callout" opticalCorrection="y"/>}
+                >
                   {tag.value}
                 </AutocompleteItem>
               )}

@@ -147,13 +147,21 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
       case "text":
       case "slot":
         return (
-          <Input
-            type="text"
-            value={currentValue}
-            onChange={(e) => updateKnob(key, e.target.value)}
-            placeholder={control.kind === "text" ? control.placeholder : undefined}
-            className="border rounded px-2 py-1 w-full"
-          />
+          <GoldenBox opticalCorrection="y" scaleFactor="capline" className="w-full">
+            <div>
+              <div className="">
+                <label className="display-block subheading mb-sm font-500">{control.label}</label>
+                {/* <p className="caption color-onsurfacelow">{control.description ?? "Description missing."}</p> */}
+              </div>
+              <Input
+                type="text"
+                value={currentValue}
+                onChange={(e) => updateKnob(key, e.target.value)}
+                placeholder={control.kind === "text" ? control.placeholder : undefined}
+                className="border rounded px-2 py-1 w-full"
+              />
+            </div>
+          </GoldenBox>
         );
 
       case "number":
@@ -251,65 +259,75 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
 
       {/* Controls Panel */}
       <div className="flex bg-background">
-        {manifest.knobs && Object.keys(manifest.knobs).length > 0 && (
-          <ScrollArea style={{ width: "27.2%", height: "533px" }} className="border-r border-color-outlinevariant">
-            <ScrollAreaViewport>
-              <ScrollAreaContent className="p-0">
-                <div>
-                  <GoldenBox
-                    opticalCorrection="y"
-                    scaleFactor="caption"
-                    className="bg-surface border-b border-color-outlinevariant relative"
-                  >
-                    <div className="">
-                      <h2 className="capline color-onsurface">Demo Props</h2>
-                      <Popover>
-                        <PopoverTrigger className="absolute top-0 right-0 h-full border-none aspect-1x1 flex items-center justify-center bg-transparent">
-                          <Icon aria-label="Notifications" fontClass="body" name="circle-question-mark" />
-                          <StateLayer />
-                        </PopoverTrigger>
-                        <PopoverPortal>
-                          <PopoverPositioner sideOffset={8}>
-                            <PopoverPopup>
-                              <PopoverArrow></PopoverArrow>
-                              <PopoverTitle>Demo Props</PopoverTitle>
-                              <PopoverDescription>
-                                Some commonly used props to give you an idea of what the component can do. For all
-                                props, see&nbsp;
-                                <a
-                                  className="font-600 underline"
-                                  href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
-                                >
-                                  Base UI Docs.
-                                </a>
-                              </PopoverDescription>
-                            </PopoverPopup>
-                          </PopoverPositioner>
-                        </PopoverPortal>
-                      </Popover>
-                    </div>
+        <ScrollArea style={{ width: "27.2%", height: "533px" }} className="border-r border-color-outlinevariant">
+          <ScrollAreaViewport>
+            <ScrollAreaContent className="p-0">
+              <div>
+                <GoldenBox
+                  opticalCorrection="y"
+                  scaleFactor="caption"
+                  className="bg-surface border-b border-color-outlinevariant relative"
+                >
+                  <div className="">
+                    <h2 className="capline color-onsurface">Demo Props</h2>
+                    <Popover>
+                      <PopoverTrigger className="absolute top-0 right-0 h-full border-none aspect-1x1 flex items-center justify-center bg-transparent">
+                        <Icon aria-label="Notifications" fontClass="body" name="circle-question-mark" />
+                        <StateLayer />
+                      </PopoverTrigger>
+                      <PopoverPortal>
+                        <PopoverPositioner sideOffset={8}>
+                          <PopoverPopup>
+                            <PopoverArrow></PopoverArrow>
+                            <PopoverTitle>Demo Props</PopoverTitle>
+                            <PopoverDescription>
+                              Some commonly used props to give you an idea of what the component can do. For all props,
+                              see&nbsp;
+                              <a
+                                className="font-600 underline"
+                                href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
+                              >
+                                Base UI Docs.
+                              </a>
+                            </PopoverDescription>
+                          </PopoverPopup>
+                        </PopoverPositioner>
+                      </PopoverPortal>
+                    </Popover>
+                  </div>
+                </GoldenBox>
+                {manifest.knobs && (
+                  <div className="flex flex-col">
+                    {Object.entries(manifest.knobs).map(([key, control]) => (
+                      <div key={key} className="">
+                        <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {!manifest.knobs && (
+                  <GoldenBox scaleFactor="capline" opticalCorrection="top">
+                    <p className="body color-onsurfacelow">
+                      No demo props for this component, because none of the props on the root primitive cause visible changes. For a full list of props, see the&nbsp;<a
+                        className="font-600 underline"
+                        href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}
+                      >
+                        Base UI Docs.
+                      </a>
+                    </p>
                   </GoldenBox>
-                  {manifest.knobs && (
-                    <div className="flex flex-col">
-                      {Object.entries(manifest.knobs).map(([key, control]) => (
-                        <div key={key} className="">
-                          <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </ScrollAreaContent>
-            </ScrollAreaViewport>
-            <ScrollAreaScrollbar>
-              <ScrollAreaThumb />
-            </ScrollAreaScrollbar>
-            <ScrollAreaScrollbar>
-              <ScrollAreaThumb />
-            </ScrollAreaScrollbar>
-            <ScrollAreaCorner />
-          </ScrollArea>
-        )}
+                )}
+              </div>
+            </ScrollAreaContent>
+          </ScrollAreaViewport>
+          <ScrollAreaScrollbar>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
+          <ScrollAreaScrollbar>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
+          <ScrollAreaCorner />
+        </ScrollArea>
 
         <Tabs
           defaultValue="typescript"

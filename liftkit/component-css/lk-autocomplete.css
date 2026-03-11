@@ -1,6 +1,6 @@
 :where([data-slot="autocomplete-input"]) {
   box-sizing: border-box;
-  padding-left: 0.875rem;
+  /* padding-left: 0.875rem; */
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 16rem;
@@ -19,6 +19,12 @@
 
   @media (min-width: 500px) {
     width: 20rem;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
@@ -62,8 +68,8 @@
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-block: 0.5rem;
-  scroll-padding-block: 0.5rem;
+  /* padding-block: 0.5rem;
+  scroll-padding-block: 0.5rem; */
   outline: 0;
   max-height: min(23rem, var(--available-height));
 
@@ -77,9 +83,9 @@
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: 0.5rem;
+  /* padding-block: 0.5rem;
   padding-left: 1rem;
-  padding-right: 2rem;
+  padding-right: 2rem; */
   display: flex;
   font-size: 1rem;
   line-height: 1rem;
@@ -109,8 +115,9 @@
 
 :where([data-slot="autocomplete-empty"]):not(:empty) {
   box-sizing: border-box;
-  padding: 1rem;
+  /* padding: 1rem; */
   font-size: 0.925rem;
   line-height: 1rem;
   color: var(--lk-onsurfacevariant);
 }
+

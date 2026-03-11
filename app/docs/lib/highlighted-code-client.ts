@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-let highlighterPromise: Promise<any> | null = null;
+declare global {
+  // eslint-disable-next-line no-var
+  var __shikiClientHighlighter: Promise<any> | undefined;
+}
 
 function getHighlighter() {
-  if (!highlighterPromise) {
-    highlighterPromise = import("shiki/bundle/web")
+  if (!globalThis.__shikiClientHighlighter) {
+    globalThis.__shikiClientHighlighter = import("shiki/bundle/web")
       .then(({ createHighlighter }) =>
         createHighlighter({
           themes: ["github-light", "github-dark"],
@@ -14,11 +17,11 @@ function getHighlighter() {
         }),
       )
       .catch((err) => {
-        highlighterPromise = null;
+        globalThis.__shikiClientHighlighter = undefined;
         throw err;
       });
   }
-  return highlighterPromise;
+  return globalThis.__shikiClientHighlighter;
 }
 
 export function useHighlightedCode(code: string | null, lang: string = "tsx") {
@@ -31,7 +34,7 @@ export function useHighlightedCode(code: string | null, lang: string = "tsx") {
 
     getHighlighter().then((highlighter) => {
       if (cancelled) return;
-      const result = highlighter.codeToHtml(code, { lang, themes: { light: "github-light", dark: "github-dark" },   });
+      const result = highlighter.codeToHtml(code, { lang, themes: { light: "github-light", dark: "github-dark" } });
       setHtml(result);
     });
 
