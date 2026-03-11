@@ -28,7 +28,7 @@ export function ExampleAutocomplete({ ...props }) {
                   key={tag.id}
                   value={tag}
                   className="callout"
-                  render={<GoldenBox scaleFactor="callout" opticalCorrection="y"/>}
+                  render={<GoldenBox scaleFactor="callout" opticalCorrection="y" />}
                 >
                   {tag.value}
                 </AutocompleteItem>
