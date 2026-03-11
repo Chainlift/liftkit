@@ -307,7 +307,7 @@ export function ComponentPreview({ componentName, initial_TS, initial_CSS }: Com
                 )}
                 {!manifest.knobs && (
                   <GoldenBox scaleFactor="capline" opticalCorrection="top">
-                    <p className="body color-onsurfacelow">
+                    <p className="caption color-onsurfacelow">
                       No demo props for this component, because none of the props on the root primitive cause visible changes. For a full list of props, see the&nbsp;<a
                         className="font-600 underline"
                         href={manifest.docsLink ?? "https://base-ui.com/react/overview/quick-start"}

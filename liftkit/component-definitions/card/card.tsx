@@ -49,7 +49,6 @@ function cardClasses({ scaleFactor = "body", variant = "fill", opticalCorrection
     "lk-card",
     "lk-card-variant--" + variant,
     "lk-colorgroup--" + color,
-    scaleFactor && "-lk-card-scaleFactor--" + scaleFactor,
   );
 }
 

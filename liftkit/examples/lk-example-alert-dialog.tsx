@@ -18,7 +18,7 @@ export function ExampleAlertDialog() {
       <AlertDialogTrigger render={<Button color="error"/>}>Discard Draft</AlertDialogTrigger>
       <AlertDialogContent render={<Card scaleFactor="title3" opticalCorrection="top"/>}>
         <AlertDialogHeader>
-          <AlertDialogTitle className="title3-bold">Discard draft?</AlertDialogTitle>
+          <AlertDialogTitle className="title3-bold mb-2xs">Discard draft?</AlertDialogTitle>
           <AlertDialogDescription className="body mb-sm">You can't undo this action.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
