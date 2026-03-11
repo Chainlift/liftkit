@@ -25,7 +25,7 @@ export type ButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> & {
   /** Some description */
   endIcon?: IconName;
   /** Some description */
-  opticalCorrection?: boolean;
+  opticShiftLabelDown?: boolean;
   /** Some description */
   modifiers?: string;
   /** Some description */
@@ -63,7 +63,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
     material,
     startIcon,
     endIcon,
-    opticalCorrection,
+    opticShiftLabelDown,
     modifiers,
     stateLayerOverride,
     fontClass = "body",

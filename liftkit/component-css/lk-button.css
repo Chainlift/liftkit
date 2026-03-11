@@ -67,23 +67,24 @@
 }
 
 /* ICON-BASED PADDING ADJUSTMENTS */
-:where(.lk-btn:has([data-lk-icon-position="start"])) {
+/* Does NOT use 'where' because they don't need to be overridden */
+.lk-btn:has([data-lk-icon-position="start"]) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX);
 }
 
-:where(.lk-btn:has([data-lk-icon-position="end"])) {
+.lk-btn:has([data-lk-icon-position="end"]) {
   padding-left: 1em;
   padding-right: var(--button-padX-sideWithIcon);
 }
 
-:where(.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"])) {
+.lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX-sideWithIcon);
 }
 
 /* CONTENT WRAPPER */
-:where([data-lk-button-content-wrap="true"]) {
+[data-lk-button-content-wrap="true"] {
   display: inline-flex;
   align-items: center;
   gap: var(--button-gap);
@@ -92,7 +93,7 @@
 /* Optic shift: If text doesn't look centered properly, tries pulling text downward slightly. 
 Usually happens when start icon appears bigger than the text, even when it's not. */
 
-:where(.lk-btn--optic-shift [data-lk-button-child="button-text"]) {
+.lk-btn--optic-shift [data-lk-button-child="button-text"] {
   transform: translateY(calc(1em * var(--lk-eighthstep-dec)));
 }
 
