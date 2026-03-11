@@ -25,12 +25,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--lk-surfacecontainer);
+
     }
   }
 
   &:active {
-    background-color: var(--lk-surfacecontainer);
+
   }
 
   &:focus-visible {

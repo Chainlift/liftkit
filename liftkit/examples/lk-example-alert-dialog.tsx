@@ -15,10 +15,10 @@ import { Button } from "@/liftkit/component-definitions";
 export function ExampleAlertDialog() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger>Discard Draft</AlertDialogTrigger>
-      <AlertDialogContent render={<Card scaleFactor="heading" opticalCorrection="top"/>}>
+      <AlertDialogTrigger render={<Button color="error"/>}>Discard Draft</AlertDialogTrigger>
+      <AlertDialogContent render={<Card scaleFactor="body" opticalCorrection="top"/>}>
         <AlertDialogHeader>
-          <AlertDialogTitle className="heading mb-xs">Discard draft?</AlertDialogTitle>
+          <AlertDialogTitle className="title3-bold">Discard draft?</AlertDialogTitle>
           <AlertDialogDescription className="body mb-sm">You can't undo this action.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
