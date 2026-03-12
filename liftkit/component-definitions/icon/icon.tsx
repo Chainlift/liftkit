@@ -26,7 +26,7 @@ export function Icon({
   ...props
 }: LkIconProps) {
   return (
-    <div data-lk-component="icon" data-lk-icon-offset={opticShift} {...props} data-lk-icon-font-class={fontClass}>
+    <div data-lk-component="icon" data-slot="icon" data-lk-icon-offset={opticShift} {...props} data-lk-icon-font-class={fontClass}>
       <DynamicIcon
         name={name}
         width={width}

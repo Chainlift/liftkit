@@ -13,6 +13,7 @@ import {
   ComboboxItem,
   ComboboxItemIndicator,
 } from "@/liftkit/component-definitions";
+import { Icon } from "@/liftkit/component-definitions/icon/icon";
 
 export function ExampleCombobox() {
   const id = React.useId();
@@ -20,14 +21,14 @@ export function ExampleCombobox() {
     <Combobox items={fruits}>
       <div>
         <label htmlFor={id}>Choose a fruit</label>
-        <div>
+        <div data-slot="combobox-input-wrapper">
           <ComboboxInput placeholder="e.g. Apple" id={id} />
-          <div>
+          <div data-slot="action-buttons">
             <ComboboxClear aria-label="Clear selection">
               <ClearIcon />
             </ComboboxClear>
             <ComboboxTrigger aria-label="Open popup">
-              <ChevronDownIcon />
+              <Icon name="chevron-down" />
             </ComboboxTrigger>
           </div>
         </div>
@@ -41,7 +42,7 @@ export function ExampleCombobox() {
               {(item: Fruit) => (
                 <ComboboxItem key={item.value} value={item}>
                   <ComboboxItemIndicator>
-                    <CheckIcon />
+                    <Icon name="check" />
                   </ComboboxItemIndicator>
                   <div>{item.label}</div>
                 </ComboboxItem>
