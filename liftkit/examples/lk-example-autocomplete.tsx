@@ -15,7 +15,7 @@ export function ExampleAutocomplete({ ...props }) {
   return (
     <Autocomplete items={tags} {...props}>
       <label>
-        Don't Search Tags
+        <span>Search Tags</span>
         <AutocompleteInput placeholder="e.g. feature" />
       </label>
       <AutocompletePortal>
@@ -28,7 +28,7 @@ export function ExampleAutocomplete({ ...props }) {
                   key={tag.id}
                   value={tag}
                   className="callout"
-                  render={<GoldenBox scaleFactor="callout" opticalCorrection="y" />}
+
                 >
                   {tag.value}
                 </AutocompleteItem>

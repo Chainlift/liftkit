@@ -1,16 +1,16 @@
 :where([data-slot="autocomplete-input"]) {
   box-sizing: border-box;
-  /* padding-left: 0.875rem; */
+  padding: var(--lk-size-sm) var(--lk-size-sm);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
-  width: 16rem;
-  height: 2.5rem;
+  width: 100%;
   border-radius: 0.375rem;
   font-family: inherit;
-  /* font-size: 1rem; */
+  font-size: 1em;
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   outline: none;
+  margin-top: var(--lk-size-xs);
 
   &:focus {
     border-color: var(--lk-primary);
@@ -31,11 +31,16 @@
 :where(label:has([data-slot="autocomplete-input"])) {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  /* font-size: 0.875rem; */
-  line-height: 1.25rem;
+
   font-weight: 500;
   color: var(--lk-onsurface);
+}
+
+:where(label:has([data-slot="autocomplete-input"]) > span) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  
 }
 
 :where([data-slot="autocomplete-positioner"]) {
@@ -120,4 +125,3 @@
   /* line-height: 1rem; */
   color: var(--lk-onsurfacevariant);
 }
-
