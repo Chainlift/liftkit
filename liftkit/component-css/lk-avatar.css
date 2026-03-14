@@ -8,17 +8,18 @@
   font-weight: 500;
   color: var(--lk-onsurface);
   background-color: var(--lk-surfacecontainer);
-  font-size: 1rem;
+  font-size: var(--lk-size-md);
   line-height: 1;
   overflow: hidden;
-  height: 3rem;
-  width: 3rem;
+  height: var(--lk-size-xl);
+  width: var(--lk-size-xl);
 }
 
 :where([data-slot="avatar-image"]) {
   object-fit: cover;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 :where([data-slot="avatar-fallback"]) {
@@ -27,5 +28,5 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  font-size: 1rem;
+  font-size: var(--lk-size-md);
 }
