@@ -19,17 +19,12 @@ export function ExampleAutocomplete({ ...props }) {
         <AutocompleteInput placeholder="e.g. feature" />
       </label>
       <AutocompletePortal>
-        <AutocompletePositioner className="z-1">
-          <AutocompletePopup render={<GoldenBox scaleFactor="callout" opticalCorrection="y" />}>
+        <AutocompletePositioner >
+          <AutocompletePopup>
             <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
             <AutocompleteList>
               {(tag: Tag) => (
-                <AutocompleteItem
-                  key={tag.id}
-                  value={tag}
-                  className="callout"
-
-                >
+                <AutocompleteItem key={tag.id} value={tag} >
                   {tag.value}
                 </AutocompleteItem>
               )}
