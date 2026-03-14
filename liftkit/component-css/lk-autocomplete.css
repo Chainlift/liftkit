@@ -106,8 +106,8 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-xs);
-    border-radius: var(--lk-size-xs);
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lk-size-2xs);
     background-color: var(--lk-surfacecontainer);
   }
 }
