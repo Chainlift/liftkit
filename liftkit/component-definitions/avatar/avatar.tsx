@@ -5,7 +5,7 @@ import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import "@/liftkit/component-css/lk-avatar.css";
 
 function Avatar({ className, ...props }: AvatarPrimitive.Root.Props) {
-  return <AvatarPrimitive.Root data-slot="avatar-root" className={cn(className)} {...props} />;
+  return <AvatarPrimitive.Root data-slot="avatar" className={cn(className)} {...props} />;
 }
 
 function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {

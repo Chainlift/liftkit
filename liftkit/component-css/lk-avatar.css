@@ -1,4 +1,4 @@
-:where([data-slot="avatar-root"]) {
+:where([data-slot="avatar"]) {
   display: inline-flex;
   justify-content: center;
   align-items: center;

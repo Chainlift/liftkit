@@ -176,3 +176,66 @@ lib/               # cn.ts, docs-nav.ts, utilities.ts
 components/mdx/    # MDX overrides: code-block, PropsTable, TableOfContents
 scripts/           # gen-props.mjs (ts-morph), gen-css.mjs, generate-local-code-samples.mjs
 ```
+
+## LiftKit Token Migrations
+
+When asked something like "Refactor with LiftKit CSS," or "Replace with LiftKit tokens," use these instructions:
+
+- For padding, margins, and gaps, use `var(--lk-size-{size})` (e.g., `var(--lk-size-md)`) instead of hardcoded values. Sizes range from `5xs` to `5xl`. Map them roughly as follows:
+
+## LiftKit Scale Reference
+
+### Constants
+
+| Key                    | Value   |
+| ---------------------- | ------- |
+| `font-size`            | `1rem`  |
+| `--lk-scalefactor` (φ) | `1.618` |
+
+### Scale Steps
+
+Dimensionless ratios used as multipliers — no em/rem/px equivalent.
+
+| Key                    | Formula                 | Value   |
+| ---------------------- | ----------------------- | ------- |
+| `--lk-wholestep`       | φ                       | `1.618` |
+| `--lk-halfstep`        | `round(φ^0.5, 0.001)`   | `1.272` |
+| `--lk-quarterstep`     | `round(φ^0.25, 0.001)`  | `1.128` |
+| `--lk-eighthstep`      | `round(φ^0.125, 0.001)` | `1.062` |
+| `--lk-wholestep-dec`   | `wholestep − 1`         | `0.618` |
+| `--lk-halfstep-dec`    | `halfstep − 1`          | `0.272` |
+| `--lk-quarterstep-dec` | `quarterstep − 1`       | `0.128` |
+| `--lk-eighthstep-dec`  | `eighthstep − 1`        | `0.062` |
+
+### Size Variables
+
+Computed at root, where 1em = 1rem = 16px.
+
+| Key             | Formula                    | em         | rem         | px         |
+| --------------- | -------------------------- | ---------- | ----------- | ---------- |
+| `--lk-size-5xs` | `1em × round(φ^−5, 0.001)` | `0.090em`  | `0.090rem`  | `1.44px`   |
+| `--lk-size-4xs` | `1em × round(φ^−4, 0.001)` | `0.146em`  | `0.146rem`  | `2.34px`   |
+| `--lk-size-3xs` | `1em × round(φ^−3, 0.001)` | `0.236em`  | `0.236rem`  | `3.78px`   |
+| `--lk-size-2xs` | `1em × round(φ^−2, 0.001)` | `0.382em`  | `0.382rem`  | `6.11px`   |
+| `--lk-size-xs`  | `1em × round(φ^−1, 0.001)` | `0.618em`  | `0.618rem`  | `9.89px`   |
+| `--lk-size-sm`  | `1em ÷ φ`                  | `0.618em`  | `0.618rem`  | `9.89px`   |
+| `--lk-size-md`  | `1em`                      | `1.000em`  | `1.000rem`  | `16.00px`  |
+| `--lk-size-lg`  | `1em × φ`                  | `1.618em`  | `1.618rem`  | `25.89px`  |
+| `--lk-size-xl`  | `1em × round(φ^2, 0.001)`  | `2.618em`  | `2.618rem`  | `41.89px`  |
+| `--lk-size-2xl` | `1em × round(φ^3, 0.001)`  | `4.236em`  | `4.236rem`  | `67.78px`  |
+| `--lk-size-3xl` | `1em × round(φ^4, 0.001)`  | `6.854em`  | `6.854rem`  | `109.66px` |
+| `--lk-size-4xl` | `1em × round(φ^5, 0.001)`  | `11.089em` | `11.089rem` | `177.42px` |
+| `--lk-size-5xl` | `1em × round(φ^6, 0.001)`  | `17.942em` | `17.942rem` | `287.07px` |
+
+### Unitless Size Variables
+
+Dimensionless variants of select size tokens, used as factors inside `calc()`. No em/rem/px equivalent.
+
+| Key                      | Formula           | Value   |
+| ------------------------ | ----------------- | ------- |
+| `--lk-size-sm-unitless`  | `1 ÷ φ`           | `0.618` |
+| `--lk-size-xs-unitless`  | `sm-unitless ÷ φ` | `0.382` |
+| `--lk-size-2xs-unitless` | `xs-unitless ÷ φ` | `0.236` |
+| `--lk-size-lg-unitless`  | `1 × φ`           | `1.618` |
+| `--lk-size-xl-unitless`  | `lg-unitless × φ` | `2.618` |
+| `--lk-size-2xl-unitless` | `xl-unitless × φ` | `4.236` |

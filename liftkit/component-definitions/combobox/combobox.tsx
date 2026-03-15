@@ -11,8 +11,8 @@ function Combobox<Value, Multiple extends boolean = false>({
   return <ComboboxPrimitive.Root data-slot="combobox" {...props} />;
 }
 
-function ComboboxInput({ className, ...props }: ComboboxPrimitive.Input.Props) {
-  return <ComboboxPrimitive.Input data-slot="combobox-input" className={cn(className)} {...props} />;
+function ComboboxInputGroup({ className, ...props }: ComboboxPrimitive.Input.Props) {
+  return <ComboboxPrimitive.Input data-slot="combobox-input-group" className={cn(className)} {...props} />;
 }
 
 function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
@@ -53,7 +53,7 @@ function ComboboxItemIndicator({ className, ...props }: ComboboxPrimitive.ItemIn
 
 export {
   Combobox,
-  ComboboxInput,
+  ComboboxInputGroup,
   ComboboxClear,
   ComboboxTrigger,
   ComboboxPortal,

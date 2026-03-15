@@ -5,7 +5,7 @@ import { Icon } from "@/liftkit/component-definitions";
 export function ExampleCollapsible() {
   return (
     <Collapsible>
-      <CollapsibleTrigger render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
+      <CollapsibleTrigger nativeButton={false} render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
         <CollapsibleIcon />
         <div className="body">Recovery Keys</div>
       </CollapsibleTrigger>
@@ -23,5 +23,5 @@ export function ExampleCollapsible() {
 }
 
 export function CollapsibleIcon() {
-  return <Icon name="chevron-right" data-slot="collapsible-trigger-icon"  />;
+  return <Icon name="chevron-right" data-slot="collapsible-trigger-icon" />;
 }

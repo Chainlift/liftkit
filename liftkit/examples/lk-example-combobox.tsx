@@ -2,7 +2,7 @@
 import * as React from "react";
 import {
   Combobox,
-  ComboboxInput,
+  ComboboxInputGroup,
   ComboboxClear,
   ComboboxTrigger,
   ComboboxPortal,
@@ -21,16 +21,14 @@ export function ExampleCombobox() {
     <Combobox items={fruits}>
       <div>
         <label htmlFor={id}>Choose a fruit</label>
-        <div data-slot="combobox-input-wrapper">
-          <ComboboxInput placeholder="e.g. Apple" id={id} />
-          <div data-slot="action-buttons">
-            <ComboboxClear aria-label="Clear selection">
-              <ClearIcon />
-            </ComboboxClear>
-            <ComboboxTrigger aria-label="Open popup">
-              <Icon name="chevron-down" />
-            </ComboboxTrigger>
-          </div>
+        <ComboboxInputGroup placeholder="e.g. Apple" id={id} />
+        <div data-slot="action-buttons">
+          <ComboboxClear aria-label="Clear selection">
+            <ClearIcon />
+          </ComboboxClear>
+          <ComboboxTrigger aria-label="Open popup">
+            <Icon name="chevron-down" />
+          </ComboboxTrigger>
         </div>
       </div>
 
@@ -42,7 +40,7 @@ export function ExampleCombobox() {
               {(item: Fruit) => (
                 <ComboboxItem key={item.value} value={item}>
                   <ComboboxItemIndicator>
-                    <Icon name="check" />
+                    <Icon name="check" fontClass="heading"/>
                   </ComboboxItemIndicator>
                   <div>{item.label}</div>
                 </ComboboxItem>
