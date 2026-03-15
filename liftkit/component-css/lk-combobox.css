@@ -159,7 +159,7 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-sm);
+    inset-inline: var(--lk-size-xs);
     border-radius: var(--lk-size-xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
