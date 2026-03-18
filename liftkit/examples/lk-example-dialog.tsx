@@ -18,7 +18,7 @@ export function ExampleDialog() {
         <DialogPopup>
           <DialogTitle>Notifications</DialogTitle>
           <DialogDescription>You are all caught up. Good job!</DialogDescription>
-          <div>
+          <div className="flex items-center w-full justify-end">
             <DialogClose>Close</DialogClose>
           </div>
         </DialogPopup>

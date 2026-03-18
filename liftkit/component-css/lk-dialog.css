@@ -113,7 +113,7 @@
   }
 }
 
-:where([data-slot="dialog-title"]) {
+[data-slot="dialog-title"] {
   margin-bottom: var(--lk-size-xs);
   font-size: var(--lk-title3-font-size);
   line-height: var(--lk-title3-line-height);
@@ -121,15 +121,57 @@
   font-weight: 500;
 }
 
-:where([data-slot="dialog-description"]) {
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: var(--color-gray-600);
+/* title and description aren't wrapped in :where because we need specificity of 1, not 0.
+   * liftkit-core's h2 rule overrides specificity-0 rules in the cascade.
+   * A different solution would be using a className in this component's lk-example file, but I opted for this
+   * so that the example files could remain free of classnames.
+   */
+
+[data-slot="dialog-title"] {
+  font-size: var(--lk-title3-font-size);
+  line-height: var(--lk-title3-line-height);
+  letter-spacing: var(--lk-title3-letter-spacing);
+  margin-bottom: var(--lk-size-2xs);
+  font-weight: 600;
 }
 
-:where(.Actions) {
-  display: flex;
-  justify-content: end;
-  gap: 1rem;
+[data-slot="dialog-description"] {
+  margin-bottom: var(--lk-size-md);
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  color: var(--lk-onsurface);
+}
+
+
+
+:where([data-slot="dialog-close"]) {
+
+  --lk-btn-bg: transparent;
+  --lk-btn-fg: var(--lk-onsurface);
+  --lk-btn-border: var(--lk-outline);
+
+  --button-line-height: var(--lk-halfstep) !important;
+  --button-padX: 1em;
+  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  cursor: pointer;
+
+  display: inline-flex;
+  vertical-align: middle;
+  background: var(--lk-btn-bg, transparent);
+  color: var(--lk-btn-fg, inherit);
+  gap: var(--button-gap);
+  position: relative;
+  padding: var(--button-padY) 1em;
+  line-height: var(--button-line-height);
+
+  /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
+  border-width: var(--lk-size-5xs);
+  border-style: solid;
+  border-color: var(--lk-btn-border, transparent);
+
+  border-radius: 100em;
+  font-weight: 500;
 }
