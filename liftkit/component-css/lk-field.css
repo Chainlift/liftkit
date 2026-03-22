@@ -18,11 +18,11 @@
 :where([data-slot="field"] input) {
   box-sizing: border-box;
   padding-block: var(--lk-size-xs);
-  padding-inline: var(--lk-size-sm);
+  padding-inline: calc(var(--lk-size-md) / var(--lk-halfstep));
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lk-size-xs);
   font-family: inherit;
   font-size: 1em;
   line-height: 1;
