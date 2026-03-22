@@ -89,6 +89,8 @@
   box-sizing: border-box;
   border-radius: var(--lk-size-xs);
   background-color: var(--lk-surface);
+  scrollbar-color: var(--lk-outline) transparent;
+  scrollbar-width: thin;
   color: var(--lk-onsurface);
   width: var(--anchor-width);
   max-height: var(--lk-size-5xl);
@@ -160,7 +162,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-xs);
-    border-radius: var(--lk-size-xs);
+    border-radius: var(--lk-size-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 
@@ -175,7 +177,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-sm);
-    border-radius: var(--lk-size-xs);
+    border-radius: var(--lk-size-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }
@@ -187,7 +189,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-sm);
-    border-radius: var(--lk-size-xs);
+    border-radius: var(--lk-size-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }

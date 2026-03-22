@@ -98,10 +98,9 @@ export function ComponentMosaic() {
         <div className="label text-align-center mt-lg">Dialog</div>
       </Card>
       <Card className="flex items-center">
-      
-          <ExampleField />
-          <ExampleCombobox />
-      
+        <ExampleField />
+        <ExampleCombobox />
+
         <div className="label text-align-center mt-lg">Field</div>
       </Card>
       <Card>
@@ -161,8 +160,10 @@ export function ComponentMosaic() {
         <div className="label text-align-center mt-lg">Radio</div>
       </Card>
       <Card>
-        <ExampleScrollArea />
-        <div className="label text-align-center mt-lg">Scroll Area</div>
+        <div style={{ maxHeight: "320px" }}>
+          <ExampleScrollArea/>
+          <div className="label text-align-center mt-lg">Scroll Area</div>
+        </div>
       </Card>
       <Card>
         <ExampleSelect />

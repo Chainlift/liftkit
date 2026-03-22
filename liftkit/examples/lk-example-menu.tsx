@@ -8,6 +8,8 @@ import {
   MenuArrow,
   MenuItem,
   MenuSeparator,
+  MenuSubmenuRoot,
+  MenuSubmenuTrigger,
 } from "@/liftkit/component-definitions";
 
 export function ExampleMenu() {
@@ -24,6 +26,23 @@ export function ExampleMenu() {
             </MenuArrow>
             <MenuItem>Add to Library</MenuItem>
             <MenuItem>Add to Playlist</MenuItem>
+            <MenuSubmenuRoot>
+              <MenuSubmenuTrigger>
+                Add to Your Playlist <ChevronDownIcon />
+              </MenuSubmenuTrigger>
+              <MenuPortal>
+                <MenuPositioner sideOffset={8}>
+                  <MenuPopup>
+                    <MenuArrow>
+                      <ArrowSvg />
+                    </MenuArrow>
+                    <MenuItem>My Playlist #1</MenuItem>
+                    <MenuItem>My Playlist #2</MenuItem>
+                    <MenuItem>My Playlist #3</MenuItem>
+                  </MenuPopup>
+                </MenuPositioner>
+              </MenuPortal>
+            </MenuSubmenuRoot>
             <MenuSeparator />
             <MenuItem>Play Next</MenuItem>
             <MenuItem>Play Last</MenuItem>
