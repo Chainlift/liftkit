@@ -461,9 +461,9 @@ body {
   color-scheme: dark;
 }
 
-input:focus-visible {
+/* input:focus-visible {
   outline: none;
-}
+} */
 
 body {
   color: var(--lk-onbackground);
