@@ -12,7 +12,7 @@
   gap: var(--button-gap);
   position: relative;
   padding: var(--lk-size-2xs) var(--lk-size-xs);
-  line-height: var(--button-line-height);
+  line-height: var(--lk-halfstep);
 
   border-width: var(--lk-size-5xs);
   border-style: solid;

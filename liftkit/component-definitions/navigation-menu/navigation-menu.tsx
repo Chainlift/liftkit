@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
-import { ChevronDownIcon } from "lucide-react";
+import { Icon } from "@/liftkit/component-definitions/icon/icon";
 import "@/liftkit/component-css/lk-navigation-menu.css";
 
 function NavigationMenu({
@@ -28,7 +28,7 @@ function NavigationMenuItem({ className, ...props }: React.ComponentPropsWithRef
 function NavigationMenuTrigger({ className, children, ...props }: NavigationMenuPrimitive.Trigger.Props) {
   return (
     <NavigationMenuPrimitive.Trigger data-slot="navigation-menu-trigger" className={cn(className)} {...props}>
-      {children} <ChevronDownIcon className="Icon" aria-hidden="true" />
+      {children} <Icon name="chevron-down" aria-hidden="true" />
     </NavigationMenuPrimitive.Trigger>
   );
 }
@@ -74,7 +74,7 @@ function NavigationMenuIndicator({
 }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>) {
   return (
     <NavigationMenuPrimitive.Icon data-slot="navigation-menu-indicator" className={cn(className)} {...props}>
-      <div className="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
+      <div className="" />
     </NavigationMenuPrimitive.Icon>
   );
 }

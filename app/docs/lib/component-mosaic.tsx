@@ -54,6 +54,10 @@ export function ComponentMosaic() {
       }}
     >
       <Card>
+        <ExampleNavigationMenu />
+        <div className="label text-align-center mt-lg">Navigation Menu</div>
+      </Card>
+      <Card>
         <ExampleAccordion />
         <div className="label text-align-center mt-lg">Accordion</div>
       </Card>
@@ -135,10 +139,7 @@ export function ComponentMosaic() {
         <ExampleMeter />
         <div className="label text-align-center mt-lg">Meter</div>
       </Card>
-      <Card>
-        <ExampleNavigationMenu />
-        <div className="label text-align-center mt-lg">Navigation Menu</div>
-      </Card>
+
       <Card>
         <ExampleNumberField />
         <div className="label text-align-center mt-lg">Number Field</div>
@@ -161,7 +162,7 @@ export function ComponentMosaic() {
       </Card>
       <Card>
         <div style={{ maxHeight: "320px" }}>
-          <ExampleScrollArea/>
+          <ExampleScrollArea />
           <div className="label text-align-center mt-lg">Scroll Area</div>
         </div>
       </Card>
