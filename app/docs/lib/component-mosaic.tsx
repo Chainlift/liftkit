@@ -97,8 +97,11 @@ export function ComponentMosaic() {
         <ExampleDialog />
         <div className="label text-align-center mt-lg">Dialog</div>
       </Card>
-      <Card>
-        <ExampleField />
+      <Card className="flex items-center">
+      
+          <ExampleField />
+          <ExampleCombobox />
+      
         <div className="label text-align-center mt-lg">Field</div>
       </Card>
       <Card>

@@ -19,7 +19,7 @@
 }
 
 :where([data-slot="combobox-input-group"]) {
-  height: var(--lk-size-xl);
+  padding-block: var(--lk-size-sm);
 }
 
 :where(div:has(input[data-slot="combobox-input-group"])) {
