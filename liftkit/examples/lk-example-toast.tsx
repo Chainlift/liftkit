@@ -1,11 +1,11 @@
 "use client";
 import * as React from "react";
-import { Toast } from "@base-ui/react/toast";
+// import { Toast } from "@base-ui/react/toast";
 import {
   ToastProvider,
   ToastPortal,
   ToastViewport,
-  Toast as LkToast,
+  Toast,
   ToastContent,
   ToastTitle,
   ToastDescription,
@@ -14,7 +14,7 @@ import {
 } from "@/liftkit/component-definitions";
 
 function ToastButton() {
-  const toastManager = Toast.useToastManager();
+  const toastManager = useToastManager();
   const [count, setCount] = React.useState(0);
 
   function createToast() {
@@ -25,7 +25,7 @@ function ToastButton() {
     });
   }
 
-  return <button type="button">Create toast</button>;
+  return <button type="button" onClick={createToast}>Create toast</button>;
 }
 
 export function ExampleToast() {
@@ -42,17 +42,17 @@ export function ExampleToast() {
 }
 
 function ToastList() {
-  const { toasts } = Toast.useToastManager();
+  const { toasts } = useToastManager();
   return toasts.map((toast) => (
-    <Toast.Root key={toast.id} toast={toast}>
-      <Toast.Content>
-        <Toast.Title />
-        <Toast.Description />
-        <Toast.Close aria-label="Close">
+    <Toast key={toast.id} toast={toast}>
+      <ToastContent>
+        <ToastTitle />
+        <ToastDescription />
+        <ToastClose aria-label="Close">
           <XIcon />
-        </Toast.Close>
-      </Toast.Content>
-    </Toast.Root>
+        </ToastClose>
+      </ToastContent>
+    </Toast>
   ));
 }
 
@@ -63,8 +63,8 @@ function XIcon(props: React.ComponentProps<"svg">) {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
+      fill="currentColor"
+      stroke="var(--lk-error)"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

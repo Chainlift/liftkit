@@ -11,7 +11,7 @@
   border-radius: 0.375rem;
   background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: var(--lk-size-md);
   font-weight: 500;
   line-height: 1.5rem;
   color: var(--lk-onsurface);
@@ -38,21 +38,21 @@
   z-index: 1;
   width: 250px;
   margin: 0 auto;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: var(--lk-size-md);
+  right: var(--lk-size-md);
   left: auto;
   top: auto;
 
   @media (min-width: 500px) {
-    bottom: 2rem;
-    right: 2rem;
+    bottom: var(--lk-size-lg);
+    right: var(--lk-size-lg);
     width: 300px;
   }
 }
 
 :where([data-slot="toast"]) {
-  --gap: 0.75rem;
-  --peek: 0.75rem;
+  --gap: var(--lk-size-sm);
+  --peek: var(--lk-size-sm);
   --scale: calc(max(0, 1 - (var(--toast-index) * 0.1)));
   --shrink: calc(1 - var(--scale));
   --height: var(--toast-frontmost-height, var(--toast-height));
@@ -61,14 +61,14 @@
   right: 0;
   margin: 0 auto;
   box-sizing: border-box;
-  background: var(--lk-surfacecontainerlow);
+  background: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
-  border: 1px solid var(--lk-outlinevariant);
-  padding: 1rem;
+  /* border: 1px solid var(--lk-outlinevariant); */
+  padding: var(--lk-size-md);
   width: 100%;
-  box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+  box-shadow: var(--lk-shadow-lg);
   background-clip: padding-box;
-  border-radius: 0.5rem;
+  border-radius: var(--lk-size-sm);
   transform-origin: bottom center;
   bottom: 0;
   left: auto;
@@ -144,37 +144,34 @@
 
 :where([data-slot="toast-title"]) {
   font-weight: 500;
-  font-size: 0.975rem;
-  line-height: 1.25rem;
+  font-size: var(--lk-callout-font-size);
+  line-height: var(--lk-callout-line-height);
   margin: 0;
+  margin-bottom: var(--lk-size-xs);
 }
 
-[data-slot="toast-description"] {
-  font-size: 0.925rem;
-  line-height: 1.25rem;
+:where([data-slot="toast-description"]) {
+  font-size: var(--lk-callout-font-size);
+  line-height: var(--lk-callout-line-height);
   margin: 0;
+  color: var(--lk-onsurfacelow);
 }
 
-[data-slot="toast-close"] {
+:where([data-slot="toast-close"]) {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: var(--lk-size-sm);
+  right: var(--lk-size-sm);
   padding: 0;
   border: none;
   background: transparent;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--lk-size-md) * var(--lk-halfstep));
+  width: calc(var(--lk-size-md) * var(--lk-halfstep));
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.25rem;
+  border-radius: var(--lk-size-xs);
 
   &:hover {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-surfacedim);
   }
-}
-
-.Icon {
-  width: 1rem;
-  height: 1rem;
 }
