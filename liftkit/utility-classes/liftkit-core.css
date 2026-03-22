@@ -499,7 +499,7 @@ h5,
 h6,
 p,
 pre {
-  font-size: inherit;
+  /* font-size: inherit; */
   margin: 0;
 }
 
