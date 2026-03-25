@@ -53,7 +53,15 @@ export function ComponentMosaic() {
         alignItems: "center",
       }}
     >
-      <Card className="shadow-2xs">Shadow 2xs</Card>
+      <div className="flex flex-col gap-2xl">
+        <Card className="shadow-2xs">Shadow 2xs</Card>
+        <Card className="shadow-xs">Shadow xs</Card>
+        <Card className="shadow-sm">Shadow sm</Card>
+        <Card className="shadow-md">Shadow md</Card>
+        <Card className="shadow-lg">Shadow lg</Card>
+        <Card className="shadow-xl">Shadow xl</Card>
+        <Card className="shadow-2xl">Shadow 2xl</Card>
+      </div>
       <Card>
         <ExampleNavigationMenu />
         <div className="label text-align-center mt-lg">Navigation Menu</div>

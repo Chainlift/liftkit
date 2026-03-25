@@ -339,56 +339,103 @@
 
   /* first, set shadow colors to their own tokens so it's easier to edit them later */
 
-  --lk-shadow-color-2xs-a: var(--lk-shadow);
-  --lk-shadow-color-xs-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-xs-b: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-  --lk-shadow-color-xs-c: rgba(63, 73, 71, 0.15);
-  --lk-shadow-color-sm-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-sm-b: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-  --lk-shadow-color-sm-c: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-  --lk-shadow-color-md-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-md-b: color-mix(in srgb, var(--lk-shadow) 5%, transparent);
-  --lk-shadow-color-md-c: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-  --lk-shadow-color-lg-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-lg-b: color-mix(in srgb, var(--lk-shadow) 15%, transparent);
-  --lk-shadow-color-xl-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-xl-b: color-mix(in srgb, var(--lk-shadow) 15%, transparent);
-  --lk-shadow-color-2xl-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-  --lk-shadow-color-2xl-b: color-mix(in srgb, var(--lk-shadow) 20%, transparent);
+  /* The "contact" shadow is a hairthin line that goes all around the element. */
+  --lk-contact-shadow-color: color-mix(in srgb, var(--lk-shadow) 80%, transparent);
 
-  --lk-shadow-2xs: 0 0 1px 0 var(--lk-shadow-color-2xs-a);
-  --lk-shadow-xs:
-    0 0 1px 0 var(--lk-shadow-color-xs-a), 0 2px 4px 0 var(--lk-shadow-color-xs-b),
-    0 4px 6px -1px var(--lk-shadow-color-xs-c);
-  --lk-shadow-sm:
-    0 0 1px 0 var(--lk-shadow-color-sm-a), 0 2px 6px 0 var(--lk-shadow-color-sm-b),
-    0 11px 15px -3px var(--lk-shadow-color-sm-c);
-  --lk-shadow-md:
-    0 0 1px 0 var(--lk-shadow-color-md-a), 0 4px 8px 0 var(--lk-shadow-color-md-b),
-    0 20px 25px -5px var(--lk-shadow-color-md-c);
-  --lk-shadow-lg: 0 0 1px 0 var(--lk-shadow-color-lg-a), 0 25px 50px -6px var(--lk-shadow-color-lg-b);
-  --lk-shadow-xl: 0 0 1px 0 var(--lk-shadow-color-xl-a), 0 50px 100px 0 var(--lk-shadow-color-xl-b);
-  --lk-shadow-2xl: 0 0 1px 0 var(--lk-shadow-color-2xl-a), 0 50px 150px 0 var(--lk-shadow-color-2xl-b);
+  /* Go ahead and save it to a token for passing later to each final shadow style token */
+  --lk-contact-shadow: 0 0 1px 0 var(--lk-contact-shadow-color);
 
-  /* increase opacity of shadow colors in dark mode */
+  /*
+
+    * shadow opacity is defined from largest to smallest so that everything can calculate from the darkest requirement
+    * it's done this way because it's easiest to tell where the "banding" limit of a shadow is when the blur is highest, 
+    * which is the largest shadow, which is where opacity has the greatest impact on banding 
+ 
+
+    * by default (i.e. in light mode), opacity of largest shadow color token equals scaleFactor expressed as a percentage 
+    * i.e. if scaleFactor is 1.618 then opacity is 61.8%
+    * then, every color token smaller is a wholestep down from that percent.
+    * i.e. shadow-color-xl equals 61.8% / var(--lk-wholestep) */
+
+  --lk-shadow-2xl-opacity: calc(calc(var(--lk-scalefactor) - 1) * 100%);
+  --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+  --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+  --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
+
+  /* In dark mode, opacity is higher at the top level and cascades down */
   @media screen and (prefers-color-scheme: dark) {
-    /* 2xs omitted, it's already 100% opaque by default */
-    --lk-shadow-color-xs-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-xs-b: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-    --lk-shadow-color-xs-c: rgba(63, 73, 71, 0.15);
-    --lk-shadow-color-sm-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-sm-b: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-    --lk-shadow-color-sm-c: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-    --lk-shadow-color-md-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-md-b: color-mix(in srgb, var(--lk-shadow) 5%, transparent);
-    --lk-shadow-color-md-c: color-mix(in srgb, var(--lk-shadow) 10%, transparent);
-    --lk-shadow-color-lg-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-lg-b: color-mix(in srgb, var(--lk-shadow) 15%, transparent);
-    --lk-shadow-color-xl-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-xl-b: color-mix(in srgb, var(--lk-shadow) 15%, transparent);
-    --lk-shadow-color-2xl-a: color-mix(in srgb, var(--lk-shadow) 50%, transparent);
-    --lk-shadow-color-2xl-b: color-mix(in srgb, var(--lk-shadow) 20%, transparent);
+    --lk-shadow-2xl-opacity: 80%;
+    --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+    --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+    --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
   }
+
+  --lk-shadow-color-2xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-2xl-opacity), transparent);
+  --lk-shadow-color-xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xl-opacity), transparent);
+  --lk-shadow-color-lg: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-lg-opacity), transparent);
+  --lk-shadow-color-md: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-md-opacity), transparent);
+  --lk-shadow-color-sm: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-sm-opacity), transparent);
+  --lk-shadow-color-xs: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xs-opacity), transparent);
+
+  /* --lk-shadow-xs:
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 .272em .440em -1px var(--lk-shadow-color-xs-b); */
+
+  /* for every shadow, y offset is an lk-size var and the blur is y offset * scaleFactor */
+
+  /* Now, define the y offsets for each */
+
+  --lk-shadow-yoffset-2xl: var(--lk-size-xl);
+  --lk-shadow-yoffset-xl: var(--lk-size-lg);
+  --lk-shadow-yoffset-lg: var(--lk-size-md);
+  --lk-shadow-yoffset-md: var(--lk-size-sm);
+  --lk-shadow-yoffset-sm: var(--lk-size-xs);
+  --lk-shadow-yoffset-xs: var(--lk-size-2xs);
+
+  /* Calculate blur strength. Blur equals y offset * wholestep */
+
+  --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl) * var(--lk-wholestep));
+  --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl) * var(--lk-wholestep));
+  --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg) * var(--lk-wholestep));
+  --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md) * var(--lk-wholestep));
+  --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm) * var(--lk-wholestep));
+  --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs) * var(--lk-wholestep));
+
+  /* 2xs is an exception to all of these calculation rules, because it only has a contact shadow. */
+
+  --lk-shadow-2xs: var(--lk-contact-shadow);
+  --lk-shadow-xs:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xs) var(--lk-shadow-blur-xs) 0 var(--lk-shadow-color-xs);
+  --lk-shadow-sm:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-sm) var(--lk-shadow-blur-sm) 0 var(--lk-shadow-color-sm);
+  --lk-shadow-md:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-md) var(--lk-shadow-blur-md) 0 var(--lk-shadow-color-md);
+  --lk-shadow-lg:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-lg) var(--lk-shadow-blur-lg) 0 var(--lk-shadow-color-lg);
+  --lk-shadow-xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xl) var(--lk-shadow-blur-xl) 0 var(--lk-shadow-color-xl);
+  --lk-shadow-2xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-2xl) var(--lk-shadow-blur-2xl) 0 var(--lk-shadow-color-2xl);
+
+  /* In dark mode, shadow blur is weaker in order to reduce banding. TODO: find better solution, banding still happening at 2xl */
+
+  @media screen and (prefers-color-scheme: dark) {
+    --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl));
+    --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl));
+    --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg));
+    --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md));
+    --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm));
+    --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs));
+  }
+
+  /* 
+      --lk-shadow-2xl: 
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 2.058em 3.33em 0 var(--lk-shadow-color-2xl-b); */
 
   /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
 
