@@ -23,15 +23,16 @@ export function ExamplePreviewCard() {
             <PreviewCardArrow>
               <ArrowSvg />
             </PreviewCardArrow>
-            <div>
+            <div data-slot="popup-content">
               <img
                 width="224"
                 height="150"
                 src="https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300"
                 alt="Station Hofplein signage in Rotterdam, Netherlands"
+                className="rounded-2xs display-block"
               />
-              <p>
-                <strong>Typography</strong> is the art and science of arranging type to make written language clear,
+              <p className="subheading color-onsurfacelow">
+                <strong className="color-onsurface">Typography</strong> is the art and science of arranging type to make written language clear,
                 visually appealing, and effective in communication.
               </p>
             </div>

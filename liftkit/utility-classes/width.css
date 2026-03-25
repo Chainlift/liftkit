@@ -1,11 +1,35 @@
 @import "./liftkit-core.css";
 
+.w-min {
+  width: min-content;
+}
+
+.w-max {
+  width: max-content;
+}
+
 .w-full {
   width: 100%;
 }
 
+.max-w-min {
+  max-width: min-content;
+}
+
+.max-w-max {
+  max-width: max-content;
+}
+
 .max-w-full {
   max-width: 100%;
+}
+
+.min-w-min {
+  min-width: min-content;
+}
+
+.min-w-max {
+  min-width: max-content;
 }
 
 .w-3xs {

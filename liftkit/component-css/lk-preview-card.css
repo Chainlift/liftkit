@@ -74,27 +74,22 @@
   }
 }
 
-:where(.PopupContent) {
+:where([data-slot="popup-content"]) {
   width: min-content;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem;
+  gap: var(--lk-size-sm);
+  padding: var(--lk-size-md);
   box-sizing: border-box;
 }
 
-:where(.Image) {
-  display: block;
-  border-radius: 0.25rem;
-  max-width: none;
-}
 
 :where(.Summary) {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--lk-onsurface);
-  text-wrap: pretty;
+  text-wrap: balance; /* BaseUI uses Pretty here, but it's not supported in firefox yet */
 }
 
 :where(.Container) {
