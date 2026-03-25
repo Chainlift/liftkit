@@ -1,18 +1,19 @@
-:where(.IconButton) {
+:where([data-slot="popover-trigger"]) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--lk-size-xl);
+  height: var(--lk-size-xl);
   padding: 0;
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: 0.375rem;
+  border-radius: var(--lk-size-xs);
   background-color: var(--lk-surfacecontainerlow);
   color: var(--lk-onsurface);
   user-select: none;
+  cursor: pointer;
 
   @media (hover: hover) {
     &:hover {
@@ -34,12 +35,8 @@
   }
 }
 
-:where(.Icon) {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-:where([data-slot="popover-positioner"]) {
+/* remove :where from positioner because it shouldn't be overridden easily */
+[data-slot="popover-positioner"] {
   width: var(--positioner-width);
   height: var(--positioner-height);
   max-width: var(--available-width);
@@ -47,8 +44,9 @@
 
 :where([data-slot="popover-popup"]) {
   box-sizing: border-box;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
+  padding-block: var(--lk-size-sm) calc(var(--lk-size-md) / var(--lk-halfstep));
+  padding-inline: var(--lk-size-md);
+  border-radius: var(--lk-size-sm);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -121,37 +119,43 @@
 
 :where([data-slot="popover-title"]) {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 500;
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  font-weight: 600;
 }
 
 :where([data-slot="popover-description"]) {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: var(--color-gray-600);
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  color: var(--lk-onsurfacelow);
 }
 
-:where(.Container) {
+/* idk what this is for */
+
+/* :where(.Container) {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
-:where(.Button) {
+/* idk what this is for either */
+
+/* :where(.Button) {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.375rem;
-  height: 2.5rem;
+  gap: var(--lk-size-xs);
+  height: var(--lk-size-xl);
   padding: 0 0.875rem;
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: 0.375rem;
+  border-radius: var(--lk-size-xs);
   background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
   font-size: 1rem;
@@ -174,4 +178,4 @@
     outline: 2px solid var(--lk-info);
     outline-offset: -1px;
   }
-}
+} */

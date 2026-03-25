@@ -25,7 +25,11 @@ function ToastButton() {
     });
   }
 
-  return <button type="button" onClick={createToast}>Create toast</button>;
+  return (
+    <button type="button" onClick={createToast}>
+      Create toast
+    </button>
+  );
 }
 
 export function ExampleToast() {
