@@ -45,11 +45,7 @@ export type LkCardProps = React.HTMLAttributes<HTMLDivElement> & {
  */
 
 function cardClasses({ scaleFactor = "body", variant = "fill", opticalCorrection, color, className }: LkCardProps) {
-  return cn(
-    "lk-card",
-    "lk-card-variant--" + variant,
-    "lk-colorgroup--" + color,
-  );
+  return cn("lk-card", "lk-card-variant--" + variant, "lk-colorgroup--" + color, className);
 }
 
 const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
