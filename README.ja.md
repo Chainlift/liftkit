@@ -180,6 +180,24 @@ LiftKit Core はベースとなる設定にすぎません。LiftKit Components 
 
 ---
 
+## Claude Code スキル
+
+このリポジトリには、AI を活用したフロントエンド開発を強化する [Claude Code](https://docs.anthropic.com/en/docs/claude-code) スキルが含まれています。
+
+### frontend-design
+
+Claude Code が独創的でプロダクション品質のフロントエンドインターフェースを作成するためのスキルです。ありがちな「AI っぽい」デザインを避け、高品質で記憶に残るデザインを生成します。
+
+**クイックスタート:**
+
+1. Claude Code をインストール: `npm install -g @anthropic-ai/claude-code`
+2. このプロジェクトディレクトリで Claude Code を起動: `claude`
+3. スキルを使用: `/frontend-design コーヒーロースタリーのランディングページを作成して`
+
+スキルは `.claude/skills/frontend-design/SKILL.md` から自動検出されます。詳細なドキュメント、依存関係、インストール方法については [スキル README](.claude/skills/frontend-design/README.md) を参照してください。
+
+---
+
 ## Webflow テンプレートのクローン
 
 - [Made in Webflow で見る](https://www.webflow.com) (新しいタブで開きます)

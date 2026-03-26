@@ -180,6 +180,24 @@ LiftKit Core is just the base config. LiftKit Components are the actual UI compo
 
 ---
 
+## Claude Code Skills
+
+This repository includes [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills that enhance AI-assisted frontend development.
+
+### frontend-design
+
+A skill that guides Claude Code to create distinctive, production-grade frontend interfaces with high design quality — avoiding generic "AI slop" aesthetics.
+
+**Quick Start:**
+
+1. Install Claude Code: `npm install -g @anthropic-ai/claude-code`
+2. Start Claude Code in this project directory: `claude`
+3. Use the skill: `/frontend-design Build a landing page for a coffee roastery`
+
+The skill is auto-discovered from `.claude/skills/frontend-design/SKILL.md`. See the [skill README](.claude/skills/frontend-design/README.md) for full documentation, dependencies, and installation options.
+
+---
+
 ## Clone the Webflow Template
 
 - [View on Made in Webflow](https://www.webflow.com) (opens in new tab)
