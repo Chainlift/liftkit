@@ -7,8 +7,9 @@
 }
 
 :where([data-slot="progress-label"]) {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
   font-weight: 500;
   color: var(--lk-onsurface);
 }
@@ -16,8 +17,9 @@
 :where([data-slot="progress-value"]) {
   grid-column-start: 2;
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
   color: var(--lk-onsurface);
   text-align: right;
 }
@@ -33,6 +35,6 @@
 
 :where([data-slot="progress-indicator"]) {
   display: block;
-  background-color: var(--lk-surfacecontainerlow0);
+  background-color: var(--lk-secondary);
   transition: width 500ms;
 }
