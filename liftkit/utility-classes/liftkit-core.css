@@ -28,13 +28,13 @@
   --lk-size-md: 1em;
   /* It's okay to use em here because the root font size
                   has been manually set to 1rem */
-  --lk-size-sm: calc(1em / var(--lk-scalefactor));
-  --lk-size-xs: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001));
-  --lk-size-2xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001));
-  --lk-size-3xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001));
+  --lk-size-sm: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001)); /* .618 em */
+  --lk-size-xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001)); /* .272 em */
+  --lk-size-2xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001)); /* .129 em */
+  --lk-size-3xs: calc(1em * round(pow(var(--lk-scalefactor), -4), 0.001)); /* .12 em */
   /* "super smalls" only used for border widths and thin lines */
-  --lk-size-4xs: calc(1em * round(pow(var(--lk-scalefactor), -4), 0.001)); /* When 1rem = 16px, equals roughly 2px */
-  --lk-size-5xs: calc(1em * round(pow(var(--lk-scalefactor), -5), 0.001)); /* When 1rem = 16px, equals roughly 1px */
+  --lk-size-4xs: calc(1em * round(pow(var(--lk-scalefactor), -5), 0.001)); /* When 1rem = 16px, equals roughly 2px */
+  --lk-size-5xs: calc(1em * round(pow(var(--lk-scalefactor), -6), 0.001)); /* When 1rem = 16px, equals roughly 1px */
   --lk-size-lg: calc(1em * var(--lk-scalefactor));
   --lk-size-xl: calc(1em * round(pow(var(--lk-scalefactor), 2), 0.001));
   /* --lk-size-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001)); */
