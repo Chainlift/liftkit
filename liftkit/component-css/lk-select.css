@@ -70,6 +70,7 @@
   color: var(--lk-onsurface);
   min-width: var(--anchor-width);
   transform-origin: var(--transform-origin);
+  padding-block: var(--lk-size-2xs);
   transition:
     transform 150ms,
     opacity 150ms;
@@ -102,7 +103,7 @@
 :where([data-slot="select-list"]) {
   box-sizing: border-box;
   position: relative;
-  padding-block: var(--lk-size-2xs);
+
   overflow-y: auto;
   max-height: var(--available-height);
   scroll-padding-block: var(--lk-size-sm);
@@ -180,6 +181,11 @@
     color: var(--lk-onsurface);
   }
 
+  &[data-selected] {
+   position: relative;
+   z-index: 0;
+  }
+
   &[data-highlighted]::before {
     content: "";
     z-index: -1;
@@ -187,17 +193,24 @@
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
     border-radius: var(--lk-size-2xs);
-    background-color: var(--lk-surfacecontainerhigh);
+    background-color: color-mix(in srgb, var(--lk-onsurface) 12%, transparent);
+  }
+
+  &[data-selected]::after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lk-size-2xs);
+    background-color: var(--lk-primarycontainer);
   }
 }
 
 :where([data-slot="select-item-indicator"]) {
   grid-column-start: 1;
   display: block;
-
 }
-
-
 
 :where([data-slot="select-item-text"]) {
   grid-column-start: 2;

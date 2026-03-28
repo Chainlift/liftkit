@@ -20,6 +20,7 @@ import {
   ToolbarSeparator,
   ToolbarLink,
   ToolbarInput,
+  Icon
 } from "@/liftkit/component-definitions";
 
 export function ExampleToolbar() {
@@ -52,13 +53,13 @@ export function ExampleToolbar() {
               <SelectPopup>
                 <SelectItem value="Helvetica">
                   <SelectItemIndicator>
-                    <CheckIcon />
+                    <Icon name="check"/>
                   </SelectItemIndicator>
                   <SelectItemText>Helvetica</SelectItemText>
                 </SelectItem>
                 <SelectItem value="Arial">
                   <SelectItemIndicator>
-                    <CheckIcon />
+                    <Icon name="check"/>
                   </SelectItemIndicator>
                   <SelectItemText>Arial</SelectItemText>
                 </SelectItem>
