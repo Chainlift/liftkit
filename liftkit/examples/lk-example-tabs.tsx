@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@/liftkit/component-definitions";
+import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator, Icon } from "@/liftkit/component-definitions";
 
 export function ExampleTabs() {
   return (
@@ -10,14 +10,26 @@ export function ExampleTabs() {
         <TabsTab value="account">Account</TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value="overview">
-        <OverviewIcon />
+      <TabsPanel value="overview" >
+        <div className="pt-md  w-full">
+          <div className="p-xl bg-surfacecontainer flex items-center justify-center">
+            <Icon name="user" fontClass="title1" />
+          </div>
+        </div>
       </TabsPanel>
-      <TabsPanel value="projects">
-        <ProjectIcon />
+      <TabsPanel value="projects" >
+        <div className="pt-md  w-full">
+          <div className="p-xl bg-surfacecontainer flex items-center justify-center">
+            <Icon name="component" fontClass="title1" />
+          </div>
+        </div>
       </TabsPanel>
       <TabsPanel value="account">
-        <PersonIcon />
+        <div className="pt-md  w-full">
+          <div className="p-xl bg-surfacecontainer flex items-center justify-center">
+            <Icon name="house" fontClass="title1" />
+          </div>
+        </div>
       </TabsPanel>
     </Tabs>
   );

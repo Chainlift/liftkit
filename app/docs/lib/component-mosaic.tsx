@@ -207,7 +207,7 @@ export function ComponentMosaic() {
         <ExampleSwitch />
         <div className="label text-align-center mt-lg">Switch</div>
       </Card>
-      <Card>
+      <Card className="w-full">
         <ExampleTabs />
         <div className="label text-align-center mt-lg">Tabs</div>
       </Card>
