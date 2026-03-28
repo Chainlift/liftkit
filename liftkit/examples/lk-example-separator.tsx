@@ -2,7 +2,7 @@ import { Separator } from "@/liftkit/component-definitions";
 
 export function ExampleSeparator() {
   return (
-    <div>
+    <div className="flex gap-md subheading font-500">
       <a href="#">Home</a>
       <a href="#">Pricing</a>
       <a href="#">Blog</a>
