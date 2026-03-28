@@ -199,7 +199,7 @@ export function ComponentMosaic() {
         <ExampleSeparator />
         <div className="label text-align-center mt-lg">Separator</div>
       </Card>
-      <Card>
+      <Card className="w-full">
         <ExampleSlider />
         <div className="label text-align-center mt-lg">Slider</div>
       </Card>

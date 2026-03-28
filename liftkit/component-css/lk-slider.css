@@ -2,33 +2,33 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  width: 14rem;
-  padding-block: 0.75rem;
+  width: 100%;
+  padding-block: var(--lk-size-sm);
   touch-action: none;
   user-select: none;
 }
 
 :where([data-slot="slider-track"]) {
   width: 100%;
-  height: 0.25rem;
+  height: var(--lk-size-2xs);
   background-color: var(--lk-outlinevariant);
   box-shadow: inset 0 0 0 1px var(--lk-outlinevariant);
-  border-radius: 0.25rem;
+  border-radius: 100em;
   user-select: none;
 }
 
 :where([data-slot="slider-indicator"]) {
-  border-radius: 0.25rem;
-  background-color: var(--color-gray-700);
+  border-radius: 100em;
+  background-color: var(--lk-secondary);
   user-select: none;
 }
 
 :where([data-slot="slider-thumb"]) {
-  width: 1rem;
-  height: 1rem;
+  width: var(--lk-size-md);
+  height: var(--lk-size-md);
   border-radius: 100%;
   background-color: white;
-  outline: 1px solid var(--lk-outlinevariant);
+  outline: 1px solid var(--lk-outline);
   user-select: none;
 
   &:has(:focus-visible) {
