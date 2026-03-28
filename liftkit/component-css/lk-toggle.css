@@ -43,6 +43,7 @@
 
   &[data-pressed] {
     color: var(--lk-onsurface);
+    background-color: var(--lk-surfacevariant);
   }
 }
 

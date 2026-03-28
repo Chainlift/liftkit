@@ -11,14 +11,14 @@ export function ExampleToggle() {
           if (state.pressed) {
             return (
               <button type="button" {...props}>
-                <Icon name="heart" fontClass="heading"/>
+                <Icon name="heart" fontClass="heading" fill="var(--lk-onsurface)"  />
               </button>
             );
           }
 
           return (
             <button type="button" {...props}>
-               <Icon name="heart" fill="var(--lk-primary)" strokeWidth={0} fontClass="heading"/>
+              <Icon name="heart" fontClass="heading" />
             </button>
           );
         }}
@@ -26,4 +26,3 @@ export function ExampleToggle() {
     </div>
   );
 }
-
