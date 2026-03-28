@@ -1,19 +1,29 @@
-:where(.Button) {
+:where([data-slot="toast-trigger"]) {
+  --lk-btn-bg: var(--lk-color-token);
+  --lk-btn-fg: var(--lk-color-ontoken);
+
+  --button-line-height: var(--lk-halfstep) !important;
+  --button-padX: 1em;
+  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+
   box-sizing: border-box;
-  display: flex;
+  display: inline-flex;
+  vertical-align: middle;
   align-items: center;
   justify-content: center;
-  height: 2.5rem;
-  padding: 0 0.875rem;
+
+  padding: var(--button-padY) 1em;
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: 0.375rem;
+  border-radius: 100em;
   background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
   font-size: var(--lk-size-md);
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: var(--button-line-height);
   color: var(--lk-onsurface);
   user-select: none;
 
@@ -36,7 +46,7 @@
 :where([data-slot="toast-viewport"]) {
   position: fixed;
   z-index: 1;
-  width: 250px;
+  width: var(--lk-size-5xl);
   margin: 0 auto;
   bottom: var(--lk-size-md);
   right: var(--lk-size-md);
@@ -46,7 +56,7 @@
   @media (min-width: 500px) {
     bottom: var(--lk-size-lg);
     right: var(--lk-size-lg);
-    width: 300px;
+    width: var(--lk-size-5xl);
   }
 }
 

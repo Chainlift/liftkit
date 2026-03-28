@@ -26,7 +26,7 @@ function ToastButton() {
   }
 
   return (
-    <button type="button" onClick={createToast}>
+    <button type="button" onClick={createToast} data-slot="toast-trigger">
       Create toast
     </button>
   );
