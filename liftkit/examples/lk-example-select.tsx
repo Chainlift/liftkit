@@ -15,6 +15,7 @@ import {
   SelectItemText,
 } from "@/liftkit/component-definitions";
 import { Field, FieldLabel } from "@/liftkit/component-definitions/field/field";
+import { Icon } from "@/liftkit/component-definitions";
 
 const apples = [
   { label: "Gala", value: "gala" },
@@ -45,7 +46,7 @@ export function ExampleSelect() {
                 {apples.map(({ label, value }) => (
                   <SelectItem key={label} value={value}>
                     <SelectItemIndicator>
-                      <CheckIcon />
+                      <Icon name="check" />
                     </SelectItemIndicator>
                     <SelectItemText>{label}</SelectItemText>
                   </SelectItem>

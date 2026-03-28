@@ -8,10 +8,10 @@ import {
 
 export function ExampleScrollArea() {
   return (
-    <ScrollArea>
+    <ScrollArea style={{height: "200px"}}>
       <ScrollAreaViewport>
         <ScrollAreaContent>
-          <p>
+          <p className="body">
             Vernacular architecture is building done outside any academic tradition, and without professional guidance.
             It is not a particular architectural movement or style, but rather a broad category, encompassing a wide
             range and variety of building types, with differing methods of construction, from around the world, both
@@ -19,7 +19,7 @@ export function ExampleScrollArea() {
             environment, as estimated in 1995 by Amos Rapoport, as measured against the small percentage of new
             buildings every year designed by architects and built by engineers.
           </p>
-          <p>
+          <p className="body">
             This type of architecture usually serves immediate, local needs, is constrained by the materials available
             in its particular region and reflects local traditions and cultural practices. The study of vernacular
             architecture does not examine formally schooled architects, but instead that of the design skills and
