@@ -3,8 +3,8 @@
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
-  border-radius: 0.375rem;
-  padding: 0.125rem;
+  border-radius: var(--lk-size-xs);
+  padding: var(--lk-size-2xs);
 }
 
 :where([data-slot="toggle"]) {
@@ -12,13 +12,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--lk-size-lg) * var(--lk-halfstep));
+  height: calc(var(--lk-size-lg) * var(--lk-halfstep));
   padding: 0;
   margin: 0;
   outline: 0;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--lk-size-xs);
   background-color: transparent;
   color: var(--color-gray-600);
   user-select: none;
