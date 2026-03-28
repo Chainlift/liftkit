@@ -22,6 +22,8 @@
   background-color: transparent;
   color: var(--color-gray-600);
   user-select: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 
   &:focus-visible {
     background-color: transparent;
@@ -31,7 +33,7 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--color-gray-100);
+      background-color: var(--lk-surfacevariant);
     }
   }
 
