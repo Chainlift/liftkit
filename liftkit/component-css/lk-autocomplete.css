@@ -1,6 +1,11 @@
 :where([data-slot="autocomplete-input"]) {
   box-sizing: border-box;
-  padding: var(--lk-size-sm) var(--lk-size-sm);
+
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
+  line-height: var(--lk-halfstep);
+
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;

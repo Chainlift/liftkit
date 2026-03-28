@@ -32,7 +32,7 @@ export function ExampleSelect() {
       </FieldLabel>
       <Select items={apples}>
         <SelectTrigger>
-          <SelectValue placeholder="Select apple" />
+          <SelectValue placeholder="Select" />
           <SelectIcon>
             <ChevronUpDownIcon />
           </SelectIcon>

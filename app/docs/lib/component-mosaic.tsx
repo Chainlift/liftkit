@@ -53,6 +53,22 @@ export function ComponentMosaic() {
         alignItems: "center",
       }}
     >
+      <div
+        style={{
+          gridColumn: "1 / -1",
+          display: "flex",
+          flexDirection: "row",
+          gap: "2rem",
+          alignItems: "end",
+        }}
+      >
+        <ExampleAutocomplete />
+        <ExampleCombobox />
+        <ExampleField />
+        <ExampleInput />
+        <ExampleSelect />
+      </div>
+
       <div className="flex flex-col gap-2xl">
         <Card className="shadow-2xs pb-xl">Shadow 2xs</Card>
         <Card className="shadow-xs pb-xl">Shadow xs</Card>

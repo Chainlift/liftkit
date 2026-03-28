@@ -1,16 +1,33 @@
+/*
+
+IMPORTANT NOTE: 
+The "combobox-input-group" actually just targets the <input> element. 
+The word "group" is misleading. But that's what Base says, 
+and I'm not contradicting it right now.
+
+*/
+
 [data-slot="combobox-input-group"] {
+
+
   box-sizing: border-box;
   padding-left: var(--lk-size-sm);
   padding-right: var(--lk-size-xl);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
+  
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
+  line-height: var(--lk-halfstep);
 
   border-radius: var(--lk-size-xs);
   font-family: inherit;
   font-size: 1em;
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
+
 
   &:focus {
     outline: 2px solid var(--lk-info);
@@ -19,7 +36,6 @@
 }
 
 :where([data-slot="combobox-input-group"]) {
-  padding-block: var(--lk-size-sm);
 }
 
 :where(div:has(input[data-slot="combobox-input-group"])) {

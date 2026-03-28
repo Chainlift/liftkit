@@ -9,16 +9,20 @@
 }
 
 [data-slot="input"] {
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+
+  font-size: 1em;
   box-sizing: border-box;
-  padding-block: var(--lk-size-xs);
-  padding-inline: calc(var(--lk-size-md) / var(--lk-halfstep));
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
+  line-height: var(--lk-halfstep);
 
   border-radius: var(--lk-size-xs);
   font-family: inherit;
-  font-size: 1em;
+
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
 

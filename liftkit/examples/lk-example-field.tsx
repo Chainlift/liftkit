@@ -8,7 +8,7 @@ export function ExampleField() {
 
       <FieldError match="valueMissing">Please enter your name</FieldError>
 
-      <FieldDescription>Visible on your profile</FieldDescription>
+      {/* <FieldDescription>Visible on your profile</FieldDescription> */}
     </Field>
   );
 }
