@@ -17,7 +17,6 @@
 :where([data-slot="toolbar-group"]) {
   display: flex;
   gap: var(--lk-size-xs);
-
 }
 
 [data-slot="toolbar-button"] {
@@ -84,7 +83,7 @@
 
   &[role="combobox"] {
     --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
-
+    font-weight: 400;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -98,6 +97,7 @@
     outline: 0;
     border: 1px solid var(--lk-outlinevariant);
     /* border-radius: var(--lk-size-2xs); */
+    min-width: var(--lk-size-4xl);
 
     background-color: var(--lk-surface);
     font-family: inherit;

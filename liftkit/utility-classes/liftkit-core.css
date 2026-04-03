@@ -578,6 +578,7 @@ p,
 pre {
   /* font-size: inherit; */
   margin: 0;
+  font-size: initial;
 }
 
 /* Make Buttons into Inline Elements */
