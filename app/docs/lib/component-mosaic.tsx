@@ -40,7 +40,7 @@ import {
   ExampleTooltip,
 } from "@/liftkit/examples";
 import { Card } from "@/liftkit/component-definitions/card/card";
-import { Avatar, AvatarImage, Toggle, Icon } from "@/liftkit/component-definitions";
+import { Avatar, AvatarImage, Toggle, Icon, Button } from "@/liftkit/component-definitions";
 export function ComponentMosaic() {
   return (
     <div className="flex-v gap-0">
@@ -74,7 +74,7 @@ export function ComponentMosaic() {
                 </Avatar>
               </div>
               <div className="flex-v flex-grow">
-                <div className="body font-500">Garrett Mack</div>
+                <div className="heading mb-2xs">Garrett Mack</div>
                 <span className="subheading color-onsurfacelow">Product Designer</span>
               </div>
               <Toggle>
@@ -82,10 +82,8 @@ export function ComponentMosaic() {
               </Toggle>
             </div>
             <ExamplePreviewCard />
-            <div className="flex items-center gap-sm">
-              <ExampleTooltip />
-              <ExampleIconButton />
-              <ExampleIcon />
+            <div className="flex items-center gap-sm pt-md justify-end">
+              <Button startIcon="send" className="w-full justify-center">Message</Button>
             </div>
           </Card>
 
@@ -105,6 +103,9 @@ export function ComponentMosaic() {
               <div className="flex items-center gap-sm">
                 <ExampleButton />
                 <ExampleDialog />
+                <ExampleTooltip />
+                <ExampleIconButton />
+                <ExampleIcon />
               </div>
               <div className="flex items-center gap-sm">
                 <ExampleAlertDialog />
