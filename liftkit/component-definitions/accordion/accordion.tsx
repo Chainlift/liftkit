@@ -6,7 +6,6 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { Icon } from "@/liftkit/component-definitions/icon/icon";
 import "@/liftkit/component-css/lk-accordion.css";
 
-
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return <AccordionPrimitive.Root data-slot="accordion" className={cn(className)} {...props} />;
 }

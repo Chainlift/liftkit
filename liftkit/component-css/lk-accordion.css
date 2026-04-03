@@ -37,6 +37,11 @@
   &[data-index] {
     /* Index-based styles */
   }
+
+  &:last-child {
+    border-color: transparent;
+    
+  }
 }
 
 :where([data-slot="accordion-header"]) {

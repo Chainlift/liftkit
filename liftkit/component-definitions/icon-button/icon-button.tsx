@@ -48,7 +48,6 @@ export type IconButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> 
   color?: LkColorWithOnToken;
 };
 
-
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   { className, variant, color, iconName, fontClass = "body", stateLayerOverride, ...props },
   ref,
