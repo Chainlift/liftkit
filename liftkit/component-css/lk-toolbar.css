@@ -5,34 +5,48 @@
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
-  border-radius: 0.375rem;
-  padding: 0.125rem;
-  width: 37.5rem;
+  border-radius: var(--lk-size-xs);
+  padding: var(--lk-size-2xs);
+  width: 100%;
+
+  [data-slot="toggle-group"] {
+    border-radius: var(--lk-size-2xs);
+  }
 }
 
 :where([data-slot="toolbar-group"]) {
   display: flex;
-  gap: 0.25rem;
+  gap: var(--lk-size-xs);
+
+}
+
+[data-slot="toolbar-button"] {
+  font-size: var(--lk-body-font-size);
 }
 
 :where([data-slot="toolbar-button"]) {
+  --toolbar-button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+
   box-sizing: border-box;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0;
+  /* min-width: 2rem; */
+  /* height: 2rem; */
+  padding: var(--lk-size-xs) var(--lk-size-md);
+
   margin: 0;
   outline: 0;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--lk-size-2xs);
   background-color: transparent;
-  color: var(--color-gray-600);
+  color: var(--lk-onsurface);
   user-select: none;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: var(--lk-subheading-font-size);
   font-weight: 500;
+  line-height: var(--lk-halfstep);
+  transition: background-color 0.2s ease;
 
   &:focus-visible {
     background-color: transparent;
@@ -42,7 +56,7 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--color-gray-100);
+      background-color: var(--lk-surfacevariant);
     }
   }
 
@@ -51,25 +65,69 @@
   }
 
   &[data-pressed] {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-surfacevariant);
     color: var(--lk-onsurface);
   }
 
   &[aria-pressed] {
-    padding: 0 0.75rem;
+    /* padding: 0 0.75rem; */
+  }
+
+  &:empty {
+    border: 1px solid transparent;
+  }
+
+  /* unique padding if the button has only an icon as a child */
+  &:has([data-slot="icon"]:only-child) {
+    padding: var(--lk-size-2xs);
   }
 
   &[role="combobox"] {
-    min-width: 8rem;
+    --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 0 0.75rem;
+    gap: var(--lk-size-md);
+    font-size: var(--lk-body-font-size);
+    padding: var(--lk-size-xs) var(--lk-size-sm) var(--lk-size-xs) var(--lk-size-sm);
+    /* padding-block: var(--input-padY);
+    padding-inline: var(--lk-size-sm); */
+    margin: 0;
+    outline: 0;
+    border: 1px solid var(--lk-outlinevariant);
+    /* border-radius: var(--lk-size-2xs); */
+
+    background-color: var(--lk-surface);
+    font-family: inherit;
+
+    line-height: var(--lk-halfstep);
+    color: var(--lk-onsurface);
+    -webkit-user-select: none;
+    user-select: none;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-gray-100);
+      }
+    }
+
+    &[data-popup-open] {
+      background-color: var(--color-gray-100);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--lk-info);
+      outline-offset: -1px;
+    }
   }
 }
 
 :where([data-slot="toolbar-separator"]) {
   width: 1px;
   height: 16px;
-  margin: 0.25rem;
+  margin: var(--lk-size-xs);
   background-color: var(--lk-outlinevariant);
 }
 
@@ -107,7 +165,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: 0.375rem;
+  border-radius: var(--lk-size-xs);
   font-family: inherit;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -119,12 +177,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--color-gray-100);
+      background-color: var(--lk-surfacevariant);
     }
   }
 
   &[data-popup-open] {
-    background-color: var(--color-gray-100);
+    background-color: var(--lk-surfacevariant);
   }
 
   &:focus-visible {
@@ -146,8 +204,8 @@
 
 :where(.Popup) {
   box-sizing: border-box;
-  padding-block: 0.25rem;
-  border-radius: 0.375rem;
+  padding-block: var(--lk-size-xs);
+  border-radius: var(--lk-size-xs);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -260,8 +318,8 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: 0.25rem;
-    border-radius: 0.25rem;
+    inset-inline: var(--lk-size-xs);
+    border-radius: var(--lk-size-xs);
     background-color: var(--lk-onsurface);
   }
 }

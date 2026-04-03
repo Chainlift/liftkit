@@ -3,8 +3,8 @@
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
-  border-radius: 0.375rem;
-  padding: 0.125rem;
+  border-radius: var(--lk-size-xs);
+  padding: var(--lk-size-3xs);
 }
 
 /* :where(.Button) {

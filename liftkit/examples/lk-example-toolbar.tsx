@@ -20,7 +20,7 @@ import {
   ToolbarSeparator,
   ToolbarLink,
   ToolbarInput,
-  Icon
+  Icon,
 } from "@/liftkit/component-definitions";
 
 export function ExampleToolbar() {
@@ -29,17 +29,15 @@ export function ExampleToolbar() {
       <Toolbar>
         <ToggleGroup aria-label="Alignment">
           <ToolbarButton render={<Toggle />} aria-label="Align left" value="align-left">
-            Align Left
+            <Icon name="align-left" />
+          </ToolbarButton>
+          <ToolbarButton render={<Toggle />} aria-label="Align center" value="align-center">
+            <Icon name="align-center" />
           </ToolbarButton>
           <ToolbarButton render={<Toggle />} aria-label="Align right" value="align-right">
-            Align Right
+            <Icon name="align-right" />
           </ToolbarButton>
         </ToggleGroup>
-        <ToolbarSeparator />
-        <ToolbarGroup aria-label="Numerical format">
-          <ToolbarButton aria-label="Format as currency">$</ToolbarButton>
-          <ToolbarButton aria-label="Format as percent">%</ToolbarButton>
-        </ToolbarGroup>
         <ToolbarSeparator />
         <Select defaultValue="Helvetica">
           <ToolbarButton render={<SelectTrigger />}>
@@ -53,13 +51,13 @@ export function ExampleToolbar() {
               <SelectPopup>
                 <SelectItem value="Helvetica">
                   <SelectItemIndicator>
-                    <Icon name="check"/>
+                    <Icon name="check" />
                   </SelectItemIndicator>
                   <SelectItemText>Helvetica</SelectItemText>
                 </SelectItem>
                 <SelectItem value="Arial">
                   <SelectItemIndicator>
-                    <Icon name="check"/>
+                    <Icon name="check" />
                   </SelectItemIndicator>
                   <SelectItemText>Arial</SelectItemText>
                 </SelectItem>
@@ -68,6 +66,20 @@ export function ExampleToolbar() {
           </SelectPortal>
         </Select>
         <ToolbarSeparator />
+        <ToolbarButton value="align-right" className="px-sm">
+          Button label
+        </ToolbarButton>
+        <ToolbarSeparator />
+        <ToolbarGroup aria-label="Numerical format">
+          <ToolbarButton aria-label="Format as currency">
+            <Icon name="dollar-sign" />
+          </ToolbarButton>
+          <ToolbarButton aria-label="Format as percent">
+            <Icon name="percent" />
+          </ToolbarButton>
+        </ToolbarGroup>
+        <ToolbarSeparator />
+
         <ToolbarLink href="#">Edited 51m ago</ToolbarLink>
       </Toolbar>
     </>
