@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: var(--lk-size-sm);
-  width: 12rem;
+  /* width: 12rem; */
 }
 
 :where([data-slot="meter-label"]) {
@@ -30,7 +30,7 @@
   background-color: var(--lk-surfacecontainerhighest);
   box-shadow: inset 0 0 0 1px var(--lk-outlinevariant);
   border-radius: 100em;
-  height: var(--lk-size-sm);
+  height: var(--lk-size-xs);
 }
 
 :where([data-slot="meter-indicator"]) {

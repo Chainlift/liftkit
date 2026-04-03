@@ -12,9 +12,8 @@ export function ExamplePreviewCard() {
   return (
     <PreviewCard>
       <p>
-        The principles of good{" "}
-        <PreviewCardTrigger href="https://en.wikipedia.org/wiki/Typography">typography</PreviewCardTrigger> remain in
-        the digital age.
+        Garrett is a product designer in 
+        <PreviewCardTrigger href="https://en.wikipedia.org/wiki/Typography" className="font-600"> San Francisco</PreviewCardTrigger> and the creator of LiftKit.
       </p>
 
       <PreviewCardPortal>

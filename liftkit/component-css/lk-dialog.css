@@ -9,7 +9,7 @@
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
   border-radius: 0.375rem;
-  background-color: var(--lk-surfacecontainerlow);
+  background-color: var(--lk-btn-bg), var(--lk-surfacecontainerlow);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
@@ -69,8 +69,10 @@
   transition: background-color 0.2s ease;
 
   @media (hover: hover) {
-    &:hover {
-      background-color: var(--lk-surfacecontainerhigh);
+    &:not(.lk-btn) {
+      &:hover {
+        background-color: var(--lk-surfacecontainerhigh);
+      }
     }
   }
 
@@ -143,10 +145,7 @@
   color: var(--lk-onsurface);
 }
 
-
-
 :where([data-slot="dialog-close"]) {
-
   --lk-btn-bg: transparent;
   --lk-btn-fg: var(--lk-onsurface);
   --lk-btn-border: var(--lk-outline);

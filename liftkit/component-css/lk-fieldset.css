@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: var(--lk-size-md);
   width: 100%;
-  max-width: 16rem;
+
 }
 
 :where([data-slot="fieldset-legend"]) {

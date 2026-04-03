@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: var(--lk-size-xs);
   grid-row-gap: 0.5rem;
-  width: 12rem;
+  /* width: 12rem; */
 }
 
 :where([data-slot="progress-label"]) {

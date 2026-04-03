@@ -40,191 +40,151 @@ import {
   ExampleTooltip,
 } from "@/liftkit/examples";
 import { Card } from "@/liftkit/component-definitions/card/card";
-import { Fieldset, FieldsetLegend } from "@/liftkit/component-definitions";
-import { Field, FieldLabel, FieldControl } from "@/liftkit/component-definitions/field/field";
-import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogClose,
-  AlertDialogAction,
-} from "@/liftkit/component-definitions";
-
+import { Avatar, AvatarImage, Toggle, Icon } from "@/liftkit/component-definitions";
 export function ComponentMosaic() {
   return (
-    <div>
+    <div className="flex-v gap-0">
+      {/* ── App Chrome ── */}
       <ExampleNavigationMenu />
-      <Card className="shadow-xs" scaleFactor="title3">
-        <Fieldset>
-          <FieldsetLegend>Create profile</FieldsetLegend>
+      <ExampleMenubar />
+      <ExampleToolbar />
 
-          <Field>
-            <FieldLabel>Name</FieldLabel>
-            <FieldControl />
-          </Field>
-
-          <Field>
-            <FieldLabel>Handle</FieldLabel>
-            <FieldControl />
-          </Field>
-        </Fieldset>
-        <div className="flex items-center gap-md"></div>
-      </Card>
+      {/* ── Main Layout ── */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(var(--lk-size-5xl), 1fr))",
-          gap: "var(--lk-size-2xl)",
+          gridTemplateColumns: "280px 1fr 300px",
+          gap: "var(--lk-size-lg)",
+          padding: "var(--lk-size-lg)",
+          alignItems: "start",
         }}
       >
-        <div>
-          <div className="label text-align-center ">Navigation Menu</div>
-        </div>
-        <div>
-          <Card className="shadow-xs" scaleFactor="heading" opticalCorrection="top">
-            <div className="heading mb-sm">Frequently Asked Questions</div>
-            <ExampleAccordion />
+        {/* ━━ Left Sidebar ━━ */}
+        <div className="flex-v gap-lg">
+          {/* Profile */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="flex items-center gap-md mb-md">
+              <div>
+                <Avatar>
+                  <AvatarImage
+                    src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
+                    width="48"
+                    height="48"
+                  />
+                </Avatar>
+              </div>
+              <div className="flex-v flex-grow">
+                <div className="body font-500">Garrett Mack</div>
+                <span className="subheading color-onsurfacelow">Product Designer</span>
+              </div>
+              <Toggle>
+                <Icon name="star" />
+              </Toggle>
+            </div>
+            <ExamplePreviewCard />
+            <div className="flex items-center gap-sm">
+              <ExampleTooltip />
+              <ExampleIconButton />
+              <ExampleIcon />
+            </div>
+          </Card>
+
+          {/* Storage & Activity */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="heading mb-sm">Activity</div>
+            <div className="flex-v gap-md">
+              <ExampleMeter />
+              <ExampleProgress />
+            </div>
+          </Card>
+
+          {/* Quick Actions */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="heading mb-sm">Actions</div>
+            <div className="flex-v gap-sm">
+              <div className="flex items-center gap-sm">
+                <ExampleButton />
+                <ExampleDialog />
+              </div>
+              <div className="flex items-center gap-sm">
+                <ExampleAlertDialog />
+                <ExampleMenu />
+              </div>
+              <div className="flex items-center gap-sm">
+                <ExamplePopover />
+                <ExampleToast />
+              </div>
+            </div>
           </Card>
         </div>
-        <div>
-          <ExampleAlertDialog />
-          <div className="label text-align-center ">Alert Dialog</div>
+
+        {/* ━━ Main Content ━━ */}
+        <div className="flex-v gap-lg">
+          {/* Tabbed workspace */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <ExampleTabs />
+          </Card>
+
+          {/* Context menu area + scroll content */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <ExampleContextMenu />
+            <ExampleScrollArea />
+          </Card>
+
+          {/* FAQ */}
+          <Card className="shadow-xs" scaleFactor="heading" opticalCorrection="top">
+            <div className="heading-bold mb-sm">Frequently Asked Questions</div>
+            <ExampleAccordion />
+          </Card>
+
+          {/* Collapsible details */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <ExampleCollapsible />
+          </Card>
         </div>
-        <div>
-          <ExampleAutocomplete />
-          <div className="label text-align-center ">Autocomplete</div>
-        </div>
-        <div>
-          <ExampleAvatar />
-          <div className="label text-align-center ">Avatar</div>
-        </div>
-        <div>
-          <ExampleButton />
-          <div className="label text-align-center ">Button</div>
-        </div>
-        <div>
-          <ExampleCheckboxGroup />
-          <div className="label text-align-center ">Checkbox Group</div>
-        </div>
-        <div>
-          <ExampleCheckbox />
-          <div className="label text-align-center ">Checkbox</div>
-        </div>
-        <div>
-          <ExampleCollapsible />
-          <div className="label text-align-center ">Collapsible</div>
-        </div>
-        <div>
-          <ExampleCombobox />
-          <div className="label text-align-center ">Combobox</div>
-        </div>
-        <div>
-          <ExampleContextMenu />
-          <div className="label text-align-center ">Context Menu</div>
-        </div>
-        <div>
-          <ExampleDialog />
-          <div className="label text-align-center ">Dialog</div>
-        </div>
-        <div>
-          <ExampleField />
-          <div className="label text-align-center ">Field</div>
-        </div>
-        <div>
-          <ExampleForm />
-          <div className="label text-align-center ">Form</div>
-        </div>
-        <div>
-          <ExampleIconButton />
-          <div className="label text-align-center ">Icon Button</div>
-        </div>
-        <div>
-          <ExampleIcon />
-          <div className="label text-align-center ">Icon</div>
-        </div>
-        <div>
-          <ExampleInput />
-          <div className="label text-align-center ">Input</div>
-        </div>
-        <div>
-          <ExampleMenu />
-          <div className="label text-align-center ">Menu</div>
-        </div>
-        <div>
-          <ExampleMenubar />
-          <div className="label text-align-center ">Menubar</div>
-        </div>
-        <div>
-          <ExampleMeter />
-          <div className="label text-align-center ">Meter</div>
-        </div>
-        <div>
-          <ExampleNumberField />
-          <div className="label text-align-center ">Number Field</div>
-        </div>
-        <div>
-          <ExamplePopover />
-          <div className="label text-align-center ">Popover</div>
-        </div>
-        <div>
-          <ExamplePreviewCard />
-          <div className="label text-align-center ">Preview Card</div>
-        </div>
-        <div>
-          <ExampleProgress />
-          <div className="label text-align-center ">Progress</div>
-        </div>
-        <div>
-          <ExampleRadio />
-          <div className="label text-align-center ">Radio</div>
-        </div>
-        <div>
-          <ExampleScrollArea />
-          <div className="label text-align-center ">Scroll Area</div>
-        </div>
-        <div>
-          <ExampleSelect />
-          <div className="label text-align-center ">Select</div>
-        </div>
-        <div>
-          <ExampleSeparator />
-          <div className="label text-align-center ">Separator</div>
-        </div>
-        <div>
-          <ExampleSlider />
-          <div className="label text-align-center ">Slider</div>
-        </div>
-        <div>
-          <ExampleSwitch />
-          <div className="label text-align-center ">Switch</div>
-        </div>
-        <div>
-          <ExampleTabs />
-          <div className="label text-align-center ">Tabs</div>
-        </div>
-        <div>
-          <ExampleToast />
-          <div className="label text-align-center ">Toast</div>
-        </div>
-        <div>
-          <ExampleToggleGroup />
-          <div className="label text-align-center ">Toggle Group</div>
-        </div>
-        <div>
-          <ExampleToggle />
-          <div className="label text-align-center ">Toggle</div>
-        </div>
-        <div>
-          <ExampleToolbar />
-          <div className="label text-align-center ">Toolbar</div>
-        </div>
-        <div>
-          <ExampleTooltip />
-          <div className="label text-align-center ">Tooltip</div>
+
+        {/* ━━ Right Sidebar ━━ */}
+        <div className="flex-v gap-lg">
+          {/* Search */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="heading-bold mb-sm">Search</div>
+            <div className="flex-v gap-md">
+              <ExampleAutocomplete />
+              <ExampleCombobox />
+            </div>
+          </Card>
+
+          {/* Settings form */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="heading-bold mb-sm">Settings</div>
+            <div className="flex-v gap-md">
+              <ExampleSelect />
+              <ExampleInput />
+              <ExampleField />
+              <ExampleNumberField />
+              <ExampleSlider />
+            </div>
+          </Card>
+
+          {/* Preferences */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <div className="heading-bold mb-sm">Preferences</div>
+            <div className="flex-v gap-md">
+              <ExampleSwitch />
+              <ExampleCheckbox />
+              <ExampleCheckboxGroup />
+              <ExampleRadio />
+              <ExampleToggleGroup />
+            </div>
+          </Card>
+
+          {/* Inline form */}
+          <Card className="shadow-xs" scaleFactor="body">
+            <ExampleFieldset />
+            <div className="pt-md">
+              <ExampleForm />
+            </div>
+          </Card>
         </div>
       </div>
     </div>
