@@ -12,7 +12,7 @@ export function ExampleAccordion({
   orientation?: "vertical" | "horizontal";
 }) {
   return (
-    <Accordion multiple={multiple} orientation={orientation} {...props} className="w-6xl">
+    <Accordion multiple={multiple} orientation={orientation} {...props} >
       <AccordionItem>
         <AccordionTrigger>
           <GoldenBox scaleFactor="body" opticalCorrection="all">

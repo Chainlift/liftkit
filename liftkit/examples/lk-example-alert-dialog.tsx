@@ -15,7 +15,7 @@ import { Button } from "@/liftkit/component-definitions";
 export function ExampleAlertDialog() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button color="error"/>}>Discard Draft</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button color="error"/>}>View Alert</AlertDialogTrigger>
       <AlertDialogContent render={<Card scaleFactor="title3" opticalCorrection="top"/>}>
         <AlertDialogHeader>
           <AlertDialogTitle className="title3-bold mb-2xs">Discard draft?</AlertDialogTitle>

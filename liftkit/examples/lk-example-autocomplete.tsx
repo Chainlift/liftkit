@@ -15,7 +15,7 @@ export function ExampleAutocomplete({ ...props }) {
   return (
     <Autocomplete items={tags} {...props}>
       <label>
-        <span>Search Tags</span>
+        <span>Sample Autocomplete</span>
         <AutocompleteInput placeholder="e.g. feature" />
       </label>
       <AutocompletePortal>
