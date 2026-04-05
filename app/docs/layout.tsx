@@ -12,6 +12,7 @@ import {
   ScrollAreaThumb,
   ScrollAreaViewport,
 } from "@/liftkit/component-definitions/scroll-area/scroll-area";
+import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const nav = getDocsNav();
@@ -19,6 +20,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   return (
     <div>
       <ExampleNavigationMenu />
+      <ThemePanel />
       <div className="docs-page-layout">
         <div className="left-sidebar">
           <ScrollArea>

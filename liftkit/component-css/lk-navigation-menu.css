@@ -1,5 +1,5 @@
 :where([data-slot="navigation-menu"]) {
-  background-color: var(--lk-surfacecontainerlow);
+
   border-radius: 0.5rem;
   padding: 0.25rem;
   color: var(--lk-onsurface);
