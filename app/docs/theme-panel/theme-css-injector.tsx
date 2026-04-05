@@ -30,14 +30,16 @@ export function ThemeCSSInjector() {
 
     let css: string;
 
+    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};`;
+
     if (state.colorMode === "system") {
       // Inject both schemes; let the browser pick via media query
-      css = `:root {\n${buildCssBlock(resolved.light)}\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}`;
+      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}`;
     } else if (state.colorMode === "light") {
-      css = `:root {\n${buildCssBlock(resolved.light)}\n}`;
+      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}`;
     } else {
       // Force dark: override both the default :root and the media query
-      css = `:root {\n${buildCssBlock(resolved.dark)}\n}`;
+      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.dark)}\n}`;
     }
 
     styleEl.textContent = css;
@@ -45,7 +47,7 @@ export function ThemeCSSInjector() {
     return () => {
       // Cleanup only if unmounting the provider entirely
     };
-  }, [resolved, state.colorMode]);
+  }, [resolved, state.colorMode, state.scaleFactor]);
 
   return null;
 }

@@ -29,6 +29,7 @@ export interface ThemeState {
   toneOverrides: ToneOverrides;
   colorMode: ColorMode;
   schemeVariant: SchemeVariant;
+  scaleFactor: number;
   isOpen: boolean;
 }
 
@@ -46,5 +47,6 @@ export type ThemeAction =
   | { type: "SET_COLOR_MODE"; mode: ColorMode }
   | { type: "SET_SCHEME_VARIANT"; variant: SchemeVariant }
   | { type: "SET_OPEN"; open: boolean }
+  | { type: "SET_SCALE_FACTOR"; value: number }
   | { type: "RESET" }
   | { type: "LOAD"; state: Omit<ThemeState, "isOpen"> };

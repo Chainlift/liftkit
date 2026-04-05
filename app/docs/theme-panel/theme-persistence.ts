@@ -10,6 +10,7 @@ interface PersistedTheme {
   toneOverrides: ThemeState["toneOverrides"];
   colorMode: ThemeState["colorMode"];
   schemeVariant: ThemeState["schemeVariant"];
+  scaleFactor?: number;
 }
 
 export function saveTheme(state: ThemeState): void {
@@ -21,6 +22,7 @@ export function saveTheme(state: ThemeState): void {
       toneOverrides: state.toneOverrides,
       colorMode: state.colorMode,
       schemeVariant: state.schemeVariant,
+      scaleFactor: state.scaleFactor,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch {
@@ -40,6 +42,7 @@ export function loadTheme(): Partial<ThemeState> | null {
       toneOverrides: parsed.toneOverrides ?? {},
       colorMode: parsed.colorMode ?? "system",
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
+      scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
     };
   } catch {
     return null;

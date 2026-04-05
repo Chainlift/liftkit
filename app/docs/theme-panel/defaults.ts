@@ -18,11 +18,14 @@ export const DEFAULT_SEED_COLORS: ThemeSeedColors = {
 
 export const DEFAULT_MASTER_SEED = "#0051e0";
 
+export const DEFAULT_SCALE_FACTOR = 1.618;
+
 export const DEFAULT_THEME_STATE: ThemeState = {
   masterSeed: DEFAULT_MASTER_SEED,
   seedColors: DEFAULT_SEED_COLORS,
   toneOverrides: {},
   colorMode: "system",
   schemeVariant: "tonalSpot",
+  scaleFactor: DEFAULT_SCALE_FACTOR,
   isOpen: false,
 };

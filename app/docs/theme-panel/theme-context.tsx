@@ -43,6 +43,8 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
         schemeVariant: action.variant,
         seedColors: deriveSeedColors(state.masterSeed, action.variant),
       };
+    case "SET_SCALE_FACTOR":
+      return { ...state, scaleFactor: action.value };
     case "SET_OPEN":
       return { ...state, isOpen: action.open };
     case "RESET":
@@ -80,7 +82,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!initialized.current) return;
     const timeout = setTimeout(() => saveTheme(state), 300);
     return () => clearTimeout(timeout);
-  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant]);
+  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant, state.scaleFactor]);
 
   return (
     <ThemeContext value={{ state, dispatch }}>

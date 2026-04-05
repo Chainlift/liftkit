@@ -82,12 +82,25 @@ function ToneRow({
           style={{ width: "100%" }}
         />
       </div>
-      <span className="tone-value">{tone}</span>
-      {isOverridden && (
-        <button className="tone-reset" onClick={onReset} title="Reset to default">
-          x
-        </button>
-      )}
+      <input
+        type="number"
+        className="tone-value"
+        min={0}
+        max={100}
+        value={tone}
+        onChange={(e) => {
+          const v = Number(e.target.value);
+          if (v >= 0 && v <= 100) onToneChange(v);
+        }}
+      />
+      <button
+        className="tone-reset"
+        onClick={onReset}
+        title="Reset to default"
+        data-visible={isOverridden || undefined}
+      >
+        x
+      </button>
     </div>
   );
 }
@@ -258,6 +271,36 @@ function ThemePanelContent() {
         <div className="theme-panel-section">
           <div className="theme-panel-section-label">Scheme Variant</div>
           <SchemeVariantSelect />
+        </div>
+
+        {/* Scale Factor */}
+        <div className="theme-panel-section">
+          <div className="theme-panel-section-label">Scale Factor</div>
+          <div className="scale-factor-row">
+            <input
+              type="range"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactor}
+              onChange={(e) =>
+                dispatch({ type: "SET_SCALE_FACTOR", value: Number(e.target.value) })
+              }
+              style={{ flex: 1 }}
+            />
+            <input
+              type="number"
+              className="scale-factor-value"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactor}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (v >= 1 && v <= 2) dispatch({ type: "SET_SCALE_FACTOR", value: v });
+              }}
+            />
+          </div>
         </div>
 
         {/* Master Seed */}

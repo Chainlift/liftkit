@@ -208,6 +208,19 @@
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.75rem;
   flex-shrink: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0;
+  outline: none;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.tone-value::-webkit-inner-spin-button,
+.tone-value::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .tone-reset {
@@ -217,16 +230,46 @@
   padding: 2px;
   color: var(--lk-onsurfacelow, #5c5c5c);
   font-size: 0.75rem;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 100ms;
 }
 
-.tone-row:hover .tone-reset {
+.tone-row:hover .tone-reset[data-visible] {
+  visibility: visible;
   opacity: 1;
 }
 
 .tone-reset:hover {
   color: var(--lk-error, #bb0e45);
+}
+
+/* ─── Scale factor row ────────────────────────────────── */
+
+.scale-factor-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scale-factor-value {
+  width: 56px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8125rem;
+  text-align: right;
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0;
+  outline: none;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.scale-factor-value::-webkit-inner-spin-button,
+.scale-factor-value::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* ─── Color mode toggle ───────────────────────────────── */
