@@ -58,7 +58,7 @@
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   width: var(--anchor-width);
-  max-height: var(--lk-size-5xl);
+  max-height: var(--lku-length-5xl);
   max-width: var(--available-width);
 
   @media (prefers-color-scheme: light) {
@@ -81,7 +81,7 @@
   padding-block: var(--lk-size-sm);
   scroll-padding-block: var(--lk-size-sm);
   outline: 0;
-  max-height: min(var(--lk-size-5xl), var(--available-height));
+  max-height: min(var(--lku-length-5xl), var(--available-height));
 
   &[data-empty] {
     padding: 0;
@@ -98,7 +98,7 @@
   padding-right: var(--lk-size-lg);
   display: flex;
   font-size: var(--lk-size-md);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
 
   &[data-highlighted] {
     z-index: 0;
@@ -127,6 +127,6 @@
   box-sizing: border-box;
   padding: var(--lk-size-md);
   font-size: var(--lk-callout-font-size);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   color: var(--lk-onsurfacevariant);
 }

@@ -153,7 +153,7 @@
   box-sizing: border-box;
   outline: 0;
   font-size: var(--lk-body-font-size);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   padding-block: var(--lk-size-sm);
   padding-left: var(--lk-size-sm);
   padding-right: var(--lk-size-lg);
@@ -224,7 +224,7 @@
   text-align: center;
   cursor: default;
   border-radius: var(--lku-corner-xs);
-  height: var(--lk-size-md);
+  height: var(--lku-length-md);
   font-size: var(--lk-subheading-font-size);
   display: flex;
   align-items: center;

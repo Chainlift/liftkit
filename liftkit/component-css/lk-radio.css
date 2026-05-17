@@ -63,8 +63,8 @@
   &::before {
     content: "";
     border-radius: 100%;
-    width: var(--lk-size-xs);
-    height: var(--lk-size-xs);
+    width: var(--lku-length-xs);
+    height: var(--lku-length-xs);
     background-color: var(--lk-surfacecontainerlow);
     animation: radio-dot-in 0.2s ease;
   }
@@ -76,7 +76,7 @@
     height: calc(1em * var(--lk-halfstep));
   }
   to {
-    width: var(--lk-size-xs);
-    height: var(--lk-size-xs);
+    width: var(--lku-length-xs);
+    height: var(--lku-length-xs);
   }
 }

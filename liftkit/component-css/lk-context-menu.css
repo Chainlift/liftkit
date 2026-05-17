@@ -53,7 +53,7 @@
   padding-right: var(--lk-size-lg);
   display: flex;
 
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
 
   &[data-highlighted] {
     z-index: 0;

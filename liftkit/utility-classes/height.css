@@ -7,53 +7,53 @@
 }
 
 .h-4xs {
-  height: var(--lk-size-4xs);
+  height: var(--lku-length-4xs);
 }
 
 .h-3xs {
-  height: var(--lk-size-3xs);
+  height: var(--lku-length-3xs);
 }
 
 .h-2xs {
-  height: var(--lk-size-2xs);
+  height: var(--lku-length-2xs);
 }
 
 .h-xs {
-  height: var(--lk-size-xs);
+  height: var(--lku-length-xs);
 }
 
 .h-sm {
-  height: var(--lk-size-sm);
+  height: var(--lku-length-sm);
 }
 
 .h-md {
-  height: var(--lk-size-md);
+  height: var(--lku-length-md);
 }
 
 .h-lg {
-  height: var(--lk-size-lg);
+  height: var(--lku-length-lg);
 }
 
 .h-xl {
-  height: var(--lk-size-xl);
+  height: var(--lku-length-xl);
 }
 
 .h-2xl {
-  height: var(--lk-size-2xl);
+  height: var(--lku-length-2xl);
 }
 
 .h-3xl {
-  height: var(--lk-size-3xl);
+  height: var(--lku-length-3xl);
 }
 
 .h-4xl {
-  height: var(--lk-size-4xl);
+  height: var(--lku-length-4xl);
 }
 
 .max-h-4xl {
-  max-height: var(--lk-size-4xl);
+  max-height: var(--lku-length-4xl);
 }
 
 .min-h-4xl {
-  min-height: var(--lk-size-4xl);
+  min-height: var(--lku-length-4xl);
 }

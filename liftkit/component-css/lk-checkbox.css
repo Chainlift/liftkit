@@ -45,7 +45,7 @@
   }
 
   [data-slot="checkbox-indicator-icon"] {
-    width: var(--lk-size-sm);
-    height: var(--lk-size-sm);
+    width: var(--lku-length-sm);
+    height: var(--lku-length-sm);
   }
 }

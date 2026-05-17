@@ -40,7 +40,6 @@
 
   &:last-child {
     border-color: transparent;
-    
   }
 }
 
@@ -102,8 +101,8 @@
 :where([data-slot="accordion-trigger-icon"]) {
   box-sizing: border-box;
   flex-shrink: 0;
-  width: var(--lk-size-sm);
-  height: var(--lk-size-sm);
+  width: var(--lku-length-sm);
+  height: var(--lku-length-sm);
   margin-right: var(--lk-size-xs);
   transition: transform 150ms ease-out;
 

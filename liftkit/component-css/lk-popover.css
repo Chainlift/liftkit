@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--lk-size-xl);
-  height: var(--lk-size-xl);
+  width: var(--lku-length-xl);
+  height: var(--lku-length-xl);
   padding: 0;
   margin: 0;
   outline: 0;
@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--lk-size-xs);
-  height: var(--lk-size-xl);
+  height: var(--lku-length-xl);
   padding: 0 0.875rem;
   margin: 0;
   outline: 0;

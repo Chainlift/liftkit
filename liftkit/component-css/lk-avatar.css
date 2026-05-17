@@ -11,8 +11,8 @@
   font-size: var(--lk-size-md);
   line-height: 1;
   overflow: hidden;
-  height: var(--lk-size-xl);
-  width: var(--lk-size-xl);
+  height: var(--lku-length-xl);
+  width: var(--lku-length-xl);
 }
 
 :where([data-slot="avatar-image"]) {

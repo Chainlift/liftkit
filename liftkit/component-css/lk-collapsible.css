@@ -8,8 +8,8 @@
 }
 
 :where([data-slot="collapsible-trigger-icon"]) {
-  width: var(--lk-size-sm);
-  height: var(--lk-size-sm);
+  width: var(--lku-length-sm);
+  height: var(--lku-length-sm);
   transition: transform 150ms ease-out;
 }
 

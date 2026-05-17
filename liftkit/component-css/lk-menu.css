@@ -14,7 +14,7 @@
   padding: var(--lk-size-2xs) var(--lk-size-xs);
   line-height: var(--lk-halfstep);
 
-  border-width: var(--lk-size-5xs);
+  border-width: var(--lku-length-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 
@@ -64,7 +64,7 @@
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
   color: var(--lk-onsurface);
-  max-height: min(var(--lk-size-5xl), var(--available-height));
+  max-height: min(var(--lku-length-5xl), var(--available-height));
   transition:
     opacity 0.1s,
     transform 0.1s;
@@ -141,7 +141,7 @@
   gap: var(--lk-size-sm);
   align-items: center;
   font-size: var(--lk-size-md);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   position: relative;
 
   &[data-highlighted] {
@@ -173,7 +173,7 @@
   gap: var(--lk-size-xs);
   align-items: center;
   font-size: var(--lk-size-md);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   position: relative;
 
   &[data-highlighted] {

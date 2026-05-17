@@ -29,7 +29,7 @@
   overflow: hidden;
   background-color: var(--lk-outlinevariant);
   box-shadow: inset 0 0 0 1px var(--lk-outlinevariant);
-  height: var(--lk-size-xs);
+  height: var(--lku-length-xs);
   border-radius: 0.25rem;
 }
 

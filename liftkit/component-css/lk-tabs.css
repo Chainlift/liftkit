@@ -63,12 +63,12 @@
   /* top: 50%;
   translate: var(--active-tab-left) -50%;
   width: var(--active-tab-width);
-  height: var(--lk-size-lg); */
+  height: var(--lku-length-lg); */
 
   bottom: 0;
   translate: var(--active-tab-left) 0px;
   width: var(--active-tab-width);
-  height: var(--lk-size-3xs);
+  height: var(--lku-length-3xs);
 
   border-radius: var(--lku-corner-2xs);
   background-color: var(--lk-primary);

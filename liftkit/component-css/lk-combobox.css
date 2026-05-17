@@ -79,8 +79,8 @@ and I'm not contradicting it right now.
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--lk-size-lg);
-  height: var(--lk-size-xl);
+  width: var(--lku-length-lg);
+  height: var(--lku-length-xl);
   color: var(--lk-outline);
   border: none;
   padding: 0;
@@ -106,7 +106,7 @@ and I'm not contradicting it right now.
   scrollbar-width: thin;
   color: var(--lk-onsurface);
   width: var(--anchor-width);
-  max-height: var(--lk-size-5xl);
+  max-height: var(--lku-length-5xl);
   max-width: var(--available-width);
   transition:
     opacity 0.1s,
@@ -139,7 +139,7 @@ and I'm not contradicting it right now.
   padding-block: var(--lk-size-sm);
   scroll-padding-block: var(--lk-size-sm);
   outline: 0;
-  max-height: min(var(--lk-size-5xl), var(--available-height));
+  max-height: min(var(--lku-length-5xl), var(--available-height));
 
   &[data-empty] {
     padding: 0;
@@ -159,7 +159,7 @@ and I'm not contradicting it right now.
   align-items: center;
   /* grid-template-columns: var(--lk-size-md) 1fr; */
   font-size: var(--lk-size-md);
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   transition: padding 0.2s ease;
   position: relative;
 
@@ -230,7 +230,7 @@ and I'm not contradicting it right now.
 }
 
 :where([data-slot="combobox-empty"]:not(:empty)) {
-  line-height: var(--lk-size-md);
+  line-height: var(--lku-length-md);
   color: var(--lk-outline);
   padding: var(--lk-size-md);
 }

@@ -97,7 +97,7 @@
     outline: 0;
     border: 1px solid var(--lk-outlinevariant);
     /* border-radius: var(--lku-corner-2xs); */
-    min-width: var(--lk-size-4xl);
+    min-width: var(--lku-length-4xl);
 
     background-color: var(--lk-surface);
     font-family: inherit;

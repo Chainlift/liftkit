@@ -46,7 +46,7 @@
 :where([data-slot="toast-viewport"]) {
   position: fixed;
   z-index: 1;
-  width: var(--lk-size-5xl);
+  width: var(--lku-length-5xl);
   margin: 0 auto;
   bottom: var(--lk-size-md);
   right: var(--lk-size-md);
@@ -56,7 +56,7 @@
   @media (min-width: 500px) {
     bottom: var(--lk-size-lg);
     right: var(--lk-size-lg);
-    width: var(--lk-size-5xl);
+    width: var(--lku-length-5xl);
   }
 }
 

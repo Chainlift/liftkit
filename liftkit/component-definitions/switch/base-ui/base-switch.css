@@ -15,8 +15,8 @@
 
   margin: 0;
   padding: 1px;
-  width: var(--lk-size-xl);
-  height: var(--lk-size-lg);
+  width: var(--lku-length-xl);
+  height: var(--lku-length-lg);
   border-radius: 1.5rem;
   outline: 1px solid;
   outline-offset: -1px;
@@ -35,7 +35,6 @@
 
   &[data-checked] {
     background-position-x: 0%;
-
   }
 
   &[data-checked]:active {

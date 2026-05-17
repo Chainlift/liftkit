@@ -29,7 +29,7 @@
   gap: var(--button-gap);
 
   /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
-  border-width: var(--lk-size-5xs);
+  border-width: var(--lku-length-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
   border-radius: 100em;
