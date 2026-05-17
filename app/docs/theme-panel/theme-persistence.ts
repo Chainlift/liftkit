@@ -11,6 +11,7 @@ interface PersistedTheme {
   colorMode: ThemeState["colorMode"];
   schemeVariant: ThemeState["schemeVariant"];
   scaleFactor?: number;
+  scaleFactorCorner?: number;
 }
 
 export function saveTheme(state: ThemeState): void {
@@ -23,6 +24,7 @@ export function saveTheme(state: ThemeState): void {
       colorMode: state.colorMode,
       schemeVariant: state.schemeVariant,
       scaleFactor: state.scaleFactor,
+      scaleFactorCorner: state.scaleFactorCorner,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch {
@@ -43,6 +45,7 @@ export function loadTheme(): Partial<ThemeState> | null {
       colorMode: parsed.colorMode ?? "system",
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
+      scaleFactorCorner: parsed.scaleFactorCorner ?? DEFAULT_THEME_STATE.scaleFactorCorner,
     };
   } catch {
     return null;

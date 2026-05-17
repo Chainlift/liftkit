@@ -8,7 +8,7 @@
   /* these are the only two you set manually */
 
   /* OPTIONALLY: You can set individual scale factors for spacing, corner radii, and typography */
-  --lk-scalefactor-radii: 1.25;
+  --lk-scalefactor-corner: 1.25;
   --lk-scalefactor-spacing: 1.618;
   --lk-scalefactor-typography: 1.618;
   --lk-scalefactor-sizes: 1.618;
@@ -54,7 +54,23 @@
   --lk-size-5xl: calc(1em * round(pow(var(--lk-scalefactor), 6), 0.001));
 
   /* size tokens for corner radii */
-  
+    --lku-corner-md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+  --lku-corner-sm: calc(1em * round(pow(var(--lk-scalefactor-corner), -1), 0.001)); /* .618 em */
+  --lku-corner-xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -2), 0.001)); /* .272 em */
+  --lku-corner-2xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -3), 0.001)); /* .129 em */
+  --lku-corner-3xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -4), 0.001)); /* .12 em */
+  /* "super smalls" only used for border widths and thin lines */
+  --lku-corner-4xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -5), 0.001)); /* When 1rem = 16px, equals roughly 2px */
+  --lku-corner-5xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -6), 0.001)); /* When 1rem = 16px, equals roughly 1px */
+  --lku-corner-lg: calc(1em * var(--lk-scalefactor-corner));
+  --lku-corner-xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 2), 0.001));
+  /* --lku-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001)); */
+  --lku-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001));
+  --lku-corner-3xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 4), 0.001));
+  --lku-corner-4xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 5), 0.001));
+  --lku-corner-5xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 6), 0.001));
 
 
 

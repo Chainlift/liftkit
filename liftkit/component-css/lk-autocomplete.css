@@ -9,7 +9,7 @@
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   font-family: inherit;
   font-size: 1em;
   background-color: var(--lk-surface);

@@ -30,7 +30,7 @@ export function ThemeCSSInjector() {
 
     let css: string;
 
-    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};`;
+    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};`;
 
     if (state.colorMode === "system") {
       // Inject both schemes; let the browser pick via media query
@@ -47,7 +47,7 @@ export function ThemeCSSInjector() {
     return () => {
       // Cleanup only if unmounting the provider entirely
     };
-  }, [resolved, state.colorMode, state.scaleFactor]);
+  }, [resolved, state.colorMode, state.scaleFactor, state.scaleFactorCorner]);
 
   return null;
 }

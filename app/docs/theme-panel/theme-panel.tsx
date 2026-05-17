@@ -303,6 +303,36 @@ function ThemePanelContent() {
           </div>
         </div>
 
+        {/* Scale Factor Corner */}
+        <div className="theme-panel-section">
+          <div className="theme-panel-section-label">Scale Factor Corner</div>
+          <div className="scale-factor-row">
+            <input
+              type="range"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorCorner}
+              onChange={(e) =>
+                dispatch({ type: "SET_SCALE_FACTOR_CORNER", value: Number(e.target.value) })
+              }
+              style={{ flex: 1 }}
+            />
+            <input
+              type="number"
+              className="scale-factor-value"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorCorner}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (v >= 1 && v <= 2) dispatch({ type: "SET_SCALE_FACTOR_CORNER", value: v });
+              }}
+            />
+          </div>
+        </div>
+
         {/* Master Seed */}
         <div className="theme-panel-section">
           <div className="theme-panel-section-label">Master Seed</div>
