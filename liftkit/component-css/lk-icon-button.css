@@ -18,7 +18,7 @@
   border: unset;
 
   &.rounded-sm {
-    border-radius: var(--lk-size-sm);
+    border-radius: var(--lku-corner-sm);
   }
 }
 

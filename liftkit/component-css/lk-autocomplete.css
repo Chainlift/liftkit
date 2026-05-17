@@ -23,7 +23,7 @@
   }
 
   @media (min-width: 500px) {
-    width: var(--lk-size-5xl);
+    width: 100%;
   }
 
   &[data-disabled] {
@@ -54,7 +54,7 @@
 
 :where([data-slot="autocomplete-popup"]) {
   box-sizing: border-box;
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   width: var(--anchor-width);
@@ -112,7 +112,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-surfacecontainer);
   }
 }

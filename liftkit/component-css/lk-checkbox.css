@@ -14,7 +14,7 @@
   height: calc(var(--lk-size-md) * var(--lk-halfstep));
   align-items: center;
   justify-content: center;
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   outline: 0;
   padding: 0;
   margin: 0;
@@ -49,4 +49,3 @@
     height: var(--lk-size-sm);
   }
 }
-

@@ -48,7 +48,7 @@
       content: "";
       position: absolute;
       inset: var(--lk-size-xs) 0;
-      border-radius: var(--lk-size-xs);
+      border-radius: var(--lku-corner-xs);
       outline: 2px solid var(--lk-info);
       outline-offset: -1px;
     }
@@ -70,7 +70,7 @@
   width: var(--active-tab-width);
   height: var(--lk-size-3xs);
 
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   background-color: var(--lk-primary);
   transition-property: translate, width;
   transition-duration: 200ms;
@@ -84,12 +84,10 @@
   justify-content: center;
   outline: 0;
 
-  
-
   &:focus-visible {
     outline: 2px solid var(--lk-info);
     outline-offset: -1px;
-    border-radius: var(--lk-size-xs);
+    border-radius: var(--lku-corner-xs);
   }
 
   &[hidden] {

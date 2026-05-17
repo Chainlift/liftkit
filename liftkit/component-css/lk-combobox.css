@@ -8,26 +8,23 @@ and I'm not contradicting it right now.
 */
 
 [data-slot="combobox-input-group"] {
-
-
   box-sizing: border-box;
   padding-left: var(--lk-size-sm);
   padding-right: var(--lk-size-xl);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
-  
+
   --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
   padding-block: var(--input-padY);
   padding-inline: var(--lk-size-sm);
   line-height: var(--lk-halfstep);
 
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   font-family: inherit;
   font-size: 1em;
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
-
 
   &:focus {
     outline: 2px solid var(--lk-info);
@@ -70,7 +67,7 @@ and I'm not contradicting it right now.
   justify-content: center;
   bottom: 0;
   right: var(--lk-size-sm);
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   border: none;
   color: var(--lk-outline);
   padding: 0;
@@ -87,7 +84,7 @@ and I'm not contradicting it right now.
   color: var(--lk-outline);
   border: none;
   padding: 0;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background: none;
 }
 
@@ -103,7 +100,7 @@ and I'm not contradicting it right now.
 
 :where([data-slot="combobox-popup"]) {
   box-sizing: border-box;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--lk-surface);
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
@@ -178,7 +175,7 @@ and I'm not contradicting it right now.
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 
@@ -193,7 +190,7 @@ and I'm not contradicting it right now.
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-sm);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }
@@ -205,7 +202,7 @@ and I'm not contradicting it right now.
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-sm);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }

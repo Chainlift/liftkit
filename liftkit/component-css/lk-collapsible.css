@@ -20,7 +20,7 @@
   margin: 0;
   border: 0;
   outline: 0;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--color-gray-100);
   color: var(--lk-onsurface);
   font-family: inherit;
@@ -33,8 +33,6 @@
 
   &:active {
     background-color: var(--lk-outlinevariant);
-
-    
   }
 
   &:focus-visible {
@@ -70,7 +68,7 @@
   gap: var(--lk-size-sm);
   margin-top: 0.25rem;
   padding: 0.5rem 0 0.5rem 1.75rem;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--color-gray-100);
   cursor: text;
 } */

@@ -9,7 +9,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--lk-surfacecontainerlow);
   color: var(--lk-onsurface);
   user-select: none;
@@ -46,7 +46,7 @@
   box-sizing: border-box;
   padding-block: var(--lk-size-sm) calc(var(--lk-size-md) / var(--lk-halfstep));
   padding-inline: var(--lk-size-md);
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lku-corner-sm);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -155,7 +155,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
   font-size: 1rem;

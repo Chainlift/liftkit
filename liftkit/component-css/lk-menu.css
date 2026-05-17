@@ -18,7 +18,7 @@
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   font-family: inherit;
   font-weight: 500;
   text-decoration: none;
@@ -59,7 +59,7 @@
   overscroll-behavior: contain;
   padding-block: var(--lk-size-2xs);
   scroll-padding-block: var(--lk-size-sm);
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--lk-surface);
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
@@ -156,7 +156,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }
@@ -188,7 +188,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }

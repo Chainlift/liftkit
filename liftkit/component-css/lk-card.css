@@ -18,7 +18,6 @@
   background: var(--lk-card-bg, transparent);
   color: var(--lk-card-fg, inherit);
 
-
   /* Modifies direct child text elements of the children slot (that way nested components like buttons
        don't inherit color blending props */
 }
@@ -60,7 +59,7 @@
 
 :where([data-lk-card-scale-factor="zero"]) {
   padding: 0;
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lku-corner-sm);
 }
 
 :where([data-lk-card-scale-factor="display1"]) {

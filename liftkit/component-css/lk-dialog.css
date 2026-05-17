@@ -59,7 +59,7 @@
 
 :where([data-slot="dialog-trigger"]) {
   border: none;
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   display: inline-block;
   padding: var(--lk-size-xs) var(--lk-size-md);
   background-color: var(--lk-surfacebright);
@@ -97,7 +97,7 @@
   margin-top: calc(var(--lk-size-lg) * -1);
   padding: var(--lk-size-lg);
   padding-top: var(--lk-size-md);
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lku-corner-sm);
   outline: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
   color: var(--lk-onsurface);

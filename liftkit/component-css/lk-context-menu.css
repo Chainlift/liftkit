@@ -7,7 +7,7 @@
   height: 100%;
   border: 1px solid var(--lk-outlinevariant);
   color: var(--lk-onsurface);
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   -webkit-user-select: none;
   user-select: none;
 }
@@ -19,7 +19,7 @@
 :where([data-slot="context-menu-popup"]) {
   box-sizing: border-box;
   padding-block: var(--lk-size-2xs);
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -67,7 +67,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }

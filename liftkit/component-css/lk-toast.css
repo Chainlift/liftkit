@@ -78,7 +78,7 @@
   width: 100%;
   box-shadow: var(--lk-shadow-lg);
   background-clip: padding-box;
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lku-corner-sm);
   transform-origin: bottom center;
   bottom: 0;
   left: auto;
@@ -179,7 +179,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
 
   &:hover {
     background-color: var(--lk-surfacedim);

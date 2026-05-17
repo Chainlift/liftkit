@@ -1,5 +1,4 @@
 :where([data-slot="navigation-menu"]) {
-
   border-radius: 0.5rem;
   padding: 0.25rem;
   color: var(--lk-onsurface);
@@ -22,7 +21,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid transparent; /* Needed to ensure height is the same as similarly-shaped elements */
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lku-corner-2xs);
   background-color: transparent;
   font-family: inherit;
 
@@ -121,7 +120,7 @@
 :where([data-slot="navigation-menu-popup"]) {
   position: relative;
   box-sizing: border-box;
-  border-radius: var(--lk-size-sm);
+  border-radius: var(--lku-corner-sm);
   background-color: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -236,7 +235,7 @@
   box-sizing: border-box;
   display: block;
   padding: 0.5rem;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   text-decoration: none;
   color: inherit;
   border: none;

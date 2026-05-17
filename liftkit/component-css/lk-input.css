@@ -20,7 +20,7 @@
   width: 100%;
   line-height: var(--lk-halfstep);
 
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   font-family: inherit;
 
   background-color: var(--lk-surface);

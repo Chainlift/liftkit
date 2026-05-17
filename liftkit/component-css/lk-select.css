@@ -25,7 +25,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   width: 100%;
   background-color: var(--lk-surface);
   font-family: inherit;
@@ -64,7 +64,7 @@
 
 :where([data-slot="select-popup"]) {
   box-sizing: border-box;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   background-color: var(--lk-surface);
   background-clip: padding-box;
   color: var(--lk-onsurface);
@@ -182,8 +182,8 @@
   }
 
   &[data-selected] {
-   position: relative;
-   z-index: 0;
+    position: relative;
+    z-index: 0;
   }
 
   &[data-highlighted]::before {
@@ -192,7 +192,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: color-mix(in srgb, var(--lk-onsurface) 12%, transparent);
   }
 
@@ -202,7 +202,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
     background-color: var(--lk-primarycontainer);
   }
 }
@@ -223,7 +223,7 @@
   z-index: 1;
   text-align: center;
   cursor: default;
-  border-radius: var(--lk-size-xs);
+  border-radius: var(--lku-corner-xs);
   height: var(--lk-size-md);
   font-size: var(--lk-subheading-font-size);
   display: flex;
