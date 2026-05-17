@@ -69,3 +69,7 @@ This is the library being documented, not the docs site itself.
 - Color tokens follow pattern: `--lk-color-{name}` with `on` variants (e.g., `primary` / `onprimary`)
 - Size tokens: `--lk-size-{5xs..5xl}` based on powers of the golden ratio scale factor
 - Navigation is auto-generated from the filesystem via `lib/docs-nav.ts` — any folder under `app/docs/` with a `page.mdx` or `page.tsx` automatically appears in the sidebar
+
+### Key pattern: updating CSS rules
+
+1. 

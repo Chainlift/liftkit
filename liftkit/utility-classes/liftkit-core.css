@@ -7,6 +7,16 @@
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
 
+  /* OPTIONALLY: You can set individual scale factors for spacing, corner radii, and typography */
+  --lk-scalefactor-radii: 1.25;
+  --lk-scalefactor-spacing: 1.618;
+  --lk-scalefactor-typography: 1.618;
+  --lk-scalefactor-sizes: 1.618;
+
+
+
+
+
   --lk-wholestep: var(--lk-scalefactor);
   /* equals scalefactor */
   /* 1.272 */
@@ -42,6 +52,11 @@
   --lk-size-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
   --lk-size-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
   --lk-size-5xl: calc(1em * round(pow(var(--lk-scalefactor), 6), 0.001));
+
+  /* size tokens for corner radii */
+  
+
+
 
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
