@@ -31,6 +31,9 @@ export interface ThemeState {
   schemeVariant: SchemeVariant;
   scaleFactor: number;
   scaleFactorCorner: number;
+  scaleFactorTypography: number;
+  scaleFactorLength: number;
+  scaleFactorSpacing: number;
   isOpen: boolean;
 }
 
@@ -50,5 +53,8 @@ export type ThemeAction =
   | { type: "SET_OPEN"; open: boolean }
   | { type: "SET_SCALE_FACTOR"; value: number }
   | { type: "SET_SCALE_FACTOR_CORNER"; value: number }
+  | { type: "SET_SCALE_FACTOR_TYPOGRAPHY"; value: number }
+  | { type: "SET_SCALE_FACTOR_LENGTH"; value: number }
+  | { type: "SET_SCALE_FACTOR_SPACING"; value: number }
   | { type: "RESET" }
   | { type: "LOAD"; state: Omit<ThemeState, "isOpen"> };

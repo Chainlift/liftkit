@@ -16,7 +16,7 @@ export function exportThemeCSS(state: ThemeState): string {
   let css = `/* LiftKit Theme — Generated ${new Date().toISOString()} */\n`;
   css += `/* Seeds: primary=${state.seedColors.primary}, secondary=${state.seedColors.secondary}, tertiary=${state.seedColors.tertiary} */\n\n`;
 
-  css += `:root {\n  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n${buildCssBlock(resolved.light, "  ")}\n}\n\n`;
+  css += `:root {\n  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n  --lk-scalefactor-typography: ${state.scaleFactorTypography};\n  --lk-scalefactor-length: ${state.scaleFactorLength};\n  --lk-scalefactor-spacing: ${state.scaleFactorSpacing};\n${buildCssBlock(resolved.light, "  ")}\n}\n\n`;
   css += `@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}\n`;
 
   return css;

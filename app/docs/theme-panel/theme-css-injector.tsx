@@ -30,7 +30,7 @@ export function ThemeCSSInjector() {
 
     let css: string;
 
-    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};`;
+    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n  --lk-scalefactor-typography: ${state.scaleFactorTypography};\n  --lk-scalefactor-length: ${state.scaleFactorLength};\n  --lk-scalefactor-spacing: ${state.scaleFactorSpacing};`;
 
     if (state.colorMode === "system") {
       // Inject both schemes; let the browser pick via media query
@@ -47,7 +47,7 @@ export function ThemeCSSInjector() {
     return () => {
       // Cleanup only if unmounting the provider entirely
     };
-  }, [resolved, state.colorMode, state.scaleFactor, state.scaleFactorCorner]);
+  }, [resolved, state.colorMode, state.scaleFactor, state.scaleFactorCorner, state.scaleFactorTypography, state.scaleFactorLength, state.scaleFactorSpacing]);
 
   return null;
 }

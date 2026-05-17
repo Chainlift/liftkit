@@ -333,6 +333,96 @@ function ThemePanelContent() {
           </div>
         </div>
 
+        {/* Scale Factor Typography */}
+        <div className="theme-panel-section">
+          <div className="theme-panel-section-label">Scale Factor Typography</div>
+          <div className="scale-factor-row">
+            <input
+              type="range"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorTypography}
+              onChange={(e) =>
+                dispatch({ type: "SET_SCALE_FACTOR_TYPOGRAPHY", value: Number(e.target.value) })
+              }
+              style={{ flex: 1 }}
+            />
+            <input
+              type="number"
+              className="scale-factor-value"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorTypography}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (v >= 1 && v <= 2) dispatch({ type: "SET_SCALE_FACTOR_TYPOGRAPHY", value: v });
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Scale Factor Length */}
+        <div className="theme-panel-section">
+          <div className="theme-panel-section-label">Scale Factor Length</div>
+          <div className="scale-factor-row">
+            <input
+              type="range"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorLength}
+              onChange={(e) =>
+                dispatch({ type: "SET_SCALE_FACTOR_LENGTH", value: Number(e.target.value) })
+              }
+              style={{ flex: 1 }}
+            />
+            <input
+              type="number"
+              className="scale-factor-value"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorLength}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (v >= 1 && v <= 2) dispatch({ type: "SET_SCALE_FACTOR_LENGTH", value: v });
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Scale Factor Spacing */}
+        <div className="theme-panel-section">
+          <div className="theme-panel-section-label">Scale Factor Spacing</div>
+          <div className="scale-factor-row">
+            <input
+              type="range"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorSpacing}
+              onChange={(e) =>
+                dispatch({ type: "SET_SCALE_FACTOR_SPACING", value: Number(e.target.value) })
+              }
+              style={{ flex: 1 }}
+            />
+            <input
+              type="number"
+              className="scale-factor-value"
+              min={1}
+              max={2}
+              step={0.001}
+              value={state.scaleFactorSpacing}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (v >= 1 && v <= 2) dispatch({ type: "SET_SCALE_FACTOR_SPACING", value: v });
+              }}
+            />
+          </div>
+        </div>
+
         {/* Master Seed */}
         <div className="theme-panel-section">
           <div className="theme-panel-section-label">Master Seed</div>

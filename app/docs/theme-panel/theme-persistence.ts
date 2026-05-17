@@ -12,6 +12,9 @@ interface PersistedTheme {
   schemeVariant: ThemeState["schemeVariant"];
   scaleFactor?: number;
   scaleFactorCorner?: number;
+  scaleFactorTypography?: number;
+  scaleFactorLength?: number;
+  scaleFactorSpacing?: number;
 }
 
 export function saveTheme(state: ThemeState): void {
@@ -25,6 +28,9 @@ export function saveTheme(state: ThemeState): void {
       schemeVariant: state.schemeVariant,
       scaleFactor: state.scaleFactor,
       scaleFactorCorner: state.scaleFactorCorner,
+      scaleFactorTypography: state.scaleFactorTypography,
+      scaleFactorLength: state.scaleFactorLength,
+      scaleFactorSpacing: state.scaleFactorSpacing,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch {
@@ -46,6 +52,9 @@ export function loadTheme(): Partial<ThemeState> | null {
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
       scaleFactorCorner: parsed.scaleFactorCorner ?? DEFAULT_THEME_STATE.scaleFactorCorner,
+      scaleFactorTypography: parsed.scaleFactorTypography ?? DEFAULT_THEME_STATE.scaleFactorTypography,
+      scaleFactorLength: parsed.scaleFactorLength ?? DEFAULT_THEME_STATE.scaleFactorLength,
+      scaleFactorSpacing: parsed.scaleFactorSpacing ?? DEFAULT_THEME_STATE.scaleFactorSpacing,
     };
   } catch {
     return null;

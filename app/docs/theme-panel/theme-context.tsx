@@ -47,6 +47,12 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
       return { ...state, scaleFactor: action.value };
     case "SET_SCALE_FACTOR_CORNER":
       return { ...state, scaleFactorCorner: action.value };
+    case "SET_SCALE_FACTOR_TYPOGRAPHY":
+      return { ...state, scaleFactorTypography: action.value };
+    case "SET_SCALE_FACTOR_LENGTH":
+      return { ...state, scaleFactorLength: action.value };
+    case "SET_SCALE_FACTOR_SPACING":
+      return { ...state, scaleFactorSpacing: action.value };
     case "SET_OPEN":
       return { ...state, isOpen: action.open };
     case "RESET":
@@ -84,7 +90,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!initialized.current) return;
     const timeout = setTimeout(() => saveTheme(state), 300);
     return () => clearTimeout(timeout);
-  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant, state.scaleFactor, state.scaleFactorCorner]);
+  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant, state.scaleFactor, state.scaleFactorCorner, state.scaleFactorTypography, state.scaleFactorLength, state.scaleFactorSpacing]);
 
   return (
     <ThemeContext value={{ state, dispatch }}>
