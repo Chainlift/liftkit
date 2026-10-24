@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
-import "../../component-css/lk-autocomplete.css";
+import "../../css/components/lk-autocomplete.css";
 
 function Autocomplete({ ...props }: React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Root>) {
   return <AutocompletePrimitive.Root data-slot="autocomplete" {...props} />;

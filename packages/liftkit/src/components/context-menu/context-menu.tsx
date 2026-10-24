@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
-import "@/liftkit/component-css/lk-context-menu.css";
+import "../../css/components/lk-context-menu.css";
 
 function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;

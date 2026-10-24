@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/component-definitions";
+import { Avatar, AvatarImage, AvatarFallback } from "@chainlift/liftkit";
 
 export function ExampleAvatar() {
   return (

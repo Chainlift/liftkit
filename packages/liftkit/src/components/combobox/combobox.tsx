@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox";
-import "@/liftkit/component-css/lk-combobox.css";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
+import "../../css/components/lk-combobox.css";
+import { Icon } from "../icon/icon";
 
 function Combobox<Value, Multiple extends boolean = false>({
   ...props

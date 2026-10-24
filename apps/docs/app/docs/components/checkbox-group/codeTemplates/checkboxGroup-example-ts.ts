@@ -5,8 +5,8 @@ export function CheckboxGroup_Example_TS(updatedKnobVals: Record<string, any> = 
 
   return `"use client";
 import * as React from "react";
-import { CheckboxGroup } from "@/liftkit/component-definitions";
-import { Checkbox, CheckboxIndicator } from "@/liftkit/component-definitions";
+import { CheckboxGroup } from "@chainlift/liftkit";
+import { Checkbox, CheckboxIndicator } from "@chainlift/liftkit";
 
 export function ExampleCheckboxGroup() {
   const id = React.useId();

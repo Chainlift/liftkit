@@ -8,8 +8,8 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/component-definitions";
-import { GoldenBox } from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
+import { GoldenBox } from "@chainlift/liftkit";
 
 export function ExampleAutocomplete({ ...props }) {
   return (

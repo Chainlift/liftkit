@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleSelect } from "@/liftkit/examples";
+import { ExampleSelect } from "@/examples";
 
 const select: ComponentEntry = {
   title: "Select",

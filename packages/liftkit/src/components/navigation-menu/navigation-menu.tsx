@@ -1,7 +1,7 @@
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
-import "@/liftkit/component-css/lk-navigation-menu.css";
+import { Icon } from "../icon/icon";
+import "../../css/components/lk-navigation-menu.css";
 
 function NavigationMenu({
   align = "start",

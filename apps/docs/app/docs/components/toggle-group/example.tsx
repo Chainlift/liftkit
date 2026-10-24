@@ -12,7 +12,7 @@ export function LocalCodeSample() {
       }}
     >
       <code>{`import * as React from "react";
-import { Toggle } from "@/liftkit/component-definitions/toggle/toggle";
+import { Toggle } from "@chainlift/liftkit";
 import { ToggleGroup } from "./toggle-group";
 
 export default function ToggleGroupDemo() {

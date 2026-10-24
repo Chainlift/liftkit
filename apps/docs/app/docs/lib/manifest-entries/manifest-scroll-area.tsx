@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleScrollArea } from "@/liftkit/examples";
+import { ExampleScrollArea } from "@/examples";
 
 const scrollArea: ComponentEntry = {
   title: "ScrollArea",

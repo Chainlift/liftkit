@@ -1,8 +1,8 @@
 "use client";
 
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
-import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
-import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@/liftkit/component-definitions";
+import { GoldenBox } from "@chainlift/liftkit";
+import { Tabs, TabsPanel, TabsTab, TabsList, TabsIndicator } from "@chainlift/liftkit";
 
 interface SimpleComponentPreviewProps {
   children: React.ReactNode;

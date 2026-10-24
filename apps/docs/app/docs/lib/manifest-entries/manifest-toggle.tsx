@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleToggle } from "@/liftkit/examples";
+import { ExampleToggle } from "@/examples";
 
 const toggle: ComponentEntry = {
   title: "Toggle",

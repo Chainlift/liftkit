@@ -14,7 +14,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 
 export function ExampleAutocomplete() {

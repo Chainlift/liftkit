@@ -1,11 +1,11 @@
 import React from "react";
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Button as BaseButton } from "@base-ui/react";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
-import { LkStateLayerProps } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { Icon } from "../icon/icon";
+import { StateLayer } from "../state-layer/state-layer";
+import { LkStateLayerProps } from "../state-layer/state-layer";
 import { IconName } from "lucide-react/dynamic";
-import "@/liftkit/component-css/lk-icon-button.css";
+import "../../css/components/lk-icon-button.css";
 
 // declare global {
 //   type LkIconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";

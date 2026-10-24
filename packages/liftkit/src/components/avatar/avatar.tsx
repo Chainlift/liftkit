@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
-import "@/liftkit/component-css/lk-avatar.css";
+import "../../css/components/lk-avatar.css";
 
 function Avatar({ className, ...props }: AvatarPrimitive.Root.Props) {
   return <AvatarPrimitive.Root data-slot="avatar" className={cn(className)} {...props} />;

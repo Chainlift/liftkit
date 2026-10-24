@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleNumberField } from "@/liftkit/examples";
+import { ExampleNumberField } from "@/examples";
 
 const numberField: ComponentEntry = {
   title: "NumberField",

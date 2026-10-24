@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { StateLayer } from "@chainlift/liftkit";
 import { usePathname } from "next/navigation";
 
 interface TocItem {

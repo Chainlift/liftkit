@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleInput } from "@/liftkit/examples";
+import { ExampleInput } from "@/examples";
 
 const input: ComponentEntry = {
   title: "Input",

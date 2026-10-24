@@ -14,7 +14,7 @@ export function AlertDialog_Example_TS(updatedKnobVals: Record<string, any> = {}
   AlertDialogFooter,
   AlertDialogClose,
   AlertDialogAction,
-} from "@/liftkit/component-definitions/alert-dialog/alert-dialog";
+} from "@chainlift/liftkit";
 
 export default function ExampleAlertDialog() {
   return (

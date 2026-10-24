@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleFieldset } from "@/liftkit/examples";
+import { ExampleFieldset } from "@/examples";
 
 const fieldset: ComponentEntry = {
   title: "Fieldset",

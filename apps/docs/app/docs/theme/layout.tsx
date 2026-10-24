@@ -1,6 +1,6 @@
 import { getDocsNav } from "@/lib/docs-nav";
-import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
-import { ExampleNavigationMenu } from "@/liftkit/examples";
+import { GoldenBox } from "@chainlift/liftkit";
+import { ExampleNavigationMenu } from "@/examples";
 import "../docsPage.css";
 import { NavSidebar } from "@/app/docs/lib/nav-sidebar";
 import {
@@ -10,7 +10,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/liftkit/component-definitions/scroll-area/scroll-area";
+} from "@chainlift/liftkit";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 
 export default function ThemeLayout({ children }: { children: React.ReactNode }) {

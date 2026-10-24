@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleCollapsible } from "@/liftkit/examples";
+import { ExampleCollapsible } from "@/examples";
 
 const collapsible: ComponentEntry = {
   title: "Collapsible",

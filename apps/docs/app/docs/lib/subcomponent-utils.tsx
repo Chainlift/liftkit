@@ -7,7 +7,7 @@ import "./subcomponent-table-styles.css";
 
 import { componentManifest, type ComponentName, type SubComponentEntry } from "./component-manifest";
 import { link } from "fs";
-import { Button, Icon } from "@/liftkit/component-definitions";
+import { Button, Icon } from "@chainlift/liftkit";
 
 /**
  * Get all sub-components for a given component

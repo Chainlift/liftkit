@@ -4,7 +4,7 @@ export function Avatar_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
-import { Avatar, AvatarImage, AvatarFallback } from "@/liftkit/component-definitions";
+import { Avatar, AvatarImage, AvatarFallback } from "@chainlift/liftkit";
 
 export function ExampleAvatar() {
   return (

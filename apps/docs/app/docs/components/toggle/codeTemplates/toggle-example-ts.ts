@@ -26,7 +26,7 @@ export function Toggle_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   return `
 "use client";
 import * as React from "react";
-import { Toggle } from "@/liftkit/component-definitions";
+import { Toggle } from "@chainlift/liftkit";
 
 export function ExampleToggle() {
   return (

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
-import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
-import { Switch, SwitchThumb } from "@/liftkit/component-definitions/switch/switch";
+import { GoldenBox } from "@chainlift/liftkit";
+import { Switch, SwitchThumb } from "@chainlift/liftkit";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import "./subcomponent-table-styles.css";
 import {
@@ -20,9 +20,9 @@ import {
   PopoverArrow,
   PopoverTitle,
   PopoverDescription,
-} from "@/liftkit/component-definitions";
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/liftkit/component-definitions";
-import { Icon } from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@chainlift/liftkit";
+import { Icon } from "@chainlift/liftkit";
 import {
   Select,
   SelectTrigger,
@@ -37,8 +37,8 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/component-definitions";
-import { Field, FieldLabel } from "@/liftkit/component-definitions/field/field";
+} from "@chainlift/liftkit";
+import { Field, FieldLabel } from "@chainlift/liftkit";
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -46,10 +46,10 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/liftkit/component-definitions/scroll-area/scroll-area";
-import { Input } from "@/liftkit/component-definitions";
-import { RadioGroup, Radio, RadioIndicator } from "@/liftkit/component-definitions/radio/radio";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+} from "@chainlift/liftkit";
+import { Input } from "@chainlift/liftkit";
+import { RadioGroup, Radio, RadioIndicator } from "@chainlift/liftkit";
+import { StateLayer } from "@chainlift/liftkit";
 import { Link } from "lucide-react";
 
 interface ComponentPreviewProps {

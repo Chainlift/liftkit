@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleAvatar } from "@/liftkit/examples";
+import { ExampleAvatar } from "@/examples";
 
 const icon: ComponentEntry = {
   title: "Icon",

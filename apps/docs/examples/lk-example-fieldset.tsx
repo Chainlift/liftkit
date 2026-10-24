@@ -1,5 +1,5 @@
-import { Fieldset, FieldsetLegend } from "@/liftkit/component-definitions";
-import { Field, FieldLabel, FieldControl } from "@/liftkit/component-definitions/field/field";
+import { Fieldset, FieldsetLegend } from "@chainlift/liftkit";
+import { Field, FieldLabel, FieldControl } from "@chainlift/liftkit";
 
 export function ExampleFieldset({
   legend = "Billing details",

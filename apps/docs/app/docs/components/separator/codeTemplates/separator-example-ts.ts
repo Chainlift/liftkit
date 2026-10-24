@@ -4,7 +4,7 @@ export function Separator_Example_TS(updatedKnobVals: Record<string, any> = {}) 
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
-import { Separator } from "@/liftkit/component-definitions";
+import { Separator } from "@chainlift/liftkit";
 
 export function ExampleSeparator() {
   return (

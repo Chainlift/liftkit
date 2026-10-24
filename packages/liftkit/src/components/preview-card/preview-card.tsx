@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";
-import "@/liftkit/component-css/lk-preview-card.css";
+import "../../css/components/lk-preview-card.css";
 
 function PreviewCard({ ...props }: PreviewCardPrimitive.Root.Props) {
   return <PreviewCardPrimitive.Root data-slot="preview-card" {...props} />;

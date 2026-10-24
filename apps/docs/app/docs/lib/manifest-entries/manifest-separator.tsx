@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleSeparator } from "@/liftkit/examples";
+import { ExampleSeparator } from "@/examples";
 
 const separator: ComponentEntry = {
   title: "Separator",

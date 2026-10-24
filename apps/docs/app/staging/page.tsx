@@ -9,7 +9,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@/liftkit/component-definitions/autocomplete/autocomplete";
+} from "@chainlift/liftkit";
 import styles from "./autocomplete.module.css";
 
 export default function StagingPage() {

@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
-import "@/liftkit/component-css/lk-slider.css";
+import "../../css/components/lk-slider.css";
 
 function Slider({ ...props }: SliderPrimitive.Root.Props) {
   return <SliderPrimitive.Root data-slot="slider" {...props} />;

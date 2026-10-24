@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExamplePreviewCard } from "@/liftkit/examples";
+import { ExamplePreviewCard } from "@/examples";
 
 const previewCard: ComponentEntry = {
   title: "PreviewCard",

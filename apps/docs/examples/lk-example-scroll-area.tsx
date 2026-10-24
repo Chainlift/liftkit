@@ -4,7 +4,7 @@ import {
   ScrollAreaContent,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 export function ExampleScrollArea() {
   return (

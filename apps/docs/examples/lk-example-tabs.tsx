@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator, Icon } from "@/liftkit/component-definitions";
+import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator, Icon } from "@chainlift/liftkit";
 
 export function ExampleTabs() {
   return (

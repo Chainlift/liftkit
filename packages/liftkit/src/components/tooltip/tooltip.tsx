@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
-import "@/liftkit/component-css/lk-tooltip.css";
+import "../../css/components/lk-tooltip.css";
 
 function TooltipProvider({ ...props }: TooltipPrimitive.Provider.Props) {
   return <TooltipPrimitive.Provider {...props} />;

@@ -1,6 +1,6 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
 import { AlertDialog_Example_TS, AlertDialog_Example_CSS } from "@/app/docs/components/alert-dialog/codeTemplates";
-import { ExampleAlertDialog } from "@/liftkit/examples";
+import { ExampleAlertDialog } from "@/examples";
 
 const alertDialog: ComponentEntry = {
   title: "AlertDialog",

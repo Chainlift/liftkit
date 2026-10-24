@@ -1,4 +1,4 @@
-import { Switch, SwitchThumb } from "@/liftkit/component-definitions";
+import { Switch, SwitchThumb } from "@chainlift/liftkit";
 
 export function ExampleSwitch() {
   return (

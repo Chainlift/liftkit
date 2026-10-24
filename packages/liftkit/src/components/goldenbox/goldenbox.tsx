@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "@/liftkit/component-css/lk-goldenbox.css";
+import "../../css/components/lk-goldenbox.css";
 
 export interface LkGoldenBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   scaleFactor?: LkFontClass | "none";

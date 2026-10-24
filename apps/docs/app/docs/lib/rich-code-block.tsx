@@ -8,10 +8,10 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/liftkit/component-definitions/scroll-area/scroll-area";
-import { Icon } from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
+import { Icon } from "@chainlift/liftkit";
 import "./syntax-highlight.css";
-import { IconButton } from "@/liftkit/component-definitions/icon-button/icon-button";
+import { IconButton } from "@chainlift/liftkit";
 import { useHighlightedCode } from "@/app/docs/lib/highlighted-code-client";
 
 export function RichCodeBlock({

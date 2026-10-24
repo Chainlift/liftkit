@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
-import "@/liftkit/component-css/lk-menu.css";
+import "../../css/components/lk-menu.css";
 
 function Menu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="menu" {...props} />;

@@ -4,7 +4,7 @@ export function Fieldset_Example_TS(updatedKnobVals: Record<string, unknown> = {
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `import { Fieldset, FieldsetLegend } from "./fieldset";
-import { Field, FieldLabel, FieldControl } from "@/liftkit/component-definitions/field/field";
+import { Field, FieldLabel, FieldControl } from "@chainlift/liftkit";
 
 export default function FieldsetDemo() {
   return (

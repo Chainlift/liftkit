@@ -1,0 +1,41 @@
+{
+  "name": "@chainlift/liftkit",
+  "version": "2.0.0-alpha.0",
+  "private": true,
+  "description": "LiftKit: components built on Base UI with golden-ratio scaling, optical correction, and Material-based color.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chainlift/liftkit.git",
+    "directory": "packages/liftkit"
+  },
+  "homepage": "https://chainlift.io/liftkit",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./css/*": "./src/css/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.1.0",
+    "@csstools/normalize.css": "^12.1.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "typescript": "^5.9.3"
+  }
+}

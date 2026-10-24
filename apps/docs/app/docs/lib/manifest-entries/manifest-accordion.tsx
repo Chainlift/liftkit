@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleAccordion } from "@/liftkit/examples";
+import { ExampleAccordion } from "@/examples";
 import { Accordion_Example_TS, Accordion_Example_CSS } from "@/app/docs/components/accordion/codeTemplates";
 
 const accordion: ComponentEntry = {

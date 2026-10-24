@@ -15,7 +15,7 @@ import {
   NavigationMenuContent,
   NavigationMenuPositioner,
   NavigationMenuLink,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 const components: { title: string; href: string; description: string }[] = [
   {

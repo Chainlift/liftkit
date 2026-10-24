@@ -38,9 +38,9 @@ import {
   ExampleToggle,
   ExampleToolbar,
   ExampleTooltip,
-} from "@/liftkit/examples";
-import { Card } from "@/liftkit/component-definitions/card/card";
-import { Avatar, AvatarImage, Toggle, Icon, Button } from "@/liftkit/component-definitions";
+} from "@/examples";
+import { Card } from "@chainlift/liftkit";
+import { Avatar, AvatarImage, Toggle, Icon, Button } from "@chainlift/liftkit";
 export function ComponentMosaic() {
   return (
     <div className="flex-v gap-0">

@@ -1,10 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
-import "@/liftkit/component-css/lk-accordion.css";
+import { Icon } from "../icon/icon";
+import "../../css/components/lk-accordion.css";
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return <AccordionPrimitive.Root data-slot="accordion" className={cn(className)} {...props} />;

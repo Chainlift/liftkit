@@ -1,4 +1,4 @@
-import { Separator } from "@/liftkit/component-definitions";
+import { Separator } from "@chainlift/liftkit";
 
 export function ExampleSeparator() {
   return (

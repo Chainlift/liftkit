@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
-import "@/liftkit/component-css/lk-dialog.css";
+import "../../css/components/lk-dialog.css";
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;

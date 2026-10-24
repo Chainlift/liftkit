@@ -1,5 +1,5 @@
 {
-  "name": "lk-docs-redux",
+  "name": "@liftkit/docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "docs:gen-props": "node apps/docs/scripts/gen-props.mjs",
     "docs:gen-examples": "node scripts/generate-local-code-samples.mjs",
-    "docs:gen-css": "node scripts/gen-css.mjs"
+    "docs:gen-css": "node scripts/gen-css.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@chainlift/liftkit": "workspace:*",
     "@base-ui/react": "^1.1.0",
     "@csstools/normalize.css": "^12.1.1",
     "@material/material-color-utilities": "^0.4.0",

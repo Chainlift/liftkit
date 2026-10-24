@@ -19,7 +19,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "./tooltip";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
+import { Icon } from "@chainlift/liftkit";
 
 export default function TooltipDemo() {
   return (

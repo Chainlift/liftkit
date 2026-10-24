@@ -19,8 +19,8 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/component-definitions";
-import { Field, FieldLabel } from "@/liftkit/component-definitions/field/field";
+} from "@chainlift/liftkit";
+import { Field, FieldLabel } from "@chainlift/liftkit";
 
 const apples = [
   { label: "Gala", value: "gala" },

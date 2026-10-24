@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleForm } from "@/liftkit/examples";
+import { ExampleForm } from "@/examples";
 import { Form_Example_TS } from "@/app/docs/components/form/codeTemplates";
 
 const form: ComponentEntry = {

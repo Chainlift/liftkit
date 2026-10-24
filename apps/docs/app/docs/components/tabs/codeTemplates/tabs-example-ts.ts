@@ -5,7 +5,7 @@ export function Tabs_Example_TS(updatedKnobVals: Record<string, any> = {}) {
 
   return `
 import * as React from "react";
-import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@/liftkit/component-definitions";
+import { Tabs, TabsList, TabsTab, TabsPanel, TabsIndicator } from "@chainlift/liftkit";
 
 export function ExampleTabs() {
   return (

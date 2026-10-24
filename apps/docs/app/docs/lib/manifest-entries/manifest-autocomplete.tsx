@@ -1,6 +1,6 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
 import { Autocomplete_Example_TS, Autocomplete_Example_CSS } from "@/app/docs/components/autocomplete/codeTemplates";
-import { ExampleAutocomplete } from "@/liftkit/examples";
+import { ExampleAutocomplete } from "@/examples";
 
 const autocomplete: ComponentEntry = {
   title: "Autocomplete",

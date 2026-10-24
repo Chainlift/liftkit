@@ -12,8 +12,8 @@ import {
   ComboboxList,
   ComboboxItem,
   ComboboxItemIndicator,
-} from "@/liftkit/component-definitions";
-import { Icon } from "@/liftkit/component-definitions/icon/icon";
+} from "@chainlift/liftkit";
+import { Icon } from "@chainlift/liftkit";
 
 export function ExampleCombobox() {
   const id = React.useId();

@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
-import "@/liftkit/component-css/lk-scroll-area.css";
+import "../../css/components/lk-scroll-area.css";
 
 function ScrollArea({ className, ...props }: ScrollAreaPrimitive.Root.Props) {
   return <ScrollAreaPrimitive.Root data-slot="scroll-area" className={cn("", className)} {...props} />;

@@ -6,7 +6,7 @@ export function Radio_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   return `
 "use client";
 import * as React from "react";
-import { Radio, RadioIndicator, RadioGroup } from "@/liftkit/component-definitions";
+import { Radio, RadioIndicator, RadioGroup } from "@chainlift/liftkit";
 
 export function ExampleRadio() {
   const id = React.useId();

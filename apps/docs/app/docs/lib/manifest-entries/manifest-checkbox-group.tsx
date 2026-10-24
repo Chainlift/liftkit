@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleCheckboxGroup } from "@/liftkit/examples";
+import { ExampleCheckboxGroup } from "@/examples";
 
 const checkboxGroup: ComponentEntry = {
   title: "CheckboxGroup",

@@ -8,9 +8,9 @@ import {
   AlertDialogFooter,
   AlertDialogClose,
   AlertDialogAction,
-} from "@/liftkit/component-definitions";
-import { Card } from "@/liftkit/component-definitions/card/card";
-import { Button } from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
+import { Card } from "@chainlift/liftkit";
+import { Button } from "@chainlift/liftkit";
 
 export function ExampleAlertDialog() {
   return (

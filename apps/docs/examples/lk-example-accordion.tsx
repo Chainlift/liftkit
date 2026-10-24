@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/liftkit/component-definitions";
-import { GoldenBox } from "@/liftkit/component-definitions";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@chainlift/liftkit";
+import { GoldenBox } from "@chainlift/liftkit";
+import { StateLayer } from "@chainlift/liftkit";
 
 export function ExampleAccordion({
   multiple = false,

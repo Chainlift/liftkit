@@ -1,6 +1,6 @@
 /* layer order means that utility classes will override component styles */
 
-@import "../liftkit/utility-classes/index.css";
+@import "@chainlift/liftkit/css/utilities/index.css";
 
 :root {
   font-family: "Inter", sans-serif;

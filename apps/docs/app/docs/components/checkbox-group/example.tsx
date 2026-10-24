@@ -14,7 +14,7 @@ export function LocalCodeSample() {
       <code>{`"use client";
 import * as React from "react";
 import { CheckboxGroup } from "./checkbox-group";
-import { Checkbox, CheckboxIndicator } from "@/liftkit/component-definitions/checkbox/checkbox";
+import { Checkbox, CheckboxIndicator } from "@chainlift/liftkit";
 
 export default function CheckboxGroupDemo() {
   const id = React.useId();

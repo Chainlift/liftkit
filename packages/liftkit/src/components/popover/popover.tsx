@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
-import "@/liftkit/component-css/lk-popover.css";
+import "../../css/components/lk-popover.css";
 
 function Popover({ ...props }: PopoverPrimitive.Root.Props) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;

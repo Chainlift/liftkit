@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Radio as RadioPrimitive } from "@base-ui/react/radio";
 import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
-import "@/liftkit/component-css/lk-radio.css";
+import "../../css/components/lk-radio.css";
 
 function RadioGroup({ className, ...props }: React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive>) {
   return <RadioGroupPrimitive data-slot="radio-group" className={cn(className)} {...props} />;

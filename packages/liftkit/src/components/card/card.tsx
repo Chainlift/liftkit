@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 
-import "@/liftkit/component-css/lk-card.css";
+import "../../css/components/lk-card.css";
 import React from "react";
-import { StateLayer } from "@/liftkit/component-definitions/state-layer/state-layer";
-import { cn } from "@/lib/cn";
-import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
+import { StateLayer } from "../state-layer/state-layer";
+import { cn } from "../../lib/cn";
+import { GoldenBox } from "../goldenbox/goldenbox";
 
 export type LkCardProps = React.HTMLAttributes<HTMLDivElement> & {
   scaleFactor?: Extract<

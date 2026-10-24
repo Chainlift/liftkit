@@ -4,7 +4,7 @@ export function Icon_Example_TS(updatedKnobVals: Record<string, unknown> = {}) {
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
   return `
-  import { Icon } from "@/liftkit/component-definitions/icon/icon";
+  import { Icon } from "@chainlift/liftkit";
   
   export function ExampleIcon() {
     return ${openTag}</Icon>;

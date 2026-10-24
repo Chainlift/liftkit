@@ -9,7 +9,7 @@ import {
   PopoverTitle,
   PopoverDescription,
   Icon,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 export function ExamplePopover() {
   return (

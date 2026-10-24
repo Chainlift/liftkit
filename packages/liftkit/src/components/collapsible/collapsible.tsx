@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
-import "@/liftkit/component-css/lk-collapsible.css";
+import "../../css/components/lk-collapsible.css";
 
 function Collapsible({ className, ...props }: CollapsiblePrimitive.Root.Props) {
   return <CollapsiblePrimitive.Root data-slot="collapsible" className={cn(className)} {...props} />;

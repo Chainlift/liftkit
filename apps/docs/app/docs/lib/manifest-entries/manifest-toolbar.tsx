@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleToolbar } from "@/liftkit/examples";
+import { ExampleToolbar } from "@/examples";
 
 const toolbar: ComponentEntry = {
   title: "Toolbar",

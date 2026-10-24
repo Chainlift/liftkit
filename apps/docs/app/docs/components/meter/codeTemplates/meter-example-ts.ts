@@ -3,7 +3,7 @@ export function Meter_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "Meter"; //should be the same case as the component tag
   const openTag = getOpenTag(componentName, updatedKnobVals);
 
-  return `import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "@/liftkit/component-definitions";
+  return `import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "@chainlift/liftkit";
 
 export function ExampleMeter() {
   return (

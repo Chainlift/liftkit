@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Toolbar as ToolbarPrimitive } from "@base-ui/react/toolbar";
-import "@/liftkit/component-css/lk-toolbar.css";
+import "../../css/components/lk-toolbar.css";
 
 function Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {
   return <ToolbarPrimitive.Root data-slot="toolbar" className={cn(className)} {...props} />;

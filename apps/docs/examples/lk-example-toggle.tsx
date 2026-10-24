@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Toggle, Icon } from "@/liftkit/component-definitions";
+import { Toggle, Icon } from "@chainlift/liftkit";
 
 export function ExampleToggle() {
   return (

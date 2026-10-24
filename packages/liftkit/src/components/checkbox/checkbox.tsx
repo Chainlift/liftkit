@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
-import "@/liftkit/component-css/lk-checkbox.css";
+import "../../css/components/lk-checkbox.css";
 
 function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
   return <CheckboxPrimitive.Root data-slot="checkbox" className={cn(className)} {...props} />;

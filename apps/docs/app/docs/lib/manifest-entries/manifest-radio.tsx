@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleRadio } from "@/liftkit/examples";
+import { ExampleRadio } from "@/examples";
 
 const radio: ComponentEntry = {
   title: "Radio",

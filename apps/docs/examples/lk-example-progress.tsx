@@ -6,7 +6,7 @@ import {
   ProgressValue,
   ProgressTrack,
   ProgressIndicator,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 export function ExampleProgress() {
   const [value, setValue] = React.useState(20);

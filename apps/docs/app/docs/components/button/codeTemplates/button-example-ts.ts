@@ -3,7 +3,7 @@ export function Button_Example_TS(updatedKnobVals: Record<string, any> = {}) {
   const componentName = "Button"; //should be the same case as the component tag
   const openTag = getOpenTag(componentName, updatedKnobVals, {}, "    ");
 
-  return `import { Button } from "@/liftkit/component-definitions";
+  return `import { Button } from "@chainlift/liftkit";
 
 export function ExampleButton() {
   return (

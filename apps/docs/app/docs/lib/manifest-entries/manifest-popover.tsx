@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExamplePopover } from "@/liftkit/examples";
+import { ExamplePopover } from "@/examples";
 
 const popover: ComponentEntry = {
   title: "Popover",

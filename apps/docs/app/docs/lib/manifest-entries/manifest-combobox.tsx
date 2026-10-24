@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleCombobox } from "@/liftkit/examples";
+import { ExampleCombobox } from "@/examples";
 
 const combobox: ComponentEntry = {
   title: "Combobox",

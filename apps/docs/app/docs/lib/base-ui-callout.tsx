@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { GoldenBox } from "@/liftkit/component-definitions/goldenbox/goldenbox";
-import { Button } from "@/liftkit/component-definitions";
+import { GoldenBox } from "@chainlift/liftkit";
+import { Button } from "@chainlift/liftkit";
 import { BaseUILogo } from "@/app/docs/lib/base-ui-logo";
 
 interface BaseUICalloutProps {

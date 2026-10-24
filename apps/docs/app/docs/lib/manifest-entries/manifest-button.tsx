@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleButton } from "@/liftkit/examples";
+import { ExampleButton } from "@/examples";
 import { Button_Example_TS } from "@/app/docs/components/button/codeTemplates";
 
 const button: ComponentEntry = {

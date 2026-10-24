@@ -1,10 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib/cn";
-import { Button } from "@/liftkit/component-definitions/button/button";
+import { cn } from "../../lib/cn";
+import { Button } from "../button/button";
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
-import "@/liftkit/component-css/lk-alert-dialog.css";
+import "../../css/components/lk-alert-dialog.css";
 
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;

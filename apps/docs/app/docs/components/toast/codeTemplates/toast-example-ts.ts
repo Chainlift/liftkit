@@ -19,7 +19,7 @@ import {
   ToastDescription,
   ToastClose,
   useToastManager,
-} from "@/liftkit/component-definitions";
+} from "@chainlift/liftkit";
 
 
 export function ExampleToast() {

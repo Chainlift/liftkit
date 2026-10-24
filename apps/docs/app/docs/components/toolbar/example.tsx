@@ -23,9 +23,9 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@/liftkit/component-definitions/select/select";
-import { Toggle } from "@/liftkit/component-definitions/toggle/toggle";
-import { ToggleGroup } from "@/liftkit/component-definitions/toggle-group/toggle-group";
+} from "@chainlift/liftkit";
+import { Toggle } from "@chainlift/liftkit";
+import { ToggleGroup } from "@chainlift/liftkit";
 import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput } from "./toolbar";
 
 export default function ToolbarDemo() {

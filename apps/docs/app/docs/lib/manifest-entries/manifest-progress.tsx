@@ -1,5 +1,5 @@
 import type { ComponentEntry } from "@/app/docs/lib/component-manifest";
-import { ExampleProgress } from "@/liftkit/examples";
+import { ExampleProgress } from "@/examples";
 
 const progress: ComponentEntry = {
   title: "Progress",
