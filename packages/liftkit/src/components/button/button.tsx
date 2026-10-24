@@ -2,7 +2,7 @@ import React from "react";
 import { Button as BaseButton } from "@base-ui/react";
 import { cn } from "@/lib/cn";
 import { IconName } from "lucide-react/dynamic";
-import { LkStateLayerProps } from "@/liftkit/component-definitions/state-layer";
+import { LkStateLayerProps } from "@/liftkit/component-definitions/state-layer/state-layer";
 import { LkFontClass } from "@/liftkit/types/lk-typography";
 import { Icon } from "@/liftkit/component-definitions/icon/icon";
 
