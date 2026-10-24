@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- markdownlint-disable -->
+<div align="center">
+  <a href="https://github.com/chainlift/liftkit">
+    <img src="https://cdn.prod.website-files.com/657f62adb6ceeafe578853be/68748d8bdb8b734290a3db92_h-lockup-transparent.svg" width="240px" alt="LiftKit">
+  </a>
+  <p><strong>The UI Framework for Perfectionists</strong></p>
+</div>
+<!-- markdownlint-restore -->
 
-## Getting Started
+> [!WARNING]
+> **LiftKit v2 is in active development and not yet published to npm.** Follow [#237](https://github.com/Chainlift/liftkit/issues/237) for progress. The v1 code is preserved at the [`v1-legacy`](https://github.com/Chainlift/liftkit/tree/v1-legacy) tag.
 
-First, run the development server:
+## What is LiftKit?
+
+LiftKit is a design system and React component library. At its core is a system of formulas for scaling, spacing, and color that enforces design best practices automatically: golden-ratio proportions, optical correction, and smooth Material-based color ramps.
+
+v2 components wrap [Base UI](https://base-ui.com) primitives, so accessibility, keyboard navigation, and focus management are handled for you.
+
+## Repository layout
+
+| Path | What it is |
+| --- | --- |
+| [`packages/liftkit`](packages/liftkit) | The component library (`@chainlift/liftkit`) |
+| [`apps/docs`](apps/docs) | The documentation site |
+
+## Development
+
+Requires Node 20.9+ and [pnpm](https://pnpm.io) 10.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # docs site at http://localhost:3000
+pnpm typecheck
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Apache 2.0](LICENSE)
