@@ -9,7 +9,7 @@
     "lint": "eslint",
     "docs:gen-examples": "node scripts/generate-local-code-samples.mjs",
     "docs:gen-css": "node scripts/gen-css.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@chainlift/liftkit": "workspace:*",
