@@ -32,3 +32,6 @@ npm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# conductor (machine-local overrides)
+.conductor/settings.local.toml
