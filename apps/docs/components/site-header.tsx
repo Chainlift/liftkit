@@ -3,13 +3,7 @@
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { LiftKitLogo } from "@/components/liftkit-logo";
-import {
-  Icon,
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@chainlift/liftkit";
+import { Icon, NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@chainlift/liftkit";
 
 const GITHUB_URL = "https://github.com/Chainlift/liftkit";
 
@@ -32,23 +26,20 @@ export function SiteHeader() {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="gap-sm">
         <NavigationMenuItem>
           <NavigationMenuLink
             active={pathname === "/"}
             aria-label="LiftKit home"
-            className="flex items-center color-primary"
+            className="flex items-center color-onsurface"
             render={<NextLink href="/" />}
           >
-            <LiftKitLogo className="h-lg" />
+            <LiftKitLogo className="h-md" />
           </NavigationMenuLink>
         </NavigationMenuItem>
         {PAGES.map(({ label, href, isActive }) => (
           <NavigationMenuItem key={href}>
-            <NavigationMenuLink
-              active={isActive(pathname)}
-              render={<NextLink href={href} />}
-            >
+            <NavigationMenuLink active={isActive(pathname)} render={<NextLink href={href} />}>
               {label}
             </NavigationMenuLink>
           </NavigationMenuItem>
