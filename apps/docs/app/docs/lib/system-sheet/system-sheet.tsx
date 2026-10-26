@@ -20,7 +20,7 @@ export function SystemSheet() {
             <div key={name} className="system-row">
               <code className="subheading mono color-onsurfacelow">{name}</code>
               <span
-                className="system-latex title3 color-onsurface"
+                className="system-latex body color-onsurface"
                 dangerouslySetInnerHTML={{ __html: katex.renderToString(latex, { throwOnError: false }) }}
               />
               <TokenLine width={width} unitlessVar={unitlessVar} />
