@@ -7,33 +7,30 @@ import { StateLayer } from "@chainlift/liftkit";
 import type { getDocsNav } from "@/lib/docs-nav";
 import "./nav-sidebar.css";
 
-type NavItems = ReturnType<typeof getDocsNav>;
+type NavSections = ReturnType<typeof getDocsNav>;
 
-export function NavSidebar({ nav }: { nav: NavItems }) {
+export function NavSidebar({ nav }: { nav: NavSections }) {
   const pathname = usePathname();
 
   return (
     <GoldenBox>
       <nav className="sidebar pb-2xl">
-        {nav.map((item) => (
-          <div key={item.href}>
-            <Link href={item.href}>
-              <div className={`px-sm relative overflow-hidden rounded-xs${pathname === item.href ? " bg-error" : ""}`}>
-                <h2 className="heading my-xs">{item.title}</h2>
-                <StateLayer />
-              </div>
-            </Link>
-            {item.children?.map((c) => (
-              <Link key={c.href} href={c.href}>
+        {nav.map((section, i) => (
+          <section key={section.title} aria-labelledby={`nav-section-${i}`}>
+            <h2 id={`nav-section-${i}`} className={`label color-onsurfacevariant px-sm mb-2xs ${i === 0 ? "mt-0" : "mt-md"}`}>
+              {section.title}
+            </h2>
+            {section.items.map((item) => (
+              <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
                 <div
-                  className={`px-sm py-2xs relative overflow-hidden rounded-2xs${pathname === c.href ? " bg-surfacecontainerhigh" : ""}`}
+                  className={`px-sm py-2xs relative overflow-hidden rounded-2xs${pathname === item.href ? " bg-surfacecontainerhigh" : ""}`}
                 >
-                  <span className="callout">{c.title}</span>
+                  <span className="callout">{item.title}</span>
                   <StateLayer />
                 </div>
               </Link>
             ))}
-          </div>
+          </section>
         ))}
       </nav>
     </GoldenBox>

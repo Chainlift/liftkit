@@ -80,7 +80,7 @@ This is the library being documented, not the docs site itself.
 - **GoldenBox** is a layout primitive used extensively — it applies golden-ratio-based padding with optical correction. Props: `scaleFactor` (font class name), `opticalCorrection` (top/bottom/x/y/all/none).
 - Color tokens follow pattern: `--lk-color-{name}` with `on` variants (e.g., `primary` / `onprimary`)
 - Size tokens: `--lk-size-{5xs..5xl}` based on powers of the golden ratio scale factor
-- Navigation is auto-generated from the filesystem via `apps/docs/lib/docs-nav.ts` — any folder under `app/docs/` with a `page.mdx` or `page.tsx` automatically appears in the sidebar
+- The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components, Types & Tokens). Each section lists the folders with a `page.mdx`/`page.tsx` in its directory, so new pages appear automatically. Pages directly under `app/docs/` go in Overview.
 
 ### Key pattern: updating CSS rules
 

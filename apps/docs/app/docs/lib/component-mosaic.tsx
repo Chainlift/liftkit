@@ -21,7 +21,6 @@ import {
   ExampleMenu,
   ExampleMenubar,
   ExampleMeter,
-  ExampleNavigationMenu,
   ExampleNumberField,
   ExamplePopover,
   ExamplePreviewCard,
@@ -45,7 +44,6 @@ export function ComponentMosaic() {
   return (
     <div className="flex-v gap-0">
       {/* ── App Chrome ── */}
-      <ExampleNavigationMenu />
       <ExampleMenubar />
       <ExampleToolbar />
 

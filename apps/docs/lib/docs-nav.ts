@@ -3,50 +3,39 @@ import path from "node:path";
 
 const DOCS_DIR = path.join(process.cwd(), "app", "docs");
 
-type NavItem = { title: string; href: string; children?: NavItem[] };
+export type NavItem = { title: string; href: string };
+export type NavSection = { title: string; items: NavItem[] };
+
+/**
+ * Sidebar sections, in display order. Each section lists the pages found in
+ * `dir` (relative to app/docs), so new pages appear automatically. "." means
+ * pages that sit directly under app/docs, like getting-started.
+ */
+const SECTIONS: { title: string; dir: string }[] = [
+  { title: "Overview", dir: "." },
+  { title: "Components", dir: "components" },
+  { title: "Types & Tokens", dir: "types" },
+];
 
 function titleFromSegment(seg: string) {
-  return seg
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export function getDocsNav(): NavItem[] {
-  function walk(dir: string, baseHref: string): NavItem[] {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
+function hasPage(dir: string) {
+  return fs.existsSync(path.join(dir, "page.mdx")) || fs.existsSync(path.join(dir, "page.tsx"));
+}
 
-    const items: NavItem[] = [];
+function pagesIn(relDir: string): NavItem[] {
+  const dir = path.join(DOCS_DIR, relDir);
+  const baseHref = relDir === "." ? "/docs" : `/docs/${relDir}`;
 
-    for (const e of entries) {
-      if (!e.isDirectory()) continue;
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && hasPage(path.join(dir, e.name)))
+    .map((e) => ({ title: titleFromSegment(e.name), href: `${baseHref}/${e.name}` }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
 
-      const seg = e.name;
-      const childDir = path.join(dir, seg);
-
-      // If it has page.mdx, treat it as a nav node
-      const hasPage =
-        fs.existsSync(path.join(childDir, "page.mdx")) ||
-        fs.existsSync(path.join(childDir, "page.tsx"));
-
-      const href = `${baseHref}/${seg}`;
-      const children = walk(childDir, href);
-
-      if (hasPage || children.length) {
-        items.push({
-          title: titleFromSegment(seg),
-          href,
-          ...(children.length ? { children } : {}),
-        });
-      }
-    }
-
-    // stable ordering: folders first by name
-    items.sort((a, b) => a.title.localeCompare(b.title));
-    return items;
-  }
-
-  return [
-    { title: "Docs", href: "/docs" },
-    ...walk(DOCS_DIR, "/docs"),
-  ];
+export function getDocsNav(): NavSection[] {
+  return SECTIONS.map(({ title, dir }) => ({ title, items: pagesIn(dir) })).filter((s) => s.items.length);
 }

@@ -115,9 +115,6 @@ export function ExampleNavigationMenu() {
         <NavigationMenuItem>
           <NavigationMenuLink render={<Link href="/docs">Docs</Link>} />
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink render={<Link href="/playground">Playground</Link>} />
-        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );

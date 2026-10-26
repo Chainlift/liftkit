@@ -1,7 +1,7 @@
 import { getDocsNav } from "@/lib/docs-nav";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { GoldenBox } from "@chainlift/liftkit";
-import { ExampleNavigationMenu } from "@/examples";
+import { SiteHeader } from "@/components/site-header";
 import "../docsPage.css";
 import { NavSidebar } from "@/app/docs/lib/nav-sidebar";
 import {
@@ -14,13 +14,13 @@ import {
 } from "@chainlift/liftkit";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 
-/** Docs chrome (top bar, nav sidebar, theme panel FAB, table of contents), shared by /docs and the home page. */
+/** Docs chrome: site header, nav sidebar, theme panel FAB, table of contents. */
 export function DocsShell({ children }: { children: React.ReactNode }) {
   const nav = getDocsNav();
 
   return (
     <div>
-      <ExampleNavigationMenu />
+      <SiteHeader />
       <ThemePanel />
       <div className="docs-page-layout">
         <div className="left-sidebar">
