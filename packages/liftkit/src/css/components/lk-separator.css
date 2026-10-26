@@ -1,0 +1,4 @@
+:where([data-slot="separator"]) {
+  width: 1px;
+  background-color: var(--lk-outline);
+}

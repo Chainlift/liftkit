@@ -1,0 +1,53 @@
+:where(.Panel) {
+  display: flex;
+  gap: 1px;
+  border: 1px solid var(--lk-outlinevariant);
+  background-color: var(--lk-surfacecontainerlow);
+  border-radius: var(--lku-corner-xs);
+  padding: var(--lk-size-2xs);
+}
+
+:where([data-slot="toggle"]) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--lk-size-lg) * var(--lk-halfstep));
+  height: calc(var(--lk-size-lg) * var(--lk-halfstep));
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  border-radius: var(--lku-corner-xs);
+  background-color: transparent;
+  color: var(--color-gray-600);
+  user-select: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &:focus-visible {
+    background-color: transparent;
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-surfacevariant);
+    }
+  }
+
+  &:active {
+    background-color: var(--lk-outlinevariant);
+  }
+
+  &[data-pressed] {
+    color: var(--lk-onsurface);
+    background-color: var(--lk-surfacevariant);
+  }
+}
+
+:where(.Icon) {
+  width: 1.25rem;
+  height: 1.25rem;
+}

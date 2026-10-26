@@ -1,0 +1,29 @@
+@import "./liftkit-core.css";
+
+.shadow-2xs {
+  box-shadow: var(--lk-shadow-2xs);
+}
+
+.shadow-xs {
+  box-shadow: var(--lk-shadow-xs);
+}
+
+.shadow-sm {
+  box-shadow: var(--lk-shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--lk-shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--lk-shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--lk-shadow-xl);
+}
+
+.shadow-2xl {
+  box-shadow: var(--lk-shadow-2xl);
+}

@@ -1,0 +1,102 @@
+:where([data-slot="tabs"]) {
+}
+
+:where([data-slot="tabs-list"]) {
+  display: flex;
+  position: relative;
+  z-index: 0;
+  /* padding: 0px var(--lk-size-2xs); */
+  gap: var(--lk-size-xs);
+}
+
+:where([data-slot="tabs-tab"]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  background: none;
+  appearance: none;
+  color: var(--color-gray-600);
+  font-family: inherit;
+
+  /* line-height: 1.25rem; */
+  font-weight: 500;
+  user-select: none;
+  white-space: nowrap;
+  word-break: keep-all;
+  padding: var(--lk-size-md);
+  /* height: 2rem; */
+
+  /* ^^ turned off padding and height from Base UI */
+
+  &[data-active] {
+    color: var(--lk-primary);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--lk-primary);
+    }
+  }
+
+  &:focus-visible {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: var(--lk-size-xs) 0;
+      border-radius: var(--lku-corner-xs);
+      outline: 2px solid var(--lk-info);
+      outline-offset: -1px;
+    }
+  }
+}
+
+:where([data-slot="tabs-indicator"]) {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+
+  /* top: 50%;
+  translate: var(--active-tab-left) -50%;
+  width: var(--active-tab-width);
+  height: var(--lku-length-lg); */
+
+  bottom: 0;
+  translate: var(--active-tab-left) 0px;
+  width: var(--active-tab-width);
+  height: var(--lku-length-3xs);
+
+  border-radius: var(--lku-corner-2xs);
+  background-color: var(--lk-primary);
+  transition-property: translate, width;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+:where([data-slot="tabs-panel"]) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+    border-radius: var(--lku-corner-xs);
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+:where(.Icon) {
+  /* width: 2.5rem; */
+  /* height: 2.5rem; */
+  color: var(--lk-outlinevariant);
+}

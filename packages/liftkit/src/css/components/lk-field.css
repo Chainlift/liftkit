@@ -1,0 +1,51 @@
+:where([data-slot="field"]) {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--lk-size-xs);
+  width: 100%;
+  max-width: 100%;
+}
+
+:where([data-slot="field-label"]) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  font-weight: 500;
+  color: var(--lk-onsurface);
+}
+
+:where([data-slot="field"] input) {
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+
+  box-sizing: border-box;
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
+  margin: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  width: 100%;
+  border-radius: var(--lku-corner-xs);
+  font-family: inherit;
+  font-size: 1em;
+  line-height: var(--lk-halfstep);
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+
+  &:focus {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="field-error"]) {
+  font-size: 1em;
+  line-height: var(--lk-halfstep);
+  color: var(--color-red-800);
+}
+
+:where([data-slot="field-description"]) {
+  margin: 0;
+  font-size: var(--lk-caption-font-size);
+  line-height: var(--lk-caption-line-height);
+  color: var(--lk-onsurfacelow);
+}

@@ -1,0 +1,181 @@
+:where([data-slot="popover-trigger"]) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--lku-length-xl);
+  height: var(--lku-length-xl);
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurface);
+  user-select: none;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-gray-100);
+  }
+
+  &[data-popup-open] {
+    background-color: var(--color-gray-100);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+/* remove :where from positioner because it shouldn't be overridden easily */
+[data-slot="popover-positioner"] {
+  width: var(--positioner-width);
+  height: var(--positioner-height);
+  max-width: var(--available-width);
+}
+
+:where([data-slot="popover-popup"]) {
+  box-sizing: border-box;
+  padding-block: var(--lk-size-sm) calc(var(--lk-size-md) / var(--lk-halfstep));
+  padding-inline: var(--lk-size-md);
+  border-radius: var(--lku-corner-sm);
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+  transform-origin: var(--transform-origin);
+  transition:
+    transform 150ms,
+    opacity 150ms;
+
+  width: var(--popup-width, auto);
+  height: var(--popup-height, auto);
+  max-width: 500px;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="popover-arrow"]) {
+  display: flex;
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+:where(.ArrowFill) {
+  fill: canvas;
+}
+
+:where(.ArrowOuterStroke) {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where(.ArrowInnerStroke) {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where([data-slot="popover-title"]) {
+  margin: 0;
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  font-weight: 600;
+}
+
+:where([data-slot="popover-description"]) {
+  margin: 0;
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  color: var(--lk-onsurfacelow);
+}
+
+/* idk what this is for */
+
+/* :where(.Container) {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+/* idk what this is for either */
+
+/* :where(.Button) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lk-size-xs);
+  height: var(--lku-length-xl);
+  padding: 0 0.875rem;
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-surfacecontainerlow);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: var(--lk-onsurface);
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-gray-100);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+} */

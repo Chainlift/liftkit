@@ -1,0 +1,13 @@
+/* Fills as much of its parent as possible: grows along a flex parent's main
+   axis and stretches across the cross axis (a block parent gives full width). */
+:where([data-lk-component="placeholder"]) {
+  display: flex;
+  flex: 1 1 auto;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lk-size-md);
+  background-color: var(--lk-surfacecontainerlow);
+  outline: 1px solid var(--lk-outline);
+  border-radius: var(--lku-corner-xs);
+}

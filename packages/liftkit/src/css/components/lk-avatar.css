@@ -1,0 +1,32 @@
+:where([data-slot="avatar"]) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: 100%;
+  user-select: none;
+  font-weight: 500;
+  color: var(--lk-onsurface);
+  background-color: var(--lk-surfacecontainer);
+  font-size: var(--lk-size-md);
+  line-height: 1;
+  overflow: hidden;
+  height: var(--lku-length-xl);
+  width: var(--lku-length-xl);
+}
+
+:where([data-slot="avatar-image"]) {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+:where([data-slot="avatar-fallback"]) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: var(--lk-size-md);
+}

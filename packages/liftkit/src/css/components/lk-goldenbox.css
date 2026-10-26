@@ -1,0 +1,190 @@
+:where([data-lk-component="golden-box"]) {
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  --local-offset-factor: calc(
+    var(--largest-child-font-size) / var(--largest-child-line-height)
+  ); /* The line height of the largest child */
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
+
+  /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+}
+
+/* Other material handling (that doesn't need to be nested) */
+
+/* For each scale factor, recalculate largest child font size and line height so that padding can adjust */
+
+:where([data-lk-golden-box-scale-factor="zero"]) {
+  padding: 0;
+  border-radius: var(--lku-corner-sm);
+}
+
+:where([data-lk-golden-box-scale-factor="display1"]) {
+  --largest-child-font-size: var(--lk-display1-font-size);
+  --largest-child-line-height: var(--lk-display1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display1-font-size) / var(--lk-display1-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="display2"]) {
+  --largest-child-font-size: var(--lk-display2-font-size);
+  --largest-child-line-height: var(--lk-display2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display2-font-size) / var(--lk-display2-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="title1"]) {
+  --largest-child-font-size: var(--lk-title1-font-size);
+  --largest-child-line-height: var(--lk-title1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title1-font-size) / var(--lk-title1-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="title2"]) {
+  --largest-child-font-size: var(--lk-title2-font-size);
+  --largest-child-line-height: var(--lk-title2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title2-font-size) / var(--lk-title2-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="title3"]) {
+  --largest-child-font-size: var(--lk-title3-font-size);
+  --largest-child-line-height: var(--lk-title3-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title3-font-size) / var(--lk-title3-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="heading"]) {
+  --largest-child-font-size: var(--lk-heading-font-size);
+  --largest-child-line-height: var(--lk-heading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-heading-font-size) / var(--lk-heading-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="subheading"]) {
+  --largest-child-font-size: var(--lk-subheading-font-size);
+  --largest-child-line-height: var(--lk-subheading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-subheading-font-size) / var(--lk-subheading-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="body"]) {
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
+  --opticCorrectedPadding: calc(var(--lk-body-font-size) / var(--lk-body-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="callout"]) {
+  --largest-child-font-size: var(--lk-callout-font-size);
+  --largest-child-line-height: var(--lk-callout-line-height);
+  --opticCorrectedPadding: calc(var(--lk-callout-font-size) / var(--lk-callout-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="label"]) {
+  --largest-child-font-size: var(--lk-label-font-size);
+  --largest-child-line-height: var(--lk-label-line-height);
+  --opticCorrectedPadding: calc(var(--lk-label-font-size) / var(--lk-label-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="caption"]) {
+  --largest-child-font-size: var(--lk-caption-font-size);
+  --largest-child-line-height: var(--lk-caption-line-height);
+  --opticCorrectedPadding: calc(var(--lk-caption-font-size) / var(--lk-caption-line-height));
+}
+
+:where([data-lk-golden-box-scale-factor="capline"]) {
+  --largest-child-font-size: var(--lk-capline-font-size);
+  --largest-child-line-height: var(--lk-capline-line-height);
+  --opticCorrectedPadding: calc(var(--lk-capline-font-size) / var(--lk-capline-line-height));
+}
+
+:where([data-lk-golden-box-material="flat"]) {
+  backdrop-filter: none;
+}
+
+/* [data-lk-golden-box-material="rubber"] { */
+/* } */
+
+/* Default padding behavior: equal on all sides */
+:where([data-lk-component="golden-box"]) {
+  /* position: relative; */
+  /* z-index: 1; */
+  padding: var(--largest-child-font-size);
+  /* height: 100%; */
+}
+
+:where([data-lk-golden-box-optical-correction="left"]) {
+  padding-left: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="right"]) {
+  padding-right: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="top"]) {
+  padding-top: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="bottom"]) {
+  padding-bottom: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="x"]) {
+  padding-left: var(--opticCorrectedPadding);
+  padding-right: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="y"]) {
+  padding-top: var(--opticCorrectedPadding);
+  padding-bottom: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-golden-box-optical-correction="all"]) {
+  padding: var(--opticCorrectedPadding);
+}
+
+/* No Padding overrides */
+
+:where([data-lk-golden-box-no-padding="top"]) {
+  padding-top: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="right"]) {
+  padding-right: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="bottom"]) {
+  padding-bottom: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="left"]) {
+  padding-left: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="x"]) {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="y"]) {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+:where([data-lk-golden-box-no-padding="all"]) {
+  padding: 0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :where([data-lk-component="card"]) {
+    /* Special material handling */
+
+    /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
+    &[data-lk-golden-box-material="glass"] {
+      /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+      [data-lk-slot="children"] {
+        mix-blend-mode: plus-lighter;
+        color: var(--lk-onsurface);
+      }
+    }
+  }
+}
+
+/* TODO: Consider adding a 'tint' prop which would let you combine frosted glass effects with a slight color */

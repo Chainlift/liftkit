@@ -1,0 +1,19 @@
+import { Example } from "@/app/docs/lib/example";
+import ButtonVariants from "./variants";
+import ButtonSizing from "./sizing";
+
+## Variants
+
+Use `fill` for the primary action on a screen, `outline` for secondary actions, and `text` for low-emphasis actions like "Cancel."
+
+<Example file="button/variants.tsx">
+  <ButtonVariants />
+</Example>
+
+## Narrow and wide buttons
+
+A button shrinks to fit the space it's given. If its label is too long, the label is cut off with an ellipsis, and any icons keep their size. When a button has no icons, its label is centered, which matters once the button is wider than its content. Buttons with an icon keep their content aligned to the start.
+
+<Example file="button/sizing.tsx">
+  <ButtonSizing />
+</Example>

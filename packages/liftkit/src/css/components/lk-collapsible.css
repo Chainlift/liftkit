@@ -1,0 +1,74 @@
+:where([data-slot="collapsible"]) {
+  display: flex;
+  width: 14rem;
+  min-height: 9rem;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--lk-onsurface);
+}
+
+:where([data-slot="collapsible-trigger-icon"]) {
+  width: var(--lku-length-sm);
+  height: var(--lku-length-sm);
+  transition: transform 150ms ease-out;
+}
+
+:where([data-slot="collapsible-trigger"]) {
+  display: flex;
+  align-items: center;
+  gap: var(--lk-size-sm);
+  margin: 0;
+  border: 0;
+  outline: 0;
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--color-gray-100);
+  color: var(--lk-onsurface);
+  font-family: inherit;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-outlinevariant);
+    }
+  }
+
+  &:active {
+    background-color: var(--lk-outlinevariant);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+  }
+
+  &[data-panel-open] [data-slot="collapsible-trigger-icon"] {
+    transform: rotate(90deg);
+  }
+}
+
+:where([data-slot="collapsible-panel"]) {
+  display: block;
+  height: var(--collapsible-panel-height);
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+  transition: all 150ms ease-out;
+
+  &[hidden]:not([hidden="until-found"]) {
+    display: none;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    height: 0;
+  }
+}
+
+/* :where(.Content) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lk-size-sm);
+  margin-top: 0.25rem;
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--color-gray-100);
+  cursor: text;
+} */

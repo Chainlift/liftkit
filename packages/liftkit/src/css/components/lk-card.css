@@ -1,0 +1,216 @@
+:where([data-lk-component="card"]) {
+  display: block;
+  overflow: hidden;
+  /* position: relative; */
+
+  --local-offset-factor: calc(
+    var(--largest-child-font-size) / var(--largest-child-line-height)
+  ); /* The line height of the largest child */
+
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
+
+  --lk-card-bg: var(--lk-color-token);
+  --lk-card-fg: var(--lk-color-ontoken);
+
+  border-radius: var(--local-offset-factor);
+
+  background: var(--lk-card-bg, transparent);
+  color: var(--lk-card-fg, inherit);
+
+  /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+}
+
+/* Other material handling (that doesn't need to be nested) */
+
+:where([data-lk-card-variant="fill"]) {
+}
+
+:where(.lk-card-variant--fill) {
+  --lk-card-bg: var(--lk-color-token);
+  --lk-card-fg: var(--lk-color-ontoken);
+  --lk-card-border: transparent;
+}
+
+:where(.lk-card-variant--outline) {
+  --lk-card-bg: transparent;
+  --lk-card-fg: var(--lk-color-token);
+  --lk-card-border: var(--lk-color-token);
+}
+
+:where(.lk-card-variant--text) {
+  --lk-card-bg: transparent;
+  --lk-card-fg: var(--lk-color-token);
+  --lk-card-border: transparent;
+}
+
+:where([data-lk-card-variant="outline"]) {
+  background-color: transparent;
+  border: 1px solid var(--lk-outlinevariant);
+}
+
+:where([data-lk-card-variant="transparent"]) {
+  background-color: transparent;
+  border: none;
+}
+
+/* For each scale factor, recalculate largest child font size and line height so that padding can adjust */
+
+:where([data-lk-card-scale-factor="zero"]) {
+  padding: 0;
+  border-radius: var(--lku-corner-sm);
+}
+
+:where([data-lk-card-scale-factor="display1"]) {
+  --largest-child-font-size: var(--lk-display1-font-size);
+  --largest-child-line-height: var(--lk-display1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display1-font-size) / var(--lk-display1-line-height));
+  border-radius: var(--local-offset-factor);
+}
+
+:where([data-lk-card-scale-factor="display2"]) {
+  --largest-child-font-size: var(--lk-display2-font-size);
+  --largest-child-line-height: var(--lk-display2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-display2-font-size) / var(--lk-display2-line-height));
+}
+
+:where([data-lk-card-scale-factor="title1"]) {
+  --largest-child-font-size: var(--lk-title1-font-size);
+  --largest-child-line-height: var(--lk-title1-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title1-font-size) / var(--lk-title1-line-height));
+}
+
+:where([data-lk-card-scale-factor="title2"]) {
+  --largest-child-font-size: var(--lk-title2-font-size);
+  --largest-child-line-height: var(--lk-title2-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title2-font-size) / var(--lk-title2-line-height));
+}
+
+:where([data-lk-card-scale-factor="title3"]) {
+  --largest-child-font-size: var(--lk-title3-font-size);
+  --largest-child-line-height: var(--lk-title3-line-height);
+  --opticCorrectedPadding: calc(var(--lk-title3-font-size) / var(--lk-title3-line-height));
+}
+
+:where([data-lk-card-scale-factor="heading"]) {
+  --largest-child-font-size: var(--lk-heading-font-size);
+  --largest-child-line-height: var(--lk-heading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-heading-font-size) / var(--lk-heading-line-height));
+}
+
+:where([data-lk-card-scale-factor="subheading"]) {
+  --largest-child-font-size: var(--lk-subheading-font-size);
+  --largest-child-line-height: var(--lk-subheading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-subheading-font-size) / var(--lk-subheading-line-height));
+}
+
+:where([data-lk-card-scale-factor="body"]) {
+  --largest-child-font-size: var(--lk-body-font-size);
+  --largest-child-line-height: var(--lk-body-line-height);
+  --opticCorrectedPadding: calc(var(--lk-body-font-size) / var(--lk-body-line-height));
+}
+
+:where([data-lk-card-scale-factor="callout"]) {
+  --largest-child-font-size: var(--lk-callout-font-size);
+  --largest-child-line-height: var(--lk-callout-line-height);
+  --opticCorrectedPadding: calc(var(--lk-callout-font-size) / var(--lk-callout-line-height));
+}
+
+:where([data-lk-card-scale-factor="label"]) {
+  --largest-child-font-size: var(--lk-label-font-size);
+  --largest-child-line-height: var(--lk-label-line-height);
+  --opticCorrectedPadding: calc(var(--lk-label-font-size) / var(--lk-label-line-height));
+}
+
+:where([data-lk-card-scale-factor="caption"]) {
+  --largest-child-font-size: var(--lk-caption-font-size);
+  --largest-child-line-height: var(--lk-caption-line-height);
+  --opticCorrectedPadding: calc(var(--lk-caption-font-size) / var(--lk-caption-line-height));
+}
+
+:where([data-lk-card-scale-factor="capline"]) {
+  --largest-child-font-size: var(--lk-capline-font-size);
+  --largest-child-line-height: var(--lk-capline-line-height);
+  --opticCorrectedPadding: calc(var(--lk-capline-font-size) / var(--lk-capline-line-height));
+}
+
+:where([data-lk-card-material="flat"]) {
+  backdrop-filter: none;
+}
+
+:where(.clickable) {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+:where(.clickable:hover) {
+  /* box-shadow: 0 0 0 2px var(--lk-primary, blue); */
+}
+
+/* [data-lk-card-material="rubber"] { */
+/* } */
+
+/* Default padding behavior: equal on all sides */
+:where([data-lk-card-element="padding-box"]) {
+  position: relative;
+  z-index: 1;
+  padding: var(--largest-child-font-size);
+  height: 100%;
+}
+
+:where([data-lk-card-element="padding-box"].overflow-auto) {
+  position: relative;
+  z-index: 1;
+  padding: var(--largest-child-font-size);
+  height: 100%;
+  overflow: auto;
+}
+
+:where([data-lk-card-optical-correction="left"]) {
+  padding-left: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="right"]) {
+  padding-right: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="top"]) {
+  padding-top: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="bottom"]) {
+  padding-bottom: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="x"]) {
+  padding-left: var(--opticCorrectedPadding);
+  padding-right: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="y"]) {
+  padding-top: var(--opticCorrectedPadding);
+  padding-bottom: var(--opticCorrectedPadding);
+}
+
+:where([data-lk-card-optical-correction="all"]) {
+  padding: var(--opticCorrectedPadding);
+}
+
+@media (prefers-color-scheme: dark) {
+  :where([data-lk-component="card"]) {
+    /* Special material handling */
+
+    /* Global material component behaviors are handled in universal/lib/css/material.css. But here, we're adding case-specific rules. */
+    &[data-lk-card-material="glass"] {
+      /* Modifies direct child text elements of the children slot (that way nested components like buttons
+       don't inherit color blending props */
+      [data-lk-slot="children"] {
+        mix-blend-mode: plus-lighter;
+        color: var(--lk-onsurface);
+      }
+    }
+  }
+}
+
+/* TODO: Consider adding a 'tint' prop which would let you combine frosted glass effects with a slight color */

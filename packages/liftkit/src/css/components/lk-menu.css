@@ -1,0 +1,200 @@
+:where([data-slot="menu-trigger"]) {
+  --lk-color-token: var(--lk-primary);
+
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  cursor: pointer;
+
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  background: transparent;
+  color: var(--lk-onsurface);
+  gap: var(--button-gap);
+  position: relative;
+  padding: var(--lk-size-2xs) var(--lk-size-xs);
+  line-height: var(--lk-halfstep);
+
+  border-width: var(--lku-length-5xs);
+  border-style: solid;
+  border-color: var(--lk-btn-border, transparent);
+
+  border-radius: var(--lku-corner-2xs);
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: pre;
+  word-break: keep-all;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 150ms;
+  }
+
+  &:hover::before {
+    opacity: 0.08;
+  }
+
+  &[data-popup-open] {
+    z-index: 0;
+    position: relative;
+  }
+
+  &[data-popup-open]::before {
+    opacity: 0.16;
+  }
+}
+
+:where([data-slot="menu-positioner"]) {
+  outline: 0;
+}
+
+:where([data-slot="menu-popup"]) {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--lk-size-2xs);
+  scroll-padding-block: var(--lk-size-sm);
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-surface);
+  scrollbar-color: var(--lk-outline) transparent;
+  scrollbar-width: thin;
+  color: var(--lk-onsurface);
+  max-height: min(var(--lku-length-5xl), var(--available-height));
+  transition:
+    opacity 0.1s,
+    transform 0.1s;
+  transform-origin: var(--transform-origin);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="menu-arrow"]) {
+  display: flex;
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+:where(.ArrowFill) {
+  fill: canvas;
+}
+
+:where(.ArrowOuterStroke) {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where(.ArrowInnerStroke) {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where([data-slot="menu-item"]) {
+  box-sizing: border-box;
+  outline: 0;
+  cursor: default;
+  user-select: none;
+  padding-block: var(--lk-size-sm);
+  padding-left: var(--lk-size-md);
+  padding-right: var(--lk-size-lg);
+  display: flex;
+  gap: var(--lk-size-sm);
+  align-items: center;
+  font-size: var(--lk-size-md);
+  line-height: var(--lku-length-md);
+  position: relative;
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--lk-onsurface);
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
+    background-color: var(--lk-surfacecontainerhigh);
+  }
+}
+
+:where([data-slot="menu-submenu-trigger"]) {
+  box-sizing: border-box;
+  outline: 0;
+  cursor: default;
+  user-select: none;
+  padding-block: var(--lk-size-sm);
+  padding-left: var(--lk-size-md);
+  padding-right: var(--lk-size-md);
+  display: flex;
+  gap: var(--lk-size-xs);
+  align-items: center;
+  font-size: var(--lk-size-md);
+  line-height: var(--lku-length-md);
+  position: relative;
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--lk-onsurface);
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
+    background-color: var(--lk-surfacecontainerhigh);
+  }
+}
+
+:where([data-slot="menu-separator"]) {
+  margin: var(--lk-size-xs) var(--lk-size-md);
+  height: 1px;
+  background-color: var(--lk-outlinevariant);
+}

@@ -1,0 +1,236 @@
+/*
+
+IMPORTANT NOTE: 
+The "combobox-input-group" actually just targets the <input> element. 
+The word "group" is misleading. But that's what Base says, 
+and I'm not contradicting it right now.
+
+*/
+
+[data-slot="combobox-input-group"] {
+  box-sizing: border-box;
+  padding-left: var(--lk-size-sm);
+  padding-right: var(--lk-size-xl);
+  margin: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  width: 100%;
+
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
+  line-height: var(--lk-halfstep);
+
+  border-radius: var(--lku-corner-xs);
+  font-family: inherit;
+  font-size: 1em;
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+
+  &:focus {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="combobox-input-group"]) {
+}
+
+:where(div:has(input[data-slot="combobox-input-group"])) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+:where(div label:has(+ input[data-slot="combobox-input-group"])) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  margin-bottom: var(--lk-size-xs);
+  font-weight: 500;
+  color: var(--lk-onsurface);
+  position: relative;
+}
+
+:where([data-slot="combobox-input-group"]) {
+  position: relative;
+
+  &:has([data-slot="combobox-clear"]) [data-slot="combobox-input-group"] {
+    padding-right: var(--lk-size-xl);
+  }
+}
+
+:where([data-slot="action-buttons"]) {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: var(--lk-size-sm);
+  border-radius: var(--lku-corner-xs);
+  border: none;
+  color: var(--lk-outline);
+  padding: 0;
+}
+
+:where([data-slot="combobox-trigger"]),
+:where([data-slot="combobox-clear"]) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--lku-length-lg);
+  height: var(--lku-length-xl);
+  color: var(--lk-outline);
+  border: none;
+  padding: 0;
+  border-radius: var(--lku-corner-xs);
+  background: none;
+}
+
+:where([data-slot="combobox-clear"]),
+:where([data-slot="combobox-trigger"] [data-slot="icon"]) {
+  width: 1em;
+  height: 1em;
+}
+
+:where([data-slot="combobox-positioner"]) {
+  outline: 0;
+}
+
+:where([data-slot="combobox-popup"]) {
+  box-sizing: border-box;
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-surface);
+  scrollbar-color: var(--lk-outline) transparent;
+  scrollbar-width: thin;
+  color: var(--lk-onsurface);
+  width: var(--anchor-width);
+  max-height: var(--lku-length-5xl);
+  max-width: var(--available-width);
+  transition:
+    opacity 0.1s,
+    transform 0.1s;
+  transform-origin: var(--transform-origin);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="combobox-list"]) {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--lk-size-sm);
+  scroll-padding-block: var(--lk-size-sm);
+  outline: 0;
+  max-height: min(var(--lku-length-5xl), var(--available-height));
+
+  &[data-empty] {
+    padding: 0;
+  }
+}
+
+:where([data-slot="combobox-item"]) {
+  box-sizing: border-box;
+  outline: 0;
+  cursor: default;
+  user-select: none;
+  padding-block: var(--lk-size-sm);
+  padding-left: var(--lk-size-md);
+  padding-right: var(--lk-size-lg);
+  /* display: grid; */
+  gap: var(--lk-size-sm);
+  align-items: center;
+  /* grid-template-columns: var(--lk-size-md) 1fr; */
+  font-size: var(--lk-size-md);
+  line-height: var(--lku-length-md);
+  transition: padding 0.2s ease;
+  position: relative;
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--lk-onsurface);
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-xs);
+    border-radius: var(--lku-corner-2xs);
+    background-color: var(--lk-surfacecontainerhigh);
+  }
+
+  &:has([data-slot="combobox-item-indicator"]) {
+    padding-left: var(--lk-size-xl);
+  }
+
+  &[data-selected]::before {
+    content: "";
+    z-index: 0;
+    pointer-events: none;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-sm);
+    border-radius: var(--lku-corner-2xs);
+    color: var(--lk-onsecondarycontainer);
+    background-color: var(--lk-secondarycontainer);
+  }
+
+  &[data-selected][data-highlighted]::before {
+    content: "";
+    z-index: 0;
+    pointer-events: none;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-sm);
+    border-radius: var(--lku-corner-2xs);
+    color: var(--lk-onsecondarycontainer);
+    background-color: var(--lk-secondarycontainer);
+  }
+
+  &[data-selected] *:not([data-slot="combobox-item-indicator"]) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+:where(.ItemText) {
+  /* grid-column-start: 2; */
+  z-index: 1;
+}
+
+:where([data-slot="combobox-item-indicator"]) {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--lk-size-md);
+}
+
+:where([data-slot="icon"]) {
+}
+
+:where([data-slot="combobox-empty"]:not(:empty)) {
+  line-height: var(--lku-length-md);
+  color: var(--lk-outline);
+  padding: var(--lk-size-md);
+}

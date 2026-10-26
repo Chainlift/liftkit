@@ -1,0 +1,39 @@
+:where([data-slot="meter"]) {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: var(--lk-size-sm);
+  /* width: 12rem; */
+}
+
+:where([data-slot="meter-label"]) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  font-weight: 500;
+  color: var(--lk-onsurface);
+}
+
+:where([data-slot="meter-value"]) {
+  grid-column-start: 2;
+  margin: 0;
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  color: var(--lk-onsurface);
+  text-align: right;
+}
+
+:where([data-slot="meter-track"]) {
+  grid-column: 1 / 3;
+  overflow: hidden;
+  background-color: var(--lk-surfacecontainerhighest);
+  box-shadow: inset 0 0 0 1px var(--lk-outlinevariant);
+  border-radius: 100em;
+  height: var(--lku-length-xs);
+}
+
+:where([data-slot="meter-indicator"]) {
+  background-color: var(--lk-secondary);
+  transition: width 500ms;
+}

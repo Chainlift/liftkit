@@ -1,0 +1,263 @@
+/* :where(.Label) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  font-weight: 500;
+  color: var(--lk-onsurface);
+  cursor: default;
+} */
+
+:where([data-slot="select-value"][data-placeholder]) {
+  opacity: 0.6;
+}
+
+/* Not in the :where() rule below, so a font class (the fontClass prop) can't change it. That keeps the trigger the
+   same height as an Input of the same font class. */
+[data-slot="select-trigger"] {
+  line-height: var(--lk-halfstep);
+}
+
+:where([data-slot="select-trigger"]) {
+  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lk-size-sm);
+
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-size-sm);
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: var(--lku-corner-xs);
+  width: 100%;
+  background-color: var(--lk-surface);
+  font-family: inherit;
+  font-size: 1em;
+  color: var(--lk-onsurface);
+  -webkit-user-select: none;
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  &[data-popup-open] {
+    background-color: var(--color-gray-100);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="select-icon"]) {
+  display: flex;
+}
+
+:where([data-slot="select-positioner"]) {
+  outline: none;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where([data-slot="select-popup"]) {
+  box-sizing: border-box;
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-surface);
+  background-clip: padding-box;
+  color: var(--lk-onsurface);
+  min-width: var(--anchor-width);
+  transform-origin: var(--transform-origin);
+  padding-block: var(--lk-size-2xs);
+  transition:
+    transform 150ms,
+    opacity 150ms;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &[data-side="none"] {
+    transition: none;
+    transform: none;
+    opacity: 1;
+    min-width: calc(var(--anchor-width) + 1rem);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+  }
+}
+
+:where([data-slot="select-list"]) {
+  box-sizing: border-box;
+  position: relative;
+
+  overflow-y: auto;
+  max-height: var(--available-height);
+  scroll-padding-block: var(--lk-size-sm);
+}
+
+:where(.Arrow) {
+  display: flex;
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+:where(.ArrowFill) {
+  fill: canvas;
+}
+
+:where(.ArrowOuterStroke) {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where(.ArrowInnerStroke) {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+:where([data-slot="select-item"]) {
+  box-sizing: border-box;
+  outline: 0;
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lku-length-md);
+  padding-block: var(--lk-size-sm);
+  padding-left: var(--lk-size-sm);
+  padding-right: var(--lk-size-lg);
+  display: grid;
+  gap: var(--lk-size-sm);
+  align-items: center;
+  grid-template-columns: calc(1em * var(--lk-halfstep)) 1fr;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    padding-block: var(--lk-size-sm);
+    font-size: var(--lk-callout-font-size);
+  }
+
+  [data-side="none"] & {
+    font-size: var(--lk-body-font-size);
+    padding-right: var(--lk-size-xl);
+  }
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--lk-onsurface);
+  }
+
+  &[data-selected] {
+    position: relative;
+    z-index: 0;
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
+    background-color: color-mix(in srgb, var(--lk-onsurface) 12%, transparent);
+  }
+
+  &[data-selected]::after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--lk-size-2xs);
+    border-radius: var(--lku-corner-2xs);
+    background-color: var(--lk-primarycontainer);
+  }
+}
+
+:where([data-slot="select-item-indicator"]) {
+  grid-column-start: 1;
+  display: block;
+}
+
+:where([data-slot="select-item-text"]) {
+  grid-column-start: 2;
+}
+
+:where([data-slot="select-scroll-up-arrow"]),
+:where([data-slot="select-scroll-down-arrow"]) {
+  width: 100%;
+  background: canvas;
+  z-index: 1;
+  text-align: center;
+  cursor: default;
+  border-radius: var(--lku-corner-xs);
+  height: var(--lku-length-md);
+  font-size: var(--lk-subheading-font-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+
+  &[data-direction="up"] {
+    &[data-side="none"] {
+      &::before {
+        top: -100%;
+      }
+    }
+  }
+
+  &[data-direction="down"] {
+    bottom: 0;
+
+    &[data-side="none"] {
+      &::before {
+        bottom: -100%;
+      }
+    }
+  }
+}

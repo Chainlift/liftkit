@@ -1,0 +1,114 @@
+:where([data-slot="tooltip-trigger"]) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  border-radius: var(--lku-corner-xs);
+  background-color: transparent;
+  color: var(--lk-onsurface);
+  user-select: none;
+  transition: background-color 0.2s ease;
+  cursor: help;
+
+  &[data-popup-open] {
+    background-color: var(--lk-inversesurface);
+  }
+
+  &:focus-visible {
+    background-color: transparent;
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-surfacevariant);
+    }
+  }
+
+  &:active {
+    background-color: var(--lk-outlinevariant);
+  }
+}
+
+:where([data-slot="tooltip-content"]) {
+  box-sizing: border-box;
+  font-size: var(--lk-subheading-font-size);
+  line-height: var(--lk-subheading-line-height);
+  display: flex;
+  flex-direction: column;
+  padding: var(--lk-size-xs) var(--lk-size-sm);
+  border-radius: var(--lku-corner-xs);
+  background-color: var(--lk-inversesurface);
+  color: var(--lk-inverseonsurface);
+  transform-origin: var(--transform-origin);
+  transition:
+    transform 150ms,
+    opacity 150ms;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &[data-instant] {
+    transition: none;
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="tooltip-arrow"]) {
+  display: flex;
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+:where(.ArrowFill) {
+  fill: var(--lk-inversesurface);
+}
+
+:where(.ArrowOuterStroke) {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-inversesurface);
+  }
+}
+
+:where(.ArrowInnerStroke) {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-inversesurface);
+  }
+}

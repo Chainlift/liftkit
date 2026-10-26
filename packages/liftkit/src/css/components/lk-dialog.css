@@ -1,0 +1,176 @@
+:where(.Button) {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  padding: 0 0.875rem;
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: 0.375rem;
+  background-color: var(--lk-btn-bg), var(--lk-surfacecontainerlow);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: var(--lk-onsurface);
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-surfacecontainerhigh);
+    }
+  }
+
+  &:active {
+    background-color: var(--lk-surfacecontainerhigh);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="dialog-backdrop"]) {
+  position: fixed;
+  min-height: 100dvh;
+  inset: 0;
+  background-color: black;
+  opacity: 0.2;
+  transition: opacity 150ms cubic-bezier(0.45, 1.005, 0, 1.005);
+  touch-action: none;
+
+  /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
+  @supports (-webkit-touch-callout: none) {
+    position: absolute;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    opacity: 0.7;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+}
+
+:where([data-slot="dialog-trigger"]) {
+  border: none;
+  border-radius: var(--lku-corner-2xs);
+  display: inline-block;
+  padding: var(--lk-size-xs) var(--lk-size-md);
+  background-color: var(--lk-surfacebright);
+  color: var(--lk-onsurface);
+  font-weight: 500;
+  box-shadow: var(--lk-shadow-2xs);
+  transition: background-color 0.2s ease;
+
+  @media (hover: hover) {
+    &:not(.lk-btn) {
+      &:hover {
+        background-color: var(--lk-surfacecontainerhigh);
+      }
+    }
+  }
+
+  &:active {
+    background-color: var(--lk-surfacecontainerhigh);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="dialog-popup"]) {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--lk-size-5xl) * var(--lk-wholestep));
+  max-width: calc(100vw - var(--lk-size-3xl));
+  margin-top: calc(var(--lk-size-lg) * -1);
+  padding: var(--lk-size-lg);
+  padding-top: var(--lk-size-md);
+  border-radius: var(--lku-corner-sm);
+  outline: 1px solid var(--lk-outlinevariant);
+  background-color: var(--lk-surfacecontainerlow);
+  color: var(--lk-onsurface);
+  transition: all 150ms;
+  touch-action: none;
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--lk-outlinevariant);
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+[data-slot="dialog-title"] {
+  margin-bottom: var(--lk-size-xs);
+  font-size: var(--lk-title3-font-size);
+  line-height: var(--lk-title3-line-height);
+  letter-spacing: var(--lk-title3-letter-spacing);
+  font-weight: 500;
+}
+
+/* title and description aren't wrapped in :where because we need specificity of 1, not 0.
+   * liftkit-core's h2 rule overrides specificity-0 rules in the cascade.
+   * A different solution would be using a className in this component's lk-example file, but I opted for this
+   * so that the example files could remain free of classnames.
+   */
+
+[data-slot="dialog-title"] {
+  font-size: var(--lk-title3-font-size);
+  line-height: var(--lk-title3-line-height);
+  letter-spacing: var(--lk-title3-letter-spacing);
+  margin-bottom: var(--lk-size-2xs);
+  font-weight: 600;
+}
+
+[data-slot="dialog-description"] {
+  margin-bottom: var(--lk-size-md);
+  font-size: var(--lk-body-font-size);
+  line-height: var(--lk-body-line-height);
+  letter-spacing: var(--lk-body-letter-spacing);
+  color: var(--lk-onsurface);
+}
+
+:where([data-slot="dialog-close"]) {
+  --lk-btn-bg: transparent;
+  --lk-btn-fg: var(--lk-onsurface);
+  --lk-btn-border: var(--lk-outline);
+
+  --button-line-height: var(--lk-halfstep) !important;
+  --button-padX: 1em;
+  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  cursor: pointer;
+
+  display: inline-flex;
+  vertical-align: middle;
+  background: var(--lk-btn-bg, transparent);
+  color: var(--lk-btn-fg, inherit);
+  gap: var(--button-gap);
+  position: relative;
+  padding: var(--button-padY) 1em;
+  line-height: var(--button-line-height);
+
+  /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
+  border-width: var(--lku-length-5xs);
+  border-style: solid;
+  border-color: var(--lk-btn-border, transparent);
+
+  border-radius: 100em;
+  font-weight: 500;
+}

@@ -1,24 +1,18 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
 # testing
-/coverage
+coverage
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build/
+dist/
 
 # misc
 .DS_Store
@@ -26,24 +20,18 @@
 
 # debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
 
-# vercel
+# vercel / cloudflare
 .vercel
+.wrangler
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.direnv
-public/r
 
-# local utilities for doc management
-/scripts
-type-usage-report.csv
-type-usage-report.txt
-*.csv
+# conductor (machine-local overrides)
+.conductor/settings.local.toml

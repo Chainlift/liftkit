@@ -1,0 +1,316 @@
+:where([data-slot="navigation-menu"]) {
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  color: var(--lk-onsurface);
+  min-width: max-content;
+}
+
+:where([data-slot="navigation-menu-list"]) {
+  display: flex;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+:where([data-slot="navigation-menu-trigger"]) {
+  box-sizing: border-box;
+  gap: var(--lk-size-xs);
+  padding-block: var(--lk-size-2xs);
+  padding-inline: calc(var(--lk-size-md) / var(--lk-halfstep));
+  margin: 0;
+  outline: 0;
+  border: 1px solid transparent; /* Needed to ensure height is the same as similarly-shaped elements */
+  border-radius: var(--lku-corner-2xs);
+  background-color: transparent;
+  font-family: inherit;
+
+  font-weight: 500;
+
+  color: var(--lk-onsurface);
+  user-select: none;
+  text-decoration: none;
+
+  @media (max-width: 500px) {
+    /* font-size: 0.925rem;
+    padding: 0 0.5rem; */
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-surfacecontainerhighest);
+    }
+  }
+
+  &[data-popup-open] {
+    background-color: var(--lk-surfacecontainerhighest);
+  }
+
+  &:focus-visible {
+    position: relative;
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="navigation-menu-trigger"]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:where([data-slot="navigation-menu-indicator"]) {
+  transition: transform 0.2s ease;
+  color: currentColor;
+
+  &[data-popup-open] {
+    transform: rotate(180deg);
+  }
+}
+
+:where([data-slot="navigation-menu-positioner"]) {
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 0.35s;
+  box-sizing: border-box;
+  transition-property: top, left, right, bottom;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--easing);
+  width: var(--positioner-width);
+  height: var(--positioner-height);
+  max-width: var(--available-width);
+
+  &::before {
+    content: "";
+    position: absolute;
+  }
+
+  &[data-side="top"]::before {
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 10px;
+  }
+
+  &[data-side="bottom"]::before {
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 10px;
+  }
+
+  &[data-side="left"]::before {
+    top: 0;
+    bottom: 0;
+    right: -10px;
+    width: 10px;
+  }
+
+  &[data-side="right"]::before {
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    width: 10px;
+  }
+
+  &[data-instant] {
+    transition: none;
+  }
+}
+
+:where([data-slot="navigation-menu-popup"]) {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: var(--lku-corner-sm);
+  background-color: var(--lk-surfacecontainerlowest);
+  color: var(--lk-onsurface);
+  transform-origin: var(--transform-origin);
+  transition-property: opacity, transform, width, height;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--easing);
+  width: var(--popup-width);
+  height: var(--popup-height);
+  box-shadow: var(--lk-shadow-md);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &[data-ending-style] {
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :where(.Popup) {
+    outline: 1px solid var(--lk-outlinevariant);
+    box-shadow:
+      0 10px 15px -3px var(--lk-outlinevariant),
+      0 4px 6px -4px var(--lk-outlinevariant);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .Popup {
+    outline: 1px solid var(--lk-outlinevariant);
+    outline-offset: -1px;
+  }
+}
+
+[data-slot="navigation-menu-content"] {
+  box-sizing: border-box;
+  transition:
+    opacity calc(var(--duration) * 0.5) ease,
+    transform var(--duration) var(--easing);
+  padding: var(--lk-size-md);
+  width: calc(100vw - var(--lk-size-2xl));
+  height: 100%;
+
+  @media (min-width: 500px) {
+    width: max-content;
+    min-width: 400px;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+
+  &[data-starting-style] {
+    &[data-activation-direction="left"] {
+      transform: translateX(-50%);
+    }
+    &[data-activation-direction="right"] {
+      transform: translateX(50%);
+    }
+  }
+
+  &[data-ending-style] {
+    &[data-activation-direction="left"] {
+      transform: translateX(50%);
+    }
+    &[data-activation-direction="right"] {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+[data-slot="navigation-menu-viewport"] {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.GridLinkList {
+  display: grid;
+  grid-template-columns: 12rem 12rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.FlexLinkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+:where(ul:has([data-slot="navigation-menu-link"])) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:where([data-slot="navigation-menu-link"]) {
+  box-sizing: border-box;
+  display: block;
+  padding: 0.5rem;
+  border-radius: var(--lku-corner-xs);
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.1s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--lk-surfacedim);
+    }
+  }
+
+  &:focus-visible {
+    position: relative;
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+
+  @media (min-width: 425px) {
+
+  }
+}
+
+.LinkTitle {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.LinkDescription {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--lk-surfacecontainerlow0);
+}
+
+.Arrow {
+  display: flex;
+  transition: left calc(var(--duration)) var(--easing);
+
+  &[data-side="top"] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side="bottom"] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side="left"] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side="right"] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+.ArrowFill {
+  fill: canvas;
+}
+
+.ArrowOuterStroke {
+  @media (prefers-color-scheme: light) {
+    fill: var(--lk-outlinevariant);
+  }
+}
+
+.ArrowInnerStroke {
+  @media (prefers-color-scheme: dark) {
+    fill: var(--lk-outlinevariant);
+  }
+}

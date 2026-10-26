@@ -1,0 +1,45 @@
+/* Not wrapped in :where(), so it outranks lk-input.css, which turns any div that directly contains an Input into a column. */
+[data-lk-component="color-input"] {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--lk-size-sm);
+}
+
+/* A square as tall as the hex field next to it. The width repeats lk-input.css's height formula (line height + 2 x
+   vertical padding + border), because aspect-ratio can't resolve against a stretched flex height. The color itself
+   is set inline from the value. */
+:where([data-lk-color-input-swatch]) {
+  position: relative;
+  flex: none;
+  box-sizing: border-box;
+  width: calc(
+    1em * var(--lk-halfstep) + 2 * (1em * var(--lk-halfstep) / var(--lk-size-xl-unitless)) + 2px
+  );
+  border: 1px solid var(--lk-outline);
+  border-radius: var(--lku-corner-xs);
+  cursor: pointer;
+
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--lk-info);
+    outline-offset: 1px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* The native picker fills the swatch but stays invisible, so the swatch is what you see and click. */
+:where([data-lk-color-input-swatch] > input[type="color"]) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: inherit;
+}
