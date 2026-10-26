@@ -108,13 +108,13 @@ function MosaicCard({
   children: ReactNode;
 }) {
   return (
-    <Card className="shadow-xs" scaleFactor="body" color={color}>
+    <Card className="shadow-xs bg-surfacecontainerlowest" scaleFactor="heading" color={color}>
       {title && (
         <div className="flex items-start justify-between gap-md mb-md">
           <div>
-            <h3 className="heading-bold">{title}</h3>
+            <h3 className="heading mb-xs">{title}</h3>
             {description && (
-              <p className={`subheading mt-2xs${color ? "" : " color-onsurfacevariant"}`}>{description}</p>
+              <p className={`subheading ${color ? "" : " color-onsurfacevariant"}`}>{description}</p>
             )}
           </div>
           {action}
@@ -129,7 +129,7 @@ function MosaicCard({
 function NavGroup({ label, items, activeIndex }: { label: string; items: [IconName, string][]; activeIndex?: number }) {
   return (
     <div>
-      <div className="capline color-onsurfacevariant px-sm mb-2xs">{label}</div>
+      <div className="subheading-bold color-onsurfacevariant mb-md">{label}</div>
       <nav className="flex-v">
         {items.map(([icon, text], index) => (
           <a
@@ -315,8 +315,8 @@ function CommandCard() {
         <Input placeholder="Search rides, staff, guests" aria-label="Search rides, staff, and guests" />
       </div>
       <div className="flex items-center gap-sm flex-wrap mb-md">
-        <Button startIcon="shield-alert">Log incident</Button>
-        <Button variant="outline" startIcon="bell-ring">
+        <Button fontClass="subheading" startIcon="shield-alert">Log incident</Button>
+        <Button fontClass="subheading"  variant="outline" startIcon="bell-ring">
           Page staff
         </Button>
         <Menu>
@@ -414,7 +414,7 @@ function RideStatusCard() {
                 <div className="subheading color-onsurfacevariant">{ride.zone}</div>
               </div>
               <div className="text-align-center">
-                <div className="heading-bold">{open[index] ? ride.wait : "-"}</div>
+                <div className="heading">{open[index] ? ride.wait : "-"}</div>
                 <div className="caption color-onsurfacevariant">min</div>
               </div>
               <Tooltip>
@@ -477,8 +477,8 @@ function WeatherCard() {
       <div className="flex items-start gap-md mb-md">
         <IconTile name="cloud-lightning" className="bg-warning color-onwarning" />
         <div>
-          <h3 className="heading-bold">Storm watch</h3>
-          <p className="callout">Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.</p>
+          <h3 className="heading mb-xs">Storm watch</h3>
+          <p className="subheading color-onsurfacevariant">Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.</p>
         </div>
       </div>
       <div className="mb-md">
