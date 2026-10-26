@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { cn } from "../../lib/cn";
-import { Button as BaseButton } from "@base-ui/react";
+import { Button as BaseButton } from "@base-ui/react/button";
 import { Icon } from "../icon/icon";
 import { StateLayer } from "../state-layer/state-layer";
 import { LkStateLayerProps } from "../state-layer/state-layer";

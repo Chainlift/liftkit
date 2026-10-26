@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { Button as BaseButton } from "@base-ui/react";
+import { Button as BaseButton } from "@base-ui/react/button";
 import { cn } from "../../lib/cn";
 import { IconName } from "lucide-react/dynamic";
 import { LkStateLayerProps } from "../state-layer/state-layer";

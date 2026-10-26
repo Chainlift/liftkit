@@ -36,7 +36,7 @@
   /* padding-block: var(--lk-size-sm); */
 }
 
-:where(div:has(input[data-slot="input"])) {
+:where(div:has(> input[data-slot="input"])) {
   display: flex;
   flex-direction: column;
   position: relative;
