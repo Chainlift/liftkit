@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { cssToLatex } from "./to-latex";
+import { simplifiedLatex } from "./to-latex";
 
 /** Docs-only: reads liftkit-core.css and lists the tokens that compute to a length. */
 
@@ -56,7 +56,7 @@ export function readSheetCategories(): SheetCategory[] {
     const found: { key: string; token: SheetToken }[] = [];
     for (const [cssVar, value] of declarations) {
       const key = cssVar.match(pattern)?.[1];
-      if (key) found.push({ key, token: { cssVar, latex: cssToLatex(value) } });
+      if (key) found.push({ key, token: { cssVar, latex: simplifiedLatex(value, declarations) } });
     }
     const rank = (key: string) => (order.includes(key) ? order.indexOf(key) : order.length);
     found.sort((a, b) => rank(a.key) - rank(b.key));
