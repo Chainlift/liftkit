@@ -51,7 +51,7 @@ export type IconButtonProps = React.ComponentPropsWithoutRef<typeof BaseButton> 
 };
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
-  { className, variant, color, iconName, fontClass = "body", stateLayerOverride, ...props },
+  { className, variant = "fill", color = "primary", iconName, fontClass = "body", stateLayerOverride, ...props },
   ref,
 ) {
   function getIconStrokeWidth(fontClass: LkFontClass) {
