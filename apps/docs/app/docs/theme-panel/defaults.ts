@@ -39,5 +39,4 @@ export const DEFAULT_THEME_STATE: ThemeState = {
   scaleFactorTypography: DEFAULT_SCALE_FACTOR_TYPOGRAPHY,
   scaleFactorLength: DEFAULT_SCALE_FACTOR_LENGTH,
   scaleFactorSpacing: DEFAULT_SCALE_FACTOR_SPACING,
-  isOpen: false,
 };

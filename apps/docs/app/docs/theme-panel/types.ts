@@ -34,7 +34,6 @@ export interface ThemeState {
   scaleFactorTypography: number;
   scaleFactorLength: number;
   scaleFactorSpacing: number;
-  isOpen: boolean;
 }
 
 /** Fully resolved hex values for every token, keyed by CSS var name (without --lk- prefix) */
@@ -50,11 +49,10 @@ export type ThemeAction =
   | { type: "CLEAR_TONE_OVERRIDE"; token: string }
   | { type: "SET_COLOR_MODE"; mode: ColorMode }
   | { type: "SET_SCHEME_VARIANT"; variant: SchemeVariant }
-  | { type: "SET_OPEN"; open: boolean }
   | { type: "SET_SCALE_FACTOR"; value: number }
   | { type: "SET_SCALE_FACTOR_CORNER"; value: number }
   | { type: "SET_SCALE_FACTOR_TYPOGRAPHY"; value: number }
   | { type: "SET_SCALE_FACTOR_LENGTH"; value: number }
   | { type: "SET_SCALE_FACTOR_SPACING"; value: number }
   | { type: "RESET" }
-  | { type: "LOAD"; state: Omit<ThemeState, "isOpen"> };
+  | { type: "LOAD"; state: ThemeState };

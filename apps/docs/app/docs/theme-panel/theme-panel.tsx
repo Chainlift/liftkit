@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
 import { Hct, TonalPalette, argbFromHex, hexFromArgb } from "@material/material-color-utilities";
 import { useTheme } from "./theme-context";
@@ -487,54 +486,14 @@ function ThemePanelContent() {
   );
 }
 
-export function ThemePanel({ mode = "drawer" }: { mode?: "drawer" | "sidebar" }) {
-  const { state, dispatch } = useTheme();
-
-  if (mode === "sidebar") {
-    return (
-      <aside className="theme-panel-sidebar">
-        <div className="theme-panel-header">
-          <span style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
-            Theme Builder
-          </span>
-        </div>
-        <ThemePanelContent />
-      </aside>
-    );
-  }
-
+/** The Theme Generator's control panel, shown as a fixed sidebar on the /playground page. */
+export function ThemePanel() {
   return (
-    <DialogPrimitive.Root
-      open={state.isOpen}
-      onOpenChange={(open) => dispatch({ type: "SET_OPEN", open })}
-    >
-      {/* Floating trigger */}
-      <DialogPrimitive.Trigger className="theme-panel-trigger">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 2a10 10 0 0 1 0 20V2z" />
-        </svg>
-      </DialogPrimitive.Trigger>
-
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Backdrop data-slot="theme-panel-backdrop" />
-        <DialogPrimitive.Popup data-slot="theme-panel-popup">
-          {/* Header */}
-          <div className="theme-panel-header">
-            <DialogPrimitive.Title style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
-              Theme Builder
-            </DialogPrimitive.Title>
-            <DialogPrimitive.Close className="theme-panel-close">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </DialogPrimitive.Close>
-          </div>
-
-          <ThemePanelContent />
-        </DialogPrimitive.Popup>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
+    <aside className="theme-panel-sidebar">
+      <div className="theme-panel-header">
+        <span style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>Theme Builder</span>
+      </div>
+      <ThemePanelContent />
+    </aside>
   );
 }

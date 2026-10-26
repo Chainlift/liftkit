@@ -58,7 +58,7 @@ This is the library being documented, not the docs site itself.
   - **`subcomponent-section.tsx` / `subcomponent-utils.tsx`** — API reference tables from `meta.subComponents`.
   - **`component-mosaic.tsx`** — The home page showcase, composed from the component demos.
   - **`rich-code-block.tsx` / `simple-code-block.tsx`** — Syntax-highlighted code blocks.
-  - **`theme-panel/`** — The theme control panel (floating button on docs pages, sidebar on /playground).
+  - **`theme-panel/`** — The Theme Generator's control panel, a sidebar on /playground. The theme is scoped to that route only: `app/playground/layout.tsx` provides `ThemeProvider` + `ThemeCSSInjector`, and the injector removes its `<style>` tag on unmount, so no other page is themed. The theme is saved in localStorage and only reloaded on /playground.
 - **`components/site-header.tsx`** — Top navigation. **`lib/docs-nav.ts`** — Sidebar sections.
 
 ### Key Pattern: Component Docs Pages (shared template)

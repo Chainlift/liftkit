@@ -7,7 +7,7 @@ export default function PlayGround() {
     <div className="flex-v h-fullscreen overflow-hidden">
       <SiteHeader />
       <div className="flex flex-row items-start flex-grow overflow-hidden">
-        <ThemePanel mode="sidebar" />
+        <ThemePanel />
         <div className="overflow-auto h-full flex flex-col flex-grow items-center">
           <ComponentMosaic />
         </div>

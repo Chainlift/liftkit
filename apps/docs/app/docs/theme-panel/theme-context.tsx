@@ -53,10 +53,8 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
       return { ...state, scaleFactorLength: action.value };
     case "SET_SCALE_FACTOR_SPACING":
       return { ...state, scaleFactorSpacing: action.value };
-    case "SET_OPEN":
-      return { ...state, isOpen: action.open };
     case "RESET":
-      return { ...DEFAULT_THEME_STATE, isOpen: state.isOpen };
+      return DEFAULT_THEME_STATE;
     case "LOAD":
       return { ...state, ...action.state };
     default:
@@ -81,7 +79,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     initialized.current = true;
     const persisted = loadTheme();
     if (persisted) {
-      dispatch({ type: "LOAD", state: persisted as Omit<ThemeState, "isOpen"> });
+      dispatch({ type: "LOAD", state: persisted as ThemeState });
     }
   }, []);
 

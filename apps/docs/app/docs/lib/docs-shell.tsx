@@ -12,7 +12,6 @@ import {
   ScrollAreaThumb,
   ScrollAreaViewport,
 } from "@chainlift/liftkit";
-import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 
 /** Docs chrome: site header, nav sidebar, theme panel FAB, table of contents. */
 export function DocsShell({ children }: { children: React.ReactNode }) {
@@ -21,7 +20,6 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <SiteHeader />
-      <ThemePanel />
       <div className="docs-page-layout">
         <div className="left-sidebar">
           <ScrollArea>

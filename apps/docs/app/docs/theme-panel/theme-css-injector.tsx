@@ -20,6 +20,11 @@ export function ThemeCSSInjector() {
     [state.seedColors, state.toneOverrides, state.schemeVariant]
   );
 
+  // The theme only applies while the Theme Generator is on screen, so remove it when navigating away.
+  useEffect(() => {
+    return () => document.getElementById(STYLE_ID)?.remove();
+  }, []);
+
   useEffect(() => {
     let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null;
     if (!styleEl) {
@@ -43,10 +48,6 @@ export function ThemeCSSInjector() {
     }
 
     styleEl.textContent = css;
-
-    return () => {
-      // Cleanup only if unmounting the provider entirely
-    };
   }, [resolved, state.colorMode, state.scaleFactor, state.scaleFactorCorner, state.scaleFactorTypography, state.scaleFactorLength, state.scaleFactorSpacing]);
 
   return null;
