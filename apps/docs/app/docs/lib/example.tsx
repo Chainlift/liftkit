@@ -14,7 +14,7 @@ export function Example({ file, children }: { file: string; children: React.Reac
 
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden mb-lg">
-      <div className="flex py-2xl items-center justify-center border-b border-color-outlinevariant bg-background">
+      <div className="flex p-xl items-center justify-center border-b border-color-outlinevariant bg-background">
         {children}
       </div>
       <SimpleCodeBlock codeString={source} lang="tsx" vertCenterButton={false} />

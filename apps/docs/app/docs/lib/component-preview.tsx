@@ -97,37 +97,39 @@ export function ComponentPreview({ slug, demoSource, initial_TS, initial_CSS, kn
     switch (control.kind) {
       case "select":
         return (
-          <Field>
-            <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
-              {control.label}
-            </FieldLabel>
-            <Select items={control.options} onValueChange={(value) => updateKnob(key, value)} value={knobValues[key]}>
-              <SelectTrigger className="w-full">
-                <SelectValue />
-                <SelectIcon>
-                  <Icon name="chevron-up" />
-                </SelectIcon>
-              </SelectTrigger>
-              <SelectPortal>
-                <SelectPositioner sideOffset={8}>
-                  <SelectPopup>
-                    <SelectScrollUpArrow />
-                    <SelectList>
-                      {control.options.map((opt) => (
-                        <SelectItem key={opt.value} value={opt.value}>
-                          <SelectItemIndicator>
-                            <Icon name="check" />
-                          </SelectItemIndicator>
-                          <SelectItemText>{opt.label}</SelectItemText>
-                        </SelectItem>
-                      ))}
-                    </SelectList>
-                    <SelectScrollDownArrow />
-                  </SelectPopup>
-                </SelectPositioner>
-              </SelectPortal>
-            </Select>
-          </Field>
+          <GoldenBox opticalCorrection="y" scaleFactor="capline" className="w-full">
+            <Field>
+              <FieldLabel nativeLabel={false} render={<div className="label mb-2xs" />}>
+                {control.label}
+              </FieldLabel>
+              <Select items={control.options} onValueChange={(value) => updateKnob(key, value)} value={knobValues[key]}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                  <SelectIcon>
+                    <Icon name="chevron-up" />
+                  </SelectIcon>
+                </SelectTrigger>
+                <SelectPortal>
+                  <SelectPositioner sideOffset={8}>
+                    <SelectPopup>
+                      <SelectScrollUpArrow />
+                      <SelectList>
+                        {control.options.map((opt) => (
+                          <SelectItem key={opt.value} value={opt.value}>
+                            <SelectItemIndicator>
+                              <Icon name="check" />
+                            </SelectItemIndicator>
+                            <SelectItemText>{opt.label}</SelectItemText>
+                          </SelectItem>
+                        ))}
+                      </SelectList>
+                      <SelectScrollDownArrow />
+                    </SelectPopup>
+                  </SelectPositioner>
+                </SelectPortal>
+              </Select>
+            </Field>
+          </GoldenBox>
         );
 
       case "boolean":
@@ -251,7 +253,7 @@ export function ComponentPreview({ slug, demoSource, initial_TS, initial_CSS, kn
         <h2 className="capline color-onsurface">Demo</h2>
       </GoldenBox>
       <div
-        className="flex flex-grow py-2xl items-center justify-center border-b border-color-outlinevariant bg-background"
+        className="flex flex-grow p-xl items-center justify-center border-b border-color-outlinevariant bg-background"
         style={{ height: "400px" }}
       >
         {demo}
