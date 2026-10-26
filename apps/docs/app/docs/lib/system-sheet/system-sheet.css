@@ -1,0 +1,62 @@
+/* Docs-only styles for the System tab (not part of the LiftKit library). Spacing and colors use LiftKit tokens.
+   The measurement chrome (1px line, cap height) is fixed on purpose: the instrument must not scale with what it measures. */
+
+.system-sheet {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  column-gap: var(--lk-size-xl);
+  row-gap: var(--lk-size-md);
+  align-items: center;
+  width: max-content;
+  min-width: 100%;
+}
+
+.system-category,
+.system-row {
+  display: contents;
+}
+
+.system-category-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: var(--lk-size-lg);
+  border-top: 1px solid var(--lk-outlinevariant);
+}
+
+.system-category:first-child .system-category-title {
+  padding-top: 0;
+  border-top: none;
+}
+
+.system-row code {
+  font-size: inherit;
+}
+
+.system-latex .katex {
+  font-size: 1em;
+}
+
+.system-token-line {
+  display: flex;
+  align-items: center;
+}
+
+.system-token-segment {
+  display: block;
+  flex: none;
+  height: 1px;
+  background-color: var(--lk-outline);
+  font-size: 1rem; /* the tokens are em-based: measure them at 1em = 1rem */
+}
+
+.system-token-cap {
+  flex: none;
+  width: 1px;
+  height: 0.75rem;
+  background-color: var(--lk-outline);
+}
+
+.system-token-value {
+  margin-left: var(--lk-size-md);
+  white-space: nowrap;
+}

@@ -16,6 +16,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ComponentMosaic } from "@/app/docs/lib/component-mosaic";
 import { ComponentMosaicV2 } from "@/app/docs/lib/component-mosaic-v2";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
+import { SystemSheet } from "@/app/docs/lib/system-sheet/system-sheet";
 import { ColorTones } from "./color-tones";
 
 const FONT_CLASSES = [
@@ -50,6 +51,7 @@ export default function PlayGround() {
               <TabsTab value="all-components">All Components</TabsTab>
               <TabsTab value="font-classes">Font Classes</TabsTab>
               <TabsTab value="colors">Colors</TabsTab>
+              <TabsTab value="system">System</TabsTab>
               <TabsIndicator />
             </TabsList>
             <ScrollArea className="w-full max-w-full fill-container overflow-hidden">
@@ -88,6 +90,11 @@ export default function PlayGround() {
                   <TabsPanel value="colors" className="flex-grow">
                     <Section padding="xl" className="w-full self-stretch ">
                       <ColorTones />
+                    </Section>
+                  </TabsPanel>
+                  <TabsPanel value="system" className="flex-grow">
+                    <Section padding="xl" className="w-full self-stretch ">
+                      <SystemSheet />
                     </Section>
                   </TabsPanel>
                 </ScrollAreaContent>
