@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   Select,
+  type SelectProps,
   SelectTrigger,
   SelectValue,
   SelectIcon,
@@ -25,13 +26,13 @@ const apples = [
   { label: "Pink Lady", value: "pink-lady" },
 ];
 
-export default function SelectDemo() {
+export default function SelectDemo(knobs: Pick<SelectProps<string>, "fontClass">) {
   return (
     <Field>
       <FieldLabel nativeLabel={false} render={<div />}>
         Apple
       </FieldLabel>
-      <Select items={apples}>
+      <Select items={apples} {...knobs}>
         <SelectTrigger>
           <SelectValue placeholder="Select" />
           <SelectIcon>

@@ -1,10 +1,10 @@
-import { Input } from "@chainlift/liftkit";
+import { Input, type InputProps } from "@chainlift/liftkit";
 
-export default function InputDemo() {
+export default function InputDemo(knobs: InputProps) {
   return (
     <label>
       Name
-      <Input placeholder="Enter your name" />
+      <Input placeholder="Enter your name" {...knobs} />
     </label>
   );
 }

@@ -4,10 +4,38 @@ const meta: ComponentDocMeta = {
   title: "Select",
   description: "A button that opens a list of options to choose one from.",
   baseUiUrl: "https://base-ui.com/react/components/select",
+  knobs: {
+    fontClass: {
+      kind: "select",
+      label: "Font Class",
+      default: "body",
+      options: [
+        { label: "Display 1", value: "display1" },
+        { label: "Display 2", value: "display2" },
+        { label: "Title 1", value: "title1" },
+        { label: "Title 2", value: "title2" },
+        { label: "Title 3", value: "title3" },
+        { label: "Heading", value: "heading" },
+        { label: "Subheading", value: "subheading" },
+        { label: "Body", value: "body" },
+        { label: "Callout", value: "callout" },
+        { label: "Label", value: "label" },
+        { label: "Caption", value: "caption" },
+        { label: "Capline", value: "capline" },
+      ],
+    },
+  },
   subComponents: {
     Root: {
       description: "The root provider component for the select. Manages state and context.",
-      props: [],
+      props: [
+        {
+          name: "fontClass",
+          type: "LkFontClass",
+          description:
+            "Sizes the select proportionally: the trigger and the popup's items scale their text, padding, and corners from this font class. Defaults to the default sizes.",
+        },
+      ],
     },
     Trigger: {
       description: "The button that opens the select dropdown.",

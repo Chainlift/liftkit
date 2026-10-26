@@ -11,6 +11,12 @@
   opacity: 0.6;
 }
 
+/* Not in the :where() rule below, so a font class (the fontClass prop) can't change it. That keeps the trigger the
+   same height as an Input of the same font class. */
+[data-slot="select-trigger"] {
+  line-height: var(--lk-halfstep);
+}
+
 :where([data-slot="select-trigger"]) {
   --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
 
@@ -30,7 +36,6 @@
   background-color: var(--lk-surface);
   font-family: inherit;
   font-size: 1em;
-  line-height: 1.272;
   color: var(--lk-onsurface);
   -webkit-user-select: none;
   user-select: none;
