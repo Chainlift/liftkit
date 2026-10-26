@@ -7,6 +7,7 @@ export * from "./card/card";
 export * from "./checkbox/checkbox";
 export * from "./checkbox-group/checkbox-group";
 export * from "./collapsible/collapsible";
+export * from "./color-input/color-input";
 export * from "./combobox/combobox";
 export * from "./container/container";
 export * from "./context-menu/context-menu";

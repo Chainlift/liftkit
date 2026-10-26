@@ -17,6 +17,8 @@ import checkboxGroupMeta from "./checkbox-group/meta";
 import CheckboxGroupDemo from "./checkbox-group/demo";
 import collapsibleMeta from "./collapsible/meta";
 import CollapsibleDemo from "./collapsible/demo";
+import colorInputMeta from "./color-input/meta";
+import ColorInputDemo from "./color-input/demo";
 import comboboxMeta from "./combobox/meta";
 import ComboboxDemo from "./combobox/demo";
 import containerMeta from "./container/meta";
@@ -100,6 +102,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
   checkbox: { meta: checkboxMeta, Demo: CheckboxDemo },
   "checkbox-group": { meta: checkboxGroupMeta, Demo: CheckboxGroupDemo },
   collapsible: { meta: collapsibleMeta, Demo: CollapsibleDemo },
+  "color-input": { meta: colorInputMeta, Demo: ColorInputDemo },
   combobox: { meta: comboboxMeta, Demo: ComboboxDemo },
   container: { meta: containerMeta, Demo: ContainerDemo },
   "context-menu": { meta: contextMenuMeta, Demo: ContextMenuDemo },
