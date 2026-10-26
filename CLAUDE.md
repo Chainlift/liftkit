@@ -43,7 +43,7 @@ This is the library being documented, not the docs site itself.
 - **`index.ts`** — the package entry point. Re-exports `components/index.ts` and references the global type declarations in `types/`.
 - **`components/`** — Each component in its own folder (e.g., `button/button.tsx`). Components wrap Base UI primitives, add LiftKit-specific props (variant, color, material, etc.), and import their CSS from `css/components/`. Barrel-exported via `index.ts`.
 - **`css/components/`** — One CSS file per component (`lk-button.css`, etc.). Uses `data-lk-component` and `data-lk-*` attribute selectors, not class-based styling.
-- **`apps/docs/examples/`** (lives in the docs app, not the library) — `lk-example-*.tsx` files. Self-contained example components used in both docs previews and the component mosaic.
+- **`apps/docs/examples/`** (lives in the docs app, not the library) — legacy `lk-example-*.tsx` demos for components not yet migrated to `apps/docs/content/components/`. Used by legacy docs previews and the component mosaic.
 - **`types/`** — TypeScript type definitions for the design system (colors, typography, shapes, units, utilities).
 - **`css/utilities/`** — CSS utility classes (flexbox, spacing, typography, colors, etc.) imported globally.
 
@@ -63,16 +63,20 @@ This is the library being documented, not the docs site itself.
   - **`subcomponent-section.tsx` / `subcomponent-utils.tsx`** — Renders API reference tables from manifest sub-component data.
   - **`rich-code-block.tsx` / `simple-code-block.tsx`** — Code display components with syntax highlighting.
 
-### Key Pattern: Adding a New Component to Docs
+### Key Pattern: Component Docs Pages (shared template)
 
-1. Create the component in `packages/liftkit/src/components/{name}/` and export it from `components/index.ts`
-2. Add its CSS in `packages/liftkit/src/css/components/lk-{name}.css`
-3. Create an example in `apps/docs/examples/lk-example-{name}.tsx` (import from `@chainlift/liftkit`)
-(Steps 4–7 are paths under `apps/docs/`.)
-4. Create a manifest entry in `app/docs/lib/manifest-entries/manifest-{name}.tsx`
-5. Register it in `app/docs/lib/component-manifest.ts`
-6. Create the docs page at `app/docs/components/{name}/page.mdx`
-7. Add code templates in `app/docs/components/{name}/codeTemplates/`
+Component pages are being migrated to one shared template, `apps/docs/app/docs/components/[slug]/page.tsx`. Button is migrated; the other components still use the legacy per-folder `page.mdx` + `codeTemplates/` + manifest entry until they're converted.
+
+To add (or migrate) a component page:
+
+1. Library: the component in `packages/liftkit/src/components/{name}/` (exported from `components/index.ts`), its CSS in `packages/liftkit/src/css/components/lk-{name}.css`. Interactive components need `"use client"`.
+2. Docs content in `apps/docs/content/components/{name}/`:
+   - `demo.tsx`: `"use client"` + a default-exported component taking `knobs` as its only parameter and spreading `{...knobs}` onto the controlled element (on its own line, inside `return (...)`). This file IS the TS code sample: `app/docs/lib/demo-source.ts` strips the parameter and fills in the current knob values.
+   - `meta.ts`: default-exported `ComponentDocMeta` (title, description, `baseUiUrl`, `knobs`, `subComponents`, optional `cssFile`).
+   - `notes.mdx` (optional): page-specific content, shown after Installation. Use `<Example file="{name}/foo.tsx"><Foo /></Example>` for extra live examples whose source is shown.
+3. Register it in `apps/docs/content/components/registry.ts` (meta + Demo). The registry is imported by the client-side preview, so it must stay browser-safe. Notes are loaded by the page, not the registry.
+
+The CSS tab shows the component's real stylesheet, read from the library at build time. The sidebar picks up registry entries automatically.
 
 ### Design System Conventions
 

@@ -5,7 +5,6 @@ import {
   ExampleAlertDialog,
   ExampleAutocomplete,
   ExampleAvatar,
-  ExampleButton,
   ExampleCheckboxGroup,
   ExampleCheckbox,
   ExampleCollapsible,
@@ -38,6 +37,7 @@ import {
   ExampleToolbar,
   ExampleTooltip,
 } from "@/examples";
+import ButtonDemo from "@/content/components/button/demo";
 import { Card } from "@chainlift/liftkit";
 import { Avatar, AvatarImage, Toggle, Icon, Button } from "@chainlift/liftkit";
 export function ComponentMosaic() {
@@ -99,7 +99,7 @@ export function ComponentMosaic() {
             <div className="heading mb-sm">Actions</div>
             <div className="flex-v gap-sm">
               <div className="flex items-center gap-sm">
-                <ExampleButton />
+                <ButtonDemo />
                 <ExampleDialog />
                 <ExampleTooltip />
                 <ExampleIconButton />

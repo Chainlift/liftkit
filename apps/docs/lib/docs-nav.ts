@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { componentDocs } from "@/content/components/registry";
 
 const DOCS_DIR = path.join(process.cwd(), "app", "docs");
 
@@ -11,9 +12,15 @@ export type NavSection = { title: string; items: NavItem[] };
  * `dir` (relative to app/docs), so new pages appear automatically. "." means
  * pages that sit directly under app/docs, like getting-started.
  */
-const SECTIONS: { title: string; dir: string }[] = [
+const SECTIONS: { title: string; dir: string; extraItems?: () => NavItem[] }[] = [
   { title: "Overview", dir: "." },
-  { title: "Components", dir: "components" },
+  {
+    title: "Components",
+    dir: "components",
+    // Pages rendered by the shared template at components/[slug]
+    extraItems: () =>
+      Object.entries(componentDocs).map(([slug, { meta }]) => ({ title: meta.title, href: `/docs/components/${slug}` })),
+  },
   { title: "Types & Tokens", dir: "types" },
 ];
 
@@ -31,11 +38,13 @@ function pagesIn(relDir: string): NavItem[] {
 
   return fs
     .readdirSync(dir, { withFileTypes: true })
-    .filter((e) => e.isDirectory() && hasPage(path.join(dir, e.name)))
-    .map((e) => ({ title: titleFromSegment(e.name), href: `${baseHref}/${e.name}` }))
-    .sort((a, b) => a.title.localeCompare(b.title));
+    .filter((e) => e.isDirectory() && !e.name.startsWith("[") && hasPage(path.join(dir, e.name)))
+    .map((e) => ({ title: titleFromSegment(e.name), href: `${baseHref}/${e.name}` }));
 }
 
 export function getDocsNav(): NavSection[] {
-  return SECTIONS.map(({ title, dir }) => ({ title, items: pagesIn(dir) })).filter((s) => s.items.length);
+  return SECTIONS.map(({ title, dir, extraItems }) => ({
+    title,
+    items: [...pagesIn(dir), ...(extraItems?.() ?? [])].sort((a, b) => a.title.localeCompare(b.title)),
+  })).filter((s) => s.items.length);
 }

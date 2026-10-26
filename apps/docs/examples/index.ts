@@ -2,7 +2,6 @@ export { ExampleAccordion } from "./lk-example-accordion";
 export { ExampleAlertDialog } from "./lk-example-alert-dialog";
 export { ExampleAutocomplete } from "./lk-example-autocomplete";
 export { ExampleAvatar } from "./lk-example-avatar";
-export { ExampleButton } from "./lk-example-button";
 export { ExampleCheckboxGroup } from "./lk-example-checkbox-group";
 export { ExampleCheckbox} from "./lk-example-checkbox";
 export { ExampleCollapsible } from "./lk-example-collapsible";
