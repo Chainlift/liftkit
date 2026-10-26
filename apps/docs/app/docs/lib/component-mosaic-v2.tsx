@@ -113,9 +113,7 @@ function MosaicCard({
         <div className="flex items-start justify-between gap-md mb-md">
           <div>
             <h3 className="heading mb-xs">{title}</h3>
-            {description && (
-              <p className={`subheading ${color ? "" : " color-onsurfacevariant"}`}>{description}</p>
-            )}
+            {description && <p className={`subheading ${color ? "" : " color-onsurfacelowest"}`}>{description}</p>}
           </div>
           {action}
         </div>
@@ -129,7 +127,7 @@ function MosaicCard({
 function NavGroup({ label, items, activeIndex }: { label: string; items: [IconName, string][]; activeIndex?: number }) {
   return (
     <div>
-      <div className="subheading-bold color-onsurfacevariant mb-md">{label}</div>
+      <div className="subheading-bold color-onsurfacelowest mb-md">{label}</div>
       <nav className="flex-v">
         {items.map(([icon, text], index) => (
           <a
@@ -251,7 +249,7 @@ function ParkHeader() {
         <IconTile name="ferris-wheel" className="bg-primarycontainer color-onprimarycontainer" />
         <div>
           <h2 className="title2-bold">Wildwood Adventure Park</h2>
-          <p className="subheading color-onsurfacevariant">Saturday, June 14 · Open 9 AM to 9 PM</p>
+          <p className="subheading color-onsurfacelowest">Saturday, June 14 · Open 9 AM to 9 PM</p>
         </div>
       </div>
       <div className="flex items-center gap-md flex-wrap">
@@ -262,9 +260,15 @@ function ParkHeader() {
             if (next[0]) setRange(next[0]);
           }}
         >
-          <Toggle value="today" className="w-max px-sm">Today</Toggle>
-          <Toggle value="week" className="w-max px-sm">Week</Toggle>
-          <Toggle value="season" className="w-max px-sm">Season</Toggle>
+          <Toggle value="today" className="w-max px-sm">
+            Today
+          </Toggle>
+          <Toggle value="week" className="w-max px-sm">
+            Week
+          </Toggle>
+          <Toggle value="season" className="w-max px-sm">
+            Season
+          </Toggle>
         </ToggleGroup>
         <ToastProvider>
           <AnnounceButton />
@@ -303,7 +307,7 @@ function TodayCard() {
         <LabeledRow label="Group bookings" value="1,870" />
       </div>
       <Separator className="my-md" />
-      <p className="caption">Capacity cap is 25,000 guests. Gates pause entry at 95%.</p>
+      <p className="caption color-onsurfacelowest">Capacity cap is 25,000 guests. Gates pause entry at 95%.</p>
     </MosaicCard>
   );
 }
@@ -315,8 +319,10 @@ function CommandCard() {
         <Input placeholder="Search rides, staff, guests" aria-label="Search rides, staff, and guests" />
       </div>
       <div className="flex items-center gap-sm flex-wrap mb-md">
-        <Button fontClass="subheading" startIcon="shield-alert">Log incident</Button>
-        <Button fontClass="subheading"  variant="outline" startIcon="bell-ring">
+        <Button fontClass="subheading" startIcon="shield-alert">
+          Log incident
+        </Button>
+        <Button fontClass="subheading" variant="outline" startIcon="bell-ring">
           Page staff
         </Button>
         <Menu>
@@ -338,7 +344,7 @@ function CommandCard() {
       </div>
       <Separator className="mb-md" />
       <div className="flex items-center justify-between gap-md">
-        <span className="callout color-onsurfacevariant">Emergencies only</span>
+        <span className="callout color-onsurfacelowest">Emergencies only</span>
         <AlertDialog>
           <AlertDialogTrigger render={<Button variant="outline" color="error" />}>Close the park</AlertDialogTrigger>
           <AlertDialogContent render={<Card scaleFactor="title3" opticalCorrection="top" />}>
@@ -411,11 +417,11 @@ function RideStatusCard() {
               <IconTile name={ride.icon} className={containerColor(index)} />
               <div className="fill-container">
                 <div className="callout font-500">{ride.name}</div>
-                <div className="subheading color-onsurfacevariant">{ride.zone}</div>
+                <div className="subheading color-onsurfacelowest">{ride.zone}</div>
               </div>
               <div className="text-align-center">
                 <div className="heading">{open[index] ? ride.wait : "-"}</div>
-                <div className="caption color-onsurfacevariant">min</div>
+                <div className="caption color-onsurfacelowest">min</div>
               </div>
               <Tooltip>
                 {/* The trigger is a plain wrapper: using the Switch as the trigger would overwrite its data-slot and unstyle it */}
@@ -459,7 +465,7 @@ function CrowdingCard() {
           </Meter>
         ))}
       </div>
-      <div className="flex items-center gap-xs callout color-onsurfacevariant mb-md">
+      <div className="flex items-center gap-xs callout color-onsurfacelowest mb-md">
         <Icon name="users" aria-hidden="true" />
         Skyline Plaza is nearing capacity
       </div>
@@ -478,7 +484,9 @@ function WeatherCard() {
         <IconTile name="cloud-lightning" className="bg-warning color-onwarning" />
         <div>
           <h3 className="heading mb-xs">Storm watch</h3>
-          <p className="subheading color-onsurfacevariant">Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.</p>
+          <p className="subheading color-onsurfacelowest">
+            Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.
+          </p>
         </div>
       </div>
       <div className="mb-md">
@@ -553,7 +561,7 @@ function StaffCard() {
                   </Avatar>
                   <div className="fill-container">
                     <div className="callout font-500">{name}</div>
-                    <div className="subheading color-onsurfacevariant">{role}</div>
+                    <div className="subheading color-onsurfacelowest">{role}</div>
                   </div>
                   <Menu>
                     <MenuTrigger
@@ -599,7 +607,12 @@ function MaintenanceCard() {
           <ProgressIndicator />
         </ProgressTrack>
       </Progress>
-      <CheckboxGroup aria-label="Maintenance tasks" value={done} onValueChange={setDone} className="flex flex-col gap-sm">
+      <CheckboxGroup
+        aria-label="Maintenance tasks"
+        value={done}
+        onValueChange={setDone}
+        className="flex flex-col gap-sm"
+      >
         {TASKS.map(([id, label]) => (
           <label key={id} className="flex items-center gap-sm callout">
             <Checkbox name="task" value={id}>
@@ -615,17 +628,20 @@ function MaintenanceCard() {
 
 const REQUESTS = [
   { id: 1, name: "Rina Alvarez", initials: "RA", text: "Stroller left at Kids' Cove entrance", time: "2 min ago" },
-  { id: 2, name: "Ben Whitfield", initials: "BW", text: "Wheelchair-accessible route to Skyline Plaza?", time: "9 min ago" },
+  {
+    id: 2,
+    name: "Ben Whitfield",
+    initials: "BW",
+    text: "Wheelchair-accessible route to Skyline Plaza?",
+    time: "9 min ago",
+  },
   { id: 3, name: "Aiko Tanaka", initials: "AT", text: "Phone charger lost near the carousel", time: "21 min ago" },
 ];
 
 function GuestRequestsCard() {
   const [requests, setRequests] = useState(REQUESTS);
   return (
-    <MosaicCard
-      title="Guest requests"
-      description={requests.length ? `${requests.length} open` : "All caught up"}
-    >
+    <MosaicCard title="Guest requests" description={requests.length ? `${requests.length} open` : "All caught up"}>
       <div className="flex-v gap-md">
         {requests.map((request) => (
           <div key={request.id} className="flex items-start gap-md">
@@ -633,9 +649,8 @@ function GuestRequestsCard() {
               <AvatarFallback>{request.initials}</AvatarFallback>
             </Avatar>
             <div className="fill-container">
-              <div className="callout font-500">{request.name}</div>
-              <div className="callout">{request.text}</div>
-              <div className="caption color-onsurfacevariant">{request.time}</div>
+              <div className="body-bold ">{request.name}</div>
+              <div className="subheading mb-sm color-onsurfacelowest">{request.text}</div>
             </div>
             <IconButton
               iconName="check"
@@ -646,7 +661,7 @@ function GuestRequestsCard() {
           </div>
         ))}
         {requests.length === 0 && (
-          <div className="flex items-center gap-xs callout color-onsurfacevariant">
+          <div className="flex items-center gap-xs callout color-onsurfacelowest">
             <Icon name="sparkles" aria-hidden="true" />
             Nothing waiting on you.
           </div>
@@ -732,9 +747,18 @@ function GuestFaqCard() {
   return (
     <MosaicCard title="Guest FAQ">
       <Accordion>
-        <FaqItem question="Is there a height requirement?" answer="Most coasters need 48 inches. Kids' Cove rides have no minimum." />
-        <FaqItem question="What happens if it rains?" answer="Indoor attractions stay open. Outdoor rides pause during lightning and reopen after 30 clear minutes." />
-        <FaqItem question="Where is lost and found?" answer="Next to First Aid by the main gate. We also post found items in the guest app." />
+        <FaqItem
+          question="Is there a height requirement?"
+          answer="Most coasters need 48 inches. Kids' Cove rides have no minimum."
+        />
+        <FaqItem
+          question="What happens if it rains?"
+          answer="Indoor attractions stay open. Outdoor rides pause during lightning and reopen after 30 clear minutes."
+        />
+        <FaqItem
+          question="Where is lost and found?"
+          answer="Next to First Aid by the main gate. We also post found items in the guest app."
+        />
       </Accordion>
     </MosaicCard>
   );
