@@ -163,13 +163,15 @@ function gcd(a: number, b: number): number {
 }
 
 function powerToLatex(name: string, eighths: number): string {
-  const base = SCALE_FACTOR_NAMES[name];
+  // Braced so the exponent attaches to the whole symbol, after any subscript (s_length^3, not s^3_length)
+  const symbol = SCALE_FACTOR_NAMES[name];
+  const base = symbol.includes("_") ? `{${symbol}}` : symbol;
   if (eighths === 0) return "";
   const divisor = gcd(eighths, EIGHTHS);
   const numerator = eighths / divisor;
   const denominator = EIGHTHS / divisor;
   if (denominator === 1) return numerator === 1 ? base : `${base}^{${numerator}}`;
-  const root = denominator === 2 ? `\\sqrt{${base}}` : `\\sqrt[${denominator}]{${base}}`;
+  const root = denominator === 2 ? `\\sqrt{${symbol}}` : `\\sqrt[${denominator}]{${symbol}}`;
   if (numerator === 1) return root;
   if (numerator === -1) return `\\frac{1}{${root}}`;
   return `${base}^{${numerator < 0 ? "-" : ""}\\frac{${Math.abs(numerator)}}{${denominator}}}`;
