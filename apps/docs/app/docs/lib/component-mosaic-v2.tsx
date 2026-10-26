@@ -160,6 +160,20 @@ function LabeledRow({ label, value, bold }: { label: string; value: string; bold
   );
 }
 
+/** Container colors that tiles and avatars cycle through, each with the text color made for it. */
+const CONTAINER_COLORS = [
+  "bg-primarycontainer color-onprimarycontainer",
+  "bg-secondarycontainer color-onsecondarycontainer",
+  "bg-tertiarycontainer color-ontertiarycontainer",
+  "bg-successcontainer color-onsuccesscontainer",
+  "bg-warningcontainer color-onwarningcontainer",
+  "bg-errorcontainer color-onerrorcontainer",
+  "bg-infocontainer color-oninfocontainer",
+];
+
+/** The container color classes for the nth tile or avatar in a list. */
+const containerColor = (index: number) => CONTAINER_COLORS[index % CONTAINER_COLORS.length];
+
 /** A rounded tile holding an icon. */
 function IconTile({ name, className = "bg-surfacecontainerhigh" }: { name: IconName; className?: string }) {
   return (
@@ -394,7 +408,7 @@ function RideStatusCard() {
         <div className="flex-v gap-md">
           {RIDES.map((ride, index) => (
             <div key={ride.name} className="flex items-center gap-md">
-              <IconTile name={ride.icon} />
+              <IconTile name={ride.icon} className={containerColor(index)} />
               <div className="fill-container">
                 <div className="callout font-500">{ride.name}</div>
                 <div className="subheading color-onsurfacevariant">{ride.zone}</div>
@@ -529,12 +543,12 @@ function StaffCard() {
           <TabsTab value="evening">Evening</TabsTab>
           <TabsIndicator />
         </TabsList>
-        {Object.entries(SHIFTS).map(([shift, people]) => (
+        {Object.entries(SHIFTS).map(([shift, people], shiftIndex) => (
           <TabsPanel key={shift} value={shift} className="w-full">
             <div className="flex-v w-full pt-sm">
-              {people.map(([name, role, initials]) => (
+              {people.map(([name, role, initials], personIndex) => (
                 <div key={name} className="flex items-center gap-md py-xs">
-                  <Avatar>
+                  <Avatar className={containerColor(3 + shiftIndex * 3 + personIndex)}>
                     <AvatarFallback>{initials}</AvatarFallback>
                   </Avatar>
                   <div className="fill-container">
@@ -615,7 +629,7 @@ function GuestRequestsCard() {
       <div className="flex-v gap-md">
         {requests.map((request) => (
           <div key={request.id} className="flex items-start gap-md">
-            <Avatar>
+            <Avatar className={containerColor(request.id)}>
               <AvatarFallback>{request.initials}</AvatarFallback>
             </Avatar>
             <div className="fill-container">
