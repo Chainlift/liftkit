@@ -87,16 +87,11 @@ export function readSheetCategories(): SheetCategory[] {
     ],
   };
 
-  // The steps derived from the scale factor; each `-dec` is its step minus 1
-  const stepLatex = (value: string) => {
-    const dec = value.match(/^calc\(var\((--[\w-]+)\) - 1\)$/);
-    return dec ? `${simplifiedLatex(declarations.get(dec[1]) ?? "", declarations)} - 1` : simplifiedLatex(value, declarations);
-  };
   const steps: SheetCategory = {
     title: "Steps",
     tokens: STEPS.filter((name) => declarations.has(name)).map((name) => ({
       name,
-      latex: stepLatex(declarations.get(name)!),
+      latex: simplifiedLatex(declarations.get(name)!),
       width: `calc(var(${name}) * 1em)`,
       unitlessVar: name,
     })),
@@ -108,7 +103,7 @@ export function readSheetCategories(): SheetCategory[] {
       const key = cssVar.match(pattern)?.[1];
       if (key) found.push({
           key,
-          token: { name: cssVar, latex: simplifiedLatex(value, declarations), width: `var(${cssVar})` },
+          token: { name: cssVar, latex: simplifiedLatex(value), width: `var(${cssVar})` },
         });
     }
     const rank = (key: string) => (order.includes(key) ? order.indexOf(key) : order.length);

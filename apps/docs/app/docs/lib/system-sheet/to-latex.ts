@@ -84,12 +84,13 @@ export function cssToLatex(value: string): string {
   return expr().tex;
 }
 
-// ─── Simplified form: powers of the scale factors ────────────────────────
-// Every length token is `1em` times a product of powers of a scale factor (the `round()` only trims decimals,
-// and em is the unit). So each one reduces to s^n, with n a multiple of 1/8.
+// ─── Simplified form ────────────────────────────────────────────────────
+// A token is `1em` times a product of other names, each to some power. The em unit and the `round()` step are
+// dropped, but names stay as written in the CSS: a token that uses `--lk-eighthstep` shows `eighthstep`, not what
+// that step works out to. Only the scale factors themselves show as powers (s^-2, the half step is a square root).
 
 const EIGHTHS = 8;
-/** Exponents of each scale-factor variable, in eighths. */
+/** Exponent of each name the value multiplies together, in eighths. */
 type Powers = Map<string, number>;
 
 const SCALE_FACTOR_NAMES: Record<string, string> = {
@@ -103,8 +104,8 @@ function combine(a: Powers, b: Powers, sign: 1 | -1): Powers {
   return out;
 }
 
-/** Evaluates a value to powers of the scale factors, or null if it is anything else (sums, other numbers). */
-function toPowers(value: string, declarations: Map<string, string>, seen: string[] = []): Powers | null {
+/** Evaluates a value to powers of the names it multiplies, or null if it is anything else (sums, other numbers). */
+function toPowers(value: string): Powers | null {
   const tokens = tokenize(value);
   let pos = 0;
   const peek = () => tokens[pos];
@@ -127,11 +128,7 @@ function toPowers(value: string, declarations: Map<string, string>, seen: string
       take();
       return inner;
     }
-    if (token?.startsWith("--")) {
-      if (SCALE_FACTOR_NAMES[token]) return new Map([[token, EIGHTHS]]);
-      const referenced = declarations.get(token);
-      return referenced && !seen.includes(token) ? toPowers(referenced, declarations, [...seen, token]) : null;
-    }
+    if (token?.startsWith("--")) return new Map([[token, EIGHTHS]]);
     if (token && /^\d|^\./.test(token)) return parseFloat(token) === 1 ? new Map() : null; // 1 and 1em are the unit
     if (token === "calc" || token === "round" || token === "var") {
       take(); // "("
@@ -162,11 +159,11 @@ function gcd(a: number, b: number): number {
   return b === 0 ? Math.abs(a) : gcd(b, a % b);
 }
 
-function powerToLatex(name: string, eighths: number): string {
+/** A scale factor to a power: s^3, s^-1, or a root for the fractional steps. */
+function scalePowerToLatex(name: string, eighths: number): string {
   // Braced so the exponent attaches to the whole symbol, after any subscript (s_length^3, not s^3_length)
   const symbol = SCALE_FACTOR_NAMES[name];
   const base = symbol.includes("_") ? `{${symbol}}` : symbol;
-  if (eighths === 0) return "";
   const divisor = gcd(eighths, EIGHTHS);
   const numerator = eighths / divisor;
   const denominator = EIGHTHS / divisor;
@@ -177,10 +174,28 @@ function powerToLatex(name: string, eighths: number): string {
   return `${base}^{${numerator < 0 ? "-" : ""}\\frac{${Math.abs(numerator)}}{${denominator}}}`;
 }
 
-/** The token's formula as powers of the scale factors, e.g. `s^{-2}` or `\sqrt{s}`; falls back to the full calc. */
-export function simplifiedLatex(value: string, declarations: Map<string, string>): string {
-  const powers = toPowers(value, declarations);
+/**
+ * The token's formula with the em unit and rounding dropped, e.g. `s^{-2}`, `\sqrt{s}`, or
+ * `\frac{\text{caption-font-size}}{\text{eighthstep}}`. Falls back to the full calc for anything else.
+ */
+export function simplifiedLatex(value: string): string {
+  const powers = toPowers(value);
   if (!powers) return cssToLatex(value);
-  const parts = [...powers].map(([name, eighths]) => powerToLatex(name, eighths)).filter(Boolean);
-  return parts.length ? parts.join(" ") : "1";
+
+  const numerator: string[] = [];
+  const denominator: string[] = [];
+  for (const [name, eighths] of powers) {
+    if (eighths === 0) continue;
+    if (SCALE_FACTOR_NAMES[name]) {
+      numerator.push(scalePowerToLatex(name, eighths));
+      continue;
+    }
+    const power = eighths / EIGHTHS;
+    if (!Number.isInteger(power)) return cssToLatex(value);
+    const text = varToTex(name).tex;
+    (power > 0 ? numerator : denominator).push(Math.abs(power) === 1 ? text : `${text}^{${Math.abs(power)}}`);
+  }
+
+  const top = numerator.join(" \\times ") || "1";
+  return denominator.length ? `\\frac{${top}}{${denominator.join(" \\times ")}}` : top;
 }
