@@ -19,8 +19,8 @@
 .system-category-title {
   grid-column: 1 / -1;
   margin: 0;
-  padding-top: var(--lk-size-lg);
-  border-top: 1px solid var(--lk-outlinevariant);
+  padding-top: var(--lk-size-md);
+  padding-bottom: var(--lk-size-xs);
 }
 
 .system-category:first-child .system-category-title {
@@ -29,11 +29,9 @@
 }
 
 .system-row code {
-  font-size: inherit;
 }
 
 .system-latex .katex {
-  font-size: 1em;
 }
 
 .system-token-line {

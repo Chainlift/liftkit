@@ -43,7 +43,6 @@ const CATEGORIES: { title: string; pattern: RegExp; order: string[] }[] = [
   { title: "Length", pattern: /^--lku-length-(.+)$/, order: SIZE_ORDER },
   { title: "Font size", pattern: /^--lk-(.+)-font-size$/, order: FONT_CLASS_ORDER },
   { title: "Font class offset", pattern: /^--lk-(.+)-offset$/, order: FONT_CLASS_ORDER },
-  { title: "Font class box height", pattern: /^--lk-(.+)BoxHeight$/, order: FONT_CLASS_ORDER },
 ];
 
 const CONSTANTS = [

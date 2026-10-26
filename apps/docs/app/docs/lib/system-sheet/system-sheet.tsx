@@ -15,12 +15,12 @@ export function SystemSheet() {
     <div className="system-sheet">
       {categories.map((category) => (
         <section key={category.title} className="system-category">
-          <h3 className="system-category-title label color-onsurface">{category.title}</h3>
+          <h3 className="system-category-title heading color-onsurface">{category.title}</h3>
           {category.tokens.map(({ name, latex, width, unitlessVar }) => (
             <div key={name} className="system-row">
-              <code className="subheading mono color-onsurfacelow">{name}</code>
+              <code className="subheading color-onsurfacelow">{name}</code>
               <span
-                className="system-latex subheading color-onsurface"
+                className="system-latex callout color-onsurface"
                 dangerouslySetInnerHTML={{ __html: katex.renderToString(latex, { throwOnError: false }) }}
               />
               <TokenLine width={width} unitlessVar={unitlessVar} />
