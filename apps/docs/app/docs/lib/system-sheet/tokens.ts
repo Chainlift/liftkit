@@ -54,6 +54,17 @@ const CONSTANTS = [
   "--lk-scalefactor-length",
 ];
 
+const STEPS = [
+  "--lk-wholestep",
+  "--lk-halfstep",
+  "--lk-quarterstep",
+  "--lk-eighthstep",
+  "--lk-wholestep-dec",
+  "--lk-halfstep-dec",
+  "--lk-quarterstep-dec",
+  "--lk-eighthstep-dec",
+];
+
 export function readSheetCategories(): SheetCategory[] {
   const css = fs.readFileSync(CORE_CSS, "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
   const declarations = new Map<string, string>();
@@ -76,6 +87,21 @@ export function readSheetCategories(): SheetCategory[] {
     ],
   };
 
+  // The steps derived from the scale factor; each `-dec` is its step minus 1
+  const stepLatex = (value: string) => {
+    const dec = value.match(/^calc\(var\((--[\w-]+)\) - 1\)$/);
+    return dec ? `${simplifiedLatex(declarations.get(dec[1]) ?? "", declarations)} - 1` : simplifiedLatex(value, declarations);
+  };
+  const steps: SheetCategory = {
+    title: "Steps",
+    tokens: STEPS.filter((name) => declarations.has(name)).map((name) => ({
+      name,
+      latex: stepLatex(declarations.get(name)!),
+      width: `calc(var(${name}) * 1em)`,
+      unitlessVar: name,
+    })),
+  };
+
   const derived = CATEGORIES.map(({ title, pattern, order }) => {
     const found: { key: string; token: SheetToken }[] = [];
     for (const [cssVar, value] of declarations) {
@@ -90,5 +116,5 @@ export function readSheetCategories(): SheetCategory[] {
     return { title, tokens: found.map((entry) => entry.token) };
   }).filter((category) => category.tokens.length > 0);
 
-  return [constants, ...derived];
+  return [constants, steps, ...derived];
 }
