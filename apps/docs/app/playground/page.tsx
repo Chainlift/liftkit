@@ -14,6 +14,7 @@ import {
 } from "@chainlift/liftkit";
 import { SiteHeader } from "@/components/site-header";
 import { ComponentMosaic } from "@/app/docs/lib/component-mosaic";
+import { ComponentMosaicV2 } from "@/app/docs/lib/component-mosaic-v2";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 import { ColorTones } from "./color-tones";
 
@@ -42,6 +43,7 @@ export default function PlayGround() {
           <Tabs defaultValue="components" className="flex-v w-full h-full">
             <TabsList>
               <TabsTab value="components">Components</TabsTab>
+              <TabsTab value="all-components">All Components</TabsTab>
               <TabsTab value="font-classes">Font Classes</TabsTab>
               <TabsTab value="colors">Colors</TabsTab>
               <TabsIndicator />
@@ -53,6 +55,14 @@ export default function PlayGround() {
                   style={{ minHeight: "100%" }}
                 >
                   <TabsPanel value="components" className="flex-grow">
+                    <Section
+                      padding="xl"
+                      className="w-full self-stretch bg-surfacecontainerlow"
+                    >
+                      <ComponentMosaicV2 />
+                    </Section>
+                  </TabsPanel>
+                  <TabsPanel value="all-components" className="flex-grow">
                     <Section
                       padding="xl"
                       className="w-full self-stretch bg-surfacecontainerlow"

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button, Container, Section } from "@chainlift/liftkit";
 import { SiteHeader } from "@/components/site-header";
-import { ComponentMosaic } from "@/app/docs/lib/component-mosaic";
+import { ComponentMosaicV2 } from "@/app/docs/lib/component-mosaic-v2";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         </Container>
       </Section>
       <Section>
-        <ComponentMosaic />
+        <ComponentMosaicV2 />
       </Section>
     </div>
   );
