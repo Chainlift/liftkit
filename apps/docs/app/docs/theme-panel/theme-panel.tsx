@@ -52,7 +52,7 @@ import type { ColorMode, SchemeVariant, ThemeAction, ThemeSeedColors, ThemeState
 // follow the theme.
 const PANEL_WIDTH = { width: "20rem" };
 const LABEL_COLUMN = { width: "7rem" };
-const NUMBER_COLUMN = { width: "5rem" };
+const NUMBER_COLUMN = { width: "3rem" };
 
 /** A labeled block of controls. */
 function PanelSection({ label, children }: { label: string; children: ReactNode }) {
@@ -72,6 +72,9 @@ function SliderWithNumber({
   max,
   step,
   onChange,
+  stacked = false,
+  labelPrefix,
+  labelSuffix,
 }: {
   label: string;
   value: number;
@@ -79,18 +82,28 @@ function SliderWithNumber({
   max: number;
   step: number;
   onChange: (value: number) => void;
+  /** Puts the label on its own line above the slider instead of beside it. */
+  stacked?: boolean;
+  /** Rendered before the label text, e.g. a color swatch. */
+  labelPrefix?: ReactNode;
+  /** Rendered after the label text, e.g. a reset button. */
+  labelSuffix?: ReactNode;
 }) {
   return (
     <div className="flex-h items-center gap-sm w-full">
       <Slider
-        className="fill-container display-grid"
+        className={stacked ? "fill-container flex-v" : "fill-container display-grid"}
         min={min}
         max={max}
         step={step}
         value={value}
         onValueChange={(next) => onChange(Array.isArray(next) ? next[0] : next)}
       >
-        <SliderLabel className="label">{label}</SliderLabel>
+        <SliderLabel className="label flex-h items-center gap-xs">
+          {labelPrefix}
+          <span className="fill-container">{label}</span>
+          {labelSuffix}
+        </SliderLabel>
         <SliderControl>
           <SliderTrack>
             <SliderIndicator />
@@ -176,25 +189,32 @@ function ToneRow({
 }) {
   return (
     <div className="flex-v w-full mb-sm">
-      <div className="flex-h items-center gap-sm w-full">
-        <div
-          className="w-md h-md rounded-xs border border-color-outlinevariant flex-none"
-          style={{ backgroundColor: hex }}
-        />
-        <span className="caption fill-container" title={cssVar}>
-          {cssVar}
-        </span>
-        <IconButton
-          iconName="x"
-          variant="text"
-          fontClass="caption"
-          aria-label={`Reset ${cssVar}`}
-          title="Reset to default"
-          style={{ visibility: isOverridden ? "visible" : "hidden" }}
-          onClick={onReset}
-        />
-      </div>
-      <SliderWithNumber label={cssVar} value={tone} min={0} max={100} step={1} onChange={onToneChange} />
+      <SliderWithNumber
+        label={cssVar}
+        value={tone}
+        min={0}
+        max={100}
+        step={1}
+        onChange={onToneChange}
+        stacked
+        labelPrefix={
+          <div
+            className="w-md h-md rounded-xs border border-color-outlinevariant flex-none"
+            style={{ backgroundColor: hex }}
+          />
+        }
+        labelSuffix={
+          <IconButton
+            iconName="x"
+            variant="text"
+            fontClass="caption"
+            aria-label={`Reset ${cssVar}`}
+            title="Reset to default"
+            style={{ visibility: isOverridden ? "visible" : "hidden" }}
+            onClick={onReset}
+          />
+        }
+      />
     </div>
   );
 }
