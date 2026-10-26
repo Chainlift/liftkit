@@ -2,8 +2,8 @@
 
 import { useState, type ReactNode } from "react";
 import {
-  AccordionContent,
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
   AlertDialog,
@@ -41,6 +41,11 @@ import {
   MeterLabel,
   MeterTrack,
   MeterValue,
+  Progress,
+  ProgressIndicator,
+  ProgressLabel,
+  ProgressTrack,
+  ProgressValue,
   Select,
   SelectIcon,
   SelectItem,
@@ -66,12 +71,22 @@ import {
   TabsList,
   TabsPanel,
   TabsTab,
+  Toast,
+  ToastClose,
+  ToastContent,
+  ToastDescription,
+  ToastPortal,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+  Toggle,
+  ToggleGroup,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
+  useToastManager,
 } from "@chainlift/liftkit";
-import ToastDemo from "@/content/components/toast/demo";
 import "./component-mosaic-v2.css";
 
 type IconName = React.ComponentProps<typeof Icon>["name"];
@@ -136,24 +151,20 @@ function NavGroup({ label, items, activeIndex }: { label: string; items: [IconNa
   );
 }
 
-/** A small label/value tile. */
-function StatTile({ label, value, note }: { label: string; value: string; note: string }) {
-  return (
-    <div className="fill-container bg-surfacecontainerlow rounded-xs">
-      <GoldenBox scaleFactor="body" opticalCorrection="y">
-        <div className="capline color-onsurfacevariant mb-2xs">{label}</div>
-        <div className="heading-bold">{value}</div>
-        <div className="subheading color-onsurfacevariant">{note}</div>
-      </GoldenBox>
-    </div>
-  );
-}
-
 function LabeledRow({ label, value, bold }: { label: string; value: string; bold?: boolean }) {
   return (
     <div className={`flex items-center justify-between gap-md callout${bold ? " font-500" : ""}`}>
       <span>{label}</span>
       <span>{value}</span>
+    </div>
+  );
+}
+
+/** A rounded tile holding an icon. */
+function IconTile({ name, className = "bg-surfacecontainerhigh" }: { name: IconName; className?: string }) {
+  return (
+    <div className={`flex items-center justify-center rounded-xs p-xs flex-none ${className}`}>
+      <Icon name={name} aria-hidden="true" />
     </div>
   );
 }
@@ -184,58 +195,143 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+// ─── Dashboard header ───────────────────────────────────
+
+function AnnounceButton() {
+  const toasts = useToastManager();
+  return (
+    <Button
+      startIcon="megaphone"
+      onClick={() =>
+        toasts.add({
+          title: "Announcement sent",
+          description: "Guests in the app and on the PA system were notified.",
+        })
+      }
+    >
+      Send announcement
+    </Button>
+  );
+}
+
+function ToastList() {
+  const { toasts } = useToastManager();
+  return toasts.map((toast) => (
+    <Toast key={toast.id} toast={toast}>
+      <ToastContent>
+        <ToastTitle />
+        <ToastDescription />
+        <ToastClose aria-label="Close">
+          <Icon name="x" aria-hidden="true" />
+        </ToastClose>
+      </ToastContent>
+    </Toast>
+  ));
+}
+
+function ParkHeader() {
+  const [range, setRange] = useState("today");
+  return (
+    <div className="flex items-center justify-between gap-lg flex-wrap mb-lg">
+      <div className="flex items-center gap-md">
+        <IconTile name="ferris-wheel" className="bg-primarycontainer color-onprimarycontainer" />
+        <div>
+          <h2 className="title2-bold">Wildwood Adventure Park</h2>
+          <p className="subheading color-onsurfacevariant">Saturday, June 14 · Open 9 AM to 9 PM</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-md flex-wrap">
+        <ToggleGroup
+          aria-label="Time range"
+          value={[range]}
+          onValueChange={(next) => {
+            if (next[0]) setRange(next[0]);
+          }}
+        >
+          <Toggle value="today" className="w-max px-sm">Today</Toggle>
+          <Toggle value="week" className="w-max px-sm">Week</Toggle>
+          <Toggle value="season" className="w-max px-sm">Season</Toggle>
+        </ToggleGroup>
+        <ToastProvider>
+          <AnnounceButton />
+          <ToastPortal>
+            <ToastViewport>
+              <ToastList />
+            </ToastViewport>
+          </ToastPortal>
+        </ToastProvider>
+      </div>
+    </div>
+  );
+}
+
 // ─── Cards ──────────────────────────────────────────────
 
-function QuickActions() {
+function TodayCard() {
   return (
-    <MosaicCard>
-      <div className="flex items-center gap-sm mb-md">
-        <Button startIcon="plus">New project</Button>
-        <Button variant="outline">Invite</Button>
-        <IconButton iconName="bell" variant="text" aria-label="Notifications" />
+    <MosaicCard color="primarycontainer">
+      <div className="subheading mb-2xs">Guests in the park</div>
+      <div className="display2-bold mb-xs">18,420</div>
+      <div className="flex items-center gap-2xs callout mb-lg">
+        <Icon name="trending-up" aria-hidden="true" />
+        12% above last Saturday
       </div>
-      {/* Wrapped because Input sets its own margin, which would win over a utility class */}
+      <Meter value={74} className="mb-lg">
+        <MeterLabel>Park capacity</MeterLabel>
+        <MeterValue />
+        <MeterTrack>
+          <MeterIndicator />
+        </MeterTrack>
+      </Meter>
+      <div className="flex-v gap-xs">
+        <LabeledRow label="Day passes" value="11,240" />
+        <LabeledRow label="Season pass entries" value="5,310" />
+        <LabeledRow label="Group bookings" value="1,870" />
+      </div>
+      <Separator className="my-md" />
+      <p className="caption">Capacity cap is 25,000 guests. Gates pause entry at 95%.</p>
+    </MosaicCard>
+  );
+}
+
+function CommandCard() {
+  return (
+    <MosaicCard title="Command center">
       <div className="mb-md">
-        <Input placeholder="Search projects" aria-label="Search projects" />
+        <Input placeholder="Search rides, staff, guests" aria-label="Search rides, staff, and guests" />
       </div>
-      <div className="flex items-center justify-between gap-md mb-lg">
-        <label className="flex items-center gap-sm callout">
-          <Switch defaultChecked>
-            <SwitchThumb />
-          </Switch>
-          Email alerts
-        </label>
-        <label className="flex items-center gap-sm callout">
-          <Checkbox defaultChecked>
-            <Check />
-          </Checkbox>
-          Weekly digest
-        </label>
-      </div>
-      <div className="flex items-center gap-sm flex-wrap">
+      <div className="flex items-center gap-sm flex-wrap mb-md">
+        <Button startIcon="shield-alert">Log incident</Button>
+        <Button variant="outline" startIcon="bell-ring">
+          Page staff
+        </Button>
         <Menu>
           <MenuTrigger>
-            Export <Icon name="chevron-down" aria-hidden="true" />
+            Reports <Icon name="chevron-down" aria-hidden="true" />
           </MenuTrigger>
           <MenuPortal>
             <MenuPositioner sideOffset={8}>
               <MenuPopup>
-                <MenuItem>Download CSV</MenuItem>
-                <MenuItem>Download PDF</MenuItem>
+                <MenuItem>Daily attendance</MenuItem>
+                <MenuItem>Ride downtime</MenuItem>
+                <MenuItem>Revenue summary</MenuItem>
                 <MenuSeparator />
-                <MenuItem>Copy share link</MenuItem>
+                <MenuItem>Schedule a report</MenuItem>
               </MenuPopup>
             </MenuPositioner>
           </MenuPortal>
         </Menu>
-        <ToastDemo />
+      </div>
+      <Separator className="mb-md" />
+      <div className="flex items-center justify-between gap-md">
+        <span className="callout color-onsurfacevariant">Emergencies only</span>
         <AlertDialog>
-          <AlertDialogTrigger render={<Button variant="outline" color="error" />}>Delete workspace</AlertDialogTrigger>
+          <AlertDialogTrigger render={<Button variant="outline" color="error" />}>Close the park</AlertDialogTrigger>
           <AlertDialogContent render={<Card scaleFactor="title3" opticalCorrection="top" />}>
             <AlertDialogHeader>
-              <AlertDialogTitle className="title3-bold mb-2xs">Delete this workspace?</AlertDialogTitle>
+              <AlertDialogTitle className="title3-bold mb-2xs">Close the park now?</AlertDialogTitle>
               <AlertDialogDescription className="body mb-sm">
-                All projects and members are removed. This can&apos;t be undone.
+                Every ride stops and guests are told to head to the exits.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
@@ -243,7 +339,7 @@ function QuickActions() {
                 <AlertDialogClose render={<Button label="Cancel" color="error" variant="outline" />}>
                   Cancel
                 </AlertDialogClose>
-                <AlertDialogAction>Delete</AlertDialogAction>
+                <AlertDialogAction>Close the park</AlertDialogAction>
               </div>
             </AlertDialogFooter>
           </AlertDialogContent>
@@ -253,28 +349,27 @@ function QuickActions() {
   );
 }
 
-function WorkspaceNav() {
+function ParkMapCard() {
   return (
     <MosaicCard>
       <div className="flex-v gap-lg">
         <NavGroup
-          label="Planning"
-          activeIndex={2}
+          label="Zones"
+          activeIndex={1}
           items={[
-            ["file-text", "Documents"],
-            ["wallet", "Budget"],
-            ["chart-column", "Reports"],
-            ["target", "Goals"],
-            ["calendar", "Calendar"],
+            ["waves", "Adventure Bay"],
+            ["castle", "Skyline Plaza"],
+            ["baby", "Kids' Cove"],
+            ["tent", "Lantern Gardens"],
           ]}
         />
         <NavGroup
-          label="Support"
+          label="Guest services"
           items={[
-            ["circle-question-mark", "Help center"],
-            ["book-open", "Docs"],
-            ["message-circle", "Contact us"],
-            ["globe", "Community"],
+            ["life-buoy", "First aid"],
+            ["map-pin", "Lost and found"],
+            ["utensils", "Restaurants"],
+            ["car-front", "Parking"],
           ]}
         />
       </div>
@@ -282,14 +377,64 @@ function WorkspaceNav() {
   );
 }
 
-function UsageCard() {
+const RIDES: { name: string; zone: string; icon: IconName; wait: number; open: boolean; note?: string }[] = [
+  { name: "Thunder Loop", zone: "Skyline Plaza", icon: "roller-coaster", wait: 45, open: true },
+  { name: "Lantern River Rapids", zone: "Adventure Bay", icon: "waves", wait: 25, open: true },
+  { name: "Skyfall Tower", zone: "Skyline Plaza", icon: "castle", wait: 0, open: false, note: "Brake inspection" },
+  { name: "Sunrise Carousel", zone: "Kids' Cove", icon: "tent", wait: 5, open: true },
+  { name: "Gravity Drift", zone: "Lantern Gardens", icon: "ferris-wheel", wait: 60, open: true },
+];
+
+function RideStatusCard() {
+  const [open, setOpen] = useState(RIDES.map((ride) => ride.open));
+  const openCount = open.filter(Boolean).length;
   return (
-    <MosaicCard title="Usage this month" description="Resets on the 1st">
-      <div className="flex-v gap-md mb-lg">
+    <MosaicCard title="Ride status" description={`${openCount} of ${RIDES.length} rides open`}>
+      <TooltipProvider>
+        <div className="flex-v gap-md">
+          {RIDES.map((ride, index) => (
+            <div key={ride.name} className="flex items-center gap-md">
+              <IconTile name={ride.icon} />
+              <div className="fill-container">
+                <div className="callout font-500">{ride.name}</div>
+                <div className="subheading color-onsurfacevariant">{ride.zone}</div>
+              </div>
+              <div className="text-align-center">
+                <div className="heading-bold">{open[index] ? ride.wait : "-"}</div>
+                <div className="caption color-onsurfacevariant">min</div>
+              </div>
+              <Tooltip>
+                {/* The trigger is a plain wrapper: using the Switch as the trigger would overwrite its data-slot and unstyle it */}
+                <TooltipTrigger render={<span className="flex" />}>
+                  <Switch
+                    aria-label={`${ride.name} is open`}
+                    checked={open[index]}
+                    onCheckedChange={(checked) =>
+                      setOpen((current) => current.map((value, i) => (i === index ? checked : value)))
+                    }
+                  >
+                    <SwitchThumb />
+                  </Switch>
+                </TooltipTrigger>
+                <TooltipContent>{open[index] ? "Open to guests" : (ride.note ?? "Closed")}</TooltipContent>
+              </Tooltip>
+            </div>
+          ))}
+        </div>
+      </TooltipProvider>
+    </MosaicCard>
+  );
+}
+
+function CrowdingCard() {
+  return (
+    <MosaicCard title="Zone crowding" description="Share of each zone's capacity in use">
+      <div className="flex-v gap-md mb-md">
         {[
-          ["Storage", 64],
-          ["API calls", 38],
-          ["Seats", 90],
+          ["Skyline Plaza", 88],
+          ["Adventure Bay", 62],
+          ["Lantern Gardens", 47],
+          ["Kids' Cove", 35],
         ].map(([label, value]) => (
           <Meter key={label} value={value as number}>
             <MeterLabel>{label}</MeterLabel>
@@ -300,86 +445,222 @@ function UsageCard() {
           </Meter>
         ))}
       </div>
-      <div className="flex gap-sm mb-md">
-        <StatTile label="Upcoming" value="May 2026" note="Scheduled" />
-        <StatTile label="Plan" value="Growth" note="Billed yearly" />
+      <div className="flex items-center gap-xs callout color-onsurfacevariant mb-md">
+        <Icon name="users" aria-hidden="true" />
+        Skyline Plaza is nearing capacity
       </div>
-      <Button className="w-full">View full report</Button>
+      <Button className="w-full" variant="outline">
+        Open crowd map
+      </Button>
     </MosaicCard>
   );
 }
 
-function BalanceCard() {
+function WeatherCard() {
+  const [miles, setMiles] = useState(10);
   return (
-    <MosaicCard color="primarycontainer">
-      <div className="subheading mb-2xs">Claimable balance</div>
-      <div className="display2-bold mb-xs">$1,211.29</div>
-      <div className="flex items-center gap-2xs callout mb-lg">
-        <Icon name="clock" aria-hidden="true" />
-        Pending setup
-      </div>
-      <div className="flex-v gap-xs mb-md">
-        <LabeledRow label="Net royalties" value="$1,248.75" />
-        <LabeledRow label="Processing fee" value="-$37.46" />
-      </div>
-      <Separator className="mb-md" />
-      <LabeledRow label="Total ready to claim" value="$1,211.29 USD" bold />
-      <p className="caption mt-md">
-        Once your bank is connected, balances over $10.00 are automatically eligible for monthly distribution.
-      </p>
-    </MosaicCard>
-  );
-}
-
-function MilestoneCard() {
-  return (
-    <MosaicCard title="Set a new milestone" description="Define your target and we'll help you pace your savings.">
-      <div className="flex-v gap-md mb-lg">
-        <Field>
-          <FieldLabel>Goal name</FieldLabel>
-          <FieldControl placeholder="e.g. New car, home down payment" />
-        </Field>
-        <div className="flex gap-sm">
-          <Field className="fill-container">
-            <FieldLabel>Target amount</FieldLabel>
-            <FieldControl defaultValue="$15,000" />
-          </Field>
-          <Field className="fill-container">
-            <FieldLabel>Target date</FieldLabel>
-            <FieldControl defaultValue="Dec 2026" />
-          </Field>
+    <MosaicCard color="warningcontainer">
+      <div className="flex items-start gap-md mb-md">
+        <IconTile name="cloud-lightning" className="bg-warning color-onwarning" />
+        <div>
+          <h3 className="heading-bold">Storm watch</h3>
+          <p className="callout">Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.</p>
         </div>
       </div>
-      <div className="flex-v gap-sm">
-        <Button className="w-full">Create goal</Button>
-        <Button className="w-full" variant="outline">
-          Cancel
-        </Button>
+      <div className="mb-md">
+        <div className="flex items-end justify-between gap-md">
+          <span className="callout font-500">Pause when lightning is within</span>
+          <span className="title3-bold flex-none">{miles} mi</span>
+        </div>
+        <Slider
+          min={5}
+          max={30}
+          step={1}
+          value={miles}
+          onValueChange={(next) => setMiles(Array.isArray(next) ? next[0] : next)}
+        >
+          <SliderControl>
+            <SliderTrack>
+              <SliderIndicator />
+              <SliderThumb aria-label="Pause rides when lightning is within (miles)" />
+            </SliderTrack>
+          </SliderControl>
+        </Slider>
+      </div>
+      <label className="flex items-center justify-between gap-md callout">
+        Pause outdoor rides automatically
+        <Switch defaultChecked>
+          <SwitchThumb />
+        </Switch>
+      </label>
+    </MosaicCard>
+  );
+}
+
+const SHIFTS: Record<string, [string, string, string][]> = {
+  morning: [
+    ["Maya Okafor", "Ride operator, Thunder Loop", "MO"],
+    ["Dev Patel", "Lifeguard, River Rapids", "DP"],
+    ["Sofia Marin", "Guest services, Main gate", "SM"],
+  ],
+  evening: [
+    ["Luis Ortega", "Safety lead, Skyline Plaza", "LO"],
+    ["Hana Kimura", "Ride operator, Gravity Drift", "HK"],
+  ],
+};
+
+function StaffCard() {
+  return (
+    <MosaicCard
+      title="Staff on duty"
+      description="148 on shift today"
+      action={
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger render={<IconButton iconName="user-plus" variant="outline" aria-label="Add a shift" />} />
+            <TooltipContent>Add a shift</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      }
+    >
+      <Tabs defaultValue="morning">
+        <TabsList>
+          <TabsTab value="morning">Morning</TabsTab>
+          <TabsTab value="evening">Evening</TabsTab>
+          <TabsIndicator />
+        </TabsList>
+        {Object.entries(SHIFTS).map(([shift, people]) => (
+          <TabsPanel key={shift} value={shift} className="w-full">
+            <div className="flex-v w-full pt-sm">
+              {people.map(([name, role, initials]) => (
+                <div key={name} className="flex items-center gap-md py-xs">
+                  <Avatar>
+                    <AvatarFallback>{initials}</AvatarFallback>
+                  </Avatar>
+                  <div className="fill-container">
+                    <div className="callout font-500">{name}</div>
+                    <div className="subheading color-onsurfacevariant">{role}</div>
+                  </div>
+                  <Menu>
+                    <MenuTrigger
+                      render={<IconButton iconName="ellipsis" variant="text" aria-label={`Actions for ${name}`} />}
+                    />
+                    <MenuPortal>
+                      <MenuPositioner sideOffset={8}>
+                        <MenuPopup>
+                          <MenuItem>Reassign</MenuItem>
+                          <MenuItem>Send a message</MenuItem>
+                          <MenuSeparator />
+                          <MenuItem>End shift</MenuItem>
+                        </MenuPopup>
+                      </MenuPositioner>
+                    </MenuPortal>
+                  </Menu>
+                </div>
+              ))}
+            </div>
+          </TabsPanel>
+        ))}
+      </Tabs>
+    </MosaicCard>
+  );
+}
+
+const TASKS = [
+  ["brakes", "Inspect Skyfall Tower brakes"],
+  ["bulbs", "Replace carousel bulbs"],
+  ["rails", "Lubricate Thunder Loop rails"],
+  ["soap", "Refill soap stations"],
+  ["signs", "Repaint queue-line signs"],
+];
+
+function MaintenanceCard() {
+  const [done, setDone] = useState<string[]>(["bulbs", "soap"]);
+  return (
+    <MosaicCard title="Maintenance queue" description="Due before gates open tomorrow">
+      <Progress value={Math.round((done.length / TASKS.length) * 100)} className="mb-lg">
+        <ProgressLabel>Completed</ProgressLabel>
+        <ProgressValue />
+        <ProgressTrack>
+          <ProgressIndicator />
+        </ProgressTrack>
+      </Progress>
+      <CheckboxGroup aria-label="Maintenance tasks" value={done} onValueChange={setDone} className="flex flex-col gap-sm">
+        {TASKS.map(([id, label]) => (
+          <label key={id} className="flex items-center gap-sm callout">
+            <Checkbox name="task" value={id}>
+              <Check />
+            </Checkbox>
+            {label}
+          </label>
+        ))}
+      </CheckboxGroup>
+    </MosaicCard>
+  );
+}
+
+const REQUESTS = [
+  { id: 1, name: "Rina Alvarez", initials: "RA", text: "Stroller left at Kids' Cove entrance", time: "2 min ago" },
+  { id: 2, name: "Ben Whitfield", initials: "BW", text: "Wheelchair-accessible route to Skyline Plaza?", time: "9 min ago" },
+  { id: 3, name: "Aiko Tanaka", initials: "AT", text: "Phone charger lost near the carousel", time: "21 min ago" },
+];
+
+function GuestRequestsCard() {
+  const [requests, setRequests] = useState(REQUESTS);
+  return (
+    <MosaicCard
+      title="Guest requests"
+      description={requests.length ? `${requests.length} open` : "All caught up"}
+    >
+      <div className="flex-v gap-md">
+        {requests.map((request) => (
+          <div key={request.id} className="flex items-start gap-md">
+            <Avatar>
+              <AvatarFallback>{request.initials}</AvatarFallback>
+            </Avatar>
+            <div className="fill-container">
+              <div className="callout font-500">{request.name}</div>
+              <div className="callout">{request.text}</div>
+              <div className="caption color-onsurfacevariant">{request.time}</div>
+            </div>
+            <IconButton
+              iconName="check"
+              variant="outline"
+              aria-label={`Resolve request from ${request.name}`}
+              onClick={() => setRequests((current) => current.filter((r) => r.id !== request.id))}
+            />
+          </div>
+        ))}
+        {requests.length === 0 && (
+          <div className="flex items-center gap-xs callout color-onsurfacevariant">
+            <Icon name="sparkles" aria-hidden="true" />
+            Nothing waiting on you.
+          </div>
+        )}
       </div>
     </MosaicCard>
   );
 }
 
-const CURRENCIES = [
-  { label: "USD, United States dollar", value: "usd" },
-  { label: "EUR, Euro", value: "eur" },
-  { label: "GBP, British pound", value: "gbp" },
+const TICKET_TYPES = [
+  { label: "Night pass, after 5 PM", value: "night" },
+  { label: "Day pass", value: "day" },
+  { label: "Season pass", value: "season" },
 ];
 
-function PayoutCard() {
-  const [minimum, setMinimum] = useState(2500);
+function PromoCard() {
   return (
-    <MosaicCard
-      title="Payout threshold"
-      description="Set the minimum balance required before a payout is triggered."
-      action={<IconButton iconName="x" variant="text" aria-label="Close" />}
-    >
-      <div className="flex-v gap-lg">
+    <MosaicCard title="Summer night pass" description="Create a limited-time ticket for the guest app.">
+      <div className="flex-v gap-md mb-lg">
+        <Field>
+          <FieldLabel>Promotion name</FieldLabel>
+          <FieldControl defaultValue="Summer Night Pass" />
+        </Field>
         <Field>
           <FieldLabel nativeLabel={false} render={<div />}>
-            Preferred currency
+            Ticket type
           </FieldLabel>
-          <Select items={CURRENCIES} defaultValue="usd">
+          <Select items={TICKET_TYPES} defaultValue="night">
             <SelectTrigger className="w-full">
               <SelectValue />
               <SelectIcon>
@@ -390,12 +671,12 @@ function PayoutCard() {
               <SelectPositioner sideOffset={8}>
                 <SelectPopup>
                   <SelectList>
-                    {CURRENCIES.map((currency) => (
-                      <SelectItem key={currency.value} value={currency.value}>
+                    {TICKET_TYPES.map((type) => (
+                      <SelectItem key={type.value} value={type.value}>
                         <SelectItemIndicator>
                           <Icon name="check" aria-hidden="true" />
                         </SelectItemIndicator>
-                        <SelectItemText>{currency.label}</SelectItemText>
+                        <SelectItemText>{type.label}</SelectItemText>
                       </SelectItem>
                     ))}
                   </SelectList>
@@ -404,183 +685,69 @@ function PayoutCard() {
             </SelectPortal>
           </Select>
         </Field>
-
-        <div>
-          <div className="flex items-end justify-between gap-md">
-            <span className="callout font-500">Minimum payout</span>
-            <span className="title2-bold">${minimum.toLocaleString()}</span>
-          </div>
-          <Slider
-            min={50}
-            max={10000}
-            step={50}
-            value={minimum}
-            onValueChange={(next) => setMinimum(Array.isArray(next) ? next[0] : next)}
-          >
-            <SliderControl>
-              <SliderTrack>
-                <SliderIndicator />
-                <SliderThumb aria-label="Minimum payout" />
-              </SliderTrack>
-            </SliderControl>
-          </Slider>
-          <div className="flex items-center justify-between caption color-onsurfacevariant">
-            <span>$50 MIN</span>
-            <span>$10,000 MAX</span>
-          </div>
+        <div className="flex gap-sm">
+          <Field className="fill-container">
+            <FieldLabel>Price</FieldLabel>
+            <FieldControl defaultValue="$39" />
+          </Field>
+          <Field className="fill-container">
+            <FieldLabel>Ends</FieldLabel>
+            <FieldControl defaultValue="Aug 31" />
+          </Field>
         </div>
-
-        <CheckboxGroup aria-label="Notify me by" defaultValue={["email"]} className="flex flex-col gap-sm">
-          <div className="capline color-onsurfacevariant">Notify me by</div>
-          <label className="flex items-center gap-sm callout">
-            <Checkbox name="notify" value="email">
-              <Check />
-            </Checkbox>
-            Email
-          </label>
-          <label className="flex items-center gap-sm callout">
-            <Checkbox name="notify" value="sms">
-              <Check />
-            </Checkbox>
-            Text message
-          </label>
-        </CheckboxGroup>
-
         <label className="flex items-center justify-between gap-md callout">
-          Pay out automatically
+          Show in the guest app
           <Switch defaultChecked>
             <SwitchThumb />
           </Switch>
         </label>
       </div>
+      <div className="flex-v gap-sm">
+        <Button className="w-full" startIcon="ticket">
+          Publish promotion
+        </Button>
+        <Button className="w-full" variant="outline">
+          Save draft
+        </Button>
+      </div>
     </MosaicCard>
   );
 }
 
-const TEAM = [
-  ["Garrett Mack", "Owner", "GM"],
-  ["Priya Nair", "Designer", "PN"],
-  ["Tomas Reyes", "Engineer", "TR"],
-];
-
-function TeamCard() {
+function GuestFaqCard() {
   return (
-    <MosaicCard
-      title="Team"
-      description="3 members, 2 pending invites"
-      action={
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger render={<IconButton iconName="user-plus" variant="outline" aria-label="Add member" />} />
-            <TooltipContent>Add member</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      }
-    >
-      <Tabs defaultValue="members">
-        <TabsList>
-          <TabsTab value="members">Members</TabsTab>
-          <TabsTab value="invites">Invites</TabsTab>
-          <TabsIndicator />
-        </TabsList>
-        <TabsPanel value="members" className="w-full">
-          <div className="flex-v w-full pt-sm">
-            {TEAM.map(([name, role, initials]) => (
-              <div key={name} className="flex items-center gap-md py-xs">
-                <Avatar>
-                  <AvatarFallback>{initials}</AvatarFallback>
-                </Avatar>
-                <div className="fill-container">
-                  <div className="callout font-500">{name}</div>
-                  <div className="subheading color-onsurfacevariant">{role}</div>
-                </div>
-                <Menu>
-                  <MenuTrigger render={<IconButton iconName="ellipsis" variant="text" aria-label={`Actions for ${name}`} />} />
-                  <MenuPortal>
-                    <MenuPositioner sideOffset={8}>
-                      <MenuPopup>
-                        <MenuItem>Change role</MenuItem>
-                        <MenuItem>Send message</MenuItem>
-                        <MenuSeparator />
-                        <MenuItem>Remove</MenuItem>
-                      </MenuPopup>
-                    </MenuPositioner>
-                  </MenuPortal>
-                </Menu>
-              </div>
-            ))}
-          </div>
-        </TabsPanel>
-        <TabsPanel value="invites" className="w-full">
-          <div className="flex-v w-full pt-sm">
-            {["sam@studio.co", "lena@studio.co"].map((email) => (
-              <div key={email} className="flex items-center justify-between gap-md py-xs">
-                <span className="callout">{email}</span>
-                <Button variant="text">Resend</Button>
-              </div>
-            ))}
-          </div>
-        </TabsPanel>
-      </Tabs>
-    </MosaicCard>
-  );
-}
-
-function HelpCard() {
-  return (
-    <MosaicCard title="Help center">
+    <MosaicCard title="Guest FAQ">
       <Accordion>
-        <FaqItem question="How do I get started?" answer="Create a project, invite your team, and connect a bank account." />
-        <FaqItem question="When do payouts happen?" answer="Balances over your threshold are paid out on the 1st of each month." />
-        <FaqItem question="Can I change my plan?" answer="Yes. Upgrade or downgrade any time from Billing settings." />
+        <FaqItem question="Is there a height requirement?" answer="Most coasters need 48 inches. Kids' Cove rides have no minimum." />
+        <FaqItem question="What happens if it rains?" answer="Indoor attractions stay open. Outdoor rides pause during lightning and reopen after 30 clear minutes." />
+        <FaqItem question="Where is lost and found?" answer="Next to First Aid by the main gate. We also post found items in the guest app." />
       </Accordion>
     </MosaicCard>
   );
 }
 
-function AssistantCard() {
-  return (
-    <MosaicCard
-      title="Assistant"
-      description="How can I help you today?"
-      action={<IconButton iconName="rotate-cw" variant="outline" aria-label="Start over" />}
-    >
-      <Separator className="mb-lg" />
-      <div className="flex-v items-center text-align-center gap-xs mb-lg">
-        <div className="bg-surfacecontainerhigh rounded-xs p-sm flex">
-          <Icon name="sparkles" aria-hidden="true" />
-        </div>
-        <h4 className="heading-bold">Morning, Garrett!</h4>
-        <p className="callout color-onsurfacevariant">
-          What are we working on today? Send a message to start a new conversation.
-        </p>
-      </div>
-      <div className="flex items-center gap-sm">
-        <div className="fill-container">
-          <Input placeholder="Message the assistant" aria-label="Message the assistant" />
-        </div>
-        <IconButton iconName="send" aria-label="Send" />
-      </div>
-    </MosaicCard>
-  );
-}
-
 /**
- * A showcase of LiftKit components arranged as things you'd actually ship: a nav, a usage panel, forms, a team list,
- * a chat. Cards flow into balanced columns that collapse as the space narrows.
+ * A showcase of LiftKit components arranged as an amusement park operations dashboard: live ride status, crowding,
+ * weather, staffing, maintenance, and guest requests. Cards flow into balanced columns that collapse as the space
+ * narrows.
  */
 export function ComponentMosaicV2() {
   return (
-    <div className="mosaic-v2">
-      <QuickActions />
-      <WorkspaceNav />
-      <UsageCard />
-      <BalanceCard />
-      <MilestoneCard />
-      <PayoutCard />
-      <TeamCard />
-      <HelpCard />
-      <AssistantCard />
+    <div className="w-full">
+      <ParkHeader />
+      <div className="mosaic-v2">
+        <TodayCard />
+        <CommandCard />
+        <ParkMapCard />
+        <RideStatusCard />
+        <CrowdingCard />
+        <WeatherCard />
+        <StaffCard />
+        <MaintenanceCard />
+        <GuestRequestsCard />
+        <PromoCard />
+        <GuestFaqCard />
+      </div>
     </div>
   );
 }
