@@ -34,6 +34,7 @@ import {
   Slider,
   SliderControl,
   SliderIndicator,
+  SliderLabel,
   SliderThumb,
   SliderTrack,
   Toggle,
@@ -56,8 +57,8 @@ const NUMBER_COLUMN = { width: "5rem" };
 /** A labeled block of controls. */
 function PanelSection({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <GoldenBox scaleFactor="capline" opticalCorrection="y" className="w-full">
-      <h3 className="capline color-onsurfacevariant mb-xs">{label}</h3>
+    <GoldenBox scaleFactor="label" opticalCorrection="y" className="w-full">
+      <h3 className="label-bold color-onsurface mb-sm">{label}</h3>
       {children}
     </GoldenBox>
   );
@@ -82,13 +83,14 @@ function SliderWithNumber({
   return (
     <div className="flex-h items-center gap-sm w-full">
       <Slider
-        className="fill-container"
+        className="fill-container display-grid"
         min={min}
         max={max}
         step={step}
         value={value}
         onValueChange={(next) => onChange(Array.isArray(next) ? next[0] : next)}
       >
+        <SliderLabel className="label">{label}</SliderLabel>
         <SliderControl>
           <SliderTrack>
             <SliderIndicator />
@@ -101,6 +103,7 @@ function SliderWithNumber({
           inputMode="decimal"
           aria-label={`${label} value`}
           value={value}
+        fontClass="label"
           onChange={(event) => {
             const next = Number(event.target.value);
             if (event.target.value.trim() !== "" && next >= min && next <= max) onChange(next);
@@ -118,24 +121,24 @@ const SCALE_FACTORS: {
   stateKey: keyof ThemeState & `scaleFactor${string}`;
   action: (value: number) => ThemeAction;
 }[] = [
-  { label: "Scale Factor", stateKey: "scaleFactor", action: (value) => ({ type: "SET_SCALE_FACTOR", value }) },
+  { label: "Global", stateKey: "scaleFactor", action: (value) => ({ type: "SET_SCALE_FACTOR", value }) },
   {
-    label: "Scale Factor Corner",
+    label: "Corner radii",
     stateKey: "scaleFactorCorner",
     action: (value) => ({ type: "SET_SCALE_FACTOR_CORNER", value }),
   },
   {
-    label: "Scale Factor Typography",
+    label: "Type scale",
     stateKey: "scaleFactorTypography",
     action: (value) => ({ type: "SET_SCALE_FACTOR_TYPOGRAPHY", value }),
   },
   {
-    label: "Scale Factor Length",
+    label: "Lengths and widths",
     stateKey: "scaleFactorLength",
     action: (value) => ({ type: "SET_SCALE_FACTOR_LENGTH", value }),
   },
   {
-    label: "Scale Factor Spacing",
+    label: "Spacing",
     stateKey: "scaleFactorSpacing",
     action: (value) => ({ type: "SET_SCALE_FACTOR_SPACING", value }),
   },
@@ -145,11 +148,11 @@ const SCALE_FACTORS: {
 
 function SeedColorRow({ role, hex, onChange }: { role: string; hex: string; onChange: (hex: string) => void }) {
   return (
-    <div className="flex-h items-center gap-sm w-full mb-xs">
+    <div className="display-grid items-center gap-sm w-full mb-xs">
       <div className="flex-none" style={LABEL_COLUMN}>
         <span className="label">{role}</span>
       </div>
-      <ColorInput className="fill-container" value={hex} onValueChange={onChange} aria-label={role} />
+      <ColorInput className="fill-container label" value={hex} onValueChange={onChange} aria-label={role} />
     </div>
   );
 }
@@ -174,7 +177,10 @@ function ToneRow({
   return (
     <div className="flex-v w-full mb-sm">
       <div className="flex-h items-center gap-sm w-full">
-        <div className="w-md h-md rounded-xs border border-color-outlinevariant flex-none" style={{ backgroundColor: hex }} />
+        <div
+          className="w-md h-md rounded-xs border border-color-outlinevariant flex-none"
+          style={{ backgroundColor: hex }}
+        />
         <span className="caption fill-container" title={cssVar}>
           {cssVar}
         </span>
@@ -215,7 +221,7 @@ function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string
         <span className="callout font-500">{groupName}</span>
       </CollapsibleTrigger>
       <CollapsiblePanel>
-        <GoldenBox scaleFactor="capline" opticalCorrection="y">
+        <GoldenBox scaleFactor="label" opticalCorrection="y">
           {Object.entries(group.tokens).map(([tokenName, def]) => {
             const isOverridden = tokenName in state.toneOverrides;
             const tone = state.toneOverrides[tokenName] ?? def.defaultTone[viewMode];
@@ -348,8 +354,8 @@ function ThemePanelContent() {
               <SchemeVariantSelect />
             </PanelSection>
 
-            {SCALE_FACTORS.map(({ label, stateKey, action }) => (
-              <PanelSection key={stateKey} label={label}>
+            <PanelSection label="Scale Factors">
+              {SCALE_FACTORS.map(({ label, stateKey, action }) => (
                 <SliderWithNumber
                   label={label}
                   value={state[stateKey]}
@@ -358,8 +364,10 @@ function ThemePanelContent() {
                   step={0.001}
                   onChange={(value) => dispatch(action(value))}
                 />
-              </PanelSection>
-            ))}
+              ))}
+            </PanelSection>
+
+ 
 
             <PanelSection label="Master Seed">
               <SeedColorRow
@@ -403,14 +411,19 @@ function ThemePanelContent() {
       {/* Actions */}
       <div className="border-t border-color-outlinevariant flex-none">
         <GoldenBox scaleFactor="body" opticalCorrection="y">
-          <div className="flex-h gap-sm">
-            <Button className="fill-container" variant="outline" onClick={() => dispatch({ type: "RESET" })}>
+          <div className="flex-h gap-sm justify-start">
+            <Button
+              className="fill-container"
+              variant="outline"
+              fontClass="label"
+              onClick={() => dispatch({ type: "RESET" })}
+            >
               Reset
             </Button>
-            <Button className="fill-container" variant="outline" onClick={handleCopy}>
+            <Button className="fill-container" variant="outline" fontClass="label" onClick={handleCopy}>
               {copied ? "Copied!" : "Copy CSS"}
             </Button>
-            <Button className="fill-container" onClick={() => downloadThemeCSS(state)}>
+            <Button className="fill-container" fontClass="label" onClick={() => downloadThemeCSS(state)}>
               Export
             </Button>
           </div>
@@ -424,14 +437,9 @@ function ThemePanelContent() {
 export function ThemePanel() {
   return (
     <aside
-      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlow border-r border-color-outlinevariant"
+      className="flex-v flex-none h-full overflow-hidden bg-surface rounded-sm shadow-2xs"
       style={PANEL_WIDTH}
     >
-      <div className="border-b border-color-outlinevariant flex-none">
-        <GoldenBox scaleFactor="body" opticalCorrection="y">
-          <span className="heading-bold">Theme Builder</span>
-        </GoldenBox>
-      </div>
       <ThemePanelContent />
     </aside>
   );
