@@ -37,6 +37,7 @@
 }
 
 .system-token-line {
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -59,4 +60,11 @@
 .system-token-value {
   margin-left: var(--lk-size-md);
   white-space: nowrap;
+}
+
+.system-token-probe {
+  position: absolute;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
