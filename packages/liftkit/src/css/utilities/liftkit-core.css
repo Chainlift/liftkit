@@ -596,6 +596,7 @@ body {
 } */
 
 body {
+  margin: 0; /* normalize.css leaves the browser's default 8px body margin in place */
   color: var(--lk-onbackground);
   background: var(--lk-background);
   -webkit-font-smoothing: antialiased;
