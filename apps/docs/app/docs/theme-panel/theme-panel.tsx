@@ -377,6 +377,7 @@ function ThemePanelContent() {
             <PanelSection label="Scale Factors">
               {SCALE_FACTORS.map(({ label, stateKey, action }) => (
                 <SliderWithNumber
+                  key={stateKey}
                   label={label}
                   value={state[stateKey]}
                   min={1}
