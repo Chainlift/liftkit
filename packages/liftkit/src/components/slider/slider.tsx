@@ -8,6 +8,10 @@ function Slider({ ...props }: SliderPrimitive.Root.Props) {
   return <SliderPrimitive.Root data-slot="slider" {...props} />;
 }
 
+function SliderLabel({ ...props }: SliderPrimitive.Label.Props) {
+  return <SliderPrimitive.Label data-slot="label" {...props} />;
+}
+
 function SliderControl({ className, ...props }: SliderPrimitive.Control.Props) {
   return <SliderPrimitive.Control data-slot="slider-control" className={cn(className)} {...props} />;
 }
@@ -24,4 +28,4 @@ function SliderThumb({ className, ...props }: SliderPrimitive.Thumb.Props) {
   return <SliderPrimitive.Thumb data-slot="slider-thumb" className={cn(className)} {...props} />;
 }
 
-export { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb };
+export { Slider, SliderLabel, SliderControl, SliderTrack, SliderIndicator, SliderThumb };
