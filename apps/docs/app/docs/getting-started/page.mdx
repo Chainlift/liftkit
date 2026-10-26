@@ -1,0 +1,32 @@
+# **The UI kit that lets you customize as much as you want while protecting you from hurting yourself**
+
+LiftKit is my answer to the big question every design system tries to answer: how do you enforce aesthetic quality control while still giving users the freedom to be creative?
+
+Most design systems are based on the following industry standard tenets:
+
+- Base-4 pixel grid  
+- As few tokens as possible  
+- Linear scaling systems  
+- Wholistic (if a pattern or component is not in this system, don't do it) 
+
+I personally found this limiting, and I had no one around to tell me to just accept the things that bothered me as unavoidable facts of life.
+
+For example, I ran into scenarios the above tenets couldn't address:
+
+
+| Industry standard rule | Reason why | My problem with it | So I did this instead |
+|-|-|-|-|
+| Use a 4px grid | It's the only system intuitive enough to work at scale across large teams | I wanted spacing to be relative to content. Also I was a team of one, so I didn't care if anyone else could use my system. | Used em's for everything with no min or max increment |
+| Use as few color tokens as possible | Makes it easier to use each token consistently | I needed all my projects to look very different | Reached for dynamic theming systems with rich, vibrant color sets |
+| Scale things linearly by 1.25x | Matches with the 4px grid rule, looks good | Not perceptually accurate. The diff between 8px and 12px perceptually greater than that between 32px and 36px, even though it's the same interval.| Made a system that was proportional but asymmetrical |
+| Be strict. If you find a case the system doesn't support, don't do it until the system is updated to support it. | It's the whole point of a design system. If designers aren't constrained, their visual styles will diverge over time, and the product loses its identity. | Getting changes approved is time-consuming, blocking, and requires human debate and review. I wanna go fast. | Sought a way to automatically check for aesthetic quality and consistency. 
+
+There's a common theme you'll notice in what I was thinking at the time. This idea of automating aesthetic quality. And that's a pretty contentious point among designers. 
+
+I have been quite understandably critiqued for chasing urban legends about sacred geometry and the golden ratio, 
+
+## Easy? No. Intuitive? Also no. You almost certainly do not need this.
+
+## Aesthetic quality control baked into the architecture
+
+LiftKit is a design system built on top of Base UI. It uses a unique scaling system based on relative units that ensures every single element is proportional to everything else. Think of it like a bowling lane with the bumpers up. You can’t hurt yourself.

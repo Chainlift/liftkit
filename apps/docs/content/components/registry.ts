@@ -19,6 +19,8 @@ import collapsibleMeta from "./collapsible/meta";
 import CollapsibleDemo from "./collapsible/demo";
 import comboboxMeta from "./combobox/meta";
 import ComboboxDemo from "./combobox/demo";
+import containerMeta from "./container/meta";
+import ContainerDemo from "./container/demo";
 import contextMenuMeta from "./context-menu/meta";
 import ContextMenuDemo from "./context-menu/demo";
 import dialogMeta from "./dialog/meta";
@@ -55,6 +57,8 @@ import radioMeta from "./radio/meta";
 import RadioDemo from "./radio/demo";
 import scrollAreaMeta from "./scroll-area/meta";
 import ScrollAreaDemo from "./scroll-area/demo";
+import sectionMeta from "./section/meta";
+import SectionDemo from "./section/demo";
 import selectMeta from "./select/meta";
 import SelectDemo from "./select/demo";
 import separatorMeta from "./separator/meta";
@@ -97,6 +101,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
   "checkbox-group": { meta: checkboxGroupMeta, Demo: CheckboxGroupDemo },
   collapsible: { meta: collapsibleMeta, Demo: CollapsibleDemo },
   combobox: { meta: comboboxMeta, Demo: ComboboxDemo },
+  container: { meta: containerMeta, Demo: ContainerDemo },
   "context-menu": { meta: contextMenuMeta, Demo: ContextMenuDemo },
   dialog: { meta: dialogMeta, Demo: DialogDemo },
   field: { meta: fieldMeta, Demo: FieldDemo },
@@ -115,6 +120,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
   progress: { meta: progressMeta, Demo: ProgressDemo },
   radio: { meta: radioMeta, Demo: RadioDemo },
   "scroll-area": { meta: scrollAreaMeta, Demo: ScrollAreaDemo },
+  section: { meta: sectionMeta, Demo: SectionDemo },
   select: { meta: selectMeta, Demo: SelectDemo },
   separator: { meta: separatorMeta, Demo: SeparatorDemo },
   slider: { meta: sliderMeta, Demo: SliderDemo },

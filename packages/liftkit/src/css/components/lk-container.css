@@ -1,0 +1,33 @@
+/* A centered flex column with a maximum content width.
+   The max-width values are static for now; they'll be derived from LiftKit tokens later. */
+:where([data-lk-component="container"]) {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+}
+
+:where([data-lk-container-max-width="xs"]) {
+  max-width: 80ch;
+}
+
+:where([data-lk-container-max-width="sm"]) {
+  max-width: 1280px;
+}
+
+:where([data-lk-container-max-width="md"]) {
+  max-width: 1440px;
+}
+
+:where([data-lk-container-max-width="lg"]) {
+  max-width: 1600px;
+}
+
+:where([data-lk-container-max-width="xl"]) {
+  max-width: 1920px;
+}
+
+:where([data-lk-container-max-width="none"]) {
+  max-width: 100%;
+}

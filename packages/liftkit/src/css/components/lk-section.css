@@ -1,0 +1,61 @@
+/* A flex column padded with a LiftKit size token (the same tokens as the p-* utilities). */
+:where([data-lk-component="section"]) {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-lk-section-padding="none"]) {
+  padding: 0;
+}
+
+:where([data-lk-section-padding="5xs"]) {
+  padding: var(--lk-size-5xs);
+}
+
+:where([data-lk-section-padding="4xs"]) {
+  padding: var(--lk-size-4xs);
+}
+
+:where([data-lk-section-padding="3xs"]) {
+  padding: var(--lk-size-3xs);
+}
+
+:where([data-lk-section-padding="2xs"]) {
+  padding: var(--lk-size-2xs);
+}
+
+:where([data-lk-section-padding="xs"]) {
+  padding: var(--lk-size-xs);
+}
+
+:where([data-lk-section-padding="sm"]) {
+  padding: var(--lk-size-sm);
+}
+
+:where([data-lk-section-padding="md"]) {
+  padding: var(--lk-size-md);
+}
+
+:where([data-lk-section-padding="lg"]) {
+  padding: var(--lk-size-lg);
+}
+
+:where([data-lk-section-padding="xl"]) {
+  padding: var(--lk-size-xl);
+}
+
+:where([data-lk-section-padding="2xl"]) {
+  padding: var(--lk-size-2xl);
+}
+
+:where([data-lk-section-padding="3xl"]) {
+  padding: var(--lk-size-3xl);
+}
+
+:where([data-lk-section-padding="4xl"]) {
+  padding: var(--lk-size-4xl);
+}
+
+:where([data-lk-section-padding="5xl"]) {
+  padding: var(--lk-size-5xl);
+}

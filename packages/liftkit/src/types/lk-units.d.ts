@@ -8,6 +8,8 @@ declare global {
    * Smaller sizes divide the previous size by
    */
   type LkSizeUnit =
+    | "5xs"
+    | "4xs"
     | "3xs"
     | "2xs"
     | "xs"
@@ -17,11 +19,11 @@ declare global {
     | "xl"
     | "2xl"
     | "3xl"
-    | "4xl";
+    | "4xl"
+    | "5xl";
   /**
-   * The maximum width of container elements.
-   * If you need something besides the allowed values, set it to 'auto'
-   * and then pass a custom width in the style prop OR use a custom className.
+   * The maximum content width of a Container.
+   * xs = 80ch, sm = 1280px, md = 1440px, lg = 1600px, xl = 1920px, none = 100%.
    */
-  type LkContainerWidth = "xs" | "sm" | "md" | "lg" | "xl" | "none" | "auto";
+  type LkContainerWidth = "xs" | "sm" | "md" | "lg" | "xl" | "none";
 }
