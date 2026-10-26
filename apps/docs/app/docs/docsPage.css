@@ -17,6 +17,11 @@
     padding-bottom: var(--lk-size-4xl);
   }
 
+  /* rehype-pretty-code wraps fenced code blocks in a <figure>, which has a browser-default 40px side margin */
+  figure[data-rehype-pretty-code-figure] {
+    margin: 0;
+  }
+
   p > code {
     background-color: var(--lk-surfacecontainerhigh);
     padding: 0px var(--lk-size-2xs);
