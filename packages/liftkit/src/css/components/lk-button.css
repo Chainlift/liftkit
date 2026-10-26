@@ -60,6 +60,10 @@
   word-break: keep-all;
   overflow: hidden;
   font-family: inherit;
+
+  /* Let the button shrink below its content (in flex rows and grid cells too) so the label can truncate */
+  min-width: 0;
+  max-width: 100%;
 }
 
 :where([data-lk-button-root]) {
@@ -81,6 +85,22 @@
 .lk-btn:has([data-lk-icon-position="start"]):has([data-lk-icon-position="end"]) {
   padding-left: var(--button-padX-sideWithIcon);
   padding-right: var(--button-padX-sideWithIcon);
+}
+
+/* TRUNCATION: when the button is too narrow, the label shortens with an ellipsis. Icons keep their size. */
+.lk-btn [data-lk-button-child="button-text"] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lk-btn [data-lk-icon-position] {
+  flex: none;
+}
+
+/* CENTERING: with no icons, the label sits in the middle of the button. Buttons with icons keep their start alignment. */
+.lk-btn:not(:has([data-lk-icon-position])) {
+  justify-content: center;
 }
 
 /* CONTENT WRAPPER */
