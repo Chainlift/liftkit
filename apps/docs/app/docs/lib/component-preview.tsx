@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { componentManifest, type ComponentName, type Control } from "@/app/docs/lib/component-manifest";
+import type { Control } from "@/app/docs/lib/component-doc";
 import { GoldenBox } from "@chainlift/liftkit";
 import { Switch, SwitchThumb } from "@chainlift/liftkit";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
@@ -55,38 +55,27 @@ import { StateLayer } from "@chainlift/liftkit";
 import { Link } from "lucide-react";
 
 interface ComponentPreviewProps {
-  /** Legacy pages: look up knobs, demo, and code templates in componentManifest. */
-  componentName?: ComponentName;
+  /** Registry key of the demo to render. The demo receives the knob values as props. */
+  slug: string;
+  /** Raw demo.tsx source; the TS tab shows it with the current knob values filled in. */
+  demoSource: string;
+  /** Server-highlighted TS sample (default knob values), shown until the client re-highlights. */
   initial_TS?: string | null;
+  /** Server-highlighted component stylesheet for the CSS tab. */
   initial_CSS?: string | null;
-  /** Template pages: knob definitions for the controls panel. */
+  /** Knob definitions for the controls panel. */
   knobs?: Record<string, Control>;
-  /** Template pages: link to this component's Base UI docs. */
+  /** Link to this component's Base UI docs. */
   docsLink?: string;
-  /** Template pages: raw demo.tsx source; the TS tab shows it with the current knob values filled in. */
-  demoSource?: string;
-  /** Template pages: registry key of the demo to render. The demo receives the knob values as props. */
-  slug?: string;
 }
 
-export function ComponentPreview({
-  componentName,
-  initial_TS,
-  initial_CSS,
-  knobs,
-  docsLink,
-  demoSource,
-  slug,
-}: ComponentPreviewProps) {
-  const manifest = componentName ? componentManifest[componentName] : undefined;
-  const knobDefs = knobs ?? manifest?.knobs;
-  const docsHref = docsLink ?? manifest?.docsLink;
+export function ComponentPreview({ slug, demoSource, initial_TS, initial_CSS, knobs, docsLink }: ComponentPreviewProps) {
 
   // Initialize state from defaults
   const [knobValues, setKnobValues] = useState<Record<string, any>>(() => {
     const initial: Record<string, any> = {};
-    if (knobDefs) {
-      for (const [key, control] of Object.entries(knobDefs)) {
+    if (knobs) {
+      for (const [key, control] of Object.entries(knobs)) {
         initial[key] = control.default;
       }
     }
@@ -96,12 +85,7 @@ export function ComponentPreview({
   // Generate reactive code strings from knob values
 
   // retrieve the server-generated code by default
-  const dynamic_TS = demoSource
-    ? renderDemoSource(demoSource, knobValues)
-    : manifest?.example_TS
-      ? manifest.example_TS(knobValues)
-      : null;
-  const dynamic_CSS = manifest?.example_CSS ? manifest.example_CSS(knobValues) : null;
+  const dynamic_TS = renderDemoSource(demoSource, knobValues);
 
   // Update a single knob
   const updateKnob = (key: string, value: any) => {
@@ -250,18 +234,11 @@ export function ComponentPreview({
     }
   };
 
-  // Apply mapKnobsToProps transformation if defined
-  const finalProps = manifest?.mapKnobsToProps ? manifest.mapKnobsToProps(knobValues) : knobValues;
-
-  // Merge with baseProps if defined and cast to any for dynamic component rendering
-  const componentProps = { ...(manifest?.baseProps || {}), ...finalProps } as any;
-
-  // Template pages resolve their demo here rather than receiving it as children:
-  // elements passed from a server component can arrive as lazy references,
-  // which can't be cloned to inject knob values.
-  const Demo = slug ? componentDocs[slug]?.Demo : undefined;
-  const Component = manifest?.Component;
-  const demo = Demo ? <Demo {...activeKnobs(knobValues)} /> : Component ? <Component {...componentProps} /> : null;
+  // The demo is resolved here, not passed in as children: elements passed from
+  // a server component can arrive as lazy references, which can't be cloned to
+  // inject knob values.
+  const Demo = componentDocs[slug]?.Demo;
+  const demo = Demo ? <Demo {...activeKnobs(knobValues)} /> : null;
 
   return (
     <div className="w-full rounded-xs shadow-2xs overflow-hidden ">
@@ -308,7 +285,7 @@ export function ComponentPreview({
                               see&nbsp;
                               <a
                                 className="font-600 underline"
-                                href={docsHref ?? "https://base-ui.com/react/overview/quick-start"}
+                                href={docsLink ?? "https://base-ui.com/react/overview/quick-start"}
                               >
                                 Base UI Docs.
                               </a>
@@ -319,24 +296,28 @@ export function ComponentPreview({
                     </Popover>
                   </div>
                 </GoldenBox>
-                {knobDefs && (
+                {knobs && (
                   <div className="flex flex-col">
-                    {Object.entries(knobDefs).map(([key, control]) => (
+                    {Object.entries(knobs).map(([key, control]) => (
                       <div key={key} className="">
                         <div className="flex justify-start">{renderControl(key, control, knobValues[key])}</div>
                       </div>
                     ))}
                   </div>
                 )}
-                {!knobDefs && (
+                {!knobs && (
                   <GoldenBox scaleFactor="capline" opticalCorrection="top">
                     <p className="caption color-onsurfacelow">
-                      No demo props for this component, because none of the props on the root primitive cause visible changes. For a full list of props, see the&nbsp;<a
-                        className="font-600 underline"
-                        href={docsHref ?? "https://base-ui.com/react/overview/quick-start"}
-                      >
-                        Base UI Docs.
-                      </a>
+                      No demo props for this component, because none of the props on the root cause visible changes.
+                      {docsLink && (
+                        <>
+                          {" "}
+                          For a full list of props, see the&nbsp;
+                          <a className="font-600 underline" href={docsLink}>
+                            Base UI Docs.
+                          </a>
+                        </>
+                      )}
                     </p>
                   </GoldenBox>
                 )}
@@ -384,7 +365,6 @@ export function ComponentPreview({
           <TabsPanel value="css" style={{ height: "500px" }}>
             <RichCodeBlock
               preHighlightedCode={initial_CSS ?? undefined}
-              codeForClientHighlighting={dynamic_CSS ?? undefined}
               lang="css"
             ></RichCodeBlock>
           </TabsPanel>

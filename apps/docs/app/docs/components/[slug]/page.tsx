@@ -88,7 +88,7 @@ export default async function ComponentDocPage({ params }: Params) {
           )}
         </p>
       </blockquote>
-      <SubComponentSection componentName={slug} />
+      <SubComponentSection subComponents={meta.subComponents} />
     </>
   );
 }

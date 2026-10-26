@@ -1,4 +1,4 @@
-import type { Control } from "./component-manifest";
+import type { Control } from "./component-doc";
 
 /**
  * Turns a demo file's source into the code sample shown under the live demo.
@@ -13,17 +13,18 @@ import type { Control } from "./component-manifest";
  * For display, the `knobs` parameter is removed, `{...knobs}` is replaced
  * with the current knob values as JSX props (a `children` knob becomes the
  * element's children), and type imports that only typed the parameter are
- * dropped. Pure string work, so it runs on the server and in the browser.
+ * dropped. Put `{...knobs}` after any plain props on the element. Pure string
+ * work, so it runs on the server and in the browser.
  */
 export function renderDemoSource(source: string, knobValues: Record<string, unknown> = {}): string {
   const { children, ...props } = activeKnobs(knobValues);
   const attrs = Object.entries(props).map(([key, value]) => serializeProp(key, value));
 
-  let code = source.replace(/^\s*["']use client["'];?\s*\n+/, "");
-  code = code.replace(/\(\s*knobs\b[^)]*\)/, "()");
+  let code = source.replace(/\(\s*knobs\b[^)]*\)/, "()");
   code = code.replace(
-    /^([ \t]*)(.*?)<([A-Za-z][\w.]*)\s+\{\.\.\.knobs\}\s*(\/?)>/m,
-    (_match, indent: string, before: string, tag: string, selfClosing: string) => {
+    /^([ \t]*)(.*?)<([A-Za-z][\w.]*)((?:\s+[^\s{>][^>]*?)?)\s+\{\.\.\.knobs\}\s*(\/?)>/m,
+    (_match, indent: string, before: string, tag: string, otherProps: string, selfClosing: string) => {
+      if (otherProps.trim()) attrs.unshift(otherProps.trim());
       const inline = attrs.length <= 2 && attrs.join(" ").length <= 48;
       const open = attrs.length === 0 ? `<${tag}` : inline ? `<${tag} ${attrs.join(" ")}` : `<${tag}\n${indent}  ${attrs.join(`\n${indent}  `)}\n${indent}`;
 
@@ -35,9 +36,12 @@ export function renderDemoSource(source: string, knobValues: Record<string, unkn
     },
   );
 
-  // Remove `type Foo` import specifiers that are no longer referenced.
-  code = code.replace(/,\s*type\s+(\w+)(?=\s*[,}])/g, (match, name: string) =>
-    (code.match(new RegExp(`\\b${name}\\b`, "g")) ?? []).length > 1 ? match : "",
+  // Remove type imports that are no longer referenced: `, type Foo` specifiers
+  // and whole `import type { Foo } from "...";` lines.
+  const isUnused = (name: string) => (code.match(new RegExp(`\\b${name}\\b`, "g")) ?? []).length <= 1;
+  code = code.replace(/,\s*type\s+(\w+)(?=\s*[,}])/g, (match, name: string) => (isUnused(name) ? "" : match));
+  code = code.replace(/^import type \{([^}]*)\} from ["'][^"']+["'];?\n/gm, (match, names: string) =>
+    names.split(",").every((n) => isUnused(n.trim())) ? "" : match,
   );
 
   return code;

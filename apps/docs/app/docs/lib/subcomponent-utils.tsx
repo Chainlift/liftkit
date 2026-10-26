@@ -1,56 +1,20 @@
 import "./subcomponent-table-styles.css";
+import { Button } from "@chainlift/liftkit";
+import type { SubComponentEntry } from "./component-doc";
 
-/**
- * Utilities for working with sub-components from the component manifest
- * These helpers make it easy to render props tables and documentation for compound components
- */
-
-import { componentManifest, type ComponentName, type SubComponentEntry } from "./component-manifest";
-import { link } from "fs";
-import { Button, Icon } from "@chainlift/liftkit";
-
-/**
- * Get all sub-components for a given component
- */
-export function getSubComponents(componentName: ComponentName): Record<string, SubComponentEntry> | undefined {
-  return componentManifest[componentName]?.subComponents;
-}
-
-/**
- * Get a specific sub-component
- */
-export function getSubComponent(componentName: ComponentName, subComponentName: string): SubComponentEntry | undefined {
-  return componentManifest[componentName]?.subComponents?.[subComponentName];
-}
-
-/**
- * Get all sub-component names for a component
- */
-export function getSubComponentNames(componentName: ComponentName): string[] {
-  const subComponents = getSubComponents(componentName);
-  return subComponents ? Object.keys(subComponents) : [];
-}
-
-/**
- * Check if a component has sub-components
- */
-export function hasSubComponents(componentName: ComponentName): boolean {
-  const subComponents = getSubComponents(componentName);
-  return !!subComponents && Object.keys(subComponents).length > 0;
-}
+/** Tables documenting one part of a compound component (e.g. Accordion's Root, Item, Trigger). */
 
 /**
  * Component to render a props table for a sub-component
- * Usage: <SubComponentPropsTable componentName="accordion" subComponentName="Root" />
+ * Usage: <SubComponentPropsTable name="Root" subComponent={meta.subComponents.Root} />
  */
 interface SubComponentPropsTableProps {
-  componentName: ComponentName;
-  subComponentName: string;
+  name: string;
+  subComponent: SubComponentEntry;
   className?: string;
 }
 
-export function SubComponentPropsTable({ componentName, subComponentName, className }: SubComponentPropsTableProps) {
-  const subComponent = getSubComponent(componentName, subComponentName);
+export function SubComponentPropsTable({ subComponent, className }: SubComponentPropsTableProps) {
 
   if (!subComponent || !subComponent.props || subComponent.props.length === 0) {
     return null;
@@ -95,17 +59,15 @@ export function SubComponentPropsTable({ componentName, subComponentName, classN
  * Component to render data attributes table for a sub-component
  */
 interface SubComponentDataAttributesTableProps {
-  componentName: ComponentName;
-  subComponentName: string;
+  name: string;
+  subComponent: SubComponentEntry;
   className?: string;
 }
 
 export function SubComponentDataAttributesTable({
-  componentName,
-  subComponentName,
+  subComponent,
   className,
 }: SubComponentDataAttributesTableProps) {
-  const subComponent = getSubComponent(componentName, subComponentName);
 
   if (!subComponent || !subComponent.dataAttributes || subComponent.dataAttributes.length === 0) {
     return null;
@@ -137,17 +99,15 @@ export function SubComponentDataAttributesTable({
  * Component to render CSS variables table for a sub-component
  */
 interface SubComponentCSSVariablesTableProps {
-  componentName: ComponentName;
-  subComponentName: string;
+  name: string;
+  subComponent: SubComponentEntry;
   className?: string;
 }
 
 export function SubComponentCSSVariablesTable({
-  componentName,
-  subComponentName,
+  subComponent,
   className,
 }: SubComponentCSSVariablesTableProps) {
-  const subComponent = getSubComponent(componentName, subComponentName);
 
   if (!subComponent || !subComponent.cssVariables || subComponent.cssVariables.length === 0) {
     return null;
@@ -183,14 +143,13 @@ export function SubComponentCSSVariablesTable({
  * Combined component that renders all documentation for a sub-component
  */
 interface SubComponentDocsProps {
-  componentName: ComponentName;
-  subComponentName: string;
+  name: string;
+  subComponent: SubComponentEntry;
   linkToSource?: string;
   className?: string;
 }
 
-export function SubComponentDocs({ componentName, subComponentName, linkToSource, className }: SubComponentDocsProps) {
-  const subComponent = getSubComponent(componentName, subComponentName);
+export function SubComponentDocs({ name, subComponent, linkToSource, className }: SubComponentDocsProps) {
 
   if (!subComponent) {
     return null;
@@ -203,17 +162,16 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
         <h3
           className="title2-bold mb-xs"
           data-instance="component-name"
-          id={subComponentName.toLowerCase().replace(/\s+/g, "-")}
+          id={name.toLowerCase().replace(/\s+/g, "-")}
         >
-          {subComponentName}
+          {name}
         </h3>
         {subComponent.description && (
           <p className="body mb-lg color-onsurfacelow">
             {subComponent.description} Renders a{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded">{subComponent.renders}</code> element.
+            <code>{subComponent.renders}</code> element.
           </p>
         )}
-        {subComponent.renders && <p className="text-sm text-gray-500"></p>}
       </div>
 
       {/* Props */}
@@ -232,7 +190,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
               </a>
             )}
           </div>
-          <SubComponentPropsTable componentName={componentName} subComponentName={subComponentName} />
+          <SubComponentPropsTable name={name} subComponent={subComponent} />
         </div>
       )}
 
@@ -240,7 +198,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
         <div data-slot="table-block">
           <h4 className="body-bold mt-lg mb-sm color-onsurfacelow">Data Attributes</h4>
-          <SubComponentDataAttributesTable componentName={componentName} subComponentName={subComponentName} />
+          <SubComponentDataAttributesTable name={name} subComponent={subComponent} />
         </div>
       )}
 
@@ -248,7 +206,7 @@ export function SubComponentDocs({ componentName, subComponentName, linkToSource
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
         <div data-slot="table-block">
           <h4 className="heading mt-lg mb-sm color-onsurfacelow">CSS Variables</h4>
-          <SubComponentCSSVariablesTable componentName={componentName} subComponentName={subComponentName} />
+          <SubComponentCSSVariablesTable name={name} subComponent={subComponent} />
         </div>
       )}
     </div>

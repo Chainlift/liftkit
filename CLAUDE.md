@@ -23,7 +23,6 @@ Run from the repo root (pnpm 10, Node >= 20.9):
 - `pnpm build`: build all workspace packages
 - `pnpm typecheck`: `tsc --noEmit` in every package
 - `pnpm lint`: ESLint
-- `pnpm --filter @liftkit/docs docs:gen-css` / `docs:gen-examples`: code-sample generators. These scripts still point at the old `liftkit/ui` path and need updating before use.
 
 ## Tech Stack
 
@@ -43,40 +42,37 @@ This is the library being documented, not the docs site itself.
 - **`index.ts`** — the package entry point. Re-exports `components/index.ts` and references the global type declarations in `types/`.
 - **`components/`** — Each component in its own folder (e.g., `button/button.tsx`). Components wrap Base UI primitives, add LiftKit-specific props (variant, color, material, etc.), and import their CSS from `css/components/`. Barrel-exported via `index.ts`.
 - **`css/components/`** — One CSS file per component (`lk-button.css`, etc.). Uses `data-lk-component` and `data-lk-*` attribute selectors, not class-based styling.
-- **`apps/docs/examples/`** (lives in the docs app, not the library) — legacy `lk-example-*.tsx` demos for components not yet migrated to `apps/docs/content/components/`. Used by legacy docs previews and the component mosaic.
 - **`types/`** — TypeScript type definitions for the design system (colors, typography, shapes, units, utilities).
 - **`css/utilities/`** — CSS utility classes (flexbox, spacing, typography, colors, etc.) imported globally.
 
-### `apps/docs/app/docs/` — The Documentation Site
+### `apps/docs/` — The Documentation Site
 
-- **`components/{component-name}/`** — Per-component docs folder containing:
-  - `page.mdx` — the docs page (uses `ComponentPreviewWrapper` and `SubComponentSection`)
-  - `codeTemplates/` — functions that generate TS/CSS code strings based on knob values
-  - Sometimes `props-table.tsx`, `example-css.tsx`
-
-- **`lib/`** — Shared docs infrastructure:
-  - **`component-manifest.ts`** — Central registry (`componentManifest`) mapping component names to their `ComponentEntry` (title, Component, knobs, subComponents, code template generators). This is the single source of truth for the interactive docs.
-  - **`manifest-entries/`** — One file per component (`manifest-button.tsx`, etc.) defining the `ComponentEntry` with knobs, sub-component metadata, props, and data attributes.
-  - **`component-preview.tsx`** — Client component that renders the live preview with knob controls, using the manifest entry.
-  - **`component-preview-wrapper.tsx`** — Server component that pre-highlights code via Shiki, then passes it to `ComponentPreview`.
-  - **`component-mosaic.tsx`** — Showcase page composing all example components into an app-like layout.
-  - **`subcomponent-section.tsx` / `subcomponent-utils.tsx`** — Renders API reference tables from manifest sub-component data.
-  - **`rich-code-block.tsx` / `simple-code-block.tsx`** — Code display components with syntax highlighting.
+- **`content/components/{name}/`** — One folder per component docs page: `demo.tsx`, `meta.ts`, optional `notes.mdx` (see below). `registry.ts` lists them all.
+- **`app/docs/components/[slug]/page.tsx`** — The shared template that renders every component page from its content folder. Statically generated (`generateStaticParams`).
+- **`app/docs/{page}/page.mdx`** — Regular docs pages (e.g. `getting-started`), plain MDX. `mdx-components.tsx` maps Markdown elements to LiftKit typography.
+- **`app/docs/lib/`** — Shared docs infrastructure:
+  - **`component-preview.tsx`** — Client component: live demo, knob controls, TS/CSS code tabs. Resolves the demo from the registry by slug.
+  - **`demo-source.ts`** — Turns a demo file's source into the displayed code sample with the current knob values.
+  - **`component-doc.ts`** — Types: `ComponentDocMeta`, `Control` (knob definitions), `SubComponentEntry` (API reference data).
+  - **`example.tsx`** — `<Example>` for extra live examples (with source) inside `notes.mdx`.
+  - **`subcomponent-section.tsx` / `subcomponent-utils.tsx`** — API reference tables from `meta.subComponents`.
+  - **`component-mosaic.tsx`** — The home page showcase, composed from the component demos.
+  - **`rich-code-block.tsx` / `simple-code-block.tsx`** — Syntax-highlighted code blocks.
+  - **`theme-panel/`** — The theme control panel (floating button on docs pages, sidebar on /playground).
+- **`components/site-header.tsx`** — Top navigation. **`lib/docs-nav.ts`** — Sidebar sections.
 
 ### Key Pattern: Component Docs Pages (shared template)
 
-Component pages are being migrated to one shared template, `apps/docs/app/docs/components/[slug]/page.tsx`. Button is migrated; the other components still use the legacy per-folder `page.mdx` + `codeTemplates/` + manifest entry until they're converted.
-
-To add (or migrate) a component page:
+Every component page is rendered by one shared template, `apps/docs/app/docs/components/[slug]/page.tsx`. To add a component page:
 
 1. Library: the component in `packages/liftkit/src/components/{name}/` (exported from `components/index.ts`), its CSS in `packages/liftkit/src/css/components/lk-{name}.css`. Interactive components need `"use client"`.
 2. Docs content in `apps/docs/content/components/{name}/`:
-   - `demo.tsx`: `"use client"` + a default-exported component taking `knobs` as its only parameter and spreading `{...knobs}` onto the controlled element (on its own line, inside `return (...)`). This file IS the TS code sample: `app/docs/lib/demo-source.ts` strips the parameter and fills in the current knob values.
+   - `demo.tsx`: a default-exported component (add `"use client"` only if it uses hooks; it's shown in the sample) taking `knobs` as its only parameter and spreading `{...knobs}` onto the controlled element, after any plain props (on its own line, inside `return (...)`). Components without knobs take no parameter. This file IS the TS code sample: `app/docs/lib/demo-source.ts` strips the parameter and fills in the current knob values.
    - `meta.ts`: default-exported `ComponentDocMeta` (title, description, `baseUiUrl`, `knobs`, `subComponents`, optional `cssFile`).
    - `notes.mdx` (optional): page-specific content, shown after Installation. Use `<Example file="{name}/foo.tsx"><Foo /></Example>` for extra live examples whose source is shown.
 3. Register it in `apps/docs/content/components/registry.ts` (meta + Demo). The registry is imported by the client-side preview, so it must stay browser-safe. Notes are loaded by the page, not the registry.
 
-The CSS tab shows the component's real stylesheet, read from the library at build time. The sidebar picks up registry entries automatically.
+The CSS tab shows the component's real stylesheet, read from the library at build time. The sidebar's Components section is built from the registry.
 
 ### Design System Conventions
 
@@ -84,7 +80,7 @@ The CSS tab shows the component's real stylesheet, read from the library at buil
 - **GoldenBox** is a layout primitive used extensively — it applies golden-ratio-based padding with optical correction. Props: `scaleFactor` (font class name), `opticalCorrection` (top/bottom/x/y/all/none).
 - Color tokens follow pattern: `--lk-color-{name}` with `on` variants (e.g., `primary` / `onprimary`)
 - Size tokens: `--lk-size-{5xs..5xl}` based on powers of the golden ratio scale factor
-- The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components, Types & Tokens). Each section lists the folders with a `page.mdx`/`page.tsx` in its directory, so new pages appear automatically. Pages directly under `app/docs/` go in Overview.
+- The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components, Types & Tokens). Overview and Types & Tokens list the folders with a `page.mdx`/`page.tsx` (pages directly under `app/docs/` go in Overview); Components comes from the registry.
 
 ### Key pattern: updating CSS rules
 

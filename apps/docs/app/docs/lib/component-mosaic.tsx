@@ -1,51 +1,49 @@
 "use client";
 
-import {
-  ExampleAccordion,
-  ExampleAlertDialog,
-  ExampleAutocomplete,
-  ExampleAvatar,
-  ExampleCheckboxGroup,
-  ExampleCheckbox,
-  ExampleCollapsible,
-  ExampleCombobox,
-  ExampleContextMenu,
-  ExampleDialog,
-  ExampleField,
-  ExampleFieldset,
-  ExampleForm,
-  ExampleIconButton,
-  ExampleIcon,
-  ExampleInput,
-  ExampleMenu,
-  ExampleMenubar,
-  ExampleMeter,
-  ExampleNumberField,
-  ExamplePopover,
-  ExamplePreviewCard,
-  ExampleProgress,
-  ExampleRadio,
-  ExampleScrollArea,
-  ExampleSelect,
-  ExampleSeparator,
-  ExampleSlider,
-  ExampleSwitch,
-  ExampleTabs,
-  ExampleToast,
-  ExampleToggleGroup,
-  ExampleToggle,
-  ExampleToolbar,
-  ExampleTooltip,
-} from "@/examples";
 import ButtonDemo from "@/content/components/button/demo";
+import AccordionDemo from "@/content/components/accordion/demo";
+import AlertDialogDemo from "@/content/components/alert-dialog/demo";
+import AutocompleteDemo from "@/content/components/autocomplete/demo";
+import AvatarDemo from "@/content/components/avatar/demo";
+import CheckboxGroupDemo from "@/content/components/checkbox-group/demo";
+import CheckboxDemo from "@/content/components/checkbox/demo";
+import CollapsibleDemo from "@/content/components/collapsible/demo";
+import ComboboxDemo from "@/content/components/combobox/demo";
+import ContextMenuDemo from "@/content/components/context-menu/demo";
+import DialogDemo from "@/content/components/dialog/demo";
+import FieldDemo from "@/content/components/field/demo";
+import FieldsetDemo from "@/content/components/fieldset/demo";
+import FormDemo from "@/content/components/form/demo";
+import IconButtonDemo from "@/content/components/icon-button/demo";
+import IconDemo from "@/content/components/icon/demo";
+import InputDemo from "@/content/components/input/demo";
+import MenuDemo from "@/content/components/menu/demo";
+import MenubarDemo from "@/content/components/menubar/demo";
+import MeterDemo from "@/content/components/meter/demo";
+import NumberFieldDemo from "@/content/components/number-field/demo";
+import PopoverDemo from "@/content/components/popover/demo";
+import PreviewCardDemo from "@/content/components/preview-card/demo";
+import ProgressDemo from "@/content/components/progress/demo";
+import RadioDemo from "@/content/components/radio/demo";
+import ScrollAreaDemo from "@/content/components/scroll-area/demo";
+import SelectDemo from "@/content/components/select/demo";
+import SeparatorDemo from "@/content/components/separator/demo";
+import SliderDemo from "@/content/components/slider/demo";
+import SwitchDemo from "@/content/components/switch/demo";
+import TabsDemo from "@/content/components/tabs/demo";
+import ToastDemo from "@/content/components/toast/demo";
+import ToggleGroupDemo from "@/content/components/toggle-group/demo";
+import ToggleDemo from "@/content/components/toggle/demo";
+import ToolbarDemo from "@/content/components/toolbar/demo";
+import TooltipDemo from "@/content/components/tooltip/demo";
 import { Card } from "@chainlift/liftkit";
 import { Avatar, AvatarImage, Toggle, Icon, Button } from "@chainlift/liftkit";
 export function ComponentMosaic() {
   return (
     <div className="flex-v gap-0">
       {/* ── App Chrome ── */}
-      <ExampleMenubar />
-      <ExampleToolbar />
+      <MenubarDemo />
+      <ToolbarDemo />
 
       {/* ── Main Layout ── */}
       <div
@@ -79,7 +77,7 @@ export function ComponentMosaic() {
                 <Icon name="star" />
               </Toggle>
             </div>
-            <ExamplePreviewCard />
+            <PreviewCardDemo />
             <div className="flex items-center gap-sm pt-md justify-end">
               <Button startIcon="send" className="w-full justify-center">Message</Button>
             </div>
@@ -89,8 +87,8 @@ export function ComponentMosaic() {
           <Card className="shadow-xs" scaleFactor="body">
             <div className="heading mb-sm">Activity</div>
             <div className="flex-v gap-md">
-              <ExampleMeter />
-              <ExampleProgress />
+              <MeterDemo />
+              <ProgressDemo />
             </div>
           </Card>
 
@@ -100,18 +98,18 @@ export function ComponentMosaic() {
             <div className="flex-v gap-sm">
               <div className="flex items-center gap-sm">
                 <ButtonDemo />
-                <ExampleDialog />
-                <ExampleTooltip />
-                <ExampleIconButton />
-                <ExampleIcon />
+                <DialogDemo />
+                <TooltipDemo />
+                <IconButtonDemo />
+                <IconDemo />
               </div>
               <div className="flex items-center gap-sm">
-                <ExampleAlertDialog />
-                <ExampleMenu />
+                <AlertDialogDemo />
+                <MenuDemo />
               </div>
               <div className="flex items-center gap-sm">
-                <ExamplePopover />
-                <ExampleToast />
+                <PopoverDemo />
+                <ToastDemo />
               </div>
             </div>
           </Card>
@@ -121,24 +119,24 @@ export function ComponentMosaic() {
         <div className="flex-v gap-lg">
           {/* Tabbed workspace */}
           <Card className="shadow-xs" scaleFactor="body">
-            <ExampleTabs />
+            <TabsDemo />
           </Card>
 
           {/* Context menu area + scroll content */}
           <Card className="shadow-xs" scaleFactor="body">
-            <ExampleContextMenu />
-            <ExampleScrollArea />
+            <ContextMenuDemo />
+            <ScrollAreaDemo />
           </Card>
 
           {/* FAQ */}
           <Card className="shadow-xs" scaleFactor="heading" opticalCorrection="top">
             <div className="heading-bold mb-sm">Frequently Asked Questions</div>
-            <ExampleAccordion />
+            <AccordionDemo />
           </Card>
 
           {/* Collapsible details */}
           <Card className="shadow-xs" scaleFactor="body">
-            <ExampleCollapsible />
+            <CollapsibleDemo />
           </Card>
         </div>
 
@@ -148,8 +146,8 @@ export function ComponentMosaic() {
           <Card className="shadow-xs" scaleFactor="body">
             <div className="heading-bold mb-sm">Search</div>
             <div className="flex-v gap-md">
-              <ExampleAutocomplete />
-              <ExampleCombobox />
+              <AutocompleteDemo />
+              <ComboboxDemo />
             </div>
           </Card>
 
@@ -157,11 +155,11 @@ export function ComponentMosaic() {
           <Card className="shadow-xs" scaleFactor="body">
             <div className="heading-bold mb-sm">Settings</div>
             <div className="flex-v gap-md">
-              <ExampleSelect />
-              <ExampleInput />
-              <ExampleField />
-              <ExampleNumberField />
-              <ExampleSlider />
+              <SelectDemo />
+              <InputDemo />
+              <FieldDemo />
+              <NumberFieldDemo />
+              <SliderDemo />
             </div>
           </Card>
 
@@ -169,19 +167,19 @@ export function ComponentMosaic() {
           <Card className="shadow-xs" scaleFactor="body">
             <div className="heading-bold mb-sm">Preferences</div>
             <div className="flex-v gap-md">
-              <ExampleSwitch />
-              <ExampleCheckbox />
-              <ExampleCheckboxGroup />
-              <ExampleRadio />
-              <ExampleToggleGroup />
+              <SwitchDemo />
+              <CheckboxDemo />
+              <CheckboxGroupDemo />
+              <RadioDemo />
+              <ToggleGroupDemo />
             </div>
           </Card>
 
           {/* Inline form */}
           <Card className="shadow-xs" scaleFactor="body">
-            <ExampleFieldset />
+            <FieldsetDemo />
             <div className="pt-md">
-              <ExampleForm />
+              <FormDemo />
             </div>
           </Card>
         </div>
