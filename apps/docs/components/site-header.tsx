@@ -3,7 +3,13 @@
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { LiftKitLogo } from "@/components/liftkit-logo";
-import { Icon, NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@chainlift/liftkit";
+import {
+  Icon,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@chainlift/liftkit";
 
 const GITHUB_URL = "https://github.com/Chainlift/liftkit";
 
@@ -20,42 +26,47 @@ const PAGES: {
   },
 ];
 
-/** Site-wide top navigation, shared by every page. */
+/** Site-wide top navigation, shared by every page. The padding around it is part of it, so it matches everywhere. */
 export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="gap-sm">
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            active={pathname === "/"}
-            aria-label="LiftKit home"
-            className="flex items-center color-onsurface"
-            render={<NextLink href="/" />}
-          >
-            <LiftKitLogo className="h-md" />
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        {PAGES.map(({ label, href, isActive }) => (
-          <NavigationMenuItem key={href}>
-            <NavigationMenuLink active={isActive(pathname)} render={<NextLink href={href} />}>
-              {label}
+    <div className="p-md">
+      <NavigationMenu>
+        <NavigationMenuList className="gap-sm">
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              active={pathname === "/"}
+              aria-label="LiftKit home"
+              className="flex items-center color-onsurface"
+              render={<NextLink href="/" />}
+            >
+              <LiftKitLogo className="h-md" />
             </NavigationMenuLink>
           </NavigationMenuItem>
-        ))}
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-h items-center gap-xs"
-          >
-            <Icon name="github" aria-hidden="true" />
-            View on GitHub
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          {PAGES.map(({ label, href, isActive }) => (
+            <NavigationMenuItem key={href}>
+              <NavigationMenuLink
+                active={isActive(pathname)}
+                render={<NextLink href={href} />}
+              >
+                {label}
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          ))}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-h items-center gap-xs"
+            >
+              <Icon name="github" aria-hidden="true" />
+              View on GitHub
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 }

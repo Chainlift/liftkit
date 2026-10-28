@@ -37,9 +37,7 @@ const FONT_CLASSES = [
 export default function PlayGround() {
   return (
     <div className="fixed top-0 right-0 bottom-0 left-0 flex-v overflow-hidden bg-surfacecontainer">
-      <div className="p-md">
-        <SiteHeader />
-      </div>
+      <SiteHeader />
       <div className="flex flex-row items-start flex-grow  px-md pb-md gap-md ">
         <div className="flex flex-column h-full">
           <ThemePanel />
