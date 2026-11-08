@@ -1,9 +1,13 @@
 {
   "name": "liftkit",
   "version": "2.0.0-alpha.0",
-  "private": true,
+  "private": false,
   "description": "LiftKit: components built on Base UI with golden-ratio scaling, optical correction, and Material-based color.",
   "license": "Apache-2.0",
+  "author": {
+    "name": "Garrett Mack",
+    "url": "https://github.com/garrett-mack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Chainlift/liftkit.git",
