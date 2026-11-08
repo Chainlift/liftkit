@@ -458,7 +458,7 @@ function ThemePanelContent() {
 export function ThemePanel() {
   return (
     <aside
-      className="flex-v flex-none h-full overflow-hidden bg-surface rounded-sm shadow-2xs"
+      className="flex-v flex-none h-full overflow-hidden border border-color-outlinevariant bg-surface rounded-sm "
       style={PANEL_WIDTH}
     >
       <ThemePanelContent />
