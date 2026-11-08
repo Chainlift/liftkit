@@ -17,19 +17,23 @@ export function NavSidebar({ nav }: { nav: NavSections }) {
       <nav className="sidebar pb-2xl">
         {nav.map((section, i) => (
           <section key={section.title} aria-labelledby={`nav-section-${i}`}>
-            <h2 id={`nav-section-${i}`} className={`label color-onsurfacevariant px-sm mb-2xs ${i === 0 ? "mt-0" : "mt-md"}`}>
-              {section.title}
-            </h2>
-            {section.items.map((item) => (
-              <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
-                <div
-                  className={`px-sm py-2xs relative overflow-hidden rounded-2xs${pathname === item.href ? " bg-surfacecontainerhigh" : ""}`}
-                >
-                  <span className="callout">{item.title}</span>
-                  <StateLayer />
-                </div>
-              </Link>
-            ))}
+            <div className="px-sm">
+              <h2 id={`nav-section-${i}`} className="subheading-bold">
+                {section.title}
+              </h2>
+            </div>
+            <div className="mt-sm mb-lg">
+              {section.items.map((item) => (
+                <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+                  <div
+                    className={`p-sm relative color-onsurfacelow overflow-hidden rounded-2xs${pathname === item.href ? " bg-surfacecontainerhigh" : ""}`}
+                  >
+                    <span >{item.title}</span>
+                    <StateLayer />
+                  </div>
+                </Link>
+              ))}
+            </div>
           </section>
         ))}
       </nav>
