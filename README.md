@@ -25,7 +25,7 @@ v2 components wrap [Base UI](https://base-ui.com) primitives, so accessibility, 
 
 ## Development
 
-Requires Node 20.9+ and [pnpm](https://pnpm.io) 10.
+Requires Node 22+ and [pnpm](https://pnpm.io) 10.
 
 ```bash
 pnpm install
