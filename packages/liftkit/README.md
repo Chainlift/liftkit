@@ -23,7 +23,7 @@ The future of LiftKit is uncertain. I no longer have the time to maintain it I o
 ## Install
 
 ```bash
-npm i liftkit@next
+npm i liftkit
 ```
 
 Requires React 19.

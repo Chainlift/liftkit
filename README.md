@@ -8,7 +8,7 @@
 <!-- markdownlint-restore -->
 
 > [!WARNING]
-> **LiftKit v2 is in active development and not yet published to npm.** Follow [#237](https://github.com/Chainlift/liftkit/issues/237) for progress. The v1 code is preserved at the [`v1-legacy`](https://github.com/Chainlift/liftkit/tree/v1-legacy) tag.
+> **LiftKit v2 is in alpha** and available on npm: [`npm i liftkit`](https://www.npmjs.com/package/liftkit). The v1 code is preserved at the [`v1-legacy`](https://github.com/Chainlift/liftkit/tree/v1-legacy) tag.
 
 ## What is LiftKit?
 
