@@ -5,7 +5,6 @@ import { Button as BaseButton } from "@base-ui/react/button";
 import { cn } from "../../lib/cn";
 import { IconName } from "lucide-react/dynamic";
 import { LkStateLayerProps } from "../state-layer/state-layer";
-import type { LkFontClass } from "../../types/lk-typography";
 import { Icon } from "../icon/icon";
 
 import "../../css/components/lk-button.css";

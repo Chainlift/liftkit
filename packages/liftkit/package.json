@@ -19,6 +19,7 @@
     "./css/*": "./src/css/*"
   },
   "scripts": {
+    "build": "tsdown && node scripts/postbuild.mjs",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -27,15 +28,32 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
-    "@csstools/normalize.css": "^12.1.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0"
   },
   "devDependencies": {
+    "@csstools/normalize.css": "^12.1.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "tsdown": "^0.23.7",
     "typescript": "^5.9.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./styles.css": "./dist/styles.css",
+      "./*": {
+        "types": "./dist/components/*/*.d.ts",
+        "import": "./dist/components/*/*.js"
+      }
+    }
   }
 }
