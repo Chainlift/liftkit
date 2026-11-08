@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsdown && node scripts/postbuild.mjs",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^19",
