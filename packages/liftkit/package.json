@@ -9,7 +9,7 @@
     "url": "git+https://github.com/Chainlift/liftkit.git",
     "directory": "packages/liftkit"
   },
-  "homepage": "https://chainlift.io/liftkit",
+  "homepage": "https://github.com/Chainlift/liftkit#readme",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "tsdown && node scripts/postbuild.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "react": "^19",

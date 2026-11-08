@@ -17,7 +17,7 @@ The library must never import from `apps/docs`. Inside the library, use relative
 
 ## Commands
 
-Run from the repo root (pnpm 10, Node >= 20.9):
+Run from the repo root (pnpm 10, Node >= 22):
 
 - `pnpm dev`: start the docs dev server (localhost:3000)
 - `pnpm build`: build all workspace packages
