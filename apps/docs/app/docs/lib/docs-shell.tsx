@@ -1,6 +1,6 @@
 import { getDocsNav } from "@/lib/docs-nav";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
-import { GoldenBox } from "@chainlift/liftkit";
+import { GoldenBox } from "liftkit";
 import { SiteHeader } from "@/components/site-header";
 import "../docsPage.css";
 import { NavSidebar } from "@/app/docs/lib/nav-sidebar";
@@ -11,7 +11,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 /** Docs chrome: site header, nav sidebar, theme panel FAB, table of contents. */
 export function DocsShell({ children }: { children: React.ReactNode }) {

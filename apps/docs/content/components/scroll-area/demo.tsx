@@ -4,7 +4,7 @@ import {
   ScrollAreaContent,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function ScrollAreaDemo() {
   return (

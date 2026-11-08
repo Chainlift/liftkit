@@ -20,7 +20,7 @@ v2 components wrap [Base UI](https://base-ui.com) primitives, so accessibility, 
 
 | Path | What it is |
 | --- | --- |
-| [`packages/liftkit`](packages/liftkit) | The component library (`@chainlift/liftkit`) |
+| [`packages/liftkit`](packages/liftkit) | The component library (`liftkit`) |
 | [`apps/docs`](apps/docs) | The documentation site |
 
 ## Development

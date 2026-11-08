@@ -603,6 +603,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--lk-onbackground);
   background-color: var(--lk-background);
+  letter-spacing: var(--lk-body-letter-spacing);
 }
 
 * {
@@ -645,6 +646,11 @@ button {
 
 button span {
   text-transform: capitalize;
+}
+
+ul,
+li {
+  line-height: var(--lk-halfstep);
 }
 
 /* utility class for elements that should only be accessible to screen readers */

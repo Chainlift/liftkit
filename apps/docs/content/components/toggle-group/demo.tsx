@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Toggle } from "@chainlift/liftkit";
-import { ToggleGroup } from "@chainlift/liftkit";
+import { Toggle } from "liftkit";
+import { ToggleGroup } from "liftkit";
 
 export default function ToggleGroupDemo() {
   return (

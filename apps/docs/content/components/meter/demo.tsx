@@ -1,4 +1,4 @@
-import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "@chainlift/liftkit";
+import { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator } from "liftkit";
 
 export default function MeterDemo() {
   return (

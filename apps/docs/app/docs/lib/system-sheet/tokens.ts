@@ -7,7 +7,6 @@ import { cssToLatex, simplifiedLatex } from "./to-latex";
 const CORE_CSS = path.join(
   process.cwd(),
   "node_modules",
-  "@chainlift",
   "liftkit",
   "src",
   "css",

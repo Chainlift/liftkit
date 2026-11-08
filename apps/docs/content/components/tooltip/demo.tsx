@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@chainlift/liftkit";
-import { Icon } from "@chainlift/liftkit";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "liftkit";
+import { Icon } from "liftkit";
 
 export default function TooltipDemo() {
   return (

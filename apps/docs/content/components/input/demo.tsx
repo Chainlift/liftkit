@@ -1,4 +1,4 @@
-import { Input, type InputProps } from "@chainlift/liftkit";
+import { Input, type InputProps } from "liftkit";
 
 export default function InputDemo(knobs: InputProps) {
   return (

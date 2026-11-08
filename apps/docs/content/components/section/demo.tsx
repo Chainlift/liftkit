@@ -1,4 +1,4 @@
-import { Section, type LkSectionProps } from "@chainlift/liftkit";
+import { Section, type LkSectionProps } from "liftkit";
 
 export default function SectionDemo(knobs: LkSectionProps) {
   return (

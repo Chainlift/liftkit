@@ -10,7 +10,7 @@ import {
   MenuSeparator,
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function MenuDemo() {
   return (

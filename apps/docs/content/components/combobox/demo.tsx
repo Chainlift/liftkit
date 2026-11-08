@@ -12,8 +12,8 @@ import {
   ComboboxList,
   ComboboxItem,
   ComboboxItemIndicator,
-} from "@chainlift/liftkit";
-import { Icon } from "@chainlift/liftkit";
+} from "liftkit";
+import { Icon } from "liftkit";
 
 export default function ComboboxDemo() {
   const id = React.useId();

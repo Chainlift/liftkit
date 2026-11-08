@@ -1,4 +1,4 @@
-import { Section, Container } from "@chainlift/liftkit";
+import { Section, Container } from "liftkit";
 
 export default function SectionWithContainer() {
   return (

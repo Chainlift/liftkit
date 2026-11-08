@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@chainlift/liftkit";
-import { GoldenBox } from "@chainlift/liftkit";
-import { StateLayer } from "@chainlift/liftkit";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "liftkit";
+import { GoldenBox } from "liftkit";
+import { StateLayer } from "liftkit";
 
 export default function AccordionDemo(knobs: ComponentProps<typeof Accordion>) {
   return (

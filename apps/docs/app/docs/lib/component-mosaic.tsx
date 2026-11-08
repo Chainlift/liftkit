@@ -36,8 +36,8 @@ import ToggleGroupDemo from "@/content/components/toggle-group/demo";
 import ToggleDemo from "@/content/components/toggle/demo";
 import ToolbarDemo from "@/content/components/toolbar/demo";
 import TooltipDemo from "@/content/components/tooltip/demo";
-import { Card } from "@chainlift/liftkit";
-import { Avatar, AvatarImage, Toggle, Icon, Button } from "@chainlift/liftkit";
+import { Card } from "liftkit";
+import { Avatar, AvatarImage, Toggle, Icon, Button } from "liftkit";
 export function ComponentMosaic() {
   return (
     <div className="flex-v gap-0">

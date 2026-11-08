@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import type { Control } from "@/app/docs/lib/component-doc";
-import { GoldenBox } from "@chainlift/liftkit";
-import { Switch, SwitchThumb } from "@chainlift/liftkit";
+import { GoldenBox } from "liftkit";
+import { Switch, SwitchThumb } from "liftkit";
 import { RichCodeBlock } from "@/app/docs/lib/rich-code-block";
 import { activeKnobs, renderDemoSource } from "@/app/docs/lib/demo-source";
 import { componentDocs } from "@/content/components/registry";
@@ -22,9 +22,9 @@ import {
   PopoverArrow,
   PopoverTitle,
   PopoverDescription,
-} from "@chainlift/liftkit";
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@chainlift/liftkit";
-import { Icon } from "@chainlift/liftkit";
+} from "liftkit";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "liftkit";
+import { Icon } from "liftkit";
 import {
   Select,
   SelectTrigger,
@@ -39,8 +39,8 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@chainlift/liftkit";
-import { Field, FieldLabel } from "@chainlift/liftkit";
+} from "liftkit";
+import { Field, FieldLabel } from "liftkit";
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -48,10 +48,10 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@chainlift/liftkit";
-import { Input } from "@chainlift/liftkit";
-import { RadioGroup, Radio, RadioIndicator } from "@chainlift/liftkit";
-import { StateLayer } from "@chainlift/liftkit";
+} from "liftkit";
+import { Input } from "liftkit";
+import { RadioGroup, Radio, RadioIndicator } from "liftkit";
+import { StateLayer } from "liftkit";
 import { Link } from "lucide-react";
 
 interface ComponentPreviewProps {

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
-    "@chainlift/liftkit": "workspace:*",
+    "liftkit": "workspace:*",
     "@csstools/normalize.css": "^12.1.1",
     "@material/material-color-utilities": "^0.4.0",
     "@mdx-js/loader": "^3.1.1",

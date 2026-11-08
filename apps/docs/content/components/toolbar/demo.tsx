@@ -10,9 +10,9 @@ import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
-} from "@chainlift/liftkit";
-import { Toggle } from "@chainlift/liftkit";
-import { ToggleGroup } from "@chainlift/liftkit";
+} from "liftkit";
+import { Toggle } from "liftkit";
+import { ToggleGroup } from "liftkit";
 import {
   Toolbar,
   ToolbarButton,
@@ -21,7 +21,7 @@ import {
   ToolbarLink,
   ToolbarInput,
   Icon,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function ToolbarDemo() {
   return (

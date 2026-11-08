@@ -86,7 +86,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
   useToastManager,
-} from "@chainlift/liftkit";
+} from "liftkit";
 import "./component-mosaic-v2.css";
 
 type IconName = React.ComponentProps<typeof Icon>["name"];

@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 
-import { Field, FieldLabel, FieldControl, FieldError, Form, Button } from "@chainlift/liftkit";
+import { Field, FieldLabel, FieldControl, FieldError, Form, Button } from "liftkit";
 
 export default function FormDemo() {
   const [errors, setErrors] = React.useState({});

@@ -1,5 +1,5 @@
 import "./subcomponent-table-styles.css";
-import { Button } from "@chainlift/liftkit";
+import { Button } from "liftkit";
 import type { SubComponentEntry } from "./component-doc";
 
 /** Tables documenting one part of a compound component (e.g. Accordion's Root, Item, Trigger). */

@@ -1,4 +1,4 @@
-import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "@chainlift/liftkit";
+import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from "liftkit";
 
 export default function SliderDemo() {
   return (

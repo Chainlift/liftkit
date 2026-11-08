@@ -10,7 +10,7 @@ import { highlightCode } from "@/app/docs/lib/highlighted-code-server";
 import { defaultKnobValues, renderDemoSource } from "@/app/docs/lib/demo-source";
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "components");
-const LIFTKIT_CSS_DIR = path.join(process.cwd(), "node_modules", "@chainlift", "liftkit", "src", "css", "components");
+const LIFTKIT_CSS_DIR = path.join(process.cwd(), "node_modules", "liftkit", "src", "css", "components");
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -68,7 +68,7 @@ export default async function ComponentDocPage({ params }: Params) {
         Installation
       </h2>
       <div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
-        <SimpleCodeBlock codeString="npm install @chainlift/liftkit" lang="bash" />
+        <SimpleCodeBlock codeString="npm install liftkit" lang="bash" />
       </div>
 
       {Notes && <Notes />}

@@ -1,5 +1,5 @@
-import { Fieldset, FieldsetLegend } from "@chainlift/liftkit";
-import { Field, FieldLabel, FieldControl } from "@chainlift/liftkit";
+import { Fieldset, FieldsetLegend } from "liftkit";
+import { Field, FieldLabel, FieldControl } from "liftkit";
 
 export default function FieldsetDemo() {
   return (

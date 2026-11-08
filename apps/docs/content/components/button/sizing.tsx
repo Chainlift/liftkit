@@ -1,4 +1,4 @@
-import { Button } from "@chainlift/liftkit";
+import { Button } from "liftkit";
 
 export default function ButtonSizing() {
   return (

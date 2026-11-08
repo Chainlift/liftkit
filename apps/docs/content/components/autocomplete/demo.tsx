@@ -10,8 +10,8 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteInput,
-} from "@chainlift/liftkit";
-import { GoldenBox } from "@chainlift/liftkit";
+} from "liftkit";
+import { GoldenBox } from "liftkit";
 
 export default function AutocompleteDemo(knobs: ComponentProps<typeof Autocomplete>) {
   return (

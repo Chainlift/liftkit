@@ -4,6 +4,13 @@ import { MdxTable, MdxTd, MdxTh } from "@/components/mdx/mdx-table";
 import { PropsTable } from "@/components/mdx/PropsTable";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 
+function getTableHeaderClass() {
+
+
+
+}
+
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     pre: MdxCodeBlock,
@@ -16,6 +23,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     table: MdxTable,
     th: MdxTh,
     td: MdxTd,
+    li: (props) => <li className="body" {...props}/>,
     ...components,
   };
 }

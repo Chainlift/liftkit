@@ -16,7 +16,7 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   // The library is consumed as TypeScript source from the workspace.
-  transpilePackages: ["@chainlift/liftkit"],
+  transpilePackages: ["liftkit"],
   turbopack: { root: path.join(__dirname, "../..") },
 };
 

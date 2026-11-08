@@ -6,7 +6,7 @@ import {
   PreviewCardPositioner,
   PreviewCardPopup,
   PreviewCardArrow,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function PreviewCardDemo() {
   return (

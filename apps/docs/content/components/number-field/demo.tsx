@@ -7,7 +7,7 @@ import {
   NumberFieldInput,
   NumberFieldIncrement,
   NumberFieldDecrement,
-} from "@chainlift/liftkit";
+} from "liftkit";
 export default function NumberFieldDemo() {
   const id = React.useId();
   return (

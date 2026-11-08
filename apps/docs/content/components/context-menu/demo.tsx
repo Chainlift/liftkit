@@ -6,7 +6,7 @@ import {
   ContextMenuPopup,
   ContextMenuItem,
   ContextMenuSeparator,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function ContextMenuDemo() {
   return (

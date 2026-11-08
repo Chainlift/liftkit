@@ -1,5 +1,5 @@
 {
-  "name": "@chainlift/liftkit",
+  "name": "liftkit",
   "version": "2.0.0-alpha.0",
   "private": true,
   "description": "LiftKit: components built on Base UI with golden-ratio scaling, optical correction, and Material-based color.",

@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Menubar } from "@chainlift/liftkit";
+import { Menubar } from "liftkit";
 import {
   Menu,
   MenuTrigger,
@@ -11,7 +11,7 @@ import {
   MenuSeparator,
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function MenubarDemo() {
   return (

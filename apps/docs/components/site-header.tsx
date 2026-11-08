@@ -9,7 +9,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 const GITHUB_URL = "https://github.com/Chainlift/liftkit";
 

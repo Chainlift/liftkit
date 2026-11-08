@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 export default function DialogDemo() {
   return (

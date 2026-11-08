@@ -11,7 +11,7 @@ import {
   ToastDescription,
   ToastClose,
   useToastManager,
-} from "@chainlift/liftkit";
+} from "liftkit";
 
 function ToastButton() {
   const toastManager = useToastManager();

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GoldenBox } from "@chainlift/liftkit";
-import { StateLayer } from "@chainlift/liftkit";
+import { GoldenBox } from "liftkit";
+import { StateLayer } from "liftkit";
 import type { getDocsNav } from "@/lib/docs-nav";
 import "./nav-sidebar.css";
 

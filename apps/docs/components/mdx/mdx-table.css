@@ -14,10 +14,17 @@
 
 /* Header cells */
 [data-docs-table] th {
+  font-size: var(--lk-subheading-font-size);
   padding: var(--lk-size-sm) var(--lk-size-md);
+  color: var(--lk-onsurface);
   text-align: left;
   vertical-align: bottom;
-  border-bottom: 1px solid var(--lk-outline);
+  border-bottom: var(--lk-size-2xs) solid var(--lk-outline);
+  font-weight: 600;
+
+  &:is(:first-child) {
+    padding-left: 0px;
+  }
 }
 
 /* Body cells */
@@ -25,6 +32,10 @@
   padding: var(--lk-size-sm) var(--lk-size-md);
   vertical-align: top;
   border-bottom: 1px solid var(--lk-outlinevariant);
+
+  &:is(:first-child) {
+    padding-left: 0px;
+  }
 }
 
 /* Row states */

@@ -10,8 +10,8 @@ LiftKit Docs — a documentation site for "LiftKit," a component library built o
 
 pnpm workspace with two members:
 
-- `packages/liftkit/`: the component library, published to npm as `@chainlift/liftkit`. In the workspace, the docs consume it as TypeScript source (`exports` points at `src/`, and the docs use `transpilePackages`).
-- `apps/docs/`: the Next.js docs site (`@liftkit/docs`). It imports the library only via `@chainlift/liftkit`, never by relative path.
+- `packages/liftkit/`: the component library, published to npm as `liftkit`. In the workspace, the docs consume it as TypeScript source (`exports` points at `src/`, and the docs use `transpilePackages`).
+- `apps/docs/`: the Next.js docs site (`@liftkit/docs`). It imports the library only via `liftkit`, never by relative path.
 
 The library must never import from `apps/docs`. Inside the library, use relative imports (no `@/` alias).
 

@@ -1,4 +1,4 @@
-import { Section, Container, type LkContainerProps } from "@chainlift/liftkit";
+import { Section, Container, type LkContainerProps } from "liftkit";
 
 export default function ContainerDemo(knobs: LkContainerProps) {
   return (

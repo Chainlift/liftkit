@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "@chainlift/liftkit";
-import { GoldenBox } from "@chainlift/liftkit";
-import { Icon } from "@chainlift/liftkit";
+import { Collapsible, CollapsibleTrigger, CollapsiblePanel } from "liftkit";
+import { GoldenBox } from "liftkit";
+import { Icon } from "liftkit";
 export default function CollapsibleDemo() {
   return (
     <Collapsible>

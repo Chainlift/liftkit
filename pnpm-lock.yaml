@@ -13,9 +13,6 @@ importers:
       '@base-ui/react':
         specifier: ^1.1.0
         version: 1.9.0(@types/react@19.3.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@chainlift/liftkit':
-        specifier: workspace:*
-        version: link:../../packages/liftkit
       '@csstools/normalize.css':
         specifier: ^12.1.1
         version: 12.1.1
@@ -40,6 +37,9 @@ importers:
       katex:
         specifier: ^0.19.1
         version: 0.19.1
+      liftkit:
+        specifier: workspace:*
+        version: link:../../packages/liftkit
       lucide-react:
         specifier: ^0.563.0
         version: 0.563.0(react@19.2.3)

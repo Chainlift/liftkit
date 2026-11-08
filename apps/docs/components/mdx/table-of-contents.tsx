@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { StateLayer } from "@chainlift/liftkit";
+import { StateLayer } from "liftkit";
 import { usePathname } from "next/navigation";
 
 interface TocItem {
@@ -82,14 +82,14 @@ export function TableOfContents() {
 
   return (
     <nav data-slot="table-of-contents" aria-label="On this page">
-      <p className="capline mb-lg color-onsurfacelow">On this page</p>
-      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+      <p className="subheading-bold">On this page</p>
+      <ul style={{ listStyle: "none", padding: 0 }} className="mt-md">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
               data-active={activeId === item.id || undefined}
-              className={`${item.level === 2 ? "pl-sm" : "pl-lg"} pr-sm py-2xs relative overflow-hidden rounded-2xs `}
+              className="p-sm relative overflow-hidden rounded-2xs color-onsurfacelow"
               style={{
                 display: "block",
               }}
@@ -98,7 +98,7 @@ export function TableOfContents() {
                 document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <span className={`${item.level === 3 ? "subheading" : "callout font-500"}`}>{item.text}</span>
+              {item.text}
 
               <StateLayer />
             </a>

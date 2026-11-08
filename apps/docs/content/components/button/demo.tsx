@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from "@chainlift/liftkit";
+import { Button, type ButtonProps } from "liftkit";
 
 export default function ButtonDemo(knobs: ButtonProps) {
   return (

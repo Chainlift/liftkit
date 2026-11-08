@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ColorInput, type LkColorInputProps } from "@chainlift/liftkit";
+import { ColorInput, type LkColorInputProps } from "liftkit";
 
 export default function ColorInputDemo(knobs: Partial<LkColorInputProps>) {
   const [color, setColor] = useState("#0051e0");

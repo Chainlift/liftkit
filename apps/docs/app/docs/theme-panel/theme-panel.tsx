@@ -39,7 +39,7 @@ import {
   SliderTrack,
   Toggle,
   ToggleGroup,
-} from "@chainlift/liftkit";
+} from "liftkit";
 import { useTheme } from "./theme-context";
 import { TOKEN_MAP } from "./token-map";
 import { downloadThemeCSS, copyThemeCSS } from "./theme-export";

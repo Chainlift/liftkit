@@ -1,4 +1,4 @@
-import { Field, FieldLabel, FieldControl, FieldError, FieldDescription } from "@chainlift/liftkit";
+import { Field, FieldLabel, FieldControl, FieldError, FieldDescription } from "liftkit";
 
 export default function FieldDemo() {
   return (
