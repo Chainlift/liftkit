@@ -22,7 +22,7 @@ export function MdxCodeBlock({ children, ...props }: { children?: ReactNode; "da
   const lang = requested && LANGUAGES.has(requested) ? requested : requested === "sh" || requested === "shell" ? "bash" : "tsx";
 
   return (
-    <div className="bg-surfacecontainerlow rounded-sm shadow-2xs mb-md">
+    <div className="bg-surfacecontainerlow rounded-sm shadow-2xs my-lg overflow-hidden">
       <SimpleCodeBlock codeString={textOf(children).replace(/\n$/, "")} lang={lang} />
     </div>
   );

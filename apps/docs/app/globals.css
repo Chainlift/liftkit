@@ -24,7 +24,7 @@ code[data-theme*=" "] span {
   background-color: transparent !important;
 }
 .shiki span {
-  font-size: var(--lk-subheading-font-size) !important;
+  font-size: var(--lk-body-font-size) !important;
   line-height: var(--lk-body-line-height);
 }
 
