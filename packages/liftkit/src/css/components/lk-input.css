@@ -1,0 +1,44 @@
+:where(div label:has(+ input[data-slot="input"])) {
+  font-size: var(--lk-label-font-size);
+  line-height: var(--lk-label-line-height);
+  letter-spacing: var(--lk-label-letter-spacing);
+  margin-bottom: var(--lk-spacing-xs);
+  font-weight: 500;
+  color: var(--lk-onsurface);
+  position: relative;
+}
+
+[data-slot="input"] {
+  --input-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
+
+  box-sizing: border-box;
+  padding-block: var(--input-padY);
+  padding-inline: var(--lk-spacing-sm);
+  margin: 0;
+  border: 1px solid var(--lk-outlinevariant);
+  width: 100%;
+  line-height: var(--lk-halfstep-text);
+
+  border-radius: var(--lk-corner-xs);
+  font-family: inherit;
+
+  background-color: var(--lk-surface);
+  color: var(--lk-onsurface);
+
+  &:focus {
+    outline: 2px solid var(--lk-info);
+    outline-offset: -1px;
+  }
+}
+
+:where([data-slot="input"]) {
+  /* Zero specificity, so a font class (the fontClass prop) can set the size; otherwise the input matches its surroundings. */
+  font-size: 1em;
+  /* padding-block: var(--lk-spacing-sm); */
+}
+
+:where(div:has(> input[data-slot="input"])) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

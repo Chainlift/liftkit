@@ -1,0 +1,59 @@
+div[data-instance="lk-docs-table"] {
+  [data-slot="table-block"] {
+    margin-bottom: var(--lk-base-lg);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    table-layout: fixed;
+    font-size: var(--lk-subheading-font-size);
+    letter-spacing: var(--lk-callout-letter-spacing);
+    background: var(--lk-surfacecontainerlowest);
+    box-shadow: var(--lk-shadow-2xs);
+    border-radius: var(--lk-base-2xs);
+    overflow: hidden;
+  }
+
+  thead {
+    tr {
+      border-bottom: 1px solid var(--lk-outlinevariant);
+      background-color: var(--lk-surface);
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--lk-outlinevariant);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  th {
+    padding: var(--lk-base-xs) var(--lk-base-lg) var(--lk-base-xs) 0px;
+    font-weight: 500;
+    color: var(--lk-onsurfacevariant);
+
+    &:first-child {
+      padding-left: var(--lk-base-xs);
+    }
+  }
+
+  td {
+    padding: var(--lk-base-xs) var(--lk-base-lg) var(--lk-base-xs) 0px;
+    line-height: var(--lk-body-line-height);
+    color: var(--lk-onsurfacelow);
+
+    &:first-child {
+      padding-left: var(--lk-base-xs);
+    }
+  }
+}
+
+div[data-instance="lk-docs-table"]:not(:first-child) h3 {
+  margin-top: var(--lk-base-lg);
+}

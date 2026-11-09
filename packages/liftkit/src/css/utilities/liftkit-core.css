@@ -1,0 +1,862 @@
+/* @import "../liftkit/index.css"; */
+
+/* Random comment */
+
+:root {
+  font-size: 1rem;
+  --lk-scalefactor: 1.618;
+  /* these are the only two you set manually */
+
+  /* OPTIONALLY: You can set individual scale factors for spacing, corner radii, and typography */
+  --lk-scalefactor-corner: 1.618;
+  --lk-scalefactor-spacing: 1.618;
+  --lk-scalefactor-text: 1.618;
+  --lk-scalefactor-length: 1.618;
+
+  --lk-wholestep: var(--lk-scalefactor);
+  /* equals scalefactor */
+  /* 1.272 */
+  --lk-halfstep: calc(round(pow(var(--lk-scalefactor), 0.5), 0.001));
+  /* sqrt wholestep 1.128 */
+  --lk-quarterstep: round(pow(var(--lk-scalefactor), 0.25), 0.001);
+  /* sqrt halfstep 1.062*/
+  --lk-eighthstep: round(pow(var(--lk-scalefactor), 0.125), 0.001);
+  /* sqrt quarterstep:  */
+  --lk-wholestep-dec: calc(var(--lk-wholestep) - 1);
+  /* wholestep -1 */
+  --lk-halfstep-dec: calc(var(--lk-halfstep) - 1);
+  /* halfstep -1 */
+  --lk-quarterstep-dec: calc(var(--lk-quarterstep) - 1);
+  /* quarterstep -1 */
+  --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
+  /* eighthstep -1 */
+
+  /* specific scale factors for typography, spacing, length, etc. by default they're functionally identical to the core ones */
+
+  --lk-wholestep-text: var(--lk-scalefactor-text);
+  --lk-halfstep-text: calc(round(pow(var(--lk-scalefactor-text), 0.5), 0.001));
+  --lk-quarterstep-text: round(pow(var(--lk-scalefactor-text), 0.25), 0.001);
+  --lk-eighthstep-text: round(pow(var(--lk-scalefactor-text), 0.125), 0.001);
+  --lk-wholestep-dec-text: calc(var(--lk-wholestep-text) - 1);
+  --lk-halfstep-dec-text: calc(var(--lk-halfstep-text) - 1);
+  --lk-quarterstep-dec-text: calc(var(--lk-quarterstep-text) - 1);
+  --lk-eighthstep-dec-text: calc(var(--lk-eighthstep-text) - 1);
+
+  --lk-wholestep-spacing: var(--lk-scalefactor-spacing);
+  --lk-halfstep-spacing: calc(round(pow(var(--lk-scalefactor-spacing), 0.5), 0.001));
+  --lk-quarterstep-spacing: round(pow(var(--lk-scalefactor-spacing), 0.25), 0.001);
+  --lk-eighthstep-spacing: round(pow(var(--lk-scalefactor-spacing), 0.125), 0.001);
+  --lk-wholestep-dec-spacing: calc(var(--lk-wholestep-spacing) - 1);
+  --lk-halfstep-dec-spacing: calc(var(--lk-halfstep-spacing) - 1);
+  --lk-quarterstep-dec-spacing: calc(var(--lk-quarterstep-spacing) - 1);
+  --lk-eighthstep-dec-spacing: calc(var(--lk-eighthstep-spacing) - 1);
+
+  --lk-wholestep-length: var(--lk-scalefactor-length);
+  --lk-halfstep-length: calc(round(pow(var(--lk-scalefactor-length), 0.5), 0.001));
+  --lk-quarterstep-length: round(pow(var(--lk-scalefactor-length), 0.25), 0.001);
+  --lk-eighthstep-length: round(pow(var(--lk-scalefactor-length), 0.125), 0.001);
+  --lk-wholestep-dec-length: calc(var(--lk-wholestep-length) - 1);
+  --lk-halfstep-dec-length: calc(var(--lk-halfstep-length) - 1);
+  --lk-quarterstep-dec-length: calc(var(--lk-quarterstep-length) - 1);
+  --lk-eighthstep-dec-length: calc(var(--lk-eighthstep-length) - 1);
+
+  --lk-wholestep-corner: var(--lk-scalefactor-corner);
+  --lk-halfstep-corner: calc(round(pow(var(--lk-scalefactor-corner), 0.5), 0.001));
+  --lk-quarterstep-corner: round(pow(var(--lk-scalefactor-corner), 0.25), 0.001);
+  --lk-eighthstep-corner: round(pow(var(--lk-scalefactor-corner), 0.125), 0.001);
+  --lk-wholestep-dec-corner: calc(var(--lk-wholestep-corner) - 1);
+  --lk-halfstep-dec-corner: calc(var(--lk-halfstep-corner) - 1);
+  --lk-quarterstep-dec-corner: calc(var(--lk-quarterstep-corner) - 1);
+  --lk-eighthstep-dec-corner: calc(var(--lk-eighthstep-corner) - 1);
+
+  --lk-base-md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+  --lk-base-sm: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001)); /* .618 em */
+  --lk-base-xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001)); /* .382 em */
+  --lk-base-2xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001)); /* .236 em */
+  --lk-base-3xs: calc(1em * round(pow(var(--lk-scalefactor), -4), 0.001)); /* .146 em */
+  /* "super smalls" only used for border widths and thin lines */
+  --lk-base-4xs: calc(1em * round(pow(var(--lk-scalefactor), -5), 0.001)); /* When 1rem = 16px, equals roughly 2px */
+  --lk-base-5xs: calc(1em * round(pow(var(--lk-scalefactor), -6), 0.001)); /* When 1rem = 16px, equals roughly 1px */
+  --lk-base-lg: calc(1em * var(--lk-scalefactor));
+  --lk-base-xl: calc(1em * round(pow(var(--lk-scalefactor), 2), 0.001));
+  /* --lk-base-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001)); */
+  --lk-base-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001));
+  --lk-base-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
+  --lk-base-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
+  --lk-base-5xl: calc(1em * round(pow(var(--lk-scalefactor), 6), 0.001));
+
+  /* size tokens for corner radii */
+  --lk-corner-md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+  --lk-corner-sm: calc(1em * round(pow(var(--lk-scalefactor-corner), -1), 0.001)); /* .618 em */
+  --lk-corner-xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -2), 0.001)); /* .382 em */
+  --lk-corner-2xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -3), 0.001)); /* .236 em */
+  --lk-corner-3xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -4), 0.001)); /* .146 em */
+  /* "super smalls" only used for border widths and thin lines */
+  --lk-corner-4xs: calc(
+    1em * round(pow(var(--lk-scalefactor-corner), -5), 0.001)
+  ); /* When 1rem = 16px, equals roughly 2px */
+  --lk-corner-5xs: calc(
+    1em * round(pow(var(--lk-scalefactor-corner), -6), 0.001)
+  ); /* When 1rem = 16px, equals roughly 1px */
+  --lk-corner-lg: calc(1em * var(--lk-scalefactor-corner));
+  --lk-corner-xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 2), 0.001));
+  /* --lk-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001)); */
+  --lk-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001));
+  --lk-corner-3xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 4), 0.001));
+  --lk-corner-4xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 5), 0.001));
+  --lk-corner-5xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 6), 0.001));
+
+  /* tokens for length */
+  --lk-length-md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+  --lk-length-sm: calc(1em * round(pow(var(--lk-scalefactor-length), -1), 0.001)); /* .618 em */
+  --lk-length-xs: calc(1em * round(pow(var(--lk-scalefactor-length), -2), 0.001)); /* .382 em */
+  --lk-length-2xs: calc(1em * round(pow(var(--lk-scalefactor-length), -3), 0.001)); /* .236 em */
+  --lk-length-3xs: calc(1em * round(pow(var(--lk-scalefactor-length), -4), 0.001)); /* .146 em */
+  /* "super smalls" only used for border widths and thin lines */
+  --lk-length-4xs: calc(
+    1em * round(pow(var(--lk-scalefactor-length), -5), 0.001)
+  ); /* When 1rem = 16px, equals roughly 2px */
+  --lk-length-5xs: calc(
+    1em * round(pow(var(--lk-scalefactor-length), -6), 0.001)
+  ); /* When 1rem = 16px, equals roughly 1px */
+  --lk-length-lg: calc(1em * var(--lk-scalefactor-length));
+  --lk-length-xl: calc(1em * round(pow(var(--lk-scalefactor-length), 2), 0.001));
+  /* --lk-length-2xl: calc(1em * round(pow(var(--lk-scalefactor-length), 3), 0.001)); */
+  --lk-length-2xl: calc(1em * round(pow(var(--lk-scalefactor-length), 3), 0.001));
+  --lk-length-3xl: calc(1em * round(pow(var(--lk-scalefactor-length), 4), 0.001));
+  --lk-length-4xl: calc(1em * round(pow(var(--lk-scalefactor-length), 5), 0.001));
+  --lk-length-5xl: calc(1em * round(pow(var(--lk-scalefactor-length), 6), 0.001));
+
+  /* tokens for spacing */
+  --lk-spacing-md: 1em;
+  --lk-spacing-sm: calc(1em * round(pow(var(--lk-scalefactor-spacing), -1), 0.001));
+  --lk-spacing-xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -2), 0.001));
+  --lk-spacing-2xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -3), 0.001));
+  --lk-spacing-3xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -4), 0.001));
+  /* "super smalls" only used for border widths and thin lines */
+  --lk-spacing-4xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -5), 0.001));
+  --lk-spacing-5xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -6), 0.001));
+  --lk-spacing-lg: calc(1em * var(--lk-scalefactor-spacing));
+  --lk-spacing-xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 2), 0.001));
+  --lk-spacing-2xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 3), 0.001));
+  --lk-spacing-3xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 4), 0.001));
+  --lk-spacing-4xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 5), 0.001));
+  --lk-spacing-5xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 6), 0.001));
+
+  /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
+  /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
+
+  --lk-base-sm-unitless: calc(1 / var(--lk-scalefactor));
+  --lk-base-xs-unitless: calc(var(--lk-base-sm-unitless) / var(--lk-scalefactor));
+  --lk-base-2xs-unitless: calc(var(--lk-base-xs-unitless) / var(--lk-scalefactor));
+  --lk-base-lg-unitless: calc(1 * var(--lk-scalefactor));
+  --lk-base-xl-unitless: calc(var(--lk-base-lg-unitless) * var(--lk-scalefactor));
+  --lk-base-2xl-unitless: calc(var(--lk-base-xl-unitless) * var(--lk-scalefactor));
+
+  /*Increments*/
+
+  /* Colors */
+
+  --lk-light-primary: #0051e0;
+  --lk-light-onprimary: #faf8ff;
+  --lk-light-primarycontainer: #dbe1ff;
+  --lk-light-onprimarycontainer: #00174d;
+  --lk-light-secondary: #40617f;
+  --lk-light-onsecondary: #f7f9ff;
+  --lk-light-secondarycontainer: #cde5ff;
+  --lk-light-onsecondarycontainer: #001d32;
+  --lk-light-tertiary: #006878;
+  --lk-light-ontertiary: #f0fbff;
+  --lk-light-tertiarycontainer: #a8edff;
+  --lk-light-ontertiarycontainer: #001f25;
+  --lk-light-error: #bb0e45;
+  --lk-light-onerror: #fff8f7;
+  --lk-light-errorcontainer: #ffd9dc;
+  --lk-light-onerrorcontainer: #400012;
+  --lk-light-background: #fcfcfc;
+  --lk-light-onbackground: #171b27;
+  --lk-light-surface: #f7f8f9;
+  --lk-light-onsurface: #171b27;
+  --lk-light-surfacevariant: #bfc8ca;
+  --lk-light-onsurfacevariant: #464747;
+  --lk-light-outline: #6f797a;
+  --lk-light-outlinevariant: #bfc8ca;
+  --lk-light-shadow: #000000;
+  --lk-light-scrim: #000000;
+  --lk-light-inversesurface: #2c303c;
+  --lk-light-inverseonsurface: #eef0ff;
+  --lk-light-inverseprimary: #b5c4ff;
+  --lk-light-surfacedim: #d5d9dc;
+  --lk-light-surfacebright: #ffffff;
+  --lk-light-surfacecontainerlowest: #ffffff;
+  --lk-light-surfacecontainerlow: #f1f3f4;
+  --lk-light-surfacecontainer: #ebedee;
+  --lk-light-surfacecontainerhigh: #e4e7e9;
+  --lk-light-surfacecontainerhighest: #dfe1e4;
+  --lk-light-warning: #7d5800;
+  --lk-light-onwarning: #fff8f3;
+  --lk-light-warningcontainer: #ffdea9;
+  --lk-light-onwarningcontainer: #271900;
+  --lk-light-success: #006b55;
+  --lk-light-onsuccess: #e6fff4;
+  --lk-light-successcontainer: #20ffce;
+  --lk-light-onsuccesscontainer: #002118;
+  --lk-light-info: #004ee7;
+  --lk-light-oninfo: #faf8ff;
+  --lk-light-infocontainer: #dce1ff;
+  --lk-light-oninfocontainer: #001550;
+  --lk-light-onsurfacelow: hsla(0, 0%, 36%, 1);
+  --lk-light-onsurfacelowest: hsla(0, 0%, 46%, 1);
+  --lk-dark-primary: #b5c4ff;
+  --lk-dark-onprimary: #00297a;
+  --lk-dark-primarycontainer: #003cac;
+  --lk-dark-onprimarycontainer: #dbe1ff;
+  --lk-dark-secondary: #a8caec;
+  --lk-dark-onsecondary: #0b334f;
+  --lk-dark-secondarycontainer: #274a66;
+  --lk-dark-onsecondarycontainer: #cde5ff;
+  --lk-dark-tertiary: #00d9fa;
+  --lk-dark-ontertiary: #00363f;
+  --lk-dark-tertiarycontainer: #004e5b;
+  --lk-dark-ontertiarycontainer: #a8edff;
+  --lk-dark-error: #ffb2bb;
+  --lk-dark-onerror: #670021;
+  --lk-dark-errorcontainer: #910032;
+  --lk-dark-onerrorcontainer: #ffd9dc;
+  --lk-dark-background: #171b27;
+  --lk-dark-onbackground: #d1d4e4;
+  --lk-dark-surface: #222531;
+  --lk-dark-onsurface: #c3c6d6;
+  --lk-dark-surfacevariant: #303030;
+  --lk-dark-onsurfacevariant: #acabab;
+  --lk-dark-outline: #464747;
+  --lk-dark-outlinevariant: #303030;
+  --lk-dark-shadow: #000000;
+  --lk-dark-scrim: #000000;
+  --lk-dark-inversesurface: #faf8ff;
+  --lk-dark-inverseonsurface: #171b27;
+  --lk-dark-inverseprimary: #b5c4ff;
+  --lk-dark-surfacedim: #20232f;
+  --lk-dark-surfacebright: #434653;
+  --lk-dark-surfacecontainerlowest: #1b1f2b;
+  --lk-dark-surfacecontainerlow: #262a36;
+  --lk-dark-surfacecontainer: #2c303c;
+  --lk-dark-surfacecontainerhigh: #353945;
+  --lk-dark-surfacecontainerhighest: #3e424f;
+  --lk-dark-warning: #ffba28;
+  --lk-dark-onwarning: #422c00;
+  --lk-dark-warningcontainer: #5e4100;
+  --lk-dark-onwarningcontainer: #ffdea9;
+  --lk-dark-success: #00e0b4;
+  --lk-dark-onsuccess: #00382b;
+  --lk-dark-successcontainer: #00513f;
+  --lk-dark-onsuccesscontainer: #20ffce;
+  --lk-dark-info: #b6c4ff;
+  --lk-dark-oninfo: #00277f;
+  --lk-dark-infocontainer: #003ab1;
+  --lk-dark-oninfocontainer: #dce1ff;
+  --lk-light-primaryfixed: #dbe1ff;
+  --lk-light-primaryfixeddim: #b5c4ff;
+  --lk-light-onprimaryfixed: #00174d;
+  --lk-light-onprimaryfixedvariant: #003cac;
+  --lk-light-secondaryfixed: #cde5ff;
+  --lk-light-secondaryfixeddim: #a8caec;
+  --lk-light-onsecondaryfixed: #001d32;
+  --lk-light-onsecondaryfixedvariant: #274a66;
+  --lk-light-tertiaryfixed: #a8edff;
+  --lk-light-tertiaryfixeddim: #00d9fa;
+  --lk-light-ontertiaryfixed: #001f25;
+  --lk-light-ontertiaryfixedvariant: #004e5b;
+  --lk-dark-primaryfixed: #dbe1ff;
+  --lk-dark-primaryfixeddim: #b5c4ff;
+  --lk-dark-onprimaryfixed: #00174d;
+  --lk-dark-onprimaryfixedvariant: #003cac;
+  --lk-dark-secondaryfixed: #cde5ff;
+  --lk-dark-secondaryfixeddim: #a8caec;
+  --lk-dark-onsecondaryfixed: #001d32;
+  --lk-dark-onsecondaryfixedvariant: #274a66;
+  --lk-dark-tertiaryfixed: #a8edff;
+  --lk-dark-tertiaryfixeddim: #00d9fa;
+  --lk-dark-ontertiaryfixed: #001f25;
+  --lk-dark-ontertiaryfixedvariant: #004e5b;
+  --lk-dark-onsurfacelow: #aeaeae;
+  --lk-dark-onsurfacelowest: #828282;
+
+  --lk-onprimary: var(--lk-light-onprimary);
+  --lk-primarycontainer: var(--lk-light-primarycontainer);
+  --lk-onprimarycontainer: var(--lk-light-onprimarycontainer);
+  --lk-secondary: var(--lk-light-secondary);
+  --lk-onsecondary: var(--lk-light-onsecondary);
+  --lk-secondarycontainer: var(--lk-light-secondarycontainer);
+  --lk-onsecondarycontainer: var(--lk-light-onsecondarycontainer);
+  --lk-tertiary: var(--lk-light-tertiary);
+  --lk-ontertiary: var(--lk-light-ontertiary);
+  --lk-tertiarycontainer: var(--lk-light-tertiarycontainer);
+  --lk-ontertiarycontainer: var(--lk-light-ontertiarycontainer);
+  --lk-onerror: var(--lk-light-onerror);
+  --lk-errorcontainer: var(--lk-light-errorcontainer);
+  --lk-onerrorcontainer: var(--lk-light-onerrorcontainer);
+  --lk-background: var(--lk-light-background);
+  --lk-onbackground: var(--lk-light-onbackground);
+  --lk-surface: var(--lk-light-surface);
+  --lk-onsurface: var(--lk-light-onsurface);
+  --lk-onsurfacevariant: var(--lk-light-onsurfacevariant);
+  --lk-surfacevariant: var(--lk-light-surfacevariant);
+  --lk-shadow: var(--lk-light-shadow);
+  --lk-inversesurface: var(--lk-light-inversesurface);
+  --lk-scrim: var(--lk-light-scrim);
+  --lk-inverseonsurface: var(--lk-light-inverseonsurface);
+  --lk-inverseprimary: var(--lk-light-inverseprimary);
+  --lk-success: var(--lk-light-success);
+  --lk-onsuccess: var(--lk-light-onsuccess);
+  --lk-successcontainer: var(--lk-light-successcontainer);
+  --lk-onsuccesscontainer: var(--lk-light-onsuccesscontainer);
+  --lk-warning: var(--lk-light-warning);
+  --lk-onwarning: var(--lk-light-onwarning);
+  --lk-warningcontainer: var(--lk-light-warningcontainer);
+  --lk-onwarningcontainer: var(--lk-light-onwarningcontainer);
+  --lk-info: var(--lk-light-info);
+  --lk-oninfo: var(--lk-light-oninfo);
+  --lk-infocontainer: var(--lk-light-infocontainer);
+  --lk-oninfocontainer: var(--lk-light-oninfocontainer);
+  --lk-primaryfixed: var(--lk-light-primaryfixed);
+  --lk-onprimaryfixed: var(--lk-light-onprimaryfixed);
+  --lk-primaryfixeddim: var(--lk-light-primaryfixeddim);
+  --lk-onprimaryfixedvariant: var(--lk-light-onprimaryfixedvariant);
+  --lk-secondaryfixed: var(--lk-light-secondaryfixed);
+  --lk-secondaryfixeddim: var(--lk-light-secondaryfixeddim);
+  --lk-onsecondaryfixed: var(--lk-light-onsecondaryfixed);
+  --lk-onsecondaryfixedvariant: var(--lk-light-onsecondaryfixedvariant);
+  --lk-tertiaryfixed: var(--lk-light-tertiaryfixed);
+  --lk-ontertiaryfixed: var(--lk-light-ontertiaryfixed);
+  --lk-tertiaryfixeddim: var(--lk-light-tertiaryfixeddim);
+  --lk-ontertiaryfixedvariant: var(--lk-light-ontertiaryfixedvariant);
+  --lk-surfacedim: var(--lk-light-surfacedim);
+  --lk-surfacebright: var(--lk-light-surfacebright);
+  --lk-surfacecontainerlowest: var(--lk-light-surfacecontainerlowest);
+  --lk-surfacecontainer: var(--lk-light-surfacecontainer);
+  --lk-surfacecontainerhigh: var(--lk-light-surfacecontainerhigh);
+  --lk-surfacecontainerhighest: var(--lk-light-surfacecontainerhighest);
+  --lk-surfacecontainerlow: var(--lk-light-surfacecontainerlow);
+  --lk-outlinevariant: var(--lk-light-outlinevariant);
+  --lk-outline: var(--lk-light-outline);
+  --lk-error: var(--lk-light-error);
+  --lk-primary: var(--lk-light-primary);
+  --lk-onsurfacelow: var(--lk-light-onsurfacelow);
+  --lk-onsurfacelowest: var(--lk-light-onsurfacelowest);
+
+  /* Make text look sharper */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+
+  /************ Font Size Vars ************/
+
+  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracating, multiplying, and dividing.
+   * In addition and subtraction, both sides must have the same unit.
+   * In multiplication, one side must be unitless.
+   * In division, the right side must be unitless.
+  */
+
+  --lk-display1-font-size: calc(1em * pow(var(--lk-wholestep-text), 3));
+  --lk-display2-font-size: calc(1em * pow(var(--lk-wholestep-text), 2));
+  --lk-title1-font-size: calc(1em * var(--lk-wholestep-text) * var(--lk-halfstep-text));
+  --lk-title2-font-size: calc(1em * var(--lk-wholestep-text));
+  --lk-title3-font-size: calc(1em * var(--lk-halfstep-text));
+  --lk-heading-font-size: calc(1em * var(--lk-quarterstep-text));
+  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep-text));
+  --lk-body-font-size: 1em;
+  --lk-callout-font-size: calc(1em / var(--lk-eighthstep-text));
+  --lk-label-font-size: calc((1em / var(--lk-quarterstep-text)) / var(--lk-eighthstep-text));
+  --lk-caption-font-size: calc(1em / var(--lk-halfstep-text));
+  --lk-capline-font-size: calc(1em / var(--lk-halfstep-text));
+
+  /* Font Line Height Vars (UNITLESS!) */
+
+  --lk-display1-line-height: var(--lk-quarterstep-text);
+  --lk-display2-line-height: var(--lk-halfstep-text);
+  --lk-title1-line-height: var(--lk-halfstep-text);
+  --lk-title2-line-height: var(--lk-halfstep-text);
+  --lk-title3-line-height: var(--lk-halfstep-text);
+  --lk-heading-line-height: var(--lk-halfstep-text);
+  --lk-subheading-line-height: var(--lk-halfstep-text);
+  --lk-body-line-height: var(--lk-wholestep-text);
+  --lk-callout-line-height: var(--lk-halfstep-text);
+  --lk-label-line-height: var(--lk-halfstep-text);
+  --lk-caption-line-height: var(--lk-halfstep-text);
+  --lk-capline-line-height: var(--lk-halfstep-text);
+
+  /* Font weights */
+
+  --lk-display1-font-weight: 400;
+  --lk-display2-font-weight: 400;
+  --lk-title1-font-weight: 400;
+  --lk-title2-font-weight: 400;
+  --lk-title3-font-weight: 400;
+  --lk-heading-font-weight: 600;
+  --lk-subheading-font-weight: 400;
+  --lk-body-font-weight: 400;
+  --lk-callout-font-weight: 400;
+  --lk-label-font-weight: 500;
+  --lk-caption-font-weight: 400;
+  --lk-capline-font-weight: 400;
+
+  /* Optical Top Padding Offsets and Border Radii for Cards */
+  /* Produce padding values for the insides of cards or other containers on sides that
+     optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
+
+  --lk-display1-offset: calc(
+    var(--lk-display1-font-size) * calc(var(--lk-display1-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-display2-offset: calc(
+    var(--lk-display2-font-size) * calc(var(--lk-display2-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-title1-offset: calc(var(--lk-title1-font-size) * calc(var(--lk-title1-line-height) / var(--lk-wholestep-text)));
+  --lk-title2-offset: calc(var(--lk-title2-font-size) * calc(var(--lk-title2-line-height) / var(--lk-wholestep-text)));
+  --lk-title3-offset: calc(var(--lk-title3-font-size) * calc(var(--lk-title3-line-height) / var(--lk-wholestep-text)));
+  --lk-heading-offset: calc(
+    var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-subheading-offset: calc(
+    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep-text));
+  --lk-callout-offset: calc(
+    var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep-text)));
+  --lk-caption-offset: calc(
+    var(--lk-caption-font-size) * calc(var(--lk-caption-line-height) / var(--lk-wholestep-text))
+  );
+  --lk-capline-offset: calc(
+    var(--lk-capline-font-size) * calc(var(--lk-capline-line-height) / var(--lk-wholestep-text))
+  );
+
+  --lk-display1-letter-spacing: -0.022em;
+  --lk-display2-letter-spacing: -0.022em;
+  --lk-title1-letter-spacing: -0.022em;
+  --lk-title2-letter-spacing: -0.02em;
+  --lk-title3-letter-spacing: -0.017em;
+  --lk-heading-letter-spacing: -0.014em;
+  --lk-subheading-letter-spacing: -0.007em;
+  --lk-body-letter-spacing: -0.011em;
+  --lk-callout-letter-spacing: -0.009em;
+  --lk-label-letter-spacing: -0.004em;
+  --lk-caption-letter-spacing: -0.007em;
+  --lk-capline-letter-spacing: 0.0618em;
+
+  /* shadows */
+
+  /* first, set shadow colors to their own tokens so it's easier to edit them later */
+
+  /* The "contact" shadow is a hairthin line that goes all around the element. */
+  --lk-contact-shadow-color: color-mix(in srgb, var(--lk-shadow) 80%, transparent);
+
+  /* Go ahead and save it to a token for passing later to each final shadow style token */
+  --lk-contact-shadow: 0 0 1px 0 var(--lk-contact-shadow-color);
+
+  /*
+
+    * shadow opacity is defined from largest to smallest so that everything can calculate from the darkest requirement
+    * it's done this way because it's easiest to tell where the "banding" limit of a shadow is when the blur is highest, 
+    * which is the largest shadow, which is where opacity has the greatest impact on banding 
+ 
+
+    * by default (i.e. in light mode), opacity of largest shadow color token equals scaleFactor expressed as a percentage 
+    * i.e. if scaleFactor is 1.618 then opacity is 61.8%
+    * then, every color token smaller is a wholestep down from that percent.
+    * i.e. shadow-color-xl equals 61.8% / var(--lk-wholestep) */
+
+  --lk-shadow-2xl-opacity: calc(calc(var(--lk-scalefactor) - 1) * 100%);
+  --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+  --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+  --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
+
+  /* In dark mode, opacity is higher at the top level and cascades down */
+  @media screen and (prefers-color-scheme: dark) {
+    --lk-shadow-2xl-opacity: 80%;
+    --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+    --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+    --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
+  }
+
+  --lk-shadow-color-2xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-2xl-opacity), transparent);
+  --lk-shadow-color-xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xl-opacity), transparent);
+  --lk-shadow-color-lg: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-lg-opacity), transparent);
+  --lk-shadow-color-md: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-md-opacity), transparent);
+  --lk-shadow-color-sm: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-sm-opacity), transparent);
+  --lk-shadow-color-xs: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xs-opacity), transparent);
+
+  /* --lk-shadow-xs:
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 .272em .440em -1px var(--lk-shadow-color-xs-b); */
+
+  /* for every shadow, y offset is an lk-size var and the blur is y offset * scaleFactor */
+
+  /* Now, define the y offsets for each */
+
+  --lk-shadow-yoffset-2xl: var(--lk-base-xl);
+  --lk-shadow-yoffset-xl: var(--lk-base-lg);
+  --lk-shadow-yoffset-lg: var(--lk-base-md);
+  --lk-shadow-yoffset-md: var(--lk-base-sm);
+  --lk-shadow-yoffset-sm: var(--lk-base-xs);
+  --lk-shadow-yoffset-xs: var(--lk-base-2xs);
+
+  /* Calculate blur strength. Blur equals y offset * wholestep */
+
+  --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl) * var(--lk-wholestep));
+  --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl) * var(--lk-wholestep));
+  --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg) * var(--lk-wholestep));
+  --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md) * var(--lk-wholestep));
+  --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm) * var(--lk-wholestep));
+  --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs) * var(--lk-wholestep));
+
+  /* 2xs is an exception to all of these calculation rules, because it only has a contact shadow. */
+
+  --lk-shadow-2xs: var(--lk-contact-shadow);
+  --lk-shadow-xs:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xs) var(--lk-shadow-blur-xs) 0 var(--lk-shadow-color-xs);
+  --lk-shadow-sm:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-sm) var(--lk-shadow-blur-sm) 0 var(--lk-shadow-color-sm);
+  --lk-shadow-md:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-md) var(--lk-shadow-blur-md) 0 var(--lk-shadow-color-md);
+  --lk-shadow-lg:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-lg) var(--lk-shadow-blur-lg) 0 var(--lk-shadow-color-lg);
+  --lk-shadow-xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xl) var(--lk-shadow-blur-xl) 0 var(--lk-shadow-color-xl);
+  --lk-shadow-2xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-2xl) var(--lk-shadow-blur-2xl) 0 var(--lk-shadow-color-2xl);
+
+  /* In dark mode, shadow blur is weaker in order to reduce banding. TODO: find better solution, banding still happening at 2xl */
+
+  @media screen and (prefers-color-scheme: dark) {
+    --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl));
+    --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl));
+    --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg));
+    --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md));
+    --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm));
+    --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs));
+  }
+
+  /* 
+      --lk-shadow-2xl: 
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 2.058em 3.33em 0 var(--lk-shadow-color-2xl-b); */
+
+  /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
+
+  --lk-display1BoxHeight: calc(var(--lk-display1-font-size) * var(--lk-display1-line-height));
+  --lk-display2BoxHeight: calc(var(--lk-display2-font-size) * var(--lk-display2-line-height));
+  --lk-title1BoxHeight: calc(var(--lk-title1-font-size) * var(--lk-title1-line-height));
+  --lk-title2BoxHeight: calc(var(--lk-title2-font-size) * var(--lk-title2-line-height));
+  --lk-title3BoxHeight: calc(var(--lk-title3-font-size) * var(--lk-title3-line-height));
+  --lk-headingBoxHeight: calc(var(--lk-heading-font-size) * var(--lk-heading-line-height));
+  --lk-subheadingBoxHeight: calc(var(--lk-subheading-font-size) * var(--lk-subheading-line-height));
+  --lk-bodyBoxHeight: calc(var(--lk-body-font-size) * var(--lk-body-line-height));
+  --lk-calloutBoxHeight: calc(var(--lk-callout-font-size) * var(--lk-callout-line-height));
+  --lk-labelBoxHeight: calc(var(--lk-label-font-size) * var(--lk-label-line-height));
+  --lk-captionBoxHeight: calc(var(--lk-caption-font-size) * var(--lk-caption-line-height));
+  --lk-caplineBoxHeight: calc(var(--lk-capline-font-size) * var(--lk-capline-line-height));
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --lk-onprimary: var(--lk-dark-onprimary);
+    --lk-primarycontainer: var(--lk-dark-primarycontainer);
+    --lk-onprimarycontainer: var(--lk-dark-onprimarycontainer);
+    --lk-secondary: var(--lk-dark-secondary);
+    --lk-onsecondary: var(--lk-dark-onsecondary);
+    --lk-secondarycontainer: var(--lk-dark-secondarycontainer);
+    --lk-onsecondarycontainer: var(--lk-dark-onsecondarycontainer);
+    --lk-tertiary: var(--lk-dark-tertiary);
+    --lk-ontertiary: var(--lk-dark-ontertiary);
+    --lk-tertiarycontainer: var(--lk-dark-tertiarycontainer);
+    --lk-ontertiarycontainer: var(--lk-dark-ontertiarycontainer);
+    --lk-onerror: var(--lk-dark-onerror);
+    --lk-errorcontainer: var(--lk-dark-errorcontainer);
+    --lk-onerrorcontainer: var(--lk-dark-onerrorcontainer);
+    --lk-background: var(--lk-dark-background);
+    --lk-onbackground: var(--lk-dark-onbackground);
+    --lk-surface: var(--lk-dark-surface);
+    --lk-onsurface: var(--lk-dark-onsurface);
+    --lk-onsurfacevariant: var(--lk-dark-onsurfacevariant);
+    --lk-surfacevariant: var(--lk-dark-surfacevariant);
+    --lk-shadow: var(--lk-dark-shadow);
+    --lk-inversesurface: var(--lk-dark-inversesurface);
+    --lk-scrim: var(--lk-dark-scrim);
+    --lk-inverseonsurface: var(--lk-dark-inverseonsurface);
+    --lk-inverseprimary: var(--lk-dark-inverseprimary);
+    --lk-success: var(--lk-dark-success);
+    --lk-onsuccess: var(--lk-dark-onsuccess);
+    --lk-successcontainer: var(--lk-dark-successcontainer);
+    --lk-onsuccesscontainer: var(--lk-dark-onsuccesscontainer);
+    --lk-warning: var(--lk-dark-warning);
+    --lk-onwarning: var(--lk-dark-onwarning);
+    --lk-warningcontainer: var(--lk-dark-warningcontainer);
+    --lk-onwarningcontainer: var(--lk-dark-onwarningcontainer);
+    --lk-info: var(--lk-dark-info);
+    --lk-oninfo: var(--lk-dark-oninfo);
+    --lk-infocontainer: var(--lk-dark-infocontainer);
+    --lk-oninfocontainer: var(--lk-dark-oninfocontainer);
+    --lk-primaryfixed: var(--lk-dark-primaryfixed);
+    --lk-onprimaryfixed: var(--lk-dark-onprimaryfixed);
+    --lk-primaryfixeddim: var(--lk-dark-primaryfixeddim);
+    --lk-onprimaryfixedvariant: var(--lk-dark-onprimaryfixedvariant);
+    --lk-secondaryfixed: var(--lk-dark-secondaryfixed);
+    --lk-secondaryfixeddim: var(--lk-dark-secondaryfixeddim);
+    --lk-onsecondaryfixed: var(--lk-dark-onsecondaryfixed);
+    --lk-onsecondaryfixedvariant: var(--lk-dark-onsecondaryfixedvariant);
+    --lk-tertiaryfixed: var(--lk-dark-tertiaryfixed);
+    --lk-ontertiaryfixed: var(--lk-dark-ontertiaryfixed);
+    --lk-tertiaryfixeddim: var(--lk-dark-tertiaryfixeddim);
+    --lk-ontertiaryfixedvariant: var(--lk-dark-ontertiaryfixedvariant);
+    --lk-surfacedim: var(--lk-dark-surfacedim);
+    --lk-surfacebright: var(--lk-dark-surfacebright);
+    --lk-surfacecontainerlowest: var(--lk-dark-surfacecontainerlowest);
+    --lk-surfacecontainer: var(--lk-dark-surfacecontainer);
+    --lk-surfacecontainerhigh: var(--lk-dark-surfacecontainerhigh);
+    --lk-surfacecontainerhighest: var(--lk-dark-surfacecontainerhighest);
+    --lk-surfacecontainerlow: var(--lk-dark-surfacecontainerlow);
+    --lk-outlinevariant: var(--lk-dark-outlinevariant);
+    --lk-outline: var(--lk-dark-outline);
+    --lk-error: var(--lk-dark-error);
+    --lk-primary: var(--lk-dark-primary);
+    --lk-onsurfacelow: var(--lk-dark-onsurfacelow);
+    --lk-onsurfacelowest: var(--lk-dark-onsurfacelowest);
+  }
+}
+
+/* Everything from here is done to disable native display behavior of HTML elements
+
+/* TODO: Consider a more robust noramlizing solution. there's gotta be open source solutions to this.
+
+*/
+
+html,
+body {
+  max-width: 100vw;
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+}
+
+/* input:focus-visible {
+  outline: none;
+} */
+
+body {
+  margin: 0; /* normalize.css leaves the browser's default 8px body margin in place */
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--lk-onbackground);
+  background-color: var(--lk-background);
+  letter-spacing: var(--lk-body-letter-spacing);
+}
+
+* {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.swatch {
+  padding: calc(1.272em / var(--lk-base-xl-unitless)) var(--lk-spacing-sm);
+  border-radius: var(--lk-base-xs);
+  margin: var(--lk-spacing-sm) 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  /* font-size: inherit; */
+  margin: 0;
+  font-size: initial;
+}
+
+/* Make Buttons into Inline Elements */
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  /* color: inherit; */
+}
+
+button span {
+  text-transform: capitalize;
+}
+
+ul,
+li {
+  line-height: var(--lk-halfstep-text);
+}
+
+/* utility class for elements that should only be accessible to screen readers */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Component schemes */
+
+.lk-colorgroup--primary {
+  --lk-color-token: var(--lk-primary);
+  --lk-color-ontoken: var(--lk-onprimary);
+}
+
+.lk-colorgroup--primarycontainer {
+  --lk-color-token: var(--lk-primarycontainer);
+  --lk-color-ontoken: var(--lk-onprimarycontainer);
+}
+
+.lk-colorgroup--secondary {
+  --lk-color-token: var(--lk-secondary);
+  --lk-color-ontoken: var(--lk-onsecondary);
+  --lk-color-tokencontainer: var(--lk-secondarycontainer);
+  --lk-color-ontokencontainer: var(--lk-onsecondarycontainer);
+}
+
+.lk-colorgroup--secondarycontainer {
+  --lk-color-token: var(--lk-secondarycontainer);
+  --lk-color-ontoken: var(--lk-onsecondarycontainer);
+}
+
+.lk-colorgroup--tertiary {
+  --lk-color-token: var(--lk-tertiary);
+  --lk-color-ontoken: var(--lk-ontertiary);
+}
+
+.lk-colorgroup--tertiarycontainer {
+  --lk-color-token: var(--lk-tertiarycontainer);
+  --lk-color-ontoken: var(--lk-ontertiarycontainer);
+}
+
+.lk-colorgroup--error {
+  --lk-color-token: var(--lk-error);
+  --lk-color-ontoken: var(--lk-onerror);
+}
+
+.lk-colorgroup--errorcontainer {
+  --lk-color-token: var(--lk-errorcontainer);
+  --lk-color-ontoken: var(--lk-onerrorcontainer);
+}
+
+.lk-colorgroup--success {
+  --lk-color-token: var(--lk-success);
+  --lk-color-ontoken: var(--lk-onsuccess);
+}
+
+.lk-colorgroup--successcontainer {
+  --lk-color-token: var(--lk-successcontainer);
+  --lk-color-ontoken: var(--lk-onsuccesscontainer);
+}
+
+.lk-colorgroup--warning {
+  --lk-color-token: var(--lk-warning);
+  --lk-color-ontoken: var(--lk-onwarning);
+  --lk-color-tokencontainer: var(--lk-warningcontainer);
+  --lk-color-ontokencontainer: var(--lk-onwarningcontainer);
+}
+
+.lk-colorgroup--warningcontainer {
+  --lk-color-token: var(--lk-warningcontainer);
+  --lk-color-ontoken: var(--lk-onwarningcontainer);
+}
+
+.lk-colorgroup--info {
+  --lk-color-token: var(--lk-info);
+  --lk-color-ontoken: var(--lk-oninfo);
+  --lk-color-tokencontainer: var(--lk-infocontainer);
+  --lk-color-ontokencontainer: var(--lk-oninfocontainer);
+}
+
+.lk-colorgroup--infocontainer {
+  --lk-color-token: var(--lk-infocontainer);
+  --lk-color-ontoken: var(--lk-oninfocontainer);
+}
+
+.lk-colorgroup--background {
+  --lk-color-token: var(--lk-background);
+  --lk-color-ontoken: var(--lk-onbackground);
+}
+
+.lk-colorgroup--surface {
+  --lk-color-token: var(--lk-surface);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacevariant {
+  --lk-color-token: var(--lk-surfacevariant);
+  --lk-color-ontoken: var(--lk-onsurfacevariant);
+}
+
+.lk-colorgroup--surfacecontainerlowest {
+  --lk-color-token: var(--lk-surfacecontainerlowest);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacedim {
+  --lk-color-token: var(--lk-surfacedim);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacebright {
+  --lk-color-token: var(--lk-surfacebright);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerlow {
+  --lk-color-token: var(--lk-surfacecontainerlow);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacecontainer {
+  --lk-color-token: var(--lk-surfacecontainer);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacecontainerhigh {
+  --lk-color-token: var(--lk-surfacecontainerhigh);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerhighest {
+  --lk-color-token: var(--lk-surfacecontainerhighest);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--inversesurface {
+  --lk-color-token: var(--lk-inversesurface);
+  --lk-color-ontoken: var(--lk-inverseonsurface);
+  --lk-color-inverseprimary: var(--lk-inverseprimary);
+}

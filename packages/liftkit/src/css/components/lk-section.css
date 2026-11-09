@@ -1,0 +1,61 @@
+/* A flex column padded with a LiftKit size token (the same tokens as the p-* utilities). */
+:where([data-lk-component="section"]) {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-lk-section-padding="none"]) {
+  padding: 0;
+}
+
+:where([data-lk-section-padding="5xs"]) {
+  padding: var(--lk-spacing-5xs);
+}
+
+:where([data-lk-section-padding="4xs"]) {
+  padding: var(--lk-spacing-4xs);
+}
+
+:where([data-lk-section-padding="3xs"]) {
+  padding: var(--lk-spacing-3xs);
+}
+
+:where([data-lk-section-padding="2xs"]) {
+  padding: var(--lk-spacing-2xs);
+}
+
+:where([data-lk-section-padding="xs"]) {
+  padding: var(--lk-spacing-xs);
+}
+
+:where([data-lk-section-padding="sm"]) {
+  padding: var(--lk-spacing-sm);
+}
+
+:where([data-lk-section-padding="md"]) {
+  padding: var(--lk-spacing-md);
+}
+
+:where([data-lk-section-padding="lg"]) {
+  padding: var(--lk-spacing-lg);
+}
+
+:where([data-lk-section-padding="xl"]) {
+  padding: var(--lk-spacing-xl);
+}
+
+:where([data-lk-section-padding="2xl"]) {
+  padding: var(--lk-spacing-2xl);
+}
+
+:where([data-lk-section-padding="3xl"]) {
+  padding: var(--lk-spacing-3xl);
+}
+
+:where([data-lk-section-padding="4xl"]) {
+  padding: var(--lk-spacing-4xl);
+}
+
+:where([data-lk-section-padding="5xl"]) {
+  padding: var(--lk-spacing-5xl);
+}

@@ -1,0 +1,27 @@
+import { Example } from "@/app/docs/lib/example";
+import SectionWithContainer from "../section/with-container";
+
+## Usage
+
+Put a Container inside a Section. The Section controls the space around your content, and the Container centers the content and caps its width.
+
+<Example file="section/with-container.tsx">
+  <SectionWithContainer />
+</Example>
+
+## Widths
+
+`maxWidth` sets the largest width the content can reach. On narrower screens, the Container is as wide as its parent.
+
+- `xs`: 80ch, a comfortable reading width for text
+- `sm`: 1280px
+- `md`: 1440px (default)
+- `lg`: 1600px
+- `xl`: 1920px
+- `none`: 100% of the parent
+
+The demo above is narrower than most of these widths, so only `xs` visibly changes it there.
+
+## Empty state
+
+A Container with no children shows a placeholder that fills the available space, so you can block out a layout before the content exists.

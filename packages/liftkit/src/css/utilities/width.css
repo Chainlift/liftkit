@@ -1,0 +1,81 @@
+@import "./liftkit-core.css";
+
+.w-min {
+  width: min-content;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-min {
+  max-width: min-content;
+}
+
+.max-w-max {
+  max-width: max-content;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.min-w-min {
+  min-width: min-content;
+}
+
+.min-w-max {
+  min-width: max-content;
+}
+
+.w-3xs {
+  width: var(--lk-length-3xs);
+}
+
+.w-2xs {
+  width: var(--lk-length-2xs);
+}
+
+.w-xs {
+  width: var(--lk-length-xs);
+}
+
+.w-sm {
+  width: var(--lk-length-sm);
+}
+
+.w-md {
+  width: var(--lk-length-md);
+}
+
+.w-lg {
+  width: var(--lk-length-lg);
+}
+
+.w-xl {
+  width: var(--lk-length-xl);
+}
+
+.w-2xl {
+  width: var(--lk-length-2xl);
+}
+
+.w-3xl {
+  width: var(--lk-length-3xl);
+}
+
+.w-4xl {
+  width: var(--lk-length-4xl);
+}
+
+.w-5xl {
+  width: calc(var(--lk-base-4xl) * var(--lk-wholestep));
+}
+
+.w-6xl {
+  width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
+}
