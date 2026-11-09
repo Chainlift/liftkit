@@ -4,14 +4,29 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { LiftKitLogo } from "@/components/liftkit-logo";
 import {
-  Icon,
+  IconButton,
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "liftkit";
 
-const GITHUB_URL = "https://github.com/Chainlift/liftkit";
+const SOCIALS: {
+  label: string;
+  href: string;
+  iconName: "github" | "linkedin";
+}[] = [
+  {
+    label: "LiftKit on GitHub",
+    href: "https://github.com/Chainlift/liftkit",
+    iconName: "github",
+  },
+  {
+    label: "Garrett Mack on LinkedIn",
+    href: "https://www.linkedin.com/in/garrettmack/",
+    iconName: "linkedin",
+  },
+];
 
 const PAGES: {
   label: string;
@@ -31,7 +46,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <div className="p-md">
+    <div className="p-md flex-h items-center justify-between">
       <NavigationMenu>
         <NavigationMenuList className="gap-sm">
           <NavigationMenuItem>
@@ -54,19 +69,21 @@ export function SiteHeader() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-h items-center gap-xs"
-            >
-              <Icon name="github" aria-hidden="true" />
-              View on GitHub
-            </NavigationMenuLink>
-          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      <div className="flex-h items-center gap-xs">
+        {SOCIALS.map(({ label, href, iconName }) => (
+          <IconButton
+            key={href}
+            variant="text"
+            iconName={iconName}
+            style={{ "--lk-btn-fg": "var(--lk-onsurface)" } as React.CSSProperties}
+            aria-label={label}
+            nativeButton={false}
+            render={<a href={href} target="_blank" rel="noopener noreferrer" />}
+          />
+        ))}
+      </div>
     </div>
   );
 }
