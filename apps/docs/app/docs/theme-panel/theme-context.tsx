@@ -44,7 +44,14 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
         seedColors: deriveSeedColors(state.masterSeed, action.variant),
       };
     case "SET_SCALE_FACTOR":
-      return { ...state, scaleFactor: action.value };
+      // The global factor drives all the others; they only differ when edited afterwards.
+      return {
+        ...state,
+        scaleFactor: action.value,
+        scaleFactorCorner: action.value,
+        scaleFactorTypography: action.value,
+        scaleFactorSpacing: action.value,
+      };
     case "SET_SCALE_FACTOR_CORNER":
       return { ...state, scaleFactorCorner: action.value };
     case "SET_SCALE_FACTOR_TYPOGRAPHY":
