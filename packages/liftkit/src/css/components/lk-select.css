@@ -14,24 +14,24 @@
 /* Not in the :where() rule below, so a font class (the fontClass prop) can't change it. That keeps the trigger the
    same height as an Input of the same font class. */
 [data-slot="select-trigger"] {
-  line-height: var(--lk-halfstep);
+  line-height: var(--lk-halfstep-text);
 }
 
 :where([data-slot="select-trigger"]) {
-  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --input-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
 
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--lk-size-sm);
+  gap: var(--lk-spacing-sm);
 
   padding-block: var(--input-padY);
-  padding-inline: var(--lk-size-sm);
+  padding-inline: var(--lk-spacing-sm);
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   width: 100%;
   background-color: var(--lk-surface);
   font-family: inherit;
@@ -69,13 +69,13 @@
 
 :where([data-slot="select-popup"]) {
   box-sizing: border-box;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   background-color: var(--lk-surface);
   background-clip: padding-box;
   color: var(--lk-onsurface);
   min-width: var(--anchor-width);
   transform-origin: var(--transform-origin);
-  padding-block: var(--lk-size-2xs);
+  padding-block: var(--lk-spacing-2xs);
   transition:
     transform 150ms,
     opacity 150ms;
@@ -111,7 +111,7 @@
 
   overflow-y: auto;
   max-height: var(--available-height);
-  scroll-padding-block: var(--lk-size-sm);
+  scroll-padding-block: var(--lk-spacing-sm);
 }
 
 :where(.Arrow) {
@@ -158,26 +158,26 @@
   box-sizing: border-box;
   outline: 0;
   font-size: var(--lk-body-font-size);
-  line-height: var(--lku-length-md);
-  padding-block: var(--lk-size-sm);
-  padding-left: var(--lk-size-sm);
-  padding-right: var(--lk-size-lg);
+  line-height: var(--lk-length-md);
+  padding-block: var(--lk-spacing-sm);
+  padding-left: var(--lk-spacing-sm);
+  padding-right: var(--lk-spacing-lg);
   display: grid;
-  gap: var(--lk-size-sm);
+  gap: var(--lk-spacing-sm);
   align-items: center;
-  grid-template-columns: calc(1em * var(--lk-halfstep)) 1fr;
+  grid-template-columns: calc(1em * var(--lk-halfstep-text)) 1fr;
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
 
   @media (pointer: coarse) {
-    padding-block: var(--lk-size-sm);
+    padding-block: var(--lk-spacing-sm);
     font-size: var(--lk-callout-font-size);
   }
 
   [data-side="none"] & {
     font-size: var(--lk-body-font-size);
-    padding-right: var(--lk-size-xl);
+    padding-right: var(--lk-spacing-xl);
   }
 
   &[data-highlighted] {
@@ -196,8 +196,8 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-2xs);
+    border-radius: var(--lk-corner-2xs);
     background-color: color-mix(in srgb, var(--lk-onsurface) 12%, transparent);
   }
 
@@ -206,8 +206,8 @@
     z-index: -2;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-2xs);
+    border-radius: var(--lk-corner-2xs);
     background-color: var(--lk-primarycontainer);
   }
 }
@@ -228,8 +228,8 @@
   z-index: 1;
   text-align: center;
   cursor: default;
-  border-radius: var(--lku-corner-xs);
-  height: var(--lku-length-md);
+  border-radius: var(--lk-corner-xs);
+  height: var(--lk-length-md);
   font-size: var(--lk-subheading-font-size);
   display: flex;
   align-items: center;

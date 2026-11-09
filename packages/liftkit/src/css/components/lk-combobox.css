@@ -9,18 +9,18 @@ and I'm not contradicting it right now.
 
 [data-slot="combobox-input-group"] {
   box-sizing: border-box;
-  padding-left: var(--lk-size-sm);
-  padding-right: var(--lk-size-xl);
+  padding-left: var(--lk-spacing-sm);
+  padding-right: var(--lk-spacing-xl);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
 
-  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --input-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
   padding-block: var(--input-padY);
-  padding-inline: var(--lk-size-sm);
-  line-height: var(--lk-halfstep);
+  padding-inline: var(--lk-spacing-sm);
+  line-height: var(--lk-halfstep-text);
 
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   font-family: inherit;
   font-size: 1em;
   background-color: var(--lk-surface);
@@ -45,7 +45,7 @@ and I'm not contradicting it right now.
   font-size: var(--lk-label-font-size);
   line-height: var(--lk-label-line-height);
   letter-spacing: var(--lk-label-letter-spacing);
-  margin-bottom: var(--lk-size-xs);
+  margin-bottom: var(--lk-spacing-xs);
   font-weight: 500;
   color: var(--lk-onsurface);
   position: relative;
@@ -55,7 +55,7 @@ and I'm not contradicting it right now.
   position: relative;
 
   &:has([data-slot="combobox-clear"]) [data-slot="combobox-input-group"] {
-    padding-right: var(--lk-size-xl);
+    padding-right: var(--lk-spacing-xl);
   }
 }
 
@@ -66,8 +66,8 @@ and I'm not contradicting it right now.
   align-items: center;
   justify-content: center;
   bottom: 0;
-  right: var(--lk-size-sm);
-  border-radius: var(--lku-corner-xs);
+  right: var(--lk-base-sm);
+  border-radius: var(--lk-corner-xs);
   border: none;
   color: var(--lk-outline);
   padding: 0;
@@ -79,12 +79,12 @@ and I'm not contradicting it right now.
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--lku-length-lg);
-  height: var(--lku-length-xl);
+  width: var(--lk-length-lg);
+  height: var(--lk-length-xl);
   color: var(--lk-outline);
   border: none;
   padding: 0;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   background: none;
 }
 
@@ -100,13 +100,13 @@ and I'm not contradicting it right now.
 
 :where([data-slot="combobox-popup"]) {
   box-sizing: border-box;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   background-color: var(--lk-surface);
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
   color: var(--lk-onsurface);
   width: var(--anchor-width);
-  max-height: var(--lku-length-5xl);
+  max-height: var(--lk-length-5xl);
   max-width: var(--available-width);
   transition:
     opacity 0.1s,
@@ -136,10 +136,10 @@ and I'm not contradicting it right now.
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-block: var(--lk-size-sm);
-  scroll-padding-block: var(--lk-size-sm);
+  padding-block: var(--lk-spacing-sm);
+  scroll-padding-block: var(--lk-spacing-sm);
   outline: 0;
-  max-height: min(var(--lku-length-5xl), var(--available-height));
+  max-height: min(var(--lk-length-5xl), var(--available-height));
 
   &[data-empty] {
     padding: 0;
@@ -151,15 +151,15 @@ and I'm not contradicting it right now.
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: var(--lk-size-sm);
-  padding-left: var(--lk-size-md);
-  padding-right: var(--lk-size-lg);
+  padding-block: var(--lk-spacing-sm);
+  padding-left: var(--lk-spacing-md);
+  padding-right: var(--lk-spacing-lg);
   /* display: grid; */
-  gap: var(--lk-size-sm);
+  gap: var(--lk-spacing-sm);
   align-items: center;
-  /* grid-template-columns: var(--lk-size-md) 1fr; */
-  font-size: var(--lk-size-md);
-  line-height: var(--lku-length-md);
+  /* grid-template-columns: var(--lk-base-md) 1fr; */
+  font-size: var(--lk-base-md);
+  line-height: var(--lk-length-md);
   transition: padding 0.2s ease;
   position: relative;
 
@@ -174,13 +174,13 @@ and I'm not contradicting it right now.
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-xs);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-xs);
+    border-radius: var(--lk-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 
   &:has([data-slot="combobox-item-indicator"]) {
-    padding-left: var(--lk-size-xl);
+    padding-left: var(--lk-spacing-xl);
   }
 
   &[data-selected]::before {
@@ -189,8 +189,8 @@ and I'm not contradicting it right now.
     pointer-events: none;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-sm);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-sm);
+    border-radius: var(--lk-corner-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }
@@ -201,8 +201,8 @@ and I'm not contradicting it right now.
     pointer-events: none;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-sm);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-sm);
+    border-radius: var(--lk-corner-2xs);
     color: var(--lk-onsecondarycontainer);
     background-color: var(--lk-secondarycontainer);
   }
@@ -223,14 +223,14 @@ and I'm not contradicting it right now.
 
   top: 50%;
   transform: translateY(-50%);
-  left: var(--lk-size-md);
+  left: var(--lk-base-md);
 }
 
 :where([data-slot="icon"]) {
 }
 
 :where([data-slot="combobox-empty"]:not(:empty)) {
-  line-height: var(--lku-length-md);
+  line-height: var(--lk-length-md);
   color: var(--lk-outline);
-  padding: var(--lk-size-md);
+  padding: var(--lk-spacing-md);
 }

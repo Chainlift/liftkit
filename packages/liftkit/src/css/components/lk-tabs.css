@@ -5,8 +5,8 @@
   display: flex;
   position: relative;
   z-index: 0;
-  /* padding: 0px var(--lk-size-2xs); */
-  gap: var(--lk-size-xs);
+  /* padding: 0px var(--lk-spacing-2xs); */
+  gap: var(--lk-spacing-xs);
 }
 
 :where([data-slot="tabs-tab"]) {
@@ -26,7 +26,7 @@
   user-select: none;
   white-space: nowrap;
   word-break: keep-all;
-  padding: var(--lk-size-md);
+  padding: var(--lk-spacing-md);
   /* height: 2rem; */
 
   /* ^^ turned off padding and height from Base UI */
@@ -47,8 +47,8 @@
     &::before {
       content: "";
       position: absolute;
-      inset: var(--lk-size-xs) 0;
-      border-radius: var(--lku-corner-xs);
+      inset: var(--lk-base-xs) 0;
+      border-radius: var(--lk-corner-xs);
       outline: 2px solid var(--lk-info);
       outline-offset: -1px;
     }
@@ -63,14 +63,14 @@
   /* top: 50%;
   translate: var(--active-tab-left) -50%;
   width: var(--active-tab-width);
-  height: var(--lku-length-lg); */
+  height: var(--lk-length-lg); */
 
   bottom: 0;
   translate: var(--active-tab-left) 0px;
   width: var(--active-tab-width);
-  height: var(--lku-length-3xs);
+  height: var(--lk-length-3xs);
 
-  border-radius: var(--lku-corner-2xs);
+  border-radius: var(--lk-corner-2xs);
   background-color: var(--lk-primary);
   transition-property: translate, width;
   transition-duration: 200ms;
@@ -87,7 +87,7 @@
   &:focus-visible {
     outline: 2px solid var(--lk-info);
     outline-offset: -1px;
-    border-radius: var(--lku-corner-xs);
+    border-radius: var(--lk-corner-xs);
   }
 
   &[hidden] {

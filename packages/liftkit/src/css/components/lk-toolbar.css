@@ -5,18 +5,18 @@
   gap: 1px;
   border: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
-  border-radius: var(--lku-corner-xs);
-  padding: var(--lk-size-2xs);
+  border-radius: var(--lk-corner-xs);
+  padding: var(--lk-spacing-2xs);
   width: 100%;
 
   [data-slot="toggle-group"] {
-    border-radius: var(--lku-corner-2xs);
+    border-radius: var(--lk-corner-2xs);
   }
 }
 
 :where([data-slot="toolbar-group"]) {
   display: flex;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
 }
 
 [data-slot="toolbar-button"] {
@@ -24,7 +24,7 @@
 }
 
 :where([data-slot="toolbar-button"]) {
-  --toolbar-button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --toolbar-button-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
 
   box-sizing: border-box;
   display: inline-flex;
@@ -32,19 +32,19 @@
   justify-content: center;
   /* min-width: 2rem; */
   /* height: 2rem; */
-  padding: var(--lk-size-xs) var(--lk-size-md);
+  padding: var(--lk-spacing-xs) var(--lk-spacing-md);
 
   margin: 0;
   outline: 0;
   border: 0;
-  border-radius: var(--lku-corner-2xs);
+  border-radius: var(--lk-corner-2xs);
   background-color: transparent;
   color: var(--lk-onsurface);
   user-select: none;
   font-family: inherit;
   font-size: var(--lk-subheading-font-size);
   font-weight: 500;
-  line-height: var(--lk-halfstep);
+  line-height: var(--lk-halfstep-text);
   transition: background-color 0.2s ease;
 
   &:focus-visible {
@@ -78,31 +78,31 @@
 
   /* unique padding if the button has only an icon as a child */
   &:has([data-slot="icon"]:only-child) {
-    padding: var(--lk-size-2xs);
+    padding: var(--lk-spacing-2xs);
   }
 
   &[role="combobox"] {
-    --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+    --input-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
     font-weight: 400;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--lk-size-md);
+    gap: var(--lk-spacing-md);
     font-size: var(--lk-body-font-size);
-    padding: var(--lk-size-xs) var(--lk-size-sm) var(--lk-size-xs) var(--lk-size-sm);
+    padding: var(--lk-spacing-xs) var(--lk-spacing-sm) var(--lk-spacing-xs) var(--lk-spacing-sm);
     /* padding-block: var(--input-padY);
-    padding-inline: var(--lk-size-sm); */
+    padding-inline: var(--lk-spacing-sm); */
     margin: 0;
     outline: 0;
     border: 1px solid var(--lk-outlinevariant);
-    /* border-radius: var(--lku-corner-2xs); */
-    min-width: var(--lku-length-4xl);
+    /* border-radius: var(--lk-corner-2xs); */
+    min-width: var(--lk-length-4xl);
 
     background-color: var(--lk-surface);
     font-family: inherit;
 
-    line-height: var(--lk-halfstep);
+    line-height: var(--lk-halfstep-text);
     color: var(--lk-onsurface);
     -webkit-user-select: none;
     user-select: none;
@@ -127,7 +127,7 @@
 :where([data-slot="toolbar-separator"]) {
   width: 1px;
   height: 16px;
-  margin: var(--lk-size-xs);
+  margin: var(--lk-spacing-xs);
   background-color: var(--lk-outlinevariant);
 }
 
@@ -165,7 +165,7 @@
   margin: 0;
   outline: 0;
   border: 1px solid var(--lk-outlinevariant);
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   font-family: inherit;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -204,8 +204,8 @@
 
 :where(.Popup) {
   box-sizing: border-box;
-  padding-block: var(--lk-size-xs);
-  border-radius: var(--lku-corner-xs);
+  padding-block: var(--lk-spacing-xs);
+  border-radius: var(--lk-corner-xs);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -318,8 +318,8 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-xs);
-    border-radius: var(--lku-corner-xs);
+    inset-inline: var(--lk-base-xs);
+    border-radius: var(--lk-corner-xs);
     background-color: var(--lk-onsurface);
   }
 }

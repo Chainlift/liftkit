@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
   color: var(--lk-onsurface);
 }
 
@@ -13,20 +13,20 @@
 :where(.Item) {
   display: flex;
   align-items: center;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
 }
 
 :where(label:has([data-slot="radio"])) {
   display: flex;
   align-items: center;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
 }
 
 :where([data-slot="radio"]) {
   box-sizing: border-box;
   display: flex;
-  width: calc(1em * var(--lk-halfstep));
-  height: calc(1em * var(--lk-halfstep));
+  width: calc(1em * var(--lk-halfstep-length));
+  height: calc(1em * var(--lk-halfstep-length));
   align-items: center;
   justify-content: center;
   border-radius: 100%;
@@ -63,8 +63,8 @@
   &::before {
     content: "";
     border-radius: 100%;
-    width: var(--lku-length-xs);
-    height: var(--lku-length-xs);
+    width: var(--lk-length-xs);
+    height: var(--lk-length-xs);
     background-color: var(--lk-surfacecontainerlow);
     animation: radio-dot-in 0.2s ease;
   }
@@ -72,11 +72,11 @@
 
 @keyframes radio-dot-in {
   from {
-    width: calc(1em * var(--lk-halfstep));
-    height: calc(1em * var(--lk-halfstep));
+    width: calc(1em * var(--lk-halfstep-length));
+    height: calc(1em * var(--lk-halfstep-length));
   }
   to {
-    width: var(--lku-length-xs);
-    height: var(--lku-length-xs);
+    width: var(--lk-length-xs);
+    height: var(--lk-length-xs);
   }
 }

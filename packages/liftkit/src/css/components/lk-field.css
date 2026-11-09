@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
   width: 100%;
   max-width: 100%;
 }
@@ -16,18 +16,18 @@
 }
 
 :where([data-slot="field"] input) {
-  --input-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
+  --input-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
 
   box-sizing: border-box;
   padding-block: var(--input-padY);
-  padding-inline: var(--lk-size-sm);
+  padding-inline: var(--lk-spacing-sm);
   margin: 0;
   border: 1px solid var(--lk-outlinevariant);
   width: 100%;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   font-family: inherit;
   font-size: 1em;
-  line-height: var(--lk-halfstep);
+  line-height: var(--lk-halfstep-text);
   background-color: var(--lk-surface);
   color: var(--lk-onsurface);
 
@@ -39,7 +39,7 @@
 
 :where([data-slot="field-error"]) {
   font-size: 1em;
-  line-height: var(--lk-halfstep);
+  line-height: var(--lk-halfstep-text);
   color: var(--color-red-800);
 }
 

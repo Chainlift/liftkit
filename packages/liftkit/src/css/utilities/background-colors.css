@@ -341,508 +341,508 @@ if there are any.
 
 /* 
 .bg-light__primary {
-  background-color: var(--light__primary_lkv);
-  color: var(--light__onprimary_lkv);
+  background-color: var(--lk-light-primary);
+  color: var(--lk-light-onprimary);
 }
 
 .bg-light__onprimary {
-  background-color: var(--light__onprimary_lkv);
-  color: var(--light__primary_lkv);
+  background-color: var(--lk-light-onprimary);
+  color: var(--lk-light-primary);
 }
 
 .bg-light__primarycontainer {
-  background-color: var(--light__primarycontainer_lkv);
-  color: var(--light__onprimarycontainer_lkv);
+  background-color: var(--lk-light-primarycontainer);
+  color: var(--lk-light-onprimarycontainer);
 }
 
 .bg-light__onprimarycontainer {
-  background-color: var(--light__onprimarycontainer_lkv);
-  color: var(--light__primarycontainer_lkv);
+  background-color: var(--lk-light-onprimarycontainer);
+  color: var(--lk-light-primarycontainer);
 }
 
 .bg-light__secondary {
-  background-color: var(--light__secondary_lkv);
-  color: var(--light__onsecondary_lkv);
+  background-color: var(--lk-light-secondary);
+  color: var(--lk-light-onsecondary);
 }
 
 .bg-light__onsecondary {
-  background-color: var(--light__onsecondary_lkv);
-  color: var(--light__secondary_lkv);
+  background-color: var(--lk-light-onsecondary);
+  color: var(--lk-light-secondary);
 }
 
 .bg-light__secondarycontainer {
-  background-color: var(--light__secondarycontainer_lkv);
-  color: var(--light__onsecondarycontainer_lkv);
+  background-color: var(--lk-light-secondarycontainer);
+  color: var(--lk-light-onsecondarycontainer);
 }
 
 .bg-light__onsecondarycontainer {
-  background-color: var(--light__onsecondarycontainer_lkv);
-  color: var(--light__secondarycontainer_lkv);
+  background-color: var(--lk-light-onsecondarycontainer);
+  color: var(--lk-light-secondarycontainer);
 }
 
 .bg-light__tertiary {
-  background-color: var(--light__tertiary_lkv);
-  color: var(--light__ontertiary_lkv);
+  background-color: var(--lk-light-tertiary);
+  color: var(--lk-light-ontertiary);
 }
 
 .bg-light__ontertiary {
-  background-color: var(--light__ontertiary_lkv);
-  color: var(--light__tertiary_lkv);
+  background-color: var(--lk-light-ontertiary);
+  color: var(--lk-light-tertiary);
 }
 
 .bg-light__tertiarycontainer {
-  background-color: var(--light__tertiarycontainer_lkv);
-  color: var(--light__ontertiarycontainer_lkv);
+  background-color: var(--lk-light-tertiarycontainer);
+  color: var(--lk-light-ontertiarycontainer);
 }
 
 .bg-light__ontertiarycontainer {
-  background-color: var(--light__ontertiarycontainer_lkv);
-  color: var(--light__tertiarycontainer_lkv);
+  background-color: var(--lk-light-ontertiarycontainer);
+  color: var(--lk-light-tertiarycontainer);
 }
 
 .bg-light__error {
-  background-color: var(--light__error_lkv);
-  color: var(--light__onerror_lkv);
+  background-color: var(--lk-light-error);
+  color: var(--lk-light-onerror);
 }
 
 .bg-light__onerror {
-  background-color: var(--light__onerror_lkv);
-  color: var(--light__error_lkv);
+  background-color: var(--lk-light-onerror);
+  color: var(--lk-light-error);
 }
 
 .bg-light__errorcontainer {
-  background-color: var(--light__errorcontainer_lkv);
-  color: var(--light__onerrorcontainer_lkv);
+  background-color: var(--lk-light-errorcontainer);
+  color: var(--lk-light-onerrorcontainer);
 }
 
 .bg-light__onerrorcontainer {
-  background-color: var(--light__onerrorcontainer_lkv);
-  color: var(--light__errorcontainer_lkv);
+  background-color: var(--lk-light-onerrorcontainer);
+  color: var(--lk-light-errorcontainer);
 }
 
 .bg-light__background {
-  background-color: var(--light__background_lkv);
-  color: var(--light__onbackground_lkv);
+  background-color: var(--lk-light-background);
+  color: var(--lk-light-onbackground);
 }
 
 .bg-light__onbackground {
-  background-color: var(--light__onbackground_lkv);
-  color: var(--light__background_lkv);
+  background-color: var(--lk-light-onbackground);
+  color: var(--lk-light-background);
 }
 
 .bg-light__surface {
-  background-color: var(--light__surface_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surface);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__onsurface {
-  background-color: var(--light__onsurface_lkv);
-  color: var(--light__surface_lkv);
+  background-color: var(--lk-light-onsurface);
+  color: var(--lk-light-surface);
 }
 
 .bg-light__surfacevariant {
-  background-color: var(--light__surfacevariant_lkv);
-  color: var(--light__onsurfacevariant_lkv);
+  background-color: var(--lk-light-surfacevariant);
+  color: var(--lk-light-onsurfacevariant);
 }
 
 .bg-light__onsurfacevariant {
-  background-color: var(--light__onsurfacevariant_lkv);
-  color: var(--light__surfacevariant_lkv);
+  background-color: var(--lk-light-onsurfacevariant);
+  color: var(--lk-light-surfacevariant);
 }
 
 .bg-light__outline {
-  background-color: var(--light__outline_lkv);
-  color: var(--light__surface_lkv);
+  background-color: var(--lk-light-outline);
+  color: var(--lk-light-surface);
 }
 
 .bg-light__outlinevariant {
-  background-color: var(--light__outlinevariant_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-outlinevariant);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__shadow {
-  background-color: var(--light__shadow_lkv);
-  color: var(--light__surface_lkv);
+  background-color: var(--lk-light-shadow);
+  color: var(--lk-light-surface);
 }
 
 .bg-light__scrim {
-  background-color: var(--light__scrim_lkv);
-  color: var(--light__surface_lkv);
+  background-color: var(--lk-light-scrim);
+  color: var(--lk-light-surface);
 }
 
 .bg-light__inversesurface {
-  background-color: var(--light__inversesurface_lkv);
-  color: var(--light__inverseonsurface_lkv);
+  background-color: var(--lk-light-inversesurface);
+  color: var(--lk-light-inverseonsurface);
 }
 
 .bg-light__inverseonsurface {
-  background-color: var(--light__inverseonsurface_lkv);
-  color: var(--light__inversesurface_lkv);
+  background-color: var(--lk-light-inverseonsurface);
+  color: var(--lk-light-inversesurface);
 }
 
 .bg-light__inverseprimary {
-  background-color: var(--light__inverseprimary_lkv);
-  color: var(--light__onprimarycontainer_lkv);
+  background-color: var(--lk-light-inverseprimary);
+  color: var(--lk-light-onprimarycontainer);
 }
 
 .bg-light__success {
-  background-color: var(--light__success_lkv);
-  color: var(--light__onsuccess_lkv);
+  background-color: var(--lk-light-success);
+  color: var(--lk-light-onsuccess);
 }
 
 .bg-light__successcontainer {
-  background-color: var(--light__successcontainer_lkv);
-  color: var(--light__onsuccesscontainer_lkv);
+  background-color: var(--lk-light-successcontainer);
+  color: var(--lk-light-onsuccesscontainer);
 }
 
 .bg-light__onsuccess {
-  background-color: var(--light__onsuccess_lkv);
-  color: var(--light__success_lkv);
+  background-color: var(--lk-light-onsuccess);
+  color: var(--lk-light-success);
 }
 
 .bg-light__onsuccesscontainer {
-  background-color: var(--light__onsuccesscontainer_lkv);
-  color: var(--light__successcontainer_lkv);
+  background-color: var(--lk-light-onsuccesscontainer);
+  color: var(--lk-light-successcontainer);
 }
 
 .bg-light__warning {
-  background-color: var(--light__warning_lkv);
-  color: var(--light__onwarning_lkv);
+  background-color: var(--lk-light-warning);
+  color: var(--lk-light-onwarning);
 }
 
 .bg-light__warningcontainer {
-  background-color: var(--light__warningcontainer_lkv);
-  color: var(--light__onwarningcontainer_lkv);
+  background-color: var(--lk-light-warningcontainer);
+  color: var(--lk-light-onwarningcontainer);
 }
 
 .bg-light__onwarning {
-  background-color: var(--light__onwarning_lkv);
-  color: var(--light__warning_lkv);
+  background-color: var(--lk-light-onwarning);
+  color: var(--lk-light-warning);
 }
 
 .bg-light__onwarningcontainer {
-  background-color: var(--light__onwarningcontainer_lkv);
-  color: var(--light__warningcontainer_lkv);
+  background-color: var(--lk-light-onwarningcontainer);
+  color: var(--lk-light-warningcontainer);
 }
 
 .bg-light__info {
-  background-color: var(--light__info_lkv);
-  color: var(--light__oninfo_lkv);
+  background-color: var(--lk-light-info);
+  color: var(--lk-light-oninfo);
 }
 
 .bg-light__infocontainer {
-  background-color: var(--light__infocontainer_lkv);
-  color: var(--light__oninfocontainer_lkv);
+  background-color: var(--lk-light-infocontainer);
+  color: var(--lk-light-oninfocontainer);
 }
 
 .bg-light__oninfo {
-  background-color: var(--light__oninfo_lkv);
-  color: var(--light__info_lkv);
+  background-color: var(--lk-light-oninfo);
+  color: var(--lk-light-info);
 }
 
 .bg-light__oninfocontainer {
-  background-color: var(--light__oninfocontainer_lkv);
-  color: var(--light__infocontainer_lkv);
+  background-color: var(--lk-light-oninfocontainer);
+  color: var(--lk-light-infocontainer);
 }
 
 .bg-light__primaryfixed {
-  background-color: var(--light__primaryfixed_lkv);
-  color: var(--light__onprimaryfixed_lkv);
+  background-color: var(--lk-light-primaryfixed);
+  color: var(--lk-light-onprimaryfixed);
 }
 
 .bg-light__primaryfixeddim {
-  background-color: var(--light__primaryfixeddim_lkv);
-  color: var(--light__onprimaryfixedvariant_lkv);
+  background-color: var(--lk-light-primaryfixeddim);
+  color: var(--lk-light-onprimaryfixedvariant);
 }
 
 .bg-light__onprimaryfixed {
-  background-color: var(--light__onprimaryfixed_lkv);
-  color: var(--light__primaryfixed_lkv);
+  background-color: var(--lk-light-onprimaryfixed);
+  color: var(--lk-light-primaryfixed);
 }
 
 .bg-light__onprimaryfixedvariant {
-  background-color: var(--light__onprimaryfixedvariant_lkv);
-  color: var(--light__primaryfixed_lkv);
+  background-color: var(--lk-light-onprimaryfixedvariant);
+  color: var(--lk-light-primaryfixed);
 }
 
 .bg-light__secondaryfixed {
-  background-color: var(--light__secondaryfixed_lkv);
-  color: var(--light__onsecondaryfixed_lkv);
+  background-color: var(--lk-light-secondaryfixed);
+  color: var(--lk-light-onsecondaryfixed);
 }
 
 .bg-light__secondaryfixeddim {
-  background-color: var(--light__secondaryfixeddim_lkv);
-  color: var(--light__onsecondaryfixedvariant_lkv);
+  background-color: var(--lk-light-secondaryfixeddim);
+  color: var(--lk-light-onsecondaryfixedvariant);
 }
 
 .bg-light__onsecondaryfixed {
-  background-color: var(--light__onsecondaryfixed_lkv);
-  color: var(--light__secondaryfixed_lkv);
+  background-color: var(--lk-light-onsecondaryfixed);
+  color: var(--lk-light-secondaryfixed);
 }
 
 .bg-light__onsecondaryfixedvariant {
-  background-color: var(--light__onsecondaryfixedvariant_lkv);
-  color: var(--light__secondaryfixed_lkv);
+  background-color: var(--lk-light-onsecondaryfixedvariant);
+  color: var(--lk-light-secondaryfixed);
 }
 
 .bg-light__tertiaryfixed {
-  background-color: var(--light__tertiaryfixed_lkv);
-  color: var(--light__ontertiaryfixed_lkv);
+  background-color: var(--lk-light-tertiaryfixed);
+  color: var(--lk-light-ontertiaryfixed);
 }
 
 .bg-light__tertiaryfixeddim {
-  background-color: var(--light__tertiaryfixeddim_lkv);
-  color: var(--light__ontertiaryfixedvariant_lkv);
+  background-color: var(--lk-light-tertiaryfixeddim);
+  color: var(--lk-light-ontertiaryfixedvariant);
 }
 
 .bg-light__ontertiaryfixed {
-  background-color: var(--light__ontertiaryfixed_lkv);
-  color: var(--light__tertiaryfixed_lkv);
+  background-color: var(--lk-light-ontertiaryfixed);
+  color: var(--lk-light-tertiaryfixed);
 }
 
 .bg-light__ontertiaryfixedvariant {
-  background-color: var(--light__ontertiaryfixedvariant_lkv);
-  color: var(--light__tertiaryfixed_lkv);
+  background-color: var(--lk-light-ontertiaryfixedvariant);
+  color: var(--lk-light-tertiaryfixed);
 }
 
 .bg-light__surfacedim {
-  background-color: var(--light__surfacedim_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacedim);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacebright {
-  background-color: var(--light__surfacebright_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacebright);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacecontainerlowest {
-  background-color: var(--light__surfacecontainerlowest_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacecontainerlowest);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacecontainerlow {
-  background-color: var(--light__surfacecontainerlow_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacecontainerlow);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacecontainer {
-  background-color: var(--light__surfacecontainer_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacecontainer);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacecontainerhigh {
-  background-color: var(--light__surfacecontainerhigh_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacecontainerhigh);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-light__surfacecontainerhighest {
-  background-color: var(--light__surfacecontainerhighest_lkv);
-  color: var(--light__onsurface_lkv);
+  background-color: var(--lk-light-surfacecontainerhighest);
+  color: var(--lk-light-onsurface);
 }
 
 .bg-dark__primary {
-  background-color: var(--dark__primary_lkv);
-  color: var(--dark__onprimary_lkv);
+  background-color: var(--lk-dark-primary);
+  color: var(--lk-dark-onprimary);
 }
 
 .bg-dark__onprimary {
-  background-color: var(--dark__onprimary_lkv);
-  color: var(--dark__primary_lkv);
+  background-color: var(--lk-dark-onprimary);
+  color: var(--lk-dark-primary);
 }
 
 .bg-dark__primarycontainer {
-  background-color: var(--dark__primarycontainer_lkv);
-  color: var(--dark__onprimarycontainer_lkv);
+  background-color: var(--lk-dark-primarycontainer);
+  color: var(--lk-dark-onprimarycontainer);
 }
 
 .bg-dark__onprimarycontainer {
-  background-color: var(--dark__onprimarycontainer_lkv);
-  color: var(--dark__primarycontainer_lkv);
+  background-color: var(--lk-dark-onprimarycontainer);
+  color: var(--lk-dark-primarycontainer);
 }
 
 .bg-dark__secondary {
-  background-color: var(--dark__secondary_lkv);
-  color: var(--dark__onsecondary_lkv);
+  background-color: var(--lk-dark-secondary);
+  color: var(--lk-dark-onsecondary);
 }
 
 .bg-dark__onsecondary {
-  background-color: var(--dark__onsecondary_lkv);
-  color: var(--dark__secondary_lkv);
+  background-color: var(--lk-dark-onsecondary);
+  color: var(--lk-dark-secondary);
 }
 
 .bg-dark__secondarycontainer {
-  background-color: var(--dark__secondarycontainer_lkv);
-  color: var(--dark__onsecondarycontainer_lkv);
+  background-color: var(--lk-dark-secondarycontainer);
+  color: var(--lk-dark-onsecondarycontainer);
 }
 
 .bg-dark__onsecondarycontainer {
-  background-color: var(--dark__onsecondarycontainer_lkv);
-  color: var(--dark__secondarycontainer_lkv);
+  background-color: var(--lk-dark-onsecondarycontainer);
+  color: var(--lk-dark-secondarycontainer);
 }
 
 .bg-dark__tertiary {
-  background-color: var(--dark__tertiary_lkv);
-  color: var(--dark__ontertiary_lkv);
+  background-color: var(--lk-dark-tertiary);
+  color: var(--lk-dark-ontertiary);
 }
 
 .bg-dark__ontertiary {
-  background-color: var(--dark__ontertiary_lkv);
-  color: var(--dark__tertiary_lkv);
+  background-color: var(--lk-dark-ontertiary);
+  color: var(--lk-dark-tertiary);
 }
 
 .bg-dark__tertiarycontainer {
-  background-color: var(--dark__tertiarycontainer_lkv);
-  color: var(--dark__ontertiarycontainer_lkv);
+  background-color: var(--lk-dark-tertiarycontainer);
+  color: var(--lk-dark-ontertiarycontainer);
 }
 
 .bg-dark__ontertiarycontainer {
-  background-color: var(--dark__ontertiarycontainer_lkv);
-  color: var(--dark__tertiarycontainer_lkv);
+  background-color: var(--lk-dark-ontertiarycontainer);
+  color: var(--lk-dark-tertiarycontainer);
 }
 
 .bg-dark__error {
-  background-color: var(--dark__error_lkv);
-  color: var(--dark__onerror_lkv);
+  background-color: var(--lk-dark-error);
+  color: var(--lk-dark-onerror);
 }
 
 .bg-dark__onerror {
-  background-color: var(--dark__onerror_lkv);
-  color: var(--dark__error_lkv);
+  background-color: var(--lk-dark-onerror);
+  color: var(--lk-dark-error);
 }
 
 .bg-dark__errorcontainer {
-  background-color: var(--dark__errorcontainer_lkv);
-  color: var(--dark__onerrorcontainer_lkv);
+  background-color: var(--lk-dark-errorcontainer);
+  color: var(--lk-dark-onerrorcontainer);
 }
 
 .bg-dark__onerrorcontainer {
-  background-color: var(--dark__onerrorcontainer_lkv);
-  color: var(--dark__errorcontainer_lkv);
+  background-color: var(--lk-dark-onerrorcontainer);
+  color: var(--lk-dark-errorcontainer);
 }
 
 .bg-dark__background {
-  background-color: var(--dark__background_lkv);
-  color: var(--dark__onbackground_lkv);
+  background-color: var(--lk-dark-background);
+  color: var(--lk-dark-onbackground);
 }
 
 .bg-dark__onbackground {
-  background-color: var(--dark__onbackground_lkv);
-  color: var(--dark__background_lkv);
+  background-color: var(--lk-dark-onbackground);
+  color: var(--lk-dark-background);
 }
 
 .bg-dark__surface {
-  background-color: var(--dark__surface_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surface);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__onsurface {
-  background-color: var(--dark__onsurface_lkv);
-  color: var(--dark__surface_lkv);
+  background-color: var(--lk-dark-onsurface);
+  color: var(--lk-dark-surface);
 }
 
 .bg-dark__surfacevariant {
-  background-color: var(--dark__surfacevariant_lkv);
-  color: var(--dark__onsurfacevariant_lkv);
+  background-color: var(--lk-dark-surfacevariant);
+  color: var(--lk-dark-onsurfacevariant);
 }
 
 .bg-dark__onsurfacevariant {
-  background-color: var(--dark__onsurfacevariant_lkv);
-  color: var(--dark__surface_lkv);
+  background-color: var(--lk-dark-onsurfacevariant);
+  color: var(--lk-dark-surface);
 }
 
 .bg-dark__outline {
-  background-color: var(--dark__outline_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-outline);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__outlinevariant {
-  background-color: var(--dark__outlinevariant_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-outlinevariant);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__shadow {
-  background-color: var(--dark__shadow_lkv);
-  color: var(--dark__inversesurface_lkv);
+  background-color: var(--lk-dark-shadow);
+  color: var(--lk-dark-inversesurface);
 }
 
 .bg-dark__scrim {
-  background-color: var(--dark__scrim_lkv);
-  color: var(--dark__inversesurface_lkv);
+  background-color: var(--lk-dark-scrim);
+  color: var(--lk-dark-inversesurface);
 }
 
 .bg-dark__inversesurface {
-  background-color: var(--dark__inversesurface_lkv);
-  color: var(--dark__inverseonsurface_lkv);
+  background-color: var(--lk-dark-inversesurface);
+  color: var(--lk-dark-inverseonsurface);
 }
 
 .bg-dark__inverseonsurface {
-  background-color: var(--dark__inverseonsurface_lkv);
-  color: var(--dark__inversesurface_lkv);
+  background-color: var(--lk-dark-inverseonsurface);
+  color: var(--lk-dark-inversesurface);
 }
 
 .bg-dark__inverseprimary {
-  background-color: var(--dark__inverseprimary_lkv);
-  color: var(--dark__onprimarycontainer_lkv);
+  background-color: var(--lk-dark-inverseprimary);
+  color: var(--lk-dark-onprimarycontainer);
 }
 
 .bg-dark__success {
-  background-color: var(--dark__success_lkv);
-  color: var(--dark__onsuccess_lkv);
+  background-color: var(--lk-dark-success);
+  color: var(--lk-dark-onsuccess);
 }
 
 .bg-dark__successcontainer {
-  background-color: var(--dark__successcontainer_lkv);
-  color: var(--dark__onsuccesscontainer_lkv);
+  background-color: var(--lk-dark-successcontainer);
+  color: var(--lk-dark-onsuccesscontainer);
 }
 
 .bg-dark__onsuccess {
-  background-color: var(--dark__onsuccess_lkv);
-  color: var(--dark__success_lkv);
+  background-color: var(--lk-dark-onsuccess);
+  color: var(--lk-dark-success);
 }
 
 .bg-dark__onsuccesscontainer {
-  background-color: var(--dark__onsuccesscontainer_lkv);
-  color: var(--dark__successcontainer_lkv);
+  background-color: var(--lk-dark-onsuccesscontainer);
+  color: var(--lk-dark-successcontainer);
 }
 
 .bg-dark__warning {
-  background-color: var(--dark__warning_lkv);
-  color: var(--dark__onwarning_lkv);
+  background-color: var(--lk-dark-warning);
+  color: var(--lk-dark-onwarning);
 }
 
 .bg-dark__warningcontainer {
-  background-color: var(--dark__warningcontainer_lkv);
-  color: var(--dark__onwarningcontainer_lkv);
+  background-color: var(--lk-dark-warningcontainer);
+  color: var(--lk-dark-onwarningcontainer);
 }
 
 .bg-dark__onwarning {
-  background-color: var(--dark__onwarning_lkv);
-  color: var(--dark__warning_lkv);
+  background-color: var(--lk-dark-onwarning);
+  color: var(--lk-dark-warning);
 }
 
 .bg-dark__onwarningcontainer {
-  background-color: var(--dark__onwarningcontainer_lkv);
-  color: var(--dark__warningcontainer_lkv);
+  background-color: var(--lk-dark-onwarningcontainer);
+  color: var(--lk-dark-warningcontainer);
 }
 
 .bg-dark__info {
-  background-color: var(--dark__info_lkv);
-  color: var(--dark__oninfo_lkv);
+  background-color: var(--lk-dark-info);
+  color: var(--lk-dark-oninfo);
 }
 
 .bg-dark__infocontainer {
-  background-color: var(--dark__infocontainer_lkv);
-  color: var(--dark__oninfocontainer_lkv);
+  background-color: var(--lk-dark-infocontainer);
+  color: var(--lk-dark-oninfocontainer);
 }
 
 .bg-dark__oninfo {
-  background-color: var(--dark__oninfo_lkv);
-  color: var(--dark__info_lkv);
+  background-color: var(--lk-dark-oninfo);
+  color: var(--lk-dark-info);
 }
 
 .bg-dark__oninfocontainer {
-  background-color: var(--dark__oninfocontainer_lkv);
-  color: var(--dark__infocontainer_lkv);
+  background-color: var(--lk-dark-oninfocontainer);
+  color: var(--lk-dark-infocontainer);
 }
 
 .util-grid-filler.for-display {
@@ -852,98 +852,98 @@ if there are any.
 }
 
 .bg-dark__primaryfixed {
-  background-color: var(--dark__primaryfixed_lkv);
-  color: var(--dark__onprimaryfixed_lkv);
+  background-color: var(--lk-dark-primaryfixed);
+  color: var(--lk-dark-onprimaryfixed);
 }
 
 .bg-dark__primaryfixeddim {
-  background-color: var(--dark__primaryfixeddim_lkv);
-  color: var(--dark__onprimaryfixedvariant_lkv);
+  background-color: var(--lk-dark-primaryfixeddim);
+  color: var(--lk-dark-onprimaryfixedvariant);
 }
 
 .bg-dark__onprimaryfixed {
-  background-color: var(--dark__onprimaryfixed_lkv);
-  color: var(--dark__primaryfixed_lkv);
+  background-color: var(--lk-dark-onprimaryfixed);
+  color: var(--lk-dark-primaryfixed);
 }
 
 .bg-dark__onprimaryfixedvariant {
-  background-color: var(--dark__onprimaryfixedvariant_lkv);
-  color: var(--dark__primaryfixed_lkv);
+  background-color: var(--lk-dark-onprimaryfixedvariant);
+  color: var(--lk-dark-primaryfixed);
 }
 
 .bg-dark__secondaryfixed {
-  background-color: var(--dark__secondaryfixed_lkv);
-  color: var(--dark__onsecondary_lkv);
+  background-color: var(--lk-dark-secondaryfixed);
+  color: var(--lk-dark-onsecondary);
 }
 
 .bg-dark__secondaryfixeddim {
-  background-color: var(--dark__secondaryfixeddim_lkv);
-  color: var(--dark__onsecondaryfixed_lkv);
+  background-color: var(--lk-dark-secondaryfixeddim);
+  color: var(--lk-dark-onsecondaryfixed);
 }
 
 .bg-dark__onsecondaryfixed {
-  background-color: var(--dark__onsecondaryfixed_lkv);
-  color: var(--dark__secondaryfixed_lkv);
+  background-color: var(--lk-dark-onsecondaryfixed);
+  color: var(--lk-dark-secondaryfixed);
 }
 
 .bg-dark__onsecondaryfixedvariant {
-  background-color: var(--dark__onsecondaryfixedvariant_lkv);
-  color: var(--dark__secondaryfixed_lkv);
+  background-color: var(--lk-dark-onsecondaryfixedvariant);
+  color: var(--lk-dark-secondaryfixed);
 }
 
 .bg-dark__tertiaryfixed {
-  background-color: var(--dark__tertiaryfixed_lkv);
-  color: var(--dark__ontertiaryfixed_lkv);
+  background-color: var(--lk-dark-tertiaryfixed);
+  color: var(--lk-dark-ontertiaryfixed);
 }
 
 .bg-dark__tertiaryfixeddim {
-  background-color: var(--dark__tertiaryfixeddim_lkv);
-  color: var(--dark__ontertiaryfixedvariant_lkv);
+  background-color: var(--lk-dark-tertiaryfixeddim);
+  color: var(--lk-dark-ontertiaryfixedvariant);
 }
 
 .bg-dark__ontertiaryfixed {
-  background-color: var(--dark__ontertiaryfixed_lkv);
-  color: var(--dark__tertiaryfixed_lkv);
+  background-color: var(--lk-dark-ontertiaryfixed);
+  color: var(--lk-dark-tertiaryfixed);
 }
 
 .bg-dark__ontertiaryfixedvariant {
-  background-color: var(--dark__ontertiaryfixedvariant_lkv);
-  color: var(--dark__tertiaryfixed_lkv);
+  background-color: var(--lk-dark-ontertiaryfixedvariant);
+  color: var(--lk-dark-tertiaryfixed);
 }
 
 .bg-dark__surfacedim {
-  background-color: var(--dark__surfacedim_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacedim);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacebright {
-  background-color: var(--dark__surfacebright_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacebright);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacecontainerlowest {
-  background-color: var(--dark__surfacecontainerlowest_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacecontainerlowest);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacecontainerlow {
-  background-color: var(--dark__surfacecontainerlow_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacecontainerlow);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacecontainer {
-  background-color: var(--dark__surfacecontainer_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacecontainer);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacecontainerhigh {
-  background-color: var(--dark__surfacecontainerhigh_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacecontainerhigh);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg-dark__surfacecontainerhighest {
-  background-color: var(--dark__surfacecontainerhighest_lkv);
-  color: var(--dark__onsurface_lkv);
+  background-color: var(--lk-dark-surfacecontainerhighest);
+  color: var(--lk-dark-onsurface);
 }
 
 .bg__transparent {

@@ -78,8 +78,8 @@
   width: min-content;
   display: flex;
   flex-direction: column;
-  gap: var(--lk-size-sm);
-  padding: var(--lk-size-md);
+  gap: var(--lk-spacing-sm);
+  padding: var(--lk-spacing-md);
   box-sizing: border-box;
 }
 

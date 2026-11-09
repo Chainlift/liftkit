@@ -7,7 +7,7 @@
   margin: 0;
   outline: 0;
   border: 0;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
   background-color: transparent;
   color: var(--lk-onsurface);
   user-select: none;
@@ -41,8 +41,8 @@
   line-height: var(--lk-subheading-line-height);
   display: flex;
   flex-direction: column;
-  padding: var(--lk-size-xs) var(--lk-size-sm);
-  border-radius: var(--lku-corner-xs);
+  padding: var(--lk-spacing-xs) var(--lk-spacing-sm);
+  border-radius: var(--lk-corner-xs);
   background-color: var(--lk-inversesurface);
   color: var(--lk-inverseonsurface);
   transform-origin: var(--transform-origin);
@@ -60,12 +60,7 @@
     transition: none;
   }
 
-  @media (prefers-color-scheme: light) {
-    outline: 1px solid var(--lk-outlinevariant);
-    box-shadow:
-      0 10px 15px -3px var(--lk-outlinevariant),
-      0 4px 6px -4px var(--lk-outlinevariant);
-  }
+  box-shadow: var(--lk-shadow-md);
 
   @media (prefers-color-scheme: dark) {
     outline: 1px solid var(--lk-outlinevariant);
@@ -97,18 +92,22 @@
   }
 }
 
-:where(.ArrowFill) {
-  fill: var(--lk-inversesurface);
-}
-
-:where(.ArrowOuterStroke) {
-  @media (prefers-color-scheme: light) {
+:where([data-slot="tooltip-arrow"]) {
+  /* Scoped to the tooltip's own arrow: the .Arrow* class names are shared by popover, menu, select, and others, whose
+     zero-specificity rules would otherwise win by stylesheet order (popover's fills the arrow white). */
+  .ArrowFill {
     fill: var(--lk-inversesurface);
   }
-}
 
-:where(.ArrowInnerStroke) {
-  @media (prefers-color-scheme: dark) {
-    fill: var(--lk-inversesurface);
+  .ArrowOuterStroke {
+    @media (prefers-color-scheme: light) {
+      fill: var(--lk-inversesurface);
+    }
+  }
+
+  .ArrowInnerStroke {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--lk-inversesurface);
+    }
   }
 }

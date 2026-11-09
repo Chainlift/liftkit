@@ -2,41 +2,41 @@
 @import "./liftkit-core.css";
 
 .gap-3xs {
-  gap: var(--lk-size-3xs);
+  gap: var(--lk-spacing-3xs);
 }
 
 .gap-2xs {
-  gap: var(--lk-size-2xs);
+  gap: var(--lk-spacing-2xs);
 }
 
 .gap-xs {
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
 }
 
 .gap-sm {
-  gap: var(--lk-size-sm);
+  gap: var(--lk-spacing-sm);
 }
 
 .gap-md {
-  gap: var(--lk-size-md);
+  gap: var(--lk-spacing-md);
 }
 
 .gap-lg {
-  gap: var(--lk-size-lg);
+  gap: var(--lk-spacing-lg);
 }
 
 .gap-xl {
-  gap: var(--lk-size-xl);
+  gap: var(--lk-spacing-xl);
 }
 
 .gap-2xl {
-  gap: var(--lk-size-2xl);
+  gap: var(--lk-spacing-2xl);
 }
 
 .gap-3xl {
-  gap: var(--lk-size-3xl);
+  gap: var(--lk-spacing-3xl);
 }
 
 .gap-4xl {
-  gap: var(--lk-size-4xl);
+  gap: var(--lk-spacing-4xl);
 }

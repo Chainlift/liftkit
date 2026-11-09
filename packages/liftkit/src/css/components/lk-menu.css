@@ -1,7 +1,7 @@
 :where([data-slot="menu-trigger"]) {
   --lk-color-token: var(--lk-primary);
 
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
   cursor: pointer;
 
   display: inline-flex;
@@ -11,14 +11,14 @@
   color: var(--lk-onsurface);
   gap: var(--button-gap);
   position: relative;
-  padding: var(--lk-size-2xs) var(--lk-size-xs);
-  line-height: var(--lk-halfstep);
+  padding: var(--lk-spacing-2xs) var(--lk-spacing-xs);
+  line-height: var(--lk-halfstep-text);
 
-  border-width: var(--lku-length-5xs);
+  border-width: var(--lk-length-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 
-  border-radius: var(--lku-corner-2xs);
+  border-radius: var(--lk-corner-2xs);
   font-family: inherit;
   font-weight: 500;
   text-decoration: none;
@@ -57,14 +57,14 @@
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-block: var(--lk-size-2xs);
-  scroll-padding-block: var(--lk-size-sm);
-  border-radius: var(--lku-corner-xs);
+  padding-block: var(--lk-spacing-2xs);
+  scroll-padding-block: var(--lk-spacing-sm);
+  border-radius: var(--lk-corner-xs);
   background-color: var(--lk-surface);
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
   color: var(--lk-onsurface);
-  max-height: min(var(--lku-length-5xl), var(--available-height));
+  max-height: min(var(--lk-length-5xl), var(--available-height));
   transition:
     opacity 0.1s,
     transform 0.1s;
@@ -134,14 +134,14 @@
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: var(--lk-size-sm);
-  padding-left: var(--lk-size-md);
-  padding-right: var(--lk-size-lg);
+  padding-block: var(--lk-spacing-sm);
+  padding-left: var(--lk-spacing-md);
+  padding-right: var(--lk-spacing-lg);
   display: flex;
-  gap: var(--lk-size-sm);
+  gap: var(--lk-spacing-sm);
   align-items: center;
-  font-size: var(--lk-size-md);
-  line-height: var(--lku-length-md);
+  font-size: var(--lk-base-md);
+  line-height: var(--lk-length-md);
   position: relative;
 
   &[data-highlighted] {
@@ -155,8 +155,8 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-2xs);
+    border-radius: var(--lk-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }
@@ -166,14 +166,14 @@
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: var(--lk-size-sm);
-  padding-left: var(--lk-size-md);
-  padding-right: var(--lk-size-md);
+  padding-block: var(--lk-spacing-sm);
+  padding-left: var(--lk-spacing-md);
+  padding-right: var(--lk-spacing-md);
   display: flex;
-  gap: var(--lk-size-xs);
+  gap: var(--lk-spacing-xs);
   align-items: center;
-  font-size: var(--lk-size-md);
-  line-height: var(--lku-length-md);
+  font-size: var(--lk-base-md);
+  line-height: var(--lk-length-md);
   position: relative;
 
   &[data-highlighted] {
@@ -187,14 +187,14 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--lk-size-2xs);
-    border-radius: var(--lku-corner-2xs);
+    inset-inline: var(--lk-base-2xs);
+    border-radius: var(--lk-corner-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }
 
 :where([data-slot="menu-separator"]) {
-  margin: var(--lk-size-xs) var(--lk-size-md);
+  margin: var(--lk-spacing-xs) var(--lk-spacing-md);
   height: 1px;
   background-color: var(--lk-outlinevariant);
 }

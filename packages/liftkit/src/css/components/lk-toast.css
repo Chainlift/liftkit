@@ -2,11 +2,11 @@
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
-  --button-line-height: var(--lk-halfstep) !important;
+  --button-line-height: var(--lk-halfstep-text) !important;
   --button-padX: 1em;
-  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
-  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  --button-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep-text));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
 
   box-sizing: border-box;
   display: inline-flex;
@@ -21,7 +21,7 @@
   border-radius: 100em;
   background-color: var(--lk-surfacecontainerlow);
   font-family: inherit;
-  font-size: var(--lk-size-md);
+  font-size: var(--lk-base-md);
   font-weight: 500;
   line-height: var(--button-line-height);
   color: var(--lk-onsurface);
@@ -46,23 +46,23 @@
 :where([data-slot="toast-viewport"]) {
   position: fixed;
   z-index: 1;
-  width: var(--lku-length-5xl);
+  width: var(--lk-length-5xl);
   margin: 0 auto;
-  bottom: var(--lk-size-md);
-  right: var(--lk-size-md);
+  bottom: var(--lk-base-md);
+  right: var(--lk-base-md);
   left: auto;
   top: auto;
 
   @media (min-width: 500px) {
-    bottom: var(--lk-size-lg);
-    right: var(--lk-size-lg);
-    width: var(--lku-length-5xl);
+    bottom: var(--lk-base-lg);
+    right: var(--lk-base-lg);
+    width: var(--lk-length-5xl);
   }
 }
 
 :where([data-slot="toast"]) {
-  --gap: var(--lk-size-sm);
-  --peek: var(--lk-size-sm);
+  --gap: var(--lk-spacing-sm);
+  --peek: var(--lk-base-sm);
   --scale: calc(max(0, 1 - (var(--toast-index) * 0.1)));
   --shrink: calc(1 - var(--scale));
   --height: var(--toast-frontmost-height, var(--toast-height));
@@ -74,11 +74,11 @@
   background: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   /* border: 1px solid var(--lk-outlinevariant); */
-  padding: var(--lk-size-md);
+  padding: var(--lk-spacing-md);
   width: 100%;
   box-shadow: var(--lk-shadow-lg);
   background-clip: padding-box;
-  border-radius: var(--lku-corner-sm);
+  border-radius: var(--lk-corner-sm);
   transform-origin: bottom center;
   bottom: 0;
   left: auto;
@@ -157,7 +157,7 @@
   font-size: var(--lk-callout-font-size);
   line-height: var(--lk-callout-line-height);
   margin: 0;
-  margin-bottom: var(--lk-size-xs);
+  margin-bottom: var(--lk-spacing-xs);
 }
 
 :where([data-slot="toast-description"]) {
@@ -169,17 +169,17 @@
 
 :where([data-slot="toast-close"]) {
   position: absolute;
-  top: var(--lk-size-sm);
-  right: var(--lk-size-sm);
+  top: var(--lk-base-sm);
+  right: var(--lk-base-sm);
   padding: 0;
   border: none;
   background: transparent;
-  width: calc(var(--lk-size-md) * var(--lk-halfstep));
-  width: calc(var(--lk-size-md) * var(--lk-halfstep));
+  width: calc(var(--lk-base-md) * var(--lk-halfstep-length));
+  width: calc(var(--lk-base-md) * var(--lk-halfstep-length));
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--lku-corner-xs);
+  border-radius: var(--lk-corner-xs);
 
   &:hover {
     background-color: var(--lk-surfacedim);

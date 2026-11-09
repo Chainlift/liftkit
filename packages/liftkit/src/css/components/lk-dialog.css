@@ -59,9 +59,9 @@
 
 :where([data-slot="dialog-trigger"]) {
   border: none;
-  border-radius: var(--lku-corner-2xs);
+  border-radius: var(--lk-corner-2xs);
   display: inline-block;
-  padding: var(--lk-size-xs) var(--lk-size-md);
+  padding: var(--lk-spacing-xs) var(--lk-spacing-md);
   background-color: var(--lk-surfacebright);
   color: var(--lk-onsurface);
   font-weight: 500;
@@ -92,12 +92,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(var(--lk-size-5xl) * var(--lk-wholestep));
-  max-width: calc(100vw - var(--lk-size-3xl));
-  margin-top: calc(var(--lk-size-lg) * -1);
-  padding: var(--lk-size-lg);
-  padding-top: var(--lk-size-md);
-  border-radius: var(--lku-corner-sm);
+  width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
+  max-width: calc(100vw - var(--lk-base-3xl));
+  margin-top: calc(var(--lk-spacing-lg) * -1);
+  padding: var(--lk-spacing-lg);
+  padding-top: var(--lk-spacing-md);
+  border-radius: var(--lk-corner-sm);
   outline: 1px solid var(--lk-outlinevariant);
   background-color: var(--lk-surfacecontainerlow);
   color: var(--lk-onsurface);
@@ -116,7 +116,7 @@
 }
 
 [data-slot="dialog-title"] {
-  margin-bottom: var(--lk-size-xs);
+  margin-bottom: var(--lk-spacing-xs);
   font-size: var(--lk-title3-font-size);
   line-height: var(--lk-title3-line-height);
   letter-spacing: var(--lk-title3-letter-spacing);
@@ -133,12 +133,12 @@
   font-size: var(--lk-title3-font-size);
   line-height: var(--lk-title3-line-height);
   letter-spacing: var(--lk-title3-letter-spacing);
-  margin-bottom: var(--lk-size-2xs);
+  margin-bottom: var(--lk-spacing-2xs);
   font-weight: 600;
 }
 
 [data-slot="dialog-description"] {
-  margin-bottom: var(--lk-size-md);
+  margin-bottom: var(--lk-spacing-md);
   font-size: var(--lk-body-font-size);
   line-height: var(--lk-body-line-height);
   letter-spacing: var(--lk-body-letter-spacing);
@@ -150,11 +150,11 @@
   --lk-btn-fg: var(--lk-onsurface);
   --lk-btn-border: var(--lk-outline);
 
-  --button-line-height: var(--lk-halfstep) !important;
+  --button-line-height: var(--lk-halfstep-text) !important;
   --button-padX: 1em;
-  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
-  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  --button-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep-text));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
   cursor: pointer;
 
   display: inline-flex;
@@ -167,7 +167,7 @@
   line-height: var(--button-line-height);
 
   /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
-  border-width: var(--lku-length-5xs);
+  border-width: var(--lk-length-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 

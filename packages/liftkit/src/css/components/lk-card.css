@@ -59,7 +59,7 @@
 
 :where([data-lk-card-scale-factor="zero"]) {
   padding: 0;
-  border-radius: var(--lku-corner-sm);
+  border-radius: var(--lk-corner-sm);
 }
 
 :where([data-lk-card-scale-factor="display1"]) {

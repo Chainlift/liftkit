@@ -33,49 +33,49 @@
 }
 
 .w-3xs {
-  width: var(--lku-length-3xs);
+  width: var(--lk-length-3xs);
 }
 
 .w-2xs {
-  width: var(--lku-length-2xs);
+  width: var(--lk-length-2xs);
 }
 
 .w-xs {
-  width: var(--lku-length-xs);
+  width: var(--lk-length-xs);
 }
 
 .w-sm {
-  width: var(--lku-length-sm);
+  width: var(--lk-length-sm);
 }
 
 .w-md {
-  width: var(--lku-length-md);
+  width: var(--lk-length-md);
 }
 
 .w-lg {
-  width: var(--lku-length-lg);
+  width: var(--lk-length-lg);
 }
 
 .w-xl {
-  width: var(--lku-length-xl);
+  width: var(--lk-length-xl);
 }
 
 .w-2xl {
-  width: var(--lku-length-2xl);
+  width: var(--lk-length-2xl);
 }
 
 .w-3xl {
-  width: var(--lku-length-3xl);
+  width: var(--lk-length-3xl);
 }
 
 .w-4xl {
-  width: var(--lku-length-4xl);
+  width: var(--lk-length-4xl);
 }
 
 .w-5xl {
-  width: calc(var(--lk-size-4xl) * var(--lk-wholestep));
+  width: calc(var(--lk-base-4xl) * var(--lk-wholestep));
 }
 
 .w-6xl {
-  width: calc(var(--lk-size-5xl) * var(--lk-wholestep));
+  width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
 }

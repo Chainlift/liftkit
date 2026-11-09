@@ -8,11 +8,11 @@
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
-  --button-line-height: var(--lk-halfstep) !important;
+  --button-line-height: var(--lk-halfstep-text) !important;
   --button-padX: 1em;
-  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-size-xl-unitless)));
-  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
+  --button-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep-text));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
   cursor: pointer;
 
   display: inline-flex;
@@ -25,7 +25,7 @@
   line-height: var(--button-line-height);
 
   /*Provide a transparent border to ensure outline and fill/text variants all have the same height */
-  border-width: var(--lku-length-5xs);
+  border-width: var(--lk-length-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 
@@ -114,7 +114,7 @@
 Usually happens when start icon appears bigger than the text, even when it's not. */
 
 .lk-btn--optic-shift [data-lk-button-child="button-text"] {
-  transform: translateY(calc(1em * var(--lk-eighthstep-dec)));
+  transform: translateY(calc(1em * var(--lk-eighthstep-dec-text)));
 }
 
 /* STYLE VARIANTS */
