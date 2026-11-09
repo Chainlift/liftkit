@@ -14,7 +14,6 @@
   font-weight: 500;
   background: none;
   overflow: hidden;
-  cursor: pointer;
   border: unset;
 
   &.rounded-sm {
@@ -24,6 +23,7 @@
 
 /* these, however, should not be overwritten. */
 [data-slot="icon-button"] {
+  cursor: pointer; /* the .body font class sets cursor: default, so this can't sit in the :where() block */
   color: var(--lk-btn-fg, inherit);
   background: var(--lk-btn-bg, transparent);
 }
