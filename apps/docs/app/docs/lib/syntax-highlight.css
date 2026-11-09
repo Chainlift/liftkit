@@ -1,7 +1,7 @@
 [data-instance="code-block-copy-button"] {
   position: absolute;
-  top: var(--lk-size-sm);
-  right: var(--lk-size-sm);
+  top: var(--lk-base-sm);
+  right: var(--lk-base-sm);
   z-index: 1;
 
   button {

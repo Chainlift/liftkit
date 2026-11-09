@@ -16,6 +16,9 @@ Under the hood, LiftKit's system starts with a single global scale factor. The d
 | Symmetry         | Literal symmetry. Numbers add up, but designs can look off. | Optical symmetry. Numbers don't add up, but designs look more balanced.     |
 | Ease of use      | Easy to learn, hard to master                               | Hard to learn, AND hard to master!                                          |
 
+
+---
+
 The future of LiftKit is uncertain. I no longer have the time to maintain it I once did. However, I promised an update in early 2026, and I wanted to finish what I started. So here it is: LiftKit v2 in all its glory, gracefully flopping over the finish line over six months late.
 
 > **Alpha.** LiftKit v2 is an early release and the API may change.

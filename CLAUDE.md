@@ -29,7 +29,7 @@ Run from the repo root (pnpm 10, Node >= 22):
 - **Next.js 16** (App Router) with React 19, TypeScript
 - **MDX** for docs pages — configured via `@next/mdx` with remark-gfm, rehype-slug, rehype-autolink-headings, rehype-pretty-code (Shiki)
 - **@base-ui/react** — unstyled primitives that LiftKit wraps
-- **CSS custom properties** — LiftKit's design system uses golden-ratio-based spacing/sizing tokens (`--lk-size-*`, `--lk-scalefactor`) defined in `packages/liftkit/src/css/utilities/liftkit-core.css`
+- **CSS custom properties** — LiftKit's design system uses golden-ratio-based spacing/sizing tokens (`--lk-base-*`, `--lk-scalefactor`) defined in `packages/liftkit/src/css/utilities/liftkit-core.css`
 - **lucide-react** for icons
 - Path alias (docs only): `@/*` maps to `apps/docs/`
 
@@ -81,9 +81,9 @@ The CSS tab shows the component's real stylesheet, read from the library at buil
 - Components use `data-slot` attributes for CSS targeting (not className-based)
 - **GoldenBox** is a layout primitive used extensively — it applies golden-ratio-based padding with optical correction. Props: `scaleFactor` (font class name), `opticalCorrection` (top/bottom/x/y/all/none).
 - Color tokens follow pattern: `--lk-color-{name}` with `on` variants (e.g., `primary` / `onprimary`)
-- Size tokens: `--lk-size-{5xs..5xl}` based on powers of the golden ratio scale factor
+- Size tokens: `--lk-base-{5xs..5xl}` based on powers of the golden ratio scale factor
 - The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components, Types & Tokens). Overview and Types & Tokens list the folders with a `page.mdx`/`page.tsx` (pages directly under `app/docs/` go in Overview); Components comes from the registry.
 
 ### Key pattern: updating CSS rules
 
-1. 
+1.

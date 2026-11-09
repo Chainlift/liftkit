@@ -1,8 +1,8 @@
 .lk-props-table-wrapper {
   overflow-x: auto;
-  margin-block: var(--lk-size-md);
+  margin-block: var(--lk-base-md);
   border: 1px solid var(--lk-color-outline);
-  border-radius: var(--lk-size-2xs);
+  border-radius: var(--lk-base-2xs);
 }
 
 .lk-props-table {
@@ -20,14 +20,14 @@
 }
 
 .lk-props-table th {
-  padding: var(--lk-size-xs) var(--lk-size-sm);
+  padding: var(--lk-base-xs) var(--lk-base-sm);
   text-align: left;
   font-weight: 600;
   color: var(--lk-color-on-surface);
 }
 
 .lk-props-table td {
-  padding: var(--lk-size-xs) var(--lk-size-sm);
+  padding: var(--lk-base-xs) var(--lk-base-sm);
   border-bottom: 1px solid var(--lk-color-outline-variant);
   vertical-align: top;
 }
@@ -67,7 +67,7 @@
 }
 
 .lk-props-table-empty {
-  padding: var(--lk-size-md);
+  padding: var(--lk-base-md);
   text-align: center;
   color: var(--lk-color-on-surface-variant);
   font-style: italic;
@@ -81,6 +81,6 @@
 
   .lk-props-table th,
   .lk-props-table td {
-    padding: var(--lk-size-2xs) var(--lk-size-xs);
+    padding: var(--lk-base-2xs) var(--lk-base-xs);
   }
 }

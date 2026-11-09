@@ -5,7 +5,6 @@
   grid-template-columns: 320px minmax(40ch, 90ch) 320px;
   position: relative;
 
-
   gap: 0;
 
   [data-slot="scroll-area"] {
@@ -14,7 +13,7 @@
   }
 
   main {
-    padding-bottom: var(--lk-size-4xl);
+    padding-bottom: var(--lk-base-4xl);
   }
 
   /* rehype-pretty-code wraps fenced code blocks in a <figure>, which has a browser-default 40px side margin */
@@ -24,14 +23,13 @@
 
   p > code {
     background-color: var(--lk-surfacecontainerhigh);
-    padding: 0px var(--lk-size-2xs);
+    padding: 0px var(--lk-base-2xs);
   }
 
   .left-sidebar {
     align-self: start;
     position: sticky;
     top: 0px;
-
 
     [data-slot="scroll-area"] {
       justify-items: end;
@@ -42,7 +40,6 @@
     position: sticky;
     top: 0px;
     width: 100%;
-    
 
     [data-slot="scroll-area"] {
       justify-items: start;
@@ -55,13 +52,13 @@
     }
   }
 
-  blockquote{
-    margin: 0px 0px var(--lk-size-xl) 0px;
+  blockquote {
+    margin: 0px 0px var(--lk-base-xl) 0px;
     border-left: 4px solid var(--lk-warning);
-    padding-left: var(--lk-size-md);
+    padding-left: var(--lk-base-md);
   }
 
-  p>a {
+  p > a {
     color: var(--lk-primary);
     font-weight: 500, inherit;
     text-decoration: underline;

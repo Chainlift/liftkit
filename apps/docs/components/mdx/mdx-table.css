@@ -4,7 +4,7 @@
 [data-docs-table-scroll] {
   width: 100%;
   overflow-x: auto;
-  margin-block: var(--lk-size-md);
+  margin-block: var(--lk-base-md);
 }
 
 [data-docs-table] {
@@ -15,11 +15,11 @@
 /* Header cells */
 [data-docs-table] th {
   font-size: var(--lk-subheading-font-size);
-  padding: var(--lk-size-sm) var(--lk-size-md);
+  padding: var(--lk-base-sm) var(--lk-base-md);
   color: var(--lk-onsurface);
   text-align: left;
   vertical-align: bottom;
-  border-bottom: var(--lk-size-2xs) solid var(--lk-outline);
+  border-bottom: var(--lk-base-2xs) solid var(--lk-outline);
   font-weight: 600;
 
   &:is(:first-child) {
@@ -29,7 +29,7 @@
 
 /* Body cells */
 [data-docs-table] td {
-  padding: var(--lk-size-sm) var(--lk-size-md);
+  padding: var(--lk-base-sm) var(--lk-base-md);
   vertical-align: top;
   border-bottom: 1px solid var(--lk-outlinevariant);
 

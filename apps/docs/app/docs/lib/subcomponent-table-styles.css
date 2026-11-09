@@ -1,7 +1,6 @@
 div[data-instance="lk-docs-table"] {
-
   [data-slot="table-block"] {
-    margin-bottom: var(--lk-size-lg);
+    margin-bottom: var(--lk-base-lg);
   }
 
   table {
@@ -13,7 +12,7 @@ div[data-instance="lk-docs-table"] {
     letter-spacing: var(--lk-callout-letter-spacing);
     background: var(--lk-surfacecontainerlowest);
     box-shadow: var(--lk-shadow-2xs);
-    border-radius: var(--lk-size-2xs);
+    border-radius: var(--lk-base-2xs);
     overflow: hidden;
   }
 
@@ -35,26 +34,26 @@ div[data-instance="lk-docs-table"] {
   }
 
   th {
-    padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
+    padding: var(--lk-base-xs) var(--lk-base-lg) var(--lk-base-xs) 0px;
     font-weight: 500;
     color: var(--lk-onsurfacevariant);
 
     &:first-child {
-      padding-left: var(--lk-size-xs);
+      padding-left: var(--lk-base-xs);
     }
   }
 
   td {
-    padding: var(--lk-size-xs) var(--lk-size-lg) var(--lk-size-xs) 0px;
+    padding: var(--lk-base-xs) var(--lk-base-lg) var(--lk-base-xs) 0px;
     line-height: var(--lk-body-line-height);
     color: var(--lk-onsurfacelow);
 
     &:first-child {
-      padding-left: var(--lk-size-xs);
+      padding-left: var(--lk-base-xs);
     }
   }
 }
 
-div[data-instance="lk-docs-table"]:not(:first-child)  h3 {
-  margin-top: var(--lk-size-lg);
+div[data-instance="lk-docs-table"]:not(:first-child) h3 {
+  margin-top: var(--lk-base-lg);
 }
