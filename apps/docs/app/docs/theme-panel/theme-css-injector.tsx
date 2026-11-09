@@ -15,10 +15,7 @@ function buildCssBlock(tokens: Record<string, string>, indent: string = "  "): s
 export function ThemeCSSInjector() {
   const { state } = useTheme();
 
-  const resolved = useMemo(
-    () => resolveTheme(state),
-    [state.seedColors, state.toneOverrides, state.schemeVariant]
-  );
+  const resolved = useMemo(() => resolveTheme(state), [state.seedColors, state.toneOverrides, state.schemeVariant]);
 
   // The theme only applies while the Theme Generator is on screen, so remove it when navigating away.
   useEffect(() => {
@@ -35,7 +32,7 @@ export function ThemeCSSInjector() {
 
     let css: string;
 
-    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n  --lk-scalefactor-typography: ${state.scaleFactorTypography};\n  --lk-scalefactor-length: ${state.scaleFactorLength};\n  --lk-scalefactor-spacing: ${state.scaleFactorSpacing};`;
+    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n  --lk-scalefactor-text: ${state.scaleFactorTypography};\n  --lk-scalefactor-length: ${state.scaleFactorLength};\n  --lk-scalefactor-spacing: ${state.scaleFactorSpacing};`;
 
     if (state.colorMode === "system") {
       // Inject both schemes; let the browser pick via media query
@@ -48,7 +45,15 @@ export function ThemeCSSInjector() {
     }
 
     styleEl.textContent = css;
-  }, [resolved, state.colorMode, state.scaleFactor, state.scaleFactorCorner, state.scaleFactorTypography, state.scaleFactorLength, state.scaleFactorSpacing]);
+  }, [
+    resolved,
+    state.colorMode,
+    state.scaleFactor,
+    state.scaleFactorCorner,
+    state.scaleFactorTypography,
+    state.scaleFactorLength,
+    state.scaleFactorSpacing,
+  ]);
 
   return null;
 }

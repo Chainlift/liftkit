@@ -4,15 +4,7 @@ import { cssToLatex, simplifiedLatex } from "./to-latex";
 
 /** Docs-only: reads liftkit-core.css and lists the tokens that compute to a length. */
 
-const CORE_CSS = path.join(
-  process.cwd(),
-  "node_modules",
-  "liftkit",
-  "src",
-  "css",
-  "utilities",
-  "liftkit-core.css",
-);
+const CORE_CSS = path.join(process.cwd(), "node_modules", "liftkit", "src", "css", "utilities", "liftkit-core.css");
 
 /** `width` is the CSS that draws the token's line. Unitless tokens (`unitlessVar`) are drawn as that many em, and read out as a plain number. */
 export type SheetToken = { name: string; latex: string; width: string; unitlessVar?: string };
@@ -21,7 +13,6 @@ export type SheetCategory = { title: string; tokens: SheetToken[] };
 const SIZE_ORDER = ["5xs", "4xs", "3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"];
 // Smallest to largest at the default scale; the sheet keeps this order while the scale factors move.
 const FONT_CLASS_ORDER = [
-  "caption2",
   "caption",
   "capline",
   "label",
@@ -37,9 +28,10 @@ const FONT_CLASS_ORDER = [
 ];
 
 const CATEGORIES: { title: string; pattern: RegExp; order: string[] }[] = [
-  { title: "Size (spacing)", pattern: /^--lk-size-(?!.*unitless)(.+)$/, order: SIZE_ORDER },
-  { title: "Corner radius", pattern: /^--lku-corner-(.+)$/, order: SIZE_ORDER },
-  { title: "Length", pattern: /^--lku-length-(.+)$/, order: SIZE_ORDER },
+  { title: "Size (base)", pattern: /^--lk-base-(?!.*unitless)(.+)$/, order: SIZE_ORDER },
+  { title: "Spacing", pattern: /^--lk-spacing-(.+)$/, order: SIZE_ORDER },
+  { title: "Corner radius", pattern: /^--lk-corner-(.+)$/, order: SIZE_ORDER },
+  { title: "Length", pattern: /^--lk-length-(.+)$/, order: SIZE_ORDER },
   { title: "Font size", pattern: /^--lk-(.+)-font-size$/, order: FONT_CLASS_ORDER },
   { title: "Font class offset", pattern: /^--lk-(.+)-offset$/, order: FONT_CLASS_ORDER },
 ];
@@ -48,7 +40,7 @@ const CONSTANTS = [
   "--lk-scalefactor",
   "--lk-scalefactor-corner",
   "--lk-scalefactor-spacing",
-  "--lk-scalefactor-typography",
+  "--lk-scalefactor-text",
   "--lk-scalefactor-length",
 ];
 
@@ -99,7 +91,8 @@ export function readSheetCategories(): SheetCategory[] {
     const found: { key: string; token: SheetToken }[] = [];
     for (const [cssVar, value] of declarations) {
       const key = cssVar.match(pattern)?.[1];
-      if (key) found.push({
+      if (key)
+        found.push({
           key,
           token: { name: cssVar, latex: simplifiedLatex(value), width: `var(${cssVar})` },
         });

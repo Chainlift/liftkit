@@ -4,8 +4,8 @@
 .system-sheet {
   display: grid;
   grid-template-columns: max-content max-content max-content;
-  column-gap: var(--lk-size-xl);
-  row-gap: var(--lk-size-md);
+  column-gap: var(--lk-base-xl);
+  row-gap: var(--lk-base-md);
   align-items: center;
   width: max-content;
   min-width: 100%;
@@ -19,8 +19,8 @@
 .system-category-title {
   grid-column: 1 / -1;
   margin: 0;
-  padding-top: var(--lk-size-md);
-  padding-bottom: var(--lk-size-xs);
+  padding-top: var(--lk-base-md);
+  padding-bottom: var(--lk-base-xs);
 }
 
 .system-category:first-child .system-category-title {
@@ -56,7 +56,7 @@
 }
 
 .system-token-value {
-  margin-left: var(--lk-size-md);
+  margin-left: var(--lk-base-md);
   white-space: nowrap;
 }
 

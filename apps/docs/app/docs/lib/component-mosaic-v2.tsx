@@ -731,8 +731,8 @@ function PromoCard() {
           </Switch>
         </label>
       </div>
-      <div className="flex-v gap-sm">
-        <Button className="w-full" startIcon="ticket">
+      <div className="flex-v gap-sm text-align-center">
+        <Button className="w-full">
           Publish promotion
         </Button>
         <Button className="w-full" variant="outline">

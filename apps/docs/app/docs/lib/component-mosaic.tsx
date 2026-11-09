@@ -50,8 +50,8 @@ export function ComponentMosaic() {
         style={{
           display: "grid",
           gridTemplateColumns: "280px 1fr 300px",
-          gap: "var(--lk-size-lg)",
-          padding: "var(--lk-size-lg)",
+          gap: "var(--lk-base-lg)",
+          padding: "var(--lk-base-lg)",
           alignItems: "start",
         }}
       >
@@ -79,7 +79,9 @@ export function ComponentMosaic() {
             </div>
             <PreviewCardDemo />
             <div className="flex items-center gap-sm pt-md justify-end">
-              <Button startIcon="send" className="w-full justify-center">Message</Button>
+              <Button startIcon="send" className="w-full justify-center">
+                Message
+              </Button>
             </div>
           </Card>
 

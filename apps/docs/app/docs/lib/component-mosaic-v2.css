@@ -1,15 +1,16 @@
 /*
- * Component mosaic v2 layout: cards flow into as many balanced columns as fit. The column width is a fixed rem,
+ * Component mosaic v2 layout: cards flow into as many balanced columns as fit, up to 3. The column width is a fixed rem,
  * not a length token, because length tokens grow with the Scale Factor and the layout would reshuffle while you
  * drag that slider on the Theme Generator. Card styling comes from LiftKit.
  */
 .mosaic-v2 {
   column-width: 18rem;
-  column-gap: var(--lk-size-lg);
+  column-count: 3; /* with column-width also set, this is the maximum number of columns */
+  column-gap: var(--lk-base-lg);
   width: 100%;
 }
 
 .mosaic-v2 > * {
   break-inside: avoid;
-  margin-bottom: var(--lk-size-lg);
+  margin-bottom: var(--lk-base-lg);
 }

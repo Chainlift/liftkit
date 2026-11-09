@@ -9,13 +9,13 @@ const SCALE_SUBSCRIPTS: Record<string, string> = {
   "--lk-scalefactor-corner": "corner",
   "--lk-scalefactor-length": "length",
   "--lk-scalefactor-spacing": "spacing",
-  "--lk-scalefactor-typography": "type",
+  "--lk-scalefactor-text": "type",
 };
 
 function varToTex(name: string): Tex {
   if (name === "--lk-scalefactor") return { tex: "s", prec: 2 };
   if (SCALE_SUBSCRIPTS[name]) return { tex: `s_{\\mathrm{${SCALE_SUBSCRIPTS[name]}}}`, prec: 2 };
-  return { tex: `\\text{${name.replace(/^--lk-/, "").replace(/^--lku-/, "")}}`, prec: 2 };
+  return { tex: `\\text{${name.replace(/^--lk-(base-)?/, "")}}`, prec: 2 };
 }
 
 function tokenize(input: string): string[] {

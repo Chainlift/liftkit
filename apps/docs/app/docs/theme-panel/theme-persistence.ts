@@ -53,7 +53,8 @@ export function loadTheme(): Partial<ThemeState> | null {
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
       scaleFactorCorner: parsed.scaleFactorCorner ?? DEFAULT_THEME_STATE.scaleFactorCorner,
       scaleFactorTypography: parsed.scaleFactorTypography ?? DEFAULT_THEME_STATE.scaleFactorTypography,
-      scaleFactorLength: parsed.scaleFactorLength ?? DEFAULT_THEME_STATE.scaleFactorLength,
+      // No slider edits this any more, so ignore any value saved while there was one.
+      scaleFactorLength: DEFAULT_THEME_STATE.scaleFactorLength,
       scaleFactorSpacing: parsed.scaleFactorSpacing ?? DEFAULT_THEME_STATE.scaleFactorSpacing,
     };
   } catch {
