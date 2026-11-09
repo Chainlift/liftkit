@@ -38,7 +38,9 @@ The default value is 1.618, phi, also known as the golden ratio. I chose this va
 
 Everything LiftKit does is defined in one file, `liftkit-core.css`, and each layer of it is built from the layer before it.
 
-**1. Steps.** The scale factor is turned into a handful of "steps": the whole step (the scale factor itself), the half step (its square root), the quarter step and the eighth step. Each also has a `-dec` version, which is the step minus one.
+#### 1. Steps
+
+The scale factor is turned into a handful of "steps": the whole step (the scale factor itself), the half step (its square root), the quarter step and the eighth step. Each also has a `-dec` version, which is the step minus one.
 
 ```css
 :root {
@@ -50,9 +52,13 @@ Everything LiftKit does is defined in one file, `liftkit-core.css`, and each lay
 }
 ```
 
-**2. Per-family scale factors.** Typography, spacing, length and corner radii each get their own scale factor (`--lk-scalefactor-text`, `-spacing`, `-length` and `-corner`) and their own set of steps (`--lk-halfstep-text`, `--lk-halfstep-spacing`, and so on). They all default to 1.618, so out of the box they match the global one, but you can tune any of them without touching the others.
+#### 2. Per-family scale factors
 
-**3. Size tokens.** Powers of a scale factor become a ladder of sizes from `5xs` to `5xl`, with `md` equal to `1em`. They're all in `em`, so they're relative to the font size of whatever element uses them. That's what makes a component scale with its text.
+Typography, spacing, length and corner radii each get their own scale factor (`--lk-scalefactor-text`, `-spacing`, `-length` and `-corner`) and their own set of steps (`--lk-halfstep-text`, `--lk-halfstep-spacing`, and so on). They all default to 1.618, so out of the box they match the global one, but you can tune any of them without touching the others.
+
+#### 3. Size tokens
+
+Powers of a scale factor become a ladder of sizes from `5xs` to `5xl`, with `md` equal to `1em`. They're all in `em`, so they're relative to the font size of whatever element uses them. That's what makes a component scale with its text.
 
 ```css
 :root {
@@ -64,7 +70,9 @@ Everything LiftKit does is defined in one file, `liftkit-core.css`, and each lay
 
 There's one ladder per family: `--lk-spacing-*` for gaps, padding and margins, `--lk-length-*` for widths and other fixed dimensions, and `--lk-corner-*` for border radii. The general-purpose `--lk-base-*` ladder is built from the global scale factor.
 
-**4. Typography.** Font sizes, line heights and optical offsets for each font class (`display1` down to `capline`) are built from the text steps. `--lk-title2-font-size`, for example, is one whole step above body text, and `--lk-body-line-height` is a whole step.
+#### 4. Typography
+
+Font sizes, line heights and optical offsets for each font class (`display1` down to `capline`) are built from the text steps. `--lk-title2-font-size`, for example, is one whole step above body text, and `--lk-body-line-height` is a whole step.
 
 Changing `--lk-scalefactor` at the top therefore changes everything underneath it.
 
