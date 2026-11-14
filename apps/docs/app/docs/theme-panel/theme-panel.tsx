@@ -48,8 +48,8 @@ import type { ColorMode, SchemeVariant, ThemeSeedColors } from "./types";
 // Structural widths are fixed (rem), not length tokens: length tokens grow with the Scale Factor's powers, so the
 // panel would collapse or balloon while you drag the very sliders it contains. Fonts, spacing, and corners still
 // follow the theme.
-const PANEL_WIDTH = { width: "var(--lk-base-5xl" };
-const LABEL_COLUMN = { width: "var(--lk-base-3xl" };
+const PANEL_WIDTH = { width: "20rem" };
+const LABEL_COLUMN = { width: "7rem" };
 
 /** A labeled block of controls. */
 function PanelSection({ label, children }: { label: string; children: ReactNode }) {
@@ -331,6 +331,7 @@ function ThemePanelContent() {
 export function ThemePanel() {
   return (
     <aside
+      data-theme-panel
       className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest shadow-lg rounded-sm "
       style={PANEL_WIDTH}
     >
