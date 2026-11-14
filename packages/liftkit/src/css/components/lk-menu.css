@@ -14,7 +14,7 @@
   padding: var(--lk-base-2xs) var(--lk-base-xs);
   line-height: var(--lk-halfstep);
 
-  border-width: var(--lk-base-5xs);
+  border-width: 1px; /* fixed: borders don't follow the scale factor */
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 

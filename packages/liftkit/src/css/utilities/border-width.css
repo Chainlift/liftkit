@@ -1,45 +1,47 @@
 @import "./liftkit-core.css";
 
+/* Border widths are fixed: they follow the font size but not the scale factor (the values are the 1.618 ladder). */
+
 .border-width-1 {
   border-width: 1px;
 }
 
 .border-width-3xs {
-  border-width: var(--lk-base-3xs);
+  border-width: 0.146em;
 }
 
 .border-width-2xs {
-  border-width: var(--lk-base-2xs);
+  border-width: 0.236em;
 }
 
 .border-width-xs {
-  border-width: var(--lk-base-xs);
+  border-width: 0.382em;
 }
 
 .border-width-sm {
-  border-width: var(--lk-base-sm);
+  border-width: 0.618em;
 }
 
 .border-width-md {
-  border-width: var(--lk-base-md);
+  border-width: 1em;
 }
 
 .border-width-lg {
-  border-width: var(--lk-base-lg);
+  border-width: 1.618em;
 }
 
 .border-width-xl {
-  border-width: var(--lk-base-xl);
+  border-width: 2.618em;
 }
 
 .border-width-2xl {
-  border-width: var(--lk-base-2xl);
+  border-width: 4.236em;
 }
 
 .border-width-3xl {
-  border-width: var(--lk-base-3xl);
+  border-width: 6.854em;
 }
 
 .border-width-4xl {
-  border-width: var(--lk-base-4xl);
+  border-width: 11.09em;
 }
