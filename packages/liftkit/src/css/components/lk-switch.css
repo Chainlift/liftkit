@@ -18,12 +18,12 @@
 
   width: calc(var(--lk-base-lg) * var(--lk-halfstep));
   height: calc(var(--lk-base-md) * var(--lk-halfstep));
-  border-radius: 1.5rem;
+  border-radius: 100em;
   outline: 1px solid;
   outline-offset: -1px;
   background-color: transparent;
   background-image: linear-gradient(to right, var(--lk-successcontainer) 35%, var(--lk-outlinevariant) 65%);
-  background-size: 6.5rem 100%;
+  background-size: 320% 100%; /* wide enough that the green/grey edge always sits outside the track */
   background-position-x: 100%;
   background-repeat: no-repeat;
   transition-property: background-position, box-shadow;
@@ -77,9 +77,8 @@
   transition: transform 150ms ease;
 
   &[data-checked] {
-    transform: translateX(
-      calc(var(--lk-base-sm) * var(--lk-halfstep))
-    ); /* move it by 1 step down from the height. so if switch height is lg, move by md. */
+    /* track width minus track height (the thumb's size), so it lands at the end at any scale factor */
+    transform: translateX(calc((var(--lk-base-lg) - var(--lk-base-md)) * var(--lk-halfstep)));
   }
 
   @media (prefers-color-scheme: light) {
