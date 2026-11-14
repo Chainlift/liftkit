@@ -52,27 +52,23 @@ The scale factor is turned into a handful of "steps": the whole step (the scale 
 }
 ```
 
-#### 2. Per-family scale factors
+#### 2. Size tokens
 
-Typography, spacing, length and corner radii each get their own scale factor (`--lk-scalefactor-text`, `-spacing`, `-length` and `-corner`) and their own set of steps (`--lk-halfstep-text`, `--lk-halfstep-spacing`, and so on). They all default to 1.618, so out of the box they match the global one, but you can tune any of them without touching the others.
-
-#### 3. Size tokens
-
-Powers of a scale factor become a ladder of sizes from `5xs` to `5xl`, with `md` equal to `1em`. They're all in `em`, so they're relative to the font size of whatever element uses them. That's what makes a component scale with its text.
+Powers of the scale factor become a ladder of sizes from `5xs` to `5xl`, with `md` equal to `1em`. They're all in `em`, so they're relative to the font size of whatever element uses them. That's what makes a component scale with its text.
 
 ```css
 :root {
-  --lk-spacing-md: 1em;
-  --lk-spacing-sm: calc(1em * round(pow(var(--lk-scalefactor-spacing), -1), 0.001)); /* 0.618em */
-  --lk-spacing-lg: calc(1em * var(--lk-scalefactor-spacing)); /* 1.618em */
+  --lk-base-md: 1em;
+  --lk-base-sm: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001)); /* 0.618em */
+  --lk-base-lg: calc(1em * var(--lk-scalefactor)); /* 1.618em */
 }
 ```
 
-There's one ladder per family: `--lk-spacing-*` for gaps, padding and margins, `--lk-length-*` for widths and other fixed dimensions, and `--lk-corner-*` for border radii. The general-purpose `--lk-base-*` ladder is built from the global scale factor.
+One ladder covers everything: gaps, padding, margins, widths and border radii all use `--lk-base-*`. Each font class redefines the smaller and larger steps from its own line height, so spacing inside a `.heading` follows the heading's type.
 
-#### 4. Typography
+#### 3. Typography
 
-Font sizes, line heights and optical offsets for each font class (`display1` down to `capline`) are built from the text steps. `--lk-title2-font-size`, for example, is one whole step above body text, and `--lk-body-line-height` is a whole step.
+Font sizes, line heights and optical offsets for each font class (`display1` down to `capline`) are built from the same steps. `--lk-title2-font-size`, for example, is one whole step above body text, and `--lk-body-line-height` is a whole step.
 
 Changing `--lk-scalefactor` at the top therefore changes everything underneath it.
 

@@ -6,7 +6,7 @@ import { useLayoutEffect, useRef, useState } from "react";
  * Docs-only (not LiftKit): draws a token as a line of exactly its computed width, plus the width as text.
  * The end caps sit outside the line, so only the segment itself is the measurement. A ResizeObserver
  * re-reads the width whenever the theme panel changes anything the token depends on. Unitless tokens
- * (the scale factors) are drawn as that many em at 1em = 16px and read out as a plain number.
+ * (the scale factor) are drawn as that many em at 1em = 16px and read out as a plain number.
  */
 export function TokenLine({ width: cssWidth, unitlessVar }: { width: string; unitlessVar?: string }) {
   const lineRef = useRef<HTMLSpanElement>(null);

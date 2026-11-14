@@ -44,22 +44,7 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
         seedColors: deriveSeedColors(state.masterSeed, action.variant),
       };
     case "SET_SCALE_FACTOR":
-      // The global factor drives all the others; they only differ when edited afterwards.
-      return {
-        ...state,
-        scaleFactor: action.value,
-        scaleFactorCorner: action.value,
-        scaleFactorTypography: action.value,
-        scaleFactorSpacing: action.value,
-      };
-    case "SET_SCALE_FACTOR_CORNER":
-      return { ...state, scaleFactorCorner: action.value };
-    case "SET_SCALE_FACTOR_TYPOGRAPHY":
-      return { ...state, scaleFactorTypography: action.value };
-    case "SET_SCALE_FACTOR_LENGTH":
-      return { ...state, scaleFactorLength: action.value };
-    case "SET_SCALE_FACTOR_SPACING":
-      return { ...state, scaleFactorSpacing: action.value };
+      return { ...state, scaleFactor: action.value };
     case "RESET":
       return DEFAULT_THEME_STATE;
     case "LOAD":
@@ -95,7 +80,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!initialized.current) return;
     const timeout = setTimeout(() => saveTheme(state), 300);
     return () => clearTimeout(timeout);
-  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant, state.scaleFactor, state.scaleFactorCorner, state.scaleFactorTypography, state.scaleFactorLength, state.scaleFactorSpacing]);
+  }, [state.masterSeed, state.seedColors, state.toneOverrides, state.colorMode, state.schemeVariant, state.scaleFactor]);
 
   return (
     <ThemeContext value={{ state, dispatch }}>

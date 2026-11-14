@@ -11,7 +11,7 @@ export type SheetToken = { name: string; latex: string; width: string; unitlessV
 export type SheetCategory = { title: string; tokens: SheetToken[] };
 
 const SIZE_ORDER = ["5xs", "4xs", "3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"];
-// Smallest to largest at the default scale; the sheet keeps this order while the scale factors move.
+// Smallest to largest at the default scale; the sheet keeps this order while the scale factor moves.
 const FONT_CLASS_ORDER = [
   "caption",
   "capline",
@@ -29,19 +29,12 @@ const FONT_CLASS_ORDER = [
 
 const CATEGORIES: { title: string; pattern: RegExp; order: string[] }[] = [
   { title: "Size (base)", pattern: /^--lk-base-(?!.*unitless)(.+)$/, order: SIZE_ORDER },
-  { title: "Spacing", pattern: /^--lk-spacing-(.+)$/, order: SIZE_ORDER },
-  { title: "Corner radius", pattern: /^--lk-corner-(.+)$/, order: SIZE_ORDER },
-  { title: "Length", pattern: /^--lk-length-(.+)$/, order: SIZE_ORDER },
   { title: "Font size", pattern: /^--lk-(.+)-font-size$/, order: FONT_CLASS_ORDER },
   { title: "Font class offset", pattern: /^--lk-(.+)-offset$/, order: FONT_CLASS_ORDER },
 ];
 
 const CONSTANTS = [
   "--lk-scalefactor",
-  "--lk-scalefactor-corner",
-  "--lk-scalefactor-spacing",
-  "--lk-scalefactor-text",
-  "--lk-scalefactor-length",
 ];
 
 const STEPS = [
@@ -62,7 +55,7 @@ export function readSheetCategories(): SheetCategory[] {
     if (!declarations.has(name)) declarations.set(name, value.replace(/\s+/g, " ").trim());
   }
 
-  // The foundation everything else derives from: the root font size, then the scale factors (as their declared defaults)
+  // The foundation everything else derives from: the root font size, then the scale factor (as its declared default)
   const rootFontSize = css.match(/:root\s*\{[^}]*?\bfont-size:\s*([^;]+);/)?.[1].trim() ?? "1rem";
   const constants: SheetCategory = {
     title: "Constants",

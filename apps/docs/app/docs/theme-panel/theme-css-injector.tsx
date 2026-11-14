@@ -32,7 +32,7 @@ export function ThemeCSSInjector() {
 
     let css: string;
 
-    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};\n  --lk-scalefactor-corner: ${state.scaleFactorCorner};\n  --lk-scalefactor-text: ${state.scaleFactorTypography};\n  --lk-scalefactor-length: ${state.scaleFactorLength};\n  --lk-scalefactor-spacing: ${state.scaleFactorSpacing};`;
+    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};`;
 
     if (state.colorMode === "system") {
       // Inject both schemes; let the browser pick via media query
@@ -49,10 +49,6 @@ export function ThemeCSSInjector() {
     resolved,
     state.colorMode,
     state.scaleFactor,
-    state.scaleFactorCorner,
-    state.scaleFactorTypography,
-    state.scaleFactorLength,
-    state.scaleFactorSpacing,
   ]);
 
   return null;

@@ -41,14 +41,14 @@ import {
 } from "liftkit";
 import { useTheme } from "./theme-context";
 import { downloadThemeCSS } from "./theme-export";
-import type { ColorMode, SchemeVariant, ThemeAction, ThemeSeedColors, ThemeState } from "./types";
+import type { ColorMode, SchemeVariant, ThemeSeedColors } from "./types";
 
 // ─── Layout pieces ──────────────────────────────────────
 
 // Structural widths are fixed (rem), not length tokens: length tokens grow with the Scale Factor's powers, so the
 // panel would collapse or balloon while you drag the very sliders it contains. Fonts, spacing, and corners still
 // follow the theme.
-const PANEL_WIDTH = { width: "var(--lk-length-5xl" };
+const PANEL_WIDTH = { width: "var(--lk-base-5xl" };
 const LABEL_COLUMN = { width: "var(--lk-base-3xl" };
 
 /** A labeled block of controls. */
@@ -128,31 +128,6 @@ function SliderWithNumber({
     </div>
   );
 }
-
-// ─── Scale factors ──────────────────────────────────────
-
-const SCALE_FACTORS: {
-  label: string;
-  stateKey: keyof ThemeState & `scaleFactor${string}`;
-  action: (value: number) => ThemeAction;
-}[] = [
-  { label: "Global", stateKey: "scaleFactor", action: (value) => ({ type: "SET_SCALE_FACTOR", value }) },
-  {
-    label: "Corner radii",
-    stateKey: "scaleFactorCorner",
-    action: (value) => ({ type: "SET_SCALE_FACTOR_CORNER", value }),
-  },
-  {
-    label: "Type scale",
-    stateKey: "scaleFactorTypography",
-    action: (value) => ({ type: "SET_SCALE_FACTOR_TYPOGRAPHY", value }),
-  },
-  {
-    label: "Spacing",
-    stateKey: "scaleFactorSpacing",
-    action: (value) => ({ type: "SET_SCALE_FACTOR_SPACING", value }),
-  },
-];
 
 // ─── Seed colors ────────────────────────────────────────
 
@@ -301,20 +276,15 @@ function ThemePanelContent() {
                 </div>
               </div>
             </GoldenBox>
-            <PanelSection label="Scale Factors">
-              <div className="flex flex-col gap-2xs">
-                {SCALE_FACTORS.map(({ label, stateKey, action }) => (
-                  <SliderWithNumber
-                    key={stateKey}
-                    label={label}
-                    value={state[stateKey]}
-                    min={1}
-                    max={2}
-                    step={0.001}
-                    onChange={(value) => dispatch(action(value))}
-                  />
-                ))}
-              </div>
+            <PanelSection label="Scale Factor">
+              <SliderWithNumber
+                label="Global"
+                value={state.scaleFactor}
+                min={1}
+                max={2}
+                step={0.001}
+                onChange={(value) => dispatch({ type: "SET_SCALE_FACTOR", value })}
+              />
             </PanelSection>
 
             <PanelSection label="Color Mode">
