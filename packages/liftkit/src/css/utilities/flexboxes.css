@@ -103,8 +103,8 @@
 .flex-wrap-children {
   display: flex;
   flex-wrap: wrap;
-  column-gap: var(--lk-spacing-sm);
-  row-gap: var(--lk-spacing-sm);
+  column-gap: var(--lk-base-sm);
+  row-gap: var(--lk-base-sm);
 }
 
 .fill-container {

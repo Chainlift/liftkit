@@ -7,7 +7,7 @@
   margin: 0;
   outline: 0;
   border: 0;
-  border-radius: var(--lk-corner-xs);
+  border-radius: var(--lk-base-xs);
   background-color: transparent;
   color: var(--lk-onsurface);
   user-select: none;
@@ -41,8 +41,8 @@
   line-height: var(--lk-subheading-line-height);
   display: flex;
   flex-direction: column;
-  padding: var(--lk-spacing-xs) var(--lk-spacing-sm);
-  border-radius: var(--lk-corner-xs);
+  padding: var(--lk-base-xs) var(--lk-base-sm);
+  border-radius: var(--lk-base-xs);
   background-color: var(--lk-inversesurface);
   color: var(--lk-inverseonsurface);
   transform-origin: var(--transform-origin);

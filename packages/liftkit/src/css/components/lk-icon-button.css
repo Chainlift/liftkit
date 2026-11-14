@@ -10,14 +10,14 @@
   position: relative;
   border-radius: 100em;
   /* border: 1px solid transparent; */
-  padding: var(--lk-spacing-xs);
+  padding: var(--lk-base-xs);
   font-weight: 500;
   background: none;
   overflow: hidden;
   border: unset;
 
   &.rounded-sm {
-    border-radius: var(--lk-corner-sm);
+    border-radius: var(--lk-base-sm);
   }
 }
 

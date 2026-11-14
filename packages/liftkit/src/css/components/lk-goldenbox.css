@@ -19,7 +19,7 @@
 
 :where([data-lk-golden-box-scale-factor="zero"]) {
   padding: 0;
-  border-radius: var(--lk-corner-sm);
+  border-radius: var(--lk-base-sm);
 }
 
 :where([data-lk-golden-box-scale-factor="display1"]) {

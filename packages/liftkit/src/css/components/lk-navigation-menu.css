@@ -16,13 +16,13 @@
 
 :where([data-slot="navigation-menu-trigger"]) {
   box-sizing: border-box;
-  gap: var(--lk-spacing-xs);
-  padding-block: var(--lk-spacing-2xs);
-  padding-inline: calc(var(--lk-spacing-md) / var(--lk-halfstep-spacing));
+  gap: var(--lk-base-xs);
+  padding-block: var(--lk-base-2xs);
+  padding-inline: calc(var(--lk-base-md) / var(--lk-halfstep));
   margin: 0;
   outline: 0;
   border: 1px solid transparent; /* Needed to ensure height is the same as similarly-shaped elements */
-  border-radius: var(--lk-corner-2xs);
+  border-radius: var(--lk-base-2xs);
   background-color: transparent;
   font-family: inherit;
 
@@ -121,7 +121,7 @@
 :where([data-slot="navigation-menu-popup"]) {
   position: relative;
   box-sizing: border-box;
-  border-radius: var(--lk-corner-sm);
+  border-radius: var(--lk-base-sm);
   background-color: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
@@ -165,7 +165,7 @@
   transition:
     opacity calc(var(--duration) * 0.5) ease,
     transform var(--duration) var(--easing);
-  padding: var(--lk-spacing-md);
+  padding: var(--lk-base-md);
   width: calc(100vw - var(--lk-base-2xl));
   height: 100%;
 
@@ -236,7 +236,7 @@
   box-sizing: border-box;
   display: block;
   padding: 0.5rem;
-  border-radius: var(--lk-corner-xs);
+  border-radius: var(--lk-base-xs);
   text-decoration: none;
   color: inherit;
   border: none;

@@ -1,20 +1,20 @@
 :where(label:has([data-slot="checkbox"])) {
   display: flex;
   align-items: center;
-  gap: var(--lk-spacing-sm);
+  gap: var(--lk-base-sm);
   font-size: 1em;
-  line-height: var(--lk-halfstep-text);
+  line-height: var(--lk-halfstep);
   color: var(--lk-onsurface);
 }
 
 :where([data-slot="checkbox"]) {
   box-sizing: border-box;
   display: flex;
-  width: calc(var(--lk-base-md) * var(--lk-halfstep-length));
-  height: calc(var(--lk-base-md) * var(--lk-halfstep-length));
+  width: calc(var(--lk-base-md) * var(--lk-halfstep));
+  height: calc(var(--lk-base-md) * var(--lk-halfstep));
   align-items: center;
   justify-content: center;
-  border-radius: var(--lk-corner-2xs);
+  border-radius: var(--lk-base-2xs);
   outline: 0;
   padding: 0;
   margin: 0;
@@ -45,7 +45,7 @@
   }
 
   [data-slot="checkbox-indicator-icon"] {
-    width: var(--lk-length-sm);
-    height: var(--lk-length-sm);
+    width: var(--lk-base-sm);
+    height: var(--lk-base-sm);
   }
 }

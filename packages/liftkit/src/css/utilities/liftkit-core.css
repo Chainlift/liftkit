@@ -7,12 +7,6 @@
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
 
-  /* OPTIONALLY: You can set individual scale factors for spacing, corner radii, and typography */
-  --lk-scalefactor-corner: 1.618;
-  --lk-scalefactor-spacing: 1.618;
-  --lk-scalefactor-text: 1.618;
-  --lk-scalefactor-length: 1.618;
-
   --lk-wholestep: var(--lk-scalefactor);
   /* equals scalefactor */
   /* 1.272 */
@@ -31,44 +25,6 @@
   --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
   /* eighthstep -1 */
 
-  /* specific scale factors for typography, spacing, length, etc. by default they're functionally identical to the core ones */
-
-  --lk-wholestep-text: var(--lk-scalefactor-text);
-  --lk-halfstep-text: calc(round(pow(var(--lk-scalefactor-text), 0.5), 0.001));
-  --lk-quarterstep-text: round(pow(var(--lk-scalefactor-text), 0.25), 0.001);
-  --lk-eighthstep-text: round(pow(var(--lk-scalefactor-text), 0.125), 0.001);
-  --lk-wholestep-dec-text: calc(var(--lk-wholestep-text) - 1);
-  --lk-halfstep-dec-text: calc(var(--lk-halfstep-text) - 1);
-  --lk-quarterstep-dec-text: calc(var(--lk-quarterstep-text) - 1);
-  --lk-eighthstep-dec-text: calc(var(--lk-eighthstep-text) - 1);
-
-  --lk-wholestep-spacing: var(--lk-scalefactor-spacing);
-  --lk-halfstep-spacing: calc(round(pow(var(--lk-scalefactor-spacing), 0.5), 0.001));
-  --lk-quarterstep-spacing: round(pow(var(--lk-scalefactor-spacing), 0.25), 0.001);
-  --lk-eighthstep-spacing: round(pow(var(--lk-scalefactor-spacing), 0.125), 0.001);
-  --lk-wholestep-dec-spacing: calc(var(--lk-wholestep-spacing) - 1);
-  --lk-halfstep-dec-spacing: calc(var(--lk-halfstep-spacing) - 1);
-  --lk-quarterstep-dec-spacing: calc(var(--lk-quarterstep-spacing) - 1);
-  --lk-eighthstep-dec-spacing: calc(var(--lk-eighthstep-spacing) - 1);
-
-  --lk-wholestep-length: var(--lk-scalefactor-length);
-  --lk-halfstep-length: calc(round(pow(var(--lk-scalefactor-length), 0.5), 0.001));
-  --lk-quarterstep-length: round(pow(var(--lk-scalefactor-length), 0.25), 0.001);
-  --lk-eighthstep-length: round(pow(var(--lk-scalefactor-length), 0.125), 0.001);
-  --lk-wholestep-dec-length: calc(var(--lk-wholestep-length) - 1);
-  --lk-halfstep-dec-length: calc(var(--lk-halfstep-length) - 1);
-  --lk-quarterstep-dec-length: calc(var(--lk-quarterstep-length) - 1);
-  --lk-eighthstep-dec-length: calc(var(--lk-eighthstep-length) - 1);
-
-  --lk-wholestep-corner: var(--lk-scalefactor-corner);
-  --lk-halfstep-corner: calc(round(pow(var(--lk-scalefactor-corner), 0.5), 0.001));
-  --lk-quarterstep-corner: round(pow(var(--lk-scalefactor-corner), 0.25), 0.001);
-  --lk-eighthstep-corner: round(pow(var(--lk-scalefactor-corner), 0.125), 0.001);
-  --lk-wholestep-dec-corner: calc(var(--lk-wholestep-corner) - 1);
-  --lk-halfstep-dec-corner: calc(var(--lk-halfstep-corner) - 1);
-  --lk-quarterstep-dec-corner: calc(var(--lk-quarterstep-corner) - 1);
-  --lk-eighthstep-dec-corner: calc(var(--lk-eighthstep-corner) - 1);
-
   --lk-base-md: 1em;
   /* It's okay to use em here because the root font size
                   has been manually set to 1rem */
@@ -86,68 +42,6 @@
   --lk-base-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
   --lk-base-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
   --lk-base-5xl: calc(1em * round(pow(var(--lk-scalefactor), 6), 0.001));
-
-  /* size tokens for corner radii */
-  --lk-corner-md: 1em;
-  /* It's okay to use em here because the root font size
-                  has been manually set to 1rem */
-  --lk-corner-sm: calc(1em * round(pow(var(--lk-scalefactor-corner), -1), 0.001)); /* .618 em */
-  --lk-corner-xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -2), 0.001)); /* .382 em */
-  --lk-corner-2xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -3), 0.001)); /* .236 em */
-  --lk-corner-3xs: calc(1em * round(pow(var(--lk-scalefactor-corner), -4), 0.001)); /* .146 em */
-  /* "super smalls" only used for border widths and thin lines */
-  --lk-corner-4xs: calc(
-    1em * round(pow(var(--lk-scalefactor-corner), -5), 0.001)
-  ); /* When 1rem = 16px, equals roughly 2px */
-  --lk-corner-5xs: calc(
-    1em * round(pow(var(--lk-scalefactor-corner), -6), 0.001)
-  ); /* When 1rem = 16px, equals roughly 1px */
-  --lk-corner-lg: calc(1em * var(--lk-scalefactor-corner));
-  --lk-corner-xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 2), 0.001));
-  /* --lk-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001)); */
-  --lk-corner-2xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 3), 0.001));
-  --lk-corner-3xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 4), 0.001));
-  --lk-corner-4xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 5), 0.001));
-  --lk-corner-5xl: calc(1em * round(pow(var(--lk-scalefactor-corner), 6), 0.001));
-
-  /* tokens for length */
-  --lk-length-md: 1em;
-  /* It's okay to use em here because the root font size
-                  has been manually set to 1rem */
-  --lk-length-sm: calc(1em * round(pow(var(--lk-scalefactor-length), -1), 0.001)); /* .618 em */
-  --lk-length-xs: calc(1em * round(pow(var(--lk-scalefactor-length), -2), 0.001)); /* .382 em */
-  --lk-length-2xs: calc(1em * round(pow(var(--lk-scalefactor-length), -3), 0.001)); /* .236 em */
-  --lk-length-3xs: calc(1em * round(pow(var(--lk-scalefactor-length), -4), 0.001)); /* .146 em */
-  /* "super smalls" only used for border widths and thin lines */
-  --lk-length-4xs: calc(
-    1em * round(pow(var(--lk-scalefactor-length), -5), 0.001)
-  ); /* When 1rem = 16px, equals roughly 2px */
-  --lk-length-5xs: calc(
-    1em * round(pow(var(--lk-scalefactor-length), -6), 0.001)
-  ); /* When 1rem = 16px, equals roughly 1px */
-  --lk-length-lg: calc(1em * var(--lk-scalefactor-length));
-  --lk-length-xl: calc(1em * round(pow(var(--lk-scalefactor-length), 2), 0.001));
-  /* --lk-length-2xl: calc(1em * round(pow(var(--lk-scalefactor-length), 3), 0.001)); */
-  --lk-length-2xl: calc(1em * round(pow(var(--lk-scalefactor-length), 3), 0.001));
-  --lk-length-3xl: calc(1em * round(pow(var(--lk-scalefactor-length), 4), 0.001));
-  --lk-length-4xl: calc(1em * round(pow(var(--lk-scalefactor-length), 5), 0.001));
-  --lk-length-5xl: calc(1em * round(pow(var(--lk-scalefactor-length), 6), 0.001));
-
-  /* tokens for spacing */
-  --lk-spacing-md: 1em;
-  --lk-spacing-sm: calc(1em * round(pow(var(--lk-scalefactor-spacing), -1), 0.001));
-  --lk-spacing-xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -2), 0.001));
-  --lk-spacing-2xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -3), 0.001));
-  --lk-spacing-3xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -4), 0.001));
-  /* "super smalls" only used for border widths and thin lines */
-  --lk-spacing-4xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -5), 0.001));
-  --lk-spacing-5xs: calc(1em * round(pow(var(--lk-scalefactor-spacing), -6), 0.001));
-  --lk-spacing-lg: calc(1em * var(--lk-scalefactor-spacing));
-  --lk-spacing-xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 2), 0.001));
-  --lk-spacing-2xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 3), 0.001));
-  --lk-spacing-3xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 4), 0.001));
-  --lk-spacing-4xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 5), 0.001));
-  --lk-spacing-5xl: calc(1em * round(pow(var(--lk-scalefactor-spacing), 6), 0.001));
 
   /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
   /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
@@ -365,33 +259,33 @@
    * In division, the right side must be unitless.
   */
 
-  --lk-display1-font-size: calc(1em * pow(var(--lk-wholestep-text), 3));
-  --lk-display2-font-size: calc(1em * pow(var(--lk-wholestep-text), 2));
-  --lk-title1-font-size: calc(1em * var(--lk-wholestep-text) * var(--lk-halfstep-text));
-  --lk-title2-font-size: calc(1em * var(--lk-wholestep-text));
-  --lk-title3-font-size: calc(1em * var(--lk-halfstep-text));
-  --lk-heading-font-size: calc(1em * var(--lk-quarterstep-text));
-  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep-text));
+  --lk-display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
+  --lk-display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
+  --lk-title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
+  --lk-title2-font-size: calc(1em * var(--lk-wholestep));
+  --lk-title3-font-size: calc(1em * var(--lk-halfstep));
+  --lk-heading-font-size: calc(1em * var(--lk-quarterstep));
+  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep));
   --lk-body-font-size: 1em;
-  --lk-callout-font-size: calc(1em / var(--lk-eighthstep-text));
-  --lk-label-font-size: calc((1em / var(--lk-quarterstep-text)) / var(--lk-eighthstep-text));
-  --lk-caption-font-size: calc(1em / var(--lk-halfstep-text));
-  --lk-capline-font-size: calc(1em / var(--lk-halfstep-text));
+  --lk-callout-font-size: calc(1em / var(--lk-eighthstep));
+  --lk-label-font-size: calc((1em / var(--lk-quarterstep)) / var(--lk-eighthstep));
+  --lk-caption-font-size: calc(1em / var(--lk-halfstep));
+  --lk-capline-font-size: calc(1em / var(--lk-halfstep));
 
   /* Font Line Height Vars (UNITLESS!) */
 
-  --lk-display1-line-height: var(--lk-quarterstep-text);
-  --lk-display2-line-height: var(--lk-halfstep-text);
-  --lk-title1-line-height: var(--lk-halfstep-text);
-  --lk-title2-line-height: var(--lk-halfstep-text);
-  --lk-title3-line-height: var(--lk-halfstep-text);
-  --lk-heading-line-height: var(--lk-halfstep-text);
-  --lk-subheading-line-height: var(--lk-halfstep-text);
-  --lk-body-line-height: var(--lk-wholestep-text);
-  --lk-callout-line-height: var(--lk-halfstep-text);
-  --lk-label-line-height: var(--lk-halfstep-text);
-  --lk-caption-line-height: var(--lk-halfstep-text);
-  --lk-capline-line-height: var(--lk-halfstep-text);
+  --lk-display1-line-height: var(--lk-quarterstep);
+  --lk-display2-line-height: var(--lk-halfstep);
+  --lk-title1-line-height: var(--lk-halfstep);
+  --lk-title2-line-height: var(--lk-halfstep);
+  --lk-title3-line-height: var(--lk-halfstep);
+  --lk-heading-line-height: var(--lk-halfstep);
+  --lk-subheading-line-height: var(--lk-halfstep);
+  --lk-body-line-height: var(--lk-wholestep);
+  --lk-callout-line-height: var(--lk-halfstep);
+  --lk-label-line-height: var(--lk-halfstep);
+  --lk-caption-line-height: var(--lk-halfstep);
+  --lk-capline-line-height: var(--lk-halfstep);
 
   /* Font weights */
 
@@ -413,30 +307,30 @@
      optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
 
   --lk-display1-offset: calc(
-    var(--lk-display1-font-size) * calc(var(--lk-display1-line-height) / var(--lk-wholestep-text))
+    var(--lk-display1-font-size) * calc(var(--lk-display1-line-height) / var(--lk-wholestep))
   );
   --lk-display2-offset: calc(
-    var(--lk-display2-font-size) * calc(var(--lk-display2-line-height) / var(--lk-wholestep-text))
+    var(--lk-display2-font-size) * calc(var(--lk-display2-line-height) / var(--lk-wholestep))
   );
-  --lk-title1-offset: calc(var(--lk-title1-font-size) * calc(var(--lk-title1-line-height) / var(--lk-wholestep-text)));
-  --lk-title2-offset: calc(var(--lk-title2-font-size) * calc(var(--lk-title2-line-height) / var(--lk-wholestep-text)));
-  --lk-title3-offset: calc(var(--lk-title3-font-size) * calc(var(--lk-title3-line-height) / var(--lk-wholestep-text)));
+  --lk-title1-offset: calc(var(--lk-title1-font-size) * calc(var(--lk-title1-line-height) / var(--lk-wholestep)));
+  --lk-title2-offset: calc(var(--lk-title2-font-size) * calc(var(--lk-title2-line-height) / var(--lk-wholestep)));
+  --lk-title3-offset: calc(var(--lk-title3-font-size) * calc(var(--lk-title3-line-height) / var(--lk-wholestep)));
   --lk-heading-offset: calc(
-    var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep-text))
+    var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep))
   );
   --lk-subheading-offset: calc(
-    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep-text))
+    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep))
   );
-  --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep-text));
+  --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep));
   --lk-callout-offset: calc(
-    var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep-text))
+    var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep))
   );
-  --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep-text)));
+  --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep)));
   --lk-caption-offset: calc(
-    var(--lk-caption-font-size) * calc(var(--lk-caption-line-height) / var(--lk-wholestep-text))
+    var(--lk-caption-font-size) * calc(var(--lk-caption-line-height) / var(--lk-wholestep))
   );
   --lk-capline-offset: calc(
-    var(--lk-capline-font-size) * calc(var(--lk-capline-line-height) / var(--lk-wholestep-text))
+    var(--lk-capline-font-size) * calc(var(--lk-capline-line-height) / var(--lk-wholestep))
   );
 
   --lk-display1-letter-spacing: -0.022em;
@@ -681,9 +575,9 @@ a {
 }
 
 .swatch {
-  padding: calc(1.272em / var(--lk-base-xl-unitless)) var(--lk-spacing-sm);
+  padding: calc(1.272em / var(--lk-base-xl-unitless)) var(--lk-base-sm);
   border-radius: var(--lk-base-xs);
-  margin: var(--lk-spacing-sm) 0;
+  margin: var(--lk-base-sm) 0;
 }
 
 h1,
@@ -713,7 +607,7 @@ button span {
 
 ul,
 li {
-  line-height: var(--lk-halfstep-text);
+  line-height: var(--lk-halfstep);
 }
 
 /* utility class for elements that should only be accessible to screen readers */

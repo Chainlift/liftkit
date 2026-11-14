@@ -2,11 +2,11 @@
   --lk-btn-bg: var(--lk-color-token);
   --lk-btn-fg: var(--lk-color-ontoken);
 
-  --button-line-height: var(--lk-halfstep-text) !important;
+  --button-line-height: var(--lk-halfstep) !important;
   --button-padX: 1em;
-  --button-padY: calc(1em * calc(var(--lk-halfstep-text) / var(--lk-base-xl-unitless)));
-  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep-text));
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
+  --button-padY: calc(1em * calc(var(--lk-halfstep) / var(--lk-base-xl-unitless)));
+  --button-padX-sideWithIcon: calc(1em / var(--lk-wholestep));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
 
   box-sizing: border-box;
   display: inline-flex;
@@ -46,7 +46,7 @@
 :where([data-slot="toast-viewport"]) {
   position: fixed;
   z-index: 1;
-  width: var(--lk-length-5xl);
+  width: var(--lk-base-5xl);
   margin: 0 auto;
   bottom: var(--lk-base-md);
   right: var(--lk-base-md);
@@ -56,12 +56,12 @@
   @media (min-width: 500px) {
     bottom: var(--lk-base-lg);
     right: var(--lk-base-lg);
-    width: var(--lk-length-5xl);
+    width: var(--lk-base-5xl);
   }
 }
 
 :where([data-slot="toast"]) {
-  --gap: var(--lk-spacing-sm);
+  --gap: var(--lk-base-sm);
   --peek: var(--lk-base-sm);
   --scale: calc(max(0, 1 - (var(--toast-index) * 0.1)));
   --shrink: calc(1 - var(--scale));
@@ -74,11 +74,11 @@
   background: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   /* border: 1px solid var(--lk-outlinevariant); */
-  padding: var(--lk-spacing-md);
+  padding: var(--lk-base-md);
   width: 100%;
   box-shadow: var(--lk-shadow-lg);
   background-clip: padding-box;
-  border-radius: var(--lk-corner-sm);
+  border-radius: var(--lk-base-sm);
   transform-origin: bottom center;
   bottom: 0;
   left: auto;
@@ -157,7 +157,7 @@
   font-size: var(--lk-callout-font-size);
   line-height: var(--lk-callout-line-height);
   margin: 0;
-  margin-bottom: var(--lk-spacing-xs);
+  margin-bottom: var(--lk-base-xs);
 }
 
 :where([data-slot="toast-description"]) {
@@ -174,12 +174,12 @@
   padding: 0;
   border: none;
   background: transparent;
-  width: calc(var(--lk-base-md) * var(--lk-halfstep-length));
-  width: calc(var(--lk-base-md) * var(--lk-halfstep-length));
+  width: calc(var(--lk-base-md) * var(--lk-halfstep));
+  width: calc(var(--lk-base-md) * var(--lk-halfstep));
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--lk-corner-xs);
+  border-radius: var(--lk-base-xs);
 
   &:hover {
     background-color: var(--lk-surfacedim);

@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-row-gap: var(--lk-spacing-sm);
+  grid-row-gap: var(--lk-base-sm);
   /* width: 12rem; */
 }
 
@@ -30,7 +30,7 @@
   background-color: var(--lk-surfacecontainerhighest);
   box-shadow: inset 0 0 0 1px var(--lk-outlinevariant);
   border-radius: 100em;
-  height: var(--lk-length-xs);
+  height: var(--lk-base-xs);
 }
 
 :where([data-slot="meter-indicator"]) {

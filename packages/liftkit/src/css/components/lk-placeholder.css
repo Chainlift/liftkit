@@ -6,8 +6,8 @@
   align-self: stretch;
   align-items: center;
   justify-content: center;
-  padding: var(--lk-spacing-md);
+  padding: var(--lk-base-md);
   background-color: var(--lk-surfacecontainerlow);
   outline: 1px solid var(--lk-outline);
-  border-radius: var(--lk-corner-xs);
+  border-radius: var(--lk-base-xs);
 }

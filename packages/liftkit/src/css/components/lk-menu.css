@@ -1,7 +1,7 @@
 :where([data-slot="menu-trigger"]) {
   --lk-color-token: var(--lk-primary);
 
-  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep-text));
+  --button-gap: calc(var(--button-padY) / var(--lk-eighthstep));
   cursor: pointer;
 
   display: inline-flex;
@@ -11,14 +11,14 @@
   color: var(--lk-onsurface);
   gap: var(--button-gap);
   position: relative;
-  padding: var(--lk-spacing-2xs) var(--lk-spacing-xs);
-  line-height: var(--lk-halfstep-text);
+  padding: var(--lk-base-2xs) var(--lk-base-xs);
+  line-height: var(--lk-halfstep);
 
-  border-width: var(--lk-length-5xs);
+  border-width: var(--lk-base-5xs);
   border-style: solid;
   border-color: var(--lk-btn-border, transparent);
 
-  border-radius: var(--lk-corner-2xs);
+  border-radius: var(--lk-base-2xs);
   font-family: inherit;
   font-weight: 500;
   text-decoration: none;
@@ -57,14 +57,14 @@
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-block: var(--lk-spacing-2xs);
-  scroll-padding-block: var(--lk-spacing-sm);
-  border-radius: var(--lk-corner-xs);
+  padding-block: var(--lk-base-2xs);
+  scroll-padding-block: var(--lk-base-sm);
+  border-radius: var(--lk-base-xs);
   background-color: var(--lk-surface);
   scrollbar-color: var(--lk-outline) transparent;
   scrollbar-width: thin;
   color: var(--lk-onsurface);
-  max-height: min(var(--lk-length-5xl), var(--available-height));
+  max-height: min(var(--lk-base-5xl), var(--available-height));
   transition:
     opacity 0.1s,
     transform 0.1s;
@@ -134,14 +134,14 @@
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: var(--lk-spacing-sm);
-  padding-left: var(--lk-spacing-md);
-  padding-right: var(--lk-spacing-lg);
+  padding-block: var(--lk-base-sm);
+  padding-left: var(--lk-base-md);
+  padding-right: var(--lk-base-lg);
   display: flex;
-  gap: var(--lk-spacing-sm);
+  gap: var(--lk-base-sm);
   align-items: center;
   font-size: var(--lk-base-md);
-  line-height: var(--lk-length-md);
+  line-height: var(--lk-base-md);
   position: relative;
 
   &[data-highlighted] {
@@ -156,7 +156,7 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-base-2xs);
-    border-radius: var(--lk-corner-2xs);
+    border-radius: var(--lk-base-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }
@@ -166,14 +166,14 @@
   outline: 0;
   cursor: default;
   user-select: none;
-  padding-block: var(--lk-spacing-sm);
-  padding-left: var(--lk-spacing-md);
-  padding-right: var(--lk-spacing-md);
+  padding-block: var(--lk-base-sm);
+  padding-left: var(--lk-base-md);
+  padding-right: var(--lk-base-md);
   display: flex;
-  gap: var(--lk-spacing-xs);
+  gap: var(--lk-base-xs);
   align-items: center;
   font-size: var(--lk-base-md);
-  line-height: var(--lk-length-md);
+  line-height: var(--lk-base-md);
   position: relative;
 
   &[data-highlighted] {
@@ -188,13 +188,13 @@
     position: absolute;
     inset-block: 0;
     inset-inline: var(--lk-base-2xs);
-    border-radius: var(--lk-corner-2xs);
+    border-radius: var(--lk-base-2xs);
     background-color: var(--lk-surfacecontainerhigh);
   }
 }
 
 :where([data-slot="menu-separator"]) {
-  margin: var(--lk-spacing-xs) var(--lk-spacing-md);
+  margin: var(--lk-base-xs) var(--lk-base-md);
   height: 1px;
   background-color: var(--lk-outlinevariant);
 }
