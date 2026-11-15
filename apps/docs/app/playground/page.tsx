@@ -15,6 +15,7 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { ComponentMosaicV2 } from "@/app/docs/lib/component-mosaic-v2";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
+import { AllComponents } from "@/app/docs/lib/all-components";
 import { SystemSheet } from "@/app/docs/lib/system-sheet/system-sheet";
 import { ColorTones } from "./color-tones";
 
@@ -45,6 +46,7 @@ export default function PlayGround() {
           <Tabs defaultValue="components" className="flex-v w-full h-full bg-surface rounded-sm border border-color-outlinevariant">
             <TabsList className="border-b border-color-outlinevariant ">
               <TabsTab value="components">Components</TabsTab>
+              <TabsTab value="all-components">All Components</TabsTab>
               <TabsTab value="font-classes">Font Classes</TabsTab>
               <TabsTab value="colors">Colors</TabsTab>
               <TabsTab value="system">System</TabsTab>
@@ -56,6 +58,11 @@ export default function PlayGround() {
                   <TabsPanel value="components" className="flex-grow">
                     <Section padding="xl" className="w-full self-stretch ">
                       <ComponentMosaicV2 />
+                    </Section>
+                  </TabsPanel>
+                  <TabsPanel value="all-components" className="flex-grow">
+                    <Section padding="xl" className="w-full self-stretch ">
+                      <AllComponents />
                     </Section>
                   </TabsPanel>
                   <TabsPanel value="font-classes" className="flex-grow">
