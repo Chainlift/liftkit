@@ -440,7 +440,7 @@ export function ThemePanel() {
   return (
     <aside
       data-theme-panel
-      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest shadow-lg rounded-sm "
+      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest rounded-sm "
       style={PANEL_WIDTH}
     >
       <ThemePanelContent />

@@ -36,14 +36,14 @@ const FONT_CLASSES = [
 
 export default function PlayGround() {
   return (
-    <div className="fixed top-0 right-0 bottom-0 left-0 flex-v overflow-hidden bg-surfacecontainer">
+    <div className="fixed top-0 right-0 bottom-0 left-0 flex-v overflow-hidden bg-surfacecontainerlowest">
       <SiteHeader />
       <div className="flex flex-row items-start flex-grow  px-md pb-md gap-md ">
         <div className="flex flex-column h-full">
           <ThemePanel />
         </div>
         <div className="overflow-hidden h-full flex flex-col flex-grow ">
-          <Tabs defaultValue="components" className="flex-v w-full h-full bg-surface rounded-sm border border-color-outlinevariant">
+          <Tabs defaultValue="components" className="flex-v w-full h-full bg-surfacecontainerlowest rounded-sm border border-color-outlinevariant">
             <TabsList className="border-b border-color-outlinevariant ">
               <TabsTab value="components">Components</TabsTab>
               <TabsTab value="all-components">All Components</TabsTab>
