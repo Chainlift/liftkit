@@ -28,7 +28,7 @@ export default function MenuDemo() {
             <MenuItem>Add to Playlist</MenuItem>
             <MenuSubmenuRoot>
               <MenuSubmenuTrigger>
-                Add to Your Playlist <ChevronDownIcon />
+                Add to Your Playlist
               </MenuSubmenuTrigger>
               <MenuPortal>
                 <MenuPositioner sideOffset={8}>

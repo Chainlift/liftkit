@@ -2,6 +2,7 @@
 
 import { cn } from "../../lib/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
+import { Icon } from "../icon/icon";
 import "../../css/components/lk-menu.css";
 
 function Menu({ ...props }: MenuPrimitive.Root.Props) {
@@ -40,8 +41,12 @@ function MenuSubmenuRoot({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
   return <MenuPrimitive.SubmenuRoot data-slot="menu-submenu-root" {...props} />;
 }
 
-function MenuSubmenuTrigger({ className, ...props }: MenuPrimitive.SubmenuTrigger.Props) {
-  return <MenuPrimitive.SubmenuTrigger data-slot="menu-submenu-trigger" className={cn(className)} {...props} />;
+function MenuSubmenuTrigger({ className, children, ...props }: MenuPrimitive.SubmenuTrigger.Props) {
+  return (
+    <MenuPrimitive.SubmenuTrigger data-slot="menu-submenu-trigger" className={cn(className)} {...props}>
+      {children} <Icon name="chevron-right" aria-hidden="true" />
+    </MenuPrimitive.SubmenuTrigger>
+  );
 }
 
 export {
