@@ -29,11 +29,14 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
     case "SET_TONE_OVERRIDE":
       return {
         ...state,
-        toneOverrides: { ...state.toneOverrides, [action.token]: action.tone },
+        toneOverrides: {
+          ...state.toneOverrides,
+          [action.scheme]: { ...state.toneOverrides[action.scheme], [action.token]: action.tone },
+        },
       };
     case "CLEAR_TONE_OVERRIDE": {
-      const { [action.token]: _, ...rest } = state.toneOverrides;
-      return { ...state, toneOverrides: rest };
+      const { [action.token]: _, ...rest } = state.toneOverrides[action.scheme];
+      return { ...state, toneOverrides: { ...state.toneOverrides, [action.scheme]: rest } };
     }
     case "SET_COLOR_MODE":
       return { ...state, colorMode: action.mode };

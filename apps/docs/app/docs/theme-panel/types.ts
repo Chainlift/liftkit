@@ -11,10 +11,13 @@ export interface ThemeSeedColors {
   info: string;
 }
 
-/** Sparse map of token name -> tone (0-100). Only overridden tokens appear. */
-export type ToneOverrides = Record<string, number>;
-
 export type ColorMode = "system" | "light" | "dark";
+
+/** The two color schemes a token's tone can be set for. */
+export type Scheme = "light" | "dark";
+
+/** Per scheme, a sparse map of token name -> tone (0-100). Only overridden tokens appear. */
+export type ToneOverrides = Record<Scheme, Record<string, number>>;
 
 export type SchemeVariant =
   | "tonalSpot"
@@ -41,8 +44,8 @@ export interface ResolvedTheme {
 export type ThemeAction =
   | { type: "SET_MASTER_SEED"; hex: string }
   | { type: "SET_SEED"; role: keyof ThemeSeedColors; hex: string }
-  | { type: "SET_TONE_OVERRIDE"; token: string; tone: number }
-  | { type: "CLEAR_TONE_OVERRIDE"; token: string }
+  | { type: "SET_TONE_OVERRIDE"; scheme: Scheme; token: string; tone: number }
+  | { type: "CLEAR_TONE_OVERRIDE"; scheme: Scheme; token: string }
   | { type: "SET_COLOR_MODE"; mode: ColorMode }
   | { type: "SET_SCHEME_VARIANT"; variant: SchemeVariant }
   | { type: "SET_SCALE_FACTOR"; value: number }

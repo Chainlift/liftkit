@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Hct, TonalPalette, argbFromHex, hexFromArgb } from "@material/material-color-utilities";
 import {
   Collapsible,
@@ -46,7 +46,7 @@ import {
 import { useTheme } from "./theme-context";
 import { TOKEN_MAP } from "./token-map";
 import { downloadThemeCSS } from "./theme-export";
-import type { ColorMode, SchemeVariant, ThemeSeedColors } from "./types";
+import type { ColorMode, Scheme, SchemeVariant, ThemeSeedColors } from "./types";
 
 // ─── Layout pieces ──────────────────────────────────────
 
@@ -196,6 +196,21 @@ function ToneRow({
   );
 }
 
+/** The scheme the tone sliders edit: the forced color mode, or the system's preference while on System. */
+function useEditedScheme(): Scheme {
+  const { state } = useTheme();
+  const [systemDark, setSystemDark] = useState(false);
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
+    const update = () => setSystemDark(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  if (state.colorMode !== "system") return state.colorMode;
+  return systemDark ? "dark" : "light";
+}
+
 function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string }) {
   const { state, dispatch } = useTheme();
   const group = TOKEN_MAP[groupName];
@@ -207,8 +222,8 @@ function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string
 
   if (!group) return null;
 
-  // Show the tones for the mode being edited (light unless dark is forced)
-  const viewMode = state.colorMode === "dark" ? "dark" : "light";
+  // Show and edit the tones of the selected color mode
+  const viewMode = useEditedScheme();
 
   return (
     // Collapsible ships with a fixed 14rem x 9rem size, so size it to the panel instead
@@ -220,8 +235,8 @@ function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string
       <CollapsiblePanel>
         <GoldenBox scaleFactor="label" opticalCorrection="y">
           {Object.entries(group.tokens).map(([tokenName, def]) => {
-            const isOverridden = tokenName in state.toneOverrides;
-            const tone = state.toneOverrides[tokenName] ?? def.defaultTone[viewMode];
+            const isOverridden = tokenName in state.toneOverrides[viewMode];
+            const tone = state.toneOverrides[viewMode][tokenName] ?? def.defaultTone[viewMode];
             return (
               <ToneRow
                 key={tokenName}
@@ -229,8 +244,8 @@ function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string
                 tone={tone}
                 isOverridden={isOverridden}
                 hex={hexFromArgb(palette.tone(tone))}
-                onToneChange={(next) => dispatch({ type: "SET_TONE_OVERRIDE", token: tokenName, tone: next })}
-                onReset={() => dispatch({ type: "CLEAR_TONE_OVERRIDE", token: tokenName })}
+                onToneChange={(next) => dispatch({ type: "SET_TONE_OVERRIDE", scheme: viewMode, token: tokenName, tone: next })}
+                onReset={() => dispatch({ type: "CLEAR_TONE_OVERRIDE", scheme: viewMode, token: tokenName })}
               />
             );
           })}
@@ -416,6 +431,7 @@ function ThemePanelContent() {
             </PanelSection>
 
             <PanelSection label="Token Tones">
+              <p className="caption color-onsurfacevariant mb-sm">Apply overrides to currently-selected color mode.</p>
               {Object.keys(TOKEN_MAP).map((groupName) => (
                 <TokenGroup
                   key={groupName}

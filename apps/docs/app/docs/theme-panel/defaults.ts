@@ -23,7 +23,7 @@ export const DEFAULT_SCALE_FACTOR = 1.618;
 export const DEFAULT_THEME_STATE: ThemeState = {
   masterSeed: DEFAULT_MASTER_SEED,
   seedColors: DEFAULT_SEED_COLORS,
-  toneOverrides: {},
+  toneOverrides: { light: {}, dark: {} },
   colorMode: "system",
   schemeVariant: "tonalSpot",
   scaleFactor: DEFAULT_SCALE_FACTOR,

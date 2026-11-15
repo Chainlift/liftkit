@@ -30,6 +30,19 @@ export function saveTheme(state: ThemeState): void {
   }
 }
 
+/** Older saves kept one set of overrides for both schemes; those are applied to both. */
+function loadToneOverrides(saved: unknown): ThemeState["toneOverrides"] {
+  if (!saved || typeof saved !== "object") return { light: {}, dark: {} };
+  const record = saved as Record<string, unknown>;
+  if (typeof record.light === "object" || typeof record.dark === "object") {
+    return {
+      light: (record.light as Record<string, number>) ?? {},
+      dark: (record.dark as Record<string, number>) ?? {},
+    };
+  }
+  return { light: { ...(saved as Record<string, number>) }, dark: { ...(saved as Record<string, number>) } };
+}
+
 export function loadTheme(): Partial<ThemeState> | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -39,7 +52,7 @@ export function loadTheme(): Partial<ThemeState> | null {
     return {
       masterSeed: parsed.masterSeed ?? DEFAULT_THEME_STATE.masterSeed,
       seedColors: { ...DEFAULT_THEME_STATE.seedColors, ...parsed.seedColors },
-      toneOverrides: parsed.toneOverrides ?? {},
+      toneOverrides: loadToneOverrides(parsed.toneOverrides),
       colorMode: parsed.colorMode ?? "system",
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,

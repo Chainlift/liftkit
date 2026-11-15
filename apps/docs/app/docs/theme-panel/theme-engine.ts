@@ -118,8 +118,8 @@ export function resolveTheme(state: ThemeState): ResolvedTheme {
   const palettes = getPalettes(state.seedColors);
 
   return {
-    light: resolveScheme(palettes, state.toneOverrides, "light"),
-    dark: resolveScheme(palettes, state.toneOverrides, "dark"),
+    light: resolveScheme(palettes, state.toneOverrides.light, "light"),
+    dark: resolveScheme(palettes, state.toneOverrides.dark, "dark"),
   };
 }
 
