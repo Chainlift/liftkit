@@ -3,7 +3,7 @@
 /* Random comment */
 
 :root {
-  font-size: 1rem;
+  font-size: clamp(14px, 1vw, 17px);
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
 
@@ -24,6 +24,7 @@
   /* quarterstep -1 */
   --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
   /* eighthstep -1 */
+
 
   --lk-base-md: 1em;
   /* It's okay to use em here because the root font size
