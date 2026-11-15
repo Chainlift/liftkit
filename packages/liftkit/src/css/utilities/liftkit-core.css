@@ -74,7 +74,7 @@
   --lk-light-onerror: #ffffff;
   --lk-light-errorcontainer: #ffdad8;
   --lk-light-onerrorcontainer: #410006;
-  --lk-light-background: #fbf9f8;
+  --lk-light-background: #ffffff;
   --lk-light-onbackground: #1b1c1c;
   --lk-light-surface: #fbf9f8;
   --lk-light-onsurface: #1b1c1c;
@@ -124,7 +124,7 @@
   --lk-dark-onerror: #68000e;
   --lk-dark-errorcontainer: #930019;
   --lk-dark-onerrorcontainer: #ffdad8;
-  --lk-dark-background: #131314;
+  --lk-dark-background: #0d0e0e;
   --lk-dark-onbackground: #e4e2e2;
   --lk-dark-surface: #131314;
   --lk-dark-onsurface: #e4e2e2;

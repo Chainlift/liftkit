@@ -80,7 +80,7 @@ export const TOKEN_MAP: Record<string, TokenGroup> = {
   neutral: {
     seedRole: "neutral",
     tokens: {
-      background:                { cssVar: "background",                defaultTone: { light: 100, dark: 6 } },
+      background:                { cssVar: "background",                defaultTone: { light: 100, dark: 4 } },
       onBackground:              { cssVar: "onbackground",              defaultTone: { light: 10, dark: 90 } },
       surface:                   { cssVar: "surface",                   defaultTone: { light: 98, dark: 6 } },
       onSurface:                 { cssVar: "onsurface",                 defaultTone: { light: 10, dark: 90 } },
