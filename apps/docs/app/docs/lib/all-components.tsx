@@ -1,8 +1,8 @@
 import { componentDocs } from "@/content/components/registry";
 import { defaultKnobValues } from "./demo-source";
 
-/** Left column and right column widths of each row. */
-const ROW_COLUMNS = "34% 66%";
+/** Name and demo columns, 34:66. fr units split the space left after the gap, so the demo column never spills past the row. */
+const ROW_COLUMNS = "minmax(0, 34fr) minmax(0, 66fr)";
 
 /**
  * Every documented component in one list, for testing a theme: the component's name on the left, the live demo (at
