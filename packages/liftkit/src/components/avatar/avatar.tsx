@@ -4,8 +4,30 @@ import { cn } from "../../lib/cn";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import "../../css/components/lk-avatar.css";
 
-function Avatar({ className, ...props }: AvatarPrimitive.Root.Props) {
-  return <AvatarPrimitive.Root data-slot="avatar" className={cn(className)} {...props} />;
+export type AvatarProps = AvatarPrimitive.Root.Props & {
+  /**
+   * Sizes the avatar proportionally: the circle and its initials both scale from this font class.
+   * @default "body"
+   */
+  fontClass?: Extract<
+    LkFontClass,
+    | "display1"
+    | "display2"
+    | "title1"
+    | "title2"
+    | "title3"
+    | "heading"
+    | "subheading"
+    | "body"
+    | "callout"
+    | "label"
+    | "caption"
+    | "capline"
+  >;
+};
+
+function Avatar({ className, fontClass = "body", ...props }: AvatarProps) {
+  return <AvatarPrimitive.Root data-slot="avatar" className={cn(fontClass, className)} {...props} />;
 }
 
 function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {

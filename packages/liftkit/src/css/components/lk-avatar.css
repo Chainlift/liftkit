@@ -28,5 +28,6 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  font-size: var(--lk-base-md);
+  /* The initials take the size of the avatar's font class */
+  font-size: inherit;
 }
