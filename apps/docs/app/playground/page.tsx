@@ -47,7 +47,7 @@ export default function PlayGround() {
           <ThemePanel />
         </div>
         <div className="overflow-hidden h-full flex flex-col flex-grow ">
-          <Tabs defaultValue="components" className="flex-v w-full h-full bg-surfacecontainerlowest rounded-sm border border-color-outlinevariant">
+          <Tabs defaultValue="components" className="flex-v w-full h-full bg-surface rounded-sm border border-color-outlinevariant">
             <TabsList className="border-b border-color-outlinevariant ">
               <TabsTab value="components">Components</TabsTab>
               <TabsTab value="all-components">All Components</TabsTab>

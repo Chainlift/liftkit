@@ -108,7 +108,7 @@ function MosaicCard({
   children: ReactNode;
 }) {
   return (
-    <Card className="shadow-xs bg-surfacecontainerlowest" scaleFactor="heading" color={color}>
+    <Card className="shadow-xs bg-surfacecontainer" scaleFactor="heading" color={color}>
       {title && (
         <div className="flex items-start justify-between gap-md mb-md">
           <div>

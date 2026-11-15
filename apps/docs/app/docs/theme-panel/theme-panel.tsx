@@ -338,7 +338,7 @@ function ThemePanelContent() {
             <GoldenBox
               scaleFactor="heading"
               opticalCorrection="y"
-              className="w-full sticky top-0 z-1 bg-surface border-b border-color-outlinevariant"
+              className="w-full sticky top-0 z-1 bg-surfacecontainerlowest border-b border-color-outlinevariant"
             >
               <div className="flex items-center justify-between gap-md">
                 <div className="flex items-center gap-xs">
@@ -440,7 +440,7 @@ export function ThemePanel() {
   return (
     <aside
       data-theme-panel
-      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest rounded-sm "
+      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest border border-color-outlinevariant rounded-sm "
       style={PANEL_WIDTH}
     >
       <ThemePanelContent />
