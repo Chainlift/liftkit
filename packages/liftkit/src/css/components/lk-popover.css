@@ -47,7 +47,7 @@
   padding-block: var(--lk-base-sm) calc(var(--lk-base-md) / var(--lk-halfstep));
   padding-inline: var(--lk-base-md);
   border-radius: var(--lk-base-sm);
-  background-color: var(--lk-surface);
+  background-color: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);
   transition:
@@ -102,7 +102,7 @@
 }
 
 :where(.ArrowFill) {
-  fill: canvas;
+  fill: var(--lk-surfacecontainerlowest);
 }
 
 :where(.ArrowOuterStroke) {
