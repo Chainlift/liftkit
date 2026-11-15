@@ -105,7 +105,10 @@ function SliderWithNumber({
       >
         <SliderLabel className="label flex-h items-center gap-xs">
           {labelPrefix}
-          <span className="fill-container">{label}</span>
+          {/* contain: inline-size lets a long token name truncate instead of widening the whole scroll area */}
+          <span className="fill-container nowrap" style={{ contain: "inline-size" }} title={label}>
+            {label}
+          </span>
           {labelSuffix}
         </SliderLabel>
         <SliderControl>
