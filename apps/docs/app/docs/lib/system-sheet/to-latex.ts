@@ -6,7 +6,7 @@
 type Tex = { tex: string; prec: 0 | 1 | 2 }; // 0 = sum, 1 = product, 2 = atom (never needs parentheses)
 
 function varToTex(name: string): Tex {
-  if (name === "--lk-scalefactor") return { tex: "s", prec: 2 };
+  if (name === "--lk-scalefactor") return { tex: "n", prec: 2 };
   return { tex: `\\text{${name.replace(/^--lk-(base-)?/, "")}}`, prec: 2 };
 }
 
@@ -79,14 +79,14 @@ export function cssToLatex(value: string): string {
 // ─── Simplified form ────────────────────────────────────────────────────
 // A token is `1em` times a product of other names, each to some power. The em unit and the `round()` step are
 // dropped, but names stay as written in the CSS: a token that uses `--lk-eighthstep` shows `eighthstep`, not what
-// that step works out to. Only the scale factor itself shows as powers (s^-2, the half step is a square root).
+// that step works out to. Only the scale factor itself shows as powers (n^-2, the half step is a square root).
 
 const EIGHTHS = 8;
 /** Exponent of each name the value multiplies together, in eighths. */
 type Powers = Map<string, number>;
 
 const SCALE_FACTOR_NAMES: Record<string, string> = {
-  "--lk-scalefactor": "s",
+  "--lk-scalefactor": "n",
 };
 
 function combine(a: Powers, b: Powers, sign: 1 | -1): Powers {
@@ -150,9 +150,9 @@ function gcd(a: number, b: number): number {
   return b === 0 ? Math.abs(a) : gcd(b, a % b);
 }
 
-/** A scale factor to a power: s^3, s^-1, or a root for the fractional steps. */
+/** A scale factor to a power: n^3, n^-1, or a root for the fractional steps. */
 function scalePowerToLatex(name: string, eighths: number): string {
-  // Braced so the exponent attaches to the whole symbol, after any subscript (s_length^3, not s^3_length)
+  // Braced so the exponent attaches to the whole symbol, after any subscript (n_length^3, not n^3_length)
   const symbol = SCALE_FACTOR_NAMES[name];
   const base = symbol.includes("_") ? `{${symbol}}` : symbol;
   const divisor = gcd(eighths, EIGHTHS);
@@ -166,7 +166,7 @@ function scalePowerToLatex(name: string, eighths: number): string {
 }
 
 /**
- * The token's formula with the em unit and rounding dropped, e.g. `s^{-2}`, `\sqrt{s}`, or
+ * The token's formula with the em unit and rounding dropped, e.g. `n^{-2}`, `\sqrt{s}`, or
  * `\frac{\text{caption-font-size}}{\text{eighthstep}}`. Falls back to the full calc for anything else.
  */
 export function simplifiedLatex(value: string): string {
