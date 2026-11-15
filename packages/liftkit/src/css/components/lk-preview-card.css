@@ -1,3 +1,8 @@
+/* Not in :where(): the core stylesheet's `a { color: inherit }` would otherwise win. Utility classes still override it. */
+[data-slot="preview-card-trigger"] {
+  color: var(--lk-primary);
+}
+
 :where([data-slot="preview-card-positioner"]) {
   height: var(--positioner-height);
   width: var(--positioner-width);
