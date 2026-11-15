@@ -2,7 +2,7 @@ import { componentDocs } from "@/content/components/registry";
 import { defaultKnobValues } from "./demo-source";
 
 /** Left column and right column widths of each row. */
-const ROW_COLUMNS = "34% 64%";
+const ROW_COLUMNS = "34% 66%";
 
 /**
  * Every documented component in one list, for testing a theme: the component's name on the left, the live demo (at
