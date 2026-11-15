@@ -5,7 +5,7 @@ import { Radio, RadioIndicator, RadioGroup } from "liftkit";
 export default function RadioDemo() {
   const id = React.useId();
   return (
-    <RadioGroup aria-labelledby={id} defaultValue="fuji-apple">
+    <RadioGroup aria-labelledby={id} defaultValue="fuji-apple" className="flex-v gap-xs">
       <div id={id}>Best apple</div>
 
       <label>

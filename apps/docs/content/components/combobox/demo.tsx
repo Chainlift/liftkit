@@ -19,7 +19,7 @@ export default function ComboboxDemo() {
   const id = React.useId();
   return (
     <Combobox items={fruits}>
-      <div>
+      <div className="flex-v gap-xs">
         <label htmlFor={id}>Choose a fruit</label>
         <ComboboxInputGroup placeholder="e.g. Apple" id={id} />
         <div data-slot="action-buttons">

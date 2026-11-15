@@ -16,7 +16,7 @@ import { GoldenBox } from "liftkit";
 export default function AutocompleteDemo(knobs: ComponentProps<typeof Autocomplete>) {
   return (
     <Autocomplete items={tags} {...knobs}>
-      <label>
+      <label className="flex-v gap-xs">
         <span>Sample Autocomplete</span>
         <AutocompleteInput placeholder="e.g. feature" />
       </label>

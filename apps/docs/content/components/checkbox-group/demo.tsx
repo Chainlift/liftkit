@@ -6,7 +6,7 @@ import { Checkbox, CheckboxIndicator } from "liftkit";
 export default function CheckboxGroupDemo() {
   const id = React.useId();
   return (
-    <CheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]} className="flex flex-col gap-sm">
+    <CheckboxGroup aria-labelledby={id} defaultValue={["fuji-apple"]} className="flex-v gap-xs">
       <div id={id}>Apples</div>
 
       <label>

@@ -2,7 +2,7 @@ import { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from
 
 export default function SliderDemo() {
   return (
-    <Slider defaultValue={25}>
+    <Slider defaultValue={25} className="w-full">
       <SliderControl>
         <SliderTrack>
           <SliderIndicator />

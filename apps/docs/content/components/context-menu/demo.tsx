@@ -11,7 +11,7 @@ import {
 export default function ContextMenuDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+      <ContextMenuTrigger className="p-xl bg-surfacecontainerlow">Right click here</ContextMenuTrigger>
       <ContextMenuPortal>
         <ContextMenuPositioner>
           <ContextMenuPopup>

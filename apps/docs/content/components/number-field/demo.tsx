@@ -11,7 +11,7 @@ import {
 export default function NumberFieldDemo() {
   const id = React.useId();
   return (
-    <NumberField id={id} defaultValue={100}>
+    <NumberField id={id} defaultValue={100} className="flex-v gap-xs">
       <NumberFieldScrubArea>
         <label htmlFor={id}>Amount</label>
         <NumberFieldScrubAreaCursor>

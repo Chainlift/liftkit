@@ -8,7 +8,7 @@ import {
 
 export default function ScrollAreaDemo() {
   return (
-    <ScrollArea style={{height: "200px"}}>
+    <ScrollArea className="bg-surfacecontainerlow" style={{height: "200px"}}>
       <ScrollAreaViewport>
         <ScrollAreaContent>
           <p className="body">
