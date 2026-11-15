@@ -2,15 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 /**
- * Docs-only: keeps the theme panel on the library's default theme while the rest of the page follows the Theme
- * Generator. Custom properties are inherited from :root, so the panel is pinned by declaring every token again on
- * [data-theme-panel]. Reads liftkit-core.css at build time and re-emits its `:root` block and the dark-mode block
+ * Docs-only: keeps the Theme Generator's own chrome (the panel, the site header, the page background) on the
+ * library's default theme while the tabs area follows the generator. The generator writes its theme to :root, so
+ * anything it renders into document.body (popups, menus, dialogs) is themed too. Custom properties are inherited, so
+ * chrome is pinned by declaring every token again on [data-theme-panel] or [data-theme-locked]; those elements must
+ * not contain the themed area. Reads liftkit-core.css at build time and re-emits its `:root` block and the dark-mode block
  * under that selector, so the panel always shows whatever liftkit-core.css currently defines, with nothing to
  * maintain here when tokens change.
  */
 
 const CORE_CSS = path.join(process.cwd(), "node_modules", "liftkit", "src", "css", "utilities", "liftkit-core.css");
-const PANEL = "[data-theme-panel]";
+const PANEL = "[data-theme-panel], [data-theme-locked]";
 
 /** The top-level rules of a stylesheet, as [selector, body] pairs. */
 function topLevelRules(css: string): [string, string][] {
