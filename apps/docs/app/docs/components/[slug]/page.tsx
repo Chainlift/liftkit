@@ -67,7 +67,7 @@ export default async function ComponentDocPage({ params }: Params) {
       <h2 id="installation" className="title1-bold mb-md mt-lg">
         Installation
       </h2>
-      <div className="bg-surfacecontainerlow rounded-sm shadow-2xs">
+      <div className="bg-surfacecontainerlow rounded-sm shadow-2xs overflow-hidden">
         <SimpleCodeBlock codeString="npm install liftkit" lang="bash" />
       </div>
 
