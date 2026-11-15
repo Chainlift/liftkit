@@ -308,7 +308,7 @@ function SchemeVariantSelect() {
       </SelectTrigger>
       <SelectPortal>
         <SelectPositioner sideOffset={8}>
-          <SelectPopup>
+          <SelectPopup data-theme-locked>
             <SelectScrollUpArrow />
             <SelectList>
               {SCHEME_VARIANTS.map((variant) => (
@@ -366,7 +366,7 @@ function ThemePanelContent() {
                       >
                         <Icon name="info" aria-hidden="true" />
                       </TooltipTrigger>
-                      <TooltipContent>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
+                      <TooltipContent data-theme-locked>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
