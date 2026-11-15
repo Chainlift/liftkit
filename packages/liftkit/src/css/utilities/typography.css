@@ -178,7 +178,7 @@
 
   letter-spacing: -0.004em;
   font-size: var(--lk-label-font-size);
-  font-weight: 400;
+  font-weight: var(--lk-label-font-weight, 500);
   line-height: var(--lk-halfstep);
 }
 
