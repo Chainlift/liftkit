@@ -8,8 +8,9 @@ const meta: ComponentDocMeta = {
     fontClass: {
       kind: "select",
       label: "Font Class",
-      default: "body",
+      default: "",
       options: [
+        { label: "None", value: "" },
         { label: "Display 1", value: "display1" },
         { label: "Display 2", value: "display2" },
         { label: "Title 1", value: "title1" },
