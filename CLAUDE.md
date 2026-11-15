@@ -82,7 +82,7 @@ The CSS tab shows the component's real stylesheet, read from the library at buil
 - **GoldenBox** is a layout primitive used extensively — it applies golden-ratio-based padding with optical correction. Props: `scaleFactor` (font class name), `opticalCorrection` (top/bottom/x/y/all/none).
 - Color tokens follow pattern: `--lk-color-{name}` with `on` variants (e.g., `primary` / `onprimary`)
 - Size tokens: `--lk-base-{5xs..5xl}` based on powers of the golden ratio scale factor
-- The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components, Types & Tokens). Overview and Types & Tokens list the folders with a `page.mdx`/`page.tsx` (pages directly under `app/docs/` go in Overview); Components comes from the registry.
+- The docs sidebar is grouped into sections defined in `apps/docs/lib/docs-nav.ts` (`SECTIONS`: Overview, Components). Overview lists the folders with a `page.mdx`/`page.tsx` (pages directly under `app/docs/` go in it); Components comes from the registry.
 
 ### Key pattern: updating CSS rules
 

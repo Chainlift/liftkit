@@ -21,7 +21,6 @@ const SECTIONS: { title: string; dir: string | null; extraItems?: () => NavItem[
     extraItems: () =>
       Object.entries(componentDocs).map(([slug, { meta }]) => ({ title: meta.title, href: `/docs/components/${slug}` })),
   },
-  { title: "Types & Tokens", dir: "types" },
 ];
 
 function titleFromSegment(seg: string) {
