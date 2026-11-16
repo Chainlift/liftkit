@@ -246,10 +246,9 @@ function ParkHeader() {
   return (
     <div className="flex items-center justify-between gap-lg flex-wrap mb-lg">
       <div className="flex items-center gap-md">
-        <IconTile name="ferris-wheel" className="bg-primarycontainer color-onprimarycontainer" />
         <div>
-          <h2 className="title2-bold">Wildwood Adventure Park</h2>
-          <p className="subheading color-onsurfacelowest">Saturday, June 14 · Open 9 AM to 9 PM</p>
+          <h2 className="title2-bold mb-2xs">Wildwood Adventure Park</h2>
+          <p className="body color-onsurfacelowest">Saturday, June 14 · Open 9 AM to 9 PM</p>
         </div>
       </div>
       <div className="flex items-center gap-md flex-wrap">
@@ -732,9 +731,7 @@ function PromoCard() {
         </label>
       </div>
       <div className="flex-v gap-sm text-align-center">
-        <Button className="w-full">
-          Publish promotion
-        </Button>
+        <Button className="w-full">Publish promotion</Button>
         <Button className="w-full" variant="outline">
           Save draft
         </Button>
