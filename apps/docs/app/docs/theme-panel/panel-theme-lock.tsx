@@ -52,6 +52,8 @@ function panelThemeCss(): string {
       break; // everything after the theme blocks is element styling, not tokens
     }
   }
+  // Text color is inherited as a computed value, so it has to be derived again from the pinned tokens
+  out.push(`${PANEL} {\n  color: var(--lk-onsurface);\n}`);
   return out.join("\n\n");
 }
 

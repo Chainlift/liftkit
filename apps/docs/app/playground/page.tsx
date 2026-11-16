@@ -38,7 +38,7 @@ export default function PlayGround() {
   return (
     <div className="fixed top-0 right-0 bottom-0 left-0 flex-v overflow-hidden">
       {/* The page background and header keep the default theme; only the tabs area follows the Theme Generator */}
-      <div data-theme-locked className="absolute inset-0 bg-surfacecontainerlowest" style={{ zIndex: -1 }} aria-hidden />
+      <div data-theme-locked className="absolute top-0 right-0 bottom-0 left-0 bg-surfacecontainerlowest" style={{ zIndex: -1 }} aria-hidden />
       <div data-theme-locked>
         <SiteHeader />
       </div>
