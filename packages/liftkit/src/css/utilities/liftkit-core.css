@@ -254,7 +254,7 @@
 
   /************ Font Size Vars ************/
 
-  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracating, multiplying, and dividing.
+  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracting, multiplying, and dividing.
    * In addition and subtraction, both sides must have the same unit.
    * In multiplication, one side must be unitless.
    * In division, the right side must be unitless.
