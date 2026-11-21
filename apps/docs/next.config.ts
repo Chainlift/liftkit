@@ -14,6 +14,8 @@ const withMDX = createMDX({
 });
 
 const nextConfig: NextConfig = {
+  // Pages publishes a directory of files. `.next` contains links Pages cannot follow.
+  output: "export",
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   // The library is consumed as TypeScript source from the workspace.
   transpilePackages: ["liftkit"],
