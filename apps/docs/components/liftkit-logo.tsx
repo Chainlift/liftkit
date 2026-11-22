@@ -13,6 +13,9 @@ const LOGO_SHAPES = LOGO_PATH.split(/(?=M)/)
   });
 const LOGO_LEFT = 7089.25;
 const LOGO_WIDTH = 1080;
+const LOGO_HEIGHT = 149.064;
+/** Extra viewBox above the logo when it waves, so the lifted shapes aren't clipped. Keep it above --wave-logo-rise. */
+const WAVE_HEADROOM = 10;
 
 /**
  * The LiftKit lockup (wordmark). Filled with currentColor, so it takes its color from the text color
@@ -24,7 +27,7 @@ const LOGO_WIDTH = 1080;
 export function LiftKitLogo({ wave = false, ...props }: ComponentProps<"svg"> & { wave?: boolean }) {
   return (
     <svg
-      viewBox="7089.25 0 1080 149.064"
+      viewBox={`${LOGO_LEFT} ${wave ? -WAVE_HEADROOM : 0} ${LOGO_WIDTH} ${LOGO_HEIGHT + (wave ? WAVE_HEADROOM : 0)}`}
       fill="currentColor"
       role="img"
       aria-label="LiftKit"
