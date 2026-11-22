@@ -47,6 +47,11 @@ import {
   SliderLabel,
   SliderThumb,
   SliderTrack,
+  Tabs,
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsTab,
   Toggle,
   Tooltip,
   TooltipContent,
@@ -566,102 +571,137 @@ const SEED_ROLES: { key: keyof ThemeSeedColors; label: string }[] = [
 function ThemePanelContent() {
   const { state, dispatch } = useTheme();
   return (
-    <>
+    // The tabs group the controls; the Preset sits above them because it sets colors, scale and fonts together, so
+    // it belongs to no one tab (and leaves Preferences blank).
+    <Tabs defaultValue="color" className="flex-v fill-container w-full overflow-hidden">
+      <PanelSection label="Preset">
+        <PresetSelect />
+      </PanelSection>
+
+      {/* Four labels don't fit in the panel's fixed width at the default tab size, so the tabs use the label font and
+          tighter padding. Their text still follows the Scale Factor, so at a low one the row scrolls rather than clips. */}
+      <TabsList className="border-b border-color-outlinevariant gap-2xs overflow-auto">
+        <TabsTab value="color" className="label flex-grow px-sm">
+          Color
+        </TabsTab>
+        <TabsTab value="typography" className="label flex-grow px-sm">
+          Typography
+        </TabsTab>
+        <TabsTab value="scale" className="label flex-grow px-sm">
+          Scale
+        </TabsTab>
+        <TabsTab value="preferences" className="label flex-grow px-sm">
+          Preferences
+        </TabsTab>
+        <TabsIndicator />
+      </TabsList>
+
       {/* Scrollable body */}
       <ScrollArea className="w-full max-w-full fill-container overflow-hidden">
         <ScrollAreaViewport>
           <ScrollAreaContent className="p-0 relative" style={{ gap: 0 }}>
- 
-            <PanelSection label="Preset">
-              <PresetSelect />
-            </PanelSection>
+            {/* A tab panel centers its content, so each one holds a single full-width column */}
+            <TabsPanel value="color" className="w-full">
+              <div className="flex-v w-full">
+                <PanelSection label="Color Mode">
+                  <ColorModeToggle />
+                </PanelSection>
 
-            <PanelSection label="Scale Factor">
-              <SliderWithNumber
-                label="Global"
-                value={state.scaleFactor}
-                min={1}
-                max={2}
-                step={0.001}
-                onChange={(value) => dispatch({ type: "SET_SCALE_FACTOR", value })}
-              />
-            </PanelSection>
+                <PanelSection label="Scheme Variant">
+                  <SchemeVariantSelect />
+                </PanelSection>
 
-            <PanelSection label="Color Mode">
-              <ColorModeToggle />
-            </PanelSection>
-
-            <PanelSection label="Scheme Variant">
-              <SchemeVariantSelect />
-            </PanelSection>
-
-            <PanelSection label="Master Seed">
-              <SeedColorRow
-                role="Source Color"
-                hex={state.masterSeed}
-                onChange={(hex) => dispatch({ type: "SET_MASTER_SEED", hex })}
-              />
-              <p className="caption color-onsurfacevariant">
-                Changing this derives all role colors via the selected scheme variant.
-              </p>
-            </PanelSection>
-
-            <PanelSection label="Seed Colors">
-              {SEED_ROLES.map(({ key, label }) => (
-                <SeedColorRow
-                  key={key}
-                  role={label}
-                  hex={state.seedColors[key]}
-                  onChange={(hex) => dispatch({ type: "SET_SEED", role: key, hex })}
-                />
-              ))}
-            </PanelSection>
-
-            <PanelSection label="Font Families">
-              <div className="flex-v gap-md w-full">
-                {([1, 2, 3] as const).map((slot) => (
-                  <FontSlotPicker
-                    key={slot}
-                    slot={slot}
-                    value={state.fontFamilies[slot - 1]}
-                    onChange={(family) => dispatch({ type: "SET_FONT_FAMILY_SLOT", slot, family })}
+                <PanelSection label="Master Seed">
+                  <SeedColorRow
+                    role="Source Color"
+                    hex={state.masterSeed}
+                    onChange={(hex) => dispatch({ type: "SET_MASTER_SEED", hex })}
                   />
-                ))}
-              </div>
-            </PanelSection>
+                  <p className="caption color-onsurfacevariant">
+                    Changing this derives all role colors via the selected scheme variant.
+                  </p>
+                </PanelSection>
 
-            <PanelSection label="Font Assignments">
-              <Collapsible className="w-full" style={{ minHeight: 0 }}>
-                <CollapsibleTrigger nativeButton={false} render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
-                  <Icon name="chevron-right" data-slot="collapsible-trigger-icon" />
-                  <span className="callout font-500">Assign classes to families</span>
-                </CollapsibleTrigger>
-                <CollapsiblePanel>
-                  <GoldenBox scaleFactor="label" opticalCorrection="y">
-                    {FONT_GROUPS.map(({ key, label }) => (
-                      <FontAssignmentRow
-                        key={key}
-                        group={key}
-                        label={label}
-                        slot={state.fontAssignments[key]}
-                        onChange={(slot) => dispatch({ type: "SET_FONT_ASSIGNMENT", group: key, slot })}
+                <PanelSection label="Seed Colors">
+                  {SEED_ROLES.map(({ key, label }) => (
+                    <SeedColorRow
+                      key={key}
+                      role={label}
+                      hex={state.seedColors[key]}
+                      onChange={(hex) => dispatch({ type: "SET_SEED", role: key, hex })}
+                    />
+                  ))}
+                </PanelSection>
+
+                <PanelSection label="Token Tones">
+                  <p className="caption color-onsurfacevariant mb-sm">Apply overrides to currently-selected color mode.</p>
+                  {Object.keys(TOKEN_MAP).map((groupName) => (
+                    <TokenGroup
+                      key={groupName}
+                      groupName={groupName}
+                      seedHex={state.seedColors[TOKEN_MAP[groupName].seedRole as keyof ThemeSeedColors]}
+                    />
+                  ))}
+                </PanelSection>
+              </div>
+            </TabsPanel>
+
+            <TabsPanel value="typography" className="w-full">
+              <div className="flex-v w-full">
+                <PanelSection label="Font Families">
+                  <div className="flex-v gap-md w-full">
+                    {([1, 2, 3] as const).map((slot) => (
+                      <FontSlotPicker
+                        key={slot}
+                        slot={slot}
+                        value={state.fontFamilies[slot - 1]}
+                        onChange={(family) => dispatch({ type: "SET_FONT_FAMILY_SLOT", slot, family })}
                       />
                     ))}
-                  </GoldenBox>
-                </CollapsiblePanel>
-              </Collapsible>
-            </PanelSection>
+                  </div>
+                </PanelSection>
 
-            <PanelSection label="Token Tones">
-              <p className="caption color-onsurfacevariant mb-sm">Apply overrides to currently-selected color mode.</p>
-              {Object.keys(TOKEN_MAP).map((groupName) => (
-                <TokenGroup
-                  key={groupName}
-                  groupName={groupName}
-                  seedHex={state.seedColors[TOKEN_MAP[groupName].seedRole as keyof ThemeSeedColors]}
-                />
-              ))}
-            </PanelSection>
+                <PanelSection label="Font Assignments">
+                  <Collapsible className="w-full" style={{ minHeight: 0 }}>
+                    <CollapsibleTrigger nativeButton={false} render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
+                      <Icon name="chevron-right" data-slot="collapsible-trigger-icon" />
+                      <span className="callout font-500">Assign classes to families</span>
+                    </CollapsibleTrigger>
+                    <CollapsiblePanel>
+                      <GoldenBox scaleFactor="label" opticalCorrection="y">
+                        {FONT_GROUPS.map(({ key, label }) => (
+                          <FontAssignmentRow
+                            key={key}
+                            group={key}
+                            label={label}
+                            slot={state.fontAssignments[key]}
+                            onChange={(slot) => dispatch({ type: "SET_FONT_ASSIGNMENT", group: key, slot })}
+                          />
+                        ))}
+                      </GoldenBox>
+                    </CollapsiblePanel>
+                  </Collapsible>
+                </PanelSection>
+              </div>
+            </TabsPanel>
+
+            <TabsPanel value="scale" className="w-full">
+              <div className="flex-v w-full">
+                <PanelSection label="Scale Factor">
+                  <SliderWithNumber
+                    label="Global"
+                    value={state.scaleFactor}
+                    min={1}
+                    max={2}
+                    step={0.001}
+                    onChange={(value) => dispatch({ type: "SET_SCALE_FACTOR", value })}
+                  />
+                </PanelSection>
+              </div>
+            </TabsPanel>
+
+            {/* Blank for now */}
+            <TabsPanel value="preferences" className="w-full" />
           </ScrollAreaContent>
         </ScrollAreaViewport>
         <ScrollAreaScrollbar>
@@ -669,7 +709,7 @@ function ThemePanelContent() {
         </ScrollAreaScrollbar>
         <ScrollAreaCorner />
       </ScrollArea>
-    </>
+    </Tabs>
   );
 }
 
