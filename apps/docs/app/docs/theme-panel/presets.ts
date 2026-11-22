@@ -1,0 +1,110 @@
+import type { SchemeVariant, ThemeSeedColors } from "./types";
+
+/**
+ * A preset is a fixed set of inputs the Theme panel would otherwise collect
+ * from its sliders and swatches. Applying one just dispatches the
+ * corresponding actions; nothing else changes.
+ *
+ * Each entry's `id` is stable — it's what the panel remembers so it can tell
+ * whether what's on screen still matches the preset it came from.
+ */
+export interface ThemePreset {
+  id: string;
+  name: string;
+  masterSeed: string;
+  seedColors: ThemeSeedColors;
+  schemeVariant?: SchemeVariant;
+  scaleFactor?: number;
+}
+
+/**
+ * Three filler entries while we wait on the real screenshots.
+ * Replace freely — the id is what matters for the "modified" marker.
+ */
+export const PRESETS: ThemePreset[] = [
+  {
+    id: "cerulean-grove",
+    name: "Cerulean Grove",
+    masterSeed: "#1e6fb5",
+    seedColors: {
+      primary: "#1e6fb5",
+      secondary: "#4a7c94",
+      tertiary: "#2f8f7a",
+      error: "#c23e4b",
+      neutral: "#5f6366",
+      neutralVariant: "#5c6a6b",
+      success: "#2e8b57",
+      warning: "#c38a1f",
+      info: "#2c6ec5",
+    },
+    schemeVariant: "tonalSpot",
+    scaleFactor: 1.618,
+  },
+  {
+    id: "ember-plum",
+    name: "Ember Plum",
+    masterSeed: "#8b3a62",
+    seedColors: {
+      primary: "#8b3a62",
+      secondary: "#7a4a63",
+      tertiary: "#a05231",
+      error: "#b41e3c",
+      neutral: "#665f61",
+      neutralVariant: "#6b5f66",
+      success: "#4a7c3a",
+      warning: "#c47415",
+      info: "#4f4b9c",
+    },
+    schemeVariant: "expressive",
+    scaleFactor: 1.5,
+  },
+  {
+    id: "harbor-mint",
+    name: "Harbor Mint",
+    masterSeed: "#2a8f6e",
+    seedColors: {
+      primary: "#2a8f6e",
+      secondary: "#4e847a",
+      tertiary: "#3b6e8f",
+      error: "#b53a3a",
+      neutral: "#5e6563",
+      neutralVariant: "#5c6a66",
+      success: "#2e8b57",
+      warning: "#b78419",
+      info: "#2f6ab2",
+    },
+    schemeVariant: "vibrant",
+    scaleFactor: 1.75,
+  },
+];
+
+export function findPreset(id: string | null): ThemePreset | undefined {
+  if (!id) return undefined;
+  return PRESETS.find((p) => p.id === id);
+}
+
+/**
+ * True if any field the preset carries differs from the current state, or if
+ * the state has tone overrides (presets never carry those). Used to decide
+ * whether to show a "(modified)" marker next to the preset's name.
+ */
+export function isPresetModified(
+  preset: ThemePreset,
+  state: {
+    masterSeed: string;
+    seedColors: ThemeSeedColors;
+    schemeVariant: SchemeVariant;
+    scaleFactor: number;
+    toneOverrides: Record<"light" | "dark", Record<string, number>>;
+  }
+): boolean {
+  if (state.masterSeed.toLowerCase() !== preset.masterSeed.toLowerCase()) return true;
+  for (const key of Object.keys(preset.seedColors) as (keyof ThemeSeedColors)[]) {
+    if (state.seedColors[key].toLowerCase() !== preset.seedColors[key].toLowerCase()) return true;
+  }
+  if (preset.schemeVariant && state.schemeVariant !== preset.schemeVariant) return true;
+  if (preset.scaleFactor !== undefined && state.scaleFactor !== preset.scaleFactor) return true;
+  if (Object.keys(state.toneOverrides.light).length > 0) return true;
+  if (Object.keys(state.toneOverrides.dark).length > 0) return true;
+  return false;
+}

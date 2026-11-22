@@ -1,5 +1,5 @@
-import type { ThemeState } from "./types";
-import { DEFAULT_THEME_STATE } from "./defaults";
+import type { FontAssignments, FontFamilies, ThemeState } from "./types";
+import { DEFAULT_FONT_ASSIGNMENTS, DEFAULT_FONT_FAMILIES, DEFAULT_THEME_STATE } from "./defaults";
 
 const STORAGE_KEY = "lk-theme-v1";
 
@@ -11,6 +11,9 @@ interface PersistedTheme {
   colorMode: ThemeState["colorMode"];
   schemeVariant: ThemeState["schemeVariant"];
   scaleFactor?: number;
+  fontFamilies?: FontFamilies;
+  fontAssignments?: FontAssignments;
+  activePresetId?: string | null;
 }
 
 export function saveTheme(state: ThemeState): void {
@@ -23,6 +26,9 @@ export function saveTheme(state: ThemeState): void {
       colorMode: state.colorMode,
       schemeVariant: state.schemeVariant,
       scaleFactor: state.scaleFactor,
+      fontFamilies: state.fontFamilies,
+      fontAssignments: state.fontAssignments,
+      activePresetId: state.activePresetId,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch {
@@ -43,6 +49,27 @@ function loadToneOverrides(saved: unknown): ThemeState["toneOverrides"] {
   return { light: { ...(saved as Record<string, number>) }, dark: { ...(saved as Record<string, number>) } };
 }
 
+function loadFontFamilies(saved: unknown): FontFamilies {
+  if (!Array.isArray(saved)) return DEFAULT_FONT_FAMILIES;
+  const [a, b, c] = saved as unknown[];
+  return [
+    typeof a === "string" ? a : "",
+    typeof b === "string" ? b : "",
+    typeof c === "string" ? c : "",
+  ];
+}
+
+function loadFontAssignments(saved: unknown): FontAssignments {
+  if (!saved || typeof saved !== "object") return DEFAULT_FONT_ASSIGNMENTS;
+  const record = saved as Record<string, unknown>;
+  const out: FontAssignments = { ...DEFAULT_FONT_ASSIGNMENTS };
+  for (const key of Object.keys(out) as (keyof FontAssignments)[]) {
+    const value = record[key];
+    if (value === 1 || value === 2 || value === 3) out[key] = value;
+  }
+  return out;
+}
+
 export function loadTheme(): Partial<ThemeState> | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -56,6 +83,9 @@ export function loadTheme(): Partial<ThemeState> | null {
       colorMode: parsed.colorMode ?? "system",
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
+      fontFamilies: loadFontFamilies(parsed.fontFamilies),
+      fontAssignments: loadFontAssignments(parsed.fontAssignments),
+      activePresetId: parsed.activePresetId ?? null,
     };
   } catch {
     return null;

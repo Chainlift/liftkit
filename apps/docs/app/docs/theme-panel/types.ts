@@ -26,6 +26,34 @@ export type SchemeVariant =
   | "neutral"
   | "fidelity";
 
+/** The three generic font-family slots in liftkit-core.css. */
+export type FontSlot = 1 | 2 | 3;
+
+/**
+ * The twelve font-class groups. Each group covers its base class plus
+ * its -bold and -mono siblings (e.g. "display1" covers display1,
+ * display1-bold, and display1-mono).
+ */
+export type FontClassGroup =
+  | "display1"
+  | "display2"
+  | "title1"
+  | "title2"
+  | "title3"
+  | "heading"
+  | "subheading"
+  | "body"
+  | "callout"
+  | "label"
+  | "caption"
+  | "capline";
+
+/** Tuple of three family stacks. An empty string means "leave it at inherit". */
+export type FontFamilies = [string, string, string];
+
+/** Each group picks one of the three slots. */
+export type FontAssignments = Record<FontClassGroup, FontSlot>;
+
 export interface ThemeState {
   masterSeed: string;
   seedColors: ThemeSeedColors;
@@ -33,6 +61,10 @@ export interface ThemeState {
   colorMode: ColorMode;
   schemeVariant: SchemeVariant;
   scaleFactor: number;
+  fontFamilies: FontFamilies;
+  fontAssignments: FontAssignments;
+  /** Id of the preset that was last applied, or null if none / the user edited since. */
+  activePresetId: string | null;
 }
 
 /** Fully resolved hex values for every token, keyed by CSS var name (without --lk- prefix) */
@@ -49,5 +81,8 @@ export type ThemeAction =
   | { type: "SET_COLOR_MODE"; mode: ColorMode }
   | { type: "SET_SCHEME_VARIANT"; variant: SchemeVariant }
   | { type: "SET_SCALE_FACTOR"; value: number }
+  | { type: "SET_FONT_FAMILY_SLOT"; slot: FontSlot; family: string }
+  | { type: "SET_FONT_ASSIGNMENT"; group: FontClassGroup; slot: FontSlot }
+  | { type: "APPLY_PRESET"; presetId: string }
   | { type: "RESET" }
   | { type: "LOAD"; state: ThemeState };

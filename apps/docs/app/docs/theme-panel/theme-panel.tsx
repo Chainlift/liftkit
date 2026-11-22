@@ -7,6 +7,17 @@ import {
   CollapsiblePanel,
   CollapsibleTrigger,
   ColorInput,
+  Combobox,
+  ComboboxClear,
+  ComboboxEmpty,
+  ComboboxInputGroup,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxTrigger,
   GoldenBox,
   Icon,
   IconButton,
@@ -46,7 +57,16 @@ import {
 import { useTheme } from "./theme-context";
 import { TOKEN_MAP } from "./token-map";
 import { downloadThemeCSS } from "./theme-export";
-import type { ColorMode, Scheme, SchemeVariant, ThemeSeedColors } from "./types";
+import { PRESETS, findPreset, isPresetModified } from "./presets";
+import { FONT_CATALOG, type FontCatalogEntry } from "./font-catalog";
+import type {
+  ColorMode,
+  FontClassGroup,
+  FontSlot,
+  Scheme,
+  SchemeVariant,
+  ThemeSeedColors,
+} from "./types";
 
 // ─── Layout pieces ──────────────────────────────────────
 
@@ -331,6 +351,201 @@ function SchemeVariantSelect() {
   );
 }
 
+// ─── Presets ────────────────────────────────────────────
+
+const CUSTOM_PRESET_VALUE = "__custom__";
+
+function PresetSelect() {
+  const { state, dispatch } = useTheme();
+  const activePreset = findPreset(state.activePresetId);
+  const modified = activePreset ? isPresetModified(activePreset, state) : false;
+
+  const items = [
+    { value: CUSTOM_PRESET_VALUE, label: activePreset ? "Custom (clear preset)" : "Custom" },
+    ...PRESETS.map((preset) => ({
+      value: preset.id,
+      label: preset.id === state.activePresetId && modified ? `${preset.name} (modified)` : preset.name,
+    })),
+  ];
+  const value = activePreset ? activePreset.id : CUSTOM_PRESET_VALUE;
+
+  return (
+    <Select
+      items={items}
+      value={value}
+      onValueChange={(next) => {
+        if (next === CUSTOM_PRESET_VALUE) {
+          // Selecting Custom just clears the preset binding — leaves current state alone.
+          if (state.activePresetId !== null) {
+            // No dedicated action; LOAD lets us set a single field without reshaping state.
+            dispatch({ type: "LOAD", state: { ...state, activePresetId: null } });
+          }
+          return;
+        }
+        dispatch({ type: "APPLY_PRESET", presetId: next as string });
+      }}
+    >
+      <SelectTrigger className="w-full" aria-label="Preset">
+        <SelectValue />
+        <SelectIcon>
+          <Icon name="chevron-up" />
+        </SelectIcon>
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner sideOffset={8}>
+          <SelectPopup data-theme-locked>
+            <SelectScrollUpArrow />
+            <SelectList>
+              {items.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  <SelectItemIndicator>
+                    <Icon name="check" />
+                  </SelectItemIndicator>
+                  <SelectItemText>{item.label}</SelectItemText>
+                </SelectItem>
+              ))}
+            </SelectList>
+            <SelectScrollDownArrow />
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </Select>
+  );
+}
+
+// ─── Fonts ──────────────────────────────────────────────
+
+/**
+ * The twelve font-class groups in display order. Must stay in sync with the
+ * FontClassGroup type — the Record assignment type catches typos at compile time.
+ */
+const FONT_GROUPS: { key: FontClassGroup; label: string }[] = [
+  { key: "display1", label: "display1" },
+  { key: "display2", label: "display2" },
+  { key: "title1", label: "title1" },
+  { key: "title2", label: "title2" },
+  { key: "title3", label: "title3" },
+  { key: "heading", label: "heading" },
+  { key: "subheading", label: "subheading" },
+  { key: "body", label: "body" },
+  { key: "callout", label: "callout" },
+  { key: "label", label: "label" },
+  { key: "caption", label: "caption" },
+  { key: "capline", label: "capline" },
+];
+
+const FONT_SLOTS: { value: FontSlot; label: string }[] = [
+  { value: 1, label: "Family 1" },
+  { value: 2, label: "Family 2" },
+  { value: 3, label: "Family 3" },
+];
+
+/** A searchable Combobox over every Google Fonts family in the build-time catalog. */
+function FontSlotPicker({
+  slot,
+  value,
+  onChange,
+}: {
+  slot: FontSlot;
+  value: string;
+  onChange: (family: string) => void;
+}) {
+  // Base UI's Combobox filters on the item's label by default; store the full entry so category stays available.
+  // Always pass a non-undefined value so the component stays controlled across its lifetime.
+  const selected = useMemo<FontCatalogEntry | null>(
+    () => (value ? FONT_CATALOG.find((entry) => entry.family === value) ?? { family: value, category: "Sans Serif" } : null),
+    [value]
+  );
+
+  return (
+    <Combobox<FontCatalogEntry>
+      items={FONT_CATALOG}
+      value={selected}
+      onValueChange={(next) => onChange(next ? next.family : "")}
+      itemToStringLabel={(item) => item.family}
+    >
+      <div className="flex-v gap-xs w-full">
+        <span className="label color-onsurfacevariant">Family {slot}</span>
+        <ComboboxInputGroup placeholder="Inherit from page" aria-label={`Font family slot ${slot}`} />
+        <div data-slot="action-buttons">
+          <ComboboxClear aria-label="Clear">
+            <Icon name="x" />
+          </ComboboxClear>
+          <ComboboxTrigger aria-label="Open">
+            <Icon name="chevron-down" />
+          </ComboboxTrigger>
+        </div>
+      </div>
+      <ComboboxPortal>
+        <ComboboxPositioner sideOffset={4}>
+          <ComboboxPopup data-theme-locked>
+            <ComboboxEmpty>No matching families.</ComboboxEmpty>
+            <ComboboxList>
+              {(item: FontCatalogEntry) => (
+                <ComboboxItem key={item.family} value={item}>
+                  <ComboboxItemIndicator>
+                    <Icon name="check" />
+                  </ComboboxItemIndicator>
+                  <div className="flex-h items-center justify-between gap-md fill-container">
+                    <span>{item.family}</span>
+                    <span className="caption color-onsurfacevariant">{item.category}</span>
+                  </div>
+                </ComboboxItem>
+              )}
+            </ComboboxList>
+          </ComboboxPopup>
+        </ComboboxPositioner>
+      </ComboboxPortal>
+    </Combobox>
+  );
+}
+
+function FontAssignmentRow({
+  group,
+  label,
+  slot,
+  onChange,
+}: {
+  group: FontClassGroup;
+  label: string;
+  slot: FontSlot;
+  onChange: (slot: FontSlot) => void;
+}) {
+  return (
+    <div className="display-grid items-center gap-sm w-full mb-xs" style={{ gridTemplateColumns: "7rem 1fr" }}>
+      <span className="label" title={group}>{label}</span>
+      <Select
+        items={FONT_SLOTS}
+        value={slot}
+        onValueChange={(next) => onChange(Number(next) as FontSlot)}
+      >
+        <SelectTrigger className="w-full" aria-label={`Assign ${label}`}>
+          <SelectValue />
+          <SelectIcon>
+            <Icon name="chevron-up" />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner sideOffset={8}>
+            <SelectPopup data-theme-locked>
+              <SelectList>
+                {FONT_SLOTS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    <SelectItemIndicator>
+                      <Icon name="check" />
+                    </SelectItemIndicator>
+                    <SelectItemText>{option.label}</SelectItemText>
+                  </SelectItem>
+                ))}
+              </SelectList>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </Select>
+    </div>
+  );
+}
+
 // ─── Main panel ─────────────────────────────────────────
 
 const SEED_ROLES: { key: keyof ThemeSeedColors; label: string }[] = [
@@ -392,6 +607,10 @@ function ThemePanelContent() {
                 </div>
               </div>
             </GoldenBox>
+            <PanelSection label="Preset">
+              <PresetSelect />
+            </PanelSection>
+
             <PanelSection label="Scale Factor">
               <SliderWithNumber
                 label="Global"
@@ -431,6 +650,41 @@ function ThemePanelContent() {
                   onChange={(hex) => dispatch({ type: "SET_SEED", role: key, hex })}
                 />
               ))}
+            </PanelSection>
+
+            <PanelSection label="Font Families">
+              <div className="flex-v gap-md w-full">
+                {([1, 2, 3] as const).map((slot) => (
+                  <FontSlotPicker
+                    key={slot}
+                    slot={slot}
+                    value={state.fontFamilies[slot - 1]}
+                    onChange={(family) => dispatch({ type: "SET_FONT_FAMILY_SLOT", slot, family })}
+                  />
+                ))}
+              </div>
+            </PanelSection>
+
+            <PanelSection label="Font Assignments">
+              <Collapsible className="w-full" style={{ minHeight: 0 }}>
+                <CollapsibleTrigger nativeButton={false} render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
+                  <Icon name="chevron-right" data-slot="collapsible-trigger-icon" />
+                  <span className="callout font-500">Assign classes to families</span>
+                </CollapsibleTrigger>
+                <CollapsiblePanel>
+                  <GoldenBox scaleFactor="label" opticalCorrection="y">
+                    {FONT_GROUPS.map(({ key, label }) => (
+                      <FontAssignmentRow
+                        key={key}
+                        group={key}
+                        label={label}
+                        slot={state.fontAssignments[key]}
+                        onChange={(slot) => dispatch({ type: "SET_FONT_ASSIGNMENT", group: key, slot })}
+                      />
+                    ))}
+                  </GoldenBox>
+                </CollapsiblePanel>
+              </Collapsible>
             </PanelSection>
 
             <PanelSection label="Token Tones">
