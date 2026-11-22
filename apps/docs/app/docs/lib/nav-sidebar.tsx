@@ -14,26 +14,26 @@ export function NavSidebar({ nav }: { nav: NavSections }) {
 
   return (
     <GoldenBox>
-      <nav className="sidebar pb-2xl">
+      <nav className="pb-2xl">
         {/* One accordion item per section; several can be open at once, and Overview starts open */}
         <Accordion multiple defaultValue={["Overview"]}>
           {nav.map((section) => (
-            <AccordionItem key={section.title} value={section.title}>
+            <AccordionItem key={section.title} value={section.title} className="border-none">
               <AccordionTrigger className="p-0">
                 {/* The trigger's own button padding is cleared (p-0; AccordionTrigger also puts its className on its icon,
                     where that is harmless). The wrapper's padding matches the links below. */}
-                <div className="p-sm">
-                  <span className="subheading-bold">{section.title}</span>
+                <div className="px-sm py-xs">
+                  <span className="heading">{section.title}</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-0">
-                <div className="mb-sm">
+                <div className="mb-xs pl-md ">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
                       <div
-                        className={`p-sm relative color-onsurfacelow overflow-hidden rounded-2xs${pathname === item.href ? " bg-surfacecontainerhigh" : ""}`}
+                        className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden  ${pathname === item.href ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
                       >
-                        <span>{item.title}</span>
+                        <span className="subheading">{item.title}</span>
                         <StateLayer />
                       </div>
                     </Link>
