@@ -1,9 +1,14 @@
 /* Docs-only: a wave that rolls through text letter by letter. Every letter runs the same animation, delayed by its
    position, so the crest travels along the line. Rise and timing are variables on the element. */
 
+[data-wave-text],
+[data-wave-logo] {
+  --wave-duration: 2.4s; /* one full up-and-down for a letter */
+  --wave-sweep: 2.45s; /* time for the crest to cross the whole width; the logo's delays come from this */
+}
+
 [data-wave-text] {
   --wave-rise: 0.2em; /* how far a letter lifts at the crest */
-  --wave-duration: 2.4s; /* one full up-and-down for a letter */
   --wave-stagger: 0.07s; /* delay between neighboring letters: lower is a longer, smoother wave */
 }
 
@@ -29,7 +34,25 @@
   }
 }
 
+/* The logo's shapes lift by SVG user units (its viewBox is 1080 wide), at a delay set by their horizontal position */
+[data-wave-logo] {
+  --wave-logo-rise: 7px;
+  animation: wave-logo-bob var(--wave-duration) ease-in-out infinite;
+  animation-delay: calc(var(--wave-x) * var(--wave-sweep));
+}
+
+@keyframes wave-logo-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--wave-logo-rise) * -1));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  [data-wave-logo],
   [data-wave-letter] {
     animation: none;
   }
