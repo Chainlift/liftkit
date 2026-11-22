@@ -15,7 +15,7 @@ export default function Home() {
       <Section className="text-align-center" padding="3xl">
         <Container maxWidth="none" className="items-center">
           <div className="flex-v">
-            <LiftKitLogo className="w-full" wave />
+            <LiftKitLogo className="w-full" />
             <WaveText as="h1" className="display2-bold mt-sm mb-sm color-onsurfacelow">
               Invisible Supports for Your Design System
             </WaveText>
