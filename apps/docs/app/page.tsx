@@ -15,7 +15,7 @@ export default function Home() {
       <Section className="text-align-center" padding="3xl">
         <Container maxWidth="none" className="items-center">
           <div className="flex-v">
-            <LiftKitLogo className="w-full" />
+            <LiftKitLogo className="self-center" style={{ width: "33vw" }} />
             <RandomSlogan className="display2-bold mt-sm mb-sm color-onsurfacelow" />
           </div>
           <div>
