@@ -11,7 +11,7 @@ const UTILITIES_DIR = path.join(process.cwd(), "node_modules", "liftkit", "src",
 const SKIPPED_FILES = new Set(["liftkit-core.css", "index.css"]);
 
 export type UtilityClass = { selector: string; declarations: string[] };
-export type UtilityGroup = { file: string; title: string; classes: UtilityClass[] };
+export type UtilityGroup = { file: string; slug: string; title: string; classes: UtilityClass[] };
 
 /** The top-level `selector { body }` rules of a stylesheet. */
 function topLevelRules(css: string): [string, string][] {
@@ -62,7 +62,7 @@ export function readUtilities(): UtilityGroup[] {
             .map((declaration) => declaration.replace(/\s+/g, " ").trim())
             .filter(Boolean),
         }));
-      return { file, title: titleFromFile(file), classes };
+      return { file, slug: file.replace(/\.css$/, ""), title: titleFromFile(file), classes };
     })
     .filter((group) => group.classes.length > 0);
 }

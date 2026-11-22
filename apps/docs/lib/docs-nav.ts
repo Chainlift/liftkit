@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { componentDocs } from "@/content/components/registry";
+import { readUtilities } from "@/app/docs/utilities/read-utilities";
 
 const DOCS_DIR = path.join(process.cwd(), "app", "docs");
 
@@ -20,6 +21,12 @@ const SECTIONS: { title: string; dir: string | null; extraItems?: () => NavItem[
     dir: null,
     extraItems: () =>
       Object.entries(componentDocs).map(([slug, { meta }]) => ({ title: meta.title, href: `/docs/components/${slug}` })),
+  },
+  {
+    title: "Utilities",
+    // One page per utility stylesheet, rendered by the shared template at utilities/[slug]
+    dir: null,
+    extraItems: () => readUtilities().map(({ slug, title }) => ({ title, href: `/docs/utilities/${slug}` })),
   },
 ];
 
