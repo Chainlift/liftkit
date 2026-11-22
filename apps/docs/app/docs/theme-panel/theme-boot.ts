@@ -31,10 +31,9 @@ export interface ThemeCssCache {
   fontsHref: string | null;
 }
 
-/** A preset's finished CSS, computed on the server. */
-export interface BootPreset {
+/** A preset's finished CSS (colors, scale and fonts), computed on the server. */
+export interface BootPreset extends ThemeCssCache {
   id: string;
-  css: string;
 }
 
 export function themeBootScript(presets: BootPreset[]): string {
@@ -43,17 +42,18 @@ export function themeBootScript(presets: BootPreset[]): string {
   return `(function(){try{
 var ls=localStorage,h=document.head;
 function s(id,css){if(!css)return;var e=document.createElement("style");e.id=id;e.textContent=css;h.appendChild(e)}
+function a(o){
+s(${JSON.stringify(STYLE_ID)},o.css);
+s(${JSON.stringify(FONT_STYLE_ID)},o.fontCss);
+if(o.fontsHref){var l=document.createElement("link");l.id=${JSON.stringify(FONT_LINK_ID)};l.rel="stylesheet";l.href=o.fontsHref;h.appendChild(l)}
+}
 var c=JSON.parse(ls.getItem(${JSON.stringify(THEME_CACHE_KEY)}));
-if(c){
-s(${JSON.stringify(STYLE_ID)},c.css);
-s(${JSON.stringify(FONT_STYLE_ID)},c.fontCss);
-if(c.fontsHref){var l=document.createElement("link");l.id=${JSON.stringify(FONT_LINK_ID)};l.rel="stylesheet";l.href=c.fontsHref;h.appendChild(l)}
-return}
+if(c){a(c);return}
 if(ls.getItem(${JSON.stringify(THEME_STORAGE_KEY)}))return;
 if(ls.getItem(${JSON.stringify(RANDOM_THEME_KEY)})==="off")return;
 var p=${list};if(!p.length)return;
 var q=p[Math.floor(Math.random()*p.length)];
 window[${JSON.stringify(PICKED_GLOBAL)}]=q.id;
-s(${JSON.stringify(STYLE_ID)},q.css);
+a(q);
 }catch(e){}})();`;
 }
