@@ -4,4 +4,8 @@
  */
 export const SLOGANS: string[] = [
   "Invisible Supports for Your Design System",
+  "Like shadcn, but worse!",
+  "I can't believe it's not Tailwind!",
+  "Impossible to use!",
+  ""
 ];
