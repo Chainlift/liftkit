@@ -2,7 +2,7 @@
   display: grid;
   margin: auto;
   max-width: 1600px;
-  grid-template-columns: 320px minmax(40ch, 90ch) 320px;
+  grid-template-columns: 1fr minmax(40ch, 90ch) 1fr;
   position: relative;
 
   gap: 0;
@@ -31,9 +31,7 @@
     position: sticky;
     top: 0px;
 
-    [data-slot="scroll-area"] {
-      justify-items: end;
-    }
+
   }
   .right-sidebar {
     align-self: start;
