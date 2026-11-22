@@ -173,7 +173,7 @@ export function SubComponentDocs({ name, subComponent, linkToSource, className }
       {subComponent.props && subComponent.props.length > 0 && (
         <div data-slot="table-block">
           <div className="flex items-baseline justify-start">
-            <h4 className="body-bold color-onsurfacelow mb-sm">Props</h4>
+            <h4 className="title3-bold mb-xs">Props</h4>
             {linkToSource && (
               <a
                 href={linkToSource}
@@ -192,7 +192,7 @@ export function SubComponentDocs({ name, subComponent, linkToSource, className }
       {/* Data Attributes */}
       {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
         <div data-slot="table-block">
-          <h4 className="body-bold mt-lg mb-sm color-onsurfacelow">Data Attributes</h4>
+          <h4 className="title3-bold mb-xs">Data Attributes</h4>
           <SubComponentDataAttributesTable name={name} subComponent={subComponent} />
         </div>
       )}
