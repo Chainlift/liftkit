@@ -4,11 +4,8 @@ import { useEffect, useMemo } from "react";
 import { useTheme } from "./theme-context";
 import { resolveTheme } from "./theme-engine";
 import { getCategoryFor } from "./font-catalog";
-import type { FontAssignments, FontFamilies } from "./types";
-
-const STYLE_ID = "lk-theme-override";
-const FONT_STYLE_ID = "lk-theme-fonts";
-const FONT_LINK_ID = "lk-theme-fonts-link";
+import { FONT_LINK_ID, FONT_STYLE_ID, STYLE_ID, THEME_CACHE_KEY, type ThemeCssCache } from "./theme-boot";
+import type { ColorMode, FontAssignments, FontFamilies, ResolvedTheme } from "./types";
 
 function buildCssBlock(tokens: Record<string, string>, indent: string = "  "): string {
   return Object.entries(tokens)
@@ -69,59 +66,64 @@ function buildFontCss(fontFamilies: FontFamilies, fontAssignments: FontAssignmen
   return `:root {\n${slotRules}\n${assignmentRules}\n}`;
 }
 
+/** Colors and scale factor, for the selected color mode. */
+function buildThemeCss(resolved: ResolvedTheme, colorMode: ColorMode, scaleFactor: number): string {
+  const scaleRule = `  --lk-scalefactor: ${scaleFactor};`;
+  if (colorMode === "system") {
+    // Inject both schemes; let the browser pick via media query
+    return `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}`;
+  }
+  if (colorMode === "light") {
+    return `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}`;
+  }
+  // Force dark: override both the default :root and the media query
+  return `:root {\n${scaleRule}\n${buildCssBlock(resolved.dark)}\n}`;
+}
+
+/** Creates the <style> with this id if it isn't there yet (the boot script may have added it), then sets its CSS. */
+function upsertStyle(id: string, css: string) {
+  let styleEl = document.getElementById(id) as HTMLStyleElement | null;
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = id;
+    document.head.appendChild(styleEl);
+  }
+  styleEl.textContent = css;
+}
+
 export function ThemeCSSInjector() {
-  const { state } = useTheme();
+  const { state, loaded } = useTheme();
 
   const resolved = useMemo(
     () => resolveTheme(state),
     [state.seedColors, state.toneOverrides, state.schemeVariant]
   );
+  const themeCss = useMemo(
+    () => buildThemeCss(resolved, state.colorMode, state.scaleFactor),
+    [resolved, state.colorMode, state.scaleFactor]
+  );
+  const fontCss = useMemo(
+    () => buildFontCss(state.fontFamilies, state.fontAssignments),
+    [state.fontFamilies, state.fontAssignments]
+  );
+  const fontsHref = useMemo(() => buildFontsHref(state.fontFamilies), [state.fontFamilies]);
 
+  // Nothing is written until the saved theme has loaded: until then `state` is the defaults, and applying them
+  // would replace the saved theme the boot script already put on screen (see theme-boot.ts).
   useEffect(() => {
-    let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null;
-    if (!styleEl) {
-      styleEl = document.createElement("style");
-      styleEl.id = STYLE_ID;
-      document.head.appendChild(styleEl);
-    }
+    if (loaded) upsertStyle(STYLE_ID, themeCss);
+  }, [loaded, themeCss]);
 
-    let css: string;
-
-    const scaleRule = `  --lk-scalefactor: ${state.scaleFactor};`;
-
-    if (state.colorMode === "system") {
-      // Inject both schemes; let the browser pick via media query
-      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}`;
-    } else if (state.colorMode === "light") {
-      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}`;
-    } else {
-      // Force dark: override both the default :root and the media query
-      css = `:root {\n${scaleRule}\n${buildCssBlock(resolved.dark)}\n}`;
-    }
-
-    styleEl.textContent = css;
-  }, [
-    resolved,
-    state.colorMode,
-    state.scaleFactor,
-  ]);
-
-  // Font slot overrides and assignment overrides — one style tag of CSS vars.
+  // Font slot overrides and assignment overrides: one style tag of CSS vars.
   useEffect(() => {
-    let styleEl = document.getElementById(FONT_STYLE_ID) as HTMLStyleElement | null;
-    if (!styleEl) {
-      styleEl = document.createElement("style");
-      styleEl.id = FONT_STYLE_ID;
-      document.head.appendChild(styleEl);
-    }
-    styleEl.textContent = buildFontCss(state.fontFamilies, state.fontAssignments);
-  }, [state.fontFamilies, state.fontAssignments]);
+    if (loaded) upsertStyle(FONT_STYLE_ID, fontCss);
+  }, [loaded, fontCss]);
 
   // A single <link> that pulls every chosen family from Google Fonts in one request.
   useEffect(() => {
-    const href = buildFontsHref(state.fontFamilies);
+    if (!loaded) return;
     let linkEl = document.getElementById(FONT_LINK_ID) as HTMLLinkElement | null;
-    if (!href) {
+    if (!fontsHref) {
       linkEl?.remove();
       return;
     }
@@ -131,8 +133,19 @@ export function ThemeCSSInjector() {
       linkEl.rel = "stylesheet";
       document.head.appendChild(linkEl);
     }
-    if (linkEl.href !== href) linkEl.href = href;
-  }, [state.fontFamilies]);
+    if (linkEl.href !== fontsHref) linkEl.href = fontsHref;
+  }, [loaded, fontsHref]);
+
+  // Keep the boot script's copy in step with what's on screen.
+  useEffect(() => {
+    if (!loaded) return;
+    try {
+      const cache: ThemeCssCache = { css: themeCss, fontCss, fontsHref };
+      localStorage.setItem(THEME_CACHE_KEY, JSON.stringify(cache));
+    } catch {
+      // localStorage may be unavailable (private browsing quota)
+    }
+  }, [loaded, themeCss, fontCss, fontsHref]);
 
   return null;
 }

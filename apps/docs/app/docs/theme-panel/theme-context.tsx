@@ -6,6 +6,7 @@ import {
   useReducer,
   useEffect,
   useRef,
+  useState,
   type ReactNode,
 } from "react";
 import type { ThemeState, ThemeAction } from "./types";
@@ -93,6 +94,8 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
 interface ThemeContextValue {
   state: ThemeState;
   dispatch: React.Dispatch<ThemeAction>;
+  /** True once the saved theme (if any) has been read from localStorage and is in `state`. */
+  loaded: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -100,8 +103,10 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(themeReducer, DEFAULT_THEME_STATE);
   const initialized = useRef(false);
+  const [loaded, setLoaded] = useState(false);
 
-  // Load persisted state on mount
+  // Load persisted state on mount. LOAD and setLoaded land in the same render, so `loaded` is never true while
+  // `state` is still the defaults.
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
@@ -109,6 +114,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (persisted) {
       dispatch({ type: "LOAD", state: persisted as ThemeState });
     }
+    setLoaded(true);
   }, []);
 
   // Debounced save on state change
@@ -129,7 +135,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   ]);
 
   return (
-    <ThemeContext value={{ state, dispatch }}>
+    <ThemeContext value={{ state, dispatch, loaded }}>
       {children}
     </ThemeContext>
   );
