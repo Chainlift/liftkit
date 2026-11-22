@@ -98,7 +98,7 @@ export function TableOfContents() {
               }}
             >
               <div
-                className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden${activeId === item.id ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
+                className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden rounded-r-circle ${activeId === item.id ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
               >
                 <span className="subheading">{item.text}</span>
                 <StateLayer />

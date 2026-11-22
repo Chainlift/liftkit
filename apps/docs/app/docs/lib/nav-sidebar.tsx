@@ -31,7 +31,7 @@ export function NavSidebar({ nav }: { nav: NavSections }) {
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
                       <div
-                        className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden  ${pathname === item.href ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
+                        className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden rounded-r-circle ${pathname === item.href ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
                       >
                         <span className="subheading">{item.title}</span>
                         <StateLayer />
