@@ -1,5 +1,6 @@
 import "./subcomponent-table-styles.css";
 import { Button } from "liftkit";
+import { MdxTable, MdxTd, MdxTh } from "@/components/mdx/mdx-table";
 import type { SubComponentEntry } from "./component-doc";
 
 /** Tables documenting one part of a compound component (e.g. Accordion's Root, Item, Trigger). */
@@ -22,35 +23,29 @@ export function SubComponentPropsTable({ subComponent, className }: SubComponent
 
   return (
     <div data-instance="lk-docs-table">
-      <table>
-        <colgroup>
-          <col width="16.6%" />
-          <col width="16.6%" />
-          <col width="16.6%" />
-          <col />
-        </colgroup>
+      <MdxTable>
         <thead>
           <tr>
-            <th>Prop</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
+            <MdxTh>Prop</MdxTh>
+            <MdxTh>Type</MdxTh>
+            <MdxTh>Default</MdxTh>
+            <MdxTh>Description</MdxTh>
           </tr>
         </thead>
         <tbody>
           {subComponent.props.map((prop) => (
             <tr key={prop.name}>
-              <td>
+              <MdxTd>
                 {prop.name}
                 {prop.required && <span>*</span>}
-              </td>
-              <td>{prop.type}</td>
-              <td>{prop.defaultValue || "-"}</td>
-              <td>{prop.description}</td>
+              </MdxTd>
+              <MdxTd>{prop.type}</MdxTd>
+              <MdxTd>{prop.defaultValue || "-"}</MdxTd>
+              <MdxTd>{prop.description}</MdxTd>
             </tr>
           ))}
         </tbody>
-      </table>
+      </MdxTable>
     </div>
   );
 }
@@ -75,22 +70,22 @@ export function SubComponentDataAttributesTable({
 
   return (
     <div className={className}>
-      <table>
+      <MdxTable>
         <thead>
           <tr>
-            <th>Data Attribute</th>
-            <th>Description</th>
+            <MdxTh>Data Attribute</MdxTh>
+            <MdxTh>Description</MdxTh>
           </tr>
         </thead>
         <tbody>
           {subComponent.dataAttributes.map((attr) => (
             <tr key={attr.name}>
-              <td>{attr.name}</td>
-              <td>{attr.description}</td>
+              <MdxTd>{attr.name}</MdxTd>
+              <MdxTd>{attr.description}</MdxTd>
             </tr>
           ))}
         </tbody>
-      </table>
+      </MdxTable>
     </div>
   );
 }
@@ -115,26 +110,26 @@ export function SubComponentCSSVariablesTable({
 
   return (
     <div className={className}>
-      <table>
+      <MdxTable>
         <thead>
           <tr>
-            <th>Variable</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
+            <MdxTh>Variable</MdxTh>
+            <MdxTh>Type</MdxTh>
+            <MdxTh>Default</MdxTh>
+            <MdxTh>Description</MdxTh>
           </tr>
         </thead>
         <tbody>
           {subComponent.cssVariables.map((cssVar) => (
             <tr key={cssVar.name}>
-              <td>{cssVar.name}</td>
-              <td>{cssVar.type || "-"}</td>
-              <td>{cssVar.defaultValue || "-"}</td>
-              <td>{cssVar.description}</td>
+              <MdxTd>{cssVar.name}</MdxTd>
+              <MdxTd>{cssVar.type || "-"}</MdxTd>
+              <MdxTd>{cssVar.defaultValue || "-"}</MdxTd>
+              <MdxTd>{cssVar.description}</MdxTd>
             </tr>
           ))}
         </tbody>
-      </table>
+      </MdxTable>
     </div>
   );
 }
