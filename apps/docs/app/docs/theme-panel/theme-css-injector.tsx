@@ -73,7 +73,7 @@ function upsertStyle(id: string, css: string) {
 }
 
 export function ThemeCSSInjector() {
-  const { state, loaded } = useTheme();
+  const { state, loaded, pristine } = useTheme();
 
   const resolved = useMemo(
     () => resolveTheme(state),
@@ -117,16 +117,17 @@ export function ThemeCSSInjector() {
     if (linkEl.href !== fontsHref) linkEl.href = fontsHref;
   }, [loaded, fontsHref]);
 
-  // Keep the boot script's copy in step with what's on screen.
+  // Keep the boot script's copy in step with what's on screen, except while it is only a random pick the visitor
+  // hasn't touched: caching that would make the next visit replay it instead of rolling again.
   useEffect(() => {
-    if (!loaded) return;
+    if (!loaded || pristine) return;
     try {
       const cache: ThemeCssCache = { css: themeCss, fontCss, fontsHref };
       localStorage.setItem(THEME_CACHE_KEY, JSON.stringify(cache));
     } catch {
       // localStorage may be unavailable (private browsing quota)
     }
-  }, [loaded, themeCss, fontCss, fontsHref]);
+  }, [loaded, pristine, themeCss, fontCss, fontsHref]);
 
   return null;
 }

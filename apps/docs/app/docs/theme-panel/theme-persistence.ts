@@ -1,6 +1,6 @@
 import type { FontAssignments, FontFamilies, ThemeState } from "./types";
 import { DEFAULT_FONT_ASSIGNMENTS, DEFAULT_FONT_FAMILIES, DEFAULT_THEME_STATE } from "./defaults";
-import { THEME_PICK_KEY, THEME_STORAGE_KEY } from "./theme-boot";
+import { PICKED_GLOBAL, THEME_STORAGE_KEY } from "./theme-boot";
 
 
 interface PersistedTheme {
@@ -100,11 +100,8 @@ export function clearTheme(): void {
   }
 }
 
-/** The preset the boot script picked for a first-time visitor, if any. */
+/** The preset the boot script picked on this page load for a visitor with nothing saved, if any. */
 export function loadPickedPresetId(): string | null {
-  try {
-    return localStorage.getItem(THEME_PICK_KEY);
-  } catch {
-    return null;
-  }
+  const id = (window as unknown as Record<string, unknown>)[PICKED_GLOBAL];
+  return typeof id === "string" ? id : null;
 }

@@ -5,16 +5,19 @@
  * too big to run in the page head. So:
  *  - A returning visitor with a theme: ThemeCSSInjector saves the finished CSS under THEME_CACHE_KEY whenever the
  *    theme changes, and the boot script (inlined in the root layout's <head>) pastes it straight back.
- *  - A first-time visitor (no saved theme, no cached CSS): the layout precomputes every preset's CSS on the server and
- *    embeds it in the script. The script picks one at random, pastes it, and remembers the pick under THEME_PICK_KEY.
- *    ThemeProvider then applies that same preset to its state, which saves it like any theme the visitor made, so
- *    the random pick happens once and later visits just load the saved theme.
+ *  - A visitor with nothing saved: the layout precomputes every preset's CSS on the server and embeds it in the
+ *    script. The script picks one at random, pastes it, and hands the pick to ThemeProvider on window[PICKED_GLOBAL].
+ *    The pick is also kept for the tab's session (sessionStorage, THEME_PICK_KEY), so refreshing or browsing the
+ *    docs doesn't change it, while a new visit rolls again. It is NOT saved: nothing is written to localStorage, and
+ *    the injector doesn't cache it, until the visitor makes their first edit, which saves the whole theme.
  * The script uses the same element ids as the injector, which takes over once React is up. Nothing here needs a
  * server at request time, so it works with a static export.
  */
 
 export const THEME_STORAGE_KEY = "lk-theme-v1";
 export const THEME_PICK_KEY = "lk-theme-pick";
+/** Where the boot script leaves this load's random pick (a preset id) for ThemeProvider. */
+export const PICKED_GLOBAL = "__lkPick";
 export const THEME_CACHE_KEY = "lk-theme-css-v1";
 export const STYLE_ID = "lk-theme-override";
 export const FONT_STYLE_ID = "lk-theme-fonts";
@@ -47,9 +50,10 @@ if(c.fontsHref){var l=document.createElement("link");l.id=${JSON.stringify(FONT_
 return}
 if(ls.getItem(${JSON.stringify(THEME_STORAGE_KEY)}))return;
 var p=${list};if(!p.length)return;
-var id=ls.getItem(${JSON.stringify(THEME_PICK_KEY)}),q=null;
+var id=null,q=null;try{id=sessionStorage.getItem(${JSON.stringify(THEME_PICK_KEY)})}catch(e){}
 for(var i=0;i<p.length;i++)if(p[i].id===id)q=p[i];
-if(!q){q=p[Math.floor(Math.random()*p.length)];ls.setItem(${JSON.stringify(THEME_PICK_KEY)},q.id)}
+if(!q){q=p[Math.floor(Math.random()*p.length)];try{sessionStorage.setItem(${JSON.stringify(THEME_PICK_KEY)},q.id)}catch(e){}}
+window[${JSON.stringify(PICKED_GLOBAL)}]=q.id;
 s(${JSON.stringify(STYLE_ID)},q.css);
 }catch(e){}})();`;
 }

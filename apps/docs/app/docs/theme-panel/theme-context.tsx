@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useReducer,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -86,6 +87,11 @@ interface ThemeContextValue {
   dispatch: React.Dispatch<ThemeAction>;
   /** True once the saved theme (if any) has been read from localStorage and is in `state`. */
   loaded: boolean;
+  /**
+   * True while the theme is just the random preset picked for a visitor with nothing saved, and they haven't edited
+   * anything yet. Nothing is saved or cached until this turns false, which any dispatch from the UI does.
+   */
+  pristine: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -94,6 +100,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(themeReducer, DEFAULT_THEME_STATE);
   const initialized = useRef(false);
   const [loaded, setLoaded] = useState(false);
+  const [pristine, setPristine] = useState(false);
+
+  // Everything the UI dispatches is an edit, so the first one ends the pristine state (and with it, the saving pause).
+  // The provider's own dispatches below use the raw one.
+  const dispatchEdit = useCallback((action: ThemeAction) => {
+    setPristine(false);
+    dispatch(action);
+  }, []);
 
   // Load persisted state on mount. LOAD and setLoaded land in the same render, so `loaded` is never true while
   // `state` is still the defaults.
@@ -104,17 +118,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (persisted) {
       dispatch({ type: "LOAD", state: persisted as ThemeState });
     } else {
-      // A first-time visitor: the boot script already put a random preset on screen and remembered which one
-      // (see theme-boot.ts). Take it as the starting theme, so it's saved like any other from here on.
+      // Nothing saved: the boot script already put a random preset on screen (see theme-boot.ts). Start from it, but
+      // leave it unsaved until the visitor edits something.
       const pickedId = loadPickedPresetId();
-      if (pickedId) dispatch({ type: "APPLY_PRESET", presetId: pickedId });
+      if (pickedId) {
+        dispatch({ type: "APPLY_PRESET", presetId: pickedId });
+        setPristine(true);
+      }
     }
     setLoaded(true);
   }, []);
 
   // Debounced save on state change
   useEffect(() => {
-    if (!initialized.current) return;
+    if (!initialized.current || pristine) return;
     const timeout = setTimeout(() => saveTheme(state), 300);
     return () => clearTimeout(timeout);
   }, [
@@ -127,10 +144,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     state.fontFamilies,
     state.fontAssignments,
     state.activePresetId,
+    pristine,
   ]);
 
   return (
-    <ThemeContext value={{ state, dispatch, loaded }}>
+    <ThemeContext value={{ state, dispatch: dispatchEdit, loaded, pristine }}>
       {children}
     </ThemeContext>
   );
