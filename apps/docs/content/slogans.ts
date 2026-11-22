@@ -7,5 +7,4 @@ export const SLOGANS: string[] = [
   "Like shadcn, but worse!",
   "I can't believe it's not Tailwind!",
   "Impossible to use!",
-  ""
 ];
