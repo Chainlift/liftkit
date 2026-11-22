@@ -1,0 +1,36 @@
+/* Docs-only: a wave that rolls through text letter by letter. Every letter runs the same animation, delayed by its
+   position, so the crest travels along the line. Rise and timing are variables on the element. */
+
+[data-wave-text] {
+  --wave-rise: 0.2em; /* how far a letter lifts at the crest */
+  --wave-duration: 2.4s; /* one full up-and-down for a letter */
+  --wave-stagger: 0.07s; /* delay between neighboring letters: lower is a longer, smoother wave */
+}
+
+/* Words stay whole when the line wraps */
+[data-wave-word] {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-wave-letter] {
+  display: inline-block;
+  animation: wave-text-bob var(--wave-duration) ease-in-out infinite;
+  animation-delay: calc(var(--wave-index) * var(--wave-stagger));
+}
+
+@keyframes wave-text-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--wave-rise) * -1));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-wave-letter] {
+    animation: none;
+  }
+}
