@@ -438,9 +438,9 @@ const FONT_GROUPS: { key: FontClassGroup; label: string }[] = [
 ];
 
 const FONT_SLOTS: { value: FontSlot; label: string }[] = [
-  { value: 1, label: "Family 1" },
-  { value: 2, label: "Family 2" },
-  { value: 3, label: "Family 3" },
+  { value: 1, label: "Default" },
+  { value: 2, label: "Large Text" },
+  { value: 3, label: "Monospace" },
 ];
 
 /** A searchable Combobox over every Google Fonts family in the build-time catalog. */
@@ -571,45 +571,7 @@ function ThemePanelContent() {
       <ScrollArea className="w-full max-w-full fill-container overflow-hidden">
         <ScrollAreaViewport>
           <ScrollAreaContent className="p-0 relative" style={{ gap: 0 }}>
-            <GoldenBox
-              scaleFactor="heading"
-              opticalCorrection="y"
-              className="w-full sticky top-0 z-1 bg-surfacecontainerlowest border-b border-color-outlinevariant"
-            >
-              <div className="flex items-center justify-between gap-md">
-                <div className="flex items-center gap-xs">
-                  <h2 className="heading">Theme</h2>
-                  <TooltipProvider>
-                    <Tooltip>
-                      {/* A plain span trigger, so the tooltip doesn't replace a LiftKit component's data-slot */}
-                      <TooltipTrigger
-                        render={<span className="flex color-onsurfacelow subheading" tabIndex={0} aria-label="About exporting" />}
-                      >
-                        <Icon name="info" aria-hidden="true" />
-                      </TooltipTrigger>
-                      <TooltipContent>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-                <div className="flex items-center gap-xs">
-                  <IconButton
-                    iconName="rotate-ccw"
-                    variant="outline"
-                    fontClass="heading"
-                    aria-label="Reset theme"
-                    title="Reset"
-                    onClick={() => dispatch({ type: "RESET" })}
-                  />
-                  <IconButton
-                    iconName="download"
-                    fontClass="heading"
-                    aria-label="Export theme CSS"
-                    title="Export"
-                    onClick={() => downloadThemeCSS(state)}
-                  />
-                </div>
-              </div>
-            </GoldenBox>
+ 
             <PanelSection label="Preset">
               <PresetSelect />
             </PanelSection>
@@ -713,11 +675,53 @@ function ThemePanelContent() {
 
 /** The Theme Generator's control panel, shown as a fixed sidebar on the /playground page. */
 export function ThemePanel() {
+
+const {state, dispatch} = useTheme();
+
   return (
     <aside
-      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest  rounded-sm "
+      className="flex-v flex-none h-full overflow-hidden bg-surfacevariant  rounded-sm "
       style={PANEL_WIDTH}
     >
+               <GoldenBox
+              scaleFactor="heading"
+              opticalCorrection="y"
+              className="w-full sticky top-0 z-1  border-b border-color-outlinevariant"
+            >
+              <div className="flex items-center justify-between gap-md">
+                <div className="flex items-center gap-xs">
+                  <h2 className="heading">Theme</h2>
+                  <TooltipProvider>
+                    <Tooltip>
+                      {/* A plain span trigger, so the tooltip doesn't replace a LiftKit component's data-slot */}
+                      <TooltipTrigger
+                        render={<span className="flex color-onsurfacelow subheading" tabIndex={0} aria-label="About exporting" />}
+                      >
+                        <Icon name="info" aria-hidden="true" />
+                      </TooltipTrigger>
+                      <TooltipContent>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+                <div className="flex items-center gap-xs">
+                  <IconButton
+                    iconName="rotate-ccw"
+                    variant="outline"
+                    fontClass="heading"
+                    aria-label="Reset theme"
+                    title="Reset"
+                    onClick={() => dispatch({ type: "RESET" })}
+                  />
+                  <IconButton
+                    iconName="download"
+                    fontClass="heading"
+                    aria-label="Export theme CSS"
+                    title="Export"
+                    onClick={() => downloadThemeCSS(state)}
+                  />
+                </div>
+              </div>
+            </GoldenBox>
       <ThemePanelContent />
     </aside>
   );

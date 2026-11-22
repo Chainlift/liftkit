@@ -545,7 +545,7 @@ function StaffCard() {
       }
     >
       <Tabs defaultValue="morning">
-        <TabsList>
+        <TabsList >
           <TabsTab value="morning">Morning</TabsTab>
           <TabsTab value="evening">Evening</TabsTab>
           <TabsIndicator />
