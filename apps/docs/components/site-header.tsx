@@ -41,8 +41,11 @@ const PAGES: {
   },
 ];
 
-/** Site-wide top navigation, shared by every page. The padding around it is part of it, so it matches everywhere. */
-export function SiteHeader() {
+/**
+ * Site-wide top navigation, shared by every page. The padding around it is part of it, so it matches everywhere.
+ * `children` render before the social links (the page passes the search in, since it needs server-side data).
+ */
+export function SiteHeader({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
@@ -72,6 +75,7 @@ export function SiteHeader() {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex-h items-center gap-xs">
+        {children}
         {SOCIALS.map(({ label, href, iconName }) => (
           <IconButton
             key={href}

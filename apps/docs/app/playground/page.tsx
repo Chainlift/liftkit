@@ -13,6 +13,7 @@ import {
   TabsTab,
 } from "liftkit";
 import { SiteHeader } from "@/components/site-header";
+import { SiteSearch } from "@/components/site-search";
 import { ComponentMosaicV2 } from "@/app/docs/lib/component-mosaic-v2";
 import { ThemePanel } from "@/app/docs/theme-panel/theme-panel";
 import { AllComponents } from "@/app/docs/lib/all-components";
@@ -40,7 +41,9 @@ export default function PlayGround() {
       {/* The page background and header keep the default theme; only the tabs area follows the Theme Generator */}
       <div data-theme-locked className="absolute top-0 right-0 bottom-0 left-0 bg-surfacecontainerlowest" style={{ zIndex: -1 }} aria-hidden />
       <div data-theme-locked>
-        <SiteHeader />
+        <SiteHeader>
+          <SiteSearch />
+        </SiteHeader>
       </div>
       <div className="flex flex-row items-start flex-grow  px-md pb-md gap-md ">
         <div className="flex flex-column h-full">

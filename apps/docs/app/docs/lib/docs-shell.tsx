@@ -2,6 +2,7 @@ import { getDocsNav } from "@/lib/docs-nav";
 import { TableOfContents } from "@/components/mdx/table-of-contents";
 import { GoldenBox } from "liftkit";
 import { SiteHeader } from "@/components/site-header";
+import { SiteSearch } from "@/components/site-search";
 import "../docsPage.css";
 import { NavSidebar } from "@/app/docs/lib/nav-sidebar";
 import {
@@ -19,7 +20,9 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      <SiteHeader />
+      <SiteHeader>
+        <SiteSearch />
+      </SiteHeader>
       <div className="docs-page-layout">
         <div className="left-sidebar">
           <ScrollArea>
