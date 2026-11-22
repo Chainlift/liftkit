@@ -82,25 +82,27 @@ export function TableOfContents() {
 
   return (
     <nav data-slot="table-of-contents" aria-label="On this page">
-      <p className="subheading-bold">On this page</p>
-      <ul style={{ listStyle: "none", padding: 0 }} className="mt-md">
+      <p className="heading py-xs">On this page</p>
+      <ul style={{ listStyle: "none", padding: 0 }} className="m-0">
         {items.map((item) => (
-          <li key={item.id}>
+          // Same row structure as the docs sidebar links (a padded, bordered div with the text in an inline span), so the two
+          // lists match. The core stylesheet gives li a smaller line height, which would make these rows shorter.
+          <li key={item.id} style={{ lineHeight: "var(--lk-body-line-height)" }}>
             <a
               href={`#${item.id}`}
               data-active={activeId === item.id || undefined}
-              className="p-sm relative overflow-hidden rounded-2xs color-onsurfacelow"
-              style={{
-                display: "block",
-              }}
+              aria-current={activeId === item.id ? "location" : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              {item.text}
-
-              <StateLayer />
+              <div
+                className={`px-sm py-2xs relative color-onsurfacelow border-l border-color-outlinevariant overflow-hidden${activeId === item.id ? " bg-surfacecontainerhigh border-color-onsurface" : ""}`}
+              >
+                <span className="subheading">{item.text}</span>
+                <StateLayer />
+              </div>
             </a>
           </li>
         ))}
