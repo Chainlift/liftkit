@@ -331,7 +331,7 @@ function SchemeVariantSelect() {
       </SelectTrigger>
       <SelectPortal>
         <SelectPositioner sideOffset={8}>
-          <SelectPopup data-theme-locked>
+          <SelectPopup>
             <SelectScrollUpArrow />
             <SelectList>
               {SCHEME_VARIANTS.map((variant) => (
@@ -393,7 +393,7 @@ function PresetSelect() {
       </SelectTrigger>
       <SelectPortal>
         <SelectPositioner sideOffset={8}>
-          <SelectPopup data-theme-locked>
+          <SelectPopup>
             <SelectScrollUpArrow />
             <SelectList>
               {items.map((item) => (
@@ -478,7 +478,7 @@ function FontSlotPicker({
       </div>
       <ComboboxPortal>
         <ComboboxPositioner sideOffset={4}>
-          <ComboboxPopup data-theme-locked>
+          <ComboboxPopup>
             <ComboboxEmpty>No matching families.</ComboboxEmpty>
             <ComboboxList>
               {(item: FontCatalogEntry) => (
@@ -527,7 +527,7 @@ function FontAssignmentRow({
         </SelectTrigger>
         <SelectPortal>
           <SelectPositioner sideOffset={8}>
-            <SelectPopup data-theme-locked>
+            <SelectPopup>
               <SelectList>
                 {FONT_SLOTS.map((option) => (
                   <SelectItem key={option.value} value={option.value}>
@@ -584,7 +584,7 @@ function ThemePanelContent() {
                       >
                         <Icon name="info" aria-hidden="true" />
                       </TooltipTrigger>
-                      <TooltipContent data-theme-locked>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
+                      <TooltipContent>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
@@ -712,7 +712,6 @@ function ThemePanelContent() {
 export function ThemePanel() {
   return (
     <aside
-      data-theme-panel
       className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest  rounded-sm "
       style={PANEL_WIDTH}
     >

@@ -83,14 +83,8 @@ export function ThemeCSSInjector() {
       document.getElementById(STYLE_ID)?.remove();
       document.getElementById(FONT_STYLE_ID)?.remove();
       document.getElementById(FONT_LINK_ID)?.remove();
-      delete document.documentElement.dataset.lkMode;
     };
   }, []);
-
-  // Lets the locked chrome follow a forced light or dark mode (see PanelThemeLock)
-  useEffect(() => {
-    document.documentElement.dataset.lkMode = state.colorMode;
-  }, [state.colorMode]);
 
   useEffect(() => {
     let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null;

@@ -25,8 +25,7 @@ export function SiteSearchBox({ pages }: { pages: SearchPage[] }) {
         <AutocompleteInput aria-label="Search pages" placeholder="Search pages" style={{ marginTop: 0 }} />
         <AutocompletePortal>
           <AutocompletePositioner sideOffset={4} align="end">
-            {/* The portal puts the popup in <body>; the lock keeps it on the header's theme (see PanelThemeLock) */}
-            <AutocompletePopup data-theme-locked style={{ minWidth: "18rem" }}>
+            <AutocompletePopup style={{ minWidth: "18rem" }}>
               <AutocompleteEmpty>No pages found.</AutocompleteEmpty>
               <AutocompleteList>
                 {(page: SearchPage) => (
