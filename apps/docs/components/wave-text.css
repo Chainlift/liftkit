@@ -1,15 +1,17 @@
-/* Docs-only: a wave that rolls through text letter by letter. Every letter runs the same animation, delayed by its
-   position, so the crest travels along the line. Rise and timing are variables on the element. */
+/* Docs-only: text and a logo that ripple like a flag in the wind. The left edge is the pole: it barely moves, and the
+   motion grows toward the free end. Every piece runs the same animation, delayed by how far along the width it sits,
+   so a crest travels along it, and each piece tilts to follow the cloth. Tune it with the variables below. */
 
 [data-wave-text],
 [data-wave-logo] {
-  --wave-duration: 2.4s; /* one full up-and-down for a letter */
-  --wave-sweep: 2.45s; /* time for the crest to cross the whole width; the logo's delays come from this */
+  --wave-duration: 2.4s; /* one full flutter for a piece */
+  --wave-sweep: 3.6s; /* delay across the full width; sweep / duration = how many waves fit (1.5) */
+  --wave-tilt: 4deg; /* how far a piece leans at the free end, following the slope of the cloth */
+  --wave-pole: 0.12; /* how much of the full motion the piece at the pole still gets (0 = none) */
 }
 
 [data-wave-text] {
-  --wave-rise: 0.2em; /* how far a letter lifts at the crest */
-  --wave-stagger: 0.07s; /* delay between neighboring letters: lower is a longer, smoother wave */
+  --wave-rise: 0.17em; /* lift at the free end */
 }
 
 /* Words stay whole when the line wraps */
@@ -18,36 +20,55 @@
   white-space: nowrap;
 }
 
-[data-wave-letter] {
-  display: inline-block;
-  animation: wave-text-bob var(--wave-duration) ease-in-out infinite;
-  animation-delay: calc(var(--wave-index) * var(--wave-stagger));
-}
-
-@keyframes wave-text-bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(calc(var(--wave-rise) * -1));
-  }
-}
-
-/* The logo's shapes lift by SVG user units (its viewBox is 1080 wide), at a delay set by their horizontal position */
+[data-wave-letter],
 [data-wave-logo] {
-  --wave-logo-rise: 7px;
-  animation: wave-logo-bob var(--wave-duration) ease-in-out infinite;
+  /* --wave-x runs from 0 at the pole to 1 at the free end */
+  --wave-amp: calc(var(--wave-pole) + (1 - var(--wave-pole)) * var(--wave-x));
+  animation: flag-flutter var(--wave-duration) linear infinite;
   animation-delay: calc(var(--wave-x) * var(--wave-sweep));
 }
 
-@keyframes wave-logo-bob {
-  0%,
-  100% {
-    transform: translateY(0);
+[data-wave-letter] {
+  display: inline-block;
+  --wave-lift: calc(var(--wave-rise) * var(--wave-amp));
+}
+
+/* The logo lifts by SVG user units (its viewBox is 1080 wide) and turns about its own center. Keep the lift below
+   WAVE_HEADROOM in liftkit-logo.tsx. */
+[data-wave-logo] {
+  --wave-lift: calc(7px * var(--wave-amp));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* One flutter in eight steps: the height follows a sine and the tilt its slope (a cosine) */
+@keyframes flag-flutter {
+  0% {
+    transform: translateY(0) rotate(calc(var(--wave-tilt) * var(--wave-amp)));
+  }
+  12.5% {
+    transform: translateY(calc(var(--wave-lift) * -0.707)) rotate(calc(var(--wave-tilt) * var(--wave-amp) * 0.707));
+  }
+  25% {
+    transform: translateY(calc(var(--wave-lift) * -1)) rotate(0deg);
+  }
+  37.5% {
+    transform: translateY(calc(var(--wave-lift) * -0.707)) rotate(calc(var(--wave-tilt) * var(--wave-amp) * -0.707));
   }
   50% {
-    transform: translateY(calc(var(--wave-logo-rise) * -1));
+    transform: translateY(0) rotate(calc(var(--wave-tilt) * var(--wave-amp) * -1));
+  }
+  62.5% {
+    transform: translateY(calc(var(--wave-lift) * 0.707)) rotate(calc(var(--wave-tilt) * var(--wave-amp) * -0.707));
+  }
+  75% {
+    transform: translateY(var(--wave-lift)) rotate(0deg);
+  }
+  87.5% {
+    transform: translateY(calc(var(--wave-lift) * 0.707)) rotate(calc(var(--wave-tilt) * var(--wave-amp) * 0.707));
+  }
+  100% {
+    transform: translateY(0) rotate(calc(var(--wave-tilt) * var(--wave-amp)));
   }
 }
 

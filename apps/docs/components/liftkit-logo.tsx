@@ -21,8 +21,8 @@ const WAVE_HEADROOM = 10;
  * The LiftKit lockup (wordmark). Filled with currentColor, so it takes its color from the text color
  * around it, e.g. a `color-primary` class, and follows the theme and dark mode.
  *
- * With `wave`, the mark and letters rise in turn from left to right, on the same clock as WaveText (see
- * wave-text.css), so the logo and a WaveText slogan below it ripple together.
+ * With `wave`, the mark and letters flutter like a flag pinned at the left, on the same clock as WaveText (see
+ * wave-text.css), so the logo and a WaveText slogan below it move together.
  */
 export function LiftKitLogo({ wave = false, ...props }: ComponentProps<"svg"> & { wave?: boolean }) {
   return (
