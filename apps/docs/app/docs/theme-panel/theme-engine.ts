@@ -8,6 +8,9 @@ import {
   SchemeExpressive,
   SchemeNeutral,
   SchemeFidelity,
+  SchemeRainbow,
+  SchemeFruitSalad,
+  SchemeMonochrome,
   DynamicScheme,
 } from "@material/material-color-utilities";
 import { TOKEN_MAP } from "./token-map";
@@ -37,6 +40,12 @@ function createScheme(sourceHex: string, variant: SchemeVariant): DynamicScheme 
       return new SchemeNeutral(hct, false, 0);
     case "fidelity":
       return new SchemeFidelity(hct, false, 0);
+    case "rainbow":
+      return new SchemeRainbow(hct, false, 0);
+    case "fruitSalad":
+      return new SchemeFruitSalad(hct, false, 0);
+    case "monochrome":
+      return new SchemeMonochrome(hct, false, 0);
     case "tonalSpot":
     default:
       return new SchemeTonalSpot(hct, false, 0);

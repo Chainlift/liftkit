@@ -24,7 +24,10 @@ export type SchemeVariant =
   | "vibrant"
   | "expressive"
   | "neutral"
-  | "fidelity";
+  | "fidelity"
+  | "rainbow"
+  | "fruitSalad"
+  | "monochrome";
 
 /** The three generic font-family slots in liftkit-core.css. */
 export type FontSlot = 1 | 2 | 3;

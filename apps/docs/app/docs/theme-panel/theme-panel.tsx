@@ -313,6 +313,9 @@ const SCHEME_VARIANTS: { value: SchemeVariant; label: string }[] = [
   { value: "expressive", label: "Expressive" },
   { value: "neutral", label: "Neutral" },
   { value: "fidelity", label: "Fidelity" },
+  { value: "rainbow", label: "Rainbow" },
+  { value: "fruitSalad", label: "Fruit Salad" },
+  { value: "monochrome", label: "Monochrome" },
 ];
 
 function SchemeVariantSelect() {
