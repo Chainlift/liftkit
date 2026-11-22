@@ -77,15 +77,6 @@ export function ThemeCSSInjector() {
     [state.seedColors, state.toneOverrides, state.schemeVariant]
   );
 
-  // The theme only applies while the Theme Generator is on screen, so remove it when navigating away.
-  useEffect(() => {
-    return () => {
-      document.getElementById(STYLE_ID)?.remove();
-      document.getElementById(FONT_STYLE_ID)?.remove();
-      document.getElementById(FONT_LINK_ID)?.remove();
-    };
-  }, []);
-
   useEffect(() => {
     let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null;
     if (!styleEl) {
