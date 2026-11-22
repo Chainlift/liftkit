@@ -1,4 +1,4 @@
-import type { SchemeVariant, ThemeSeedColors } from "./types";
+import type { SchemeVariant, ThemeSeedColors, ThemeState } from "./types";
 
 /**
  * A preset is a fixed set of inputs the Theme panel would otherwise collect
@@ -107,4 +107,18 @@ export function isPresetModified(
   if (Object.keys(state.toneOverrides.light).length > 0) return true;
   if (Object.keys(state.toneOverrides.dark).length > 0) return true;
   return false;
+}
+
+/** The state after applying a preset. The reducer and the server-side boot data both use this, so they can't drift. */
+export function applyPreset(state: ThemeState, preset: ThemePreset): ThemeState {
+  return {
+    ...state,
+    masterSeed: preset.masterSeed,
+    seedColors: preset.seedColors,
+    schemeVariant: preset.schemeVariant ?? state.schemeVariant,
+    scaleFactor: preset.scaleFactor ?? state.scaleFactor,
+    // Tone overrides do not survive a preset switch: they were tied to the previous palette.
+    toneOverrides: { light: {}, dark: {} },
+    activePresetId: preset.id,
+  };
 }

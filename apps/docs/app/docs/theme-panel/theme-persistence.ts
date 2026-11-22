@@ -1,7 +1,7 @@
 import type { FontAssignments, FontFamilies, ThemeState } from "./types";
 import { DEFAULT_FONT_ASSIGNMENTS, DEFAULT_FONT_FAMILIES, DEFAULT_THEME_STATE } from "./defaults";
+import { THEME_PICK_KEY, THEME_STORAGE_KEY } from "./theme-boot";
 
-const STORAGE_KEY = "lk-theme-v1";
 
 interface PersistedTheme {
   version: 1;
@@ -30,7 +30,7 @@ export function saveTheme(state: ThemeState): void {
       fontAssignments: state.fontAssignments,
       activePresetId: state.activePresetId,
     };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(data));
   } catch {
     // localStorage may be unavailable (SSR, private browsing quota)
   }
@@ -72,7 +72,7 @@ function loadFontAssignments(saved: unknown): FontAssignments {
 
 export function loadTheme(): Partial<ThemeState> | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(THEME_STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as PersistedTheme;
     if (parsed.version !== 1) return null;
@@ -94,8 +94,17 @@ export function loadTheme(): Partial<ThemeState> | null {
 
 export function clearTheme(): void {
   try {
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(THEME_STORAGE_KEY);
   } catch {
     // ignore
+  }
+}
+
+/** The preset the boot script picked for a first-time visitor, if any. */
+export function loadPickedPresetId(): string | null {
+  try {
+    return localStorage.getItem(THEME_PICK_KEY);
+  } catch {
+    return null;
   }
 }

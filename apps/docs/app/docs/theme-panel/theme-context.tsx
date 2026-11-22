@@ -11,9 +11,9 @@ import {
 } from "react";
 import type { ThemeState, ThemeAction } from "./types";
 import { DEFAULT_THEME_STATE } from "./defaults";
-import { loadTheme, saveTheme } from "./theme-persistence";
+import { loadPickedPresetId, loadTheme, saveTheme } from "./theme-persistence";
 import { deriveSeedColors } from "./theme-engine";
-import { findPreset } from "./presets";
+import { applyPreset, findPreset } from "./presets";
 
 /**
  * `activePresetId` stays set across edits; the panel compares state to the
@@ -70,17 +70,7 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
       };
     case "APPLY_PRESET": {
       const preset = findPreset(action.presetId);
-      if (!preset) return state;
-      return {
-        ...state,
-        masterSeed: preset.masterSeed,
-        seedColors: preset.seedColors,
-        schemeVariant: preset.schemeVariant ?? state.schemeVariant,
-        scaleFactor: preset.scaleFactor ?? state.scaleFactor,
-        // Tone overrides do not survive a preset switch — they were tied to the previous palette.
-        toneOverrides: { light: {}, dark: {} },
-        activePresetId: preset.id,
-      };
+      return preset ? applyPreset(state, preset) : state;
     }
     case "RESET":
       return DEFAULT_THEME_STATE;
@@ -113,6 +103,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const persisted = loadTheme();
     if (persisted) {
       dispatch({ type: "LOAD", state: persisted as ThemeState });
+    } else {
+      // A first-time visitor: the boot script already put a random preset on screen and remembered which one
+      // (see theme-boot.ts). Take it as the starting theme, so it's saved like any other from here on.
+      const pickedId = loadPickedPresetId();
+      if (pickedId) dispatch({ type: "APPLY_PRESET", presetId: pickedId });
     }
     setLoaded(true);
   }, []);

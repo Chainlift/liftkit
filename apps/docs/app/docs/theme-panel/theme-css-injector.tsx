@@ -5,13 +5,8 @@ import { useTheme } from "./theme-context";
 import { resolveTheme } from "./theme-engine";
 import { getCategoryFor } from "./font-catalog";
 import { FONT_LINK_ID, FONT_STYLE_ID, STYLE_ID, THEME_CACHE_KEY, type ThemeCssCache } from "./theme-boot";
-import type { ColorMode, FontAssignments, FontFamilies, ResolvedTheme } from "./types";
-
-function buildCssBlock(tokens: Record<string, string>, indent: string = "  "): string {
-  return Object.entries(tokens)
-    .map(([varName, hex]) => `${indent}--lk-${varName}: ${hex};`)
-    .join("\n");
-}
+import { buildThemeCss } from "./theme-css";
+import type { FontAssignments, FontFamilies } from "./types";
 
 /** CSS generic family to append as a final fallback. */
 function genericFallback(category: string | undefined): string {
@@ -64,20 +59,6 @@ function buildFontCss(fontFamilies: FontFamilies, fontAssignments: FontAssignmen
     .map(([group, slot]) => `  --lk-${group}-font-family: var(--lk-font-family-${slot});`)
     .join("\n");
   return `:root {\n${slotRules}\n${assignmentRules}\n}`;
-}
-
-/** Colors and scale factor, for the selected color mode. */
-function buildThemeCss(resolved: ResolvedTheme, colorMode: ColorMode, scaleFactor: number): string {
-  const scaleRule = `  --lk-scalefactor: ${scaleFactor};`;
-  if (colorMode === "system") {
-    // Inject both schemes; let the browser pick via media query
-    return `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}`;
-  }
-  if (colorMode === "light") {
-    return `:root {\n${scaleRule}\n${buildCssBlock(resolved.light)}\n}`;
-  }
-  // Force dark: override both the default :root and the media query
-  return `:root {\n${scaleRule}\n${buildCssBlock(resolved.dark)}\n}`;
 }
 
 /** Creates the <style> with this id if it isn't there yet (the boot script may have added it), then sets its CSS. */
