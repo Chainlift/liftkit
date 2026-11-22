@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import NextLink from "next/link";
 import {
   Autocomplete,
   AutocompleteEmpty,
@@ -19,8 +19,6 @@ const SEARCH_WIDTH = { width: "14rem" };
 
 /** Header search: type a page name, pick a result (click, or arrow keys and Enter) to open it. */
 export function SiteSearchBox({ pages }: { pages: SearchPage[] }) {
-  const router = useRouter();
-
   return (
     <div style={SEARCH_WIDTH}>
       <Autocomplete items={pages} itemToStringValue={(page) => (page as SearchPage).title}>
@@ -32,7 +30,7 @@ export function SiteSearchBox({ pages }: { pages: SearchPage[] }) {
               <AutocompleteEmpty>No pages found.</AutocompleteEmpty>
               <AutocompleteList>
                 {(page: SearchPage) => (
-                  <AutocompleteItem key={page.href} value={page} onClick={() => router.push(page.href)}>
+                  <AutocompleteItem key={page.href} value={page} render={<NextLink href={page.href} />}>
                     <span className="fill-container">{page.title}</span>
                     <span className="caption color-onsurfacevariant">{page.section}</span>
                   </AutocompleteItem>
