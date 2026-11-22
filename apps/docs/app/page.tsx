@@ -14,9 +14,11 @@ export default function Home() {
       </SiteHeader>
       <Section className="text-align-center" padding="3xl">
         <Container maxWidth="none" className="items-center">
-          <div className="flex-v">
-            <LiftKitLogo className="self-center" style={{ width: "50vw" }} />
-            <RandomSlogan className="display2-bold mt-sm mb-sm color-onsurfacelow" />
+          <div className="flex-v" style={{width: "clamp(320px, 50vw, 992px)"}}>
+            <LiftKitLogo className="self-center" />
+            <div>
+              <RandomSlogan className="display2-bold mt-sm mb-sm color-onsurfacelow"  />
+            </div>
           </div>
           <div>
             <Button fontClass="title3" className="self-start" render={<Link href="/docs" />} nativeButton={false}>
