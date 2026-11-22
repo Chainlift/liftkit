@@ -439,6 +439,21 @@
   line-height: var(--lk-halfstep);
 }
 
+/* Font families — each group (base + its -bold and -mono variants) shares one assignment token. */
+
+.display1, .display1-bold, .display1-mono       { font-family: var(--lk-display1-font-family); }
+.display2, .display2-bold, .display2-mono       { font-family: var(--lk-display2-font-family); }
+.title1, .title1-bold, .title1-mono             { font-family: var(--lk-title1-font-family); }
+.title2, .title2-bold, .title2-mono             { font-family: var(--lk-title2-font-family); }
+.title3, .title3-bold, .title3-mono             { font-family: var(--lk-title3-font-family); }
+.heading, .heading-bold, .heading-mono          { font-family: var(--lk-heading-font-family); }
+.subheading, .subheading-bold, .subheading-mono { font-family: var(--lk-subheading-font-family); }
+.body, .body-bold, .body-mono                   { font-family: var(--lk-body-font-family); }
+.callout, .callout-bold, .callout-mono          { font-family: var(--lk-callout-font-family); }
+.label, .label-bold, .label-mono                { font-family: var(--lk-label-font-family); }
+.caption, .caption-bold, .caption-mono          { font-family: var(--lk-caption-font-family); }
+.capline, .capline-bold, .capline-mono          { font-family: var(--lk-capline-font-family); }
+
 /* @media screen and (max-width: 767px) {
   .display1-bold,
   .display1 {

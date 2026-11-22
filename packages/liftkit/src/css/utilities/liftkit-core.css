@@ -273,6 +273,28 @@
   --lk-caption-font-size: calc(1em / var(--lk-halfstep));
   --lk-capline-font-size: calc(1em / var(--lk-halfstep));
 
+  /* Three generic font-family slots. Each resolves to `inherit` by default,
+     so the typography classes fall back to whatever the page is using.
+     Override --lk-font-family-1/2/3 to point a slot at a real stack
+     (for example `"Inter", sans-serif`), then assign a group to that slot
+     by changing --lk-<group>-font-family below. */
+  --lk-font-family-1: inherit;
+  --lk-font-family-2: inherit;
+  --lk-font-family-3: inherit;
+
+  --lk-display1-font-family:   var(--lk-font-family-1);
+  --lk-display2-font-family:   var(--lk-font-family-1);
+  --lk-title1-font-family:     var(--lk-font-family-1);
+  --lk-title2-font-family:     var(--lk-font-family-1);
+  --lk-title3-font-family:     var(--lk-font-family-1);
+  --lk-heading-font-family:    var(--lk-font-family-1);
+  --lk-subheading-font-family: var(--lk-font-family-1);
+  --lk-body-font-family:       var(--lk-font-family-1);
+  --lk-callout-font-family:    var(--lk-font-family-1);
+  --lk-label-font-family:      var(--lk-font-family-1);
+  --lk-caption-font-family:    var(--lk-font-family-1);
+  --lk-capline-font-family:    var(--lk-font-family-1);
+
   /* Font Line Height Vars (UNITLESS!) */
 
   --lk-display1-line-height: var(--lk-quarterstep);
