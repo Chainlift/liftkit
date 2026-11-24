@@ -1,4 +1,4 @@
-import Image from "@/registry/nextjs/components/image";
+import { LiftKitLogo } from "@/src/components/liftkit-logo";
 import Text from "@/registry/nextjs/components/text";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         justifyContent: "center",
       }}
     >
-      <Image src="/wordmark.png" width="4xl" height="auto" />
+      <LiftKitLogo style={{ width: "clamp(320px, 50vw, 992px)" }} />
       <Text tag="h1" fontClass="title2-bold" className="mt-md">
         v2 comin&apos; soon
       </Text>
