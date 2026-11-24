@@ -61,7 +61,7 @@ import {
 } from "liftkit";
 import { useTheme } from "./theme-context";
 import { TOKEN_MAP } from "./token-map";
-import { downloadThemeCSS } from "./theme-export";
+import { downloadThemeFiles } from "./theme-export";
 import { PRESETS, findPreset, isPresetModified } from "./presets";
 import { FONT_CATALOG, type FontCatalogEntry } from "./font-catalog";
 import type {
@@ -739,7 +739,7 @@ const {state, dispatch} = useTheme();
                       >
                         <Icon name="info" aria-hidden="true" />
                       </TooltipTrigger>
-                      <TooltipContent>Export and replace your liftkit-core.css to use in your project.</TooltipContent>
+                      <TooltipContent>Downloads liftkit-theme.css, to replace your liftkit-core.css, and liftkit-theme.json, with every input in this panel.</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
@@ -755,9 +755,9 @@ const {state, dispatch} = useTheme();
                   <IconButton
                     iconName="download"
                     fontClass="heading"
-                    aria-label="Export theme CSS"
-                    title="Export"
-                    onClick={() => downloadThemeCSS(state)}
+                    aria-label="Export theme as CSS and JSON"
+                    title="Export CSS and JSON"
+                    onClick={() => downloadThemeFiles(state)}
                   />
                 </div>
               </div>

@@ -1,4 +1,12 @@
-import type { FontAssignments, FontFamilies, ThemeState } from "./types";
+import type {
+  ColorMode,
+  FontAssignments,
+  FontFamilies,
+  SchemeVariant,
+  ThemeSeedColors,
+  ThemeState,
+  ToneOverrides,
+} from "./types";
 import { resolveTheme } from "./theme-engine";
 import { getCategoryFor } from "./font-catalog";
 
@@ -70,17 +78,76 @@ export function exportThemeCSS(state: ThemeState): string {
 }
 
 /**
- * Trigger a file download of the generated CSS.
+ * Every input the theme panel holds, as a JSON file. The field names match ThemePreset (presets.ts), so an export can
+ * become a preset by pasting it in and adding an id and a name. `basedOnPreset` is the preset the theme started from
+ * (it may have been modified since), or null.
  */
-export function downloadThemeCSS(state: ThemeState): void {
-  const css = exportThemeCSS(state);
-  const blob = new Blob([css], { type: "text/css" });
+export interface ThemeExportJSON {
+  format: "liftkit-theme";
+  version: 1;
+  exportedAt: string;
+  basedOnPreset: string | null;
+  colorMode: ColorMode;
+  schemeVariant: SchemeVariant;
+  scaleFactor: number;
+  masterSeed: string;
+  seedColors: ThemeSeedColors;
+  toneOverrides: ToneOverrides;
+  fontFamilies: FontFamilies;
+  fontAssignments: FontAssignments;
+}
+
+/** The panel's inputs as JSON text. */
+export function exportThemeJSON(state: ThemeState): string {
+  const data: ThemeExportJSON = {
+    format: "liftkit-theme",
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    basedOnPreset: state.activePresetId,
+    colorMode: state.colorMode,
+    schemeVariant: state.schemeVariant,
+    scaleFactor: state.scaleFactor,
+    masterSeed: state.masterSeed,
+    seedColors: state.seedColors,
+    toneOverrides: state.toneOverrides,
+    fontFamilies: state.fontFamilies,
+    fontAssignments: state.fontAssignments,
+  };
+  return JSON.stringify(data, null, 2) + "\n";
+}
+
+function downloadFile(filename: string, text: string, type: string): void {
+  const blob = new Blob([text], { type });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "liftkit-theme.css";
+  a.download = filename;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+/**
+ * Trigger a file download of the generated CSS.
+ */
+export function downloadThemeCSS(state: ThemeState): void {
+  downloadFile("liftkit-theme.css", exportThemeCSS(state), "text/css");
+}
+
+/**
+ * Trigger a file download of the panel's inputs as JSON.
+ */
+export function downloadThemeJSON(state: ThemeState): void {
+  downloadFile("liftkit-theme.json", exportThemeJSON(state), "application/json");
+}
+
+/**
+ * The panel's Export: the CSS and the JSON, as two downloads. The second waits a moment, because some browsers drop
+ * a download that starts in the same instant as another. (Chrome asks once whether the site may download multiple
+ * files.)
+ */
+export function downloadThemeFiles(state: ThemeState): void {
+  downloadThemeCSS(state);
+  setTimeout(() => downloadThemeJSON(state), 150);
 }
 
 /**
