@@ -64,14 +64,7 @@ import { TOKEN_MAP } from "./token-map";
 import { downloadThemeFiles } from "./theme-export";
 import { PRESETS, findPreset, isPresetModified } from "./presets";
 import { FONT_CATALOG, type FontCatalogEntry } from "./font-catalog";
-import type {
-  ColorMode,
-  FontClassGroup,
-  FontSlot,
-  Scheme,
-  SchemeVariant,
-  ThemeSeedColors,
-} from "./types";
+import type { ColorMode, FontClassGroup, FontSlot, Scheme, SchemeVariant, ThemeSeedColors } from "./types";
 
 // ─── Layout pieces ──────────────────────────────────────
 
@@ -145,6 +138,7 @@ function SliderWithNumber({
       </Slider>
       <div className="flex-none w-2xl">
         <Input
+        
           inputMode="decimal"
           aria-label={`${label} value`}
           value={draft ?? value}
@@ -272,7 +266,9 @@ function TokenGroup({ groupName, seedHex }: { groupName: string; seedHex: string
                 tone={tone}
                 isOverridden={isOverridden}
                 hex={hexFromArgb(palette.tone(tone))}
-                onToneChange={(next) => dispatch({ type: "SET_TONE_OVERRIDE", scheme: viewMode, token: tokenName, tone: next })}
+                onToneChange={(next) =>
+                  dispatch({ type: "SET_TONE_OVERRIDE", scheme: viewMode, token: tokenName, tone: next })
+                }
                 onReset={() => dispatch({ type: "CLEAR_TONE_OVERRIDE", scheme: viewMode, token: tokenName })}
               />
             );
@@ -461,8 +457,11 @@ function FontSlotPicker({
   // Base UI's Combobox filters on the item's label by default; store the full entry so category stays available.
   // Always pass a non-undefined value so the component stays controlled across its lifetime.
   const selected = useMemo<FontCatalogEntry | null>(
-    () => (value ? FONT_CATALOG.find((entry) => entry.family === value) ?? { family: value, category: "Sans Serif" } : null),
-    [value]
+    () =>
+      value
+        ? (FONT_CATALOG.find((entry) => entry.family === value) ?? { family: value, category: "Sans Serif" })
+        : null,
+    [value],
   );
 
   return (
@@ -521,12 +520,10 @@ function FontAssignmentRow({
 }) {
   return (
     <div className="display-grid items-center gap-sm w-full mb-xs" style={{ gridTemplateColumns: "7rem 1fr" }}>
-      <span className="label" title={group}>{label}</span>
-      <Select
-        items={FONT_SLOTS}
-        value={slot}
-        onValueChange={(next) => onChange(Number(next) as FontSlot)}
-      >
+      <span className="label" title={group}>
+        {label}
+      </span>
+      <Select items={FONT_SLOTS} value={slot} onValueChange={(next) => onChange(Number(next) as FontSlot)}>
         <SelectTrigger className="w-full" aria-label={`Assign ${label}`}>
           <SelectValue />
           <SelectIcon>
@@ -634,7 +631,9 @@ function ThemePanelContent() {
                 </PanelSection>
 
                 <PanelSection label="Token Tones">
-                  <p className="caption color-onsurfacevariant mb-sm">Apply overrides to currently-selected color mode.</p>
+                  <p className="caption color-onsurfacevariant mb-sm">
+                    Apply overrides to currently-selected color mode.
+                  </p>
                   {Object.keys(TOKEN_MAP).map((groupName) => (
                     <TokenGroup
                       key={groupName}
@@ -663,7 +662,10 @@ function ThemePanelContent() {
 
                 <PanelSection label="Font Assignments">
                   <Collapsible className="w-full" style={{ minHeight: 0 }}>
-                    <CollapsibleTrigger nativeButton={false} render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}>
+                    <CollapsibleTrigger
+                      nativeButton={false}
+                      render={<GoldenBox scaleFactor="body" opticalCorrection="all" />}
+                    >
                       <Icon name="chevron-right" data-slot="collapsible-trigger-icon" />
                       <span className="callout font-500">Assign classes to families</span>
                     </CollapsibleTrigger>
@@ -715,53 +717,54 @@ function ThemePanelContent() {
 
 /** The Theme Generator's control panel, shown as a fixed sidebar on the /playground page. */
 export function ThemePanel() {
-
-const {state, dispatch} = useTheme();
+  const { state, dispatch } = useTheme();
 
   return (
     <aside
-      className="flex-v flex-none h-full overflow-hidden bg-surfacevariant  rounded-sm "
+      className="flex-v flex-none h-full overflow-hidden bg-surfacecontainerlowest border rounded-sm "
       style={PANEL_WIDTH}
     >
-               <GoldenBox
-              scaleFactor="heading"
-              opticalCorrection="y"
-              className="w-full sticky top-0 z-1  border-b border-color-outlinevariant"
-            >
-              <div className="flex items-center justify-between gap-md">
-                <div className="flex items-center gap-xs">
-                  <h2 className="heading">Theme</h2>
-                  <TooltipProvider>
-                    <Tooltip>
-                      {/* A plain span trigger, so the tooltip doesn't replace a LiftKit component's data-slot */}
-                      <TooltipTrigger
-                        render={<span className="flex color-onsurfacelow subheading" tabIndex={0} aria-label="About exporting" />}
-                      >
-                        <Icon name="info" aria-hidden="true" />
-                      </TooltipTrigger>
-                      <TooltipContent>Downloads liftkit-theme.css, to replace your liftkit-core.css, and liftkit-theme.json, with every input in this panel.</TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-                <div className="flex items-center gap-xs">
-                  <IconButton
-                    iconName="rotate-ccw"
-                    variant="outline"
-                    fontClass="heading"
-                    aria-label="Reset theme"
-                    title="Reset"
-                    onClick={() => dispatch({ type: "RESET" })}
-                  />
-                  <IconButton
-                    iconName="download"
-                    fontClass="heading"
-                    aria-label="Export theme as CSS and JSON"
-                    title="Export CSS and JSON"
-                    onClick={() => downloadThemeFiles(state)}
-                  />
-                </div>
-              </div>
-            </GoldenBox>
+      <GoldenBox
+        scaleFactor="heading"
+        opticalCorrection="y"
+        className="w-full sticky top-0 z-1  border-b border-color-outlinevariant"
+      >
+        <div className="flex items-center justify-between gap-md">
+          <div className="flex items-center gap-xs">
+            <h2 className="heading">Theme</h2>
+            <TooltipProvider>
+              <Tooltip>
+                {/* A plain span trigger, so the tooltip doesn't replace a LiftKit component's data-slot */}
+                <TooltipTrigger
+                  render={
+                    <span className="flex color-onsurfacelow subheading" tabIndex={0} aria-label="About exporting" />
+                  }
+                >
+                  <Icon name="info" aria-hidden="true" />
+                </TooltipTrigger>
+                <TooltipContent>Downloads liftkit-theme.css, to replace your liftkit-core.css, and liftkit-theme.json, with every input in this panel.</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          <div className="flex items-center gap-xs">
+            <IconButton
+              iconName="rotate-ccw"
+              variant="outline"
+              fontClass="heading"
+              aria-label="Reset theme"
+              title="Reset"
+              onClick={() => dispatch({ type: "RESET" })}
+            />
+            <IconButton
+              iconName="download"
+              fontClass="heading"
+              aria-label="Export theme as CSS and JSON"
+              title="Export CSS and JSON"
+              onClick={() => downloadThemeFiles(state)}
+            />
+          </div>
+        </div>
+      </GoldenBox>
       <ThemePanelContent />
     </aside>
   );
