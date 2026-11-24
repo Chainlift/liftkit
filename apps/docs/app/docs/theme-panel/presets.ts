@@ -201,7 +201,7 @@ export function isPresetModified(
   return false;
 }
 
-/** The state after applying a preset. The reducer and the server-side boot data both use this, so they can't drift. */
+/** The state after applying a preset. */
 export function applyPreset(state: ThemeState, preset: ThemePreset): ThemeState {
   return {
     ...state,

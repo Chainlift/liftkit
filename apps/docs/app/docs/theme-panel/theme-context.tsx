@@ -12,15 +12,9 @@ import {
 } from "react";
 import type { ThemeState, ThemeAction } from "./types";
 import { DEFAULT_THEME_STATE } from "./defaults";
-import {
-  loadPickedPresetId,
-  loadRandomThemeEnabled,
-  loadTheme,
-  saveRandomThemeEnabled,
-  saveTheme,
-} from "./theme-persistence";
+import { loadTheme, saveTheme } from "./theme-persistence";
 import { deriveSeedColors } from "./theme-engine";
-import { PRESETS, applyPreset, findPreset } from "./presets";
+import { applyPreset, findPreset } from "./presets";
 
 /**
  * `activePresetId` stays set across edits; the panel compares state to the
@@ -94,18 +88,11 @@ interface ThemeContextValue {
   /** True once the saved theme (if any) has been read from localStorage and is in `state`. */
   loaded: boolean;
   /**
-   * True while the visitor has nothing saved and hasn't edited anything: the theme is the random pick, or the
-   * default if the random theme is off. Nothing is saved or cached until this turns false, which any dispatch from
-   * the UI does.
+   * True while the visitor has nothing saved and hasn't edited anything, so the theme is just the default. Nothing is
+   * saved or cached until this turns false, which any dispatch from the UI does. (Saving the untouched default would
+   * pin the visitor to today's defaults even if the site's change.)
    */
   pristine: boolean;
-  /** Whether a visitor with nothing saved gets a random preset on every page load (the nav bar's switch). */
-  randomTheme: boolean;
-  /**
-   * Turns the random theme on or off. For a visitor who hasn't edited anything this changes the theme right away
-   * (off: the default theme, on: a random preset). A saved theme is the visitor's own work and is left alone.
-   */
-  setRandomTheme: (on: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -115,7 +102,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const initialized = useRef(false);
   const [loaded, setLoaded] = useState(false);
   const [pristine, setPristine] = useState(false);
-  const [randomTheme, setRandomThemeState] = useState(true);
 
   // Everything the UI dispatches is an edit, so the first one ends the pristine state (and with it, the saving pause).
   // The provider's own dispatches below use the raw one.
@@ -124,34 +110,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     dispatch(action);
   }, []);
 
-  const setRandomTheme = useCallback(
-    (on: boolean) => {
-      setRandomThemeState(on);
-      saveRandomThemeEnabled(on);
-      if (!pristine) return;
-      if (on) dispatch({ type: "APPLY_PRESET", presetId: PRESETS[Math.floor(Math.random() * PRESETS.length)].id });
-      else dispatch({ type: "RESET" });
-    },
-    [pristine]
-  );
-
   // Load persisted state on mount. LOAD and setLoaded land in the same render, so `loaded` is never true while
   // `state` is still the defaults.
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
-    const randomEnabled = loadRandomThemeEnabled();
-    setRandomThemeState(randomEnabled);
     const persisted = loadTheme();
     if (persisted) {
       dispatch({ type: "LOAD", state: persisted as ThemeState });
     } else {
-      // Nothing saved, so nothing gets saved until the visitor edits something. If the random theme is on, the boot
-      // script already put a random preset on screen (see theme-boot.ts); start from it. If it's off, the default
-      // theme stays.
+      // Nothing saved, so nothing gets saved until the visitor edits something.
       setPristine(true);
-      const pickedId = randomEnabled ? loadPickedPresetId() : null;
-      if (pickedId) dispatch({ type: "APPLY_PRESET", presetId: pickedId });
     }
     setLoaded(true);
   }, []);
@@ -175,7 +144,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   ]);
 
   return (
-    <ThemeContext value={{ state, dispatch: dispatchEdit, loaded, pristine, randomTheme, setRandomTheme }}>
+    <ThemeContext value={{ state, dispatch: dispatchEdit, loaded, pristine }}>
       {children}
     </ThemeContext>
   );

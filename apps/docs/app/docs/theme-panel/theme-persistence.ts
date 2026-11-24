@@ -1,6 +1,6 @@
 import type { FontAssignments, FontFamilies, ThemeState } from "./types";
 import { DEFAULT_FONT_ASSIGNMENTS, DEFAULT_FONT_FAMILIES, DEFAULT_THEME_STATE } from "./defaults";
-import { PICKED_GLOBAL, RANDOM_THEME_KEY, THEME_STORAGE_KEY } from "./theme-boot";
+import { THEME_STORAGE_KEY } from "./theme-boot";
 
 
 interface PersistedTheme {
@@ -97,29 +97,5 @@ export function clearTheme(): void {
     localStorage.removeItem(THEME_STORAGE_KEY);
   } catch {
     // ignore
-  }
-}
-
-/** The preset the boot script picked on this page load for a visitor with nothing saved, if any. */
-export function loadPickedPresetId(): string | null {
-  const id = (window as unknown as Record<string, unknown>)[PICKED_GLOBAL];
-  return typeof id === "string" ? id : null;
-}
-
-/** Whether the nav bar's random-theme switch is on. It is on unless the visitor turned it off. */
-export function loadRandomThemeEnabled(): boolean {
-  try {
-    return localStorage.getItem(RANDOM_THEME_KEY) !== "off";
-  } catch {
-    return true;
-  }
-}
-
-export function saveRandomThemeEnabled(on: boolean): void {
-  try {
-    if (on) localStorage.removeItem(RANDOM_THEME_KEY);
-    else localStorage.setItem(RANDOM_THEME_KEY, "off");
-  } catch {
-    // localStorage may be unavailable (private browsing quota)
   }
 }
