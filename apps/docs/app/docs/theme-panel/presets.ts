@@ -1,5 +1,5 @@
 import { DEFAULT_FONT_ASSIGNMENTS } from "./defaults";
-import type { FontAssignments, FontFamilies, SchemeVariant, ThemeSeedColors, ThemeState } from "./types";
+import type { FontAssignments, FontFamilies, SchemeVariant, ThemeSeedColors, ThemeState, ToneOverrides } from "./types";
 
 /**
  * A preset is a fixed set of inputs the Theme panel would otherwise collect
@@ -20,6 +20,11 @@ export interface ThemePreset {
   fontFamilies: FontFamilies;
   /** Which slot (1, 2 or 3) each of the 12 font class groups uses. Start from DEFAULT_FONT_ASSIGNMENTS and override. */
   fontAssignments: FontAssignments;
+  /**
+   * Tone overrides per scheme, keyed by the token names in token-map.ts (e.g. "onPrimary"). Leave it out for none.
+   * A preset that doesn't set them clears any the visitor had.
+   */
+  toneOverrides?: ToneOverrides;
 }
 
 /**
@@ -87,6 +92,50 @@ export const PRESETS: ThemePreset[] = [
     fontFamilies: ["Inter", "Inter", "Inter"],
     fontAssignments: DEFAULT_FONT_ASSIGNMENTS,
   },
+  {
+    id: "floptropica",
+    name: "Floptropica",
+    masterSeed: "#e000c2",
+    seedColors: {
+      primary: "#00fffb",
+      secondary: "#e499ff",
+      tertiary: "#ffbb00",
+      error: "#ba1a1a",
+      neutral: "#ff009d",
+      neutralVariant: "#ff009d",
+      success: "#00ffcc",
+      warning: "#ffb300",
+      info: "#00b3ff",
+    },
+    schemeVariant: "fidelity",
+    scaleFactor: 1.618,
+    fontFamilies: ["Inter", "Inter", "Inter"],
+    fontAssignments: DEFAULT_FONT_ASSIGNMENTS,
+    // Light scheme only. Read from screenshots of the panel, where the error, neutral and info groups were collapsed,
+    // so they are assumed to have none. (Three tokens set to their own default are left out: they change nothing.)
+    toneOverrides: {
+      light: {
+        primary: 95,
+        onPrimary: 36,
+        secondary: 75,
+        secondaryContainer: 75,
+        tertiary: 80,
+        onTertiary: 30,
+        tertiaryContainer: 80,
+        onTertiaryContainer: 30,
+        onTertiaryFixedVariant: 34,
+        surfaceVariant: 40,
+        onSurfaceVariant: 8,
+        outline: 70,
+        outlineVariant: 60,
+        warning: 80,
+        onWarning: 30,
+        warningContainer: 80,
+        onWarningContainer: 30,
+      },
+      dark: {},
+    },
+  },
 ];
 
 export function findPreset(id: string | null): ThemePreset | undefined {
@@ -95,9 +144,8 @@ export function findPreset(id: string | null): ThemePreset | undefined {
 }
 
 /**
- * True if any field the preset carries (colors, scale, fonts, font mappings) differs from the current state, or if
- * the state has tone overrides (presets never carry those). Used to decide
- * whether to show a "(modified)" marker next to the preset's name.
+ * True if any field the preset carries (colors, scale, fonts, font mappings, tone overrides) differs from the
+ * current state. Used to decide whether to show a "(modified)" marker next to the preset's name.
  */
 export function isPresetModified(
   preset: ThemePreset,
@@ -121,8 +169,12 @@ export function isPresetModified(
   for (const group of Object.keys(preset.fontAssignments) as (keyof FontAssignments)[]) {
     if (state.fontAssignments[group] !== preset.fontAssignments[group]) return true;
   }
-  if (Object.keys(state.toneOverrides.light).length > 0) return true;
-  if (Object.keys(state.toneOverrides.dark).length > 0) return true;
+  for (const scheme of ["light", "dark"] as const) {
+    const wanted = preset.toneOverrides?.[scheme] ?? {};
+    const actual = state.toneOverrides[scheme];
+    const tokens = new Set([...Object.keys(wanted), ...Object.keys(actual)]);
+    for (const token of tokens) if (wanted[token] !== actual[token]) return true;
+  }
   return false;
 }
 
@@ -136,8 +188,8 @@ export function applyPreset(state: ThemeState, preset: ThemePreset): ThemeState 
     scaleFactor: preset.scaleFactor ?? state.scaleFactor,
     fontFamilies: preset.fontFamilies,
     fontAssignments: preset.fontAssignments,
-    // Tone overrides do not survive a preset switch: they were tied to the previous palette.
-    toneOverrides: { light: {}, dark: {} },
+    // The visitor's tone overrides do not survive a preset switch: they were tied to the previous palette.
+    toneOverrides: preset.toneOverrides ?? { light: {}, dark: {} },
     activePresetId: preset.id,
   };
 }
