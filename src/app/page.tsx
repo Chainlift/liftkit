@@ -14,7 +14,7 @@ export default function Home() {
       }}
     >
       <LiftKitLogo style={{ width: "clamp(320px, 50vw, 992px)" }} />
-      <Text tag="h1" fontClass="title2-bold" className="mt-md">
+      <Text tag="h1" fontClass="display2-bold" className="mt-md">
         v2 comin&apos; soon
       </Text>
     </main>
