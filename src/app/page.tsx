@@ -13,7 +13,7 @@ export default function Home() {
         justifyContent: "center",
       }}
     >
-      <Image src="/liftkit.svg" width="4xl" height="auto" />
+      <Image src="/logotype.svg" width="4xl" height="auto" />
       <Text tag="h1" fontClass="title2-bold" className="mt-md">
         v2 comin&apos; soon
       </Text>
