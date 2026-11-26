@@ -3,6 +3,7 @@
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { LiftKitLogo } from "@/components/liftkit-logo";
+import { ColorModeSwitch } from "@/components/color-mode-switch";
 import { RandomThemeButton } from "@/components/random-theme-button";
 import {
   IconButton,
@@ -78,6 +79,7 @@ export function SiteHeader({ children }: { children?: React.ReactNode }) {
       <div className="flex-h items-center gap-xs">
         {children}
         <RandomThemeButton />
+        <ColorModeSwitch />
         {SOCIALS.map(({ label, href, iconName }) => (
           <IconButton
             key={href}
