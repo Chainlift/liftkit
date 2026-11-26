@@ -106,8 +106,6 @@
   --lk-light-oninfo: #ffffff;
   --lk-light-infocontainer: #dce1ff;
   --lk-light-oninfocontainer: #001550;
-  --lk-light-onsurfacelow: #555555;
-  --lk-light-onsurfacelowest: #6d6d6d;
   --lk-dark-primary: #ffffff;
   --lk-dark-onprimary: #303030;
   --lk-dark-primarycontainer: #474747;
@@ -180,8 +178,6 @@
   --lk-dark-tertiaryfixeddim: #c7c6c6;
   --lk-dark-ontertiaryfixed: #1b1c1c;
   --lk-dark-ontertiaryfixedvariant: #464747;
-  --lk-dark-onsurfacelow: #a6a6a6;
-  --lk-dark-onsurfacelowest: #797979;
 
   --lk-onprimary: var(--lk-light-onprimary);
   --lk-primarycontainer: var(--lk-light-primarycontainer);
@@ -243,8 +239,11 @@
   --lk-outline: var(--lk-light-outline);
   --lk-error: var(--lk-light-error);
   --lk-primary: var(--lk-light-primary);
-  --lk-onsurfacelow: var(--lk-light-onsurfacelow);
-  --lk-onsurfacelowest: var(--lk-light-onsurfacelowest);
+  /* LiftKit's two extra text colors are onsurface at reduced opacity, not tones of their own. They follow onsurface
+     in any theme and color scheme (it is swapped in the dark block below, so they need no dark values), and they blend
+     with whatever sits behind them. Change the opacity numbers here to tune them. */
+  --lk-onsurfacelow: rgb(from var(--lk-onsurface) r g b / 0.72);
+  --lk-onsurfacelowest: rgb(from var(--lk-onsurface) r g b / 0.62);
 
   /* Make text look sharper */
 
@@ -553,8 +552,6 @@
     --lk-outline: var(--lk-dark-outline);
     --lk-error: var(--lk-dark-error);
     --lk-primary: var(--lk-dark-primary);
-    --lk-onsurfacelow: var(--lk-dark-onsurfacelow);
-    --lk-onsurfacelowest: var(--lk-dark-onsurfacelowest);
   }
 }
 
