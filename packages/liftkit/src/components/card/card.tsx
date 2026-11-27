@@ -24,6 +24,7 @@ export type LkCardProps = React.HTMLAttributes<HTMLDivElement> & {
   >;
   variant?: "fill" | "outline" | "transparent";
   opticalCorrection?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
+  noPadding?: "top" | "left" | "right" | "bottom" | "x" | "y" | "all" | "none";
   color?: LkColorWithOnToken;
   className?: string;
   children?: React.ReactNode;
@@ -35,6 +36,7 @@ export type LkCardProps = React.HTMLAttributes<HTMLDivElement> & {
  * @param scaleFactor - LkFontClass. Scales card according to this font size. Should be whatever the largest font size in the card is.
  * @param variant - Visual variant. "fill," "outline," or "transparent." Defaults to "fill"
  * @param opticalCorrection - Optical correction method to apply. Defaults to "none"
+ * @param noPadding - Sides to remove the card's padding from. Defaults to "none"
  * @param children - Content to be rendered inside the card
  * @param color - Color group for semantic theming
  * @param className - Additional CSS classes to apply
@@ -53,6 +55,7 @@ const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
     scaleFactor = "body",
     variant,
     opticalCorrection,
+    noPadding,
     children,
     color = "surface",
     className,
@@ -69,7 +72,7 @@ const Card = React.forwardRef<HTMLDivElement, LkCardProps>(function Card(
       className={cardClasses({ scaleFactor, variant, color, className })}
       {...props}
     >
-      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection}>
+      <GoldenBox scaleFactor={scaleFactor} opticalCorrection={opticalCorrection} noPadding={noPadding}>
         <div data-lk-component="slot" data-lk-slot="children">
           {children}
         </div>
