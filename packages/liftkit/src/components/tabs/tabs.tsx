@@ -4,8 +4,23 @@ import { cn } from "../../lib/cn";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import "../../css/components/lk-tabs.css";
 
-function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
-  return <TabsPrimitive.Root data-slot="tabs" className={cn(className)} {...props} />;
+export type TabsProps = TabsPrimitive.Root.Props & {
+  /** "open" is the default look. "contained" restyles the tab list and indicator (rules in lk-tabs.css). */
+  variant?: "open" | "contained";
+  /** When true, the tabs grow to fill the whole tab list. Defaults to false: each tab is only as wide as its content. */
+  tabListItemsShouldGrow?: boolean;
+};
+
+function Tabs({ className, variant = "open", tabListItemsShouldGrow = false, ...props }: TabsProps) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      data-lk-tabs-variant={variant}
+      data-lk-tabs-grow={tabListItemsShouldGrow || undefined}
+      className={cn(className)}
+      {...props}
+    />
+  );
 }
 
 function TabsList({ className, ...props }: TabsPrimitive.List.Props) {

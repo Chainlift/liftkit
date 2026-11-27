@@ -9,6 +9,13 @@
   gap: var(--lk-base-xs);
 }
 
+/* Contained variant: the tab list is a bordered pill */
+:where([data-lk-tabs-variant="contained"] [data-slot="tabs-list"]) {
+  padding: var(--lk-base-xs);
+  border: 1px solid var(--lk-outlinevariant);
+  border-radius: 100em;
+}
+
 :where([data-slot="tabs-tab"]) {
   display: flex;
   align-items: center;
@@ -55,6 +62,16 @@
   }
 }
 
+/* Contained variant: tighter tabs */
+:where([data-lk-tabs-variant="contained"] [data-slot="tabs-tab"]) {
+  padding: var(--lk-base-sm);
+}
+
+/* tabListItemsShouldGrow: the tabs share the whole width of the tab list */
+:where([data-lk-tabs-grow] [data-slot="tabs-tab"]) {
+  flex-grow: 1;
+}
+
 :where([data-slot="tabs-indicator"]) {
   position: absolute;
   z-index: 0;
@@ -75,6 +92,17 @@
   transition-property: translate, width;
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
+}
+
+/* Contained variant: the indicator is a pill that fills the active tab. A negative z-index puts it beneath the tab
+   text (it stays inside the tab list's own stacking context). */
+:where([data-lk-tabs-variant="contained"] [data-slot="tabs-indicator"]) {
+  z-index: -1;
+  top: var(--active-tab-top);
+  bottom: auto;
+  height: var(--active-tab-height);
+  border-radius: 100em;
+  background-color: var(--lk-surfacevariant);
 }
 
 :where([data-slot="tabs-panel"]) {
