@@ -1,0 +1,4 @@
+/* ColorInput doesn't expose its hex field, so size it from here. */
+.theme-panel-color-input [data-slot="input"] {
+  width: 10ch;
+}
