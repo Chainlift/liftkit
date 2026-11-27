@@ -1,0 +1,18 @@
+/* A class rule, so it outranks lk-input.css, which turns any div that directly contains an Input into a column. */
+.tone-input {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--lk-base-sm);
+}
+
+/* A square as tall as the number field next to it. The width repeats lk-input.css's height formula (line height + 2 x
+   vertical padding + border), because aspect-ratio can't resolve against a stretched flex height. The color itself
+   is set inline from the tone. */
+.tone-input-swatch {
+  flex: none;
+  box-sizing: border-box;
+  width: calc(1em * var(--lk-halfstep) + 2 * (1em * var(--lk-halfstep) / var(--lk-base-xl-unitless)) + 2px);
+  border: 1px solid var(--lk-outline);
+  border-radius: var(--lk-base-xs);
+}
