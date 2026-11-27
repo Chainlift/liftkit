@@ -208,7 +208,7 @@
     inset-block: 0;
     inset-inline: var(--lk-base-2xs);
     border-radius: var(--lk-base-2xs);
-    background-color: var(--lk-primarycontainer);
+    background-color: rgb(from var(--lk-primarycontainer) r g b / 0.16);
   }
 }
 

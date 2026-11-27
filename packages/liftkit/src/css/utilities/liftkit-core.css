@@ -3,7 +3,7 @@
 /* Random comment */
 
 :root {
-  font-size: clamp(15px, 1vw, 17px);
+  font-size: 1rem;
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
 
