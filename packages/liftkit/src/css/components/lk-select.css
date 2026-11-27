@@ -33,7 +33,7 @@
   border: 1px solid var(--lk-outlinevariant);
   border-radius: var(--lk-base-xs);
   width: 100%;
-  background-color: var(--lk-surface);
+  background-color: var(--lk-surfacebright);
   font-family: inherit;
   font-size: 1em;
   color: var(--lk-onsurface);

@@ -28,7 +28,7 @@
   font-family: inherit;
   font-size: 1em;
   line-height: var(--lk-halfstep);
-  background-color: var(--lk-surface);
+  background-color: var(--lk-surfacebright);
   color: var(--lk-onsurface);
 
   &:focus {

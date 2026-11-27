@@ -23,7 +23,7 @@ and I'm not contradicting it right now.
   border-radius: var(--lk-base-xs);
   font-family: inherit;
   font-size: 1em;
-  background-color: var(--lk-surface);
+  background-color: var(--lk-surfacebright);
   color: var(--lk-onsurface);
 
   &:focus {

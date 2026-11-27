@@ -12,7 +12,7 @@
   border-radius: var(--lk-base-2xs);
   font-family: inherit;
   font-size: 1em;
-  background-color: var(--lk-surface);
+  background-color: var(--lk-surfacebright);
   color: var(--lk-onsurface);
   outline: none;
   margin-top: var(--lk-base-xs);
