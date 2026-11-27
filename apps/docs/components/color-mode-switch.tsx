@@ -13,9 +13,13 @@ export function ColorModeSwitch() {
   const scheme = useScheme();
   return (
     <Switch
+      // No font class set it before, which sizes it like body text; subheading is one step up
+      className="heading"
       aria-label="Dark mode"
       checked={scheme === "dark"}
-      onCheckedChange={(dark) => dispatch({ type: "SET_COLOR_MODE", mode: dark ? "dark" : "light" })}
+      onCheckedChange={(dark) =>
+        dispatch({ type: "SET_COLOR_MODE", mode: dark ? "dark" : "light" })
+      }
     >
       <SwitchThumb className="flex items-center justify-center">
         <Icon name={scheme === "dark" ? "moon" : "sun"} fontClass="caption" />
