@@ -1,0 +1,129 @@
+@import "./liftkit-core.css";
+
+.w-min {
+  width: min-content;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-min {
+  max-width: min-content;
+}
+
+.max-w-max {
+  max-width: max-content;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.min-w-min {
+  min-width: min-content;
+}
+
+.min-w-max {
+  min-width: max-content;
+}
+
+.w-3xs {
+  width: var(--lk-base-3xs);
+}
+
+.w-2xs {
+  width: var(--lk-base-2xs);
+}
+
+.w-xs {
+  width: var(--lk-base-xs);
+}
+
+.w-sm {
+  width: var(--lk-base-sm);
+}
+
+.w-md {
+  width: var(--lk-base-md);
+}
+
+.w-lg {
+  width: var(--lk-base-lg);
+}
+
+.w-xl {
+  width: var(--lk-base-xl);
+}
+
+.w-2xl {
+  width: var(--lk-base-2xl);
+}
+
+.w-3xl {
+  width: var(--lk-base-3xl);
+}
+
+.w-4xl {
+  width: var(--lk-base-4xl);
+}
+
+.w-5xl {
+  width: calc(var(--lk-base-4xl) * var(--lk-wholestep));
+}
+
+.w-6xl {
+  width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
+}
+
+.max-w-3xs {
+  max-width: var(--lk-base-3xs);
+}
+
+.max-w-2xs {
+  max-width: var(--lk-base-2xs);
+}
+
+.max-w-xs {
+  max-width: var(--lk-base-xs);
+}
+
+.max-w-sm {
+  max-width: var(--lk-base-sm);
+}
+
+.max-w-md {
+  max-width: var(--lk-base-md);
+}
+
+.max-w-lg {
+  max-width: var(--lk-base-lg);
+}
+
+.max-w-xl {
+  max-width: var(--lk-base-xl);
+}
+
+.max-w-2xl {
+  max-width: var(--lk-base-2xl);
+}
+
+.max-w-3xl {
+  max-width: var(--lk-base-3xl);
+}
+
+.max-w-4xl {
+  max-width: var(--lk-base-4xl);
+}
+
+.max-w-5xl {
+  max-width: calc(var(--lk-base-4xl) * var(--lk-wholestep));
+}
+
+.max-w-6xl {
+  max-width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
+}

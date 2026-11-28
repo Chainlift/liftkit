@@ -1,0 +1,10 @@
+/* Spacing around the API reference blocks. The tables themselves are the docs' shared MdxTable (components/mdx). */
+div[data-instance="lk-docs-table"] {
+  [data-slot="table-block"] {
+    margin-bottom: var(--lk-base-lg);
+  }
+}
+
+div[data-instance="lk-docs-table"]:not(:first-child) h3 {
+  margin-top: var(--lk-base-lg);
+}

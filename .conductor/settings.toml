@@ -1,0 +1,14 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# pnpm runs through corepack (bundled with Node), which reads the pinned version
+# from package.json's "packageManager" field, so pnpm needn't be installed globally.
+
+[scripts]
+setup = "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm install"
+run_mode = "concurrent"
+
+[scripts.run.docs]
+available_in = ["local"]
+command = "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm --filter @liftkit/docs dev --port $CONDUCTOR_PORT"
+default = true
+icon = "book-open"

@@ -1,0 +1,18 @@
+import { Example } from "@/app/docs/lib/example";
+import SectionWithContainer from "./with-container";
+
+## Usage
+
+Section and Container are designed to be used together. The Section controls the space around your content, and the Container inside it controls how wide the content can get.
+
+<Example file="section/with-container.tsx">
+  <SectionWithContainer />
+</Example>
+
+## Padding
+
+`padding` accepts any LiftKit size token, from `5xs` to `5xl`, or `none`. The tokens are the same ones the `p-*` utility classes use, so a Section's padding scales with the theme's scale factor.
+
+## Empty state
+
+A Section with no children shows a placeholder that fills the available space, so you can block out a layout before the content exists.

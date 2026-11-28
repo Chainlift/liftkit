@@ -1,0 +1,44 @@
+export const metadata = {
+  title: "Install",
+  description: "Install LiftKit with npm.",
+};
+
+# Install
+
+LiftKit v2 is in alpha, so the API may change. Run this command in your project:
+
+```bash
+npm i liftkit
+```
+
+LiftKit needs React 19. It works with Next.js and any other bundler that handles CSS imports.
+
+## Import the styles
+
+Import the stylesheet once, in your app's root. It contains the design tokens, the utility classes, and the styles for every component.
+
+```tsx
+import "liftkit/styles.css";
+```
+
+## Use a component
+
+Import any component from `liftkit`:
+
+```tsx
+import { Button } from "liftkit";
+
+export default function Page() {
+  return <Button label="Hello" variant="fill" color="primary" />;
+}
+```
+
+## Import a single component
+
+Each component is also available on its own path:
+
+```tsx
+import { Select } from "liftkit/select";
+```
+
+Either way, your bundler only includes the components you use.

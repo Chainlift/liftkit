@@ -1,0 +1,809 @@
+/* @import "../liftkit/index.css"; */
+
+/* Random comment */
+
+:root {
+  --font-aspect: 0.545;
+  font-size-adjust: var(--font-aspect);
+  font-size: 1rem;
+  --lk-scalefactor: 1.618;
+  /* these are the only two you set manually */
+
+  --lk-wholestep: var(--lk-scalefactor);
+  /* equals scalefactor */
+  /* 1.272 */
+  --lk-halfstep: calc(round(pow(var(--lk-scalefactor), 0.5), 0.001));
+  /* sqrt wholestep 1.128 */
+  --lk-quarterstep: round(pow(var(--lk-scalefactor), 0.25), 0.001);
+  /* sqrt halfstep 1.062*/
+  --lk-eighthstep: round(pow(var(--lk-scalefactor), 0.125), 0.001);
+  /* sqrt quarterstep:  */
+  --lk-wholestep-dec: calc(var(--lk-wholestep) - 1);
+  /* wholestep -1 */
+  --lk-halfstep-dec: calc(var(--lk-halfstep) - 1);
+  /* halfstep -1 */
+  --lk-quarterstep-dec: calc(var(--lk-quarterstep) - 1);
+  /* quarterstep -1 */
+  --lk-eighthstep-dec: calc(var(--lk-eighthstep) - 1);
+  /* eighthstep -1 */
+
+
+  --lk-base-md: 1em;
+  /* It's okay to use em here because the root font size
+                  has been manually set to 1rem */
+  --lk-base-sm: calc(1em * round(pow(var(--lk-scalefactor), -1), 0.001)); /* .618 em */
+  --lk-base-xs: calc(1em * round(pow(var(--lk-scalefactor), -2), 0.001)); /* .382 em */
+  --lk-base-2xs: calc(1em * round(pow(var(--lk-scalefactor), -3), 0.001)); /* .236 em */
+  --lk-base-3xs: calc(1em * round(pow(var(--lk-scalefactor), -4), 0.001)); /* .146 em */
+  /* "super smalls" only used for border widths and thin lines */
+  --lk-base-4xs: calc(1em * round(pow(var(--lk-scalefactor), -5), 0.001)); /* When 1rem = 16px, equals roughly 2px */
+  --lk-base-5xs: calc(1em * round(pow(var(--lk-scalefactor), -6), 0.001)); /* When 1rem = 16px, equals roughly 1px */
+  --lk-base-lg: calc(1em * var(--lk-scalefactor));
+  --lk-base-xl: calc(1em * round(pow(var(--lk-scalefactor), 2), 0.001));
+  /* --lk-base-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001)); */
+  --lk-base-2xl: calc(1em * round(pow(var(--lk-scalefactor), 3), 0.001));
+  --lk-base-3xl: calc(1em * round(pow(var(--lk-scalefactor), 4), 0.001));
+  --lk-base-4xl: calc(1em * round(pow(var(--lk-scalefactor), 5), 0.001));
+  --lk-base-5xl: calc(1em * round(pow(var(--lk-scalefactor), 6), 0.001));
+
+  /* Unitless sizes; required for adhoc calculations (division and multiplication in calc() require unitless numbers */
+  /* NOTE: in calc() with multiplication or division the right side must be a unitless number */
+
+  --lk-base-sm-unitless: calc(1 / var(--lk-scalefactor));
+  --lk-base-xs-unitless: calc(var(--lk-base-sm-unitless) / var(--lk-scalefactor));
+  --lk-base-2xs-unitless: calc(var(--lk-base-xs-unitless) / var(--lk-scalefactor));
+  --lk-base-lg-unitless: calc(1 * var(--lk-scalefactor));
+  --lk-base-xl-unitless: calc(var(--lk-base-lg-unitless) * var(--lk-scalefactor));
+  --lk-base-2xl-unitless: calc(var(--lk-base-xl-unitless) * var(--lk-scalefactor));
+
+  /*Increments*/
+
+  /* Colors */
+
+  --lk-light-primary: #000000;
+  --lk-light-onprimary: #ffffff;
+  --lk-light-primarycontainer: #e2e2e2;
+  --lk-light-onprimarycontainer: #1b1b1b;
+  --lk-light-secondary: #5e5e5e;
+  --lk-light-onsecondary: #ffffff;
+  --lk-light-secondarycontainer: #e4e2e2;
+  --lk-light-onsecondarycontainer: #1b1c1c;
+  --lk-light-tertiary: #5e5e5e;
+  --lk-light-ontertiary: #ffffff;
+  --lk-light-tertiarycontainer: #e4e2e2;
+  --lk-light-ontertiarycontainer: #1b1c1c;
+  --lk-light-error: #ba1a1a;
+  --lk-light-onerror: #ffffff;
+  --lk-light-errorcontainer: #ffdad5;
+  --lk-light-onerrorcontainer: #410002;
+  --lk-light-background: #ffffff;
+  --lk-light-onbackground: #1b1b1b;
+  --lk-light-surface: #f9f9f9;
+  --lk-light-onsurface: #1b1b1b;
+  --lk-light-surfacevariant: #e2e2e2;
+  --lk-light-onsurfacevariant: #474747;
+  --lk-light-outline: #777777;
+  --lk-light-outlinevariant: #c6c6c6;
+  --lk-light-shadow: #000000;
+  --lk-light-scrim: #000000;
+  --lk-light-inversesurface: #303030;
+  --lk-light-inverseonsurface: #f1f1f1;
+  --lk-light-inverseprimary: #c6c6c6;
+  --lk-light-surfacedim: #dadada;
+  --lk-light-surfacebright: #f9f9f9;
+  --lk-light-surfacecontainerlowest: #ffffff;
+  --lk-light-surfacecontainerlow: #f3f3f3;
+  --lk-light-surfacecontainer: #eeeeee;
+  --lk-light-surfacecontainerhigh: #e8e8e8;
+  --lk-light-surfacecontainerhighest: #e2e2e2;
+  --lk-light-warning: #755b00;
+  --lk-light-onwarning: #ffffff;
+  --lk-light-warningcontainer: #ffe08f;
+  --lk-light-onwarningcontainer: #241a00;
+  --lk-light-success: #036c48;
+  --lk-light-onsuccess: #ffffff;
+  --lk-light-successcontainer: #9df5c6;
+  --lk-light-onsuccesscontainer: #002113;
+  --lk-light-info: #014ee7;
+  --lk-light-oninfo: #ffffff;
+  --lk-light-infocontainer: #dce1ff;
+  --lk-light-oninfocontainer: #001550;
+  --lk-dark-primary: #ffffff;
+  --lk-dark-onprimary: #303030;
+  --lk-dark-primarycontainer: #474747;
+  --lk-dark-onprimarycontainer: #e2e2e2;
+  --lk-dark-secondary: #c7c6c6;
+  --lk-dark-onsecondary: #000000;
+  --lk-dark-secondarycontainer: #464747;
+  --lk-dark-onsecondarycontainer: #e4e2e2;
+  --lk-dark-tertiary: #9e9e9d;
+  --lk-dark-ontertiary: #303030;
+  --lk-dark-tertiarycontainer: #464747;
+  --lk-dark-ontertiarycontainer: #e4e2e2;
+  --lk-dark-error: #ffb4ab;
+  --lk-dark-onerror: #690004;
+  --lk-dark-errorcontainer: #930009;
+  --lk-dark-onerrorcontainer: #ffdad5;
+  --lk-dark-background: #040404;
+  --lk-dark-onbackground: #e2e2e2;
+  --lk-dark-surface: #131313;
+  --lk-dark-onsurface: #e2e2e2;
+  --lk-dark-surfacevariant: #474747;
+  --lk-dark-onsurfacevariant: #c6c6c6;
+  --lk-dark-outline: #6a6a6a;
+  --lk-dark-outlinevariant: #303030;
+  --lk-dark-shadow: #000000;
+  --lk-dark-scrim: #000000;
+  --lk-dark-inversesurface: #dfdfdf;
+  --lk-dark-inverseonsurface: #303030;
+  --lk-dark-inverseprimary: #5e5e5e;
+  --lk-dark-surfacedim: #131313;
+  --lk-dark-surfacebright: #393939;
+  --lk-dark-surfacecontainerlowest: #0e0e0e;
+  --lk-dark-surfacecontainerlow: #1b1b1b;
+  --lk-dark-surfacecontainer: #1f1f1f;
+  --lk-dark-surfacecontainerhigh: #2a2a2a;
+  --lk-dark-surfacecontainerhighest: #353535;
+  --lk-dark-warning: #e7c35f;
+  --lk-dark-onwarning: #3d2e00;
+  --lk-dark-warningcontainer: #584400;
+  --lk-dark-onwarningcontainer: #ffe08f;
+  --lk-dark-success: #82d8ab;
+  --lk-dark-onsuccess: #003823;
+  --lk-dark-successcontainer: #005235;
+  --lk-dark-onsuccesscontainer: #9df5c6;
+  --lk-dark-info: #b6c4ff;
+  --lk-dark-oninfo: #00277f;
+  --lk-dark-infocontainer: #003ab2;
+  --lk-dark-oninfocontainer: #dce1ff;
+  --lk-light-primaryfixed: #e2e2e2;
+  --lk-light-primaryfixeddim: #c6c6c6;
+  --lk-light-onprimaryfixed: #1b1b1b;
+  --lk-light-onprimaryfixedvariant: #474747;
+  --lk-light-secondaryfixed: #e4e2e2;
+  --lk-light-secondaryfixeddim: #c7c6c6;
+  --lk-light-onsecondaryfixed: #1b1c1c;
+  --lk-light-onsecondaryfixedvariant: #464747;
+  --lk-light-tertiaryfixed: #e4e2e2;
+  --lk-light-tertiaryfixeddim: #c7c6c6;
+  --lk-light-ontertiaryfixed: #1b1c1c;
+  --lk-light-ontertiaryfixedvariant: #464747;
+  --lk-dark-primaryfixed: #e2e2e2;
+  --lk-dark-primaryfixeddim: #c6c6c6;
+  --lk-dark-onprimaryfixed: #1b1b1b;
+  --lk-dark-onprimaryfixedvariant: #474747;
+  --lk-dark-secondaryfixed: #e4e2e2;
+  --lk-dark-secondaryfixeddim: #c7c6c6;
+  --lk-dark-onsecondaryfixed: #1b1c1c;
+  --lk-dark-onsecondaryfixedvariant: #464747;
+  --lk-dark-tertiaryfixed: #e4e2e2;
+  --lk-dark-tertiaryfixeddim: #c7c6c6;
+  --lk-dark-ontertiaryfixed: #1b1c1c;
+  --lk-dark-ontertiaryfixedvariant: #464747;
+
+  --lk-onprimary: var(--lk-light-onprimary);
+  --lk-primarycontainer: var(--lk-light-primarycontainer);
+  --lk-onprimarycontainer: var(--lk-light-onprimarycontainer);
+  --lk-secondary: var(--lk-light-secondary);
+  --lk-onsecondary: var(--lk-light-onsecondary);
+  --lk-secondarycontainer: var(--lk-light-secondarycontainer);
+  --lk-onsecondarycontainer: var(--lk-light-onsecondarycontainer);
+  --lk-tertiary: var(--lk-light-tertiary);
+  --lk-ontertiary: var(--lk-light-ontertiary);
+  --lk-tertiarycontainer: var(--lk-light-tertiarycontainer);
+  --lk-ontertiarycontainer: var(--lk-light-ontertiarycontainer);
+  --lk-onerror: var(--lk-light-onerror);
+  --lk-errorcontainer: var(--lk-light-errorcontainer);
+  --lk-onerrorcontainer: var(--lk-light-onerrorcontainer);
+  --lk-background: var(--lk-light-background);
+  --lk-onbackground: var(--lk-light-onbackground);
+  --lk-surface: var(--lk-light-surface);
+  --lk-onsurface: var(--lk-light-onsurface);
+  --lk-onsurfacevariant: var(--lk-light-onsurfacevariant);
+  --lk-surfacevariant: var(--lk-light-surfacevariant);
+  --lk-shadow: var(--lk-light-shadow);
+  --lk-inversesurface: var(--lk-light-inversesurface);
+  --lk-scrim: var(--lk-light-scrim);
+  --lk-inverseonsurface: var(--lk-light-inverseonsurface);
+  --lk-inverseprimary: var(--lk-light-inverseprimary);
+  --lk-success: var(--lk-light-success);
+  --lk-onsuccess: var(--lk-light-onsuccess);
+  --lk-successcontainer: var(--lk-light-successcontainer);
+  --lk-onsuccesscontainer: var(--lk-light-onsuccesscontainer);
+  --lk-warning: var(--lk-light-warning);
+  --lk-onwarning: var(--lk-light-onwarning);
+  --lk-warningcontainer: var(--lk-light-warningcontainer);
+  --lk-onwarningcontainer: var(--lk-light-onwarningcontainer);
+  --lk-info: var(--lk-light-info);
+  --lk-oninfo: var(--lk-light-oninfo);
+  --lk-infocontainer: var(--lk-light-infocontainer);
+  --lk-oninfocontainer: var(--lk-light-oninfocontainer);
+  --lk-primaryfixed: var(--lk-light-primaryfixed);
+  --lk-onprimaryfixed: var(--lk-light-onprimaryfixed);
+  --lk-primaryfixeddim: var(--lk-light-primaryfixeddim);
+  --lk-onprimaryfixedvariant: var(--lk-light-onprimaryfixedvariant);
+  --lk-secondaryfixed: var(--lk-light-secondaryfixed);
+  --lk-secondaryfixeddim: var(--lk-light-secondaryfixeddim);
+  --lk-onsecondaryfixed: var(--lk-light-onsecondaryfixed);
+  --lk-onsecondaryfixedvariant: var(--lk-light-onsecondaryfixedvariant);
+  --lk-tertiaryfixed: var(--lk-light-tertiaryfixed);
+  --lk-ontertiaryfixed: var(--lk-light-ontertiaryfixed);
+  --lk-tertiaryfixeddim: var(--lk-light-tertiaryfixeddim);
+  --lk-ontertiaryfixedvariant: var(--lk-light-ontertiaryfixedvariant);
+  --lk-surfacedim: var(--lk-light-surfacedim);
+  --lk-surfacebright: var(--lk-light-surfacebright);
+  --lk-surfacecontainerlowest: var(--lk-light-surfacecontainerlowest);
+  --lk-surfacecontainer: var(--lk-light-surfacecontainer);
+  --lk-surfacecontainerhigh: var(--lk-light-surfacecontainerhigh);
+  --lk-surfacecontainerhighest: var(--lk-light-surfacecontainerhighest);
+  --lk-surfacecontainerlow: var(--lk-light-surfacecontainerlow);
+  --lk-outlinevariant: var(--lk-light-outlinevariant);
+  --lk-outline: var(--lk-light-outline);
+  --lk-error: var(--lk-light-error);
+  --lk-primary: var(--lk-light-primary);
+  /* LiftKit's two extra text colors are onsurface at reduced opacity, not tones of their own. They follow onsurface
+     in any theme and color scheme (it is swapped in the dark block below, so they need no dark values), and they blend
+     with whatever sits behind them. Change the opacity numbers here to tune them. */
+  --lk-onsurfacelow: rgb(from var(--lk-onsurface) r g b / 0.72);
+  --lk-onsurfacelowest: rgb(from var(--lk-onsurface) r g b / 0.62);
+
+  /* Make text look sharper */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+
+  /************ Font Size Vars ************/
+
+  /* DEBUGGING TIP: The CSS rules for calc() define unique laws for adding, subtracting, multiplying, and dividing.
+   * In addition and subtraction, both sides must have the same unit.
+   * In multiplication, one side must be unitless.
+   * In division, the right side must be unitless.
+  */
+
+  --lk-display1-font-size: calc(1em * pow(var(--lk-wholestep), 3));
+  --lk-display2-font-size: calc(1em * pow(var(--lk-wholestep), 2));
+  --lk-title1-font-size: calc(1em * var(--lk-wholestep) * var(--lk-halfstep));
+  --lk-title2-font-size: calc(1em * var(--lk-wholestep));
+  --lk-title3-font-size: calc(1em * var(--lk-halfstep));
+  --lk-heading-font-size: calc(1em * var(--lk-quarterstep));
+  --lk-body-font-size: 1em;
+  --lk-callout-font-size: calc(1em / var(--lk-eighthstep));
+  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep));
+  --lk-label-font-size: calc((1em / var(--lk-quarterstep)) / var(--lk-eighthstep));
+  --lk-caption-font-size: calc(1em / var(--lk-halfstep));
+  --lk-capline-font-size: calc(1em / var(--lk-halfstep));
+
+  /* Three generic font-family slots. Slots 1 and 2 resolve to `inherit` by default,
+     so the typography classes fall back to whatever the page is using. Slot 3 is the
+     Monospace slot (used by the -mono classes) and defaults to a monospace stack.
+     Override --lk-font-family-1/2/3 to point a slot at a real stack
+     (for example `"Inter", sans-serif`), then assign a group to that slot
+     by changing --lk-<group>-font-family below. */
+  --lk-font-family-1: inherit;
+  --lk-font-family-2: inherit;
+  --lk-font-family-3: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --lk-display1-font-family:   var(--lk-font-family-1);
+  --lk-display2-font-family:   var(--lk-font-family-1);
+  --lk-title1-font-family:     var(--lk-font-family-1);
+  --lk-title2-font-family:     var(--lk-font-family-1);
+  --lk-title3-font-family:     var(--lk-font-family-1);
+  --lk-heading-font-family:    var(--lk-font-family-1);
+  --lk-body-font-family:       var(--lk-font-family-1);
+  --lk-callout-font-family:    var(--lk-font-family-1);
+  --lk-subheading-font-family: var(--lk-font-family-1);
+  --lk-label-font-family:      var(--lk-font-family-1);
+  --lk-caption-font-family:    var(--lk-font-family-1);
+  --lk-capline-font-family:    var(--lk-font-family-1);
+
+  /* Font Line Height Vars (UNITLESS!) */
+
+  --lk-display1-line-height: var(--lk-quarterstep);
+  --lk-display2-line-height: var(--lk-halfstep);
+  --lk-title1-line-height: var(--lk-halfstep);
+  --lk-title2-line-height: var(--lk-halfstep);
+  --lk-title3-line-height: var(--lk-halfstep);
+  --lk-heading-line-height: var(--lk-halfstep);
+  --lk-body-line-height: var(--lk-wholestep);
+  --lk-callout-line-height: var(--lk-halfstep);
+  --lk-subheading-line-height: var(--lk-halfstep);
+  --lk-label-line-height: var(--lk-halfstep);
+  --lk-caption-line-height: var(--lk-halfstep);
+  --lk-capline-line-height: var(--lk-halfstep);
+
+  /* Font weights */
+
+  --lk-display1-font-weight: 400;
+  --lk-display2-font-weight: 400;
+  --lk-title1-font-weight: 400;
+  --lk-title2-font-weight: 400;
+  --lk-title3-font-weight: 400;
+  --lk-heading-font-weight: 400;
+  --lk-body-font-weight: 400;
+  --lk-callout-font-weight: 400;
+  --lk-subheading-font-weight: 400;
+  --lk-label-font-weight: 500;
+  --lk-caption-font-weight: 400;
+  --lk-capline-font-weight: 400;
+
+  /* Weights of the -bold variants */
+
+  --lk-display1-bold-font-weight: 700;
+  --lk-display2-bold-font-weight: 700;
+  --lk-title1-bold-font-weight: 600;
+  --lk-title2-bold-font-weight: 600;
+  --lk-title3-bold-font-weight: 600;
+  --lk-heading-bold-font-weight: 600;
+  --lk-body-bold-font-weight: 600;
+  --lk-callout-bold-font-weight: 600;
+  --lk-subheading-bold-font-weight: 600;
+  --lk-label-bold-font-weight: 700;
+  --lk-caption-bold-font-weight: 600;
+  --lk-capline-bold-font-weight: 600;
+
+  /* Weights of the -mono variants. They follow the normal weight until set separately. */
+
+  --lk-display1-mono-font-weight: var(--lk-display1-font-weight);
+  --lk-display2-mono-font-weight: var(--lk-display2-font-weight);
+  --lk-title1-mono-font-weight: var(--lk-title1-font-weight);
+  --lk-title2-mono-font-weight: var(--lk-title2-font-weight);
+  --lk-title3-mono-font-weight: var(--lk-title3-font-weight);
+  --lk-heading-mono-font-weight: var(--lk-heading-font-weight);
+  --lk-body-mono-font-weight: var(--lk-body-font-weight);
+  --lk-callout-mono-font-weight: var(--lk-callout-font-weight);
+  --lk-subheading-mono-font-weight: var(--lk-subheading-font-weight);
+  --lk-label-mono-font-weight: var(--lk-label-font-weight);
+  --lk-caption-mono-font-weight: var(--lk-caption-font-weight);
+  --lk-capline-mono-font-weight: var(--lk-capline-font-weight);
+
+  /* Optical Top Padding Offsets and Border Radii for Cards */
+  /* Produce padding values for the insides of cards or other containers on sides that
+     optically look imbalanced even though mathematically they're symmetrical. Like in the first liftkit video. */
+
+  --lk-display1-offset: calc(
+    var(--lk-display1-font-size) * calc(var(--lk-display1-line-height) / var(--lk-wholestep))
+  );
+  --lk-display2-offset: calc(
+    var(--lk-display2-font-size) * calc(var(--lk-display2-line-height) / var(--lk-wholestep))
+  );
+  --lk-title1-offset: calc(var(--lk-title1-font-size) * calc(var(--lk-title1-line-height) / var(--lk-wholestep)));
+  --lk-title2-offset: calc(var(--lk-title2-font-size) * calc(var(--lk-title2-line-height) / var(--lk-wholestep)));
+  --lk-title3-offset: calc(var(--lk-title3-font-size) * calc(var(--lk-title3-line-height) / var(--lk-wholestep)));
+  --lk-heading-offset: calc(
+    var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep))
+  );
+  --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep));
+  --lk-callout-offset: calc(
+    var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep))
+  );
+  --lk-subheading-offset: calc(
+    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep))
+  );
+  --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep)));
+  --lk-caption-offset: calc(
+    var(--lk-caption-font-size) * calc(var(--lk-caption-line-height) / var(--lk-wholestep))
+  );
+  --lk-capline-offset: calc(
+    var(--lk-capline-font-size) * calc(var(--lk-capline-line-height) / var(--lk-wholestep))
+  );
+
+  --lk-display1-letter-spacing: -0.022em;
+  --lk-display2-letter-spacing: -0.022em;
+  --lk-title1-letter-spacing: -0.022em;
+  --lk-title2-letter-spacing: -0.02em;
+  --lk-title3-letter-spacing: -0.017em;
+  --lk-heading-letter-spacing: -0.014em;
+  --lk-body-letter-spacing: -0.011em;
+  --lk-callout-letter-spacing: -0.009em;
+  --lk-subheading-letter-spacing: -0.007em;
+  --lk-label-letter-spacing: -0.004em;
+  --lk-caption-letter-spacing: -0.007em;
+  --lk-capline-letter-spacing: 0.0618em;
+
+  /* shadows */
+
+  /* first, set shadow colors to their own tokens so it's easier to edit them later */
+
+  /* The "contact" shadow is a hairthin line that goes all around the element. */
+  --lk-contact-shadow-color: color-mix(in srgb, var(--lk-shadow) 80%, transparent);
+
+  /* Go ahead and save it to a token for passing later to each final shadow style token */
+  --lk-contact-shadow: 0 0 1px 0 var(--lk-contact-shadow-color);
+
+  /*
+
+    * shadow opacity is defined from largest to smallest so that everything can calculate from the darkest requirement
+    * it's done this way because it's easiest to tell where the "banding" limit of a shadow is when the blur is highest, 
+    * which is the largest shadow, which is where opacity has the greatest impact on banding 
+ 
+
+    * by default (i.e. in light mode), opacity of largest shadow color token equals scaleFactor expressed as a percentage 
+    * i.e. if scaleFactor is 1.618 then opacity is 61.8%
+    * then, every color token smaller is a wholestep down from that percent.
+    * i.e. shadow-color-xl equals 61.8% / var(--lk-wholestep) */
+
+  --lk-shadow-2xl-opacity: calc(calc(var(--lk-scalefactor) - 1) * 100%);
+  --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+  --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+  --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+  --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
+
+  /* In dark mode, opacity is higher at the top level and cascades down */
+  @media screen and (prefers-color-scheme: dark) {
+    --lk-shadow-2xl-opacity: 80%;
+    --lk-shadow-xl-opacity: calc(var(--lk-shadow-2xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-lg-opacity: calc(var(--lk-shadow-xl-opacity) / var(--lk-wholestep));
+    --lk-shadow-md-opacity: calc(var(--lk-shadow-lg-opacity) / var(--lk-wholestep));
+    --lk-shadow-sm-opacity: calc(var(--lk-shadow-md-opacity) / var(--lk-wholestep));
+    --lk-shadow-xs-opacity: calc(var(--lk-shadow-sm-opacity) / var(--lk-wholestep));
+  }
+
+  --lk-shadow-color-2xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-2xl-opacity), transparent);
+  --lk-shadow-color-xl: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xl-opacity), transparent);
+  --lk-shadow-color-lg: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-lg-opacity), transparent);
+  --lk-shadow-color-md: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-md-opacity), transparent);
+  --lk-shadow-color-sm: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-sm-opacity), transparent);
+  --lk-shadow-color-xs: color-mix(in srgb, var(--lk-shadow) var(--lk-shadow-xs-opacity), transparent);
+
+  /* --lk-shadow-xs:
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 .272em .440em -1px var(--lk-shadow-color-xs-b); */
+
+  /* for every shadow, y offset is an lk-size var and the blur is y offset * scaleFactor */
+
+  /* Now, define the y offsets for each */
+
+  --lk-shadow-yoffset-2xl: var(--lk-base-xl);
+  --lk-shadow-yoffset-xl: var(--lk-base-lg);
+  --lk-shadow-yoffset-lg: var(--lk-base-md);
+  --lk-shadow-yoffset-md: var(--lk-base-sm);
+  --lk-shadow-yoffset-sm: var(--lk-base-xs);
+  --lk-shadow-yoffset-xs: var(--lk-base-2xs);
+
+  /* Calculate blur strength. Blur equals y offset * wholestep */
+
+  --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl) * var(--lk-wholestep));
+  --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl) * var(--lk-wholestep));
+  --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg) * var(--lk-wholestep));
+  --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md) * var(--lk-wholestep));
+  --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm) * var(--lk-wholestep));
+  --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs) * var(--lk-wholestep));
+
+  /* 2xs is an exception to all of these calculation rules, because it only has a contact shadow. */
+
+  --lk-shadow-2xs: var(--lk-contact-shadow);
+  --lk-shadow-xs:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xs) var(--lk-shadow-blur-xs) 0 var(--lk-shadow-color-xs);
+  --lk-shadow-sm:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-sm) var(--lk-shadow-blur-sm) 0 var(--lk-shadow-color-sm);
+  --lk-shadow-md:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-md) var(--lk-shadow-blur-md) 0 var(--lk-shadow-color-md);
+  --lk-shadow-lg:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-lg) var(--lk-shadow-blur-lg) 0 var(--lk-shadow-color-lg);
+  --lk-shadow-xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-xl) var(--lk-shadow-blur-xl) 0 var(--lk-shadow-color-xl);
+  --lk-shadow-2xl:
+    var(--lk-contact-shadow), 0 var(--lk-shadow-yoffset-2xl) var(--lk-shadow-blur-2xl) 0 var(--lk-shadow-color-2xl);
+
+  /* In dark mode, shadow blur is weaker in order to reduce banding. TODO: find better solution, banding still happening at 2xl */
+
+  @media screen and (prefers-color-scheme: dark) {
+    --lk-shadow-blur-2xl: calc(var(--lk-shadow-yoffset-2xl));
+    --lk-shadow-blur-xl: calc(var(--lk-shadow-yoffset-xl));
+    --lk-shadow-blur-lg: calc(var(--lk-shadow-yoffset-lg));
+    --lk-shadow-blur-md: calc(var(--lk-shadow-yoffset-md));
+    --lk-shadow-blur-sm: calc(var(--lk-shadow-yoffset-sm));
+    --lk-shadow-blur-xs: calc(var(--lk-shadow-yoffset-xs));
+  }
+
+  /* 
+      --lk-shadow-2xl: 
+    0 0 1px 0 var(--lk-contact-shadow-color), 
+    0 2.058em 3.33em 0 var(--lk-shadow-color-2xl-b); */
+
+  /* Global Scale Factors - Used for ad hoc calculations in the component tree leaves */
+
+  --lk-display1BoxHeight: calc(var(--lk-display1-font-size) * var(--lk-display1-line-height));
+  --lk-display2BoxHeight: calc(var(--lk-display2-font-size) * var(--lk-display2-line-height));
+  --lk-title1BoxHeight: calc(var(--lk-title1-font-size) * var(--lk-title1-line-height));
+  --lk-title2BoxHeight: calc(var(--lk-title2-font-size) * var(--lk-title2-line-height));
+  --lk-title3BoxHeight: calc(var(--lk-title3-font-size) * var(--lk-title3-line-height));
+  --lk-headingBoxHeight: calc(var(--lk-heading-font-size) * var(--lk-heading-line-height));
+  --lk-bodyBoxHeight: calc(var(--lk-body-font-size) * var(--lk-body-line-height));
+  --lk-calloutBoxHeight: calc(var(--lk-callout-font-size) * var(--lk-callout-line-height));
+  --lk-subheadingBoxHeight: calc(var(--lk-subheading-font-size) * var(--lk-subheading-line-height));
+  --lk-labelBoxHeight: calc(var(--lk-label-font-size) * var(--lk-label-line-height));
+  --lk-captionBoxHeight: calc(var(--lk-caption-font-size) * var(--lk-caption-line-height));
+  --lk-caplineBoxHeight: calc(var(--lk-capline-font-size) * var(--lk-capline-line-height));
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --lk-onprimary: var(--lk-dark-onprimary);
+    --lk-primarycontainer: var(--lk-dark-primarycontainer);
+    --lk-onprimarycontainer: var(--lk-dark-onprimarycontainer);
+    --lk-secondary: var(--lk-dark-secondary);
+    --lk-onsecondary: var(--lk-dark-onsecondary);
+    --lk-secondarycontainer: var(--lk-dark-secondarycontainer);
+    --lk-onsecondarycontainer: var(--lk-dark-onsecondarycontainer);
+    --lk-tertiary: var(--lk-dark-tertiary);
+    --lk-ontertiary: var(--lk-dark-ontertiary);
+    --lk-tertiarycontainer: var(--lk-dark-tertiarycontainer);
+    --lk-ontertiarycontainer: var(--lk-dark-ontertiarycontainer);
+    --lk-onerror: var(--lk-dark-onerror);
+    --lk-errorcontainer: var(--lk-dark-errorcontainer);
+    --lk-onerrorcontainer: var(--lk-dark-onerrorcontainer);
+    --lk-background: var(--lk-dark-background);
+    --lk-onbackground: var(--lk-dark-onbackground);
+    --lk-surface: var(--lk-dark-surface);
+    --lk-onsurface: var(--lk-dark-onsurface);
+    --lk-onsurfacevariant: var(--lk-dark-onsurfacevariant);
+    --lk-surfacevariant: var(--lk-dark-surfacevariant);
+    --lk-shadow: var(--lk-dark-shadow);
+    --lk-inversesurface: var(--lk-dark-inversesurface);
+    --lk-scrim: var(--lk-dark-scrim);
+    --lk-inverseonsurface: var(--lk-dark-inverseonsurface);
+    --lk-inverseprimary: var(--lk-dark-inverseprimary);
+    --lk-success: var(--lk-dark-success);
+    --lk-onsuccess: var(--lk-dark-onsuccess);
+    --lk-successcontainer: var(--lk-dark-successcontainer);
+    --lk-onsuccesscontainer: var(--lk-dark-onsuccesscontainer);
+    --lk-warning: var(--lk-dark-warning);
+    --lk-onwarning: var(--lk-dark-onwarning);
+    --lk-warningcontainer: var(--lk-dark-warningcontainer);
+    --lk-onwarningcontainer: var(--lk-dark-onwarningcontainer);
+    --lk-info: var(--lk-dark-info);
+    --lk-oninfo: var(--lk-dark-oninfo);
+    --lk-infocontainer: var(--lk-dark-infocontainer);
+    --lk-oninfocontainer: var(--lk-dark-oninfocontainer);
+    --lk-primaryfixed: var(--lk-dark-primaryfixed);
+    --lk-onprimaryfixed: var(--lk-dark-onprimaryfixed);
+    --lk-primaryfixeddim: var(--lk-dark-primaryfixeddim);
+    --lk-onprimaryfixedvariant: var(--lk-dark-onprimaryfixedvariant);
+    --lk-secondaryfixed: var(--lk-dark-secondaryfixed);
+    --lk-secondaryfixeddim: var(--lk-dark-secondaryfixeddim);
+    --lk-onsecondaryfixed: var(--lk-dark-onsecondaryfixed);
+    --lk-onsecondaryfixedvariant: var(--lk-dark-onsecondaryfixedvariant);
+    --lk-tertiaryfixed: var(--lk-dark-tertiaryfixed);
+    --lk-ontertiaryfixed: var(--lk-dark-ontertiaryfixed);
+    --lk-tertiaryfixeddim: var(--lk-dark-tertiaryfixeddim);
+    --lk-ontertiaryfixedvariant: var(--lk-dark-ontertiaryfixedvariant);
+    --lk-surfacedim: var(--lk-dark-surfacedim);
+    --lk-surfacebright: var(--lk-dark-surfacebright);
+    --lk-surfacecontainerlowest: var(--lk-dark-surfacecontainerlowest);
+    --lk-surfacecontainer: var(--lk-dark-surfacecontainer);
+    --lk-surfacecontainerhigh: var(--lk-dark-surfacecontainerhigh);
+    --lk-surfacecontainerhighest: var(--lk-dark-surfacecontainerhighest);
+    --lk-surfacecontainerlow: var(--lk-dark-surfacecontainerlow);
+    --lk-outlinevariant: var(--lk-dark-outlinevariant);
+    --lk-outline: var(--lk-dark-outline);
+    --lk-error: var(--lk-dark-error);
+    --lk-primary: var(--lk-dark-primary);
+  }
+}
+
+/* Everything from here is done to disable native display behavior of HTML elements
+
+/* TODO: Consider a more robust noramlizing solution. there's gotta be open source solutions to this.
+
+*/
+
+html,
+body {
+  max-width: 100vw;
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+}
+
+/* input:focus-visible {
+  outline: none;
+} */
+
+body {
+  margin: 0; /* normalize.css leaves the browser's default 8px body margin in place */
+  color: var(--lk-onbackground);
+  background: var(--lk-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--lk-onbackground);
+  background-color: var(--lk-background);
+  letter-spacing: var(--lk-body-letter-spacing);
+}
+
+* {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.swatch {
+  padding: calc(1.272em / var(--lk-base-xl-unitless)) var(--lk-base-sm);
+  border-radius: var(--lk-base-xs);
+  margin: var(--lk-base-sm) 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  /* font-size: inherit; */
+  margin: 0;
+  font-size: inherit;
+}
+
+/* Make Buttons into Inline Elements */
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  /* color: inherit; */
+}
+
+button span {
+  text-transform: capitalize;
+}
+
+ul,
+li {
+  line-height: var(--lk-halfstep);
+}
+
+/* utility class for elements that should only be accessible to screen readers */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Component schemes */
+
+.lk-colorgroup--primary {
+  --lk-color-token: var(--lk-primary);
+  --lk-color-ontoken: var(--lk-onprimary);
+}
+
+.lk-colorgroup--primarycontainer {
+  --lk-color-token: var(--lk-primarycontainer);
+  --lk-color-ontoken: var(--lk-onprimarycontainer);
+}
+
+.lk-colorgroup--secondary {
+  --lk-color-token: var(--lk-secondary);
+  --lk-color-ontoken: var(--lk-onsecondary);
+  --lk-color-tokencontainer: var(--lk-secondarycontainer);
+  --lk-color-ontokencontainer: var(--lk-onsecondarycontainer);
+}
+
+.lk-colorgroup--secondarycontainer {
+  --lk-color-token: var(--lk-secondarycontainer);
+  --lk-color-ontoken: var(--lk-onsecondarycontainer);
+}
+
+.lk-colorgroup--tertiary {
+  --lk-color-token: var(--lk-tertiary);
+  --lk-color-ontoken: var(--lk-ontertiary);
+}
+
+.lk-colorgroup--tertiarycontainer {
+  --lk-color-token: var(--lk-tertiarycontainer);
+  --lk-color-ontoken: var(--lk-ontertiarycontainer);
+}
+
+.lk-colorgroup--error {
+  --lk-color-token: var(--lk-error);
+  --lk-color-ontoken: var(--lk-onerror);
+}
+
+.lk-colorgroup--errorcontainer {
+  --lk-color-token: var(--lk-errorcontainer);
+  --lk-color-ontoken: var(--lk-onerrorcontainer);
+}
+
+.lk-colorgroup--success {
+  --lk-color-token: var(--lk-success);
+  --lk-color-ontoken: var(--lk-onsuccess);
+}
+
+.lk-colorgroup--successcontainer {
+  --lk-color-token: var(--lk-successcontainer);
+  --lk-color-ontoken: var(--lk-onsuccesscontainer);
+}
+
+.lk-colorgroup--warning {
+  --lk-color-token: var(--lk-warning);
+  --lk-color-ontoken: var(--lk-onwarning);
+  --lk-color-tokencontainer: var(--lk-warningcontainer);
+  --lk-color-ontokencontainer: var(--lk-onwarningcontainer);
+}
+
+.lk-colorgroup--warningcontainer {
+  --lk-color-token: var(--lk-warningcontainer);
+  --lk-color-ontoken: var(--lk-onwarningcontainer);
+}
+
+.lk-colorgroup--info {
+  --lk-color-token: var(--lk-info);
+  --lk-color-ontoken: var(--lk-oninfo);
+  --lk-color-tokencontainer: var(--lk-infocontainer);
+  --lk-color-ontokencontainer: var(--lk-oninfocontainer);
+}
+
+.lk-colorgroup--infocontainer {
+  --lk-color-token: var(--lk-infocontainer);
+  --lk-color-ontoken: var(--lk-oninfocontainer);
+}
+
+.lk-colorgroup--background {
+  --lk-color-token: var(--lk-background);
+  --lk-color-ontoken: var(--lk-onbackground);
+}
+
+.lk-colorgroup--surface {
+  --lk-color-token: var(--lk-surface);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacevariant {
+  --lk-color-token: var(--lk-surfacevariant);
+  --lk-color-ontoken: var(--lk-onsurfacevariant);
+}
+
+.lk-colorgroup--surfacecontainerlowest {
+  --lk-color-token: var(--lk-surfacecontainerlowest);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacedim {
+  --lk-color-token: var(--lk-surfacedim);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacebright {
+  --lk-color-token: var(--lk-surfacebright);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerlow {
+  --lk-color-token: var(--lk-surfacecontainerlow);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacecontainer {
+  --lk-color-token: var(--lk-surfacecontainer);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--surfacecontainerhigh {
+  --lk-color-token: var(--lk-surfacecontainerhigh);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+.lk-colorgroup--surfacecontainerhighest {
+  --lk-color-token: var(--lk-surfacecontainerhighest);
+  --lk-color-ontoken: var(--lk-onsurface);
+}
+
+.lk-colorgroup--inversesurface {
+  --lk-color-token: var(--lk-inversesurface);
+  --lk-color-ontoken: var(--lk-inverseonsurface);
+  --lk-color-inverseprimary: var(--lk-inverseprimary);
+}

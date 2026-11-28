@@ -1,0 +1,68 @@
+/* Docs-only styles for the System tab (not part of the LiftKit library). Spacing and colors use LiftKit tokens.
+   The measurement chrome (1px line, cap height) is fixed on purpose: the instrument must not scale with what it measures. */
+
+.system-sheet {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  column-gap: var(--lk-base-xl);
+  row-gap: var(--lk-base-md);
+  align-items: center;
+  width: max-content;
+  min-width: 100%;
+}
+
+.system-category,
+.system-row {
+  display: contents;
+}
+
+.system-category-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: var(--lk-base-md);
+  padding-bottom: var(--lk-base-xs);
+}
+
+.system-category:first-child .system-category-title {
+  padding-top: 0;
+  border-top: none;
+}
+
+.system-row code {
+}
+
+.system-latex .katex {
+}
+
+.system-token-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.system-token-segment {
+  display: block;
+  flex: none;
+  height: 1px;
+  background-color: var(--lk-outline);
+  font-size: 1rem; /* the tokens are em-based: measure them at 1em = 1rem */
+}
+
+.system-token-cap {
+  flex: none;
+  width: 1px;
+  height: 0.75rem;
+  background-color: var(--lk-outline);
+}
+
+.system-token-value {
+  margin-left: var(--lk-base-md);
+  white-space: nowrap;
+}
+
+.system-token-probe {
+  position: absolute;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

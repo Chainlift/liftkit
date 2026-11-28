@@ -1,0 +1,13 @@
+/* ColorInput doesn't expose its hex field, so size it from here. The field is 10ch wide when there's room. When the row
+   around it is too narrow it gives up width, but only after the text beside it has been squeezed to its minimum, so
+   it shrinks only when it has to. (A percentage width counts as zero when the row's minimum width is worked out, and
+   min-width: 0 lets the flex parents shrink past the field.) */
+.theme-panel-color-input {
+  min-width: 0;
+}
+
+.theme-panel-color-input [data-slot="input"] {
+  width: 100%;
+  min-width: 0;
+  max-width: 10ch;
+}

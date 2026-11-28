@@ -1,0 +1,7 @@
+.reset-field-button {
+  transition: opacity 0.15s ease-out;
+}
+
+.reset-field-button:hover {
+  opacity: 0.6;
+}

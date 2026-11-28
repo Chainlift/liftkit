@@ -1,0 +1,209 @@
+import "./subcomponent-table-styles.css";
+import { Button } from "liftkit";
+import { MdxTable, MdxTd, MdxTh } from "@/components/mdx/mdx-table";
+import type { SubComponentEntry } from "./component-doc";
+
+/** Tables documenting one part of a compound component (e.g. Accordion's Root, Item, Trigger). */
+
+/**
+ * Component to render a props table for a sub-component
+ * Usage: <SubComponentPropsTable name="Root" subComponent={meta.subComponents.Root} />
+ */
+interface SubComponentPropsTableProps {
+  name: string;
+  subComponent: SubComponentEntry;
+  className?: string;
+}
+
+export function SubComponentPropsTable({ subComponent, className }: SubComponentPropsTableProps) {
+
+  if (!subComponent || !subComponent.props || subComponent.props.length === 0) {
+    return null;
+  }
+
+  return (
+    <div data-instance="lk-docs-table">
+      <MdxTable>
+        <thead>
+          <tr>
+            <MdxTh>Prop</MdxTh>
+            <MdxTh>Type</MdxTh>
+            <MdxTh>Default</MdxTh>
+            <MdxTh>Description</MdxTh>
+          </tr>
+        </thead>
+        <tbody>
+          {subComponent.props.map((prop) => (
+            <tr key={prop.name}>
+              <MdxTd>
+                {prop.name}
+                {prop.required && <span>*</span>}
+              </MdxTd>
+              <MdxTd>{prop.type}</MdxTd>
+              <MdxTd>{prop.defaultValue || "-"}</MdxTd>
+              <MdxTd>{prop.description}</MdxTd>
+            </tr>
+          ))}
+        </tbody>
+      </MdxTable>
+    </div>
+  );
+}
+
+/**
+ * Component to render data attributes table for a sub-component
+ */
+interface SubComponentDataAttributesTableProps {
+  name: string;
+  subComponent: SubComponentEntry;
+  className?: string;
+}
+
+export function SubComponentDataAttributesTable({
+  subComponent,
+  className,
+}: SubComponentDataAttributesTableProps) {
+
+  if (!subComponent || !subComponent.dataAttributes || subComponent.dataAttributes.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className={className}>
+      <MdxTable>
+        <thead>
+          <tr>
+            <MdxTh>Data Attribute</MdxTh>
+            <MdxTh>Description</MdxTh>
+          </tr>
+        </thead>
+        <tbody>
+          {subComponent.dataAttributes.map((attr) => (
+            <tr key={attr.name}>
+              <MdxTd>{attr.name}</MdxTd>
+              <MdxTd>{attr.description}</MdxTd>
+            </tr>
+          ))}
+        </tbody>
+      </MdxTable>
+    </div>
+  );
+}
+
+/**
+ * Component to render CSS variables table for a sub-component
+ */
+interface SubComponentCSSVariablesTableProps {
+  name: string;
+  subComponent: SubComponentEntry;
+  className?: string;
+}
+
+export function SubComponentCSSVariablesTable({
+  subComponent,
+  className,
+}: SubComponentCSSVariablesTableProps) {
+
+  if (!subComponent || !subComponent.cssVariables || subComponent.cssVariables.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className={className}>
+      <MdxTable>
+        <thead>
+          <tr>
+            <MdxTh>Variable</MdxTh>
+            <MdxTh>Type</MdxTh>
+            <MdxTh>Default</MdxTh>
+            <MdxTh>Description</MdxTh>
+          </tr>
+        </thead>
+        <tbody>
+          {subComponent.cssVariables.map((cssVar) => (
+            <tr key={cssVar.name}>
+              <MdxTd>{cssVar.name}</MdxTd>
+              <MdxTd>{cssVar.type || "-"}</MdxTd>
+              <MdxTd>{cssVar.defaultValue || "-"}</MdxTd>
+              <MdxTd>{cssVar.description}</MdxTd>
+            </tr>
+          ))}
+        </tbody>
+      </MdxTable>
+    </div>
+  );
+}
+
+/**
+ * Combined component that renders all documentation for a sub-component
+ */
+interface SubComponentDocsProps {
+  name: string;
+  subComponent: SubComponentEntry;
+  linkToSource?: string;
+  className?: string;
+}
+
+export function SubComponentDocs({ name, subComponent, linkToSource, className }: SubComponentDocsProps) {
+
+  if (!subComponent) {
+    return null;
+  }
+
+  return (
+    <div className={className} data-instance="lk-docs-table">
+      {/* Header */}
+      <div data-slot="table-block">
+        <h3
+          className="title2-bold mb-xs"
+          data-instance="component-name"
+          id={name.toLowerCase().replace(/\s+/g, "-")}
+        >
+          {name}
+        </h3>
+        {subComponent.description && (
+          <p className="body mb-lg color-onsurfacelow">
+            {subComponent.description} Renders a{" "}
+            <code>{subComponent.renders}</code> element.
+          </p>
+        )}
+      </div>
+
+      {/* Props */}
+      {subComponent.props && subComponent.props.length > 0 && (
+        <div data-slot="table-block">
+          <div className="flex items-baseline justify-start">
+            <h4 className="title3-bold mb-xs">Props</h4>
+            {linkToSource && (
+              <a
+                href={linkToSource}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body color-primary flex items-center"
+              >
+                <Button fontClass="subheading" variant="text" label="Full API Reference" className="font-500" />
+              </a>
+            )}
+          </div>
+          <SubComponentPropsTable name={name} subComponent={subComponent} />
+        </div>
+      )}
+
+      {/* Data Attributes */}
+      {subComponent.dataAttributes && subComponent.dataAttributes.length > 0 && (
+        <div data-slot="table-block">
+          <h4 className="title3-bold mb-xs">Data Attributes</h4>
+          <SubComponentDataAttributesTable name={name} subComponent={subComponent} />
+        </div>
+      )}
+
+      {/* CSS Variables */}
+      {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
+        <div data-slot="table-block">
+          <h4 className="heading-bold mt-lg mb-sm color-onsurfacelow">CSS Variables</h4>
+          <SubComponentCSSVariablesTable name={name} subComponent={subComponent} />
+        </div>
+      )}
+    </div>
+  );
+}

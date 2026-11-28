@@ -1,0 +1,127 @@
+import type {
+  FontAssignments,
+  FontClassOverrides,
+  FontFamilies,
+  FontSizeSteps,
+  ThemeState,
+} from "./types";
+import {
+  sanitizeFontClassOverrides,
+  sanitizeFontSizeSteps,
+} from "./font-class-tokens";
+import {
+  DEFAULT_FONT_ASSIGNMENTS,
+  DEFAULT_FONT_FAMILIES,
+  DEFAULT_FONT_FAMILY,
+  DEFAULT_THEME_STATE,
+} from "./defaults";
+import { THEME_STORAGE_KEY } from "./theme-boot";
+
+interface PersistedTheme {
+  version: 1;
+  masterSeed: string;
+  seedColors: ThemeState["seedColors"];
+  toneOverrides: ThemeState["toneOverrides"];
+  sameTones?: boolean;
+  colorMode: ThemeState["colorMode"];
+  schemeVariant: ThemeState["schemeVariant"];
+  scaleFactor?: number;
+  fontFamilies?: FontFamilies;
+  fontAssignments?: FontAssignments;
+  fontClassOverrides?: FontClassOverrides;
+  fontSizeSteps?: FontSizeSteps;
+  activePresetId?: string | null;
+}
+
+export function saveTheme(state: ThemeState): void {
+  try {
+    const data: PersistedTheme = {
+      version: 1,
+      masterSeed: state.masterSeed,
+      seedColors: state.seedColors,
+      toneOverrides: state.toneOverrides,
+      sameTones: state.sameTones,
+      colorMode: state.colorMode,
+      schemeVariant: state.schemeVariant,
+      scaleFactor: state.scaleFactor,
+      fontFamilies: state.fontFamilies,
+      fontAssignments: state.fontAssignments,
+      fontClassOverrides: state.fontClassOverrides,
+      fontSizeSteps: state.fontSizeSteps,
+      activePresetId: state.activePresetId,
+    };
+    localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(data));
+  } catch {
+    // localStorage may be unavailable (SSR, private browsing quota)
+  }
+}
+
+/** Older saves kept one set of overrides for both schemes; those are applied to both. */
+function loadToneOverrides(saved: unknown): ThemeState["toneOverrides"] {
+  if (!saved || typeof saved !== "object") return { light: {}, dark: {} };
+  const record = saved as Record<string, unknown>;
+  if (typeof record.light === "object" || typeof record.dark === "object") {
+    return {
+      light: (record.light as Record<string, number>) ?? {},
+      dark: (record.dark as Record<string, number>) ?? {},
+    };
+  }
+  return {
+    light: { ...(saved as Record<string, number>) },
+    dark: { ...(saved as Record<string, number>) },
+  };
+}
+
+function loadFontFamilies(saved: unknown): FontFamilies {
+  if (!Array.isArray(saved)) return DEFAULT_FONT_FAMILIES;
+  const [a, b, c] = saved as unknown[];
+  return [
+    typeof a === "string" && a ? a : DEFAULT_FONT_FAMILY,
+    typeof b === "string" ? b : "",
+    typeof c === "string" ? c : "",
+  ];
+}
+
+function loadFontAssignments(saved: unknown): FontAssignments {
+  if (!saved || typeof saved !== "object") return DEFAULT_FONT_ASSIGNMENTS;
+  const record = saved as Record<string, unknown>;
+  const out: FontAssignments = { ...DEFAULT_FONT_ASSIGNMENTS };
+  for (const key of Object.keys(out) as (keyof FontAssignments)[]) {
+    const value = record[key];
+    if (value === 1 || value === 2 || value === 3) out[key] = value;
+  }
+  return out;
+}
+
+export function loadTheme(): Partial<ThemeState> | null {
+  try {
+    const raw = localStorage.getItem(THEME_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as PersistedTheme;
+    if (parsed.version !== 1) return null;
+    return {
+      masterSeed: parsed.masterSeed ?? DEFAULT_THEME_STATE.masterSeed,
+      seedColors: { ...DEFAULT_THEME_STATE.seedColors, ...parsed.seedColors },
+      toneOverrides: loadToneOverrides(parsed.toneOverrides),
+      sameTones: parsed.sameTones === true,
+      colorMode: parsed.colorMode ?? "system",
+      schemeVariant: parsed.schemeVariant ?? "tonalSpot",
+      scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
+      fontFamilies: loadFontFamilies(parsed.fontFamilies),
+      fontAssignments: loadFontAssignments(parsed.fontAssignments),
+      fontClassOverrides: sanitizeFontClassOverrides(parsed.fontClassOverrides),
+      fontSizeSteps: sanitizeFontSizeSteps(parsed.fontSizeSteps),
+      activePresetId: parsed.activePresetId ?? null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export function clearTheme(): void {
+  try {
+    localStorage.removeItem(THEME_STORAGE_KEY);
+  } catch {
+    // ignore
+  }
+}

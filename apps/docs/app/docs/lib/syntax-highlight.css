@@ -1,0 +1,15 @@
+[data-instance="code-block-copy-button"] {
+  position: absolute;
+  top: var(--lk-base-sm);
+  right: var(--lk-base-sm);
+  z-index: 1;
+
+  button {
+    cursor: pointer;
+  }
+
+  &[data-vert-center-button="true"] {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

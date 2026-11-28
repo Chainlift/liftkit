@@ -1,0 +1,44 @@
+/* Docs-only (not LiftKit): scaffolding for Markdown tables in docs pages. LiftKit has no Table component yet
+   (see the gaps log), so this uses plain elements with LiftKit tokens only. Tweak freely: every rule is a token. */
+
+[data-docs-table-scroll] {
+  width: 100%;
+  overflow-x: auto;
+  margin-block: var(--lk-base-md);
+}
+
+[data-docs-table] {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Header cells */
+[data-docs-table] th {
+  font-size: var(--lk-subheading-font-size);
+  padding: var(--lk-base-sm) var(--lk-base-md);
+  color: var(--lk-onsurface);
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: var(--lk-base-2xs) solid var(--lk-outline);
+  font-weight: 600;
+
+  &:is(:first-child) {
+    padding-left: 0px;
+  }
+}
+
+/* Body cells */
+[data-docs-table] td {
+  padding: var(--lk-base-sm) var(--lk-base-md);
+  vertical-align: top;
+  border-bottom: 1px solid var(--lk-outlinevariant);
+
+  &:is(:first-child) {
+    padding-left: 0px;
+  }
+}
+
+/* Row states */
+[data-docs-table] tbody tr:last-child td {
+  border-bottom: none;
+}

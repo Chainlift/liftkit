@@ -1,0 +1,39 @@
+import "katex/dist/katex.min.css";
+import "./system-sheet.css";
+import { readSheetCategories } from "./tokens";
+import { TokenLine } from "./token-line";
+import { LatexFormula } from "./latex-formula";
+import type { FontClassGroup } from "@/app/docs/theme-panel/types";
+
+/** The font class a `--lk-<class>-font-size` token belongs to, or undefined for any other token. */
+function fontClassOf(tokenName: string): FontClassGroup | undefined {
+  return tokenName.match(/^--lk-(.+)-font-size$/)?.[1] as
+    FontClassGroup | undefined;
+}
+
+/**
+ * Docs-only (not part of the LiftKit system): a live cheat sheet of every length token in liftkit-core.css.
+ * Reads the stylesheet at build time, so new tokens that match a category show up on their own.
+ */
+export function SystemSheet() {
+  const categories = readSheetCategories();
+
+  return (
+    <div className="system-sheet">
+      {categories.map((category) => (
+        <section key={category.title} className="system-category">
+          <h3 className="system-category-title heading-bold color-onsurface">
+            {category.title}
+          </h3>
+          {category.tokens.map(({ name, latex, width, unitlessVar }) => (
+            <div key={name} className="system-row">
+              <code className="subheading color-onsurfacelow">{name}</code>
+              <LatexFormula latex={latex} fontClass={fontClassOf(name)} />
+              <TokenLine width={width} unitlessVar={unitlessVar} />
+            </div>
+          ))}
+        </section>
+      ))}
+    </div>
+  );
+}
