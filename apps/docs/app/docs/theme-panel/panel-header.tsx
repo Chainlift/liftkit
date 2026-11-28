@@ -24,7 +24,7 @@ export function PanelHeader({
       <div className="flex-h items-center gap-sm">
         {leading}
         <div className="flex-grow">
-          <h2 className={subtitle ? "heading mb-xs" : "heading"}>{title}</h2>
+          <h2 className={subtitle ? "heading-bold mb-xs" : "heading-bold"}>{title}</h2>
           {subtitle && <p className="subheading">{subtitle}</p>}
         </div>
         {children && (

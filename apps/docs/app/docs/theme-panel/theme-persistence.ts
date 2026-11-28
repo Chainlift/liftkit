@@ -1,18 +1,35 @@
-import type { FontAssignments, FontFamilies, ThemeState } from "./types";
-import { DEFAULT_FONT_ASSIGNMENTS, DEFAULT_FONT_FAMILIES, DEFAULT_THEME_STATE } from "./defaults";
+import type {
+  FontAssignments,
+  FontClassOverrides,
+  FontFamilies,
+  FontSizeSteps,
+  ThemeState,
+} from "./types";
+import {
+  sanitizeFontClassOverrides,
+  sanitizeFontSizeSteps,
+} from "./font-class-tokens";
+import {
+  DEFAULT_FONT_ASSIGNMENTS,
+  DEFAULT_FONT_FAMILIES,
+  DEFAULT_FONT_FAMILY,
+  DEFAULT_THEME_STATE,
+} from "./defaults";
 import { THEME_STORAGE_KEY } from "./theme-boot";
-
 
 interface PersistedTheme {
   version: 1;
   masterSeed: string;
   seedColors: ThemeState["seedColors"];
   toneOverrides: ThemeState["toneOverrides"];
+  sameTones?: boolean;
   colorMode: ThemeState["colorMode"];
   schemeVariant: ThemeState["schemeVariant"];
   scaleFactor?: number;
   fontFamilies?: FontFamilies;
   fontAssignments?: FontAssignments;
+  fontClassOverrides?: FontClassOverrides;
+  fontSizeSteps?: FontSizeSteps;
   activePresetId?: string | null;
 }
 
@@ -23,11 +40,14 @@ export function saveTheme(state: ThemeState): void {
       masterSeed: state.masterSeed,
       seedColors: state.seedColors,
       toneOverrides: state.toneOverrides,
+      sameTones: state.sameTones,
       colorMode: state.colorMode,
       schemeVariant: state.schemeVariant,
       scaleFactor: state.scaleFactor,
       fontFamilies: state.fontFamilies,
       fontAssignments: state.fontAssignments,
+      fontClassOverrides: state.fontClassOverrides,
+      fontSizeSteps: state.fontSizeSteps,
       activePresetId: state.activePresetId,
     };
     localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(data));
@@ -46,14 +66,17 @@ function loadToneOverrides(saved: unknown): ThemeState["toneOverrides"] {
       dark: (record.dark as Record<string, number>) ?? {},
     };
   }
-  return { light: { ...(saved as Record<string, number>) }, dark: { ...(saved as Record<string, number>) } };
+  return {
+    light: { ...(saved as Record<string, number>) },
+    dark: { ...(saved as Record<string, number>) },
+  };
 }
 
 function loadFontFamilies(saved: unknown): FontFamilies {
   if (!Array.isArray(saved)) return DEFAULT_FONT_FAMILIES;
   const [a, b, c] = saved as unknown[];
   return [
-    typeof a === "string" ? a : "",
+    typeof a === "string" && a ? a : DEFAULT_FONT_FAMILY,
     typeof b === "string" ? b : "",
     typeof c === "string" ? c : "",
   ];
@@ -80,11 +103,14 @@ export function loadTheme(): Partial<ThemeState> | null {
       masterSeed: parsed.masterSeed ?? DEFAULT_THEME_STATE.masterSeed,
       seedColors: { ...DEFAULT_THEME_STATE.seedColors, ...parsed.seedColors },
       toneOverrides: loadToneOverrides(parsed.toneOverrides),
+      sameTones: parsed.sameTones === true,
       colorMode: parsed.colorMode ?? "system",
       schemeVariant: parsed.schemeVariant ?? "tonalSpot",
       scaleFactor: parsed.scaleFactor ?? DEFAULT_THEME_STATE.scaleFactor,
       fontFamilies: loadFontFamilies(parsed.fontFamilies),
       fontAssignments: loadFontAssignments(parsed.fontAssignments),
+      fontClassOverrides: sanitizeFontClassOverrides(parsed.fontClassOverrides),
+      fontSizeSteps: sanitizeFontSizeSteps(parsed.fontSizeSteps),
       activePresetId: parsed.activePresetId ?? null,
     };
   } catch {

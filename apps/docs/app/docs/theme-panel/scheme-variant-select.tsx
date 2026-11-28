@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  Field,
-  FieldLabel,
   Icon,
   Select,
   SelectIcon,
@@ -35,12 +33,11 @@ const SCHEME_VARIANTS: { value: SchemeVariant; label: string }[] = [
 export function SchemeVariantSelect() {
   const { state, dispatch } = useTheme();
   return (
-    <Field>
-      <FieldLabel>Scheme variant</FieldLabel>
+    <>
       <Select
         items={SCHEME_VARIANTS}
         value={state.schemeVariant}
-        fontClass="label"
+        fontClass="subheading"
         onValueChange={(variant) =>
           dispatch({
             type: "SET_SCHEME_VARIANT",
@@ -73,6 +70,6 @@ export function SchemeVariantSelect() {
           </SelectPositioner>
         </SelectPortal>
       </Select>
-    </Field>
+    </>
   );
 }

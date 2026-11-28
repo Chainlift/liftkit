@@ -11,10 +11,12 @@ import {
   type ReactNode,
 } from "react";
 import type { ThemeState, ThemeAction } from "./types";
-import { DEFAULT_THEME_STATE } from "./defaults";
+import { DEFAULT_FONT_FAMILY, DEFAULT_THEME_STATE } from "./defaults";
 import { loadTheme, saveTheme } from "./theme-persistence";
 import { deriveSeedColors } from "./theme-engine";
 import { applyPreset, findPreset } from "./presets";
+import { resetSection } from "./reset-section";
+import { TOKEN_MAP } from "./token-map";
 
 /**
  * `activePresetId` stays set across edits; the panel compares state to the
@@ -34,19 +36,45 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
         ...state,
         seedColors: { ...state.seedColors, [action.role]: action.hex },
       };
-    case "SET_TONE_OVERRIDE":
-      return {
-        ...state,
-        toneOverrides: {
-          ...state.toneOverrides,
-          [action.scheme]: { ...state.toneOverrides[action.scheme], [action.token]: action.tone },
-        },
-      };
+    case "SET_TONE_OVERRIDE": {
+      // With same tones on, a tone is set for both modes at once
+      const schemes = state.sameTones
+        ? (["light", "dark"] as const)
+        : [action.scheme];
+      const toneOverrides = { ...state.toneOverrides };
+      for (const scheme of schemes) {
+        toneOverrides[scheme] = {
+          ...toneOverrides[scheme],
+          [action.token]: action.tone,
+        };
+      }
+      return { ...state, toneOverrides };
+    }
     case "CLEAR_TONE_OVERRIDE": {
-      const { [action.token]: _, ...rest } = state.toneOverrides[action.scheme];
+      const schemes = state.sameTones
+        ? (["light", "dark"] as const)
+        : [action.scheme];
+      const toneOverrides = { ...state.toneOverrides };
+      for (const scheme of schemes) {
+        const { [action.token]: _, ...rest } = toneOverrides[scheme];
+        toneOverrides[scheme] = rest;
+      }
+      return { ...state, toneOverrides };
+    }
+    case "SET_SAME_TONES": {
+      if (!action.value) return { ...state, sameTones: false };
+      // Turning it on gives every token its light tone in dark mode too, so the two modes start out the same
+      const dark = { ...state.toneOverrides.dark };
+      for (const group of Object.values(TOKEN_MAP)) {
+        for (const [token, def] of Object.entries(group.tokens)) {
+          dark[token] =
+            state.toneOverrides.light[token] ?? def.defaultTone.light;
+        }
+      }
       return {
         ...state,
-        toneOverrides: { ...state.toneOverrides, [action.scheme]: rest },
+        sameTones: true,
+        toneOverrides: { ...state.toneOverrides, dark },
       };
     }
     case "SET_COLOR_MODE":
@@ -61,13 +89,53 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
       return { ...state, scaleFactor: action.value };
     case "SET_FONT_FAMILY_SLOT": {
       const fontFamilies = [...state.fontFamilies] as typeof state.fontFamilies;
-      fontFamilies[action.slot - 1] = action.family;
+      // Clearing the Default slot puts Inter back
+      fontFamilies[action.slot - 1] =
+        action.slot === 1 && !action.family
+          ? DEFAULT_FONT_FAMILY
+          : action.family;
       return { ...state, fontFamilies };
     }
+    case "ADD_FONT_SIZE_STEP":
+      return {
+        ...state,
+        fontSizeSteps: {
+          ...state.fontSizeSteps,
+          [action.group]: [
+            ...(state.fontSizeSteps[action.group] ?? []),
+            action.stepOp,
+          ],
+        },
+      };
+    case "CLEAR_FONT_CLASS_TOKEN": {
+      const { [action.token]: _removed, ...rest } =
+        state.fontClassOverrides[action.group] ?? {};
+      return {
+        ...state,
+        fontClassOverrides: {
+          ...state.fontClassOverrides,
+          [action.group]: rest,
+        },
+      };
+    }
+    case "SET_FONT_CLASS_TOKEN":
+      return {
+        ...state,
+        fontClassOverrides: {
+          ...state.fontClassOverrides,
+          [action.group]: {
+            ...state.fontClassOverrides[action.group],
+            [action.token]: action.value,
+          },
+        },
+      };
     case "SET_FONT_ASSIGNMENT":
       return {
         ...state,
-        fontAssignments: { ...state.fontAssignments, [action.group]: action.slot },
+        fontAssignments: {
+          ...state.fontAssignments,
+          [action.group]: action.slot,
+        },
       };
     case "APPLY_PRESET": {
       const preset = findPreset(action.presetId);
@@ -75,6 +143,8 @@ function themeReducer(state: ThemeState, action: ThemeAction): ThemeState {
     }
     case "RESET":
       return DEFAULT_THEME_STATE;
+    case "RESET_SECTION":
+      return resetSection(state, action.section);
     case "LOAD":
       return { ...state, ...action.state };
     default:

@@ -44,9 +44,9 @@ export type FontClassGroup =
   | "title2"
   | "title3"
   | "heading"
-  | "subheading"
   | "body"
   | "callout"
+  | "subheading"
   | "label"
   | "caption"
   | "capline";
@@ -57,15 +57,42 @@ export type FontFamilies = [string, string, string];
 /** Each group picks one of the three slots. */
 export type FontAssignments = Record<FontClassGroup, FontSlot>;
 
+/** The font class tokens that can be edited: --lk-<class>-font-size, -line-height, -font-weight and -letter-spacing. */
+export type FontClassTokenKey =
+  | "fontSize"
+  | "lineHeight"
+  | "fontWeight"
+  | "boldFontWeight"
+  | "monoFontWeight"
+  | "letterSpacing";
+
+/** Only the tokens the visitor has changed; everything else keeps liftkit-core.css's value. */
+export type FontClassOverrides = Partial<
+  Record<FontClassGroup, Partial<Record<FontClassTokenKey, number>>>
+>;
+
+/** One click on a font size stepper: multiply or divide the class's font size by a step of the scale factor. */
+export interface FontSizeStep {
+  op: "multiply" | "divide";
+  step: "whole" | "half" | "quarter" | "eighth";
+}
+
+/** The clicks made on each class's font size, in order. Empty or missing means liftkit-core.css's own formula. */
+export type FontSizeSteps = Partial<Record<FontClassGroup, FontSizeStep[]>>;
+
 export interface ThemeState {
   masterSeed: string;
   seedColors: ThemeSeedColors;
   toneOverrides: ToneOverrides;
+  /** When on, a token has one tone for both modes: editing it sets light and dark together. */
+  sameTones: boolean;
   colorMode: ColorMode;
   schemeVariant: SchemeVariant;
   scaleFactor: number;
   fontFamilies: FontFamilies;
   fontAssignments: FontAssignments;
+  fontClassOverrides: FontClassOverrides;
+  fontSizeSteps: FontSizeSteps;
   /** Id of the preset that was last applied, or null if none / the user edited since. */
   activePresetId: string | null;
 }
@@ -76,16 +103,39 @@ export interface ResolvedTheme {
   dark: Record<string, string>;
 }
 
+/** One part of the theme that can be reset on its own. */
+export type ResetSection =
+  | { scope: "color" }
+  | { scope: "keyColor"; role: keyof ThemeSeedColors }
+  | { scope: "typography" }
+  | { scope: "fontClass"; group: FontClassGroup }
+  | { scope: "fontSize"; group: FontClassGroup }
+  | { scope: "scaling" };
+
 export type ThemeAction =
   | { type: "SET_MASTER_SEED"; hex: string }
   | { type: "SET_SEED"; role: keyof ThemeSeedColors; hex: string }
   | { type: "SET_TONE_OVERRIDE"; scheme: Scheme; token: string; tone: number }
+  | { type: "SET_SAME_TONES"; value: boolean }
   | { type: "CLEAR_TONE_OVERRIDE"; scheme: Scheme; token: string }
   | { type: "SET_COLOR_MODE"; mode: ColorMode }
   | { type: "SET_SCHEME_VARIANT"; variant: SchemeVariant }
   | { type: "SET_SCALE_FACTOR"; value: number }
   | { type: "SET_FONT_FAMILY_SLOT"; slot: FontSlot; family: string }
   | { type: "SET_FONT_ASSIGNMENT"; group: FontClassGroup; slot: FontSlot }
+  | { type: "ADD_FONT_SIZE_STEP"; group: FontClassGroup; stepOp: FontSizeStep }
+  | {
+      type: "CLEAR_FONT_CLASS_TOKEN";
+      group: FontClassGroup;
+      token: FontClassTokenKey;
+    }
+  | {
+      type: "SET_FONT_CLASS_TOKEN";
+      group: FontClassGroup;
+      token: FontClassTokenKey;
+      value: number;
+    }
   | { type: "APPLY_PRESET"; presetId: string }
   | { type: "RESET" }
+  | { type: "RESET_SECTION"; section: ResetSection }
   | { type: "LOAD"; state: ThemeState };

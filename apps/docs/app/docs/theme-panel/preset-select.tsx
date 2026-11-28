@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  Field,
-  FieldLabel,
   Icon,
   Select,
   SelectIcon,
@@ -44,12 +42,11 @@ export function PresetSelect() {
   const value = activePreset ? activePreset.id : CUSTOM_PRESET_VALUE;
 
   return (
-    <Field>
-      <FieldLabel>Preset</FieldLabel>
+    <>
       <Select
         items={items}
         value={value}
-        fontClass="label"
+        fontClass="subheading"
         onValueChange={(next) => {
           if (next === CUSTOM_PRESET_VALUE) {
             // Selecting Custom just clears the preset binding — leaves current state alone.
@@ -90,6 +87,6 @@ export function PresetSelect() {
           </SelectPositioner>
         </SelectPortal>
       </Select>
-    </Field>
+    </>
   );
 }

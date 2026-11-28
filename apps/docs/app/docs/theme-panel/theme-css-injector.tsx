@@ -3,7 +3,13 @@
 import { useEffect, useMemo } from "react";
 import { useTheme } from "./theme-context";
 import { resolveTheme } from "./theme-engine";
-import { FONT_LINK_ID, FONT_STYLE_ID, STYLE_ID, THEME_CACHE_KEY, type ThemeCssCache } from "./theme-boot";
+import {
+  FONT_LINK_ID,
+  FONT_STYLE_ID,
+  STYLE_ID,
+  THEME_CACHE_KEY,
+  type ThemeCssCache,
+} from "./theme-boot";
 import { buildFontCss, buildFontsHref, buildThemeCss } from "./theme-css";
 
 /** Creates the <style> with this id if it isn't there yet (the boot script may have added it), then sets its CSS. */
@@ -22,17 +28,31 @@ export function ThemeCSSInjector() {
 
   const resolved = useMemo(
     () => resolveTheme(state),
-    [state.seedColors, state.toneOverrides, state.schemeVariant]
+    [state.seedColors, state.toneOverrides, state.schemeVariant],
   );
   const themeCss = useMemo(
     () => buildThemeCss(resolved, state.colorMode, state.scaleFactor),
-    [resolved, state.colorMode, state.scaleFactor]
+    [resolved, state.colorMode, state.scaleFactor],
   );
   const fontCss = useMemo(
-    () => buildFontCss(state.fontFamilies, state.fontAssignments),
-    [state.fontFamilies, state.fontAssignments]
+    () =>
+      buildFontCss(
+        state.fontFamilies,
+        state.fontAssignments,
+        state.fontClassOverrides,
+        state.fontSizeSteps,
+      ),
+    [
+      state.fontFamilies,
+      state.fontAssignments,
+      state.fontClassOverrides,
+      state.fontSizeSteps,
+    ],
   );
-  const fontsHref = useMemo(() => buildFontsHref(state.fontFamilies), [state.fontFamilies]);
+  const fontsHref = useMemo(
+    () => buildFontsHref(state.fontFamilies),
+    [state.fontFamilies],
+  );
 
   // Nothing is written until the saved theme has loaded: until then `state` is the defaults, and applying them
   // would replace the saved theme the boot script already put on screen (see theme-boot.ts).
@@ -48,7 +68,9 @@ export function ThemeCSSInjector() {
   // A single <link> that pulls every chosen family from Google Fonts in one request.
   useEffect(() => {
     if (!loaded) return;
-    let linkEl = document.getElementById(FONT_LINK_ID) as HTMLLinkElement | null;
+    let linkEl = document.getElementById(
+      FONT_LINK_ID,
+    ) as HTMLLinkElement | null;
     if (!fontsHref) {
       linkEl?.remove();
       return;

@@ -188,7 +188,6 @@ export function isPresetModified(
   }
   if (preset.schemeVariant && state.schemeVariant !== preset.schemeVariant) return true;
   if (preset.scaleFactor !== undefined && state.scaleFactor !== preset.scaleFactor) return true;
-  if (preset.fontFamilies.some((family, i) => state.fontFamilies[i] !== family)) return true;
   for (const group of Object.keys(preset.fontAssignments) as (keyof FontAssignments)[]) {
     if (state.fontAssignments[group] !== preset.fontAssignments[group]) return true;
   }
@@ -209,7 +208,7 @@ export function applyPreset(state: ThemeState, preset: ThemePreset): ThemeState 
     seedColors: preset.seedColors,
     schemeVariant: preset.schemeVariant ?? state.schemeVariant,
     scaleFactor: preset.scaleFactor ?? state.scaleFactor,
-    fontFamilies: preset.fontFamilies,
+    // Presets leave the font families alone: they only change when the visitor changes them
     fontAssignments: preset.fontAssignments,
     // The visitor's tone overrides do not survive a preset switch: they were tied to the previous palette.
     toneOverrides: preset.toneOverrides ?? { light: {}, dark: {} },

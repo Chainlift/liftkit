@@ -1,7 +1,9 @@
 import type {
   ColorMode,
   FontAssignments,
+  FontClassOverrides,
   FontFamilies,
+  FontSizeSteps,
   SchemeVariant,
   ThemeSeedColors,
   ThemeState,
@@ -9,6 +11,11 @@ import type {
 } from "./types";
 import { resolveTheme } from "./theme-engine";
 import { getCategoryFor } from "./font-catalog";
+import { MONOSPACE_FALLBACK } from "./defaults";
+import {
+  buildFontClassOverrideRules,
+  buildFontSizeRules,
+} from "./font-class-tokens";
 
 function buildCssBlock(tokens: Record<string, string>, indent: string): string {
   return Object.entries(tokens)
@@ -31,8 +38,8 @@ function genericFallback(category: string | undefined): string {
   }
 }
 
-function slotValue(family: string): string {
-  if (!family) return "inherit";
+function slotValue(family: string, emptyValue = "inherit"): string {
+  if (!family) return emptyValue;
   const needsQuote = /\s/.test(family);
   const quoted = needsQuote ? `"${family}"` : family;
   return `${quoted}, ${genericFallback(getCategoryFor(family))}`;
@@ -42,21 +49,36 @@ function buildFontsImport(fontFamilies: FontFamilies): string {
   const unique = Array.from(new Set(fontFamilies.filter((f) => f.length > 0)));
   if (unique.length === 0) return "";
   const params = unique
-    .map((f) => `family=${encodeURIComponent(f).replace(/%20/g, "+")}:wght@400;500;600;700`)
+    .map(
+      (f) =>
+        `family=${encodeURIComponent(f).replace(/%20/g, "+")}:wght@400;500;600;700`,
+    )
     .join("&");
   return `@import url("https://fonts.googleapis.com/css2?${params}&display=swap");\n\n`;
 }
 
-function buildFontRules(fontFamilies: FontFamilies, fontAssignments: FontAssignments, indent: string): string {
+function buildFontRules(
+  fontFamilies: FontFamilies,
+  fontAssignments: FontAssignments,
+  fontClassOverrides: FontClassOverrides,
+  fontSizeSteps: FontSizeSteps,
+  indent: string,
+): string {
   const slots = [
     `${indent}--lk-font-family-1: ${slotValue(fontFamilies[0])};`,
     `${indent}--lk-font-family-2: ${slotValue(fontFamilies[1])};`,
-    `${indent}--lk-font-family-3: ${slotValue(fontFamilies[2])};`,
+    `${indent}--lk-font-family-3: ${slotValue(fontFamilies[2], MONOSPACE_FALLBACK)};`,
   ];
   const assignments = Object.entries(fontAssignments).map(
-    ([group, slot]) => `${indent}--lk-${group}-font-family: var(--lk-font-family-${slot});`
+    ([group, slot]) =>
+      `${indent}--lk-${group}-font-family: var(--lk-font-family-${slot});`,
   );
-  return [...slots, ...assignments].join("\n");
+  return [
+    ...slots,
+    ...assignments,
+    ...buildFontClassOverrideRules(fontClassOverrides, indent),
+    ...buildFontSizeRules(fontSizeSteps, indent),
+  ].join("\n");
 }
 
 /**
@@ -70,7 +92,13 @@ export function exportThemeCSS(state: ThemeState): string {
 
   css += buildFontsImport(state.fontFamilies);
 
-  const fontRules = buildFontRules(state.fontFamilies, state.fontAssignments, "  ");
+  const fontRules = buildFontRules(
+    state.fontFamilies,
+    state.fontAssignments,
+    state.fontClassOverrides,
+    state.fontSizeSteps,
+    "  ",
+  );
   css += `:root {\n  --lk-scalefactor: ${state.scaleFactor};\n${buildCssBlock(resolved.light, "  ")}\n${fontRules}\n}\n\n`;
   css += `@media (prefers-color-scheme: dark) {\n  :root {\n${buildCssBlock(resolved.dark, "    ")}\n  }\n}\n`;
 
@@ -93,8 +121,11 @@ export interface ThemeExportJSON {
   masterSeed: string;
   seedColors: ThemeSeedColors;
   toneOverrides: ToneOverrides;
+  sameTones: boolean;
   fontFamilies: FontFamilies;
   fontAssignments: FontAssignments;
+  fontClassOverrides: FontClassOverrides;
+  fontSizeSteps: FontSizeSteps;
 }
 
 /** The panel's inputs as JSON text. */
@@ -110,8 +141,11 @@ export function exportThemeJSON(state: ThemeState): string {
     masterSeed: state.masterSeed,
     seedColors: state.seedColors,
     toneOverrides: state.toneOverrides,
+    sameTones: state.sameTones,
     fontFamilies: state.fontFamilies,
     fontAssignments: state.fontAssignments,
+    fontClassOverrides: state.fontClassOverrides,
+    fontSizeSteps: state.fontSizeSteps,
   };
   return JSON.stringify(data, null, 2) + "\n";
 }
@@ -137,7 +171,11 @@ export function downloadThemeCSS(state: ThemeState): void {
  * Trigger a file download of the panel's inputs as JSON.
  */
 export function downloadThemeJSON(state: ThemeState): void {
-  downloadFile("liftkit-theme.json", exportThemeJSON(state), "application/json");
+  downloadFile(
+    "liftkit-theme.json",
+    exportThemeJSON(state),
+    "application/json",
+  );
 }
 
 /**

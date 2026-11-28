@@ -1,16 +1,35 @@
 import { getCategoryFor } from "./font-catalog";
-import type { ColorMode, FontAssignments, FontFamilies, ResolvedTheme } from "./types";
+import { MONOSPACE_FALLBACK } from "./defaults";
+import {
+  buildFontClassOverrideRules,
+  buildFontSizeRules,
+} from "./font-class-tokens";
+import type {
+  ColorMode,
+  FontAssignments,
+  FontClassOverrides,
+  FontFamilies,
+  FontSizeSteps,
+  ResolvedTheme,
+} from "./types";
 
 /** Plain module (no "use client"): the injector uses it in the browser, the root layout on the server. */
 
-export function buildCssBlock(tokens: Record<string, string>, indent: string = "  "): string {
+export function buildCssBlock(
+  tokens: Record<string, string>,
+  indent: string = "  ",
+): string {
   return Object.entries(tokens)
     .map(([varName, hex]) => `${indent}--lk-${varName}: ${hex};`)
     .join("\n");
 }
 
 /** Colors and scale factor, for the selected color mode. */
-export function buildThemeCss(resolved: ResolvedTheme, colorMode: ColorMode, scaleFactor: number): string {
+export function buildThemeCss(
+  resolved: ResolvedTheme,
+  colorMode: ColorMode,
+  scaleFactor: number,
+): string {
   const scaleRule = `  --lk-scalefactor: ${scaleFactor};`;
   if (colorMode === "system") {
     // Inject both schemes; let the browser pick via media query
@@ -44,8 +63,8 @@ function genericFallback(category: string | undefined): string {
  * library default). Named slot → the family quoted (if it contains spaces)
  * followed by its generic fallback.
  */
-function slotValue(family: string): string {
-  if (!family) return "inherit";
+export function slotValue(family: string, emptyValue = "inherit"): string {
+  if (!family) return emptyValue;
   const needsQuote = /\s/.test(family);
   const quoted = needsQuote ? `"${family}"` : family;
   return `${quoted}, ${genericFallback(getCategoryFor(family))}`;
@@ -55,24 +74,39 @@ function slotValue(family: string): string {
  * Build the <link> href that loads every non-empty slot from the public
  * Google Fonts css2 endpoint. Returns null if no families are chosen.
  */
-export function buildFontsHref(fontFamilies: FontFamilies): string | null {
+export function buildFontsHref(fontFamilies: readonly string[]): string | null {
   const unique = Array.from(new Set(fontFamilies.filter((f) => f.length > 0)));
   if (unique.length === 0) return null;
   const params = unique
-    .map((f) => `family=${encodeURIComponent(f).replace(/%20/g, "+")}:wght@400;500;600;700`)
+    .map(
+      (f) =>
+        `family=${encodeURIComponent(f).replace(/%20/g, "+")}:wght@400;500;600;700`,
+    )
     .join("&");
   return `https://fonts.googleapis.com/css2?${params}&display=swap`;
 }
 
-/** The font slot variables and the 12 per-group assignments. */
-export function buildFontCss(fontFamilies: FontFamilies, fontAssignments: FontAssignments): string {
+/** The font slot variables, the 12 per-group assignments, and any font class tokens the visitor changed. */
+export function buildFontCss(
+  fontFamilies: FontFamilies,
+  fontAssignments: FontAssignments,
+  fontClassOverrides: FontClassOverrides,
+  fontSizeSteps: FontSizeSteps,
+): string {
   const slotRules = [
     `  --lk-font-family-1: ${slotValue(fontFamilies[0])};`,
     `  --lk-font-family-2: ${slotValue(fontFamilies[1])};`,
-    `  --lk-font-family-3: ${slotValue(fontFamilies[2])};`,
+    `  --lk-font-family-3: ${slotValue(fontFamilies[2], MONOSPACE_FALLBACK)};`,
   ].join("\n");
   const assignmentRules = Object.entries(fontAssignments)
-    .map(([group, slot]) => `  --lk-${group}-font-family: var(--lk-font-family-${slot});`)
+    .map(
+      ([group, slot]) =>
+        `  --lk-${group}-font-family: var(--lk-font-family-${slot});`,
+    )
     .join("\n");
-  return `:root {\n${slotRules}\n${assignmentRules}\n}`;
+  const overrideRules = [
+    ...buildFontClassOverrideRules(fontClassOverrides, "  "),
+    ...buildFontSizeRules(fontSizeSteps, "  "),
+  ];
+  return `:root {\n${[slotRules, assignmentRules, ...overrideRules].join("\n")}\n}`;
 }
