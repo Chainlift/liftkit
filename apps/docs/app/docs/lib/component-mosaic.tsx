@@ -70,7 +70,7 @@ export function ComponentMosaic() {
                 </Avatar>
               </div>
               <div className="flex-v flex-grow">
-                <div className="heading mb-2xs">Garrett Mack</div>
+                <div className="heading-bold mb-2xs">Garrett Mack</div>
                 <span className="subheading color-onsurfacelow">Product Designer</span>
               </div>
               <Toggle>
@@ -87,7 +87,7 @@ export function ComponentMosaic() {
 
           {/* Storage & Activity */}
           <Card className="shadow-xs" scaleFactor="body">
-            <div className="heading mb-sm">Activity</div>
+            <div className="heading-bold mb-sm">Activity</div>
             <div className="flex-v gap-md">
               <MeterDemo />
               <ProgressDemo />
@@ -96,7 +96,7 @@ export function ComponentMosaic() {
 
           {/* Quick Actions */}
           <Card className="shadow-xs" scaleFactor="body">
-            <div className="heading mb-sm">Actions</div>
+            <div className="heading-bold mb-sm">Actions</div>
             <div className="flex-v gap-sm">
               <div className="flex items-center gap-sm">
                 <ButtonDemo />

@@ -200,7 +200,7 @@ export function SubComponentDocs({ name, subComponent, linkToSource, className }
       {/* CSS Variables */}
       {subComponent.cssVariables && subComponent.cssVariables.length > 0 && (
         <div data-slot="table-block">
-          <h4 className="heading mt-lg mb-sm color-onsurfacelow">CSS Variables</h4>
+          <h4 className="heading-bold mt-lg mb-sm color-onsurfacelow">CSS Variables</h4>
           <SubComponentCSSVariablesTable name={name} subComponent={subComponent} />
         </div>
       )}

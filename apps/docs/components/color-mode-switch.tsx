@@ -13,7 +13,7 @@ export function ColorModeSwitch() {
   const scheme = useScheme();
   return (
     <Switch
-      // No font class set it before, which sizes it like body text; subheading is one step up
+      // No font class set it before, which sizes it like body text; heading is one step up
       className="heading"
       aria-label="Dark mode"
       checked={scheme === "dark"}

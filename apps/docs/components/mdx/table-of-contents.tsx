@@ -82,7 +82,7 @@ export function TableOfContents() {
 
   return (
     <nav data-slot="table-of-contents" aria-label="On this page">
-      <p className="heading py-xs">On this page</p>
+      <p className="heading-bold py-xs">On this page</p>
       <ul style={{ listStyle: "none", padding: 0 }} className="m-0">
         {items.map((item) => (
           // Same row structure as the docs sidebar links (a padded, bordered div with the text in an inline span), so the two

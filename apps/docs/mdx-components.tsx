@@ -19,7 +19,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: (props) => <h1 className="title1-bold mb-sm mt-none" {...props} />, // example of custom heading
     h2: (props) => <h2 className="title2-bold mb-sm mt-lg" {...props} />,
     h3: (props) => <h3 className="title3-bold mb-sm mt-lg" {...props} />,
-    h4: (props) => <h4 className="heading mb-sm mt-lg" {...props} />,
+    h4: (props) => <h4 className="heading-bold mb-sm mt-lg" {...props} />,
     p: (props) => <p className="body mb-md" {...props} />,
     table: MdxTable,
     th: MdxTh,

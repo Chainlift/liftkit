@@ -23,7 +23,7 @@ export function NavSidebar({ nav }: { nav: NavSections }) {
                 {/* The trigger's own button padding is cleared (p-0; AccordionTrigger also puts its className on its icon,
                     where that is harmless). The wrapper's padding matches the links below. */}
                 <div className="px-sm py-xs">
-                  <span className="heading">{section.title}</span>
+                  <span className="heading-bold">{section.title}</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-0">

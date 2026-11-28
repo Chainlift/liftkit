@@ -112,7 +112,7 @@ function MosaicCard({
       {title && (
         <div className="flex items-start justify-between gap-md mb-md">
           <div>
-            <h3 className="heading mb-xs">{title}</h3>
+            <h3 className="heading-bold mb-xs">{title}</h3>
             {description && <p className={`subheading ${color ? "" : " color-onsurfacelowest"}`}>{description}</p>}
           </div>
           {action}
@@ -419,7 +419,7 @@ function RideStatusCard() {
                 <div className="subheading color-onsurfacelowest">{ride.zone}</div>
               </div>
               <div className="text-align-center">
-                <div className="heading">{open[index] ? ride.wait : "-"}</div>
+                <div className="heading-bold">{open[index] ? ride.wait : "-"}</div>
                 <div className="caption color-onsurfacelowest">min</div>
               </div>
               <Tooltip>
@@ -482,7 +482,7 @@ function WeatherCard() {
       <div className="flex items-start gap-md mb-md">
         <IconTile name="cloud-lightning" className="bg-warning color-onwarning" />
         <div>
-          <h3 className="heading mb-xs">Storm watch</h3>
+          <h3 className="heading-bold mb-xs">Storm watch</h3>
           <p className="subheading color-onsurfacelowest">
             Lightning detected 12 miles west. Outdoor rides may pause around 5:40 PM.
           </p>

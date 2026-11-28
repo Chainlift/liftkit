@@ -9,7 +9,7 @@ export default function FormDemo() {
 
   return (
     <Card scaleFactor="heading">
-      <h2 className="heading mb-sm">Sample Form</h2>
+      <h2 className="heading-bold mb-sm">Sample Form</h2>
       <Form
         errors={errors}
         onSubmit={async (event) => {
