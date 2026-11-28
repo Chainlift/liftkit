@@ -99,12 +99,6 @@
   --opticCorrectedPadding: calc(var(--lk-heading-font-size) / var(--lk-heading-line-height));
 }
 
-:where([data-lk-card-scale-factor="subheading"]) {
-  --largest-child-font-size: var(--lk-subheading-font-size);
-  --largest-child-line-height: var(--lk-subheading-line-height);
-  --opticCorrectedPadding: calc(var(--lk-subheading-font-size) / var(--lk-subheading-line-height));
-}
-
 :where([data-lk-card-scale-factor="body"]) {
   --largest-child-font-size: var(--lk-body-font-size);
   --largest-child-line-height: var(--lk-body-line-height);
@@ -115,6 +109,12 @@
   --largest-child-font-size: var(--lk-callout-font-size);
   --largest-child-line-height: var(--lk-callout-line-height);
   --opticCorrectedPadding: calc(var(--lk-callout-font-size) / var(--lk-callout-line-height));
+}
+
+:where([data-lk-card-scale-factor="subheading"]) {
+  --largest-child-font-size: var(--lk-subheading-font-size);
+  --largest-child-line-height: var(--lk-subheading-line-height);
+  --opticCorrectedPadding: calc(var(--lk-subheading-font-size) / var(--lk-subheading-line-height));
 }
 
 :where([data-lk-card-scale-factor="label"]) {

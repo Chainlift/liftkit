@@ -14,10 +14,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-display1-letter-spacing);
   font-size: var(--lk-display1-font-size);
-  font-weight: 400;
-  line-height: var(--lk-quarterstep);
+  font-weight: var(--lk-display1-font-weight);
+  line-height: var(--lk-display1-line-height);
 }
 
 .display2 {
@@ -32,10 +32,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-display2-letter-spacing);
   font-size: var(--lk-display2-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-display2-font-weight);
+  line-height: var(--lk-display2-line-height);
 }
 
 .title1 {
@@ -50,10 +50,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-title1-letter-spacing);
   font-size: var(--lk-title1-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title1-font-weight);
+  line-height: var(--lk-title1-line-height);
 }
 
 .title2 {
@@ -68,10 +68,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.02em;
+  letter-spacing: var(--lk-title2-letter-spacing);
   font-size: var(--lk-title2-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title2-font-weight);
+  line-height: var(--lk-title2-line-height);
 }
 
 .title3 {
@@ -86,10 +86,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.017em;
+  letter-spacing: var(--lk-title3-letter-spacing);
   font-size: var(--lk-title3-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title3-font-weight);
+  line-height: var(--lk-title3-line-height);
 }
 
 .heading {
@@ -104,28 +104,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.014em;
+  letter-spacing: var(--lk-heading-letter-spacing);
   font-size: var(--lk-heading-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
-}
-
-.subheading {
-  --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --lk-base-md: var(--lineHeightInEms);
-
-  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
-
-  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
-  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
-
-  letter-spacing: -0.007em;
-  font-size: var(--lk-subheading-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-heading-font-weight);
+  line-height: var(--lk-heading-line-height);
 }
 
 .body {
@@ -139,11 +121,11 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.011em;
+  letter-spacing: var(--lk-body-letter-spacing);
   cursor: default;
   font-size: 1em;
-  font-weight: 400;
-  line-height: var(--lk-wholestep);
+  font-weight: var(--lk-body-font-weight);
+  line-height: var(--lk-body-line-height);
 }
 
 .callout {
@@ -158,10 +140,28 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.009em;
+  letter-spacing: var(--lk-callout-letter-spacing);
   font-size: var(--lk-callout-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-callout-font-weight);
+  line-height: var(--lk-callout-line-height);
+}
+
+.subheading {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-subheading-letter-spacing);
+  font-size: var(--lk-subheading-font-size);
+  font-weight: var(--lk-subheading-font-weight);
+  line-height: var(--lk-subheading-line-height);
 }
 
 .label {
@@ -176,10 +176,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.004em;
+  letter-spacing: var(--lk-label-letter-spacing);
   font-size: var(--lk-label-font-size);
-  font-weight: var(--lk-label-font-weight, 500);
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-label-font-weight);
+  line-height: var(--lk-label-line-height);
 }
 
 .caption {
@@ -194,10 +194,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.007em;
+  letter-spacing: var(--lk-caption-letter-spacing);
   font-size: var(--lk-caption-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-caption-font-weight);
+  line-height: var(--lk-caption-line-height);
 }
 
 .capline {
@@ -212,11 +212,11 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: 0.0618em;
+  letter-spacing: var(--lk-capline-letter-spacing);
   text-transform: uppercase;
   font-size: var(--lk-capline-font-size);
-  font-weight: 400;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-capline-font-weight);
+  line-height: var(--lk-capline-line-height);
 }
 
 /* Bold Families */
@@ -232,10 +232,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-display1-letter-spacing);
   font-size: var(--lk-display1-font-size);
-  font-weight: 700;
-  line-height: var(--lk-quarterstep);
+  font-weight: var(--lk-display1-bold-font-weight);
+  line-height: var(--lk-display1-line-height);
 }
 
 .display2-bold {
@@ -250,10 +250,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-display2-letter-spacing);
   font-size: var(--lk-display2-font-size);
-  font-weight: 700;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-display2-bold-font-weight);
+  line-height: var(--lk-display2-line-height);
 }
 
 .title1-bold {
@@ -268,10 +268,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.022em;
+  letter-spacing: var(--lk-title1-letter-spacing);
   font-size: var(--lk-title1-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title1-bold-font-weight);
+  line-height: var(--lk-title1-line-height);
 }
 
 .title2-bold {
@@ -286,10 +286,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.02em;
+  letter-spacing: var(--lk-title2-letter-spacing);
   font-size: var(--lk-title2-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title2-bold-font-weight);
+  line-height: var(--lk-title2-line-height);
 }
 
 .title3-bold {
@@ -304,10 +304,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.017em;
+  letter-spacing: var(--lk-title3-letter-spacing);
   font-size: var(--lk-title3-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-title3-bold-font-weight);
+  line-height: var(--lk-title3-line-height);
 }
 
 .heading-bold {
@@ -322,28 +322,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.014em;
+  letter-spacing: var(--lk-heading-letter-spacing);
   font-size: var(--lk-heading-font-size);
-  font-weight: 700;
-  line-height: var(--lk-halfstep);
-}
-
-.subheading-bold {
-  --lineHeightInEms: calc(1em * var(--lk-halfstep));
-  --lk-base-md: var(--lineHeightInEms);
-
-  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
-  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
-  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
-
-  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
-  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
-  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
-
-  letter-spacing: -0.007em;
-  font-size: var(--lk-subheading-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-heading-bold-font-weight);
+  line-height: var(--lk-heading-line-height);
 }
 
 .body-bold {
@@ -357,11 +339,11 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.011em;
+  letter-spacing: var(--lk-body-letter-spacing);
   padding: 0;
   font-size: 1em;
-  font-weight: 600;
-  line-height: var(--lk-wholestep);
+  font-weight: var(--lk-body-bold-font-weight);
+  line-height: var(--lk-body-line-height);
   position: relative;
 }
 
@@ -377,11 +359,29 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.009em;
+  letter-spacing: var(--lk-callout-letter-spacing);
   font-size: var(--lk-callout-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-callout-bold-font-weight);
+  line-height: var(--lk-callout-line-height);
   text-decoration: none;
+}
+
+.subheading-bold {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-subheading-letter-spacing);
+  font-size: var(--lk-subheading-font-size);
+  font-weight: var(--lk-subheading-bold-font-weight);
+  line-height: var(--lk-subheading-line-height);
 }
 
 .label-bold {
@@ -396,10 +396,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.004em;
+  letter-spacing: var(--lk-label-letter-spacing);
   font-size: var(--lk-label-font-size);
-  font-weight: 700;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-label-bold-font-weight);
+  line-height: var(--lk-label-line-height);
 }
 
 .caption-bold {
@@ -414,10 +414,10 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: -0.007em;
+  letter-spacing: var(--lk-caption-letter-spacing);
   font-size: var(--lk-caption-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-caption-bold-font-weight);
+  line-height: var(--lk-caption-line-height);
 }
 
 .capline-bold {
@@ -432,27 +432,262 @@
   --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
   --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
 
-  letter-spacing: 0.0618em;
+  letter-spacing: var(--lk-capline-letter-spacing);
   text-transform: uppercase;
   font-size: var(--lk-capline-font-size);
-  font-weight: 600;
-  line-height: var(--lk-halfstep);
+  font-weight: var(--lk-capline-bold-font-weight);
+  line-height: var(--lk-capline-line-height);
 }
 
-/* Font families — each group (base + its -bold and -mono variants) shares one assignment token. */
+/* Monospace variants: the normal class's size, line height, weight and letter spacing, in the Monospace font slot
+   (--lk-font-family-3). The fallback after the var() covers a slot that was never defined. */
 
-.display1, .display1-bold, .display1-mono       { font-family: var(--lk-display1-font-family); }
-.display2, .display2-bold, .display2-mono       { font-family: var(--lk-display2-font-family); }
-.title1, .title1-bold, .title1-mono             { font-family: var(--lk-title1-font-family); }
-.title2, .title2-bold, .title2-mono             { font-family: var(--lk-title2-font-family); }
-.title3, .title3-bold, .title3-mono             { font-family: var(--lk-title3-font-family); }
-.heading, .heading-bold, .heading-mono          { font-family: var(--lk-heading-font-family); }
-.subheading, .subheading-bold, .subheading-mono { font-family: var(--lk-subheading-font-family); }
-.body, .body-bold, .body-mono                   { font-family: var(--lk-body-font-family); }
-.callout, .callout-bold, .callout-mono          { font-family: var(--lk-callout-font-family); }
-.label, .label-bold, .label-mono                { font-family: var(--lk-label-font-family); }
-.caption, .caption-bold, .caption-mono          { font-family: var(--lk-caption-font-family); }
-.capline, .capline-bold, .capline-mono          { font-family: var(--lk-capline-font-family); }
+.display1-mono {
+  --lineHeightInEms: calc(1em * var(--lk-quarterstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * calc(1 / var(--lk-halfstep)));
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-display1-letter-spacing);
+  font-size: var(--lk-display1-font-size);
+  font-weight: var(--lk-display1-mono-font-weight);
+  line-height: var(--lk-display1-line-height);
+}
+
+.display2-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-display2-letter-spacing);
+  font-size: var(--lk-display2-font-size);
+  font-weight: var(--lk-display2-mono-font-weight);
+  line-height: var(--lk-display2-line-height);
+}
+
+.title1-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-title1-letter-spacing);
+  font-size: var(--lk-title1-font-size);
+  font-weight: var(--lk-title1-mono-font-weight);
+  line-height: var(--lk-title1-line-height);
+}
+
+.title2-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-title2-letter-spacing);
+  font-size: var(--lk-title2-font-size);
+  font-weight: var(--lk-title2-mono-font-weight);
+  line-height: var(--lk-title2-line-height);
+}
+
+.title3-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-title3-letter-spacing);
+  font-size: var(--lk-title3-font-size);
+  font-weight: var(--lk-title3-mono-font-weight);
+  line-height: var(--lk-title3-line-height);
+}
+
+.heading-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-heading-letter-spacing);
+  font-size: var(--lk-heading-font-size);
+  font-weight: var(--lk-heading-mono-font-weight);
+  line-height: var(--lk-heading-line-height);
+}
+
+.body-mono {
+  --lineHeightInEms: var(--lk-title2-font-size);
+  --lk-base-md: 1em;
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(1em * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-body-letter-spacing);
+  cursor: default;
+  font-size: 1em;
+  font-weight: var(--lk-body-mono-font-weight);
+  line-height: var(--lk-body-line-height);
+}
+
+.callout-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-callout-letter-spacing);
+  font-size: var(--lk-callout-font-size);
+  font-weight: var(--lk-callout-mono-font-weight);
+  line-height: var(--lk-callout-line-height);
+}
+
+.subheading-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-subheading-letter-spacing);
+  font-size: var(--lk-subheading-font-size);
+  font-weight: var(--lk-subheading-mono-font-weight);
+  line-height: var(--lk-subheading-line-height);
+}
+
+.label-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-label-letter-spacing);
+  font-size: var(--lk-label-font-size);
+  font-weight: var(--lk-label-mono-font-weight);
+  line-height: var(--lk-label-line-height);
+}
+
+.caption-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-caption-letter-spacing);
+  font-size: var(--lk-caption-font-size);
+  font-weight: var(--lk-caption-mono-font-weight);
+  line-height: var(--lk-caption-line-height);
+}
+
+.capline-mono {
+  --lineHeightInEms: calc(1em * var(--lk-halfstep));
+  --lk-base-md: var(--lineHeightInEms);
+
+  --lk-base-sm: calc(var(--lineHeightInEms) * var(--lk-wholestep-dec));
+  --lk-base-xs: calc(var(--lineHeightInEms) * var(--lk-halfstep-dec));
+  --lk-base-2xs: calc(var(--lineHeightInEms) * var(--lk-quarterstep-dec));
+
+  --lk-base-lg: calc(var(--lineHeightInEms) * var(--lk-wholestep));
+  --lk-base-xl: calc(var(--lk-base-lg) * var(--lk-wholestep));
+  --lk-base-2xl: calc(var(--lk-base-xl) * var(--lk-wholestep));
+
+  letter-spacing: var(--lk-capline-letter-spacing);
+  text-transform: uppercase;
+  font-size: var(--lk-capline-font-size);
+  font-weight: var(--lk-capline-mono-font-weight);
+  line-height: var(--lk-capline-line-height);
+}
+
+/* Font families — each group (base + its -bold variant) shares one assignment token. The -mono variants use the
+   Monospace slot instead. */
+
+.display1, .display1-bold       { font-family: var(--lk-display1-font-family); }
+.display2, .display2-bold       { font-family: var(--lk-display2-font-family); }
+.title1, .title1-bold             { font-family: var(--lk-title1-font-family); }
+.title2, .title2-bold             { font-family: var(--lk-title2-font-family); }
+.title3, .title3-bold             { font-family: var(--lk-title3-font-family); }
+.heading, .heading-bold          { font-family: var(--lk-heading-font-family); }
+.body, .body-bold                   { font-family: var(--lk-body-font-family); }
+.callout, .callout-bold          { font-family: var(--lk-callout-font-family); }
+.subheading, .subheading-bold { font-family: var(--lk-subheading-font-family); }
+.label, .label-bold                { font-family: var(--lk-label-font-family); }
+.caption, .caption-bold          { font-family: var(--lk-caption-font-family); }
+.capline, .capline-bold          { font-family: var(--lk-capline-font-family); }
+
+.display1-mono { font-family: var(--lk-font-family-3, monospace); }
+.display2-mono { font-family: var(--lk-font-family-3, monospace); }
+.title1-mono { font-family: var(--lk-font-family-3, monospace); }
+.title2-mono { font-family: var(--lk-font-family-3, monospace); }
+.title3-mono { font-family: var(--lk-font-family-3, monospace); }
+.heading-mono { font-family: var(--lk-font-family-3, monospace); }
+.body-mono { font-family: var(--lk-font-family-3, monospace); }
+.callout-mono { font-family: var(--lk-font-family-3, monospace); }
+.subheading-mono { font-family: var(--lk-font-family-3, monospace); }
+.label-mono { font-family: var(--lk-font-family-3, monospace); }
+.caption-mono { font-family: var(--lk-font-family-3, monospace); }
+.capline-mono { font-family: var(--lk-font-family-3, monospace); }
 
 /* @media screen and (max-width: 767px) {
   .display1-bold,
@@ -466,7 +701,8 @@
     font-size: 2.61743em;
   }
 
-  .display1-bold {
+  .display1-bold,
+  .display1-mono {
     font-size: 2.61743em;
   }
 
@@ -474,11 +710,13 @@
     font-size: 2.05818em;
   }
 
-  .display2-bold {
+  .display2-bold,
+  .display2-mono {
     font-size: 2.05818em;
   }
 
   .title1-bold,
+  .title1-mono,
   .title1 {
     font-size: 1.82285em;
   }

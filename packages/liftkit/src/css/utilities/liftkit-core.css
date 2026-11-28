@@ -3,6 +3,8 @@
 /* Random comment */
 
 :root {
+  --font-aspect: 0.545;
+  font-size-adjust: var(--font-aspect);
   font-size: 1rem;
   --lk-scalefactor: 1.618;
   /* these are the only two you set manually */
@@ -265,21 +267,22 @@
   --lk-title2-font-size: calc(1em * var(--lk-wholestep));
   --lk-title3-font-size: calc(1em * var(--lk-halfstep));
   --lk-heading-font-size: calc(1em * var(--lk-quarterstep));
-  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep));
   --lk-body-font-size: 1em;
   --lk-callout-font-size: calc(1em / var(--lk-eighthstep));
+  --lk-subheading-font-size: calc(1em / var(--lk-quarterstep));
   --lk-label-font-size: calc((1em / var(--lk-quarterstep)) / var(--lk-eighthstep));
   --lk-caption-font-size: calc(1em / var(--lk-halfstep));
   --lk-capline-font-size: calc(1em / var(--lk-halfstep));
 
-  /* Three generic font-family slots. Each resolves to `inherit` by default,
-     so the typography classes fall back to whatever the page is using.
+  /* Three generic font-family slots. Slots 1 and 2 resolve to `inherit` by default,
+     so the typography classes fall back to whatever the page is using. Slot 3 is the
+     Monospace slot (used by the -mono classes) and defaults to a monospace stack.
      Override --lk-font-family-1/2/3 to point a slot at a real stack
      (for example `"Inter", sans-serif`), then assign a group to that slot
      by changing --lk-<group>-font-family below. */
   --lk-font-family-1: inherit;
   --lk-font-family-2: inherit;
-  --lk-font-family-3: inherit;
+  --lk-font-family-3: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --lk-display1-font-family:   var(--lk-font-family-1);
   --lk-display2-font-family:   var(--lk-font-family-1);
@@ -287,9 +290,9 @@
   --lk-title2-font-family:     var(--lk-font-family-1);
   --lk-title3-font-family:     var(--lk-font-family-1);
   --lk-heading-font-family:    var(--lk-font-family-1);
-  --lk-subheading-font-family: var(--lk-font-family-1);
   --lk-body-font-family:       var(--lk-font-family-1);
   --lk-callout-font-family:    var(--lk-font-family-1);
+  --lk-subheading-font-family: var(--lk-font-family-1);
   --lk-label-font-family:      var(--lk-font-family-1);
   --lk-caption-font-family:    var(--lk-font-family-1);
   --lk-capline-font-family:    var(--lk-font-family-1);
@@ -302,9 +305,9 @@
   --lk-title2-line-height: var(--lk-halfstep);
   --lk-title3-line-height: var(--lk-halfstep);
   --lk-heading-line-height: var(--lk-halfstep);
-  --lk-subheading-line-height: var(--lk-halfstep);
   --lk-body-line-height: var(--lk-wholestep);
   --lk-callout-line-height: var(--lk-halfstep);
+  --lk-subheading-line-height: var(--lk-halfstep);
   --lk-label-line-height: var(--lk-halfstep);
   --lk-caption-line-height: var(--lk-halfstep);
   --lk-capline-line-height: var(--lk-halfstep);
@@ -316,13 +319,43 @@
   --lk-title1-font-weight: 400;
   --lk-title2-font-weight: 400;
   --lk-title3-font-weight: 400;
-  --lk-heading-font-weight: 600;
-  --lk-subheading-font-weight: 400;
+  --lk-heading-font-weight: 400;
   --lk-body-font-weight: 400;
   --lk-callout-font-weight: 400;
+  --lk-subheading-font-weight: 400;
   --lk-label-font-weight: 500;
   --lk-caption-font-weight: 400;
   --lk-capline-font-weight: 400;
+
+  /* Weights of the -bold variants */
+
+  --lk-display1-bold-font-weight: 700;
+  --lk-display2-bold-font-weight: 700;
+  --lk-title1-bold-font-weight: 600;
+  --lk-title2-bold-font-weight: 600;
+  --lk-title3-bold-font-weight: 600;
+  --lk-heading-bold-font-weight: 600;
+  --lk-body-bold-font-weight: 600;
+  --lk-callout-bold-font-weight: 600;
+  --lk-subheading-bold-font-weight: 600;
+  --lk-label-bold-font-weight: 700;
+  --lk-caption-bold-font-weight: 600;
+  --lk-capline-bold-font-weight: 600;
+
+  /* Weights of the -mono variants. They follow the normal weight until set separately. */
+
+  --lk-display1-mono-font-weight: var(--lk-display1-font-weight);
+  --lk-display2-mono-font-weight: var(--lk-display2-font-weight);
+  --lk-title1-mono-font-weight: var(--lk-title1-font-weight);
+  --lk-title2-mono-font-weight: var(--lk-title2-font-weight);
+  --lk-title3-mono-font-weight: var(--lk-title3-font-weight);
+  --lk-heading-mono-font-weight: var(--lk-heading-font-weight);
+  --lk-body-mono-font-weight: var(--lk-body-font-weight);
+  --lk-callout-mono-font-weight: var(--lk-callout-font-weight);
+  --lk-subheading-mono-font-weight: var(--lk-subheading-font-weight);
+  --lk-label-mono-font-weight: var(--lk-label-font-weight);
+  --lk-caption-mono-font-weight: var(--lk-caption-font-weight);
+  --lk-capline-mono-font-weight: var(--lk-capline-font-weight);
 
   /* Optical Top Padding Offsets and Border Radii for Cards */
   /* Produce padding values for the insides of cards or other containers on sides that
@@ -340,12 +373,12 @@
   --lk-heading-offset: calc(
     var(--lk-heading-font-size) * calc(var(--lk-heading-line-height) / var(--lk-wholestep))
   );
-  --lk-subheading-offset: calc(
-    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep))
-  );
   --lk-body-offset: calc(var(--lk-body-font-size) / var(--lk-wholestep));
   --lk-callout-offset: calc(
     var(--lk-callout-font-size) * calc(var(--lk-callout-line-height) / var(--lk-wholestep))
+  );
+  --lk-subheading-offset: calc(
+    var(--lk-subheading-font-size) * calc(var(--lk-subheading-line-height) / var(--lk-wholestep))
   );
   --lk-label-offset: calc(var(--lk-label-font-size) * calc(var(--lk-label-line-height) / var(--lk-wholestep)));
   --lk-caption-offset: calc(
@@ -361,9 +394,9 @@
   --lk-title2-letter-spacing: -0.02em;
   --lk-title3-letter-spacing: -0.017em;
   --lk-heading-letter-spacing: -0.014em;
-  --lk-subheading-letter-spacing: -0.007em;
   --lk-body-letter-spacing: -0.011em;
   --lk-callout-letter-spacing: -0.009em;
+  --lk-subheading-letter-spacing: -0.007em;
   --lk-label-letter-spacing: -0.004em;
   --lk-caption-letter-spacing: -0.007em;
   --lk-capline-letter-spacing: 0.0618em;
@@ -478,9 +511,9 @@
   --lk-title2BoxHeight: calc(var(--lk-title2-font-size) * var(--lk-title2-line-height));
   --lk-title3BoxHeight: calc(var(--lk-title3-font-size) * var(--lk-title3-line-height));
   --lk-headingBoxHeight: calc(var(--lk-heading-font-size) * var(--lk-heading-line-height));
-  --lk-subheadingBoxHeight: calc(var(--lk-subheading-font-size) * var(--lk-subheading-line-height));
   --lk-bodyBoxHeight: calc(var(--lk-body-font-size) * var(--lk-body-line-height));
   --lk-calloutBoxHeight: calc(var(--lk-callout-font-size) * var(--lk-callout-line-height));
+  --lk-subheadingBoxHeight: calc(var(--lk-subheading-font-size) * var(--lk-subheading-line-height));
   --lk-labelBoxHeight: calc(var(--lk-label-font-size) * var(--lk-label-line-height));
   --lk-captionBoxHeight: calc(var(--lk-caption-font-size) * var(--lk-caption-line-height));
   --lk-caplineBoxHeight: calc(var(--lk-capline-font-size) * var(--lk-capline-line-height));
