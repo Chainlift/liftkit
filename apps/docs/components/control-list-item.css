@@ -1,7 +1,7 @@
 /* Stretched button: the title's button covers the whole item through its ::before, so a click anywhere on the item
    fires it. The button itself is deliberately NOT positioned, so the ::before anchors to the GoldenBox (position:
    relative). Controls inside the item (a color input) sit above it with a higher z-index. */
-.color-list-item-trigger {
+.control-list-item-trigger {
   padding: 0;
   border: 0;
   background: none;
@@ -25,4 +25,12 @@
     outline: 2px solid var(--lk-info);
     outline-offset: -2px;
   }
+}
+
+/* The title takes its font from the row around it (which has the title's font class), so it must not set its own: font
+   sizes are in em and would shrink twice. */
+.control-list-item-title {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
 }
