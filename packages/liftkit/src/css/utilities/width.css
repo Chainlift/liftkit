@@ -79,3 +79,51 @@
 .w-6xl {
   width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
 }
+
+.max-w-3xs {
+  max-width: var(--lk-base-3xs);
+}
+
+.max-w-2xs {
+  max-width: var(--lk-base-2xs);
+}
+
+.max-w-xs {
+  max-width: var(--lk-base-xs);
+}
+
+.max-w-sm {
+  max-width: var(--lk-base-sm);
+}
+
+.max-w-md {
+  max-width: var(--lk-base-md);
+}
+
+.max-w-lg {
+  max-width: var(--lk-base-lg);
+}
+
+.max-w-xl {
+  max-width: var(--lk-base-xl);
+}
+
+.max-w-2xl {
+  max-width: var(--lk-base-2xl);
+}
+
+.max-w-3xl {
+  max-width: var(--lk-base-3xl);
+}
+
+.max-w-4xl {
+  max-width: var(--lk-base-4xl);
+}
+
+.max-w-5xl {
+  max-width: calc(var(--lk-base-4xl) * var(--lk-wholestep));
+}
+
+.max-w-6xl {
+  max-width: calc(var(--lk-base-5xl) * var(--lk-wholestep));
+}
