@@ -62,9 +62,13 @@
   }
 }
 
-/* Contained variant: tighter tabs */
+/* Contained variant: tighter tabs, and the active one reads on the indicator's secondarycontainer fill */
 :where([data-lk-tabs-variant="contained"] [data-slot="tabs-tab"]) {
   padding: var(--lk-base-sm);
+
+  &[data-active] {
+    color: var(--lk-onsecondarycontainer);
+  }
 }
 
 /* tabListItemsShouldGrow: the tabs share the whole width of the tab list */
@@ -102,7 +106,7 @@
   bottom: auto;
   height: var(--active-tab-height);
   border-radius: 100em;
-  background-color: var(--lk-surfacevariant);
+  background-color: var(--lk-secondarycontainer);
 }
 
 :where([data-slot="tabs-panel"]) {
