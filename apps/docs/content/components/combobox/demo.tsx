@@ -21,14 +21,16 @@ export default function ComboboxDemo() {
     <Combobox items={fruits}>
       <div className="flex-v gap-xs">
         <label htmlFor={id}>Choose a fruit</label>
-        <ComboboxInputGroup placeholder="e.g. Apple" id={id} />
-        <div data-slot="action-buttons">
-          <ComboboxClear aria-label="Clear selection">
-            <ClearIcon />
-          </ComboboxClear>
-          <ComboboxTrigger aria-label="Open popup">
-            <Icon name="chevron-down" />
-          </ComboboxTrigger>
+        <div>
+          <ComboboxInputGroup placeholder="e.g. Apple" id={id} />
+          <div data-slot="action-buttons">
+            <ComboboxClear aria-label="Clear selection">
+              <ClearIcon />
+            </ComboboxClear>
+            <ComboboxTrigger aria-label="Open popup">
+              <Icon name="chevron-down" />
+            </ComboboxTrigger>
+          </div>
         </div>
       </div>
 

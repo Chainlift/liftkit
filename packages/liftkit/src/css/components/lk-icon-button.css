@@ -9,12 +9,12 @@
   justify-content: center;
   position: relative;
   border-radius: 100em;
-  /* border: 1px solid transparent; */
   padding: var(--lk-base-xs);
   font-weight: 500;
   background: none;
   overflow: hidden;
-  border: unset;
+  /* Every variant has the border, transparent unless the variant sets --lk-btn-border, so they all have the same height */
+  border: 1px solid var(--lk-btn-border, transparent);
 
   &.rounded-sm {
     border-radius: var(--lk-base-sm);

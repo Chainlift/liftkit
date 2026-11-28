@@ -44,9 +44,8 @@
 
 :where([data-slot="popover-popup"]) {
   box-sizing: border-box;
-  padding-block: var(--lk-base-sm) calc(var(--lk-base-md) / var(--lk-halfstep));
-  padding-inline: var(--lk-base-md);
-  border-radius: var(--lk-base-sm);
+  padding: var(--lk-base-md);
+  border-radius: var(--lk-base-md);
   background-color: var(--lk-surfacecontainerlowest);
   color: var(--lk-onsurface);
   transform-origin: var(--transform-origin);

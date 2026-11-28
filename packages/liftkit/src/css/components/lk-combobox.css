@@ -61,10 +61,14 @@ and I'm not contradicting it right now.
 
 :where([data-slot="action-buttons"]) {
   box-sizing: border-box;
+  /* Stretched over the wrapper's full height and centered by the flex, so the icons sit on the input's center line
+     with no fixed height. This only holds if the wrapper contains just the input and these buttons: put a label
+     outside it. */
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 0;
   bottom: 0;
   right: var(--lk-base-sm);
   border-radius: var(--lk-base-xs);
