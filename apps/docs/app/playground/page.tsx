@@ -1,4 +1,5 @@
 import {
+  GoldenBox,
   ScrollArea,
   ScrollAreaContent,
   ScrollAreaCorner,
@@ -27,13 +28,56 @@ const FONT_CLASSES = [
   "title2",
   "title3",
   "heading",
-  "subheading",
   "body",
   "callout",
+  "subheading",
   "label",
   "caption",
   "capline",
-];
+] as const;
+
+/** The font class list, with every preview in the class's utility class plus `suffix` ("", "-bold" or "-mono"). */
+function FontClassList({ suffix }: { suffix: "" | "-bold" | "-mono" }) {
+  return (
+    <div className="flex-v w-full">
+      {FONT_CLASSES.map((fontClass, index) => (
+        // The box scales with the class, so bigger text gets taller rows. noPadding="x" because side
+        // padding that scales per row would push each row's name to a different left edge.
+        <GoldenBox
+          key={fontClass}
+          scaleFactor={fontClass}
+          noPadding="x"
+          className={
+            index < FONT_CLASSES.length - 1
+              ? "border-b border-color-outlinevariant"
+              : undefined
+          }
+        >
+          {/* A grid, so every row's name cell is the same width. The fixed rem track keeps the
+                previews lined up whatever the font class; minmax(0, 1fr) lets .nowrap cut long text
+                with an ellipsis instead of widening the column. */}
+          <div
+            className="display-grid items-center gap-xl"
+            style={{
+              gridTemplateColumns: "9rem minmax(0, 1fr)",
+            }}
+          >
+            <span className="label">{fontClassName(fontClass)}</span>
+            <p className={`${fontClass}${suffix} nowrap`}>
+              Lorem ipsum dolor sit amet
+            </p>
+          </div>
+        </GoldenBox>
+      ))}
+    </div>
+  );
+}
+
+/** "display1" -> "Display 1" */
+function fontClassName(fontClass: string): string {
+  const spaced = fontClass.replace(/(\D)(\d)/, "$1 $2");
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
 
 export default function PlayGround() {
   return (
@@ -46,7 +90,10 @@ export default function PlayGround() {
           <ThemePanel />
         </div>
         <div className="overflow-hidden h-full flex flex-col flex-grow ">
-          <Tabs defaultValue="components" className="flex-v w-full h-full bg-surface rounded-sm border border-color-outlinevariant">
+          <Tabs
+            defaultValue="components"
+            className="flex-v w-full h-full bg-surface rounded-sm border border-color-outlinevariant"
+          >
             <TabsList className="border-b border-color-outlinevariant ">
               <TabsTab value="components">Sample layout</TabsTab>
               <TabsTab value="all-components">List view</TabsTab>
@@ -57,7 +104,10 @@ export default function PlayGround() {
             </TabsList>
             <ScrollArea className="w-full max-w-full fill-container overflow-hidden">
               <ScrollAreaViewport>
-                <ScrollAreaContent className="p-0" style={{ minHeight: "100%" }}>
+                <ScrollAreaContent
+                  className="p-0"
+                  style={{ minHeight: "100%" }}
+                >
                   <TabsPanel value="components" className="flex-grow">
                     <Section padding="xl" className="w-full self-stretch ">
                       <ComponentMosaicV2 />
@@ -70,22 +120,28 @@ export default function PlayGround() {
                   </TabsPanel>
                   <TabsPanel value="font-classes" className="flex-grow">
                     <Section padding="xl" className="w-full self-stretch ">
-                      <div className="flex-h gap-xl w-full">
-                        <div className="flex-v fill-container">
-                          {FONT_CLASSES.map((fontClass) => (
-                            <p key={fontClass} className={`${fontClass} mb-sm`}>
-                              {fontClass}
-                            </p>
-                          ))}
-                        </div>
-                        <div className="flex-v fill-container">
-                          {FONT_CLASSES.map((fontClass) => (
-                            <p key={fontClass} className={`${fontClass}-bold mb-sm`}>
-                              {fontClass}-bold
-                            </p>
-                          ))}
-                        </div>
-                      </div>
+                      <Tabs
+                        variant="contained"
+                        tabListItemsShouldGrow
+                        defaultValue="normal"
+                      >
+                        <TabsList className="mb-md">
+                          <TabsTab value="normal">Normal</TabsTab>
+                          <TabsTab value="bold">Bold</TabsTab>
+                          <TabsTab value="mono">Mono</TabsTab>
+                          <TabsIndicator />
+                        </TabsList>
+                        {/* A tab panel centers its content, so each one holds a single full-width column */}
+                        <TabsPanel value="normal" className="w-full">
+                          <FontClassList suffix="" />
+                        </TabsPanel>
+                        <TabsPanel value="bold" className="w-full">
+                          <FontClassList suffix="-bold" />
+                        </TabsPanel>
+                        <TabsPanel value="mono" className="w-full">
+                          <FontClassList suffix="-mono" />
+                        </TabsPanel>
+                      </Tabs>
                     </Section>
                   </TabsPanel>
                   <TabsPanel value="colors" className="flex-grow">
