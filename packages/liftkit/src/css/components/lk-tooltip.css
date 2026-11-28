@@ -14,10 +14,6 @@
   transition: background-color 0.2s ease;
   cursor: help;
 
-  &[data-popup-open] {
-    background-color: var(--lk-inversesurface);
-  }
-
   &:focus-visible {
     background-color: transparent;
     outline: 2px solid var(--lk-info);
@@ -26,12 +22,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--lk-surfacevariant);
+      opacity: 0.6;
     }
   }
 
   &:active {
-    background-color: var(--lk-outlinevariant);
+    opacity: 0.6;
   }
 }
 
